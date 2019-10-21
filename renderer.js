@@ -36617,7 +36617,7 @@ module.exports = function (e) {
   }
 
   function r(e) {
-    return e ? h.createElement('span', null, 'Last fetched ', h.createElement(S.RelativeTime, {
+    return e ? h.createElement('span', null, '上次提取 ', h.createElement(S.RelativeTime, {
       date: e
     })) : '从未取回 Never fetched'
   }
@@ -36647,7 +36647,7 @@ module.exports = function (e) {
 
   function s() {
     return h.createElement(C.ToolbarButton, Object.assign({}, b, {
-      title: 'Publish branch',
+      title: '发布分支 Publish branch',
       description: 'Cannot publish unborn HEAD',
       icon: y.OcticonSymbol.cloudUpload,
       disabled: !0
@@ -36655,9 +36655,9 @@ module.exports = function (e) {
   }
 
   function d(e) {
-    const t = e ? 'Rebase in progress' : 'Cannot publish detached HEAD';
+    const t = e ? '正在重新定位' : 'Cannot publish detached HEAD';
     return h.createElement(C.ToolbarButton, Object.assign({}, b, {
-      title: 'Publish branch',
+      title: '发布分支 Publish branch',
       description: t,
       icon: y.OcticonSymbol.cloudUpload,
       disabled: !0
@@ -36665,9 +36665,9 @@ module.exports = function (e) {
   }
 
   function l(e, t) {
-    const n = e ? 'Publish this branch to GitHub' : 'Publish this branch to the remote';
+    const n = e ? '将分支发布到GiHub' : 'Publish this branch to the remote';
     return h.createElement(C.ToolbarButton, Object.assign({}, b, {
-      title: 'Publish branch',
+      title: '发布分支 Publish branch',
       description: n,
       icon: y.OcticonSymbol.cloudUpload,
       onClick: t
@@ -39784,15 +39784,15 @@ module.exports = function (e) {
         n = this.getMenuItemInfo(t);
       if (void 0 === n) return log.error(`Could not find matching menu item for ${t}`), null;
       const o = null !== this.props.repository.gitHubRepository,
-        r = s.createElement(s.Fragment, null, 'The current branch (', s.createElement(y.Ref, null, e.branch.name), ') hasn\'t been published to the remote yet. By publishing it ', o ? 'to GitHub' : '', ' you can share it, ', o ? 'open a pull request, ' : '', 'and collaborate with others.'),
+        r = s.createElement(s.Fragment, null, '当前分支（', s.createElement(y.Ref, null, e.branch.name), '）尚未发布到远程。通过发布它', o ? '至Github' : '', ' 你可以分享它, ', o ? '打开 pull request, ' : '', '与他人合作。'),
         i = s.createElement(s.Fragment, null, 'Always available in the toolbar or', ' ', this.renderDiscoverabilityKeyboardShortcut(n));
       return s.createElement(h.MenuBackedBlankslateAction, {
         key: 'publish-branch-action',
-        title: 'Publish your branch',
+        title: '发布你的分支 Publish your branch',
         menuItemId: t,
         description: r,
         discoverabilityContent: i,
-        buttonText: 'Publish branch',
+        buttonText: '发布分支 Publish branch',
         type: 'primary',
         disabled: !n.enabled,
         onClick: this.onPublishBranchClicked
