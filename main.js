@@ -2517,8 +2517,8 @@ module.exports = function (e) {
     l = u.truncateWithEllipsis(l, 25);
     const M = r ? v : x,
       L = s ? S : b,
-      O = null === n ? _ : `${n}打开`,
-      T = null === e ? y.DefaultEditorLabel : `${e}打开`,
+      O = null === n ? _ : `用${n}打开`,
+      T = null === e ? y.DefaultEditorLabel : `用${e}打开`,
       P = [],
       F = {
         type: 'separator'

@@ -36685,7 +36685,7 @@ module.exports = function (e) {
   }
 
   function p(e, t, n, i, a) {
-    const s = i ? `Pull ${e} with rebase` : `Pull ${e}`;
+    const s = i ? `Pull ${e} with rebase` : `拉取 Pull ${e}`;
     return h.createElement(C.ToolbarButton, Object.assign({}, b, {
       title: s,
       description: r(n),
@@ -36696,7 +36696,7 @@ module.exports = function (e) {
 
   function u(e, t, n, i) {
     return h.createElement(C.ToolbarButton, Object.assign({}, b, {
-      title: `Push ${e}`,
+      title: `推送 Push ${e}`,
       description: r(n),
       icon: y.OcticonSymbol.arrowUp,
       onClick: i
@@ -39823,10 +39823,10 @@ module.exports = function (e) {
         r = this.getMenuItemInfo(o);
       if (void 0 === r) return log.error(`Could not find matching menu item for ${o}`), null;
       const i = null !== this.props.repository.gitHubRepository,
-        a = s.createElement(s.Fragment, null, 'You have', ' ', 1 === n.ahead ? 'one local commit' : 'local commits', ' waiting to be pushed to ', i ? 'GitHub' : 'the remote', '.'),
-        d = s.createElement(s.Fragment, null, 'Always available in the toolbar when there are local commits waiting to be pushed or ', this.renderDiscoverabilityKeyboardShortcut(r)),
-        l = `Push ${n.ahead} ${1===n.ahead?'commit':'commits'} to the ${t.name} remote`,
-        c = `Push ${t.name}`;
+        a = s.createElement(s.Fragment, null, '你有', ' ', 1 === n.ahead ? 'one local commit' : 'local commits', ' 等待被推送至远程', i ? 'GitHub' : '', '。'),
+        d = s.createElement(s.Fragment, null, '当有本地提交等待推送或', this.renderDiscoverabilityKeyboardShortcut(r)),
+        l = `推送 ${n.ahead} ${1===n.ahead?'commit':'commits'} 至远程 ${t.name} `,
+        c = `推送 Push ${t.name}`;
       return s.createElement(h.MenuBackedBlankslateAction, {
         key: 'push-branch-action',
         title: l,
