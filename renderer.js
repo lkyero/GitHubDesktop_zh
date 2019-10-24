@@ -1220,7 +1220,7 @@ module.exports = function (e) {
   })(a = t.HistoryTabMode || (t.HistoryTabMode = {}));
   var s;
   (function (e) {
-    e.Ahead = 'Ahead', e.Behind = 'Behind'
+    e.Ahead = '超前Ahead', e.Behind = '落后Behind'
   })(s = t.ComparisonMode || (t.ComparisonMode = {}))
 }, function (e, t, n) {
   'use strict';
@@ -10608,7 +10608,7 @@ module.exports = function (e) {
     value: !0
   });
   const n = ['.cmd', '.exe', '.bat', '.sh'];
-  t.CopyFilePathLabel = 'Copy file path', t.DefaultEditorLabel = 'Open in external editor', t.RevealInFileManagerLabel = 'Show in Explorer', t.TrashNameLabel = 'Recycle Bin', t.OpenWithDefaultProgramLabel = 'Open with default program', t.isSafeFileExtension = function (e) {
+  t.CopyFilePathLabel = '复制文件路径', t.DefaultEditorLabel = '在外部编辑器中打开', t.RevealInFileManagerLabel = '在资源管理器中显示', t.TrashNameLabel = 'Recycle Bin', t.OpenWithDefaultProgramLabel = ' 用默认程序打开', t.isSafeFileExtension = function (e) {
     return -1 === n.indexOf(e.toLowerCase())
   }
 }, function (e, t, n) {
@@ -14041,7 +14041,7 @@ module.exports = function (e) {
         renderNoItems: this.renderNoItems,
         renderPostFilter: this.renderPostFilter,
         onItemClick: this.props.onItemClicked ? this.onItemClick : void 0,
-        placeholderText: 'Filter your repositories'
+        placeholderText: '挑选你的存储库'
       })
     }
   }
@@ -14877,11 +14877,11 @@ module.exports = function (e) {
         this.props.onViewCommitOnGitHub && this.props.onViewCommitOnGitHub(this.props.commit.sha)
       }, this.onContextMenu = (e) => {
         e.preventDefault();
-        let t = 'View on GitHub';
+        let t = '在GitHub上查看';
         const n = this.props.gitHubRepository;
         n && n.endpoint !== s.getDotComAPIEndpoint() && (t = 'View on GitHub Enterprise');
         const o = [{
-          label: 'Revert this commit',
+          label: '还原此commit',
           action: () => {
             this.props.onRevertCommit && this.props.onRevertCommit(this.props.commit)
           },
@@ -32774,7 +32774,7 @@ module.exports = function (e) {
       }, o.createElement('div', null, 'Sign in to your GitHub.com account to access your repositories.')) : e === h.Enterprise ? o.createElement(p.CallToAction, {
         actionTitle: t,
         onAction: this.signInEnterprise
-      }, o.createElement('div', null, 'If you have a GitHub Enterprise Server account at work, sign in to it to get access to your repositories.')) : c.assertNever(e, `Unknown tab: ${e}`)
+      }, o.createElement('div', null, '如果您有一个GitHub企业服务器帐户，请登录该帐户以访问您的存储库。')) : c.assertNever(e, `Unknown tab: ${e}`)
     }
     renderFooter() {
       const e = this.getCurrentTabState(),
@@ -33014,15 +33014,15 @@ module.exports = function (e) {
       return o.createElement(a.Dialog, {
         id: 'install-git',
         type: 'warning',
-        title: 'Unable to locate Git',
+        title: '无法定位 Git',
         onSubmit: this.props.onDismissed,
         onDismissed: this.props.onDismissed
-      }, o.createElement(a.DialogContent, null, o.createElement('p', null, 'We were unable to locate Git on your system. This means you won\'t be able to execute any Git commands in the', ' ', 'command prompt', '.'), o.createElement('p', null, 'To help you get Git installed and configured for your operating system, we have some external resources available.')), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
+      }, o.createElement(a.DialogContent, null, o.createElement('p', null, '我们无法在您的系统上找到Git。 这意味着您将无法在', ' ', '命令提示符', '中执行任何Git命令。'), o.createElement('p', null, '为了帮助您为操作系统安装和配置Git，我们提供了一些外部资源。')), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
         type: 'submit',
         onClick: this.onContinue
-      }, 'Open without Git'), o.createElement(r.Button, {
+      }, '不使用Git打开'), o.createElement(r.Button, {
         onClick: this.onExternalLink
-      }, 'Install Git'))))
+      }, '安装 Git'))))
     }
   }
   t.InstallGit = d
@@ -33111,7 +33111,7 @@ module.exports = function (e) {
       const s = e.kind;
       switch (e.kind) {
         case r.SignInStep.EndpointEntry:
-          t = 0 === this.state.endpoint.length, n = 'Continue';
+          t = 0 === this.state.endpoint.length, n = '继续';
           break;
         case r.SignInStep.TwoFactorAuthentication:
           const o = /\S+/.test(this.state.otpToken);
@@ -33122,7 +33122,7 @@ module.exports = function (e) {
           else {
             const e = 0 < this.state.username.length,
               o = 0 < this.state.password.length;
-            t = !e || !o, n = 'Sign in'
+            t = !e || !o, n = '登 陆'
           }
           break;
         default:
@@ -33133,11 +33133,11 @@ module.exports = function (e) {
         type: 'submit'
       }, n), o.createElement(a.Button, {
         onClick: this.props.onDismissed
-      }, 'Cancel')))
+      }, '取消')))
     }
     renderEndpointEntryStep() {
       return o.createElement(u.DialogContent, null, o.createElement(l.Row, null, o.createElement(c.TextBox, {
-        label: 'Enterprise Server address',
+        label: '企业服务器地址',
         value: this.state.endpoint,
         onValueChanged: this.onEndpointChanged,
         placeholder: 'https://github.example.com'
@@ -33147,18 +33147,18 @@ module.exports = function (e) {
       if (!e.supportsBasicAuth) return e.endpoint === h.getDotComAPIEndpoint() ? o.createElement(u.DialogContent, null, o.createElement('p', null, 'To improve the security of your account, GitHub now requires you to sign in through your browser.'), o.createElement('p', null, 'Your browser will redirect you back to GitHub Desktop once you\'ve signed in. If your browser asks for your permission to launch GitHub Desktop please allow it to.')) : o.createElement(u.DialogContent, null, o.createElement('p', null, 'Your GitHub Enterprise Server instance requires you to sign in with your browser.'));
       const t = e.loading;
       return o.createElement(u.DialogContent, null, o.createElement(l.Row, null, o.createElement(c.TextBox, {
-        label: 'Username or email address',
+        label: '用户名 或 电子邮件地址',
         value: this.state.username,
         onValueChanged: this.onUsernameChanged
       })), o.createElement(l.Row, null, o.createElement(c.TextBox, {
-        label: 'Password',
+        label: '密 码',
         value: this.state.password,
         type: 'password',
         onValueChanged: this.onPasswordChanged
       })), o.createElement(l.Row, null, o.createElement(s.LinkButton, {
         className: 'forgot-password-link-sign-in',
         uri: e.forgotPasswordUrl
-      }, 'Forgot password?')), o.createElement('div', {
+      }, '忘记密码?')), o.createElement('div', {
         className: 'horizontal-rule'
       }, o.createElement('span', {
         className: 'horizontal-rule-content'
@@ -33168,16 +33168,16 @@ module.exports = function (e) {
         className: 'link-with-icon',
         onClick: this.onSignInWithBrowser,
         disabled: t
-      }, 'Sign in using your browser', o.createElement(d.Octicon, {
+      }, '使用浏览器登录', o.createElement(d.Octicon, {
         symbol: d.OcticonSymbol.linkExternal
       }))))
     }
     renderTwoFactorAuthenticationStep(e) {
       return o.createElement(u.DialogContent, null, o.createElement('p', null, m.getWelcomeMessage(e.type)), o.createElement(l.Row, null, o.createElement(c.TextBox, {
-        label: 'Authentication code',
+        label: '认证码(Authentication code)',
         value: this.state.otpToken,
         onValueChanged: this.onOTPTokenChanged,
-        labelLinkText: `What's this?`,
+        labelLinkText: `这是什么?`,
         labelLinkUri: 'https://help.github.com/articles/providing-your-2fa-authentication-code/',
         autoFocus: !0
       })))
@@ -33330,7 +33330,7 @@ module.exports = function (e) {
           const e = o.createElement(c.LinkButton, {
             uri: 'https://help.github.com/articles/setting-the-default-branch/'
           }, 'default branch');
-          return o.createElement('p', null, 'Your new branch will be based on your currently checked out branch (', o.createElement(d.Ref, null, t.name), '). ', o.createElement(d.Ref, null, t.name), ' is the ', e, ' for your repository.')
+          return o.createElement('p', null, '您的新分支将基于当前查看的分支 (', o.createElement(d.Ref, null, t.name), '). ', o.createElement(d.Ref, null, t.name), ' 是您存储库的 ', e, '.')
         } else {
           const e = [{
               title: n.name,
@@ -33497,7 +33497,7 @@ module.exports = function (e) {
         value: this.props.url,
         onValueChanged: this.onUrlChanged,
         autoFocus: !0,
-        label: o.createElement('span', null, 'Repository URL or GitHub username and repository', o.createElement('br', null), '(', o.createElement(d.Ref, null, 'hubot/cool-repo'), ')')
+        label: o.createElement('span', null, '存储库URL 或 GitHub用户名+存储库', o.createElement('br', null), '(', o.createElement(d.Ref, null, 'hubot/cool-repo'), ')')
       })), o.createElement(a.Row, null, o.createElement(r.TextBox, {
         value: this.props.path,
         label: 'Local path',
@@ -33784,7 +33784,7 @@ module.exports = function (e) {
       }, r.createElement('div', null, 'Sign in to your GitHub.com account to access your repositories.')) : e === f.CloneRepositoryTab.Enterprise ? r.createElement(C.CallToAction, {
         actionTitle: t,
         onAction: this.signInEnterprise
-      }, r.createElement('div', null, 'If you have a GitHub Enterprise Server account at work, sign in to it to get access to your repositories.')) : e === f.CloneRepositoryTab.Generic ? null : S.assertNever(e, `Unknown sign in tab: ${e}`)
+      }, r.createElement('div', null, '如果您有一个GitHub企业服务器帐户，请登录该帐户以访问您的存储库。')) : e === f.CloneRepositoryTab.Generic ? null : S.assertNever(e, `Unknown sign in tab: ${e}`)
     }
     async validateEmptyFolder(e) {
       try {
@@ -36295,7 +36295,7 @@ module.exports = function (e) {
       return o.createElement(i.Form, {
         onSubmit: this.onSubmit
       }, o.createElement(a.TextBox, {
-        label: 'Enterprise Server address',
+        label: '企业服务器地址',
         autoFocus: !0,
         disabled: e,
         onValueChanged: this.onServerAddressChanged,
@@ -36399,12 +36399,12 @@ module.exports = function (e) {
       if (!this.props.supportsBasicAuth) return null;
       const e = this.props.loading;
       return o.createElement('div', null, o.createElement(l.TextBox, {
-        label: 'Username or email address',
+        label: '用户名 或 电子邮件地址',
         disabled: e,
         autoFocus: !0,
         onValueChanged: this.onUsernameChange
       }), o.createElement(l.TextBox, {
-        label: 'Password',
+        label: '密 码',
         type: 'password',
         disabled: e,
         onValueChanged: this.onPasswordChange
@@ -36420,20 +36420,20 @@ module.exports = function (e) {
       }, this.props.loading ? o.createElement(a.Loading, null) : null, ' Sign in') : null, this.props.additionalButtons, this.props.supportsBasicAuth ? o.createElement(r.LinkButton, {
         className: 'forgot-password-link',
         uri: this.props.forgotPasswordUrl
-      }, 'Forgot password?') : null)
+      }, '忘记密码?') : null)
     }
     renderSignInWithBrowser() {
       const e = this.props.supportsBasicAuth,
         t = o.createElement(r.LinkButton, {
           className: 'welcome-link-button link-with-icon',
           onClick: this.signInWithBrowser
-        }, 'Sign in using your browser', o.createElement(i.Octicon, {
+        }, '使用浏览器登录', o.createElement(i.Octicon, {
           symbol: i.OcticonSymbol.linkExternal
         })),
         n = o.createElement(d.Button, {
           type: 'submit',
           onClick: this.signInWithBrowser
-        }, 'Sign in using your browser');
+        }, '使用浏览器登录');
       return o.createElement('div', null, e ? o.createElement('hr', {
         className: 'short-rule'
       }) : null, e ? null : this.renderEndpointRequiresWebFlow(), o.createElement('div', {
@@ -36473,12 +36473,12 @@ module.exports = function (e) {
         id: 'sign-in-dot-com'
       }, o.createElement('h1', {
         className: 'welcome-title'
-      }, 'Sign in to GitHub.com'), o.createElement(i.SignIn, {
+      }, '登录 到 GitHub.com'), o.createElement(i.SignIn, {
         signInState: e,
         dispatcher: this.props.dispatcher
       }, o.createElement(a.Button, {
         onClick: this.cancel
-      }, 'Cancel'))) : null
+      }, '取 消'))) : null
     }
   }
   t.SignInDotCom = s
@@ -36772,7 +36772,7 @@ module.exports = function (e) {
   function i(e, t) {
     return h.createElement(C.ToolbarButton, Object.assign({}, v, {
       title: e.title,
-      description: e.description || 'Hang on\u2026',
+      description: e.description || '稍等\u2026',
       progressValue: e.value,
       icon: y.OcticonSymbol.sync,
       iconClassName: t ? 'spin' : '',
@@ -37666,14 +37666,14 @@ module.exports = function (e) {
         className: 'notification-banner-content'
       }, o.createElement('div', {
         className: 'notification-banner-content-body'
-      }, o.createElement('p', null, 'We have noticed that your branch is', ' ', o.createElement('strong', null, this.props.commitsBehindBaseBranch, ' commit', e ? 's' : ''), ' ', 'behind ', o.createElement(r.Ref, null, this.props.baseBranch.name), '.')), o.createElement('div', null, o.createElement(a.Button, {
+      }, o.createElement('p', null, '我们注意到你的分支落后', ' ', o.createElement('strong', null, this.props.commitsBehindBaseBranch, ' commit', e ? 's' : ''), ' ', '相比 ', o.createElement(r.Ref, null, this.props.baseBranch.name), '.')), o.createElement('div', null, o.createElement(a.Button, {
         className: 'small-button',
         onClick: this.onComparedClicked
-      }, 'View commits'), o.createElement(a.Button, {
+      }, '查看 commits'), o.createElement(a.Button, {
         className: 'small-button',
         type: 'submit',
         onClick: this.onMergeClicked
-      }, 'Merge...'))), o.createElement('a', {
+      }, '合并...'))), o.createElement('a', {
         className: 'close',
         "aria-label": 'Dismiss banner',
         onClick: this.onDismissed
@@ -38879,7 +38879,7 @@ module.exports = function (e) {
       }, i.createElement(p.TabBar, {
         selectedIndex: t,
         onTabClicked: this.onTabClicked
-      }, i.createElement('span', null, `Behind (${e.aheadBehind.behind})`), i.createElement('span', null, `Ahead (${e.aheadBehind.ahead})`)), this.renderActiveTab(e))
+      }, i.createElement('span', null, `落后Behind (${e.aheadBehind.behind})`), i.createElement('span', null, `超前Ahead (${e.aheadBehind.ahead})`)), this.renderActiveTab(e))
     }
   }
   t.CompareSidebar = S
@@ -39162,12 +39162,12 @@ module.exports = function (e) {
           n = s.join(this.props.repository.path, t),
           o = await a.pathExists(n);
         if (!o) return void f.showContextualMenu([{
-          label: 'File does not exist on disk',
+          label: '磁盘上不存在文件',
           enabled: !1
         }]);
         const r = s.extname(t),
           d = p.isSafeFileExtension(r),
-          c = this.props.externalEditorLabel ? `Open in ${this.props.externalEditorLabel}` : p.DefaultEditorLabel,
+          c = this.props.externalEditorLabel ? `用${this.props.externalEditorLabel}打开` : p.DefaultEditorLabel,
           u = [{
             label: p.CopyFilePathLabel,
             action: () => i.clipboard.writeText(n)
@@ -46974,10 +46974,10 @@ module.exports = function (e) {
       }));
       else if (a.kind === s.AuthorizationResponseKind.Failed) e.includes('@') ? this.setState(Object.assign({}, n, {
         loading: !1,
-        error: new Error('Incorrect email or password.')
+        error: new Error('电子邮件 或 密码 不正确。')
       })) : this.setState(Object.assign({}, n, {
         loading: !1,
-        error: new Error('Incorrect username or password.')
+        error: new Error('用户名 或 密码 不正确。')
       }));
       else if (a.kind === s.AuthorizationResponseKind.UserRequiresVerification) this.setState(Object.assign({}, n, {
         loading: !1,
@@ -49911,7 +49911,7 @@ module.exports = function (e) {
       env: a.envForAuthentication(t)
     };
     if (s) {
-      const e = `Fetching ${n}`,
+      const e = `正在拉取 ${n}`,
         t = 'fetch';
       d = await i.executionOptionsWithProgress(Object.assign({}, d, {
         trackLFSProgress: !0
