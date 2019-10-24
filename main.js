@@ -1391,13 +1391,13 @@ module.exports = function (e) {
           return n.apply(null, [_(e)].concat(t))
         }
       },
-      v = function (e) {
+      x = function (e) {
         return function () {
           var n = f(arguments);
           return e.apply(null, [a.eachSeries].concat(n))
         }
       },
-      x = function (e, n, t, r) {
+      v = function (e, n, t, r) {
         if (n = u(n, function (e, n) {
             return {
               index: n,
@@ -1419,11 +1419,11 @@ module.exports = function (e) {
           })
         }
       };
-    a.map = S(x), a.mapSeries = v(x), a.mapLimit = function (e, n, t, r) {
+    a.map = S(v), a.mapSeries = x(v), a.mapLimit = function (e, n, t, r) {
       return E(n)(e, t, r)
     };
     var E = function (e) {
-      return w(e, x)
+      return w(e, v)
     };
     a.reduce = function (e, n, t, r) {
       a.eachSeries(e, function (e, r) {
@@ -1458,7 +1458,7 @@ module.exports = function (e) {
         }))
       })
     };
-    a.filter = S(C), a.filterSeries = v(C), a.select = a.filter, a.selectSeries = a.filterSeries;
+    a.filter = S(C), a.filterSeries = x(C), a.select = a.filter, a.selectSeries = a.filterSeries;
     var k = function (e, n, t, r) {
       var o = [];
       n = u(n, function (e, n) {
@@ -1478,7 +1478,7 @@ module.exports = function (e) {
         }))
       })
     };
-    a.reject = S(k), a.rejectSeries = v(k);
+    a.reject = S(k), a.rejectSeries = x(k);
     var M = function (e, n, t, r) {
       e(n, function (e, n) {
         t(e, function (t) {
@@ -1488,7 +1488,7 @@ module.exports = function (e) {
         r()
       })
     };
-    a.detect = S(M), a.detectSeries = v(M), a.some = function (e, n, t) {
+    a.detect = S(M), a.detectSeries = x(M), a.some = function (e, n, t) {
       a.each(e, function (e, r) {
         n(e, function (e) {
           e && (t(!0), t = i), r()
@@ -1685,7 +1685,7 @@ module.exports = function (e) {
         o(e, i)
       })
     };
-    a.concat = S(O), a.concatSeries = v(O), a.whilst = function (e, n, t) {
+    a.concat = S(O), a.concatSeries = x(O), a.whilst = function (e, n, t) {
       e() ? n(function (r) {
         return r ? t(r) : void a.whilst(e, n, t)
       }) : t()
@@ -1912,7 +1912,7 @@ module.exports = function (e) {
       }
       return t
     };
-    a.applyEach = S(P), a.applyEachSeries = v(P), a.forever = function (e, n) {
+    a.applyEach = S(P), a.applyEachSeries = x(P), a.forever = function (e, n) {
       function t(r) {
         if (r) {
           if (n) return n(r);
@@ -2130,24 +2130,24 @@ module.exports = function (e) {
     value: !0
   });
   const r = t(4);
-  n.reportError = async function (e, n) {
-    const t = new Map;
-    if (t.set('name', e.name), t.set('message', e.message), e.stack && t.set('stack', e.stack), t.set('platform', 'win32'), t.set('sha', '6f192f11ec267d764f53c2190f9cf605b857a0eb'), t.set('version', r.app.getVersion()), n)
-      for (const e of Object.keys(n)) t.set(e, n[e]);
-    const o = {
+  n.reportError = async function (e, n, t) {
+    const o = new Map;
+    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', '5a1cfa2de1fa46532038dede714bf579f56eb6dc'), o.set('version', r.app.getVersion()), n)
+      for (const e of Object.keys(n)) o.set(e, n[e]);
+    const i = {
         method: 'POST',
-        url: 'https://central.github.com/api/desktop/exception',
+        url: t ? 'https://central.github.com/api/desktop-non-fatal/exception' : 'https://central.github.com/api/desktop/exception',
         headers: {
           "Content-Type": 'application/x-www-form-urlencoded'
         }
       },
-      i = [...t.entries()].map(([e, n]) => `${encodeURIComponent(e)}=${encodeURIComponent(n)}`).join('&');
+      a = [...o.entries()].map(([e, n]) => `${encodeURIComponent(e)}=${encodeURIComponent(n)}`).join('&');
     try {
       await new Promise((e, n) => {
-        const t = r.net.request(o);
+        const t = r.net.request(i);
         t.on('response', (t) => {
           200 === t.statusCode ? e() : n(`Got ${t.statusCode} - ${t.statusMessage} from central`)
-        }), t.on('error', n), t.end(i)
+        }), t.on('error', n), t.end(a)
       }), log.info('Error report submitted')
     } catch (n) {
       log.error('Failed submitting error report', e)
@@ -2249,7 +2249,7 @@ module.exports = function (e) {
   }
 
   function p(e) {
-    return c(['--createShortcut', v, '-l', e.join(',')])
+    return c(['--createShortcut', x, '-l', e.join(',')])
   }
   async function u() {
     await m();
@@ -2260,7 +2260,7 @@ module.exports = function (e) {
   }
 
   function m() {
-    return c(['--removeShortcut', v])
+    return c(['--removeShortcut', x])
   }
   async function g() {
     const e = f.homedir();
@@ -2282,7 +2282,7 @@ module.exports = function (e) {
     b = h.resolve(process.execPath, '..'),
     S = h.resolve(b, '..'),
     w = h.resolve(h.join(S, 'Update.exe')),
-    v = h.basename(process.execPath);
+    x = h.basename(process.execPath);
   n.handleSquirrelEvent = function (e) {
     return '--squirrel-install' === e ? r() : '--squirrel-updated' === e ? o() : '--squirrel-uninstall' === e ? u() : '--squirrel-obsolete' === e ? Promise.resolve() : null
   }
@@ -2515,7 +2515,7 @@ module.exports = function (e) {
     isStashedChangesVisible: k = !1
   }) {
     l = u.truncateWithEllipsis(l, 25);
-    const M = r ? v : x,
+    const M = r ? x : v,
       L = s ? S : b,
       O = null === n ? _ : `用${n}打开`,
       T = null === e ? y.DefaultEditorLabel : `用${e}打开`,
@@ -2526,7 +2526,7 @@ module.exports = function (e) {
     const N = {
       label: '&文件(File)',
       submenu: [{
-        label: '新建 &存储库 Create\u2026',
+        label: '新建 存储库 &New\u2026',
         id: 'new-repository',
         click: a('create-repository'),
         accelerator: 'CmdOrCtrl+N'
@@ -2544,52 +2544,52 @@ module.exports = function (e) {
     }; {
       const e = N.submenu;
       e.push(F, {
-        label: '&选项 Preferences\u2026',
+        label: '&选项 Options\u2026',
         id: 'preferences',
         accelerator: 'CmdOrCtrl+,',
         click: a('show-preferences')
       }, F, {
         role: 'quit',
-        label: '&退出 Quit',
+        label: '退出 E&xit',
         accelerator: 'Alt+F4'
       })
     }
     P.push(N), P.push({
-      label: '&编辑(Edit)',
+      label: '编辑 &(Edit)',
       submenu: [{
         role: 'undo',
-        label: '&撤消 Undo'
+        label: '撤消 &Undo'
       }, {
         role: 'redo',
-        label: '&恢复 Redo'
+        label: '恢复 &Redo'
       }, F, {
         role: 'cut',
-        label: '&剪切 Cut'
+        label: '剪切 Cu&t'
       }, {
         role: 'copy',
-        label: '&复制 Copy'
+        label: '复制 &Copy'
       }, {
         role: 'paste',
-        label: '&粘贴 Paste'
+        label: '粘贴 &Paste'
       }, {
-        label: '&全选 Select all',
+        label: '全选 Select &all',
         accelerator: 'CmdOrCtrl+A',
         click: a('select-all')
       }, F, {
         id: 'find',
-        label: '&查找 Find',
+        label: '查找 &Find',
         accelerator: 'CmdOrCtrl+F',
         click: a('find-text')
       }]
     }), P.push({
-      label: '&视图(View)',
+      label: '视图 &(View)',
       submenu: [{
-        label: '&更改 Changes',
+        label: '更改 &Changes',
         id: 'show-changes',
         accelerator: 'CmdOrCtrl+1',
         click: a('show-changes')
       }, {
-        label: '&历史 History',
+        label: '历史 &History',
         id: 'show-history',
         accelerator: 'CmdOrCtrl+2',
         click: a('show-history')
@@ -2599,7 +2599,7 @@ module.exports = function (e) {
         accelerator: 'CmdOrCtrl+T',
         click: a('choose-repository')
       }, {
-        label: '&分支列表 Branches list',
+        label: '分支列表 &Branches list',
         id: 'show-branches-list',
         accelerator: 'CmdOrCtrl+B',
         click: a('show-branches')
@@ -2630,7 +2630,7 @@ module.exports = function (e) {
         accelerator: 'CmdOrCtrl+-',
         click: d(E.Out)
       }, F, {
-        label: '&重载 Reload',
+        label: '重载 &Reload',
         id: 'reload-window',
         accelerator: 'CmdOrCtrl+Alt+R',
         click(e, n) {
@@ -2639,7 +2639,7 @@ module.exports = function (e) {
         visible: !1
       }, {
         id: 'show-devtools',
-        label: '&切换开发工具',
+        label: '开发工具 &Developer tools',
         accelerator: (() => 'Ctrl+Shift+I')(),
         click(e, n) {
           n && n.webContents.toggleDevTools()
@@ -2649,7 +2649,7 @@ module.exports = function (e) {
     const A = o(C, t),
       R = C ? 'force-push' : 'push';
     P.push({
-      label: '&存储库(Repository)',
+      label: '存储库&(Repository)',
       id: 'repository',
       submenu: [{
         id: 'push',
@@ -2668,7 +2668,7 @@ module.exports = function (e) {
         click: a('remove-repository')
       }, F, {
         id: 'view-repository-on-github',
-        label: '&Github网页端查看',
+        label: 'Github网页端查看',
         accelerator: 'CmdOrCtrl+Shift+G',
         click: a('view-repository-on-github')
       }, {
@@ -2692,7 +2692,7 @@ module.exports = function (e) {
         click: a('show-repository-settings')
       }]
     }), P.push({
-      label: '&分支(Branch)',
+      label: '分支&(Branch)',
       id: 'branch',
       submenu: [{
         label: '新建分支 New &branch\u2026',
@@ -2700,12 +2700,12 @@ module.exports = function (e) {
         accelerator: 'CmdOrCtrl+Shift+N',
         click: a('create-branch')
       }, {
-        label: '&重命名 Rename\u2026',
+        label: '重命名 &Rename\u2026',
         id: 'rename-branch',
         accelerator: 'CmdOrCtrl+Shift+R',
         click: a('rename-branch')
       }, {
-        label: '&删除 Delete\u2026',
+        label: '删除 &Delete\u2026',
         id: 'delete-branch',
         accelerator: 'CmdOrCtrl+Shift+D',
         click: a('delete-branch')
@@ -2715,7 +2715,7 @@ module.exports = function (e) {
         accelerator: 'CmdOrCtrl+Shift+Backspace',
         click: a('discard-all-changes')
       }, F, {
-        label: `&更新自 ${l}`,
+        label: `&更新自${l}`,
         id: 'update-branch',
         accelerator: 'CmdOrCtrl+Shift+U',
         click: a('update-branch')
@@ -2786,7 +2786,7 @@ module.exports = function (e) {
     return !1, P.push({
       label: '&帮助(Help)',
       submenu: [...[I, D, z, j, U], F, {
-        label: '&关于Github桌面 About GitHub Desktop',
+        label: '关于Github桌面 &About GitHub Desktop',
         click: a('show-about'),
         id: 'about'
       }]
@@ -2845,12 +2845,12 @@ module.exports = function (e) {
     h = t(23),
     f = t(62),
     y = t(61),
-    _ = 'Open in Command Prompt',
+    _ = '在命令提示符下打开 Open in Command Prompt',
     b = '创建拉取请求 Create &pull request',
     S = '显示拉取请求 Show &pull request',
-    w = 'default branch',
-    v = '&删除 Remove\u2026',
-    x = '&Remove';
+    w = '默认分支 default branch',
+    x = '&删除 Remove\u2026',
+    v = '&删除 Remove';
   var E;
   (function (e) {
     e[e.Reset = 0] = 'Reset', e[e.In = 1] = 'In', e[e.Out = 2] = 'Out'
@@ -2913,7 +2913,7 @@ module.exports = function (e) {
     }
 
     function m() {
-      clearTimeout(v), v = setTimeout(p, x)
+      clearTimeout(x), x = setTimeout(p, v)
     }
 
     function g() {
@@ -2929,12 +2929,12 @@ module.exports = function (e) {
     }
 
     function y() {
-      w && (w.removeListener('resize', m), w.removeListener('move', m), clearTimeout(v), w.removeListener('close', g), w.removeListener('closed', h), w = null)
+      w && (w.removeListener('resize', m), w.removeListener('move', m), clearTimeout(x), w.removeListener('close', g), w.removeListener('closed', h), w = null)
     }
     const _ = o.app || o.remote.app,
       b = o.screen || o.remote.screen;
-    let S, w, v;
-    const x = 100,
+    let S, w, x;
+    const v = 100,
       E = Object.assign({
         file: 'window-state.json',
         path: _.getPath('userData'),
@@ -3979,7 +3979,7 @@ module.exports = function (e) {
   n.SourceMapGenerator = t(32).SourceMapGenerator, n.SourceMapConsumer = t(76).SourceMapConsumer, n.SourceNode = t(73).SourceNode
 }, function (e, n, t) {
   function r() {
-    return !('browser' !== x) || 'node' !== x && 'undefined' != typeof window && 'function' == typeof XMLHttpRequest && !(window.require && window.module && window.process && 'renderer' === window.process.type)
+    return !('browser' !== v) || 'node' !== v && 'undefined' != typeof window && 'function' == typeof XMLHttpRequest && !(window.require && window.module && window.process && 'renderer' === window.process.type)
   }
 
   function o() {
@@ -4119,7 +4119,7 @@ module.exports = function (e) {
   }
 
   function m(e, n) {
-    return v && (E = {}, C = {}), e + n.map(function (e) {
+    return x && (E = {}, C = {}), e + n.map(function (e) {
       return '\n    at ' + u(e)
     }).join('')
   }
@@ -4168,8 +4168,8 @@ module.exports = function (e) {
   } catch (e) {}
   var S = !1,
     w = !1,
-    v = !1,
-    x = 'auto',
+    x = !1,
+    v = 'auto',
     E = {},
     C = {},
     k = /^data:application\/json[^,]+base64,/,
@@ -4205,7 +4205,7 @@ module.exports = function (e) {
       map: t
     } : null
   }), n.wrapCallSite = u, n.getErrorSource = g, n.mapSourcePosition = d, n.retrieveSourceMap = T, n.install = function (e) {
-    if (e = e || {}, e.environment && (x = e.environment, -1 === ['node', 'browser', 'auto'].indexOf(x))) throw new Error('environment ' + x + ' was unknown. Available options are {auto, browser, node}');
+    if (e = e || {}, e.environment && (v = e.environment, -1 === ['node', 'browser', 'auto'].indexOf(v))) throw new Error('environment ' + v + ' was unknown. Available options are {auto, browser, node}');
     if (e.retrieveFile && (e.overrideRetrieveFile && (M.length = 0), M.unshift(e.retrieveFile)), e.retrieveSourceMap && (e.overrideRetrieveSourceMap && (L.length = 0), L.unshift(e.retrieveSourceMap)), e.hookRequire && !r()) {
       var n;
       try {
@@ -4216,7 +4216,7 @@ module.exports = function (e) {
         return E[n] = e, C[n] = void 0, i.call(this, e, n)
       }, n.prototype._compile.__sourceMapSupport = !0)
     }
-    if (v || (v = !!('emptyCacheBetweenOperations' in e) && e.emptyCacheBetweenOperations), S || (S = !0, Error.prepareStackTrace = m), !w) {
+    if (x || (x = !!('emptyCacheBetweenOperations' in e) && e.emptyCacheBetweenOperations), S || (S = !0, Error.prepareStackTrace = m), !w) {
       var a = !('handleUncaughtExceptions' in e) || e.handleUncaughtExceptions;
       a && o() && (w = !0, f())
     }
@@ -5095,7 +5095,7 @@ module.exports = function (e) {
   }
 
   function b(e, n, t, r, o) {
-    C.readlink(n, (n, i) => n ? o(n) : (r.dereference && (i = k.resolve(process.cwd(), i)), e === T || e === P) ? C.symlink(i, t, o) : (r.dereference && (e = k.resolve(process.cwd(), e)), x(i, e)) ? o() : void C.stat(t, (n, r) => n ? o(n) : r.isDirectory() && w(e, i) ? o(new Error(`Cannot overwrite '${e}' with '${i}'.`)) : S(i, t, o)))
+    C.readlink(n, (n, i) => n ? o(n) : (r.dereference && (i = k.resolve(process.cwd(), i)), e === T || e === P) ? C.symlink(i, t, o) : (r.dereference && (e = k.resolve(process.cwd(), e)), v(i, e)) ? o() : void C.stat(t, (n, r) => n ? o(n) : r.isDirectory() && w(e, i) ? o(new Error(`Cannot overwrite '${e}' with '${i}'.`)) : S(i, t, o)))
   }
 
   function S(e, n, t) {
@@ -5108,18 +5108,18 @@ module.exports = function (e) {
     return t.reduce((e, n, t) => e && r[t] === n, !0)
   }
 
-  function v(e, n) {
+  function x(e, n) {
     C.readlink(e, (e, t) => e ? 'ENOENT' === e.code ? n(null, T) : 'EINVAL' === e.code || 'UNKNOWN' === e.code ? n(null, P) : n(e) : n(null, t))
   }
 
-  function x(e, n) {
+  function v(e, n) {
     const t = k.resolve(e),
       r = k.resolve(n);
     return t.toLowerCase() === r.toLowerCase()
   }
 
   function E(e, n, t) {
-    v(n, (r, o) => r ? t(r) : o === T || o === P ? x(e, n) ? t(new Error('Source and destination must not be the same.')) : t(null, o) : x(e, o) ? t(new Error('Source and destination must not be the same.')) : t(null, o))
+    x(n, (r, o) => r ? t(r) : o === T || o === P ? v(e, n) ? t(new Error('Source and destination must not be the same.')) : t(null, o) : v(e, o) ? t(new Error('Source and destination must not be the same.')) : t(null, o))
   }
   const C = t(1),
     k = t(0),
@@ -5209,8 +5209,8 @@ module.exports = function (e) {
     see https://github.com/jprichardson/node-fs-extra/issues/269`);
     const r = S(e, n);
     if (!t.filter || t.filter(e, n)) {
-      const i = v.dirname(n);
-      return w.existsSync(i) || x(i), o(r, e, n, t)
+      const i = x.dirname(n);
+      return w.existsSync(i) || v(i), o(r, e, n, t)
     }
   }
 
@@ -5277,16 +5277,16 @@ module.exports = function (e) {
   }
 
   function g(e, n, t, r) {
-    const i = v.join(n, e),
-      a = v.join(t, e),
+    const i = x.join(n, e),
+      a = x.join(t, e),
       s = S(i, a);
     return o(s, i, a, r)
   }
 
   function h(e, n, t, r) {
     let o = w.readlinkSync(n);
-    if (r.dereference && (o = v.resolve(process.cwd(), o)), e === C || e === k) return w.symlinkSync(o, t);
-    if (r.dereference && (e = v.resolve(process.cwd(), e)), !b(o, e)) {
+    if (r.dereference && (o = x.resolve(process.cwd(), o)), e === C || e === k) return w.symlinkSync(o, t);
+    if (r.dereference && (e = x.resolve(process.cwd(), e)), !b(o, e)) {
       if (w.statSync(t).isDirectory() && y(e, o)) throw new Error(`Cannot overwrite '${e}' with '${o}'.`);
       return f(o, t)
     }
@@ -5297,8 +5297,8 @@ module.exports = function (e) {
   }
 
   function y(e, n) {
-    const t = v.resolve(e).split(v.sep),
-      r = v.resolve(n).split(v.sep);
+    const t = x.resolve(e).split(x.sep),
+      r = x.resolve(n).split(x.sep);
     return t.reduce((e, n, t) => e && r[t] === n, !0)
   }
 
@@ -5315,8 +5315,8 @@ module.exports = function (e) {
   }
 
   function b(e, n) {
-    const t = v.resolve(e),
-      r = v.resolve(n);
+    const t = x.resolve(e),
+      r = x.resolve(n);
     return t.toLowerCase() === r.toLowerCase()
   }
 
@@ -5330,8 +5330,8 @@ module.exports = function (e) {
     return t
   }
   const w = t(1),
-    v = t(0),
-    x = t(3).mkdirsSync,
+    x = t(0),
+    v = t(3).mkdirsSync,
     E = t(39).utimesMillisSync,
     C = Symbol('notExist'),
     k = Symbol('existsReg');
@@ -6671,12 +6671,12 @@ module.exports = function (e) {
     b = t(27),
     S = t(49),
     w = t(23),
-    v = t(53),
-    x = t(33),
+    x = t(53),
+    v = t(33),
     E = t(26),
     C = t(52),
     k = t(50);
-  x.enableSourceMaps();
+  v.enableSourceMaps();
   let M = null;
   const L = E.now();
   let O = !1,
@@ -6685,7 +6685,7 @@ module.exports = function (e) {
   const F = '--protocol-launcher',
     N = new Set(['x-github-client']);
   N.add('x-github-desktop-auth'), N.add('github-windows'), p.app.on('window-all-closed', () => {}), process.on('uncaughtException', (e) => {
-    e = x.withSourceMappedStack(e), v.reportError(e, i()), r(e)
+    e = v.withSourceMappedStack(e), x.reportError(e, i()), r(e)
   });
   let A = !1;
   if (1 < process.argv.length) {
@@ -6779,9 +6779,10 @@ module.exports = function (e) {
       r(n)
     }), p.ipcMain.on('send-error-report', (e, {
       error: n,
-      extra: t
+      extra: t,
+      nonFatal: r
     }) => {
-      v.reportError(n, Object.assign({}, i(), t))
+      x.reportError(n, Object.assign({}, i(), t), r)
     }), p.ipcMain.on('open-external', async (e, {
       path: n
     }) => {

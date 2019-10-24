@@ -28,17 +28,17 @@ module.exports = function (e) {
     return t.d(n, 'a', n), n
   }, t.o = function (e, t) {
     return Object.prototype.hasOwnProperty.call(e, t)
-  }, t.p = '', t(t.s = 771)
+  }, t.p = '', t(t.s = 775)
 }([function (e, t, n) {
   'use strict';
-  e.exports = n(757)
+  e.exports = n(761)
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(7);
+    r = n(6);
   class i extends o.Component {
     constructor() {
       super(...arguments), this.innerButton = null, this.onButtonRef = (e) => {
@@ -92,13 +92,13 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(597);
+  var o = n(601);
   t.Octicon = o.Octicon;
-  var r = n(225);
+  var r = n(227);
   t.OcticonSymbol = r.OcticonSymbol;
-  var i = n(596);
+  var i = n(600);
   t.iconForRepository = i.iconForRepository;
-  var a = n(595);
+  var a = n(599);
   t.iconForStatus = a.iconForStatus
 }, function (e, t, n) {
   'use strict';
@@ -108,21 +108,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(481)), o(n(480)), o(n(478)), o(n(477))
-}, function (e, t, n) {
-  'use strict';
-  t.__esModule = !0;
-  var o = n(132),
-    r = function (e) {
-      return e && e.__esModule ? e : {
-        default: e
-      }
-    }(o);
-  t.default = r.default || function (e) {
-    for (var t = 1, n; t < arguments.length; t++)
-      for (var o in n = arguments[t], n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
-    return e
-  }
+  }), o(n(485)), o(n(484)), o(n(482)), o(n(481))
 }, function (e, t) {
   var n, o;
   /*!
@@ -150,6 +136,20 @@ module.exports = function (e) {
   })()
 }, function (e, t, n) {
   'use strict';
+  t.__esModule = !0;
+  var o = n(133),
+    r = function (e) {
+      return e && e.__esModule ? e : {
+        default: e
+      }
+    }(o);
+  t.default = r.default || function (e) {
+    for (var t = 1, n; t < arguments.length; t++)
+      for (var o in n = arguments[t], n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
+    return e
+  }
+}, function (e, t, n) {
+  'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
@@ -174,7 +174,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(223),
+  var o = n(225),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -308,7 +308,7 @@ module.exports = function (e) {
   const i = n(34),
     a = n(3),
     s = n(13),
-    d = n(166),
+    d = n(167),
     l = n(79);
   class c extends Error {
     constructor(e, t) {
@@ -350,7 +350,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(222),
+  var o = n(224),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -505,13 +505,13 @@ module.exports = function (e) {
   });
   const p = n(59),
     u = n(47),
-    m = n(128),
-    h = n(173),
-    f = n(172),
-    g = n(127),
+    m = n(129),
+    h = n(174),
+    f = n(173),
+    g = n(128),
     y = n(100),
-    S = n(126),
-    C = n(735),
+    S = n(127),
+    C = n(739),
     b = 'de0e3c7e9973e1c4dd77',
     v = '1273305a5fc2737c2ca2911948ba24a9d961e2a3';
   b.length && v && v.length || log.warn(`DESKTOP_OAUTH_CLIENT_ID and/or DESKTOP_OAUTH_CLIENT_SECRET is undefined. You won't be able to authenticate new users.`);
@@ -795,7 +795,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(38),
-    i = n(7);
+    i = n(6);
   class a extends o.Component {
     constructor() {
       super(...arguments), this.onClick = (e) => {
@@ -821,7 +821,7 @@ module.exports = function (e) {
   }
   t.LinkButton = a
 }, function (e, t, n) {
-  e.exports = n(748)()
+  e.exports = n(752)()
 }, function (e, t, n) {
   'use strict';
 
@@ -831,11 +831,11 @@ module.exports = function (e) {
     }
   }
   t.__esModule = !0;
-  var r = n(567),
+  var r = n(571),
     i = o(r),
-    a = n(563),
+    a = n(567),
     s = o(a),
-    d = n(222),
+    d = n(224),
     l = o(d);
   t.default = function (e, t) {
     if ('function' != typeof t && null !== t) throw new TypeError('Super expression must either be null or a function, not ' + ('undefined' == typeof t ? 'undefined' : (0, l.default)(t)));
@@ -850,7 +850,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   e.exports = {
-    default: n(587),
+    default: n(591),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -859,7 +859,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(7);
+    r = n(6);
   class i extends o.Component {
     render() {
       const e = r('row-component', this.props.className);
@@ -871,7 +871,7 @@ module.exports = function (e) {
   t.Row = i
 }, function (e, t, n) {
   'use strict';
-  e.exports = Object.assign({}, n(276), n(272), n(268), n(704), n(702), n(696), n(39), n(692), n(691), n(690), n(51), n(123))
+  e.exports = Object.assign({}, n(278), n(274), n(270), n(708), n(706), n(700), n(39), n(696), n(695), n(694), n(51), n(124))
 }, function (e, t, n) {
   'use strict';
 
@@ -961,7 +961,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(251)), o(n(670)), o(n(668)), o(n(661)), o(n(660)), o(n(79)), o(n(11)), o(n(241)), o(n(165)), o(n(659)), o(n(248)), o(n(22)), o(n(658)), o(n(240)), o(n(657)), o(n(656)), o(n(655)), o(n(246)), o(n(654)), o(n(244)), o(n(160)), o(n(653)), o(n(239)), o(n(648)), o(n(647)), o(n(238)), o(n(646)), o(n(645)), o(n(644)), o(n(642)), o(n(641)), o(n(640)), o(n(97)), o(n(638)), o(n(237)), o(n(637)), o(n(636))
+  }), o(n(253)), o(n(674)), o(n(672)), o(n(665)), o(n(664)), o(n(79)), o(n(11)), o(n(243)), o(n(166)), o(n(663)), o(n(250)), o(n(22)), o(n(662)), o(n(242)), o(n(661)), o(n(660)), o(n(659)), o(n(248)), o(n(658)), o(n(246)), o(n(161)), o(n(657)), o(n(241)), o(n(652)), o(n(651)), o(n(240)), o(n(650)), o(n(649)), o(n(648)), o(n(646)), o(n(645)), o(n(644)), o(n(97)), o(n(642)), o(n(239)), o(n(641)), o(n(640))
 }, function (e, t) {
   'use strict';
 
@@ -1004,6 +1004,20 @@ module.exports = function (e) {
   }, t.enableTutorial = function () {
     return !0
   }
+}, function (e, t, n) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0);
+  class r extends o.Component {
+    render() {
+      return o.createElement('em', {
+        className: 'ref-component'
+      }, this.props.children)
+    }
+  }
+  t.Ref = r
 }, function (e, t) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -1011,7 +1025,7 @@ module.exports = function (e) {
   });
   var n;
   (function (e) {
-    e[e.RenameBranch = 1] = 'RenameBranch', e[e.DeleteBranch = 2] = 'DeleteBranch', e[e.ConfirmDiscardChanges = 3] = 'ConfirmDiscardChanges', e[e.Preferences = 4] = 'Preferences', e[e.MergeBranch = 5] = 'MergeBranch', e[e.RepositorySettings = 6] = 'RepositorySettings', e[e.AddRepository = 7] = 'AddRepository', e[e.CreateRepository = 8] = 'CreateRepository', e[e.CloneRepository = 9] = 'CloneRepository', e[e.CreateBranch = 10] = 'CreateBranch', e[e.SignIn = 11] = 'SignIn', e[e.About = 12] = 'About', e[e.InstallGit = 13] = 'InstallGit', e[e.PublishRepository = 14] = 'PublishRepository', e[e.Acknowledgements = 15] = 'Acknowledgements', e[e.UntrustedCertificate = 16] = 'UntrustedCertificate', e[e.RemoveRepository = 17] = 'RemoveRepository', e[e.TermsAndConditions = 18] = 'TermsAndConditions', e[e.PushBranchCommits = 19] = 'PushBranchCommits', e[e.CLIInstalled = 20] = 'CLIInstalled', e[e.GenericGitAuthentication = 21] = 'GenericGitAuthentication', e[e.ExternalEditorFailed = 22] = 'ExternalEditorFailed', e[e.OpenShellFailed = 23] = 'OpenShellFailed', e[e.InitializeLFS = 24] = 'InitializeLFS', e[e.LFSAttributeMismatch = 25] = 'LFSAttributeMismatch', e[e.UpstreamAlreadyExists = 26] = 'UpstreamAlreadyExists', e[e.ReleaseNotes = 27] = 'ReleaseNotes', e[e.DeletePullRequest = 28] = 'DeletePullRequest', e[e.MergeConflicts = 29] = 'MergeConflicts', e[e.AbortMerge = 30] = 'AbortMerge', e[e.OversizedFiles = 31] = 'OversizedFiles', e[e.UsageReportingChanges = 32] = 'UsageReportingChanges', e[e.CommitConflictsWarning = 33] = 'CommitConflictsWarning', e[e.PushNeedsPull = 34] = 'PushNeedsPull', e[e.RebaseFlow = 35] = 'RebaseFlow', e[e.ConfirmForcePush = 36] = 'ConfirmForcePush', e[e.StashAndSwitchBranch = 37] = 'StashAndSwitchBranch', e[e.ConfirmOverwriteStash = 38] = 'ConfirmOverwriteStash', e[e.ConfirmDiscardStash = 39] = 'ConfirmDiscardStash', e[e.CreateTutorialRepository = 40] = 'CreateTutorialRepository', e[e.ConfirmExitTutorial = 41] = 'ConfirmExitTutorial'
+    e[e.RenameBranch = 1] = 'RenameBranch', e[e.DeleteBranch = 2] = 'DeleteBranch', e[e.ConfirmDiscardChanges = 3] = 'ConfirmDiscardChanges', e[e.Preferences = 4] = 'Preferences', e[e.MergeBranch = 5] = 'MergeBranch', e[e.RepositorySettings = 6] = 'RepositorySettings', e[e.AddRepository = 7] = 'AddRepository', e[e.CreateRepository = 8] = 'CreateRepository', e[e.CloneRepository = 9] = 'CloneRepository', e[e.CreateBranch = 10] = 'CreateBranch', e[e.SignIn = 11] = 'SignIn', e[e.About = 12] = 'About', e[e.InstallGit = 13] = 'InstallGit', e[e.PublishRepository = 14] = 'PublishRepository', e[e.Acknowledgements = 15] = 'Acknowledgements', e[e.UntrustedCertificate = 16] = 'UntrustedCertificate', e[e.RemoveRepository = 17] = 'RemoveRepository', e[e.TermsAndConditions = 18] = 'TermsAndConditions', e[e.PushBranchCommits = 19] = 'PushBranchCommits', e[e.CLIInstalled = 20] = 'CLIInstalled', e[e.GenericGitAuthentication = 21] = 'GenericGitAuthentication', e[e.ExternalEditorFailed = 22] = 'ExternalEditorFailed', e[e.OpenShellFailed = 23] = 'OpenShellFailed', e[e.InitializeLFS = 24] = 'InitializeLFS', e[e.LFSAttributeMismatch = 25] = 'LFSAttributeMismatch', e[e.UpstreamAlreadyExists = 26] = 'UpstreamAlreadyExists', e[e.ReleaseNotes = 27] = 'ReleaseNotes', e[e.DeletePullRequest = 28] = 'DeletePullRequest', e[e.MergeConflicts = 29] = 'MergeConflicts', e[e.AbortMerge = 30] = 'AbortMerge', e[e.OversizedFiles = 31] = 'OversizedFiles', e[e.UsageReportingChanges = 32] = 'UsageReportingChanges', e[e.CommitConflictsWarning = 33] = 'CommitConflictsWarning', e[e.PushNeedsPull = 34] = 'PushNeedsPull', e[e.RebaseFlow = 35] = 'RebaseFlow', e[e.ConfirmForcePush = 36] = 'ConfirmForcePush', e[e.StashAndSwitchBranch = 37] = 'StashAndSwitchBranch', e[e.ConfirmOverwriteStash = 38] = 'ConfirmOverwriteStash', e[e.ConfirmDiscardStash = 39] = 'ConfirmDiscardStash', e[e.CreateTutorialRepository = 40] = 'CreateTutorialRepository', e[e.ConfirmExitTutorial = 41] = 'ConfirmExitTutorial', e[e.PushRejectedDueToMissingWorkflowScope = 42] = 'PushRejectedDueToMissingWorkflowScope'
   })(n = t.PopupType || (t.PopupType = {}))
 }, function (e, t, n) {
   'use strict';
@@ -1064,10 +1078,11 @@ module.exports = function (e) {
     r.ipcRenderer.send('update-preferred-app-menu-item-labels', e)
   }, t.reportUncaughtException = function (e) {
     r.ipcRenderer.send('uncaught-exception', o(e))
-  }, t.sendErrorReport = function (e, t = {}) {
+  }, t.sendErrorReport = function (e, t = {}, n) {
     r.ipcRenderer.send('send-error-report', {
       error: o(e),
-      extra: t
+      extra: t,
+      nonFatal: n
     })
   }
 }, function (e, t, n) {
@@ -1075,25 +1090,11 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(0);
-  class r extends o.Component {
-    render() {
-      return o.createElement('em', {
-        className: 'ref-component'
-      }, this.props.children)
-    }
-  }
-  t.Ref = r
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
   const o = n(0),
-    r = n(7),
+    r = n(6),
     i = n(62),
     a = n(14),
-    s = n(25);
+    s = n(26);
   class d extends o.Component {
     constructor() {
       super(...arguments), this.inputElement = null, this.onChange = (e) => {
@@ -1260,7 +1261,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(688)), o(n(687)), o(n(686)), o(n(685)), o(n(684)), o(n(683))
+  }), o(n(692)), o(n(691)), o(n(690)), o(n(689)), o(n(688)), o(n(687))
 }, function (e, t, n) {
   function o(e) {
     function t(t) {
@@ -1357,17 +1358,17 @@ module.exports = function (e) {
     e && (p('RETRY', e[0].name, e[1]), e[0].apply(null, e[1]))
   }
   var a = n(32),
-    s = n(711),
-    d = n(709),
+    s = n(715),
+    d = n(713),
     l = [],
-    c = n(170),
+    c = n(171),
     p = function () {};
   c.debuglog ? p = c.debuglog('gfs4') : /\bgfs4\b/i.test(process.env.NODE_DEBUG || '') && (p = function () {
     var e = c.format.apply(c, arguments);
     e = 'GFS4: ' + e.split(/\n/).join('\nGFS4: '), console.error(e)
   }), /\bgfs4\b/i.test(process.env.NODE_DEBUG || '') && process.on('exit', function () {
-    p(l), n(273).equal(l.length, 0)
-  }), e.exports = o(n(275)), process.env.TEST_GRACEFUL_FS_GLOBAL_PATCH && (e.exports = o(a)), e.exports.close = a.close = function (e) {
+    p(l), n(275).equal(l.length, 0)
+  }), e.exports = o(n(277)), process.env.TEST_GRACEFUL_FS_GLOBAL_PATCH && (e.exports = o(a)), e.exports.close = a.close = function (e) {
     return function (t, n) {
       return e.call(a, t, function (e) {
         e || i(), 'function' == typeof n && n.apply(this, arguments)
@@ -1387,7 +1388,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(2),
-    r = n(622);
+    r = n(626);
   t.encodePathAsUrl = function (...e) {
     const t = o.resolve(...e);
     return r(t)
@@ -1397,9 +1398,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(678);
+  var o = n(682);
   t.GitProcess = o.GitProcess;
-  var r = n(255);
+  var r = n(257);
   t.GitError = r.GitError, t.RepositoryDoesNotExistErrorCode = r.RepositoryDoesNotExistErrorCode, t.GitNotFoundErrorCode = r.GitNotFoundErrorCode
 }, function (e, t, n) {
   'use strict';
@@ -1525,8 +1526,8 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(37).fromCallback,
-    r = o(n(707)),
-    i = n(706);
+    r = o(n(711)),
+    i = n(710);
   e.exports = {
     mkdirs: r,
     mkdirsSync: i,
@@ -1600,7 +1601,7 @@ module.exports = function (e) {
       }
     }
   }
-  o(), e.exports = n(756)
+  o(), e.exports = n(760)
 }, function (e) {
   var t = String.fromCharCode,
     n = Math.round,
@@ -8042,7 +8043,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(7);
+    r = n(6);
   var i;
   (function (e) {
     e[e.Tabs = 0] = 'Tabs', e[e.Switch = 1] = 'Switch'
@@ -8150,7 +8151,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(669);
+  const r = n(673);
   var i;
   (function (e) {
     e[e.Local = 0] = 'Local', e[e.Remote = 1] = 'Remote'
@@ -8184,7 +8185,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(37).fromPromise,
-    r = n(276);
+    r = n(278);
   e.exports = {
     pathExists: o(function (e) {
       return r.access(e).then(() => !0).catch(() => !1)
@@ -8202,7 +8203,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   (function () {
-    t.Emitter = n(743), t.Disposable = n(174), t.CompositeDisposable = n(742)
+    t.Emitter = n(747), t.Disposable = n(175), t.CompositeDisposable = n(746)
   }).call(this)
 }, function (e, t) {
   'use strict';
@@ -8289,9 +8290,9 @@ module.exports = function (e) {
     w = null,
     k = null
 }, function (e, t, n) {
-  var o = n(217)('wks'),
-    r = n(216),
-    i = n(112).Symbol;
+  var o = n(219)('wks'),
+    r = n(218),
+    i = n(113).Symbol;
   e.exports = function (e) {
     return o[e] || (o[e] = i && i[e] || (i || r)('Symbol.' + e))
   }
@@ -8360,16 +8361,16 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(7),
+    r = n(6),
     i = n(33),
     a = n(80),
     s = n(3),
-    d = n(444),
-    l = n(443),
-    c = n(439),
-    p = n(438),
+    d = n(448),
+    l = n(447),
+    c = n(443),
+    p = n(442),
     u = n(88),
-    m = n(436);
+    m = n(440);
   var h;
   (function (e) {
     e.Start = 'Start', e.SignInToDotCom = 'SignInToDotCom', e.SignInToEnterprise = 'SignInToEnterprise', e.ConfigureGit = 'ConfigureGit', e.UsageOptOut = 'UsageOptOut'
@@ -8465,7 +8466,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(127),
+  const r = n(128),
     a = new Set;
   t.createUniqueId = function (e) {
     const t = o(`${'__'}${e}`);
@@ -8587,7 +8588,7 @@ module.exports = function (e) {
   const i = n(47),
     a = n(2),
     s = n(13),
-    d = n(125),
+    d = n(126),
     l = n(45);
   t.matchGitHubRepository = function (e, t) {
     for (const n of e) {
@@ -10308,10 +10309,10 @@ module.exports = function (e) {
           MONTH: 'YYYY-MM'
         }, t
     })
-  }).call(this, n(129)(e))
+  }).call(this, n(130)(e))
 }, function (e, t, n) {
   e.exports = {
-    default: n(557),
+    default: n(561),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -10484,7 +10485,7 @@ module.exports = function (e) {
   });
   const l = n(0),
     c = n(2),
-    p = n(117);
+    p = n(118);
   t.truncateMid = o, t.truncatePath = r, t.extract = i;
   class u extends l.PureComponent {
     constructor(e) {
@@ -10600,7 +10601,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(588)), o(n(212))
+  }), o(n(592)), o(n(214))
 }, function (e, t) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -10615,7 +10616,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(616);
+  const o = n(620);
   t.structuralEquals = function (e, t) {
     return o(e, t, {
       strict: !0
@@ -10653,7 +10654,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(29),
-    r = n(117);
+    r = n(118);
   t.initializeNewRebaseFlow = function (e) {
     const {
       defaultBranch: t,
@@ -10707,14 +10708,14 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(667)), o(n(666)), o(n(665)), o(n(664)), o(n(64)), o(n(663)), o(n(245))
+  }), o(n(671)), o(n(670)), o(n(669)), o(n(668)), o(n(64)), o(n(667)), o(n(247))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(34),
-    r = n(166);
+    r = n(167);
   t.spawnAndComplete = function (e, t, n, i, a) {
     const s = `${n}: git ${e.join(' ')}`;
     return r.measure(s, () => new Promise((n, r) => {
@@ -10802,8 +10803,8 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(713)), o(n(712)), o(n(610)), o(n(231)), o(n(609)), o(n(608)), o(n(607)), o(n(606)), o(n(253)), o(n(603));
-  var r = n(229);
+  }), o(n(717)), o(n(716)), o(n(614)), o(n(233)), o(n(613)), o(n(612)), o(n(611)), o(n(610)), o(n(255)), o(n(607));
+  var r = n(231);
   t.UpstreamRemoteName = r.UpstreamRemoteName
 }, function (e, t, n) {
   'use strict';
@@ -10841,13 +10842,13 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(717);
+  var o = n(721);
   t.StatsDatabase = o.StatsDatabase;
-  var r = n(716);
+  var r = n(720);
   t.StatsStore = r.StatsStore, t.SamplesURL = r.SamplesURL;
-  var i = n(278);
+  var i = n(280);
   t.getGUID = i.getGUID;
-  var a = n(601);
+  var a = n(605);
   t.hasSeenUsageStatsNote = a.hasSeenUsageStatsNote, t.markUsageStatsNoteSeen = a.markUsageStatsNoteSeen
 }, function (e, t, n) {
   'use strict';
@@ -10902,9 +10903,9 @@ module.exports = function (e) {
       default: e
     }
   }
-  var r = n(749),
+  var r = n(753),
     i = o(r),
-    a = n(292),
+    a = n(294),
     s = o(a);
   e.exports = {
     TransitionGroup: s.default,
@@ -10916,7 +10917,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(7);
+    r = n(6);
   class i extends o.Component {
     constructor() {
       super(...arguments), this.onSubmit = (e) => {
@@ -10937,19 +10938,19 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(482);
+  var o = n(486);
   t.PushBranchCommits = o.PushBranchCommits;
-  var r = n(200);
+  var r = n(201);
   t.BranchList = r.BranchList;
-  var i = n(475);
+  var i = n(479);
   t.BranchesContainer = i.BranchesContainer;
-  var a = n(470);
+  var a = n(474);
   t.PullRequestBadge = a.PullRequestBadge;
-  var s = n(199);
+  var s = n(200);
   t.groupBranches = s.groupBranches;
-  var d = n(196);
+  var d = n(197);
   t.BranchListItem = d.BranchListItem;
-  var l = n(197);
+  var l = n(198);
   t.renderDefaultBranch = l.renderDefaultBranch
 }, function (e, t, n) {
   'use strict';
@@ -10958,7 +10959,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(14),
-    i = n(522),
+    i = n(526),
     a = n(3);
   class s extends o.Component {
     render() {
@@ -11003,7 +11004,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(7);
+    r = n(6);
   class i extends o.Component {
     render() {
       const e = r(this.props.className, 'ui-view'),
@@ -11015,17 +11016,17 @@ module.exports = function (e) {
   }
   t.UiView = i
 }, function (e, t, n) {
-  var o = n(215),
-    r = n(155);
+  var o = n(217),
+    r = n(156);
   e.exports = function (e) {
     return o(r(e))
   }
 }, function (e) {
   e.exports = {}
 }, function (e, t, n) {
-  var o = n(112),
+  var o = n(113),
     r = n(43),
-    i = n(224),
+    i = n(226),
     a = 'prototype',
     s = function (e, t, n) {
       var d = e & s.F,
@@ -11168,9 +11169,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(262),
-    r = n(260),
-    i = n(258);
+  const o = n(264),
+    r = n(262),
+    i = n(260);
   t.parse = function (e) {
     return r.parse(e)
   };
@@ -11210,7 +11211,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(171),
+  const r = n(172),
     i = n(13);
   t.generateGravatarUrl = o, t.getAvatarWithEnterpriseFallback = function (e, t, n) {
     return n === i.getDotComAPIEndpoint() || null === t || 0 === t.length ? e : o(t)
@@ -11318,7 +11319,7 @@ module.exports = function (e) {
     }
     return i
   };
-  var o = n(175),
+  var o = n(176),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -11329,7 +11330,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(223),
+  var o = n(225),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -11375,10 +11376,10 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(7),
+    i = n(6),
     a = n(3),
     s = n(1),
-    d = n(117);
+    d = n(118);
   var l;
   (function (e) {
     e[e.Standard = 0] = 'Standard', e[e.Subtitle = 1] = 'Subtitle'
@@ -11441,6 +11442,15 @@ module.exports = function (e) {
     }
   }
   t.ToolbarButton = c
+}, function (e, t, n) {
+  'use strict';
+
+  function o(e) {
+    for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
+  }
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  }), o(n(209)), o(n(498)), o(n(497))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -11725,11 +11735,11 @@ module.exports = function (e) {
     value: !0
   });
   const s = n(0),
-    d = n(7),
+    d = n(6),
     l = n(72),
     c = n(27),
     p = n(18),
-    u = n(543);
+    u = n(547);
   class m extends s.Component {
     constructor(e) {
       super(e), this.list = null, this.filterTextBox = null, this.renderRow = (e) => {
@@ -11855,7 +11865,7 @@ module.exports = function (e) {
         ref: this.onTextBoxRef,
         type: 'search',
         autoFocus: !0,
-        placeholder: '筛选 Filter',
+        placeholder: this.props.placeholderText || '筛选 Filter',
         className: 'filter-list-filter-field',
         onValueChanged: this.onFilterValueChanged,
         onKeyDown: this.onKeyDown,
@@ -11908,7 +11918,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(280);
+  const o = n(282);
   class r extends o.default {
     constructor(e, t) {
       super(e), this.schemaVersion = t
@@ -11928,8 +11938,8 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(633));
-  var o = n(235);
+    }(n(637));
+  var o = n(237);
   t.ShellError = o.ShellError
 }, function (e, t) {
   'use strict';
@@ -11980,8 +11990,8 @@ module.exports = function (e) {
     r = n(59),
     i = n(2),
     a = n(53),
-    s = n(674),
-    d = n(164);
+    s = n(678),
+    d = n(165);
   t.getTempFilePath = async function (e) {
     const t = i.join(r.tmpdir(), `${e}-`),
       n = await o.mkdtemp(t);
@@ -12252,7 +12262,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(37).fromCallback,
-    r = n(703);
+    r = n(707);
   e.exports = {
     remove: o(r),
     removeSync: r.sync
@@ -12263,7 +12273,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(59),
-    r = n(715);
+    r = n(719);
   t.getOS = function () {
     return `Windows ${o.release()}`
   }, t.isMojaveOrLater = function () {
@@ -12373,8 +12383,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(171),
-    i = n(738);
+  const r = n(172),
+    i = n(742);
   t.uuid = function () {
     return i({
       random: o(16)
@@ -12432,10 +12442,10 @@ module.exports = function (e) {
     r = o.remote.autoUpdater,
     i = 'last-successful-update-check',
     a = n(53),
-    s = n(25),
-    d = n(130),
-    l = n(741),
-    c = n(740),
+    s = n(26),
+    d = n(131),
+    l = n(745),
+    c = n(744),
     p = n(60);
   var u;
   (function (e) {
@@ -12493,7 +12503,7 @@ module.exports = function (e) {
         this.userInitiatedUpdate = !e;
         try {
           r.setFeedURL({
-            url: 'https://central.github.com/api/deployments/desktop/desktop/latest?version=2.2.1&env=production'
+            url: 'https://central.github.com/api/deployments/desktop/desktop/latest?version=2.2.2&env=production'
           }), r.checkForUpdates()
         } catch (t) {
           this.emitError(t)
@@ -12507,7 +12517,7 @@ module.exports = function (e) {
   t.updateStore = new m
 }, function (e, t, n) {
   e.exports = {
-    default: n(560),
+    default: n(564),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -12530,7 +12540,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(417))
+    }(n(421))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -12579,7 +12589,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(7);
+    r = n(6);
   class i extends o.Component {
     render() {
       const e = r('errors-component', this.props.className);
@@ -12599,7 +12609,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(7),
+    i = n(6),
     a = n(63),
     s = n(3),
     d = n(4);
@@ -12629,7 +12639,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(486))
+    }(n(490))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -12641,9 +12651,9 @@ module.exports = function (e) {
     a = n(20),
     s = n(30),
     d = n(1),
-    l = n(519),
-    c = n(509),
-    p = n(508),
+    l = n(523),
+    c = n(513),
+    p = n(512),
     u = i.encodePathAsUrl(__dirname, 'static/ufo-alert.svg');
   class m extends o.Component {
     constructor(e) {
@@ -12789,7 +12799,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(33),
-    i = n(528),
+    i = n(532),
     a = r.encodePathAsUrl(__dirname, 'static/default-avatar.png');
   class s extends o.Component {
     constructor(e) {
@@ -12862,7 +12872,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   (function () {
     var e, o, r, i, a, s, d, l, c, p;
-    p = n(110), s = p.isMatch, e = p.computeScore, l = p.scoreSize, c = 20, r = 2.5, t.score = function (t, n, o) {
+    p = n(111), s = p.isMatch, e = p.computeScore, l = p.scoreSize, c = 20, r = 2.5, t.score = function (t, n, o) {
       var r, i, a, l;
       return (i = o.preparedQuery, r = o.allowErrors, !(r || s(t, i.core_lw, i.core_up))) ? 0 : (l = t.toLowerCase(), a = e(t, l, i), a = d(t, l, a, o), Math.ceil(a))
     }, d = function (t, n, i, s) {
@@ -12897,7 +12907,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(7);
+    r = n(6);
   class i extends o.Component {
     constructor(e) {
       super(e), this.wrapperRef = null, this.focusWithinChangedTimeoutId = null, this.onWrapperRef = (e) => {
@@ -12938,7 +12948,7 @@ module.exports = function (e) {
   }
   t.FocusContainer = i
 }, function (e, t, n) {
-  var o = n(214);
+  var o = n(216);
   e.exports = function (e) {
     if (!o(e)) throw TypeError(e + ' is not an object!');
     return e
@@ -12949,12 +12959,12 @@ module.exports = function (e) {
     return t.call(e).slice(8, -1)
   }
 }, function (e, t, n) {
-  n(578);
+  n(582);
   var o = n(90);
   o.NodeList = o.HTMLCollection = o.Array
 }, function (e, t, n) {
   var o = n(36).setDesc,
-    r = n(150),
+    r = n(151),
     i = n(57)('toStringTag');
   e.exports = function (e, t, n) {
     e && !r(e = n ? e : e.prototype, i) && o(e, i, {
@@ -12978,16 +12988,16 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   var o = n(36),
-    r = n(151);
-  e.exports = n(218) ? function (e, t, n) {
+    r = n(152);
+  e.exports = n(220) ? function (e, t, n) {
     return o.setDesc(e, t, r(1, n))
   } : function (e, t, n) {
     return e[t] = n, e
   }
 }, function (e, t, n) {
   'use strict';
-  var o = n(581)(!0);
-  n(221)(String, 'String', function (e) {
+  var o = n(585)(!0);
+  n(223)(String, 'String', function (e) {
     this._t = e + '', this._i = 0
   }, function () {
     var e = this._t,
@@ -13004,7 +13014,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   var o = n(91),
     r = n(43),
-    i = n(111);
+    i = n(112);
   e.exports = function (e, t) {
     var n = (r.Object || {})[e] || Object[e],
       a = {};
@@ -13018,7 +13028,7 @@ module.exports = function (e) {
     return e
   }
 }, function (e, t, n) {
-  var o = n(155);
+  var o = n(156);
   e.exports = function (e) {
     return Object(o(e))
   }
@@ -13146,7 +13156,7 @@ module.exports = function (e) {
   });
   const r = n(11),
     i = n(30),
-    a = n(251),
+    a = n(253),
     s = n(20);
   t.stageFiles = async function (e, t) {
     const n = [],
@@ -13176,7 +13186,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(97),
-    i = n(247);
+    i = n(249);
   t.Commit = class {
     constructor(e, t, n, r, i, a, s, d) {
       this.sha = e, this.shortSha = t, this.summary = n, this.body = r, this.author = i, this.committer = a, this.parentSHAs = s, this.trailers = d, this.coAuthors = o(d), this.authoredByCommitter = this.author.name === this.committer.name && this.author.email === this.committer.email
@@ -13213,9 +13223,9 @@ module.exports = function (e) {
       !t.encoding && e instanceof i.Readable && (t.encoding = e._readableState.encoding)
     })
   }
-  var i = n(274),
-    a = n(170),
-    s = n(673);
+  var i = n(276),
+    a = n(171),
+    s = n(677);
   e.exports = function (t, n) {
     return e.exports.createStream(t, n)
   }, e.exports.createStream = function (e, t) {
@@ -13340,14 +13350,14 @@ module.exports = function (e) {
     value: !0
   });
   const h = n(2),
-    f = n(119),
-    g = n(250),
+    f = n(120),
+    g = n(252),
     y = n(20),
     S = n(30),
     C = n(78),
-    b = n(672),
-    v = n(249),
-    E = n(163),
+    b = n(676),
+    v = n(251),
+    E = n(164),
     w = 7e7,
     k = w / 16,
     _ = 5e3,
@@ -13432,7 +13442,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(21),
-    i = n(124);
+    i = n(125);
   t.supportsDarkMode = o, t.isDarkModeEnabled = function () {
     return !!o() && r.remote.systemPreferences.isDarkMode()
   }
@@ -13448,7 +13458,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(37).fromCallback,
-    r = n(695);
+    r = n(699);
   e.exports = {
     readJson: o(r.readFile),
     readJsonSync: r.readFileSync,
@@ -13575,7 +13585,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var r = n(175),
+  var r = n(176),
     i = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -13679,7 +13689,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(321)), o(n(320)), o(n(319)), o(n(226))
+  }), o(n(323)), o(n(322)), o(n(321)), o(n(228))
 }, function (e, t, n) {
   'use strict';
 
@@ -13718,12 +13728,12 @@ module.exports = function (e) {
   const l = n(0),
     c = n(20),
     p = n(2),
-    u = n(25),
+    u = n(26),
     m = n(4),
     h = n(71),
-    f = n(242),
+    f = n(244),
     g = n(73),
-    y = n(106),
+    y = n(107),
     S = n(21),
     C = n(1),
     b = n(14),
@@ -13913,7 +13923,7 @@ module.exports = function (e) {
   });
   const d = n(19),
     l = n(2),
-    c = n(365);
+    c = n(369);
   t.InstalledCLIPath = '/usr/local/bin/github';
   const p = l.resolve(__dirname, 'static', 'github.sh');
   t.installCLI = async function () {
@@ -13942,15 +13952,15 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(0),
-    a = n(113),
+    a = n(114),
     s = n(13),
-    d = n(393),
-    l = n(109),
+    d = n(397),
+    l = n(110),
     c = n(1),
     p = n(4),
     u = n(92),
     m = n(14),
-    h = n(26);
+    h = n(24);
   class f extends i.PureComponent {
     constructor() {
       super(...arguments), this.getRepositoryGroups = l.default((e, t) => null === e ? [] : d.groupRepositories(e, t)), this.getSelectedListItem = l.default(o), this.refreshRepositories = () => {
@@ -13993,19 +14003,16 @@ module.exports = function (e) {
         const {
           loading: e,
           repositories: t
-        } = this.props;
-        if (e && (null === t || 0 === t.length)) return i.createElement('div', {
+        } = this.props, n = this.props.account.endpoint === s.getDotComAPIEndpoint() ? 'GitHub.com' : s.getHTMLURL(this.props.account.endpoint);
+        return e && (null === t || 0 === t.length) ? i.createElement('div', {
           className: 'no-items loading'
-        }, 'Loading repositories\u2026');
-        if (0 !== this.props.filterText.length) return i.createElement('div', {
-          className: 'no-items no-results-found'
-        }, i.createElement('div', null, 'Sorry, I can\'t find any repository matching', ' ', i.createElement(h.Ref, null, this.props.filterText)));
-        const n = this.props.account.endpoint === s.getDotComAPIEndpoint() ? 'GitHub.com' : s.getHTMLURL(this.props.account.endpoint);
-        return i.createElement('div', {
+        }, `Loading repositories from ${n}…`) : 0 === this.props.filterText.length ? i.createElement('div', {
           className: 'no-items empty-repository-list'
-        }, i.createElement('div', null, 'Couldn\'t find any repositories for the account', ' ', i.createElement(h.Ref, null, this.props.account.login), ' on ', n, '.', ' ', i.createElement(m.LinkButton, {
+        }, i.createElement('div', null, 'Looks like there are no repositories for', ' ', i.createElement(h.Ref, null, this.props.account.login), ' on ', n, '.', ' ', i.createElement(m.LinkButton, {
           onClick: this.refreshRepositories
-        }, 'Refresh the list'), ' ', 'if you\'ve created a repository recently.'))
+        }, 'Refresh this list'), ' ', 'if you\'ve created a repository recently.')) : i.createElement('div', {
+          className: 'no-items no-results-found'
+        }, i.createElement('div', null, 'Sorry, I can\'t find any repository matching', ' ', i.createElement(h.Ref, null, this.props.filterText)))
       }
     }
     componentDidMount() {
@@ -14033,7 +14040,8 @@ module.exports = function (e) {
         onFilterTextChanged: this.props.onFilterTextChanged,
         renderNoItems: this.renderNoItems,
         renderPostFilter: this.renderPostFilter,
-        onItemClick: this.props.onItemClicked ? this.onItemClick : void 0
+        onItemClick: this.props.onItemClicked ? this.onItemClick : void 0,
+        placeholderText: 'Filter your repositories'
       })
     }
   }
@@ -14070,10 +14078,10 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(7),
+    i = n(6),
     a = n(4),
-    s = n(434),
-    d = n(207);
+    s = n(438),
+    d = n(210);
   t.friendlyAcceleratorText = o;
   class l extends r.Component {
     getIcon(e) {
@@ -14148,10 +14156,10 @@ module.exports = function (e) {
     value: !0
   });
   const s = n(0),
-    d = n(7),
+    d = n(6),
     l = n(72),
-    c = n(122),
-    p = n(187),
+    c = n(123),
+    p = n(188),
     u = 30,
     m = 10;
   t.getListHeight = r, t.getRowHeight = i;
@@ -14249,7 +14257,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(188),
+    i = n(189),
     a = 300;
   class s extends r.Component {
     constructor(e) {
@@ -14349,10 +14357,10 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(442),
+    r = n(446),
     i = n(3),
-    a = n(441),
-    s = n(440),
+    a = n(445),
+    s = n(444),
     d = n(80);
   class l extends o.Component {
     constructor() {
@@ -14424,8 +14432,8 @@ module.exports = function (e) {
     r = n(4),
     i = n(3),
     a = n(105),
-    s = n(452),
-    d = n(7);
+    s = n(456),
+    d = n(6);
   class l extends o.Component {
     constructor(e) {
       super(e), this.innerButton = null, this.onClick = (e) => {
@@ -14520,6 +14528,7 @@ module.exports = function (e) {
         role: this.props.role,
         "aria-expanded": t
       }, this.renderDropdownContents(), o.createElement(a.ToolbarButton, {
+        className: this.props.buttonClassName,
         ref: this.onRef,
         icon: this.props.icon,
         title: this.props.title,
@@ -14545,8 +14554,8 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(453)), o(n(105)), o(n(191)), o(n(451)), o(n(450));
-  var r = n(449);
+  }), o(n(457)), o(n(105)), o(n(192)), o(n(455)), o(n(454));
+  var r = n(453);
   t.RevertProgress = r.RevertProgress
 }, function (e, t, n) {
   'use strict';
@@ -14557,7 +14566,7 @@ module.exports = function (e) {
     r = n(50),
     i = n(18),
     a = n(4),
-    s = n(26);
+    s = n(24);
   t.renderBranchNameWarning = function (e, t) {
     return 0 < e.length && /^\s*$/.test(t) ? o.createElement(i.Row, {
       className: 'warning-helper-text'
@@ -14604,13 +14613,13 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(462);
+  var o = n(466);
   t.TutorialPanel = o.TutorialPanel;
-  var r = n(461);
+  var r = n(465);
   t.TutorialWelcome = r.TutorialWelcome;
-  var i = n(460);
+  var i = n(464);
   t.TutorialDone = i.TutorialDone;
-  var a = n(459);
+  var a = n(463);
   t.ConfirmExitTutorial = a.ConfirmExitTutorial
 }, function (e, t, n) {
   'use strict';
@@ -14653,7 +14662,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(196);
+    r = n(197);
   t.renderDefaultBranch = function (e, t, n) {
     const i = e.branch,
       a = i.tip,
@@ -14677,8 +14686,8 @@ module.exports = function (e) {
   const r = n(0),
     i = n(4),
     a = n(3),
-    s = n(7),
-    d = n(472);
+    s = n(6),
+    d = n(476);
   class l extends r.PureComponent {
     constructor(e) {
       super(e), this.statusSubscription = null, this.onStatus = (e) => {
@@ -14784,10 +14793,10 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(3),
-    a = n(113),
+    a = n(114),
     s = n(1),
-    d = n(199),
-    l = n(476);
+    d = n(200),
+    l = n(480);
   class c extends r.Component {
     constructor(e) {
       super(e), this.branchFilterList = null, this.onBranchesFilterListRef = (e) => {
@@ -14852,14 +14861,14 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(206),
+    r = n(207),
     i = n(87),
-    a = n(107),
+    a = n(108),
     s = n(13),
     d = n(21),
-    l = n(25),
-    c = n(203),
-    p = n(204);
+    l = n(26),
+    c = n(204),
+    p = n(205);
   class u extends o.Component {
     constructor(e) {
       super(e), this.onCopySHA = () => {
@@ -14934,7 +14943,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(141),
+    r = n(142),
     i = n(72),
     a = n(4),
     s = n(40);
@@ -14984,7 +14993,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(205);
+    r = n(206);
   class i extends o.Component {
     renderAuthorInline(e) {
       return o.createElement('span', {
@@ -15032,8 +15041,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(7),
-    a = n(142),
+    r = n(6),
+    a = n(143),
     s = 3;
   class i extends o.Component {
     render() {
@@ -15104,38 +15113,12 @@ module.exports = function (e) {
   });
   const i = n(100),
     a = n(13),
-    s = n(205);
+    s = n(206);
   t.getAvatarUsersForCommit = function (e, t, n) {
     const o = [r(e, t, n.author), ...n.coAuthors.map((n) => r(e, t, n))],
       i = n.coAuthors.some((e) => e.name === n.committer.name && e.email === n.committer.email),
       a = null !== e && s.isWebFlowCommitter(n, e);
     return n.authoredByCommitter || a || i || o.push(r(e, t, n.committer)), o
-  }
-}, function (e, t) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  }), t.getPlatformSpecificNameOrSymbolForModifier = function (e) {
-    switch (e.toLowerCase()) {
-      case 'cmdorctrl':
-      case 'commandorcontrol':
-        return 'Ctrl';
-      case 'ctrl':
-      case 'control':
-        return 'Ctrl';
-      case 'shift':
-        return 'Shift';
-      case 'alt':
-        return 'Alt';
-      case 'cmd':
-      case 'command':
-        return '\u2318';
-      case 'option':
-        return '\u2325';
-      case ' ':
-        return 'Space';
-    }
-    return e
   }
 }, function (e, t, n) {
   'use strict';
@@ -15172,6 +15155,65 @@ module.exports = function (e) {
       height: r.default.string,
       heightActive: r.default.string
     })])
+}, function (e, t, n) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0),
+    r = n(6),
+    i = n(1);
+  class a extends o.Component {
+    render() {
+      const e = 'primary' === this.props.type,
+        t = r('suggested-action', {
+          primary: e
+        }),
+        n = this.props.description === void 0 ? void 0 : o.createElement('p', {
+          className: 'description'
+        }, this.props.description);
+      return o.createElement('div', {
+        className: t
+      }, this.props.image && o.createElement('div', {
+        className: 'image-wrapper'
+      }, this.props.image), o.createElement('div', {
+        className: 'text-wrapper'
+      }, o.createElement('h2', null, this.props.title), n, this.props.discoverabilityContent && o.createElement('p', {
+        className: 'discoverability'
+      }, this.props.discoverabilityContent)), o.createElement(i.Button, {
+        type: e ? 'submit' : void 0,
+        onClick: this.props.onClick,
+        disabled: this.props.disabled
+      }, this.props.buttonText))
+    }
+  }
+  t.SuggestedAction = a
+}, function (e, t) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  }), t.getPlatformSpecificNameOrSymbolForModifier = function (e) {
+    switch (e.toLowerCase()) {
+      case 'cmdorctrl':
+      case 'commandorcontrol':
+        return 'Ctrl';
+      case 'ctrl':
+      case 'control':
+        return 'Ctrl';
+      case 'shift':
+        return 'Shift';
+      case 'alt':
+        return 'Alt';
+      case 'cmd':
+      case 'command':
+        return '\u2318';
+      case 'option':
+        return '\u2325';
+      case ' ':
+        return 'Space';
+    }
+    return e
+  }
 }, function (e, t) {
   'use strict';
 
@@ -15229,11 +15271,11 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(534)), o(n(531)), o(n(530)), o(n(529))
+  }), o(n(538)), o(n(535)), o(n(534)), o(n(533))
 }, function (e, t, n) {
   (function () {
     var t, o, r, i, a, s, d, l;
-    l = n(144), r = l.countDir, a = l.getExtension, e.exports = t = function () {
+    l = n(145), r = l.countDir, a = l.getExtension, e.exports = t = function () {
       function e(e, t) {
         var n, s, l;
         return l = null == t ? {} : t, n = l.optCharRegEx, s = l.pathSeparator, e && e.length ? void(this.query = e, this.query_lw = e.toLowerCase(), this.core = o(e, n), this.core_lw = this.core.toLowerCase(), this.core_up = d(this.core), this.depth = r(e, e.length, s), this.ext = a(this.query_lw), this.charCodes = i(this.query_lw)) : null
@@ -15276,7 +15318,7 @@ module.exports = function (e) {
     return null
   }
 }, function (e, t, n) {
-  var o = n(147),
+  var o = n(148),
     r = n(57)('toStringTag'),
     i = 'Arguments' == o(function () {
       return arguments
@@ -15290,7 +15332,7 @@ module.exports = function (e) {
     return 'object' == typeof e ? null !== e : 'function' == typeof e
   }
 }, function (e, t, n) {
-  var o = n(147);
+  var o = n(148);
   e.exports = Object('z').propertyIsEnumerable(0) ? Object : function (e) {
     return 'String' == o(e) ? e.split('') : Object(e)
   }
@@ -15301,14 +15343,14 @@ module.exports = function (e) {
     return 'Symbol('.concat(e === void 0 ? '' : e, ')_', (++t + n).toString(36))
   }
 }, function (e, t, n) {
-  var o = n(112),
+  var o = n(113),
     r = '__core-js_shared__',
     i = o[r] || (o[r] = {});
   e.exports = function (e) {
     return i[e] || (i[e] = {})
   }
 }, function (e, t, n) {
-  e.exports = !n(111)(function () {
+  e.exports = !n(112)(function () {
     return 7 != Object.defineProperty({}, 'a', {
       get: function () {
         return 7
@@ -15316,19 +15358,19 @@ module.exports = function (e) {
     }).a
   })
 }, function (e, t, n) {
-  e.exports = n(152)
+  e.exports = n(153)
 }, function (e) {
   e.exports = !0
 }, function (e, t, n) {
   'use strict';
-  var o = n(220),
+  var o = n(222),
     r = n(91),
-    i = n(219),
-    a = n(152),
-    s = n(150),
+    i = n(221),
+    a = n(153),
+    s = n(151),
     d = n(90),
-    l = n(579),
-    c = n(149),
+    l = n(583),
+    c = n(150),
     p = n(36).getProto,
     u = n(57)('iterator'),
     m = !([].keys && 'next' in [].keys()),
@@ -15381,9 +15423,9 @@ module.exports = function (e) {
     }
   }
   t.__esModule = !0;
-  var r = n(583),
+  var r = n(587),
     i = o(r),
-    a = n(575),
+    a = n(579),
     s = o(a),
     d = 'function' == typeof s.default && 'symbol' == typeof i.default ? function (e) {
       return typeof e
@@ -15397,11 +15439,11 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   e.exports = {
-    default: n(584),
+    default: n(588),
     __esModule: !0
   }
 }, function (e, t, n) {
-  var o = n(585);
+  var o = n(589);
   e.exports = function (e, t, n) {
     return (o(e), void 0 === t) ? e : 1 === n ? function (n) {
       return e.call(t, n)
@@ -15541,6 +15583,9 @@ module.exports = function (e) {
     }
     static get database() {
       return new n(12, 16, 'M6 15c-3.31 0-6-.9-6-2v-2c0-.17.09-.34.21-.5.67.86 3 1.5 5.79 1.5s5.12-.64 5.79-1.5c.13.16.21.33.21.5v2c0 1.1-2.69 2-6 2zm0-4c-3.31 0-6-.9-6-2V7c0-.11.04-.21.09-.31.03-.06.07-.13.12-.19C.88 7.36 3.21 8 6 8s5.12-.64 5.79-1.5c.05.06.09.13.12.19.05.1.09.21.09.31v2c0 1.1-2.69 2-6 2zm0-4c-3.31 0-6-.9-6-2V3c0-1.1 2.69-2 6-2s6 .9 6 2v2c0 1.1-2.69 2-6 2zm0-5c-2.21 0-4 .45-4 1s1.79 1 4 1 4-.45 4-1-1.79-1-4-1z')
+    }
+    static get dependent() {
+      return new n(16, 16, 'M1 1h7.5l2 2H9L8 2H1v12h10v-1h1v1c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1zm9 6h3v1h-3V7zm2 2h-2v1h2V9zM8.583 4h4.375L15 6v5.429a.58.58 0 0 1-.583.571H8.583A.58.58 0 0 1 8 11.429V10h1v1h5V6.5L12.5 5H9v1H8V4.571A.58.58 0 0 1 8.583 4zM9.5 7H6.667V5l-4 3 4 3V9H9.5V7z')
     }
     static get desktopDownload() {
       return new n(16, 16, 'M4 6h3V0h2v6h3l-4 4-4-4zm11-4h-4v1h4v8H1V3h4V2H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h5.34c-.25.61-.86 1.39-2.34 2h8c-1.48-.61-2.09-1.39-2.34-2H15c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1z')
@@ -15854,8 +15899,17 @@ module.exports = function (e) {
     static get repoPush() {
       return new n(12, 16, 'M4 3H3V2h1v1zM3 5h1V4H3v1zm4 0L4 9h2v7h2V9h2L7 5zm4-5H1C.45 0 0 .45 0 1v12c0 .55.45 1 1 1h4v-1H1v-2h4v-1H2V1h9.02L11 10H9v1h2v2H9v1h2c.55 0 1-.45 1-1V1c0-.55-.45-1-1-1z')
     }
+    static get repoTemplate() {
+      return new n(14, 16, 'M12 8V1c0-.55-.45-1-1-1H1C.45 0 0 .45 0 1v12c0 .55.45 1 1 1h2v2l1.5-1.5L6 16v-4H3v1H1v-2h7v-1H2V1h9v7h1zM4 2H3v1h1V2zM3 4h1v1H3V4zm1 2H3v1h1V6zm0 3H3V8h1v1zm6 3H8v2h2v2h2v-2h2v-2h-2v-2h-2v2z')
+    }
+    static get repoTemplatePrivate() {
+      return new n(14, 16, 'M12 6c0-.55-.45-1-1-1h-1V4c0-2.2-1.8-4-4-4S2 1.8 2 4v1H1c-.55 0-1 .45-1 1v7c0 .55.45 1 1 1h5v-1H2V6h9v2h1V6zM8.21 5V4c0-1.22-.98-2.2-2.2-2.2-1.22 0-2.2.98-2.2 2.2v1h4.4zM12 12h2v2h-2v2h-2v-2H8v-2h2v-2h2v2zm-9 0h1v-1H3v1zm0-5h1v1H3V7zm1 2H3v1h1V9z')
+    }
     static get report() {
       return new n(16, 16, 'M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H7l-4 4v-4H1a1 1 0 0 1-1-1V2zm1 0h14v9H6.5L4 13.5V11H1V2zm6 6h2v2H7V8zm0-5h2v4H7V3z')
+    }
+    static get requestChanges() {
+      return new n(16, 15, 'M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H7.5L4 15.5V12H1a1 1 0 0 1-1-1V1zm1 0v10h4v2l2-2h8V1H1zm7.5 3h2v1h-2v2h-1V5h-2V4h2V2h1v2zm2 5h-5V8h5v1z')
     }
     static get rocket() {
       return new n(16, 16, 'M12.17 3.83c-.27-.27-.47-.55-.63-.88-.16-.31-.27-.66-.34-1.02-.58.33-1.16.7-1.73 1.13-.58.44-1.14.94-1.69 1.48-.7.7-1.33 1.81-1.78 2.45H3L0 10h3l2-2c-.34.77-1.02 2.98-1 3l1 1c.02.02 2.23-.64 3-1l-2 2v3l3-3v-3c.64-.45 1.75-1.09 2.45-1.78.55-.55 1.05-1.13 1.47-1.7.44-.58.81-1.16 1.14-1.72-.36-.08-.7-.19-1.03-.34a3.39 3.39 0 0 1-.86-.63zM16 0s-.09.38-.3 1.06c-.2.7-.55 1.58-1.06 2.66-.7-.08-1.27-.33-1.66-.72-.39-.39-.63-.94-.7-1.64C13.36.84 14.23.48 14.92.28 15.62.08 16 0 16 0z')
@@ -15882,13 +15936,25 @@ module.exports = function (e) {
       return new n(16, 16, 'M4 7H3V2h1v5zm-1 7h1v-3H3v3zm5 0h1V8H8v6zm5 0h1v-2h-1v2zm1-12h-1v6h1V2zM9 2H8v2h1V2zM5 8H2c-.55 0-1 .45-1 1s.45 1 1 1h3c.55 0 1-.45 1-1s-.45-1-1-1zm5-3H7c-.55 0-1 .45-1 1s.45 1 1 1h3c.55 0 1-.45 1-1s-.45-1-1-1zm5 4h-3c-.55 0-1 .45-1 1s.45 1 1 1h3c.55 0 1-.45 1-1s-.45-1-1-1z')
     }
     static get shield() {
+      return new n(14, 16, 'M0 2l7-2 7 2v6.02C14 12.69 8.69 16 7 16c-1.69 0-7-3.31-7-7.98V2zm1 .75L7 1l6 1.75v5.268C13 12.104 8.449 15 7 15c-1.449 0-6-2.896-6-6.982V2.75zm1 .75L7 2v12c-1.207 0-5-2.482-5-5.985V3.5z')
+    }
+    static get shieldCheck() {
+      return new n(16, 16, 'M6.5 0L0 1.875v5.644C0 11.897 4.93 15 6.5 15c.741 0 2.232-.692 3.6-1.884l-.713-.61C8.275 13.453 7.099 14 6.5 14 5.172 14 1 11.31 1 7.516V2.625L6.5 1 12 2.625v4.891c0 .128-.005.255-.014.38L13 6.713V1.875L6.5 0zm5 10l-2-1.5L8 10l3.5 3L16 8l-1.5-1.5-3 3.5zM2 3.375L6.5 2v11C5.414 13 2 10.724 2 7.514V3.375z')
+    }
+    static get shieldLock() {
       return new n(14, 16, 'M7 0L0 2v6.02C0 12.69 5.31 16 7 16c1.69 0 7-3.31 7-7.98V2L7 0zM5 11l1.14-2.8a.568.568 0 0 0-.25-.59C5.33 7.25 5 6.66 5 6c0-1.09.89-2 1.98-2C8.06 4 9 4.91 9 6c0 .66-.33 1.25-.89 1.61-.19.13-.3.36-.25.59L9 11H5z')
+    }
+    static get shieldX() {
+      return new n(16, 16, 'M6.5 0L0 1.875v5.644C0 11.897 4.93 15 6.5 15c.63 0 1.8-.5 2.976-1.38l-.663-.663C7.889 13.625 6.996 14 6.5 14 5.172 14 1 11.31 1 7.516V2.625L6.5 1 12 2.625v4.23l.48.48.52-.52v-4.94L6.5 0zm5.98 8.75L10.73 7 9.25 8.48 11 10.23l-1.75 1.75 1.48 1.48 1.75-1.75 1.75 1.75 1.48-1.48-1.75-1.75 1.75-1.75L14.23 7l-1.75 1.75zM2 3.375L6.5 2v11C5.414 13 2 10.724 2 7.514V3.375z')
     }
     static get signIn() {
       return new n(14, 16, 'M7 6.75V12h4V8h1v4c0 .55-.45 1-1 1H7v3l-5.45-2.72c-.33-.17-.55-.52-.55-.91V1c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v3h-1V1H3l4 2v2.25L10 3v2h4v2h-4v2L7 6.75z')
     }
     static get signOut() {
       return new n(16, 16, 'M12 9V7H8V5h4V3l4 3-4 3zm-2 3H6V3L2 1h8v3h1V1c0-.55-.45-1-1-1H1C.45 0 0 .45 0 1v11.38c0 .39.22.73.55.91L6 16.01V13h4c.55 0 1-.45 1-1V8h-1v4z')
+    }
+    static get skip() {
+      return new n(16, 16, 'M5.79 11.624l-1.326-.088-.088-1.326 5.834-5.834 1.326.088.088 1.326-5.834 5.834zM8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm5.5-7a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z')
     }
     static get smiley() {
       return new n(16, 16, 'M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm4.81 12.81a6.72 6.72 0 0 1-2.17 1.45c-.83.36-1.72.53-2.64.53-.92 0-1.81-.17-2.64-.53-.81-.34-1.55-.83-2.17-1.45a6.773 6.773 0 0 1-1.45-2.17A6.59 6.59 0 0 1 1.21 8c0-.92.17-1.81.53-2.64.34-.81.83-1.55 1.45-2.17.62-.62 1.36-1.11 2.17-1.45A6.59 6.59 0 0 1 8 1.21c.92 0 1.81.17 2.64.53.81.34 1.55.83 2.17 1.45.62.62 1.11 1.36 1.45 2.17.36.83.53 1.72.53 2.64 0 .92-.17 1.81-.53 2.64-.34.81-.83 1.55-1.45 2.17zM4 6.8v-.59c0-.66.53-1.19 1.2-1.19h.59c.66 0 1.19.53 1.19 1.19v.59c0 .67-.53 1.2-1.19 1.2H5.2C4.53 8 4 7.47 4 6.8zm5 0v-.59c0-.66.53-1.19 1.2-1.19h.59c.66 0 1.19.53 1.19 1.19v.59c0 .67-.53 1.2-1.19 1.2h-.59C9.53 8 9 7.47 9 6.8zm4 3.2c-.72 1.88-2.91 3-5 3s-4.28-1.13-5-3c-.14-.39.23-1 .66-1h8.59c.41 0 .89.61.75 1z')
@@ -15924,10 +15990,10 @@ module.exports = function (e) {
       return new n(12, 16, 'M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z')
     }
     static get thumbsdown() {
-      return new n(16, 16, 'M16.968 8.314l-1.03-6.318C15.758.531 13.942 0 12.742 0h-6.7a1.08 1.08 0 0 0-.563.149l-1.529.913H2.124C.998 1.062 0 2.06 0 3.186v4.247c0 1.125.998 2.145 2.124 2.124h2.123c.967 0 1.476.477 2.538 1.645.966 1.062.935 1.912.67 3.473-.086.53.063 1.061.445 1.507.414.5 1.04.818 1.657.818 1.943 0 3.185-3.95 3.185-5.33l-.021-1.041h2.166c1.232 0 2.07-.85 2.102-2.092 0-.064.022-.138-.02-.212v-.01zm-2.092 1.264h-2.113c-.743 0-1.093.297-1.093 1.03l.03 1.092c0 1.349-1.242 4.248-2.123 4.248-.531 0-1.147-.531-1.062-1.062.265-1.678.361-2.952-.945-4.396-1.083-1.2-1.88-1.996-3.324-1.996v-6.37L6.02 1.062h6.721c.775 0 2.07.329 2.124 1.062l.02.02 1.063 6.372c-.032.68-.404 1.062-1.062 1.062h-.01z')
+      return new n(16, 16, 'M15.98 7.83l-.97-5.95C14.84.5 13.13 0 12 0H5.69c-.2 0-.38.05-.53.14L3.72 1H2C.94 1 0 1.94 0 3v4c0 1.06.94 2.02 2 2h2c.91 0 1.39.45 2.39 1.55.91 1 .88 1.8.63 3.27-.08.5.06 1 .42 1.42.39.47.98.76 1.56.76 1.83 0 3-3.71 3-5.01l-.02-.98h2.04c1.16 0 1.95-.8 1.98-1.97 0-.11-.02-.21-.02-.21zm-1.97 1.19h-1.99c-.7 0-1.03.28-1.03.97l.03 1.03c0 1.27-1.17 4-2 4-.5 0-1.08-.5-1-1 .25-1.58.34-2.78-.89-4.14C6.11 8.75 5.36 8 4 8V2l1.67-1H12c.73 0 1.95.31 2 1l.02.02 1 6c-.03.64-.38 1-1 1h-.01z')
     }
     static get thumbsup() {
-      return new n(16, 16, 'M14 14c-.05.69-1.27 1-2 1H5.67L4 14V8c1.36 0 2.11-.75 3.13-1.88 1.23-1.36 1.14-2.56.88-4.13-.08-.5.5-1 1-1 .83 0 2 2.73 2 4l-.02 1.03c0 .69.33.97 1.02.97h2c.63 0 .98.36 1 1l-1 6L14 14zm0-8h-2.02l.02-.98C12 3.72 10.83 0 9 0c-.58 0-1.17.3-1.56.77-.36.41-.5.91-.42 1.41.25 1.48.28 2.28-.63 3.28-1 1.09-1.48 1.55-2.39 1.55H2C.94 7 0 7.94 0 9v4c0 1.06.94 2 2 2h1.72l1.44.86c.16.09.33.14.52.14h6.33c1.13 0 2.84-.5 3-1.88l.98-5.95c.02-.08.02-.14.02-.2-.03-1.17-.84-1.97-2-1.97H14z')
+      return new n(16, 16, 'M15.98 8.17l-.97 5.95C14.84 15.5 13.13 16 12 16H5.69c-.2 0-.38-.05-.53-.14L3.72 15H2c-1.06 0-2-.94-2-2V9c0-1.06.94-2.02 2-2h2c.91 0 1.39-.45 2.39-1.55.91-1 .88-1.8.63-3.27-.08-.5.06-1 .42-1.42C7.83.29 8.42 0 9 0c1.83 0 3 3.71 3 5.01l-.02.98h2.04c1.16 0 1.95.8 1.98 1.97 0 .11-.02.21-.02.21zm-1.97-1.19h-1.99c-.7 0-1.03-.28-1.03-.97l.03-1.03c0-1.27-1.17-4-2-4-.5 0-1.08.5-1 1 .25 1.58.34 2.78-.89 4.14C6.11 7.25 5.36 8 4 8v6l1.67 1H12c.73 0 1.95-.31 2-1l.02-.02 1-6c-.03-.64-.38-1-1-1h-.01z')
     }
     static get tools() {
       return new n(16, 16, 'M4.48 7.27c.26.26 1.28 1.33 1.28 1.33l.56-.58-.88-.91 1.69-1.8s-.76-.74-.43-.45c.32-1.19.03-2.51-.87-3.44C4.93.5 3.66.2 2.52.51l1.93 2-.51 1.96-1.89.52-1.93-2C-.19 4.17.1 5.48 1 6.4c.94.98 2.29 1.26 3.48.87zm6.44 1.94l-2.33 2.3 3.84 3.98c.31.33.73.49 1.14.49.41 0 .82-.16 1.14-.49.63-.65.63-1.7 0-2.35l-3.79-3.93zM16 2.53L13.55 0 6.33 7.46l.88.91-4.31 4.46-.99.53-1.39 2.27.35.37 2.2-1.44.51-1.02L7.9 9.08l.88.91L16 2.53z')
@@ -15954,10 +16020,10 @@ module.exports = function (e) {
       return new n(16, 16, 'M12 8.02c0 1.09-.45 2.09-1.17 2.83l-.67-.67c.55-.56.89-1.31.89-2.16 0-.85-.34-1.61-.89-2.16l.67-.67A3.99 3.99 0 0 1 12 8.02zM7.72 2.28L4 6H2c-.55 0-1 .45-1 1v2c0 .55.45 1 1 1h2l3.72 3.72c.47.47 1.28.14 1.28-.53V2.81c0-.67-.81-1-1.28-.53zm5.94.08l-.67.67a6.996 6.996 0 0 1 2.06 4.98c0 1.94-.78 3.7-2.06 4.98l.67.67A7.973 7.973 0 0 0 16 8c0-2.22-.89-4.22-2.34-5.66v.02zm-1.41 1.41l-.69.67a5.05 5.05 0 0 1 1.48 3.58c0 1.39-.56 2.66-1.48 3.56l.69.67A5.971 5.971 0 0 0 14 8.02c0-1.65-.67-3.16-1.75-4.25z')
     }
     static get unverified() {
-      return new n(16, 16, 'M16.65 7.507l-1.147-1.423a1.595 1.595 0 0 1-.33-.817l-.201-1.805a1.603 1.603 0 0 0-1.412-1.413l-1.806-.201a1.617 1.617 0 0 1-.828-.35L9.503.35a1.597 1.597 0 0 0-1.996 0L6.084 1.497c-.233.18-.51.297-.817.33l-1.805.201A1.603 1.603 0 0 0 2.049 3.44l-.201 1.805c-.032.319-.17.595-.35.829L.35 7.497a1.597 1.597 0 0 0 0 1.996l1.147 1.423c.18.233.297.51.33.817l.201 1.805a1.603 1.603 0 0 0 1.412 1.413l1.805.201c.319.032.595.17.829.35l1.423 1.148a1.597 1.597 0 0 0 1.996 0l1.423-1.147c.233-.18.51-.297.817-.33l1.805-.201a1.603 1.603 0 0 0 1.413-1.412l.201-1.806c.032-.318.17-.594.35-.828l1.148-1.423a1.597 1.597 0 0 0 0-1.996zm-7.083 4.715c0 .297-.233.53-.53.53H7.973a.532.532 0 0 1-.53-.53V11.16c0-.297.244-.531.53-.531h1.062c.298 0 .531.234.531.53v1.063zm1.657-5.193c-.064.18-.18.35-.319.5-.138.17-.149.201-.35.403a3.5 3.5 0 0 1-.553.478c-.116.095-.212.201-.297.286-.085.085-.148.18-.202.287a1.63 1.63 0 0 0-.116.319c-.032.116-.032.138-.032.265H7.582c0-.233 0-.329.031-.51.032-.201.085-.382.149-.552.064-.148.149-.297.265-.446.117-.138.245-.265.436-.403.287-.202.382-.319.51-.552.127-.234.212-.404.212-.627 0-.287-.064-.478-.212-.616-.139-.138-.33-.201-.616-.201-.096 0-.202.02-.319.053-.117.032-.18.095-.265.17-.085.074-.149.116-.213.212a.435.435 0 0 0-.095.297H5.34c0-.403.138-.594.287-.881.17-.287.382-.531.647-.712.266-.18.584-.318.935-.403a4.94 4.94 0 0 1 1.157-.138c.467 0 .882.053 1.243.138.36.096.669.234.934.414.244.18.435.404.584.67.138.265.202.583.202.933 0 .234 0 .446-.085.627l-.021-.01z')
+      return new n(16, 16, 'M15.67 7.066l-1.08-1.34a1.5 1.5 0 0 1-.309-.77l-.19-1.698a1.51 1.51 0 0 0-1.329-1.33l-1.699-.19c-.3-.03-.56-.159-.78-.329L8.945.33a1.504 1.504 0 0 0-1.878 0l-1.34 1.08a1.5 1.5 0 0 1-.77.31l-1.698.19c-.7.08-1.25.63-1.33 1.329l-.19 1.699c-.03.3-.159.56-.329.78L.33 7.055a1.504 1.504 0 0 0 0 1.878l1.08 1.34c.17.22.28.48.31.77l.19 1.698c.08.7.63 1.25 1.329 1.33l1.699.19c.3.03.56.159.78.329l1.339 1.08c.55.439 1.329.439 1.878 0l1.34-1.08c.22-.17.48-.28.77-.31l1.698-.19c.7-.08 1.25-.63 1.33-1.329l.19-1.699c.03-.3.159-.56.329-.78l1.08-1.339a1.504 1.504 0 0 0 0-1.878zM9 11.5c0 .28-.22.5-.5.5h-1c-.27 0-.5-.22-.5-.5v-1c0-.28.23-.5.5-.5h1c.28 0 .5.22.5.5v1zm1.56-4.89c-.06.17-.17.33-.3.47-.13.16-.14.19-.33.38-.16.17-.31.3-.52.45-.11.09-.2.19-.28.27-.08.08-.14.17-.19.27-.05.1-.08.19-.11.3-.03.11-.03.13-.03.25H7.13c0-.22 0-.31.03-.48.03-.19.08-.36.14-.52.06-.14.14-.28.25-.42.11-.13.23-.25.41-.38.27-.19.36-.3.48-.52.12-.22.2-.38.2-.59 0-.27-.06-.45-.2-.58-.13-.13-.31-.19-.58-.19-.09 0-.19.02-.3.05-.11.03-.17.09-.25.16-.08.07-.14.11-.2.2a.41.41 0 0 0-.09.28h-2c0-.38.13-.56.27-.83.16-.27.36-.5.61-.67.25-.17.55-.3.88-.38.33-.08.7-.13 1.09-.13.44 0 .83.05 1.17.13.34.09.63.22.88.39.23.17.41.38.55.63.13.25.19.55.19.88 0 .22 0 .42-.08.59l-.02-.01z')
     }
     static get verified() {
-      return new n(16, 16, 'M16.65 7.507l-1.147-1.423a1.595 1.595 0 0 1-.33-.817l-.201-1.805a1.603 1.603 0 0 0-1.412-1.413l-1.806-.201a1.617 1.617 0 0 1-.828-.35L9.503.35a1.597 1.597 0 0 0-1.996 0L6.084 1.497c-.233.18-.51.297-.817.33l-1.805.201A1.603 1.603 0 0 0 2.049 3.44l-.201 1.805c-.032.319-.17.595-.35.829L.35 7.497a1.597 1.597 0 0 0 0 1.996l1.147 1.423c.18.233.297.51.33.817l.201 1.805a1.603 1.603 0 0 0 1.412 1.413l1.805.201c.319.032.595.17.829.35l1.423 1.148a1.597 1.597 0 0 0 1.996 0l1.423-1.147c.233-.18.51-.297.817-.33l1.805-.201a1.603 1.603 0 0 0 1.413-1.412l.201-1.806c.032-.318.17-.594.35-.828l1.148-1.423a1.597 1.597 0 0 0 0-1.996zm-9.737 5.246L3.196 9.036 4.79 7.443l2.124 2.124 5.309-5.309 1.593 1.646-6.902 6.849z')
+      return new n(16, 16, 'M15.67 7.066l-1.08-1.34a1.5 1.5 0 0 1-.309-.77l-.19-1.698a1.51 1.51 0 0 0-1.329-1.33l-1.699-.19c-.3-.03-.56-.159-.78-.329L8.945.33a1.504 1.504 0 0 0-1.878 0l-1.34 1.08a1.5 1.5 0 0 1-.77.31l-1.698.19c-.7.08-1.25.63-1.33 1.329l-.19 1.699c-.03.3-.159.56-.329.78L.33 7.055a1.504 1.504 0 0 0 0 1.878l1.08 1.34c.17.22.28.48.31.77l.19 1.698c.08.7.63 1.25 1.329 1.33l1.699.19c.3.03.56.159.78.329l1.339 1.08c.55.439 1.329.439 1.878 0l1.34-1.08c.22-.17.48-.28.77-.31l1.698-.19c.7-.08 1.25-.63 1.33-1.329l.19-1.699c.03-.3.159-.56.329-.78l1.08-1.339a1.504 1.504 0 0 0 0-1.878zM6.5 12.01L3 8.51l1.5-1.5 2 2 5-5L13 5.56l-6.5 6.45z')
     }
     static get versions() {
       return new n(14, 16, 'M13 3H7c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm-1 8H8V5h4v6zM4 4h1v1H4v6h1v1H4c-.55 0-1-.45-1-1V5c0-.55.45-1 1-1zM1 5h1v1H1v4h1v1H1c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1z')
@@ -15978,7 +16044,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(114),
+  const o = n(115),
     r = n(3);
   class i extends o.BaseDatabase {
     constructor(e, t) {
@@ -16057,7 +16123,7 @@ module.exports = function (e) {
   const a = n(38),
     s = n(3),
     d = n(13),
-    l = n(127);
+    l = n(128);
   let c = null;
   t.askUserToOAuth = function (e) {
     return new Promise((t, n) => {
@@ -16138,8 +16204,8 @@ module.exports = function (e) {
   const l = n(34),
     c = n(11),
     p = n(75),
-    u = n(240),
-    m = n(161);
+    u = n(242),
+    m = n(162);
   t.DesktopStashEntryMarker = '!!GitHub_Desktop';
   const h = /!!GitHub_Desktop<(.+)>$/;
   t.getStashes = o, t.getLastDesktopStashEntryForBranch = async function (e, t) {
@@ -16210,23 +16276,23 @@ module.exports = function (e) {
     i = n(20),
     a = n(50),
     s = n(29),
-    d = n(168),
+    d = n(169),
     l = n(96),
     c = n(28),
-    p = n(130),
+    p = n(131),
     u = n(45),
-    m = n(620),
+    m = n(624),
     h = n(22),
-    f = n(116),
-    g = n(230),
+    f = n(117),
+    g = n(232),
     y = n(3),
-    S = n(229),
-    C = n(619),
-    b = n(256),
-    v = n(247),
+    S = n(231),
+    C = n(623),
+    b = n(258),
+    v = n(249),
     E = n(58),
     w = n(23),
-    k = n(228),
+    k = n(230),
     _ = n(75),
     R = 100,
     T = 'history';
@@ -16911,15 +16977,15 @@ module.exports = function (e) {
   const c = n(2),
     p = n(19),
     u = n(34),
-    m = n(164),
+    m = n(165),
     h = n(20),
     f = n(52),
     g = n(76),
     y = n(11),
-    S = n(243),
-    C = n(161),
-    b = n(239),
-    v = n(160);
+    S = n(245),
+    C = n(162),
+    b = n(241),
+    v = n(161);
   var E;
   (function (e) {
     e.CompletedWithoutError = 'CompletedWithoutError', e.ConflictsEncountered = 'ConflictsEncountered', e.OutstandingFilesNotStaged = 'OutstandingFilesNotStaged', e.Aborted = 'Aborted', e.Error = 'Error'
@@ -16979,7 +17045,7 @@ module.exports = function (e) {
     a = n(11),
     s = n(34),
     d = n(63),
-    l = n(649),
+    l = n(653),
     c = n(78);
   t.merge = async function (e, t) {
     const {
@@ -17158,14 +17224,14 @@ module.exports = function (e) {
     value: !0
   });
   const p = n(78),
-    u = n(652),
+    u = n(656),
     m = n(20),
-    h = n(651),
+    h = n(655),
     f = n(30),
     g = n(3),
-    y = n(238),
-    S = n(165),
-    C = n(237),
+    y = n(240),
+    S = n(166),
+    C = n(239),
     b = 2e7,
     v = ['DD', 'AU', 'UD', 'UA', 'DU', 'AA', 'UU'];
   t.getStatus = async function (e) {
@@ -17285,8 +17351,8 @@ module.exports = function (e) {
   });
   const a = n(11),
     s = n(20),
-    d = n(162),
-    l = n(118),
+    d = n(163),
+    l = n(119),
     c = n(97);
   t.getCommits = r, t.getChangedFiles = async function (e, t) {
     const n = await a.git(['log', t, '-C', '-M', '-m', '-1', '--no-show-signature', '--first-parent', '--name-status', '--format=format:', '-z', '--'], e.path, 'getChangedFiles');
@@ -17330,7 +17396,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(20),
-    r = n(242),
+    r = n(244),
     i = n(22),
     a = n(3);
   t.stageManualConflictResolution = async function (e, t, n) {
@@ -17418,10 +17484,10 @@ module.exports = function (e) {
   });
   const r = n(32),
     i = n(2),
-    a = n(164),
+    a = n(165),
     s = n(52),
-    d = n(662),
-    l = n(119);
+    d = n(666),
+    l = n(120);
   t.executionOptionsWithProgress = async function (e, t, n) {
     let r = null,
       i = {};
@@ -17478,10 +17544,10 @@ module.exports = function (e) {
   });
   const o = n(11),
     r = n(34),
-    i = n(162),
+    i = n(163),
     a = n(50),
-    s = n(118),
-    d = n(168),
+    s = n(119),
+    d = n(169),
     l = n(97),
     c = `refs/remotes/${d.ForkedRemotePrefix}`;
   t.getBranches = async function (e, ...t) {
@@ -17561,8 +17627,8 @@ module.exports = function (e) {
     r = n(11),
     i = n(20),
     a = n(30),
-    s = n(165),
-    d = n(671);
+    s = n(166),
+    d = n(675);
   t.applyPatchToIndex = async function (e, t) {
     if (t.status.kind === i.AppFileStatusKind.Renamed) {
       await r.git(['add', '--u', '--', t.status.oldPath], e.path, 'applyPatchToIndex');
@@ -17600,7 +17666,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(676);
+  const o = n(680);
   t.TokenStore = {
     setItem: function (e, t, n) {
       return o.setPassword(e, t, n)
@@ -17622,9 +17688,9 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(47),
-    i = n(125),
-    a = n(277),
-    s = n(253);
+    i = n(126),
+    a = n(279),
+    s = n(255);
   t.getGenericHostname = function (e) {
     const t = i.parseRemote(e);
     if (t) return t.hostname;
@@ -17726,8 +17792,8 @@ module.exports = function (e) {
   });
   const r = n(47),
     i = n(13),
-    a = n(125),
-    s = n(128);
+    a = n(126),
+    s = n(129);
   t.findAccountForRemoteURL = async function (e, t, n = o) {
     const d = [...t, s.Account.anonymous()],
       l = a.parseRemote(e);
@@ -17834,7 +17900,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(681))
+    }(n(685))
 }, function (e, t, n) {
   'use strict';
 
@@ -18107,7 +18173,7 @@ module.exports = function (e) {
     value: !0
   });
   const p = n(2),
-    u = n(259),
+    u = n(261),
     m = n(19),
     h = n(3);
   var f;
@@ -18120,7 +18186,7 @@ module.exports = function (e) {
   function o(e) {
     throw 2 === e.code && (e.message = 'Couldn\'t find the app'), e
   }
-  const r = n(285);
+  const r = n(287);
   e.exports = (e) => {
     return Promise.reject(new Error('macOS only'))
   }, e.exports.sync = (e) => {
@@ -18213,7 +18279,7 @@ module.exports = function (e) {
   (function (e) {
     e.Atom = 'Atom', e.MacVim = 'MacVim', e.VSCode = 'Visual Studio Code', e.VSCodeInsiders = 'Visual Studio Code (Insiders)', e.VSCodium = 'VSCodium', e.SublimeText = 'Sublime Text', e.BBEdit = 'BBEdit', e.PhpStorm = 'PhpStorm', e.RubyMine = 'RubyMine', e.TextMate = 'TextMate', e.Brackets = 'Brackets', e.WebStorm = 'WebStorm', e.Typora = 'Typora', e.CodeRunner = 'CodeRunner', e.SlickEdit = 'SlickEdit'
   })(p = t.ExternalEditor || (t.ExternalEditor = {})), t.parse = o;
-  const u = n(261);
+  const u = n(263);
   t.getAvailableEditors = s
 }, function (e, t, n) {
   'use strict';
@@ -18224,9 +18290,9 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(98),
-    i = n(262),
-    a = n(260),
-    s = n(258);
+    i = n(264),
+    a = n(262),
+    s = n(260);
   let d = null;
   t.getAvailableEditors = o, t.findEditorOrDefault = async function (e) {
     const t = await o();
@@ -18252,7 +18318,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(263)), o(n(679));
+  }), o(n(265)), o(n(683));
   var r = n(98);
   t.parse = r.parse
 }, function (e, t) {
@@ -18305,7 +18371,7 @@ module.exports = function (e) {
   'use strict';
   const o = n(37).fromCallback;
   e.exports = {
-    copy: o(n(705))
+    copy: o(n(709))
   }
 }, function (e) {
   'use strict';
@@ -18373,7 +18439,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   e.exports = {
-    copySync: n(708)
+    copySync: n(712)
   }
 }, function (e) {
   e.exports = require('assert')
@@ -18443,7 +18509,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(127),
+  const r = n(128),
     i = 'stats-guid';
   let a = null;
   t.getGUID = o
@@ -21300,9 +21366,9 @@ module.exports = function (e) {
     }(), t['default'] = be
 }, function (e, t, n) {
   'use strict';
-  const o = n(721),
-    r = n(720),
-    i = n(719),
+  const o = n(725),
+    r = n(724),
+    i = n(723),
     a = new WeakMap,
     s = (...e) => {
       if (0 === e.length) return '__defaultKey';
@@ -21473,7 +21539,7 @@ module.exports = function (e) {
     return this.head = t, this.tail = e, this
   };
   try {
-    n(730)
+    n(734)
   } catch (e) {}
 }, function (e, t, n) {
   'use strict';
@@ -21530,9 +21596,9 @@ module.exports = function (e) {
     this.key = e, this.value = t, this.length = n, this.now = o, this.maxAge = r || 0
   }
   e.exports = r;
-  var p = n(732),
-    u = n(170),
-    m = n(283),
+  var p = n(736),
+    u = n(171),
+    m = n(285),
     h = 'function' == typeof Symbol,
     f;
   f = h ? function (e) {
@@ -21725,12 +21791,12 @@ module.exports = function (e) {
     return n = c({}, n), n.__winShell = !0, o = process.env.comspec || 'cmd.exe', r = ['/s', '/c', '"' + t + '"'], n.windowsVerbatimArguments = !0, n.shell && (o = n.shell), e(o, r, n)
   }
   var s = n(46),
-    d = n(734),
-    l = n(724),
-    c = n(179),
-    p = n(723),
-    u = n(722),
-    m = n(282)(),
+    d = n(738),
+    l = n(728),
+    c = n(180),
+    p = n(727),
+    u = n(726),
+    m = n(284)(),
     h = 10485760;
   e.exports = function (e, t, n) {
     var a = new Promise(function (a, c) {
@@ -21830,7 +21896,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   }), t.animationEnd = t.animationDelay = t.animationTiming = t.animationDuration = t.animationName = t.transitionEnd = t.transitionDuration = t.transitionDelay = t.transitionTiming = t.transitionProperty = t.transform = void 0;
-  var r = n(175),
+  var r = n(176),
     i = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -21872,7 +21938,7 @@ module.exports = function (e) {
   }), t.default = function (e, t) {
     e.classList ? e.classList.add(t) : !(0, r.default)(e) && (e.className = e.className + ' ' + t)
   };
-  var o = n(744),
+  var o = n(748),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -21928,15 +21994,15 @@ module.exports = function (e) {
         for (var o in n = arguments[t], n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
       return e
     },
-    d = n(291),
+    d = n(293),
     l = o(d),
     c = n(0),
     p = o(c),
     u = n(15),
     m = o(u),
-    h = n(290),
+    h = n(292),
     f = o(h),
-    g = n(746),
+    g = n(750),
     y = {
       component: m.default.any,
       childFactory: m.default.func,
@@ -22046,82 +22112,83 @@ module.exports = function (e) {
     s = n(28),
     d = n(3),
     l = n(38),
-    c = n(131),
-    p = n(739),
+    c = n(132),
+    p = n(743),
     u = n(65),
     m = n(13),
     h = n(82),
     f = n(83),
-    g = n(124),
-    y = n(158),
+    g = n(125),
+    y = n(159),
     S = n(44),
-    C = n(157),
-    b = n(122),
+    C = n(158),
+    b = n(123),
     v = n(29),
-    E = n(121),
+    E = n(122),
     w = n(99),
-    k = n(600),
-    _ = n(592),
-    R = n(539),
-    T = n(458),
-    x = n(456),
-    P = n(454),
-    M = n(192),
+    k = n(604),
+    _ = n(596),
+    R = n(543),
+    T = n(462),
+    x = n(460),
+    P = n(458),
+    M = n(193),
     D = n(4),
-    A = n(25),
-    I = n(448),
-    L = n(445),
-    B = n(435),
-    F = n(431),
-    N = n(424),
-    O = n(415),
-    H = n(413),
-    z = n(407),
-    U = n(406),
-    W = n(405),
-    V = n(397),
-    G = n(392),
-    K = n(389),
-    j = n(387),
-    q = n(385),
-    Y = n(383),
-    Q = n(381),
-    X = n(377),
-    $ = n(375),
-    Z = n(373),
-    J = n(371),
-    ee = n(369),
+    A = n(26),
+    I = n(452),
+    L = n(449),
+    B = n(439),
+    F = n(435),
+    N = n(428),
+    O = n(419),
+    H = n(417),
+    z = n(411),
+    U = n(410),
+    W = n(409),
+    V = n(401),
+    G = n(396),
+    K = n(393),
+    j = n(391),
+    q = n(389),
+    Y = n(387),
+    Q = n(385),
+    X = n(381),
+    $ = n(379),
+    Z = n(377),
+    J = n(375),
+    ee = n(373),
     te = n(86),
-    ne = n(367),
-    oe = n(362),
-    re = n(360),
-    ie = n(358),
-    ae = n(355),
-    se = n(353),
-    de = n(351),
-    le = n(350),
-    ce = n(346),
+    ne = n(371),
+    oe = n(366),
+    re = n(364),
+    ie = n(362),
+    ae = n(359),
+    se = n(357),
+    de = n(355),
+    le = n(354),
+    ce = n(350),
     pe = n(81),
-    ue = n(345),
+    ue = n(349),
     me = n(40),
-    he = n(24),
-    fe = n(343),
-    ge = n(342),
-    ye = n(340),
-    Se = n(338),
+    he = n(25),
+    fe = n(347),
+    ge = n(346),
+    ye = n(344),
+    Se = n(342),
     Ce = n(76),
     be = n(95),
-    ve = n(330),
-    Ee = n(329),
-    we = n(328),
-    ke = n(327),
+    ve = n(334),
+    Ee = n(333),
+    we = n(332),
+    ke = n(331),
     _e = n(23),
-    Re = n(195),
+    Re = n(196),
     Te = n(93),
-    xe = 60000,
-    Pe = 60 * xe;
+    xe = n(329),
+    Pe = 60000,
+    Me = 60 * Pe;
   t.dialogTransitionEnterTimeout = 250, t.dialogTransitionLeaveTimeout = 100;
-  class Me extends r.Component {
+  class De extends r.Component {
     constructor(e) {
       super(e), this.loading = !0, this.lastKeyPressed = null, this.showAddLocalRepo = () => this.props.dispatcher.showPopup({
         type: he.PopupType.AddRepository
@@ -22250,7 +22317,7 @@ module.exports = function (e) {
         this.props.dispatcher.showPopup(e)
       }, this.renderRepositoryList = () => {
         const e = this.state.selectedState ? this.state.selectedState.repository : null,
-          t = this.state.selectedExternalEditor,
+          t = this.state.selectedExternalEditor ? this.state.selectedExternalEditor : void 0,
           n = this.state.selectedShell,
           o = this.state.repositoryFilterText;
         return r.createElement(_.RepositoriesList, {
@@ -22336,8 +22403,8 @@ module.exports = function (e) {
         const t = window.setTimeout(async () => {
           window.clearTimeout(t), await this.props.appStore.refreshAllSidebarIndicators(), this.updateIntervalHandle = window.setInterval(() => {
             this.props.appStore.refreshAllSidebarIndicators()
-          }, 15 * xe)
-        }, 2 * xe)
+          }, 15 * Pe)
+        }, 2 * Pe)
       }), this.state = e.appStore.getState(), e.appStore.onDidUpdate((e) => {
         this.setState(e)
       }), e.appStore.onDidError((t) => {
@@ -22374,7 +22441,7 @@ module.exports = function (e) {
       window.clearInterval(this.updateIntervalHandle)
     }
     performDeferredLaunchActions() {
-      this.props.appStore.loadEmoji(), this.props.dispatcher.reportStats(), setInterval(() => this.props.dispatcher.reportStats(), 4 * Pe), this.props.dispatcher.installGlobalLFSFilters(!1), setInterval(() => this.checkForUpdates(!0), 4 * Pe), this.checkForUpdates(!0), log.info(`launching: ${f.getVersion()} (${g.getOS()})`), log.info(`execPath: '${process.execPath}'`)
+      this.props.appStore.loadEmoji(), this.props.dispatcher.reportStats(), setInterval(() => this.props.dispatcher.reportStats(), 4 * Me), this.props.dispatcher.installGlobalLFSFilters(!1), setInterval(() => this.checkForUpdates(!0), 4 * Me), this.checkForUpdates(!0), log.info(`launching: ${f.getVersion()} (${g.getOS()})`), log.info(`execPath: '${process.execPath}'`)
     }
     onMenuEvent(e) {
       if (!this.state.errors.length) return 'push' === e ? this.push() : 'force-push' === e ? this.push({
@@ -22650,7 +22717,7 @@ module.exports = function (e) {
       if (e && !t) return null;
       const n = !this.state.showWelcomeFlow,
         o = this.state.showWelcomeFlow,
-        i = this.inNoRepositoriesBlankSlateState(),
+        i = this.inNoRepositoriesViewState(),
         a = o || !1 ? 'light' : 'dark';
       return r.createElement(k.TitleBar, {
         showAppIcon: n,
@@ -23107,6 +23174,13 @@ module.exports = function (e) {
             onDismissed: this.onPopupDismissed,
             onContinue: this.onExitTutorialToHomeScreen
           });
+        case he.PopupType.PushRejectedDueToMissingWorkflowScope:
+          return r.createElement(xe.WorkflowPushRejectedDialog, {
+            onDismissed: this.onPopupDismissed,
+            rejectedPath: e.rejectedPath,
+            dispatcher: this.props.dispatcher,
+            repository: e.repository
+          });
         default:
           return d.assertNever(e, `Unknown popup type: ${e}`);
       }
@@ -23203,7 +23277,8 @@ module.exports = function (e) {
         tipState: u.kind,
         pullWithRebase: p,
         rebaseInProgress: d,
-        isForcePush: m
+        isForcePush: m,
+        shouldNudge: this.state.currentOnboardingTutorialStep === Te.TutorialStep.PushBranch
       })
     }
     renderBranchToolbarButton() {
@@ -23225,11 +23300,12 @@ module.exports = function (e) {
         pullRequests: a.openPullRequests,
         currentPullRequest: a.currentPullRequest,
         isLoadingPullRequests: a.isLoadingPullRequests,
-        handleProtectedBranchWarning: o
+        handleProtectedBranchWarning: o,
+        shouldNudge: this.state.currentOnboardingTutorialStep === Te.TutorialStep.CreateBranch
       })
     }
     renderBanner() {
-      if (this.inNoRepositoriesBlankSlateState()) return null;
+      if (this.inNoRepositoriesViewState()) return null;
       let e = null;
       return null === this.state.currentBanner ? this.state.isUpdateAvailableBannerVisible && (e = this.renderUpdateBanner()) : e = F.renderBanner(this.state.currentBanner, this.props.dispatcher, this.onBannerDismissed), r.createElement(a.CSSTransitionGroup, {
         transitionName: 'banner',
@@ -23247,7 +23323,7 @@ module.exports = function (e) {
       })
     }
     renderToolbar() {
-      return this.inNoRepositoriesBlankSlateState() ? null : r.createElement(M.Toolbar, {
+      return this.inNoRepositoriesViewState() ? null : r.createElement(M.Toolbar, {
         id: 'desktop-app-toolbar'
       }, r.createElement('div', {
         className: 'sidebar-section',
@@ -23258,7 +23334,7 @@ module.exports = function (e) {
     }
     renderRepository() {
       const e = this.state;
-      if (this.inNoRepositoriesBlankSlateState()) return r.createElement(Z.BlankSlateView, {
+      if (this.inNoRepositoriesViewState()) return r.createElement(Z.NoRepositoriesView, {
         dotComAccount: this.getDotComAccount(),
         enterpriseAccount: this.getEnterpriseAccount(),
         onCreate: this.showCreateRepository,
@@ -23273,7 +23349,7 @@ module.exports = function (e) {
       const t = e.selectedState;
       if (!t) return r.createElement(o, null);
       if (t.type === s.SelectionType.Repository) {
-        const n = e.selectedExternalEditor;
+        const n = e.selectedExternalEditor ? e.selectedExternalEditor : void 0;
         return r.createElement(R.RepositoryView, {
           repository: t.repository,
           state: t.state,
@@ -23325,14 +23401,14 @@ module.exports = function (e) {
         theme: t
       }), this.renderTitlebar(), this.state.showWelcomeFlow ? this.renderWelcomeFlow() : this.renderApp(), this.renderZoomInfo(), this.renderFullScreenInfo())
     }
-    inNoRepositoriesBlankSlateState() {
+    inNoRepositoriesViewState() {
       return 0 === this.state.repositories.length || this.isTutorialPaused()
     }
     isTutorialPaused() {
       return this.state.currentOnboardingTutorialStep === Te.TutorialStep.Paused
     }
   }
-  t.App = Me
+  t.App = De
 }, function (e) {
   'use strict';
   !1, e.exports = {}
@@ -23381,7 +23457,7 @@ module.exports = function (e) {
     var t = e >> 1;
     return 1 == (1 & e) ? -t : t
   }
-  var i = n(764),
+  var i = n(768),
     a = 5,
     s = 1 << a,
     d = s - 1,
@@ -23408,10 +23484,10 @@ module.exports = function (e) {
   function o(e) {
     e || (e = {}), this._file = a.getArg(e, 'file', null), this._sourceRoot = a.getArg(e, 'sourceRoot', null), this._skipValidation = a.getArg(e, 'skipValidation', !1), this._sources = new i, this._names = new i, this._mappings = new s, this._sourcesContents = null
   }
-  var r = n(296),
+  var r = n(298),
     a = n(101),
-    i = n(295).ArraySet,
-    s = n(763).MappingList;
+    i = n(297).ArraySet,
+    s = n(767).MappingList;
   o.prototype._version = 3, o.fromSourceMap = function (e) {
     var t = e.sourceRoot,
       n = new o({
@@ -23541,8 +23617,8 @@ module.exports = function (e) {
   });
   const a = n(2),
     s = n(32),
-    d = n(767),
-    l = n(766),
+    d = n(771),
+    l = n(770),
     c = ['renderer.js', 'main.js'],
     p = new WeakMap;
   let u;
@@ -23570,9 +23646,9 @@ module.exports = function (e) {
     }
   }
   t.__esModule = !0;
-  var r = n(552),
+  var r = n(556),
     a = o(r),
-    i = n(549),
+    i = n(553),
     s = o(i);
   t.default = function () {
     function e(e, t) {
@@ -23601,7 +23677,7 @@ module.exports = function (e) {
   }()
 }, function (e, t, n) {
   e.exports = {
-    default: n(555),
+    default: n(559),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -24479,7 +24555,7 @@ module.exports = function (e) {
     scrollToColumn: 0,
     scrollToRow: 0
   }, _e.propTypes = null, a(_e);
-  var Re = n(6),
+  var Re = n(7),
     Te = n.n(Re),
     xe = function (e) {
       function t() {
@@ -24742,7 +24818,7 @@ module.exports = function (e) {
     }(),
     Ie = n(54),
     Le = n.n(Ie),
-    Be = n(7),
+    Be = n(6),
     Fe = n.n(Be),
     Ne = n(67),
     Oe = n.n(Ne),
@@ -25326,7 +25402,7 @@ module.exports = function (e) {
     }(we.PureComponent),
     Qe = Ye;
   Ye.propTypes = {};
-  var Xe = n(132),
+  var Xe = n(133),
     $e = n.n(Xe),
     Ze = function () {
       function e(t) {
@@ -26483,7 +26559,7 @@ module.exports = function (e) {
   };
   var St = yt;
   yt.propTypes = {};
-  var Ct = n(300),
+  var Ct = n(302),
     bt = n.n(Ct),
     vt = function (e) {
       function t() {
@@ -26649,7 +26725,7 @@ module.exports = function (e) {
   }, vt.propTypes = null;
   var Et = n(103),
     wt = n.n(Et),
-    kt = n(299),
+    kt = n(301),
     _t = n.n(kt),
     Rt = {
       ge: function (e, t, n, o, r) {
@@ -28494,7 +28570,7 @@ module.exports = function (e) {
   e.exports = t, e.exports.default = t
 }, function (e, t, n) {
   'use strict';
-  const o = n(311),
+  const o = n(313),
     r = (e) => {
       if (1 > e) throw new TypeError('Expected `concurrency` to be a number from 1 and up');
       const t = [];
@@ -28545,8 +28621,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = n(312),
-    s = n(310),
+  const a = n(314),
+    s = n(312),
     d = n(13),
     l = n(53);
   t.CommitStatusStore = class {
@@ -28770,7 +28846,7 @@ module.exports = function (e) {
   const r = n(20),
     i = n(29),
     a = n(28),
-    s = n(232),
+    s = n(234),
     d = n(52),
     l = n(96);
   t.RepositoryStateCache = class {
@@ -28892,7 +28968,7 @@ module.exports = function (e) {
     value: !0
   }), t.installDevGlobals = function () {
     const e = global;
-    e.GitPerf = n(166)
+    e.GitPerf = n(167)
   }
 }, function (e, t, n) {
   'use strict';
@@ -28967,7 +29043,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(114);
+  const r = n(115);
   class i extends r.BaseDatabase {
     constructor(e, t) {
       super(e, t), this.conditionalVersion(1, {
@@ -28999,7 +29075,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(114);
+  const i = n(115);
   class a extends i.BaseDatabase {
     constructor(e, t) {
       super(e, t), this.conditionalVersion(1, {
@@ -29015,7 +29091,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(114);
+  const o = n(115);
   class r extends o.BaseDatabase {
     constructor(e, t) {
       super(e, t), this.conditionalVersion(1, {
@@ -29051,13 +29127,14 @@ module.exports = function (e) {
   });
   const s = n(34),
     d = n(98),
-    l = n(130),
+    l = n(131),
     c = n(49),
     p = n(11),
-    u = n(115),
-    m = n(230),
-    h = n(24),
-    f = n(44);
+    u = n(116),
+    m = n(232),
+    h = n(25),
+    f = n(44),
+    g = n(13);
   t.defaultErrorHandler = async function (t, n) {
     const o = r(t) || t;
     return await n.presentError(o), null
@@ -29205,6 +29282,28 @@ module.exports = function (e) {
       branchToCheckout: p
     } = c;
     return await n.moveChangesToBranchAndCheckout(l, p), null
+  };
+  const y = /^ ! \[remote rejected\] .*? -> .*? \(refusing to allow an integration to create or update (.*?)\)$/m;
+  t.refusedWorkflowUpdate = async function (t, n) {
+    const o = r(t);
+    if (!o) return t;
+    const a = i(o.underlyingError);
+    if (!a) return t;
+    const {
+      repository: s
+    } = o.metadata;
+    if (!(s instanceof f.Repository)) return t;
+    if (null === s.gitHubRepository) return t;
+    if (s.gitHubRepository.endpoint !== g.getDotComAPIEndpoint()) return t;
+    const d = y.exec(t.message);
+    if (!d) return t;
+    const l = d[1],
+      c = l.startsWith('.github/') && 0 <= l.indexOf('workflow');
+    return c ? (n.showPopup({
+      type: h.PopupType.PushRejectedDueToMissingWorkflowScope,
+      rejectedPath: l,
+      repository: s
+    }), null) : t
   }
 }, function (e, t, n) {
   'use strict';
@@ -29245,23 +29344,23 @@ module.exports = function (e) {
     a = n(38),
     s = n(28),
     d = n(3),
-    l = n(254),
+    l = n(256),
     c = n(22),
-    p = n(324),
-    u = n(227),
+    p = n(326),
+    u = n(229),
     m = n(65),
-    h = n(158),
-    f = n(323),
+    h = n(159),
+    f = n(325),
     g = n(76),
-    y = n(121),
-    S = n(120),
-    C = n(24),
+    y = n(122),
+    S = n(121),
+    C = n(25),
     b = n(44),
-    v = n(116),
+    v = n(117),
     E = n(29),
     w = n(95),
-    k = n(183),
-    _ = n(25);
+    k = n(184),
+    _ = n(26);
   t.Dispatcher = class {
     constructor(e, t, n, o) {
       this.appStore = e, this.repositoryStateManager = t, this.statsStore = n, this.commitStatusStore = o, this.errorHandlers = [], this.addRebasedBranchToForcePushList = (e, t, n) => {
@@ -29522,9 +29621,6 @@ module.exports = function (e) {
     }
     setCommitMessage(e, t) {
       return this.appStore._setCommitMessage(e, t)
-    }
-    addAccount(e) {
-      return this.appStore._addAccount(e)
     }
     removeAccount(e) {
       return this.appStore._removeAccount(e)
@@ -30081,7 +30177,7 @@ module.exports = function (e) {
     recordTutorialStarted() {
       return this.statsStore.recordTutorialStarted()
     }
-    recordTutorialRepositoryCreated() {
+    recordTutorialRepoCreated() {
       return this.statsStore.recordTutorialRepoCreated()
     }
   }
@@ -30093,7 +30189,51 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(325)), o(n(322))
+  }), o(n(327)), o(n(324))
+}, function (e, t, n) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0),
+    r = n(5),
+    i = n(8),
+    a = n(1),
+    s = n(24);
+  class d extends o.Component {
+    constructor(e) {
+      super(e), this.onSignIn = async () => {
+        this.setState({
+          loading: !0
+        }), await this.props.dispatcher.beginDotComSignIn(), await this.props.dispatcher.requestBrowserAuthentication(), this.props.dispatcher.push(this.props.repository), this.props.onDismissed()
+      }, this.state = {
+        loading: !1
+      }
+    }
+    render() {
+      return o.createElement(r.Dialog, {
+        title: 'Push rejected',
+        loading: this.state.loading,
+        onDismissed: this.props.onDismissed,
+        onSubmit: this.onSignIn,
+        type: 'error'
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'The push was rejected by the server for containing a modification to a workflow file ( ', o.createElement(s.Ref, null, this.props.rejectedPath), '). In order to be able to push to workflow files GitHub Desktop needs to request additional permissions.'), o.createElement('p', null, 'Would you like to open a browser to grant GitHub Desktop permission to update workflow files?')), o.createElement(r.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(a.Button, {
+        type: 'submit'
+      }, 'Grant'), o.createElement(a.Button, {
+        onClick: this.props.onDismissed
+      }, 'Cancel'))))
+    }
+  }
+  t.WorkflowPushRejectedDialog = d
+}, function (e, t) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  }), t.sendNonFatalException = function (e, t) {
+    process.emit('send-non-fatal-exception', t, {
+      kind: e
+    })
+  }
 }, function (e, t, n) {
   'use strict';
 
@@ -30110,17 +30250,18 @@ module.exports = function (e) {
     d = n(1),
     l = n(8),
     c = n(13),
-    p = n(26),
+    p = n(24),
     u = n(14),
-    m = n(133),
+    m = n(134),
     h = n(19),
     f = n(22),
     g = n(49),
     y = n(77),
-    S = n(173),
-    C = '\r\n',
-    b = `# Welcome to GitHub Desktop!${C}${C}` + `This is your README. READMEs are where you can communicate ` + `what your project is and how to use it.${C}${C}` + `Write your name on line 6, save it, and then head ` + `back to GitHub Desktop.${C}`;
-  class v extends r.Component {
+    S = n(174),
+    C = n(330),
+    b = '\r\n',
+    v = `# Welcome to GitHub Desktop!${b}${b}` + `This is your README. READMEs are where you can communicate ` + `what your project is and how to use it.${b}${b}` + `Write your name on line 6, save it, and then head ` + `back to GitHub Desktop.${b}`;
+  class E extends r.Component {
     constructor(e) {
       super(e), this.onSubmit = async () => {
         this.props.dispatcher.recordTutorialStarted();
@@ -30136,14 +30277,14 @@ module.exports = function (e) {
           if (await h.pathExists(o)) throw new Error(`The path ${o} already exists. Please move it ` + 'out of the way, or remove it, and then try again.');
           this.setProgress(`Creating repository on ${t}`, 0);
           const r = await this.createAPIRepository(e, n);
-          this.setProgress('Initializing local repository', .2), await h.ensureDir(o), await f.git(['init'], o, 'tutorial:init'), await h.writeFile(a.join(o, 'README.md'), b), await f.git(['add', '--', 'README.md'], o, 'tutorial:add'), await f.git(['commit', '-m', 'Initial commit', '--', 'README.md'], o, 'tutorial:commit'), await f.git(['remote', 'add', 'origin', r.clone_url], o, 'tutorial:add-remote'), await this.pushRepo(o, e, (e, t, n) => {
+          this.setProgress('Initializing local repository', .2), await h.ensureDir(o), await f.git(['init'], o, 'tutorial:init'), await h.writeFile(a.join(o, 'README.md'), v), await f.git(['add', '--', 'README.md'], o, 'tutorial:add'), await f.git(['commit', '-m', 'Initial commit', '--', 'README.md'], o, 'tutorial:commit'), await f.git(['remote', 'add', 'origin', r.clone_url], o, 'tutorial:add-remote'), await this.pushRepo(o, e, (e, t, n) => {
             this.setProgress(e, .3 + .6 * t, n)
-          }), this.setProgress('Finalizing tutorial repository', .9), await this.props.onTutorialRepositoryCreated(o, e, r), this.props.dispatcher.recordTutorialRepositoryCreated(), this.props.onDismissed()
+          }), this.setProgress('Finalizing tutorial repository', .9), await this.props.onTutorialRepositoryCreated(o, e, r), this.props.dispatcher.recordTutorialRepoCreated(), this.props.onDismissed()
         } catch (e) {
           this.setState({
             loading: !1,
             progress: void 0
-          }), e instanceof f.GitError ? this.props.onError(e) : this.props.onError(new Error(`Failed creating the tutorial repository.\n\n${e.message}`))
+          }), C.sendNonFatalException('tutorialRepoCreation', e), e instanceof f.GitError ? this.props.onError(e) : this.props.onError(new Error(`Failed creating the tutorial repository.\n\n${e.message}`))
         }
       }, this.onCancel = () => {
         this.props.onDismissed()
@@ -30214,7 +30355,7 @@ module.exports = function (e) {
       }, 'Cancel'))))
     }
   }
-  t.CreateTutorialRepositoryDialog = v
+  t.CreateTutorialRepositoryDialog = E
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -30331,14 +30472,14 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(5),
-    i = n(134),
+    i = n(135),
     a = n(18),
     s = n(8),
     d = n(1),
     l = n(94),
     c = n(4),
-    p = n(24),
-    u = n(108);
+    p = n(25),
+    u = n(109);
   var m;
   (function (e) {
     e[e.StashOnCurrentBranch = 0] = 'StashOnCurrentBranch', e[e.MoveToNewBranch = 1] = 'MoveToNewBranch'
@@ -30436,7 +30577,7 @@ module.exports = function (e) {
     i = n(8),
     a = n(35),
     s = n(5),
-    d = n(26);
+    d = n(24);
   class l extends o.Component {
     constructor(e) {
       super(e), this.onAskForConfirmationOnForcePushChanged = (e) => {
@@ -30480,7 +30621,7 @@ module.exports = function (e) {
     i = n(8),
     a = n(35),
     s = n(5),
-    d = n(26);
+    d = n(24);
   class l extends o.Component {
     constructor(e) {
       super(e), this.onAskForConfirmationOnForcePushChanged = (e) => {
@@ -30535,7 +30676,7 @@ module.exports = function (e) {
     i = n(1),
     a = n(5),
     s = n(4),
-    d = n(26);
+    d = n(24);
   class l extends o.Component {
     constructor(e) {
       super(e), this.onSubmit = async () => {
@@ -30637,8 +30778,8 @@ module.exports = function (e) {
     r = n(40),
     i = n(8),
     a = n(1),
-    s = n(182),
-    d = n(181),
+    s = n(183),
+    d = n(182),
     l = n(5);
   class c extends o.Component {
     constructor(e) {
@@ -30735,14 +30876,14 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(63),
-    a = n(186),
+    a = n(187),
     s = n(22),
     d = n(1),
     l = n(8),
-    c = n(138),
+    c = n(139),
     p = n(5),
     u = n(86),
-    m = n(159);
+    m = n(160);
   class h extends r.Component {
     constructor(e) {
       super(e), this.computingRebaseForBranch = null, this.onFilterTextChanged = (e) => {
@@ -30890,12 +31031,12 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(3),
-    i = n(336),
-    a = n(335),
-    s = n(334),
-    d = n(333),
+    i = n(340),
+    a = n(339),
+    s = n(338),
+    d = n(337),
     l = n(40),
-    c = n(332);
+    c = n(336);
   class p extends o.Component {
     constructor(e) {
       super(e), this.moveToShowConflictedFileState = (e) => {
@@ -31041,9 +31182,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(337);
+  var o = n(341);
   t.RebaseFlow = o.RebaseFlow;
-  var r = n(331);
+  var r = n(335);
   t.ConfirmForcePush = r.ConfirmForcePush
 }, function (e, t, n) {
   'use strict';
@@ -31053,7 +31194,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(8),
     i = n(5),
-    a = n(120),
+    a = n(121),
     s = n(1),
     d = n(55);
   class l extends o.Component {
@@ -31087,7 +31228,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(339);
+  var o = n(343);
   t.PushNeedsPullWarning = o.PushNeedsPullWarning
 }, function (e, t, n) {
   'use strict';
@@ -31142,7 +31283,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(341);
+  var o = n(345);
   t.UsageStatsChange = o.UsageStatsChange
 }, function (e, t, n) {
   'use strict';
@@ -31207,7 +31348,7 @@ module.exports = function (e) {
     r = n(1),
     i = n(8),
     a = n(5),
-    s = n(24),
+    s = n(25),
     d = n(4);
   class l extends o.Component {
     constructor() {
@@ -31254,7 +31395,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(344))
+    }(n(348))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -31339,7 +31480,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(182)), o(n(181))
+  }), o(n(183)), o(n(182))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -31349,11 +31490,11 @@ module.exports = function (e) {
     r = n(1),
     i = n(8),
     a = n(5),
-    s = n(24),
+    s = n(25),
     d = n(28),
     l = n(40),
     c = n(96),
-    p = n(348),
+    p = n(352),
     u = n(95);
   class m extends o.Component {
     constructor() {
@@ -31437,7 +31578,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(349)), o(n(347))
+  }), o(n(353)), o(n(351))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -31479,7 +31620,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(33),
-    i = n(131),
+    i = n(132),
     a = n(8),
     s = n(1),
     d = n(14),
@@ -31488,7 +31629,7 @@ module.exports = function (e) {
     p = n(44),
     u = n(13),
     m = n(38),
-    h = n(136),
+    h = n(137),
     f = new p.Repository('', -1, {
       dbID: null,
       name: 'desktop',
@@ -31592,7 +31733,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(352);
+  var o = n(356);
   t.ReleaseNotes = o.ReleaseNotes
 }, function (e, t, n) {
   'use strict';
@@ -31603,7 +31744,7 @@ module.exports = function (e) {
     r = n(5),
     i = n(8),
     a = n(1),
-    s = n(26),
+    s = n(24),
     d = n(3),
     l = n(80);
   class c extends o.Component {
@@ -31641,7 +31782,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(354);
+  var o = n(358);
   t.UpstreamAlreadyExists = o.UpstreamAlreadyExists
 }, function (e, t, n) {
   'use strict';
@@ -31750,9 +31891,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(357);
+  var o = n(361);
   t.InitializeLFS = o.InitializeLFS;
-  var r = n(356);
+  var r = n(360);
   t.AttributeMismatch = r.AttributeMismatch
 }, function (e, t, n) {
   'use strict';
@@ -31791,7 +31932,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(359);
+  var o = n(363);
   t.ShellError = o.ShellError
 }, function (e, t, n) {
   'use strict';
@@ -31853,7 +31994,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(361);
+  var o = n(365);
   t.GenericGitAuthentication = o.GenericGitAuthentication
 }, function (e, t, n) {
   e.exports = n.p + 'fff110f06938764612a1a3588659e22e.cmd'
@@ -31866,7 +32007,7 @@ module.exports = function (e) {
     } catch (e) {
       throw new Error('Cannot open ' + o + ': ' + e)
     }
-  }).call(this, n(129)(e))
+  }).call(this, n(130)(e))
 }, function (e, t, n) {
   function o(e, t) {
     return (n) => t(0 === n ? null : new Error(e + ' failed with exit status ' + n))
@@ -31875,8 +32016,8 @@ module.exports = function (e) {
     {
       spawn: i
     } = n(46),
-    a = n(233),
-    s = n(364),
+    a = n(235),
+    s = n(368),
     d = e.exports;
   Object.assign(d, {
     symlink(e, t, n) {
@@ -31889,7 +32030,7 @@ module.exports = function (e) {
       s.spawnAsAdmin('cmd', ['/c', 'mkdir', e], d.testMode, o('mkdir', t))
     },
     recursiveCopy(e, t, n) {
-      s.spawnAsAdmin('cmd', ['/c', 363, e, t], d.testMode, o('robocopy', n))
+      s.spawnAsAdmin('cmd', ['/c', 367, e, t], d.testMode, o('robocopy', n))
     }
   })
 }, function (e, t, n) {
@@ -31901,7 +32042,7 @@ module.exports = function (e) {
     r = n(1),
     i = n(8),
     a = n(5),
-    s = n(183);
+    s = n(184);
   class d extends o.Component {
     render() {
       return o.createElement(a.Dialog, {
@@ -31919,7 +32060,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(366);
+  var o = n(370);
   t.CLIInstalled = o.CLIInstalled
 }, function (e, t, n) {
   'use strict';
@@ -31973,7 +32114,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(368);
+  var o = n(372);
   t.TermsAndConditions = o.TermsAndConditions
 }, function (e, t, n) {
   'use strict';
@@ -31985,7 +32126,7 @@ module.exports = function (e) {
     i = n(1),
     a = n(35),
     s = n(5),
-    d = n(26),
+    d = n(24),
     l = n(73);
   class c extends o.Component {
     constructor(e) {
@@ -32039,7 +32180,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(370);
+  var o = n(374);
   t.ConfirmRemoveRepository = o.ConfirmRemoveRepository
 }, function (e, t, n) {
   'use strict';
@@ -32052,7 +32193,7 @@ module.exports = function (e) {
     a = n(4),
     s = n(61),
     d = n(48),
-    l = n(184),
+    l = n(185),
     c = n(3),
     p = n(23);
   var u;
@@ -32099,14 +32240,14 @@ module.exports = function (e) {
     }
     render() {
       return o.createElement(r.UiView, {
-        id: 'blank-slate'
+        id: 'no-repositories'
       }, o.createElement('header', null, o.createElement('h1', null, 'Let\'s get started!'), o.createElement('p', null, 'Add a repository to GitHub Desktop to start collaborating')), o.createElement('div', {
         className: 'content'
-      }, this.renderLeftPanel(), this.renderRightPanel()), o.createElement('img', {
-        className: 'blankslate-graphic-top',
+      }, this.renderGetStartedActions(), this.renderRepositoryList()), o.createElement('img', {
+        className: 'no-repositories-graphic-top',
         src: s.WelcomeLeftTopImageUri
       }), o.createElement('img', {
-        className: 'blankslate-graphic-bottom',
+        className: 'no-repositories-graphic-bottom',
         src: s.WelcomeLeftBottomImageUri
       }))
     }
@@ -32128,18 +32269,18 @@ module.exports = function (e) {
       } = this.state;
       return e === u.dotCom ? this.props.dotComAccount || this.props.enterpriseAccount : e === u.enterprise ? this.props.enterpriseAccount || this.props.dotComAccount : c.assertNever(e, `Unknown account tab ${e}`)
     }
-    renderLeftPanel() {
+    renderRepositoryList() {
       const e = this.getSelectedAccount();
       if (null === e) return null;
       const t = this.props.apiRepositories.get(e);
       return o.createElement('div', {
-        className: 'content-pane left'
-      }, this.renderAccountsTabBar(), this.renderAccountTab(e, t))
+        className: 'content-pane repository-list'
+      }, this.renderAccountsTabBar(), this.renderAccountRepositoryList(e, t))
     }
     getSelectedItemForAccount(e) {
       return e === this.props.dotComAccount ? this.state.selectedDotComRepository : this.state.selectedEnterpriseRepository
     }
-    renderAccountTab(e, t) {
+    renderAccountRepositoryList(e, t) {
       const n = !(t !== void 0) || t.loading,
         r = t === void 0 ? null : t.repositories,
         i = this.getSelectedItemForAccount(e),
@@ -32191,9 +32332,9 @@ module.exports = function (e) {
     renderAddExistingRepositoryButton() {
       return this.renderButtonGroupButton(a.OcticonSymbol.fileDirectory, 'Add an Existing Repository from your hard drive\u2026', this.props.onAdd)
     }
-    renderRightPanel() {
+    renderGetStartedActions() {
       return o.createElement('div', {
-        className: 'content-pane right'
+        className: 'content-pane'
       }, o.createElement('ul', {
         className: 'button-group'
       }, this.renderTutorialRepositoryButton(), this.renderCloneButton(), this.renderCreateRepositoryButton(), this.renderAddExistingRepositoryButton()), o.createElement('div', {
@@ -32203,14 +32344,14 @@ module.exports = function (e) {
       }), o.createElement('div', null, o.createElement('strong', null, 'ProTip!'), ' You can drag & drop an existing repository folder here to add it to Desktop')))
     }
   }
-  t.BlankSlateView = m
+  t.NoRepositoriesView = m
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(372);
-  t.BlankSlateView = o.BlankSlateView
+  var o = n(376);
+  t.NoRepositoriesView = o.NoRepositoriesView
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -32249,7 +32390,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(374);
+  var o = n(378);
   t.UntrustedCertificate = o.UntrustedCertificate
 }, function (e, t, n) {
   'use strict';
@@ -32344,7 +32485,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(376);
+  var o = n(380);
   t.Acknowledgements = o.Acknowledgements
 }, function (e, t) {
   'use strict';
@@ -32363,12 +32504,12 @@ module.exports = function (e) {
   const o = n(0),
     r = n(13),
     i = n(27),
-    a = n(135),
+    a = n(136),
     s = n(5),
     d = n(18),
     l = n(52),
     c = n(45),
-    p = n(185),
+    p = n(186),
     u = n(4);
   class m extends o.Component {
     constructor(e) {
@@ -32475,7 +32616,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(379),
+    r = n(383),
     i = n(8),
     a = n(1),
     s = n(5),
@@ -32484,7 +32625,7 @@ module.exports = function (e) {
     c = n(3),
     p = n(104),
     u = n(22),
-    m = n(378);
+    m = n(382);
   var h;
   (function (e) {
     e[e.DotCom = 0] = 'DotCom', e[e.Enterprise = 1] = 'Enterprise'
@@ -32654,7 +32795,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(380);
+  var o = n(384);
   t.Publish = o.Publish
 }, function (e, t, n) {
   'use strict';
@@ -32667,11 +32808,11 @@ module.exports = function (e) {
     a = n(8),
     s = n(5),
     d = n(14),
-    l = n(131),
+    l = n(132),
     c = n(55),
-    p = n(107),
+    p = n(108),
     u = n(3),
-    m = n(136),
+    m = n(137),
     h = n(33),
     f = h.encodePathAsUrl(__dirname, 'static/logo-64x64@2x.png');
   class g extends o.Component {
@@ -32799,7 +32940,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(382))
+    }(n(386))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -32849,7 +32990,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(384))
+    }(n(388))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -32892,7 +33033,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(386))
+    }(n(390))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -32908,7 +33049,7 @@ module.exports = function (e) {
     c = n(27),
     p = n(8),
     u = n(5),
-    m = n(172),
+    m = n(173),
     h = n(13),
     f = 'Sign in using your browser';
   class g extends o.Component {
@@ -33082,7 +33223,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(388))
+    }(n(392))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -33099,21 +33240,21 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(194),
+    r = n(195),
     i = n(50),
     a = n(27),
     s = n(18),
-    d = n(26),
+    d = n(24),
     l = n(1),
     c = n(14),
     p = n(8),
     u = n(5),
-    m = n(134),
+    m = n(135),
     h = n(29),
     f = n(3),
-    g = n(193),
-    y = n(390),
-    S = n(108),
+    g = n(194),
+    y = n(394),
+    S = n(109),
     C = n(94);
   var b;
   (function (e) {
@@ -33248,7 +33389,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(391);
+  var o = n(395);
   t.CreateBranch = o.CreateBranch
 }, function (e, t, n) {
   'use strict';
@@ -33303,7 +33444,7 @@ module.exports = function (e) {
     i = n(27),
     a = n(18),
     s = n(1),
-    d = n(184);
+    d = n(185);
   class l extends o.PureComponent {
     render() {
       return o.createElement(r.DialogContent, {
@@ -33341,7 +33482,7 @@ module.exports = function (e) {
     i = n(1),
     a = n(18),
     s = n(5),
-    d = n(26);
+    d = n(24);
   class l extends o.Component {
     constructor() {
       super(...arguments), this.onUrlChanged = (e) => {
@@ -33379,15 +33520,15 @@ module.exports = function (e) {
     a = n(19),
     s = n(1),
     d = n(8),
-    l = n(133),
-    c = n(125),
-    p = n(257),
+    l = n(134),
+    c = n(126),
+    p = n(259),
     u = n(13),
     m = n(5),
     h = n(48),
-    f = n(121),
-    g = n(395),
-    y = n(394),
+    f = n(122),
+    g = n(399),
+    y = n(398),
     S = n(3),
     C = n(104),
     b = n(52);
@@ -33683,7 +33824,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(396))
+    }(n(400))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -33793,24 +33934,24 @@ module.exports = function (e) {
     i = n(2),
     a = n(19),
     s = n(22),
-    d = n(185),
+    d = n(186),
     l = n(27),
     c = n(8),
     p = n(1),
     u = n(18),
     m = n(35),
-    h = n(401),
-    f = n(135),
-    g = n(241),
-    y = n(400),
-    S = n(399),
-    C = n(398),
-    b = n(133),
+    h = n(405),
+    f = n(136),
+    g = n(243),
+    y = n(404),
+    S = n(403),
+    C = n(402),
+    b = n(134),
     v = n(5),
     E = n(4),
     w = n(14),
-    k = n(24),
-    _ = n(26),
+    k = n(25),
+    _ = n(24),
     R = n(23),
     T = 'None',
     x = {
@@ -34121,9 +34262,9 @@ module.exports = function (e) {
     p = n(5),
     u = n(4),
     m = n(14),
-    h = n(24),
+    h = n(25),
     f = n(2),
-    g = n(403);
+    g = n(407);
   class y extends r.Component {
     constructor(e) {
       super(e), this.onPathChanged = async (e) => {
@@ -34236,7 +34377,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(404)), o(n(402))
+  }), o(n(408)), o(n(406))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -34308,10 +34449,10 @@ module.exports = function (e) {
     r = n(1),
     i = n(8),
     a = n(5),
-    s = n(293),
+    s = n(295),
     d = n(11),
     l = n(34),
-    c = n(24),
+    c = n(25),
     p = n(84);
   class u extends o.Component {
     constructor(e) {
@@ -34417,8 +34558,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(7),
-    i = n(25);
+    r = n(6),
+    i = n(26);
   class a extends o.Component {
     constructor() {
       super(...arguments), this.onChange = (e) => {
@@ -34455,9 +34596,9 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(5),
-    i = n(409),
+    i = n(413),
     a = n(14),
-    s = n(26);
+    s = n(24);
   class d extends o.Component {
     render() {
       return o.createElement(r.DialogContent, null, o.createElement('p', null, '编辑', o.createElement(s.Ref, null, '.gitignore'), '. 此文件指定Git应忽略的故意未跟踪的文件。Git已经跟踪的文件不受影响。', ' ', o.createElement(a.LinkButton, {
@@ -34497,14 +34638,14 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(48),
-    i = n(411),
-    a = n(410),
+    i = n(415),
+    a = n(414),
     s = n(3),
-    d = n(24),
+    d = n(25),
     l = n(1),
     c = n(8),
     p = n(5),
-    u = n(408),
+    u = n(412),
     m = n(22);
   var h;
   (function (e) {
@@ -34636,7 +34777,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(412);
+  var o = n(416);
   t.RepositorySettings = o.RepositorySettings
 }, function (e, t, n) {
   'use strict';
@@ -34651,9 +34792,9 @@ module.exports = function (e) {
     d = n(86),
     l = n(22),
     c = n(63),
-    p = n(138),
-    u = n(159),
-    m = n(186);
+    p = n(139),
+    u = n(160),
+    m = n(187);
   class h extends o.Component {
     constructor(e) {
       super(e), this.onFilterTextChanged = (e) => {
@@ -34717,7 +34858,7 @@ module.exports = function (e) {
     }
     renderConflictedMergeMessage(e, t, n) {
       const r = 1 === n ? '文件' : '文件';
-      return o.createElement(o.Fragment, null, ` 当合并 `, o.createElement('strong', null, e.name), ` 进 `, o.createElement('strong', null, t.name),` 时 `,'将有', o.createElement('strong', null, ` ${n} 冲突的 ${r}`))
+      return o.createElement(o.Fragment, null, '将有', o.createElement('strong', null, ` ${n} 冲突的 ${r}`), ` 当合并 `, o.createElement('strong', null, e.name), ` 进 `, o.createElement('strong', null, t.name),` 时 `)
     }
     render() {
       const e = this.state.selectedBranch,
@@ -34786,7 +34927,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(414);
+  var o = n(418);
   t.Merge = o.Merge
 }, function (e, t, n) {
   'use strict';
@@ -34823,7 +34964,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(62),
-    i = n(416);
+    i = n(420);
   class a extends o.Component {
     constructor(e) {
       super(e), this.listRef = null, this.formRef = null, this.onItemClick = (e) => {
@@ -34901,11 +35042,11 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(167),
+    r = n(168),
     i = n(35),
     a = n(18),
     s = n(5),
-    d = n(134),
+    d = n(135),
     l = n(81),
     c = n(3),
     p = [{
@@ -34998,9 +35139,9 @@ module.exports = function (e) {
     a = n(14),
     s = n(18),
     d = n(82),
-    l = n(135),
-    c = n(264),
-    p = n(115),
+    l = n(136),
+    c = n(266),
+    p = n(116),
     u = n(27),
     m = n(23);
   class h extends o.Component {
@@ -35061,20 +35202,21 @@ module.exports = function (e) {
       })
     }
     reportDesktopUsageLabel() {
-      return o.createElement('span', null, '帮助github桌面改进，通过提交', ' ', o.createElement(a.LinkButton, {
+      return o.createElement('span', null, '帮助GitHub Desktop改进，通过提交', ' ', o.createElement(a.LinkButton, {
         uri: d.SamplesURL
       }, '使用情况统计'))
     }
     renderExternalEditor() {
       const e = this.props.availableEditors,
-        t = '外部编辑器External editor';
+        t = this.state.selectedExternalEditor,
+        n = '外部编辑器External editor';
       return 0 === e.length ? o.createElement('div', {
         className: 'select-component no-options-found'
-      }, o.createElement('label', null, t), o.createElement('span', null, '没有找到编辑器。', ' ', o.createElement(a.LinkButton, {
+      }, o.createElement('label', null, n), o.createElement('span', null, '没有找到编辑器。', ' ', o.createElement(a.LinkButton, {
         uri: 'https://atom.io/'
       }, 'Install Atom?'))) : o.createElement(l.Select, {
-        label: t,
-        value: this.state.selectedExternalEditor,
+        label: n,
+        value: t ? t : void 0,
         onChange: this.onSelectedEditorChanged
       }, e.map((e) => o.createElement('option', {
         key: e,
@@ -35134,12 +35276,12 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(126),
+    r = n(127),
     i = n(3),
     a = n(1),
     s = n(18),
     d = n(5),
-    l = n(142),
+    l = n(143),
     c = n(104);
   var p;
   (function (e) {
@@ -35200,21 +35342,21 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(157),
+    r = n(158),
     i = n(48),
-    a = n(422),
-    s = n(421),
-    d = n(420),
+    a = n(426),
+    s = n(425),
+    d = n(424),
     l = n(3),
     c = n(1),
     p = n(8),
     u = n(5),
     m = n(79),
-    h = n(126),
-    f = n(115),
-    g = n(263),
-    y = n(419),
-    S = n(418);
+    h = n(127),
+    f = n(116),
+    g = n(265),
+    y = n(423),
+    S = n(422);
   class C extends o.Component {
     constructor(e) {
       super(e), this.onDotComSignIn = () => {
@@ -35404,7 +35546,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(423);
+  var o = n(427);
   t.Preferences = o.Preferences
 }, function (e, t, n) {
   'use strict';
@@ -35532,10 +35674,10 @@ module.exports = function (e) {
   const o = n(0),
     r = n(3),
     i = n(95),
-    a = n(428),
-    s = n(427),
-    d = n(426),
-    l = n(425);
+    a = n(432),
+    s = n(431),
+    d = n(430),
+    l = n(429);
   t.renderBanner = function (e, t, n) {
     switch (e.type) {
       case i.BannerType.SuccessfulMerge:
@@ -35579,12 +35721,12 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(14),
-    i = n(131),
+    i = n(132),
     a = n(4),
-    s = n(24),
+    s = n(25),
     d = n(38),
     l = n(68),
-    c = n(136);
+    c = n(137);
   class p extends o.Component {
     constructor() {
       super(...arguments), this.showReleaseNotes = () => {
@@ -35620,9 +35762,9 @@ module.exports = function (e) {
   });
   var o = n(68);
   t.Banner = o.Banner;
-  var r = n(430);
+  var r = n(434);
   t.UpdateAvailable = r.UpdateAvailable;
-  var i = n(429);
+  var i = n(433);
   t.renderBanner = i.renderBanner
 }, function (e, t, n) {
   'use strict';
@@ -35630,9 +35772,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(187),
-    i = n(189),
-    a = n(192);
+    r = n(188),
+    i = n(190),
+    a = n(193);
   class s extends o.Component {
     constructor() {
       super(...arguments), this.innerDropDown = null, this.onDropDownRef = (e) => {
@@ -35711,8 +35853,8 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(122),
-    a = n(432),
+    i = n(123),
+    a = n(436),
     s = n(28);
   class d extends r.Component {
     constructor(e) {
@@ -35848,7 +35990,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(7);
+    i = n(6);
   class a extends r.Component {
     shouldComponentUpdate(e) {
       return this.props.text !== e.text || this.props.highlight !== e.highlight
@@ -35890,7 +36032,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(189)), o(n(433)), o(n(188))
+  }), o(n(190)), o(n(437)), o(n(189))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -35948,11 +36090,11 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(162),
-    i = n(126),
+    r = n(163),
+    i = n(127),
     a = n(79),
-    s = n(201),
-    d = n(118),
+    s = n(202),
+    d = n(119),
     l = n(85),
     c = n(1),
     p = n(27),
@@ -36067,7 +36209,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(61),
-    i = n(437),
+    i = n(441),
     a = n(1);
   class s extends o.Component {
     constructor() {
@@ -36102,7 +36244,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(61),
     i = n(1),
-    a = n(190);
+    a = n(191);
   class s extends o.Component {
     constructor() {
       super(...arguments), this.cancel = () => {
@@ -36134,7 +36276,7 @@ module.exports = function (e) {
     i = n(85),
     a = n(27),
     s = n(1),
-    d = n(137);
+    d = n(138);
   class l extends o.Component {
     constructor(e) {
       super(e), this.onServerAddressChanged = (e) => {
@@ -36177,8 +36319,8 @@ module.exports = function (e) {
     i = n(1),
     a = n(27),
     s = n(85),
-    d = n(137),
-    l = n(172);
+    d = n(138),
+    l = n(173);
   class c extends o.Component {
     constructor(e) {
       super(e), this.onOTPChange = (e) => {
@@ -36226,7 +36368,7 @@ module.exports = function (e) {
     s = n(85),
     d = n(1),
     l = n(27),
-    c = n(137),
+    c = n(138),
     p = n(13);
   class u extends o.Component {
     constructor(e) {
@@ -36314,7 +36456,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(61),
-    i = n(190),
+    i = n(191),
     a = n(1);
   class s extends o.Component {
     constructor() {
@@ -36414,7 +36556,7 @@ module.exports = function (e) {
     d = n(69),
     l = n(35),
     c = n(73),
-    p = n(446);
+    p = n(450);
   class u extends o.Component {
     constructor(e) {
       super(e), this.discard = async () => {
@@ -36472,7 +36614,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(447);
+  var o = n(451);
   t.DiscardChanges = o.DiscardChanges
 }, function (e, t, n) {
   'use strict';
@@ -36507,11 +36649,12 @@ module.exports = function (e) {
   const o = n(0),
     r = n(4),
     i = n(29),
-    a = n(191),
+    a = n(192),
     s = n(28),
     d = n(86),
-    l = n(3);
-  class c extends o.Component {
+    l = n(3),
+    c = n(6);
+  class p extends o.Component {
     constructor() {
       super(...arguments), this.renderBranchFoldout = () => {
         const e = this.props.repositoryState,
@@ -36543,43 +36686,47 @@ module.exports = function (e) {
         checkoutProgress: n,
         changesState: d
       } = e, {
-        tip: c
+        tip: p
       } = t, {
-        conflictState: p
-      } = d, u = c.kind;
-      let m = r.OcticonSymbol.gitBranch,
-        h = '当前分支',
-        f = !0,
-        g = !1,
-        y, S, C;
-      if (this.props.currentPullRequest && (m = r.OcticonSymbol.gitPullRequest), c.kind === i.TipState.Unknown) return null;
-      if (c.kind === i.TipState.Unborn) S = c.ref, C = `Current branch is ${c.ref}`, f = 0 < t.allBranches.length;
-      else if (c.kind === i.TipState.Detached) S = `On ${c.currentSha.substr(0,7)}`, C = 'Currently on a detached HEAD', m = r.OcticonSymbol.gitCommit, h = 'Detached HEAD';
-      else if (c.kind === i.TipState.Valid) S = c.branch.name, C = `Current branch is ${S}`;
-      else return l.assertNever(c, `Unknown tip state: ${u}`);
-      let b;
+        conflictState: u
+      } = d, m = p.kind;
+      let h = r.OcticonSymbol.gitBranch,
+        f = '当前分支',
+        g = !0,
+        y = !1,
+        S, C, b;
+      if (this.props.currentPullRequest && (h = r.OcticonSymbol.gitPullRequest), p.kind === i.TipState.Unknown) return null;
+      if (p.kind === i.TipState.Unborn) C = p.ref, b = `Current branch is ${p.ref}`, g = 0 < t.allBranches.length;
+      else if (p.kind === i.TipState.Detached) C = `On ${p.currentSha.substr(0,7)}`, b = 'Currently on a detached HEAD', h = r.OcticonSymbol.gitCommit, f = 'Detached HEAD';
+      else if (p.kind === i.TipState.Valid) C = p.branch.name, b = `Current branch is ${C}`;
+      else return l.assertNever(p, `Unknown tip state: ${m}`);
+      let v;
       if (n) {
-        if (S = n.targetBranch, h = 'Switching to branch', 0 < n.value) {
+        if (C = n.targetBranch, f = 'Switching to branch', 0 < n.value) {
           const e = Math.round(100 * n.value);
-          h = `${h} (${e} %)`
+          f = `${f} (${e} %)`
         }
-        b = n.value, m = r.OcticonSymbol.sync, y = 'spin', f = !1
-      } else null !== p && s.isRebaseConflictState(p) && (S = p.targetBranch, h = 'Rebasing branch', m = r.OcticonSymbol.gitBranch, f = !1, g = !0);
-      const v = this.props.isOpen,
-        E = v && f ? 'open' : 'closed';
+        v = n.value, h = r.OcticonSymbol.sync, S = 'spin', g = !1
+      } else null !== u && s.isRebaseConflictState(u) && (C = u.targetBranch, f = 'Rebasing branch', h = r.OcticonSymbol.gitBranch, g = !1, y = !0);
+      const E = this.props.isOpen,
+        w = E && g ? 'open' : 'closed',
+        k = c('nudge-arrow', {
+          "nudge-arrow-up": this.props.shouldNudge
+        });
       return o.createElement(a.ToolbarDropdown, {
         className: 'branch-button',
-        icon: m,
-        iconClassName: y,
-        title: S,
-        description: h,
-        tooltip: C,
+        icon: h,
+        iconClassName: S,
+        title: C,
+        description: f,
+        tooltip: b,
         onDropdownStateChanged: this.onDropDownStateChanged,
         dropdownContentRenderer: this.renderBranchFoldout,
-        dropdownState: E,
-        disabled: g,
-        showDisclosureArrow: f,
-        progressValue: b
+        dropdownState: w,
+        disabled: y,
+        showDisclosureArrow: g,
+        progressValue: v,
+        buttonClassName: k
       }, this.renderPullRequestInfo())
     }
     renderPullRequestInfo() {
@@ -36592,7 +36739,7 @@ module.exports = function (e) {
       })
     }
   }
-  t.BranchDropdown = c
+  t.BranchDropdown = p
 }, function (e, t, n) {
   'use strict';
 
@@ -36619,11 +36766,11 @@ module.exports = function (e) {
   function r(e) {
     return e ? h.createElement('span', null, '上次提取 ', h.createElement(S.RelativeTime, {
       date: e
-    })) : '从未取回 Never fetched'
+    })) : '从未取回Never fetched'
   }
 
   function i(e, t) {
-    return h.createElement(C.ToolbarButton, Object.assign({}, b, {
+    return h.createElement(C.ToolbarButton, Object.assign({}, v, {
       title: e.title,
       description: e.description || 'Hang on\u2026',
       progressValue: e.value,
@@ -36635,8 +36782,8 @@ module.exports = function (e) {
   }
 
   function a(e) {
-    return h.createElement(C.ToolbarButton, Object.assign({}, b, {
-      title: 'Publish repository',
+    return h.createElement(C.ToolbarButton, Object.assign({}, v, {
+      title: '发布存储库 Publish repository',
       description: 'Publish this repository to GitHub',
       className: 'push-pull-button',
       icon: y.OcticonSymbol.cloudUpload,
@@ -36646,7 +36793,7 @@ module.exports = function (e) {
   }
 
   function s() {
-    return h.createElement(C.ToolbarButton, Object.assign({}, b, {
+    return h.createElement(C.ToolbarButton, Object.assign({}, v, {
       title: '发布分支 Publish branch',
       description: 'Cannot publish unborn HEAD',
       icon: y.OcticonSymbol.cloudUpload,
@@ -36655,8 +36802,8 @@ module.exports = function (e) {
   }
 
   function d(e) {
-    const t = e ? '正在重新定位' : 'Cannot publish detached HEAD';
-    return h.createElement(C.ToolbarButton, Object.assign({}, b, {
+    const t = e ? '正在重新定位Rebase in progress' : 'Cannot publish detached HEAD';
+    return h.createElement(C.ToolbarButton, Object.assign({}, v, {
       title: '发布分支 Publish branch',
       description: t,
       icon: y.OcticonSymbol.cloudUpload,
@@ -36664,19 +36811,23 @@ module.exports = function (e) {
     }))
   }
 
-  function l(e, t) {
-    const n = e ? '将分支发布到GiHub' : 'Publish this branch to the remote';
-    return h.createElement(C.ToolbarButton, Object.assign({}, b, {
+  function l(e, t, n) {
+    const o = e ? '将分支发布到GiHub' : 'Publish this branch to the remote',
+      r = b(v.className, 'nudge-arrow', {
+        "nudge-arrow-up": n
+      });
+    return h.createElement(C.ToolbarButton, Object.assign({}, v, {
       title: '发布分支 Publish branch',
-      description: n,
+      description: o,
       icon: y.OcticonSymbol.cloudUpload,
-      onClick: t
+      onClick: t,
+      className: r
     }))
   }
 
   function c(e, t, n, i) {
     const a = `取回 Fetch ${e}`;
-    return h.createElement(C.ToolbarButton, Object.assign({}, b, {
+    return h.createElement(C.ToolbarButton, Object.assign({}, v, {
       title: a,
       description: r(n),
       icon: y.OcticonSymbol.sync,
@@ -36686,7 +36837,7 @@ module.exports = function (e) {
 
   function p(e, t, n, i, a) {
     const s = i ? `Pull ${e} with rebase` : `拉取 Pull ${e}`;
-    return h.createElement(C.ToolbarButton, Object.assign({}, b, {
+    return h.createElement(C.ToolbarButton, Object.assign({}, v, {
       title: s,
       description: r(n),
       icon: y.OcticonSymbol.arrowDown,
@@ -36695,7 +36846,7 @@ module.exports = function (e) {
   }
 
   function u(e, t, n, i) {
-    return h.createElement(C.ToolbarButton, Object.assign({}, b, {
+    return h.createElement(C.ToolbarButton, Object.assign({}, v, {
       title: `推送 Push ${e}`,
       description: r(n),
       icon: y.OcticonSymbol.arrowUp,
@@ -36704,10 +36855,10 @@ module.exports = function (e) {
   }
 
   function m(e, t, n, i) {
-    return h.createElement(C.ToolbarButton, Object.assign({}, b, {
+    return h.createElement(C.ToolbarButton, Object.assign({}, v, {
       title: `Force push ${e}`,
       description: r(n),
-      icon: v,
+      icon: E,
       onClick: i
     }), o(t))
   }
@@ -36716,16 +36867,17 @@ module.exports = function (e) {
   });
   const h = n(0),
     f = n(29),
-    g = n(120),
+    g = n(121),
     y = n(4),
-    S = n(107),
+    S = n(108),
     C = n(105),
-    b = {
+    b = n(6),
+    v = {
       className: 'push-pull-button',
       style: C.ToolbarButtonStyle.Subtitle
     },
-    v = new y.OcticonSymbol(10, 16, 'M3 11H0l5-6 5 6H7v4H3v-4zM5 1l5 6H8.33L5 3 1.662 7H0l5-6z');
-  class E extends h.Component {
+    E = new y.OcticonSymbol(10, 16, 'M3 11H0l5-6 5 6H7v4H3v-4zM5 1l5 6H8.33L5 3 1.662 7H0l5-6z');
+  class w extends h.Component {
     constructor() {
       super(...arguments), this.push = () => {
         this.props.dispatcher.push(this.props.repository)
@@ -36756,7 +36908,7 @@ module.exports = function (e) {
       if (h === f.TipState.Detached) return d(g);
       if (null === n) {
         const e = null !== r.gitHubRepository;
-        return l(e, this.push)
+        return l(e, this.push, this.props.shouldNudge)
       }
       const {
         ahead: b,
@@ -36765,7 +36917,7 @@ module.exports = function (e) {
       return 0 === b && 0 === v ? c(o, n, y, this.fetch) : C ? m(o, n, y, this.forcePushWithLease) : 0 < v ? p(o, n, y, S || !1, this.pull) : u(o, n, y, this.push)
     }
   }
-  t.PushPullButton = E
+  t.PushPullButton = w
 }, function (e, t) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -36825,7 +36977,7 @@ module.exports = function (e) {
     i = n(8),
     a = n(35),
     s = n(5),
-    d = n(26);
+    d = n(24);
   class l extends o.Component {
     constructor(e) {
       super(e), this.onIncludeRemoteChanged = (e) => {
@@ -36877,7 +37029,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(455);
+  var o = n(459);
   t.DeleteBranch = o.DeleteBranch
 }, function (e, t, n) {
   'use strict';
@@ -36885,13 +37037,13 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(194),
+    r = n(195),
     i = n(27),
     a = n(18),
     s = n(1),
     d = n(8),
     l = n(5),
-    c = n(193);
+    c = n(194);
   class p extends o.Component {
     constructor(e) {
       super(e), this.onNameChange = (e) => {
@@ -36933,7 +37085,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(457);
+  var o = n(461);
   t.RenameBranch = o.RenameBranch
 }, function (e, t, n) {
   'use strict';
@@ -36966,27 +37118,37 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(33),
-    i = n(1),
-    a = n(24),
-    s = n(4),
-    d = r.encodePathAsUrl(__dirname, 'static/admin-mentoring.svg');
-  class l extends o.Component {
+    i = n(25),
+    a = n(4),
+    s = n(106),
+    d = n(106),
+    l = r.encodePathAsUrl(__dirname, 'static/admin-mentoring.svg'),
+    c = o.createElement(a.Octicon, {
+      symbol: a.OcticonSymbol.telescope
+    }),
+    p = o.createElement(a.Octicon, {
+      symbol: a.OcticonSymbol.plus
+    }),
+    u = o.createElement(a.Octicon, {
+      symbol: a.OcticonSymbol.fileDirectory
+    });
+  class m extends o.Component {
     constructor() {
       super(...arguments), this.openDotcomExplore = () => {
         this.props.dispatcher.showGitHubExplore(this.props.repository)
       }, this.onCreateNewRepository = () => {
         this.props.dispatcher.showPopup({
-          type: a.PopupType.CreateRepository
+          type: i.PopupType.CreateRepository
         })
       }, this.onAddExistingRepository = () => {
         this.props.dispatcher.showPopup({
-          type: a.PopupType.AddRepository
+          type: i.PopupType.AddRepository
         })
       }
     }
     render() {
       return o.createElement('div', {
-        id: 'no-changes'
+        id: 'tutorial-done'
       }, o.createElement('div', {
         className: 'content'
       }, o.createElement('div', {
@@ -36994,62 +37156,33 @@ module.exports = function (e) {
       }, o.createElement('div', {
         className: 'text'
       }, o.createElement('h1', null, 'You\'re done!'), o.createElement('p', null, 'You\u2019ve learned the basics on how to use GitHub Desktop. Here are some suggestions for what to do next.')), o.createElement('img', {
-        src: d,
-        className: 'blankslate-image'
-      })), this.renderActions()))
-    }
-    renderActions() {
-      return o.createElement('ul', {
-        className: 'actions'
-      }, this.renderExploreProjects(), this.renderStartNewProject(), this.renderAddLocalRepo())
-    }
-    renderExploreProjects() {
-      return o.createElement('li', {
-        className: 'blankslate-action'
-      }, o.createElement('div', {
-        className: 'image-wrapper'
-      }, o.createElement(s.Octicon, {
-        symbol: s.OcticonSymbol.telescope
-      })), o.createElement('div', {
-        className: 'text-wrapper'
-      }, o.createElement('h2', null, 'Explore projects on GitHub'), o.createElement('p', {
-        className: 'description'
-      }, 'Contribute to a project that interests you')), o.createElement(i.Button, {
-        onClick: this.openDotcomExplore
-      }, 'Open in browser'))
-    }
-    renderStartNewProject() {
-      return o.createElement('li', {
-        className: 'blankslate-action'
-      }, o.createElement('div', {
-        className: 'image-wrapper'
-      }, o.createElement(s.Octicon, {
-        symbol: s.OcticonSymbol.plus
-      })), o.createElement('div', {
-        className: 'text-wrapper'
-      }, o.createElement('h2', null, 'Create a new repository'), o.createElement('p', {
-        className: 'description'
-      }, 'Get started on a brand new project')), o.createElement(i.Button, {
-        onClick: this.onCreateNewRepository
-      }, 'Create repository'))
-    }
-    renderAddLocalRepo() {
-      return o.createElement('li', {
-        className: 'blankslate-action'
-      }, o.createElement('div', {
-        className: 'image-wrapper'
-      }, o.createElement(s.Octicon, {
-        symbol: s.OcticonSymbol.fileDirectory
-      })), o.createElement('div', {
-        className: 'text-wrapper'
-      }, o.createElement('h2', null, 'Add a local repository'), o.createElement('p', {
-        className: 'description'
-      }, 'Work on an existing project in GitHub Desktop')), o.createElement(i.Button, {
-        onClick: this.onAddExistingRepository
-      }, 'Add repository'))
+        src: l,
+        className: 'image'
+      })), o.createElement(d.SuggestedActionGroup, null, o.createElement(s.SuggestedAction, {
+        title: 'Explore projects on GitHub',
+        description: 'Contribute to a project that interests you',
+        buttonText: 'Open in browser',
+        onClick: this.openDotcomExplore,
+        type: 'normal',
+        image: c
+      }), o.createElement(s.SuggestedAction, {
+        title: 'Create a new repository',
+        description: 'Get started on a brand new project',
+        buttonText: 'Create repository',
+        onClick: this.onCreateNewRepository,
+        type: 'normal',
+        image: p
+      }), o.createElement(s.SuggestedAction, {
+        title: 'Add a local repository',
+        description: 'Work on an existing project in GitHub Desktop',
+        buttonText: 'Add repository',
+        onClick: this.onAddExistingRepository,
+        type: 'normal',
+        image: u
+      }))))
     }
   }
-  t.TutorialDone = l
+  t.TutorialDone = m
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -37091,8 +37224,8 @@ module.exports = function (e) {
     d = n(4),
     l = n(93),
     c = n(33),
-    p = n(24),
-    u = n(157),
+    p = n(25),
+    u = n(158),
     m = c.encodePathAsUrl(__dirname, 'static/required-status-check.svg');
   class h extends o.Component {
     constructor(e) {
@@ -37278,7 +37411,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(1),
     i = n(8),
-    a = n(24),
+    a = n(25),
     s = n(4);
   class d extends o.Component {
     constructor(e) {
@@ -37352,10 +37485,10 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(75),
-    i = n(202),
-    a = n(140),
-    s = n(139),
-    d = n(463);
+    i = n(203),
+    a = n(141),
+    s = n(140),
+    d = n(467);
   class l extends o.PureComponent {
     constructor() {
       super(...arguments), this.onSelectedFileChanged = (e) => this.props.dispatcher.selectStashedFile(this.props.repository, e), this.onResize = (e) => this.props.dispatcher.setStashedFilesWidth(e), this.onReset = () => this.props.dispatcher.resetStashedFilesWidth()
@@ -37408,7 +37541,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(464))
+    }(n(468))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -37417,7 +37550,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(28),
     i = n(1),
-    a = n(138),
+    a = n(139),
     s = n(63);
   class d extends o.Component {
     constructor() {
@@ -37481,7 +37614,7 @@ module.exports = function (e) {
       const r = 1 === n ? '文件' : '文件';
       return o.createElement('div', {
         className: 'merge-message'
-      }, ` 当`, o.createElement('strong', null, t.name), ` 合并进 `, o.createElement('strong', null, e.name), '时，将有', o.createElement('strong', null, ` ${n} 冲突的 ${r}`))
+      }, '将有', o.createElement('strong', null, ` ${n} 冲突的 ${r}`), ` 当 `, o.createElement('strong', null, t.name), ` 合并进 `, o.createElement('strong', null, e.name),`时`)
     }
   }
   t.MergeCallToActionWithConflicts = d
@@ -37491,11 +37624,11 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(26),
+    r = n(24),
     i = n(4),
     a = n(1),
     s = n(28),
-    d = n(24);
+    d = n(25);
   class l extends o.Component {
     constructor() {
       super(...arguments), this.onDismissed = () => {
@@ -37558,7 +37691,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(4),
     i = n(27),
-    a = n(7);
+    a = n(6);
   class s extends o.Component {
     constructor(e) {
       super(e), this.onFocus = () => {
@@ -37650,7 +37783,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(198);
+    r = n(199);
   class i extends o.Component {
     render() {
       const e = `refs/pull/${this.props.number}/head`;
@@ -37673,7 +37806,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(33),
-    i = n(26),
+    i = n(24),
     a = n(14),
     s = r.encodePathAsUrl(__dirname, 'static/empty-no-pull-requests.svg');
   class d extends o.Component {
@@ -37688,22 +37821,22 @@ module.exports = function (e) {
     renderTitle() {
       return this.props.isSearch ? o.createElement('div', {
         className: 'title'
-      }, 'Sorry, I can\'t find that pull request!') : this.props.isLoadingPullRequests ? o.createElement('div', {
+      }, '对不起，我找不到 pull request!') : this.props.isLoadingPullRequests ? o.createElement('div', {
         className: 'title'
       }, 'Hang tight') : o.createElement('div', null, o.createElement('div', {
         className: 'title'
       }, '你都准备好了！You\'re all set!'), o.createElement('div', {
         className: 'no-prs'
-      }, ' No openpull requests in ', o.createElement(i.Ref, null, this.props.repositoryName)))
+      }, '没能 open pull requests 在 ', o.createElement(i.Ref, null, this.props.repositoryName)))
     }
     renderCallToAction() {
       return this.props.isLoadingPullRequests ? o.createElement('div', {
         className: 'call-to-action'
-      }, 'Loading pull requests as fast as I can!') : this.props.isOnDefaultBranch ? o.createElement('div', {
+      }, '尽我所能地Loading pull requests！') : this.props.isOnDefaultBranch ? o.createElement('div', {
         className: 'call-to-action'
-      }, 'Would you like to', ' ', o.createElement(a.LinkButton, {
+      }, '您想', ' ', o.createElement(a.LinkButton, {
         onClick: this.props.onCreateBranch
-      }, 'create a new branch'), ' ', 'and get going on your next project?') : o.createElement('div', {
+      }, 'create a new branch'), ' ', '并继续进行下一个项目吗?') : o.createElement('div', {
         className: 'call-to-action'
       }, '你想要从当前分支', ' ', o.createElement(a.LinkButton, {
         onClick: this.props.onCreatePullRequest
@@ -37741,9 +37874,9 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(66),
-    i = n(7),
+    i = n(6),
     a = n(4),
-    s = n(198),
+    s = n(199),
     d = n(92);
   class l extends o.Component {
     getSubtitle() {
@@ -37823,9 +37956,9 @@ module.exports = function (e) {
   });
   const s = n(0),
     d = n(66),
-    l = n(113),
-    c = n(473),
-    p = n(471);
+    l = n(114),
+    c = n(477),
+    p = n(475);
   t.RowHeight = 47;
   class u extends s.Component {
     constructor(e) {
@@ -37893,18 +38026,18 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(44),
-    i = n(267),
-    a = n(24),
+    i = n(269),
+    a = n(25),
     s = n(28),
     d = n(3),
     l = n(48),
     c = n(18),
     p = n(4),
     u = n(1),
-    m = n(200),
-    h = n(474),
-    f = n(197),
-    g = n(108),
+    m = n(201),
+    h = n(478),
+    f = n(198),
+    g = n(109),
     y = n(94);
   class S extends o.Component {
     constructor(e) {
@@ -38002,7 +38135,7 @@ module.exports = function (e) {
         className: 'icon',
         symbol: p.OcticonSymbol.gitMerge
       }), o.createElement('span', {
-        title: `将分支合并到${e} Merge a branch into ${e}`
+        title: `将分支合并到 ${e}`
       }, '选择分支合并到 ', o.createElement('strong', null, e)))))
     }
     renderOpenPullRequestsBubble() {
@@ -38176,8 +38309,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(7),
-    i = n(479),
+    r = n(6),
+    i = n(483),
     a = n(62),
     s = 28;
   class d extends o.Component {
@@ -38288,7 +38421,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(7);
+    r = n(6);
   class i extends o.Component {
     render() {
       const e = r('dialog-content', this.props.className);
@@ -38316,7 +38449,7 @@ module.exports = function (e) {
     a = n(8),
     s = n(1),
     d = n(5),
-    l = n(26);
+    l = n(24);
   class c extends i.Component {
     constructor(e) {
       super(e), this.dialogButtonRef = null, this.onDialogOpenRef = (e) => {
@@ -38390,7 +38523,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(201),
+    r = n(202),
     i = n(72),
     a = 50;
   class s extends o.Component {
@@ -38453,7 +38586,7 @@ module.exports = function (e) {
       allBranches: t,
       formState: n
     } = e;
-    return 0 === t.length ? '没有可比较的分支' : n.kind === s.HistoryTabMode.History ? '选择要比较的分支…' : void 0
+    return 0 === t.length ? '没有可比较的分支' : n.kind === s.HistoryTabMode.History ? '选择要比较的分支...' : void 0
   }
 
   function r(e) {
@@ -38465,16 +38598,16 @@ module.exports = function (e) {
   const i = n(0),
     a = n(84),
     s = n(28),
-    d = n(483),
-    l = n(143),
+    d = n(487),
+    l = n(144),
     c = n(86),
     p = n(48),
-    u = n(469),
-    m = n(468),
+    u = n(473),
+    m = n(472),
     h = n(4),
-    f = n(26),
-    g = n(467),
-    y = n(466);
+    f = n(24),
+    g = n(471),
+    y = n(470);
   class S extends i.Component {
     constructor(e) {
       super(e), this.textbox = null, this.loadChangedFilesScheduler = new l.ThrottledScheduler(200), this.branchList = null, this.loadingMoreCommitsPromise = null, this.resultCount = 0, this.onBranchesListRef = (e) => {
@@ -38781,12 +38914,12 @@ module.exports = function (e) {
     value: !0
   });
   const a = n(0),
-    s = n(7),
+    s = n(6),
     d = n(4),
     l = n(87),
-    c = n(206),
-    p = n(204),
-    u = n(203),
+    c = n(207),
+    p = n(205),
+    u = n(204),
     m = n(35),
     h = n(23),
     f = 72;
@@ -38989,14 +39122,14 @@ module.exports = function (e) {
     s = n(2),
     d = n(33),
     l = n(38),
-    c = n(106),
+    c = n(107),
     p = n(73),
-    u = n(143),
-    m = n(140),
-    h = n(139),
-    f = n(25),
-    g = n(485),
-    y = n(202);
+    u = n(144),
+    m = n(141),
+    h = n(140),
+    f = n(26),
+    g = n(489),
+    y = n(203);
   class S extends r.Component {
     constructor(e) {
       super(e), this.loadChangedFilesScheduler = new u.ThrottledScheduler(200), this.historyRef = null, this.onFileSelected = (e) => {
@@ -39139,9 +39272,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(487);
+  var o = n(491);
   t.SelectedCommit = o.SelectedCommit;
-  var r = n(484);
+  var r = n(488);
   t.CompareSidebar = r.CompareSidebar
 }, function (e, t, n) {
   'use strict';
@@ -39180,64 +39313,6 @@ module.exports = function (e) {
     }
   }
   t.MultipleSelection = a
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(0),
-    r = n(7),
-    i = n(1);
-  class a extends o.Component {
-    render() {
-      const e = 'primary' === this.props.type,
-        t = r('blankslate-action', {
-          primary: e
-        }),
-        n = this.props.description === void 0 ? void 0 : o.createElement('p', {
-          className: 'description'
-        }, this.props.description);
-      return o.createElement('div', {
-        className: t
-      }, o.createElement('div', {
-        className: 'text-wrapper'
-      }, o.createElement('h2', null, this.props.title), n, o.createElement('p', {
-        className: 'discoverability'
-      }, this.props.discoverabilityContent)), o.createElement(i.Button, {
-        type: e ? 'submit' : void 0,
-        onClick: this.props.onClick,
-        disabled: this.props.disabled
-      }, this.props.buttonText))
-    }
-  }
-  t.BlankslateAction = a
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(0),
-    r = n(491),
-    i = n(25);
-  class a extends o.Component {
-    constructor() {
-      super(...arguments), this.onClick = (t) => {
-        this.props.onClick !== void 0 && this.props.onClick(t), t.defaultPrevented || i.executeMenuItemById(this.props.menuItemId)
-      }
-    }
-    render() {
-      return o.createElement(r.BlankslateAction, {
-        title: this.props.title,
-        description: this.props.description,
-        discoverabilityContent: this.props.discoverabilityContent,
-        buttonText: this.props.buttonText,
-        onClick: this.onClick,
-        type: this.props.type,
-        disabled: this.props.disabled
-      })
-    }
-  }
-  t.MenuBackedBlankslateAction = a
 }, function (e, t, n) {
   'use strict';
 
@@ -39295,13 +39370,13 @@ module.exports = function (e) {
         for (var o in n = arguments[t], n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
       return e
     },
-    c = n(289),
+    c = n(291),
     p = o(c),
-    u = n(288),
+    u = n(290),
     m = o(u),
-    h = n(176),
+    h = n(177),
     f = o(h),
-    g = n(287),
+    g = n(289),
     y = n(0),
     S = o(y),
     C = n(15),
@@ -39437,13 +39512,13 @@ module.exports = function (e) {
     m = n(41),
     h = n(15),
     f = o(h),
-    g = n(291),
+    g = n(293),
     y = o(g),
-    S = n(290),
+    S = n(292),
     C = o(S),
-    b = n(176),
+    b = n(177),
     v = o(b),
-    E = n(493),
+    E = n(495),
     w = o(E),
     k = n(208),
     _ = u.default.createFactory(w.default),
@@ -39607,6 +39682,60 @@ module.exports = function (e) {
   t.default = R, e.exports = t['default']
 }, function (e, t, n) {
   'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0),
+    r = n(496);
+  t.SuggestedActionGroup = (e) => {
+    const t = 'suggested-action-group ' + (e.type ? e.type : 'normal');
+    if ('replace' === e.transitions) {
+      const n = !(e.enableTransitions !== void 0) || e.enableTransitions;
+      return o.createElement(r, {
+        transitionAppear: !1,
+        overflowHidden: !1,
+        transitionEnter: n,
+        transitionLeave: n,
+        transitionName: e.transitions,
+        component: 'div',
+        className: t,
+        transitionEnterTimeout: 750,
+        transitionLeaveTimeout: 500
+      }, e.children)
+    }
+    return o.createElement('div', {
+      className: t
+    }, e.children)
+  }
+}, function (e, t, n) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0),
+    r = n(209),
+    i = n(26);
+  class a extends o.Component {
+    constructor() {
+      super(...arguments), this.onClick = (t) => {
+        this.props.onClick !== void 0 && this.props.onClick(t), t.defaultPrevented || i.executeMenuItemById(this.props.menuItemId)
+      }
+    }
+    render() {
+      return o.createElement(r.SuggestedAction, {
+        title: this.props.title,
+        description: this.props.description,
+        discoverabilityContent: this.props.discoverabilityContent,
+        buttonText: this.props.buttonText,
+        onClick: this.onClick,
+        type: this.props.type,
+        disabled: this.props.disabled
+      })
+    }
+  }
+  t.MenuBackedSuggestedAction = a
+}, function (e, t, n) {
+  'use strict';
 
   function o(e) {
     return e.replace('&', '')
@@ -39618,7 +39747,7 @@ module.exports = function (e) {
   }
 
   function i(e) {
-    return 'separator' === e.type || 'submenuItem' === e.type ? [] : null === e.accelerator ? [] : e.accelerator.split('+').map(m.getPlatformSpecificNameOrSymbolForModifier)
+    return 'separator' === e.type || 'submenuItem' === e.type ? [] : null === e.accelerator ? [] : e.accelerator.split('+').map(u.getPlatformSpecificNameOrSymbolForModifier)
   }
 
   function a(e, t = new Map, n) {
@@ -39638,23 +39767,23 @@ module.exports = function (e) {
     value: !0
   });
   const s = n(0),
-    d = n(494),
-    l = n(33),
-    c = n(14),
-    p = n(23),
-    u = n(109),
-    m = n(207),
-    h = n(492),
-    f = n(25),
-    g = n(29),
-    y = n(26),
-    S = n(76),
-    C = n(75),
-    b = l.encodePathAsUrl(__dirname, 'static/paper-stack.svg');
+    d = n(33),
+    l = n(14),
+    c = n(23),
+    p = n(110),
+    u = n(210),
+    m = n(106),
+    h = n(26),
+    f = n(29),
+    g = n(24),
+    y = n(76),
+    S = n(75),
+    C = n(106),
+    b = d.encodePathAsUrl(__dirname, 'static/paper-stack.svg');
   class v extends s.Component {
     constructor(e) {
-      super(e), this.getMenuInfoMap = u.default((e) => e === void 0 ? new Map : a(e)), this.transitionTimer = null, this.onShowInFileManagerClicked = () => this.props.dispatcher.recordSuggestedStepOpenWorkingDirectory(), this.onViewOnGitHubClicked = () => this.props.dispatcher.recordSuggestedStepViewOnGitHub(), this.openPreferences = () => {
-        f.executeMenuItemById('preferences')
+      super(e), this.getMenuInfoMap = p.default((e) => e === void 0 ? new Map : a(e)), this.transitionTimer = null, this.onShowInFileManagerClicked = () => this.props.dispatcher.recordSuggestedStepOpenWorkingDirectory(), this.onViewOnGitHubClicked = () => this.props.dispatcher.recordSuggestedStepViewOnGitHub(), this.openPreferences = () => {
+        h.executeMenuItemById('preferences')
       }, this.onOpenInExternalEditorClicked = () => this.props.dispatcher.recordSuggestedStepOpenInExternalEditor(), this.onViewStashClicked = () => this.props.dispatcher.recordSuggestedStepViewStash(), this.onPublishRepositoryClicked = () => this.props.dispatcher.recordSuggestedStepPublishRepository(), this.onPublishBranchClicked = () => this.props.dispatcher.recordSuggestedStepPublishBranch(), this.onCreatePullRequestClicked = () => this.props.dispatcher.recordSuggestedStepCreatePullRequest(), this.state = {
         enableTransitions: !1
       }
@@ -39676,7 +39805,7 @@ module.exports = function (e) {
     }
     renderMenuBackedAction(e, t, n, r) {
       const i = this.getMenuItemInfo(e);
-      return void 0 === i ? (log.error(`Could not find matching menu item for ${e}`), null) : s.createElement(h.MenuBackedBlankslateAction, {
+      return void 0 === i ? (log.error(`Could not find matching menu item for ${e}`), null) : s.createElement(m.MenuBackedSuggestedAction, {
         title: t,
         description: n,
         discoverabilityContent: this.renderDiscoverabilityElements(i),
@@ -39692,7 +39821,7 @@ module.exports = function (e) {
     }
     renderViewOnGitHub() {
       const e = null !== this.props.repository.gitHubRepository;
-      return e ? this.renderMenuBackedAction('view-repository-on-github', `在浏览器中打开github上的repository页面`, void 0, this.onViewOnGitHubClicked) : null
+      return e ? this.renderMenuBackedAction('view-repository-on-github', `在浏览器中打开GitHub上的repository页面`, void 0, this.onViewOnGitHubClicked) : null
     }
     renderOpenInExternalEditor() {
       if (!this.props.isExternalEditorAvailable) return null;
@@ -39702,7 +39831,7 @@ module.exports = function (e) {
       const n = this.getMenuItemInfo('preferences');
       if (void 0 === n) return log.error(`找不到与${e}匹配的菜单项`), null;
       const o = `在外部编辑器中打开存储库`,
-        r = s.createElement(s.Fragment, null, '选择编辑器在', ' ', s.createElement(c.LinkButton, {
+        r = s.createElement(s.Fragment, null, '选择编辑器在', ' ', s.createElement(l.LinkButton, {
           onClick: this.openPreferences
         }, 'Options'));
       return this.renderMenuBackedAction(e, o, r, this.onOpenInExternalEditorClicked)
@@ -39717,14 +39846,14 @@ module.exports = function (e) {
         defaultBranch: r,
         currentPullRequest: i
       } = n;
-      if (o.kind !== g.TipState.Valid) return null;
+      if (o.kind !== f.TipState.Valid) return null;
       if (null === e) return this.renderPublishRepositoryAction();
       if (null === t) return this.renderPublishBranchAction(o);
-      const a = S.isCurrentBranchForcePush(n, t);
+      const a = y.isCurrentBranchForcePush(n, t);
       if (a) return null;
       if (0 < t.behind) return this.renderPullBranchAction(o, e, t);
       if (0 < t.ahead) return this.renderPushBranchAction(o, e, t);
-      if (p.enableNoChangesCreatePRBlankslateAction()) {
+      if (c.enableNoChangesCreatePRBlankslateAction()) {
         const e = null !== this.props.repository.gitHubRepository,
           t = null !== r && o.branch.name === r.name;
         if (e && !(null !== i) && !t) return this.renderCreatePullRequestAction(o)
@@ -39732,25 +39861,25 @@ module.exports = function (e) {
       return null
     }
     renderViewStashAction() {
-      if (!p.enableStashing()) return null;
+      if (!c.enableStashing()) return null;
       const {
         changesState: e,
         branchesState: t
       } = this.props.repositoryState, {
         tip: n
       } = t;
-      if (n.kind !== g.TipState.Valid) return null;
-      const { 
+      if (n.kind !== f.TipState.Valid) return null;
+      const {
         stashEntry: o
       } = e;
       if (null === o) return null;
-      if (o.files.kind !== C.StashedChangesLoadStates.Loaded) return null;
+      if (o.files.kind !== S.StashedChangesLoadStates.Loaded) return null;
       const r = o.files.files.length,
-        i = s.createElement(s.Fragment, null, '您有', r, ' ', 1 === r ? '正在进行的更改' : '正在进行的更改', '尚未提交。'),
+        i = s.createElement(s.Fragment, null, '您有', r, ' ', 1 === r ? '正在进行的更改' : '正在进行的更改', ' 尚未提交。'),
         a = s.createElement(s.Fragment, null, '当有隐藏存在时, 在左侧“更改”选项卡的底部访问它。'),
         d = 'toggle-stashed-changes',
         l = this.getMenuItemInfo(d);
-      return void 0 === l ? (log.error(`找不到与${d}匹配的菜单项`), null) : s.createElement(h.MenuBackedBlankslateAction, {
+      return void 0 === l ? (log.error(`找不到与${d}匹配的菜单项`), null) : s.createElement(m.MenuBackedSuggestedAction, {
         key: 'view-stash-action',
         title: '查看隐藏的更改 View your stashed changes',
         menuItemId: d,
@@ -39767,9 +39896,9 @@ module.exports = function (e) {
         t = this.getMenuItemInfo(e);
       if (void 0 === t) return log.error(`找不到与${e}匹配的菜单项`), null;
       const n = s.createElement(s.Fragment, null, '在工具栏中可访问 或 快捷键', ' ', this.renderDiscoverabilityKeyboardShortcut(t));
-      return s.createElement(h.MenuBackedBlankslateAction, {
+      return s.createElement(m.MenuBackedSuggestedAction, {
         key: 'publish-repository-action',
-        title: '将存储库发布到GitHub Publish your repository to GitHub',
+        title: '将存储库发布到GitHub',
         description: '此存储库当前仅在本地计算机上可用。通过在github上发布它，您可以共享它，并与其他人协作。',
         discoverabilityContent: n,
         buttonText: '发布存储库 Publish repository',
@@ -39784,9 +39913,9 @@ module.exports = function (e) {
         n = this.getMenuItemInfo(t);
       if (void 0 === n) return log.error(`找不到与${t}匹配的菜单项`), null;
       const o = null !== this.props.repository.gitHubRepository,
-        r = s.createElement(s.Fragment, null, '当前分支(', s.createElement(y.Ref, null, e.branch.name), ')尚未发布到远程。通过发布它', o ? '至Github' : '', ' 你可以分享它, ', o ? '打开 pull request, ' : '', '与他人合作。'),
+        r = s.createElement(s.Fragment, null, '当前分支(', s.createElement(g.Ref, null, e.branch.name), ')尚未发布到远程。通过发布它', o ? '至Github' : '', ' 你可以分享它, ', o ? '打开 pull request, ' : '', '与他人合作。'),
         i = s.createElement(s.Fragment, null, '在工具栏中可访问 或 快捷键', ' ', this.renderDiscoverabilityKeyboardShortcut(n));
-      return s.createElement(h.MenuBackedBlankslateAction, {
+      return s.createElement(m.MenuBackedSuggestedAction, {
         key: 'publish-branch-action',
         title: '发布你的分支 Publish your branch',
         menuItemId: t,
@@ -39803,11 +39932,11 @@ module.exports = function (e) {
         r = this.getMenuItemInfo(o);
       if (void 0 === r) return log.error(`找不到与${o}匹配的菜单项`), null;
       const i = null !== this.props.repository.gitHubRepository,
-        a = s.createElement(s.Fragment, null, '当前分支(', s.createElement(y.Ref, null, e.branch.name), ') 有', ' ', 1 === n.behind ? 'a commit' : 'commits', ' 至远程', ' ', i ? 'GitHub' : '', ' 但', ' ', 1 === n.behind ? '不' : '不', ' 存在与你的机器.'),
+        a = s.createElement(s.Fragment, null, '当前分支(', s.createElement(g.Ref, null, e.branch.name), ') 有', ' ', 1 === n.behind ? 'a commit' : 'commits', ' 至远程', ' ', i ? 'GitHub' : '但', ' ', ' ', 1 === n.behind ? '不' : '不', ' 存在与你的机器'),
         d = s.createElement(s.Fragment, null, '当有远程更改时在工具栏中可访问 或 快捷键', ' ', this.renderDiscoverabilityKeyboardShortcut(r)),
         l = `Pull ${n.behind} ${1===n.behind?'commit':'commits'} from the ${t.name} remote`,
         c = `Pull ${t.name}`;
-      return s.createElement(h.MenuBackedBlankslateAction, {
+      return s.createElement(m.MenuBackedSuggestedAction, {
         key: 'pull-branch-action',
         title: l,
         menuItemId: o,
@@ -39823,11 +39952,11 @@ module.exports = function (e) {
         r = this.getMenuItemInfo(o);
       if (void 0 === r) return log.error(`找不到与${o}匹配的菜单项`), null;
       const i = null !== this.props.repository.gitHubRepository,
-        a = s.createElement(s.Fragment, null, '你有', ' ', 1 === n.ahead ? 'one 本地 commit' : '本地 commits', ' 等待被推送至远程', i ? 'GitHub' : '', '。'),
+        a = s.createElement(s.Fragment, null, '你有', ' ', 1 === n.ahead ? 'one 本地 commit' : '本地 commits', ' 等待被推送至远程', i ? 'GitHub' : '', '.'),
         d = s.createElement(s.Fragment, null, '当有本地提交等待推送或', this.renderDiscoverabilityKeyboardShortcut(r)),
         l = `推送 ${n.ahead} ${1===n.ahead?'commit':'commits'} 至远程 ${t.name} `,
         c = `推送 Push ${t.name}`;
-      return s.createElement(h.MenuBackedBlankslateAction, {
+      return s.createElement(m.MenuBackedSuggestedAction, {
         key: 'push-branch-action',
         title: l,
         menuItemId: o,
@@ -39842,10 +39971,10 @@ module.exports = function (e) {
       const t = 'create-pull-request',
         n = this.getMenuItemInfo(t);
       if (void 0 === n) return log.error(`找不到与${t}匹配的菜单项`), null;
-      const o = s.createElement(s.Fragment, null, '当前分支(', s.createElement(y.Ref, null, e.branch.name), ')已发布到github。创建一个请求以提议和协作您的更改。'),
+      const o = s.createElement(s.Fragment, null, '当前分支(', s.createElement(g.Ref, null, e.branch.name), ')已发布到github。创建一个请求以提议和协作您的更改。'),
         r = `从当前分支创建拉取请求`,
         i = `Create Pull Request`;
-      return s.createElement(h.MenuBackedBlankslateAction, {
+      return s.createElement(m.MenuBackedSuggestedAction, {
         key: 'create-pr-action',
         title: r,
         menuItemId: t,
@@ -39858,19 +39987,11 @@ module.exports = function (e) {
       })
     }
     renderActions() {
-      return s.createElement(s.Fragment, null, s.createElement(d, {
-        transitionAppear: !1,
-        transitionEnter: this.state.enableTransitions,
-        transitionLeave: this.state.enableTransitions,
-        overflowHidden: !1,
-        transitionName: 'action',
-        component: 'div',
-        className: 'actions primary',
-        transitionEnterTimeout: 750,
-        transitionLeaveTimeout: 500
-      }, this.renderViewStashAction() || this.renderRemoteAction()), s.createElement('div', {
-        className: 'actions'
-      }, this.renderOpenInExternalEditor(), this.renderShowInFileManager(), this.renderViewOnGitHub()))
+      return s.createElement(s.Fragment, null, s.createElement(C.SuggestedActionGroup, {
+        type: 'primary',
+        transitions: 'replace',
+        enableTransitions: this.state.enableTransitions
+      }, this.renderViewStashAction() || this.renderRemoteAction()), s.createElement(C.SuggestedActionGroup, null, this.renderOpenInExternalEditor(), this.renderShowInFileManager(), this.renderViewOnGitHub()))
     }
     componentDidMount() {
       this.transitionTimer = window.setTimeout(() => {
@@ -39904,7 +40025,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(141),
+    r = n(142),
     i = n(20),
     a = n(30),
     s = n(4),
@@ -40044,12 +40165,12 @@ module.exports = function (e) {
   });
   const i = n(2),
     a = n(3),
-    s = n(250),
-    d = n(119),
-    l = n(498),
+    s = n(252),
+    d = n(120),
+    l = n(502),
     c = n(20),
     p = n(30),
-    u = n(249),
+    u = n(251),
     m = 262144;
   t.getFileContents = async function (e, t, n) {
     const i = n.oldLineFilter.length ? o(e, t) : Promise.resolve(Buffer.alloc(0)),
@@ -40394,7 +40515,7 @@ module.exports = function (e) {
   })
 }, function (e, t, n) {
   (function (e) {
-    e(n(42), n(501), n(500))
+    e(n(42), n(505), n(504))
   })(function (e) {
     'use strict';
 
@@ -40997,7 +41118,7 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(42);
-  n(504), n(503), !1, n(502);
+  n(508), n(507), !1, n(506);
   class a extends r.Component {
     constructor(e) {
       super(e), this.wrapper = null, this.codeMirror = null, this.resizeDebounceId = null, this.lastKnownWidth = null, this.onSwapDoc = (e, t) => {
@@ -41745,8 +41866,8 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(42),
-    a = n(209);
-  n(506);
+    a = n(211);
+  n(510);
   const s = {
     "+": 'diff-add',
     "-": 'diff-delete',
@@ -41843,15 +41964,15 @@ module.exports = function (e) {
     h = n(30),
     f = n(20),
     g = n(4),
-    y = n(507),
-    S = n(505),
-    C = n(209),
-    b = n(499),
-    v = n(497),
-    E = n(109),
+    y = n(511),
+    S = n(509),
+    C = n(211),
+    b = n(503),
+    v = n(501),
+    E = n(110),
     w = n(74),
     k = n(3),
-    _ = n(117),
+    _ = n(118),
     R = 4096,
     T = new g.OcticonSymbol(16, 8, 'm 16,1 0,3 c 0,0.55 -0.45,1 -1,1 l -3,0 0,2 -3,-3 3,-3 0,2 2,0 0,-2 2,0 z M 8,4 C 8,6.2 6.2,8 4,8 1.8,8 0,6.2 0,4 0,1.8 1.8,0 4,0 6.2,0 8,1.8 8,4 Z M 1.5,5.66 5.66,1.5 C 5.18,1.19 4.61,1 4,1 2.34,1 1,2.34 1,4 1,4.61 1.19,5.17 1.5,5.66 Z M 7,4 C 7,3.39 6.81,2.83 6.5,2.34 L 2.34,6.5 C 2.82,6.81 3.39,7 4,7 5.66,7 7,5.66 7,4 Z'),
     x = 'diff-gutter',
@@ -42206,7 +42327,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(2),
-    i = n(106),
+    i = n(107),
     a = n(14);
   class s extends o.Component {
     constructor() {
@@ -42494,8 +42615,8 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(70),
-    i = n(516),
-    a = n(7);
+    i = n(520),
+    a = n(6);
   class s extends o.Component {
     render() {
       const e = {
@@ -42564,12 +42685,12 @@ module.exports = function (e) {
   const o = n(0),
     r = n(30),
     i = n(48),
-    a = n(517),
-    s = n(515),
-    d = n(514),
-    l = n(513),
+    a = n(521),
+    s = n(519),
+    d = n(518),
+    l = n(517),
     c = n(3),
-    p = n(512);
+    p = n(516);
   class u extends o.Component {
     constructor(e) {
       super(e), this.container = null, this.resizedTimeoutID = null, this.onPreviousImageLoad = (e) => {
@@ -42658,11 +42779,11 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(518);
+  var o = n(522);
   t.ModifiedImageDiff = o.ModifiedImageDiff;
-  var r = n(511);
+  var r = n(515);
   t.NewImageDiff = r.NewImageDiff;
-  var i = n(510);
+  var i = n(514);
   t.DeletedImageDiff = i.DeletedImageDiff
 }, function (e, t, n) {
   'use strict';
@@ -42670,8 +42791,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(140),
-    i = n(496);
+    r = n(141),
+    i = n(500);
   class a extends o.Component {
     constructor() {
       super(...arguments), this.onDiffLineIncludeChanged = (e) => {
@@ -42870,7 +42991,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(87),
-    i = n(107),
+    i = n(108),
     a = n(1);
   class s extends o.Component {
     render() {
@@ -42952,7 +43073,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(141),
+    r = n(142),
     i = n(4),
     a = n(35),
     s = n(40);
@@ -43166,12 +43287,12 @@ module.exports = function (e) {
   const v = n(0),
     E = n(42),
     w = n(47),
-    k = n(7),
+    k = n(6),
     _ = n(13),
     R = n(45),
     T = n(74),
     x = n(4),
-    P = n(25);
+    P = n(26);
   class M extends v.Component {
     constructor(e) {
       super(e), this.editor = null, this.resizeDebounceId = null, this.lastKnownWidth = null, this.hintActive = !1, this.label = null, this.placeholder = null, this.authors = [], this.markAuthorMap = new Map, this.authorMarkMap = new Map, this.onResized = () => {
@@ -43496,7 +43617,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(143);
+    r = n(144);
   t.IssuesAutocompletionProvider = class {
     constructor(e, t, n) {
       this.kind = 'issue', this.updateIssuesScheduler = new r.ThrottledScheduler(60000), this.issuesStore = e, this.repository = t, this.dispatcher = n
@@ -43614,9 +43735,9 @@ module.exports = function (e) {
   const r = n(0),
     i = n(72),
     a = n(3),
-    s = n(7),
-    d = n(532),
-    l = n(25),
+    s = n(6),
+    d = n(536),
+    l = n(26),
     c = 29,
     p = 20,
     u = 100;
@@ -43851,7 +43972,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(533);
+  const o = n(537);
   class r extends o.AutocompletingTextInput {
     getElementTagName() {
       return 'textarea'
@@ -43876,18 +43997,18 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(7),
-    a = n(210),
+    i = n(6),
+    a = n(212),
     s = n(1),
-    d = n(142),
+    d = n(143),
     l = n(55),
     c = n(100),
-    p = n(527),
-    u = n(145),
-    m = n(25),
+    p = n(531),
+    u = n(146),
+    m = n(26),
     h = n(4),
-    f = n(108),
-    g = n(526),
+    f = n(109),
+    g = n(530),
     y = n(23),
     S = new h.OcticonSymbol(12, 7, 'M9.875 2.125H12v1.75H9.875V6h-1.75V3.875H6v-1.75h2.125V0h1.75v2.125zM6 6.5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5V6c0-1.316 2-2 2-2s.114-.204 0-.5c-.42-.31-.472-.795-.5-2C1.587.293 2.434 0 3 0s1.413.293 1.5 1.5c-.028 1.205-.08 1.69-.5 2-.114.295 0 .5 0 .5s2 .684 2 2v.5z');
   class C extends r.Component {
@@ -44101,6 +44222,9 @@ module.exports = function (e) {
         }),
         c = i('description-field', {
           "with-overflow": this.state.descriptionObscured
+        }),
+        p = i('summary-field', 'nudge-arrow', {
+          "nudge-arrow-left": this.props.shouldNudge
         });
       return r.createElement('div', {
         id: 'commit-message',
@@ -44113,7 +44237,7 @@ module.exports = function (e) {
         className: 'summary'
       }, this.renderAvatar(), r.createElement(a.AutocompletingInput, {
         isRequired: !0,
-        className: 'summary-field',
+        className: p,
         placeholder: this.props.placeholder,
         value: this.state.summary,
         onValueChanged: this.onSummaryChanged,
@@ -44181,16 +44305,16 @@ module.exports = function (e) {
     c = n(72),
     p = n(35),
     u = n(73),
-    m = n(535),
-    h = n(525),
-    f = n(25),
+    m = n(539),
+    h = n(529),
+    f = n(26),
     g = n(74),
     y = n(21),
     S = n(2),
-    C = n(524),
+    C = n(528),
     b = n(23),
     v = n(4),
-    E = n(7),
+    E = n(6),
     w = new v.OcticonSymbol(16, 16, 'M3.002 15H15V4c.51 0 1 .525 1 .996V15c0 .471-.49 1-1 1H4.002c-.51 0-1-.529-1-1zm-2-2H13V2c.51 0 1 .525 1 .996V13c0 .471-.49 1-1 1H2.002c-.51 0-1-.529-1-1zm10.14-13A.86.86 0 0 1 12 .857v10.286a.86.86 0 0 1-.857.857H.857A.86.86 0 0 1 0 11.143V.857A.86.86 0 0 1 .857 0h10.286zM11 11V1H1v10h10zM3 6c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z'),
     k = '.gitignore';
   class _ extends i.Component {
@@ -44320,7 +44444,8 @@ module.exports = function (e) {
           placeholder: this.getPlaceholderMessage(f, g),
           prepopulateCommitSummary: g,
           key: n.id,
-          currentBranchProtected: s
+          currentBranchProtected: s,
+          shouldNudge: this.props.shouldNudgeToCommit
         })
       }, this.onStashEntryClicked = () => {
         const {
@@ -44401,7 +44526,7 @@ module.exports = function (e) {
       }), i
     }
     getPlaceholderMessage(e, t) {
-      if (!t) return '摘要(必填)';
+      if (!t) return '摘要 (必填)';
       const n = e[0],
         o = S.basename(n.path);
       switch (n.status.kind) {
@@ -44472,16 +44597,16 @@ module.exports = function (e) {
   });
   const o = n(2),
     r = n(0),
-    i = n(536),
+    i = n(540),
     a = n(30),
     s = n(28),
-    d = n(523),
-    l = n(210),
+    d = n(527),
+    l = n(212),
     c = n(84),
-    p = n(106),
-    u = n(24),
-    m = n(236),
-    h = n(521),
+    p = n(107),
+    u = n(25),
+    m = n(238),
+    h = n(525),
     g = n(40),
     f = 500;
   class y extends r.Component {
@@ -44629,7 +44754,8 @@ module.exports = function (e) {
         changesListScrollTop: this.props.changesListScrollTop,
         stashEntry: this.props.changes.stashEntry,
         isShowingStashEntry: h,
-        currentBranchProtected: l
+        currentBranchProtected: l,
+        shouldNudgeToCommit: this.props.shouldNudgeToCommit
       }), this.renderUndoCommit(u))
     }
   }
@@ -44639,9 +44765,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(537);
+  var o = n(541);
   t.ChangesSidebar = o.ChangesSidebar;
-  var r = n(520);
+  var r = n(524);
   t.Changes = r.Changes
 }, function (e, t, n) {
   'use strict';
@@ -44651,20 +44777,20 @@ module.exports = function (e) {
   const o = n(0),
     r = n(29),
     i = n(88),
-    a = n(538),
-    s = n(495),
-    d = n(490),
-    l = n(489),
-    c = n(488),
-    p = n(139),
+    a = n(542),
+    s = n(499),
+    d = n(494),
+    l = n(493),
+    c = n(492),
+    p = n(140),
     u = n(48),
     m = n(28),
     h = n(3),
-    f = n(145),
+    f = n(146),
     g = n(4),
-    y = n(465),
+    y = n(469),
     S = n(75),
-    C = n(195),
+    C = n(196),
     b = n(23),
     v = n(93);
   class E extends o.Component {
@@ -44752,7 +44878,8 @@ module.exports = function (e) {
         externalEditorLabel: this.props.externalEditorLabel,
         onOpenInExternalEditor: this.props.onOpenInExternalEditor,
         onChangesListScrolled: this.onChangesListScrolled,
-        changesListScrollTop: this.state.changesListScrollTop
+        changesListScrollTop: this.state.changesListScrollTop,
+        shouldNudgeToCommit: this.props.currentTutorialStep === v.TutorialStep.MakeCommit
       })
     }
     renderCompareSidebar() {
@@ -44899,7 +45026,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   (function () {
     var e, o, r, a, i, s, d, l, c, p;
-    p = n(110), r = p.isMatch, a = p.isWordStart, c = p.scoreConsecutives, l = p.scoreCharacter, d = p.scoreAcronyms, t.match = i = function (t, n, i) {
+    p = n(111), r = p.isMatch, a = p.isWordStart, c = p.scoreConsecutives, l = p.scoreCharacter, d = p.scoreAcronyms, t.match = i = function (t, n, i) {
       var a, d, l, c, p, u;
       return (a = i.allowErrors, p = i.preparedQuery, c = i.pathSeparator, !(a || r(t, p.core_lw, p.core_up))) ? [] : (u = t.toLowerCase(), l = o(t, u, p), 0 === l.length) ? l : (-1 < t.indexOf(c) && (d = e(t, u, p, c), l = s(l, d)), l)
     }, t.wrap = function (e, t, n) {
@@ -44956,7 +45083,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   (function () {
     var t, o, r, i, a;
-    i = n(110), o = n(144), t = n(211), r = function (e) {
+    i = n(111), o = n(145), t = n(213), r = function (e) {
       return e.candidate
     }, a = function (e, t) {
       return t.score - e.score
@@ -44972,7 +45099,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   (function () {
     var t, o, r, i, a, s, d, l;
-    r = n(541), i = n(540), l = n(110), s = n(144), t = n(211), d = null, o = 'win32' === ('undefined' != typeof process && null !== process ? 'win32' : void 0) ? '\\' : '/', e.exports = {
+    r = n(545), i = n(544), l = n(111), s = n(145), t = n(213), d = null, o = 'win32' === ('undefined' != typeof process && null !== process ? 'win32' : void 0) ? '\\' : '/', e.exports = {
       filter: function (e, t, n) {
         return (null == n && (n = {}), !((null == t ? void 0 : t.length) && (null == e ? void 0 : e.length))) ? [] : (n = a(n, t), r(e, t, n))
       },
@@ -45006,7 +45133,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(542),
+  const r = n(546),
     i = n(45);
   t.match = function (e, t, n) {
     const a = o(e, e, 1),
@@ -45051,7 +45178,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(7);
+    r = n(6);
   class i extends o.Component {
     constructor() {
       super(...arguments), this.onRowMouseOver = (t) => {
@@ -45094,29 +45221,29 @@ module.exports = function (e) {
   }
   t.ListRow = i
 }, function (e, t, n) {
-  var o = n(213),
+  var o = n(215),
     r = n(57)('iterator'),
     i = n(90);
   e.exports = n(43).getIteratorMethod = function (e) {
     if (e != void 0) return e[r] || e['@@iterator'] || i[o(e)]
   }
 }, function (e, t, n) {
-  var o = n(146),
-    r = n(546);
+  var o = n(147),
+    r = n(550);
   e.exports = n(43).getIterator = function (e) {
     var t = r(e);
     if ('function' != typeof t) throw TypeError(e + ' is not iterable!');
     return o(t.call(e))
   }
 }, function (e, t, n) {
-  n(148), n(153), e.exports = n(547)
+  n(149), n(154), e.exports = n(551)
 }, function (e, t, n) {
   e.exports = {
-    default: n(548),
+    default: n(552),
     __esModule: !0
   }
 }, function (e, t, n) {
-  var o = n(213),
+  var o = n(215),
     r = n(57)('iterator'),
     i = n(90);
   e.exports = n(43).isIterable = function (e) {
@@ -45124,10 +45251,10 @@ module.exports = function (e) {
     return t[r] !== void 0 || '@@iterator' in t || i.hasOwnProperty(o(t))
   }
 }, function (e, t, n) {
-  n(148), n(153), e.exports = n(550)
+  n(149), n(154), e.exports = n(554)
 }, function (e, t, n) {
   e.exports = {
-    default: n(551),
+    default: n(555),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -45151,30 +45278,30 @@ module.exports = function (e) {
     c = null
 }, function (e, t, n) {
   var o = n(89);
-  n(154)('getOwnPropertyDescriptor', function (e) {
+  n(155)('getOwnPropertyDescriptor', function (e) {
     return function (t, n) {
       return e(o(t), n)
     }
   })
 }, function (e, t, n) {
   var o = n(36);
-  n(554), e.exports = function (e, t) {
+  n(558), e.exports = function (e, t) {
     return o.getDesc(e, t)
   }
 }, function (e, t, n) {
-  var o = n(156);
-  n(154)('keys', function (e) {
+  var o = n(157);
+  n(155)('keys', function (e) {
     return function (t) {
       return e(o(t))
     }
   })
 }, function (e, t, n) {
-  n(556), e.exports = n(43).Object.keys
+  n(560), e.exports = n(43).Object.keys
 }, function (e, t, n) {
   var o = n(36),
-    r = n(156),
-    i = n(215);
-  e.exports = n(111)(function () {
+    r = n(157),
+    i = n(217);
+  e.exports = n(112)(function () {
     var e = Object.assign,
       t = {},
       n = {},
@@ -45191,10 +45318,10 @@ module.exports = function (e) {
 }, function (e, t, n) {
   var o = n(91);
   o(o.S + o.F, 'Object', {
-    assign: n(558)
+    assign: n(562)
   })
 }, function (e, t, n) {
-  n(559), e.exports = n(43).Object.assign
+  n(563), e.exports = n(43).Object.assign
 }, function (e, t, n) {
   'use strict';
   n.r(t), n.d(t, 'bpfrpt_proptype_ScrollIndices', function () {
@@ -45210,20 +45337,20 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   e.exports = {
-    default: n(562),
+    default: n(566),
     __esModule: !0
   }
 }, function (e, t, n) {
   var o = n(36).getDesc,
-    r = n(214),
-    i = n(146),
+    r = n(216),
+    i = n(147),
     a = function (e, t) {
       if (i(e), !r(t) && null !== t) throw TypeError(t + ': can\'t set as prototype!')
     };
   e.exports = {
     set: Object.setPrototypeOf || ('__proto__' in {} ? function (e, t, r) {
       try {
-        r = n(224)(Function.call, o(Object.prototype, '__proto__').set, 2), r(e, []), t = !(e instanceof Array)
+        r = n(226)(Function.call, o(Object.prototype, '__proto__').set, 2), r(e, []), t = !(e instanceof Array)
       } catch (n) {
         t = !0
       }
@@ -45236,17 +45363,17 @@ module.exports = function (e) {
 }, function (e, t, n) {
   var o = n(91);
   o(o.S, 'Object', {
-    setPrototypeOf: n(564).set
+    setPrototypeOf: n(568).set
   })
 }, function (e, t, n) {
-  n(565), e.exports = n(43).Object.setPrototypeOf
+  n(569), e.exports = n(43).Object.setPrototypeOf
 }, function (e, t, n) {
   e.exports = {
-    default: n(566),
+    default: n(570),
     __esModule: !0
   }
 }, function () {}, function (e, t, n) {
-  var o = n(147);
+  var o = n(148);
   e.exports = Array.isArray || function (e) {
     return 'Array' == o(e)
   }
@@ -45284,23 +45411,23 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   var o = n(36),
-    r = n(112),
-    a = n(150),
-    i = n(218),
+    r = n(113),
+    a = n(151),
+    i = n(220),
     s = n(91),
-    d = n(219),
-    l = n(111),
-    c = n(217),
-    p = n(149),
-    u = n(216),
+    d = n(221),
+    l = n(112),
+    c = n(219),
+    p = n(150),
+    u = n(218),
     m = n(57),
-    h = n(572),
-    f = n(571),
-    g = n(570),
-    y = n(569),
-    S = n(146),
+    h = n(576),
+    f = n(575),
+    g = n(574),
+    y = n(573),
+    S = n(147),
     C = n(89),
-    b = n(151),
+    b = n(152),
     v = o.getDesc,
     E = o.setDesc,
     w = o.create,
@@ -45389,7 +45516,7 @@ module.exports = function (e) {
     return this._k
   }), N = function (e) {
     return e instanceof _
-  }, o.create = z, o.isEnum = U, o.getDesc = W, o.setDesc = O, o.setDescs = H, o.getNames = f.get = V, o.getSymbols = G, i && !n(220) && d(L, 'propertyIsEnumerable', U, !0));
+  }, o.create = z, o.isEnum = U, o.getDesc = W, o.setDesc = O, o.setDescs = H, o.getNames = f.get = V, o.getSymbols = G, i && !n(222) && d(L, 'propertyIsEnumerable', U, !0));
   var q = {
     for: function (e) {
       return a(D, e += '') ? D[e] : D[e] = _(e)
@@ -45420,10 +45547,10 @@ module.exports = function (e) {
     stringify: K
   }), p(_, 'Symbol'), p(Math, 'Math', !0), p(r.JSON, 'JSON', !0)
 }, function (e, t, n) {
-  n(573), n(568), e.exports = n(43).Symbol
+  n(577), n(572), e.exports = n(43).Symbol
 }, function (e, t, n) {
   e.exports = {
-    default: n(574),
+    default: n(578),
     __esModule: !0
   }
 }, function (e) {
@@ -45437,11 +45564,11 @@ module.exports = function (e) {
   e.exports = function () {}
 }, function (e, t, n) {
   'use strict';
-  var o = n(577),
-    r = n(576),
+  var o = n(581),
+    r = n(580),
     i = n(90),
     a = n(89);
-  e.exports = n(221)(Array, 'Array', function (e, t) {
+  e.exports = n(223)(Array, 'Array', function (e, t) {
     this._t = a(e), this._i = 0, this._k = t
   }, function () {
     var e = this._t,
@@ -45452,10 +45579,10 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   var o = n(36),
-    r = n(151),
-    i = n(149),
+    r = n(152),
+    i = n(150),
     a = {};
-  n(152)(a, n(57)('iterator'), function () {
+  n(153)(a, n(57)('iterator'), function () {
     return this
   }), e.exports = function (e, t, n) {
     e.prototype = o.create(a, {
@@ -45469,8 +45596,8 @@ module.exports = function (e) {
     return isNaN(e = +e) ? 0 : (0 < e ? n : t)(e)
   }
 }, function (e, t, n) {
-  var o = n(580),
-    r = n(155);
+  var o = n(584),
+    r = n(156);
   e.exports = function (e) {
     return function (t, n) {
       var d = r(t) + '',
@@ -45481,10 +45608,10 @@ module.exports = function (e) {
     }
   }
 }, function (e, t, n) {
-  n(153), n(148), e.exports = n(57)('iterator')
+  n(154), n(149), e.exports = n(57)('iterator')
 }, function (e, t, n) {
   e.exports = {
-    default: n(582),
+    default: n(586),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -45498,14 +45625,14 @@ module.exports = function (e) {
     return e
   }
 }, function (e, t, n) {
-  var o = n(156);
-  n(154)('getPrototypeOf', function (e) {
+  var o = n(157);
+  n(155)('getPrototypeOf', function (e) {
     return function (t) {
       return e(o(t))
     }
   })
 }, function (e, t, n) {
-  n(586), e.exports = n(43).Object.getPrototypeOf
+  n(590), e.exports = n(43).Object.getPrototypeOf
 }, function (e, t, n) {
   'use strict';
 
@@ -45518,13 +45645,13 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(41),
-    a = n(301),
+    a = n(303),
     s = n(74),
-    d = n(145),
-    l = n(545),
-    c = n(212),
+    d = n(146),
+    l = n(549),
+    c = n(214),
     p = n(62),
-    u = n(544);
+    u = n(548);
   class m extends r.Component {
     constructor(e) {
       super(e), this.focusItem = null, this.fakeScroll = null, this.scrollToRow = -1, this.focusRow = -1, this.gridStyle = {
@@ -45952,7 +46079,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(44),
     i = n(4),
-    a = n(25),
+    a = n(26),
     s = n(92),
     d = n(73),
     l = n(23);
@@ -46074,15 +46201,15 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(590),
-    a = n(589),
-    s = n(113),
+    i = n(594),
+    a = n(593),
+    s = n(114),
     d = n(1),
     l = n(4),
-    c = n(25),
-    p = n(24),
+    c = n(26),
+    p = n(25),
     u = n(33),
-    m = n(109),
+    m = n(110),
     h = n(23),
     f = u.encodePathAsUrl(__dirname, 'static/empty-no-repo.svg');
   class g extends r.Component {
@@ -46199,7 +46326,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(591);
+  var o = n(595);
   t.RepositoriesList = o.RepositoriesList
 }, function (e, t, n) {
   'use strict';
@@ -46321,7 +46448,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(20),
-    r = n(225),
+    r = n(227),
     i = n(3);
   t.iconForStatus = function (e) {
     switch (e.kind) {
@@ -46364,7 +46491,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(7),
+    r = n(6),
     i = n(62);
   class a extends o.Component {
     constructor() {
@@ -46403,8 +46530,8 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(21),
-    i = n(234),
-    a = n(7);
+    i = n(236),
+    a = n(6);
   class s extends o.Component {
     constructor() {
       super(...arguments), this.onWindowStateChanged = (e, t) => {
@@ -46473,7 +46600,7 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(21),
-    a = n(598),
+    a = n(602),
     s = n(4);
   class d extends r.Component {
     constructor(e) {
@@ -46514,11 +46641,11 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(599);
+  var o = n(603);
   t.TitleBar = o.TitleBar;
-  var r = n(594);
+  var r = n(598);
   t.ZoomInfo = r.ZoomInfo;
-  var i = n(593);
+  var i = n(597);
   t.FullScreenInfo = i.FullScreenInfo
 }, function (e, t, n) {
   'use strict';
@@ -46561,14 +46688,14 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(281),
-    i = n(226),
+  const r = n(283),
+    i = n(228),
     a = n(13),
     s = n(3),
-    d = n(602),
+    d = n(606),
     l = n(74),
     c = n(53),
-    p = n(173);
+    p = n(174);
   t.PullRequestStore = class {
     constructor(e, t) {
       this.db = e, this.repositoryStore = t, this.emitter = new c.Emitter, this.currentRefreshOperations = new Map, this.lastRefreshForRepository = new Map
@@ -46749,10 +46876,10 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(3),
-    i = n(227),
-    a = n(605),
+    i = n(229),
+    a = n(609),
     s = n(13),
-    d = n(604),
+    d = n(608),
     l = n(58),
     c = `The GitHub Enterprise Server version does not support GitHub Desktop. Talk to your server's administrator about upgrading to the latest version of GitHub Enterprise Server.`;
   var p;
@@ -47010,8 +47137,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(265),
-    a = n(266),
+  const i = n(267),
+    a = n(268),
     s = n(44),
     d = n(3),
     l = n(58),
@@ -47484,9 +47611,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(99),
-    r = n(116),
+    r = n(117),
     i = n(22),
-    a = n(130),
+    a = n(131),
     s = n(58);
   class d extends s.BaseStore {
     constructor() {
@@ -47685,8 +47812,8 @@ module.exports = function (e) {
     return typeof e == typeof t
   }
   var s = Array.prototype.slice,
-    d = n(615),
-    l = n(614),
+    d = n(619),
+    l = n(618),
     c = e.exports = function (e, t, n) {
       return n || (n = {}), e === t || (e instanceof Date && t instanceof Date ? e.getTime() === t.getTime() : e && t && ('object' == typeof e || 'object' == typeof t) ? i(e, t, n) : n.strict ? e === t : e == t)
     }
@@ -47929,7 +48056,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(231);
+  const o = n(233);
   t.GitStoreCache = class {
     constructor(e, t, n, o) {
       this.shell = e, this.onGitStoreUpdated = t, this.onDidLoadNewCommits = n, this.onDidError = o, this.gitStores = new Map
@@ -48183,8 +48310,8 @@ module.exports = function (e) {
   function a(e) {
     this.session++, this.running = !1, this.emit('end', e)
   }
-  var s = n(627),
-    d = n(233).EventEmitter;
+  var s = n(631),
+    d = n(235).EventEmitter;
   e.exports = o, s(o, d);
   ['pop', 'shift', 'indexOf', 'lastIndexOf'].forEach(function (e) {
     o.prototype[e] = function () {
@@ -48237,10 +48364,10 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(628),
+  const o = n(632),
     r = n(22),
     i = n(22),
-    a = n(232);
+    a = n(234);
   t.AheadBehindUpdater = class {
     constructor(e, t) {
       this.repository = e, this.onCacheUpdate = t, this.comparisonCache = new a.ComparisonCache, this.aheadBehindQueue = o({
@@ -48522,7 +48649,7 @@ module.exports = function (e) {
   });
   const u = n(46),
     m = n(2),
-    h = n(259),
+    h = n(261),
     f = n(19),
     g = n(3),
     y = n(23);
@@ -48584,7 +48711,7 @@ module.exports = function (e) {
   });
   const d = n(46),
     l = n(3),
-    c = n(261);
+    c = n(263);
   var p;
   (function (e) {
     e.Terminal = 'Terminal', e.Hyper = 'Hyper', e.iTerm2 = 'iTerm2', e.PowerShellCore = 'PowerShell Core', e.Kitty = 'Kitty'
@@ -48609,10 +48736,10 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(19),
-    a = n(632),
-    s = n(631),
-    d = n(630),
-    l = n(235);
+    a = n(636),
+    s = n(635),
+    d = n(634),
+    l = n(237);
   t.Default = function () {
     return s.Default
   }();
@@ -48726,7 +48853,7 @@ module.exports = function (e) {
     u = n(28),
     m = n(99),
     h = n(29),
-    f = n(25);
+    f = n(26);
   class g {
     constructor(e = new Map) {
       this._state = e
@@ -48779,7 +48906,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(252),
+  const o = n(254),
     r = n(13),
     i = n(65);
   t.inferLastPushForRepository = async function (e, t, n) {
@@ -48850,7 +48977,7 @@ module.exports = function (e) {
     l = n(2),
     c = n(19),
     p = n(11),
-    u = n(163);
+    u = n(164);
   t.listWorkTrees = o, t.removeWorkTree = i;
   const m = 'github-desktop-worktree-';
   t.findOrCreateTemporaryWorkTree = async function (e, t) {
@@ -48872,7 +48999,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(160),
+  const o = n(161),
     r = n(78);
   t.formatPatch = async function (e, t, n) {
     const i = o.revRange(t, n),
@@ -48951,7 +49078,7 @@ module.exports = function (e) {
   const o = n(2),
     r = n(19),
     i = n(11),
-    a = n(639);
+    a = n(643);
   t.listSubmodules = async function (e) {
     const [t, n] = await Promise.all([r.pathExists(o.join(e.path, '.gitmodules')), r.pathExists(o.join(e.path, '.git', 'modules'))]);
     if (!t && !n) return log.info('No submodules found. Skipping "git submodule status"'), [];
@@ -49014,8 +49141,8 @@ module.exports = function (e) {
   });
   const o = n(11),
     r = n(49),
-    i = n(245),
-    a = n(643);
+    i = n(247),
+    a = n(647);
   t.revertCommit = async function (e, t, n, s) {
     const d = await o.gitNetworkArguments(e, n),
       l = [...d, 'revert'];
@@ -49115,7 +49242,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(11),
-    r = n(118);
+    r = n(119);
   t.getAuthorIdentity = async function (e) {
     const t = await o.git(['var', 'GIT_AUTHOR_IDENT'], e.path, 'getAuthorIdentity', {
       successExitCodes: new Set([0, 128])
@@ -49403,7 +49530,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const s = n(650),
+  const s = n(654),
     d = n(20);
   t.isStatusHeader = function (e) {
     return 'header' === e.kind
@@ -49543,7 +49670,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(78),
-    r = n(163);
+    r = n(164);
   t.getFilesWithConflictMarkers = async function (e) {
     const {
       output: t
@@ -49836,9 +49963,9 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(11),
-    i = n(161),
-    a = n(244),
-    s = n(243);
+    i = n(162),
+    a = n(246),
+    s = n(245);
   t.createCommit = async function (e, t, n) {
     await a.unstageAll(e), await i.stageFiles(e, n);
     try {
@@ -49907,7 +50034,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(19),
-    r = n(119);
+    r = n(120);
   t.createLFSProgressFile = async function () {
     const e = await r.getTempFilePath('GitHubDesktop-lfs-progress');
     return await o.ensureFile(e), e
@@ -50135,10 +50262,10 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(11),
-    a = n(248),
+    a = n(250),
     s = n(50),
     d = n(49),
-    l = n(246);
+    l = n(248);
   t.createBranch = async function (e, t, n) {
     const o = null === n ? ['branch', t] : ['branch', t, n];
     await i.git(o, e.path, 'createBranch');
@@ -50439,7 +50566,7 @@ module.exports = function (e) {
     } catch (e) {
       throw new Error('Cannot open ' + o + ': ' + e)
     }
-  }).call(this, n(129)(e))
+  }).call(this, n(130)(e))
 }, function (e, t, n) {
   function o(e, t) {
     if (!e || 0 >= e.length) throw new Error(t + ' is required.')
@@ -50453,7 +50580,7 @@ module.exports = function (e) {
     });
     throw new Error('Callback required')
   }
-  var i = n(675);
+  var i = n(679);
   e.exports = {
     getPassword: function (e, t) {
       return o(e, 'Service'), o(t, 'Account'), r((n) => i.getPassword(e, t, n))
@@ -50528,8 +50655,8 @@ module.exports = function (e) {
   });
   const r = n(32),
     i = n(46),
-    a = n(255),
-    s = n(677);
+    a = n(257),
+    s = n(681);
   class d {
     static pathExists(e) {
       try {
@@ -50626,7 +50753,7 @@ module.exports = function (e) {
     } catch (e) {
       throw new Error('Cannot open ' + o + ': ' + e)
     }
-  }).call(this, n(129)(e))
+  }).call(this, n(130)(e))
 }, function (e, t, n) {
   'use strict';
 
@@ -50654,7 +50781,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const s = n(680);
+  const s = n(684);
   var d;
   (function (e) {
     e.REG_BINARY = 'REG_BINARY', e.REG_DWORD = 'REG_DWORD', e.REG_DWORD_LITTLE_ENDIAN = 'REG_DWORD_LITTLE_ENDIAN', e.REG_DWORD_BIG_ENDIAN = 'REG_DWORD_BIG_ENDIAN', e.REG_EXPAND_SZ = 'REG_EXPAND_SZ', e.REG_LINK = 'REG_LINK', e.REG_MULTI_SZ = 'REG_MULTI_SZ', e.REG_NONE = 'REG_NONE', e.REG_QWORD = 'REG_QWORD', e.REG_QWORD_LITTLE_ENDIAN = 'REG_QWORD_LITTLE_ENDIAN', e.REG_SZ = 'REG_SZ'
@@ -50683,7 +50810,7 @@ module.exports = function (e) {
   const o = n(21),
     r = n(81),
     i = n(53),
-    a = n(167);
+    a = n(168);
   t.themeChangeMonitor = new class {
     constructor() {
       this.emitter = new i.Emitter, this.subscriptionID = null, this.subscribe = () => {
@@ -50898,8 +51025,8 @@ module.exports = function (e) {
   const s = n(37).fromCallback,
     d = n(31),
     l = n(2),
-    c = n(268).copy,
-    p = n(123).remove,
+    c = n(270).copy,
+    p = n(124).remove,
     u = n(39).mkdirp,
     m = n(51).pathExists;
   e.exports = {
@@ -50972,10 +51099,10 @@ module.exports = function (e) {
   }
   const d = n(31),
     l = n(2),
-    c = n(272).copySync,
-    p = n(123).removeSync,
+    c = n(274).copySync,
+    p = n(124).removeSync,
     u = n(39).mkdirsSync,
-    m = n(269);
+    m = n(271);
   e.exports = {
     moveSync: o
   }
@@ -50984,7 +51111,7 @@ module.exports = function (e) {
   const o = n(31),
     r = n(2),
     i = n(39),
-    a = n(169);
+    a = n(170);
   e.exports = function (e, t, n) {
     const s = r.dirname(e);
     o.existsSync(s) || i.mkdirsSync(s), a.writeJsonSync(e, t, n)
@@ -50994,7 +51121,7 @@ module.exports = function (e) {
   const o = n(2),
     r = n(39),
     i = n(51).pathExists,
-    a = n(169);
+    a = n(170);
   e.exports = function (e, t, n, s) {
     'function' == typeof n && (s = n, n = {});
     const d = o.dirname(e);
@@ -51081,8 +51208,8 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(37).fromCallback,
-    r = n(169);
-  r.outputJson = o(n(694)), r.outputJsonSync = n(693), r.outputJSON = r.outputJson, r.outputJSONSync = r.outputJsonSync, r.writeJSON = r.writeJson, r.writeJSONSync = r.writeJsonSync, r.readJSON = r.readJson, r.readJSONSync = r.readJsonSync, e.exports = r
+    r = n(170);
+  r.outputJson = o(n(698)), r.outputJsonSync = n(697), r.outputJSON = r.outputJson, r.outputJSONSync = r.outputJsonSync, r.writeJSON = r.writeJson, r.writeJSONSync = r.writeJsonSync, r.readJSON = r.readJson, r.readJSONSync = r.readJsonSync, e.exports = r
 }, function (e, t, n) {
   'use strict';
   const o = n(31);
@@ -51155,10 +51282,10 @@ module.exports = function (e) {
     a = n(39),
     s = a.mkdirs,
     d = a.mkdirsSync,
-    l = n(698),
+    l = n(702),
     c = l.symlinkPaths,
     p = l.symlinkPathsSync,
-    u = n(697),
+    u = n(701),
     m = u.symlinkType,
     h = u.symlinkTypeSync,
     f = n(51).pathExists;
@@ -51244,9 +51371,9 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  const o = n(701),
-    r = n(700),
-    i = n(699);
+  const o = n(705),
+    r = n(704),
+    i = n(703);
   e.exports = {
     createFile: o.createFile,
     createFileSync: o.createFileSync,
@@ -51385,7 +51512,7 @@ module.exports = function (e) {
   }
   const p = n(31),
     h = n(2),
-    f = n(273),
+    f = n(275),
     g = !0;
   e.exports = r, r.sync = c
 }, function (e, t, n) {
@@ -51406,7 +51533,7 @@ module.exports = function (e) {
     i = n(32),
     a = n(2),
     s = n(39),
-    d = n(123),
+    d = n(124),
     l = r(function (e, t) {
       t = t || function () {}, i.readdir(e, (n, o) => {
         function r() {
@@ -51539,7 +51666,7 @@ module.exports = function (e) {
     R = n(2),
     T = n(39).mkdirs,
     x = n(51).pathExists,
-    P = n(270).utimesMillis,
+    P = n(272).utimesMillis,
     M = Symbol('notExist'),
     D = Symbol('existsReg');
   e.exports = o
@@ -51577,7 +51704,7 @@ module.exports = function (e) {
   }
   const r = n(31),
     i = n(2),
-    a = n(271).invalidWin32Path,
+    a = n(273).invalidWin32Path,
     s = parseInt('0777', 8);
   e.exports = o
 }, function (e, t, n) {
@@ -51610,7 +51737,7 @@ module.exports = function (e) {
   }
   const r = n(31),
     i = n(2),
-    a = n(271).invalidWin32Path,
+    a = n(273).invalidWin32Path,
     s = parseInt('0777', 8);
   e.exports = o
 }, function (e, t, n) {
@@ -51655,7 +51782,7 @@ module.exports = function (e) {
 
   function l(e, t, o, r) {
     const i = 65536,
-      a = n(269)(i),
+      a = n(271)(i),
       s = v.openSync(t, 'r'),
       d = v.openSync(o, 'w', e.mode);
     for (let n = 0; n < e.size;) {
@@ -51746,12 +51873,12 @@ module.exports = function (e) {
   const v = n(31),
     E = n(2),
     w = n(39).mkdirsSync,
-    k = n(270).utimesMillisSync,
+    k = n(272).utimesMillisSync,
     _ = Symbol('notExist'),
     R = Symbol('existsReg');
   e.exports = o
 }, function (e, t, n) {
-  var o = n(274).Stream;
+  var o = n(276).Stream;
   e.exports = function (e) {
     function t(n, r) {
       if (!(this instanceof t)) return new t(n, r);
@@ -51899,8 +52026,8 @@ module.exports = function (e) {
     var t = !process.getuid || 0 !== process.getuid();
     return !!(t && ('EINVAL' === e.code || 'EPERM' === e.code))
   }
-  var u = n(275),
-    m = n(710),
+  var u = n(277),
+    m = n(714),
     h = process.cwd,
     f = null,
     g = process.env.GRACEFUL_FS_PLATFORM || 'win32';
@@ -51994,72 +52121,72 @@ module.exports = function (e) {
   });
   const d = n(21),
     l = n(19),
-    c = n(689),
-    p = n(128),
-    u = n(122),
-    m = n(267),
-    h = n(121),
+    c = n(693),
+    p = n(129),
+    u = n(123),
+    m = n(269),
+    h = n(122),
     f = n(99),
     g = n(30),
-    y = n(120),
-    S = n(266),
-    C = n(265),
-    b = n(168),
+    y = n(121),
+    S = n(268),
+    C = n(267),
+    b = n(169),
     v = n(44),
     E = n(20),
     w = n(29),
-    k = n(24),
-    _ = n(682),
+    k = n(25),
+    _ = n(686),
     R = n(83),
     T = n(81),
-    x = n(25),
+    x = n(26),
     P = n(13),
     M = n(38),
     D = n(28),
-    A = n(264),
+    A = n(266),
     I = n(3),
-    L = n(257),
-    B = n(256),
-    F = n(254),
-    N = n(252),
+    L = n(259),
+    B = n(258),
+    F = n(256),
+    N = n(254),
     O = n(22),
-    H = n(236),
-    z = n(635),
-    U = n(634),
+    H = n(238),
+    z = n(639),
+    U = n(638),
     W = n(52),
     V = n(65),
     G = n(76),
-    K = n(116),
-    j = n(115),
+    K = n(117),
+    j = n(116),
     q = n(82),
-    Y = n(279),
-    Q = n(234),
+    Y = n(281),
+    Q = n(236),
     X = n(58),
-    $ = n(629),
-    Z = n(159),
-    J = n(626),
-    ee = n(625),
-    te = n(624),
-    ne = n(158),
-    oe = n(623),
-    re = n(621),
+    $ = n(633),
+    Z = n(160),
+    J = n(630),
+    ee = n(629),
+    te = n(628),
+    ne = n(159),
+    oe = n(627),
+    re = n(625),
     ie = n(60),
     ae = n(98),
-    se = n(618),
-    de = n(617),
+    se = n(622),
+    de = n(621),
     le = n(23),
     ce = n(95),
     pe = n(66),
-    ue = n(167),
+    ue = n(168),
     me = n(63),
-    he = n(228),
+    he = n(230),
     fe = n(94),
     ge = n(75),
     ye = n(74),
-    Se = n(613),
-    Ce = n(612),
+    Se = n(617),
+    Ce = n(616),
     be = n(93),
-    ve = n(611),
+    ve = n(615),
     Ee = n(40),
     we = 'last-selected-repository-id',
     ke = 'recently-selected-repositories',
@@ -52083,7 +52210,7 @@ module.exports = function (e) {
     We = 'shell';
   class Ve extends X.TypedBaseStore {
     constructor(e, t, n, o, r, i, a, s, l, c) {
-      super(), this.gitHubUserStore = e, this.cloningRepositoriesStore = t, this.issuesStore = n, this.statsStore = o, this.signInStore = r, this.accountsStore = i, this.repositoriesStore = a, this.pullRequestStore = s, this.repositoryStateCache = l, this.apiRepositoriesStore = c, this.accounts = [], this.repositories = [], this.recentRepositories = [], this.selectedRepository = null, this.currentBackgroundFetcher = null, this.currentPullRequestUpdater = null, this.currentAheadBehindUpdater = null, this.currentBranchPruner = null, this.showWelcomeFlow = !1, this.focusCommitMessage = !1, this.currentPopup = null, this.currentFoldout = null, this.currentBanner = null, this.errors = [], this.emitQueued = !1, this.localRepositoryStateLookup = new Map, this.emoji = new Map, this.appMenu = null, this.highlightAccessKeys = !1, this.appIsFocused = !1, this.sidebarWidth = Re, this.commitSummaryWidth = xe, this.stashedFilesWidth = Me, this.windowZoomFactor = 1, this.isUpdateAvailableBannerVisible = !1, this.askForConfirmationOnRepositoryRemoval = Ae, this.confirmDiscardChanges = Ie, this.askForConfirmationOnForcePush = Le, this.imageDiffType = He, this.hideWhitespaceInDiff = !1, this.resolvedExternalEditor = null, this.selectedShell = j.Default, this.repositoryFilterText = '', this.currentMergeTreePromise = null, this.resolveOpenInDesktop = null, this.selectedCloneRepositoryTab = h.CloneRepositoryTab.DotCom, this.selectedBranchesTab = m.BranchesTab.Branches, this.selectedTheme = T.ApplicationTheme.Light, this.automaticallySwitchTheme = !1, this.hasUserViewedStash = !1, this.currentOnboardingTutorialStep = be.TutorialStep.NotApplicable, this.getResolvedExternalEditor = () => this.resolvedExternalEditor, this.showWelcomeFlow = !Y.hasShownWelcomeFlow(), this.gitStoreCache = new re.GitStoreCache(M.shell, (e, t) => this.onGitStoreUpdated(e, t), (e, t) => this.loadAndCacheUsers(e, this.accounts, t), (e) => this.emitError(e));
+      super(), this.gitHubUserStore = e, this.cloningRepositoriesStore = t, this.issuesStore = n, this.statsStore = o, this.signInStore = r, this.accountsStore = i, this.repositoriesStore = a, this.pullRequestStore = s, this.repositoryStateCache = l, this.apiRepositoriesStore = c, this.accounts = [], this.repositories = [], this.recentRepositories = [], this.selectedRepository = null, this.currentBackgroundFetcher = null, this.currentPullRequestUpdater = null, this.currentAheadBehindUpdater = null, this.currentBranchPruner = null, this.showWelcomeFlow = !1, this.focusCommitMessage = !1, this.currentPopup = null, this.currentFoldout = null, this.currentBanner = null, this.errors = [], this.emitQueued = !1, this.localRepositoryStateLookup = new Map, this.emoji = new Map, this.appMenu = null, this.highlightAccessKeys = !1, this.appIsFocused = !1, this.sidebarWidth = Re, this.commitSummaryWidth = xe, this.stashedFilesWidth = Me, this.windowZoomFactor = 1, this.isUpdateAvailableBannerVisible = !1, this.askForConfirmationOnRepositoryRemoval = Ae, this.confirmDiscardChanges = Ie, this.askForConfirmationOnForcePush = Le, this.imageDiffType = He, this.hideWhitespaceInDiff = !1, this.selectedExternalEditor = null, this.resolvedExternalEditor = null, this.selectedShell = j.Default, this.repositoryFilterText = '', this.currentMergeTreePromise = null, this.resolveOpenInDesktop = null, this.selectedCloneRepositoryTab = h.CloneRepositoryTab.DotCom, this.selectedBranchesTab = m.BranchesTab.Branches, this.selectedTheme = T.ApplicationTheme.Light, this.automaticallySwitchTheme = !1, this.hasUserViewedStash = !1, this.currentOnboardingTutorialStep = be.TutorialStep.NotApplicable, this.getResolvedExternalEditor = () => this.resolvedExternalEditor, this.showWelcomeFlow = !Y.hasShownWelcomeFlow(), this.gitStoreCache = new re.GitStoreCache(M.shell, (e, t) => this.onGitStoreUpdated(e, t), (e, t) => this.loadAndCacheUsers(e, this.accounts, t), (e) => this.emitError(e));
       const p = d.remote.getCurrentWindow();
       this.windowState = Q.getWindowState(p), this.onWindowZoomFactorChanged(p.webContents.getZoomFactor()), this.wireupIpcEventHandlers(p), this.wireupStoreEventHandlers(), x.getAppMenu(), this.tutorialAssessor = new ve.OnboardingTutorialAssessor(this.getResolvedExternalEditor)
     }
@@ -52641,26 +52768,27 @@ module.exports = function (e) {
         }));
         for (const t of e) this.gitHubUserStore.cacheUser(t)
       }
-      this.updateRepositorySelectionAfterRepositoriesChanged(), this.sidebarWidth = ie.getNumber(Te, Re), this.commitSummaryWidth = ie.getNumber(Pe, xe), this.stashedFilesWidth = ie.getNumber(De, Me), this.askForConfirmationOnRepositoryRemoval = ie.getBoolean(Be, Ae), this.confirmDiscardChanges = ie.getBoolean(Fe, Ie), this.askForConfirmationOnForcePush = ie.getBoolean(Ne, Le);
-      const n = await this.getSelectedExternalEditor();
-      n && (this.selectedExternalEditor = n), this._resolveCurrentEditor().catch((t) => log.error('Failed resolving current editor at startup', t));
-      const o = localStorage.getItem(We);
-      this.selectedShell = o ? j.parse(o) : j.Default, this.updateMenuLabelsForSelectedRepository();
-      const r = localStorage.getItem(ze);
-      this.imageDiffType = null === r ? He : parseInt(r), this.hideWhitespaceInDiff = ie.getBoolean(Ue, !1), this.automaticallySwitchTheme = T.getAutoSwitchPersistedTheme(), this.automaticallySwitchTheme ? (this.selectedTheme = ue.isDarkModeEnabled() ? T.ApplicationTheme.Dark : T.ApplicationTheme.Light, T.setPersistedTheme(this.selectedTheme)) : this.selectedTheme = T.getPersistedTheme(), _.themeChangeMonitor.onThemeChanged((e) => {
+      this.updateRepositorySelectionAfterRepositoriesChanged(), this.sidebarWidth = ie.getNumber(Te, Re), this.commitSummaryWidth = ie.getNumber(Pe, xe), this.stashedFilesWidth = ie.getNumber(De, Me), this.askForConfirmationOnRepositoryRemoval = ie.getBoolean(Be, Ae), this.confirmDiscardChanges = ie.getBoolean(Fe, Ie), this.askForConfirmationOnForcePush = ie.getBoolean(Ne, Le), this.updateSelectedExternalEditor((await this.lookupSelectedExternalEditor())).catch((t) => log.error('Failed resolving current editor at startup', t));
+      const n = localStorage.getItem(We);
+      this.selectedShell = n ? j.parse(n) : j.Default, this.updateMenuLabelsForSelectedRepository();
+      const o = localStorage.getItem(ze);
+      this.imageDiffType = null === o ? He : parseInt(o), this.hideWhitespaceInDiff = ie.getBoolean(Ue, !1), this.automaticallySwitchTheme = T.getAutoSwitchPersistedTheme(), this.automaticallySwitchTheme ? (this.selectedTheme = ue.isDarkModeEnabled() ? T.ApplicationTheme.Dark : T.ApplicationTheme.Light, T.setPersistedTheme(this.selectedTheme)) : this.selectedTheme = T.getPersistedTheme(), _.themeChangeMonitor.onThemeChanged((e) => {
         this.automaticallySwitchTheme && (this.selectedTheme = e, this.emitUpdate())
       }), this.emitUpdateNow(), this.accountsStore.refresh()
     }
-    async getSelectedExternalEditor() {
-      const e = localStorage.getItem(Oe);
-      if (e) {
-        const t = A.parse(e);
-        if (t) return t
+    updateSelectedExternalEditor(e) {
+      return this.selectedExternalEditor = e, this._resolveCurrentEditor()
+    }
+    async lookupSelectedExternalEditor() {
+      const e = (await A.getAvailableEditors()).map((e) => e.editor),
+        t = localStorage.getItem(Oe);
+      if (t) {
+        const n = A.parse(t);
+        if (n && e.includes(n)) return n
       }
-      const t = await A.getAvailableEditors();
-      if (t.length) {
-        const e = t[0].editor;
-        return localStorage.setItem(Oe, e), e
+      if (e.length) {
+        const t = e[0];
+        return localStorage.setItem(Oe, t), t
       }
       return null
     }
@@ -52678,7 +52806,7 @@ module.exports = function (e) {
         askForConfirmationOnForcePush: r
       } = this, i = {
         selectedShell: t,
-        selectedExternalEditor: n || null,
+        selectedExternalEditor: n,
         askForConfirmationOnRepositoryRemoval: o,
         askForConfirmationOnForcePush: r
       };
@@ -53686,8 +53814,9 @@ module.exports = function (e) {
     _setConfirmForcePushSetting(e) {
       return this.askForConfirmationOnForcePush = e, ie.setBoolean(Ne, e), this.updateMenuLabelsForSelectedRepository(), this.emitUpdate(), Promise.resolve()
     }
-    async _setExternalEditor(e) {
-      this.selectedExternalEditor = e, localStorage.setItem(Oe, e), this.emitUpdate(), this.updateMenuLabelsForSelectedRepository(), await this._resolveCurrentEditor()
+    _setExternalEditor(e) {
+      const t = this.updateSelectedExternalEditor(e);
+      return localStorage.setItem(Oe, e), this.emitUpdate(), this.updateMenuLabelsForSelectedRepository(), t
     }
     _setShell(e) {
       return this.selectedShell = e, localStorage.setItem(We, e), this.emitUpdate(), this.updateMenuLabelsForSelectedRepository(), Promise.resolve()
@@ -54169,8 +54298,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(277),
-    i = n(128),
+  const r = n(279),
+    i = n(129),
     a = n(13),
     s = n(3),
     d = n(58);
@@ -54183,18 +54312,14 @@ module.exports = function (e) {
     }
     async addAccount(t) {
       await this.loadingPromise;
-      let e = t;
       try {
-        e = await o(t)
-      } catch (n) {
-        log.warn(`Failed to fetch user ${t.login}`, n)
-      }
-      try {
-        await this.secureStore.setItem(r.getKeyForAccount(e), e.login, e.token)
+        const e = r.getKeyForAccount(t);
+        await this.secureStore.setItem(e, t.login, t.token)
       } catch (n) {
         return log.error(`Error adding account '${t.login}'`, n), this.emitError(n), null
       }
-      return this.accounts = [...this.accounts, e], this.save(), e
+      const e = this.accounts.reduce((e, t) => e.set(t.endpoint, t), new Map);
+      return e.set(t.endpoint, t), this.accounts = [...e.values()], this.save(), t
     }
     async refresh() {
       this.accounts = await Promise.all(this.accounts.map((e) => this.tryUpdateAccount(e))), this.save(), this.emitUpdate(this.accounts)
@@ -54213,7 +54338,7 @@ module.exports = function (e) {
       } catch (n) {
         return log.error(`Error removing account '${t.login}'`, n), void this.emitError(n)
       }
-      this.accounts = this.accounts.filter((e) => e.id !== t.id), this.save()
+      this.accounts = this.accounts.filter((e) => e.endpoint !== t.endpoint || e.id !== t.id), this.save()
     }
     async loadFromStore() {
       const e = this.dataStore.getItem('users');
@@ -54878,7 +55003,7 @@ module.exports = function (e) {
     }, P.OS = {
       NAME: c,
       VERSION: m
-    }, typeof t == s ? n(714) ? (o = function () {
+    }, typeof t == s ? n(718) ? (o = function () {
       return P
     }.call(t, n, t, e), !(o !== void 0 && (e.exports = o))) : r && (r.UAParser = P) : (typeof e != s && e.exports && (t = e.exports = P), t.UAParser = P);
     var M = r && (r.jQuery || r.Zepto);
@@ -54931,9 +55056,9 @@ module.exports = function (e) {
   });
   const d = n(13),
     l = n(83),
-    c = n(279),
-    p = n(124),
-    u = n(278),
+    c = n(281),
+    p = n(125),
+    u = n(280),
     m = n(52),
     h = n(81),
     f = n(80),
@@ -55613,7 +55738,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(280);
+  const o = n(282);
   class r extends o.default {
     constructor(e) {
       super(e), this.version(1).stores({
@@ -55696,7 +55821,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = i(n(718));
+  const a = i(n(722));
   t.default = o, e.exports = o, e.exports.default = o
 }, function (e) {
   'use strict';
@@ -55726,7 +55851,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   var o = n(2),
-    r = n(282);
+    r = n(284);
   e.exports = function (e) {
     e = e || {};
     for (var t = o.resolve(e.cwd || '.'), n = [], i; i !== t;) n.push(o.join(t, 'node_modules/.bin')), i = t, t = o.resolve(t, '..');
@@ -55805,7 +55930,7 @@ module.exports = function (e) {
   }
   var i = n(32),
     a;
-  a = n(726), e.exports = o, o.sync = r
+  a = n(730), e.exports = o, o.sync = r
 }, function (e, t, n) {
   function o(e) {
     var t = new Error('not found: ' + e);
@@ -55876,12 +56001,12 @@ module.exports = function (e) {
   };
   var a = n(2),
     s = ';',
-    d = n(727)
+    d = n(731)
 }, function (e, t, n) {
   'use strict';
   var o = n(2),
-    r = n(728),
-    i = n(284),
+    r = n(732),
+    i = n(286),
     a = new i({
       max: 50,
       maxAge: 30000
@@ -55899,7 +56024,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  var o = n(283);
+  var o = n(285);
   o.prototype[Symbol.iterator] = function* () {
     for (let e = this.head; e; e = e.next) yield e.value
   }
@@ -55968,7 +56093,7 @@ module.exports = function (e) {
     throw new Error('iterators are not implemented in this version')
   }
 }, function (e, t, n) {
-  'pseudomap' === process.env.npm_package_name && 'test' === process.env.npm_lifecycle_script && (process.env.TEST_PSEUDOMAP = 'true'), e.exports = 'function' != typeof Map || process.env.TEST_PSEUDOMAP ? n(731) : Map
+  'pseudomap' === process.env.npm_package_name && 'test' === process.env.npm_lifecycle_script && (process.env.TEST_PSEUDOMAP = 'true'), e.exports = 'function' != typeof Map || process.env.TEST_PSEUDOMAP ? n(735) : Map
 }, function (e, t, n) {
   'use strict';
 
@@ -55990,8 +56115,8 @@ module.exports = function (e) {
     return /^[a-z0-9_-]+$/i.test(e) ? e : r(e, !0)
   }
   var a = n(32),
-    s = n(284),
-    d = n(729),
+    s = n(286),
+    d = n(733),
     l = new s({
       max: 50,
       maxAge: 30000
@@ -56016,8 +56141,8 @@ module.exports = function (e) {
     return o = i(e, t, n), s = r.spawn(o.command, o.args, o.options), a.hookChildProcess(s, o), s
   }
   var r = n(46),
-    i = n(733),
-    a = n(725);
+    i = n(737),
+    a = n(729);
   e.exports = o, e.exports.spawn = o, e.exports._parse = i, e.exports._enoent = a
 }, function (e, t, n) {
   'use strict';
@@ -56033,8 +56158,8 @@ module.exports = function (e) {
 
   function i() {}
   const a = n(59),
-    s = n(285),
-    d = n(281);
+    s = n(287),
+    d = n(283);
   e.exports = d(() => {
     if (a.userInfo) return Promise.resolve(a.userInfo().username);
     const e = o();
@@ -56056,13 +56181,13 @@ module.exports = function (e) {
   for (var n = [], o = 0; 256 > o; ++o) n[o] = (o + 256).toString(16).substr(1);
   e.exports = t
 }, function (e, t, n) {
-  var o = n(171).randomBytes;
+  var o = n(172).randomBytes;
   e.exports = function () {
     return o(16)
   }
 }, function (e, t, n) {
-  var o = n(737),
-    r = n(736);
+  var o = n(741),
+    r = n(740);
   e.exports = function (e, t, n) {
     var a = t && n || 0;
     'string' == typeof e && (t = 'binary' == e ? Array(16) : null, e = null), e = e || {};
@@ -56184,13 +56309,13 @@ module.exports = function (e) {
         this.disposed || this.disposables.clear()
       }, e
     }(), r = function (e) {
-      if (null == o && (o = n(174)), !o.isDisposable(e)) throw new TypeError('Arguments to CompositeDisposable.add must have a .dispose() method')
+      if (null == o && (o = n(175)), !o.isDisposable(e)) throw new TypeError('Arguments to CompositeDisposable.add must have a .dispose() method')
     }
   }).call(this)
 }, function (e, t, n) {
   (function () {
     var t, o;
-    t = n(174), e.exports = o = function () {
+    t = n(175), e.exports = o = function () {
       function e() {
         this.clear()
       }
@@ -56308,19 +56433,19 @@ module.exports = function (e) {
         for (var o in n = arguments[t], n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
       return e
     },
-    l = n(289),
+    l = n(291),
     c = o(l),
-    p = n(288),
+    p = n(290),
     u = o(p),
-    m = n(176),
+    m = n(177),
     h = o(m),
-    f = n(287),
+    f = n(289),
     g = n(0),
     y = o(g),
     S = n(15),
     C = o(S),
     b = n(41),
-    v = n(286),
+    v = n(288),
     E = [];
   f.transitionEnd && E.push(f.transitionEnd), f.animationEnd && E.push(f.animationEnd);
   var w = {
@@ -56419,9 +56544,9 @@ module.exports = function (e) {
   e.exports = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED'
 }, function (e, t, n) {
   'use strict';
-  var o = n(177),
-    r = n(178),
-    i = n(747);
+  var o = n(178),
+    r = n(179),
+    i = n(751);
   e.exports = function () {
     function e(e, t, n, o, a, s) {
       s === i || r(!1, 'Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types')
@@ -56491,11 +56616,11 @@ module.exports = function (e) {
     l = o(d),
     c = n(15),
     p = o(c),
-    u = n(292),
+    u = n(294),
     m = o(u),
-    h = n(745),
+    h = n(749),
     f = o(h),
-    g = n(286),
+    g = n(288),
     y = {
       transitionName: g.nameShape.isRequired,
       transitionAppear: p.default.bool,
@@ -56542,7 +56667,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  var o = n(750);
+  var o = n(754);
   e.exports = function (e) {
     return o(e) && 3 == e.nodeType
   }
@@ -56552,7 +56677,7 @@ module.exports = function (e) {
   function o(e, t) {
     return !!(e && t) && (e === t || !r(e) && (r(t) ? o(e, t.parentNode) : 'contains' in e ? e.contains(t) : !!e.compareDocumentPosition && !!(16 & e.compareDocumentPosition(t))))
   }
-  var r = n(751);
+  var r = n(755);
   e.exports = o
 }, function (e) {
   'use strict';
@@ -59683,15 +59808,15 @@ module.exports = function (e) {
   }
   var Wn = String.fromCharCode,
     Vn = Math.min,
-    Gn = n(178),
+    Gn = n(179),
     Kn = n(0),
-    jn = n(755),
-    m = n(179),
-    A = n(177),
-    C = n(754),
-    qn = n(753),
-    Yn = n(752),
-    Qn = n(294);
+    jn = n(759),
+    m = n(180),
+    A = n(178),
+    C = n(758),
+    qn = n(757),
+    Yn = n(756),
+    Qn = n(296);
   Kn ? void 0 : o('227');
   var Xn = {
       _caughtError: null,
@@ -61036,10 +61161,10 @@ module.exports = function (e) {
     var i = '';
     null != o && (i = ('' + o).replace(K, '$&/') + '/'), n = C(n, i, e, r), null == t || _(t, '', S, n), k(n)
   }
-  var P = i(179),
-    F = i(178),
-    n = i(294),
-    p = i(177),
+  var P = i(180),
+    F = i(179),
+    n = i(296),
+    p = i(178),
     b = 'function' == typeof Symbol && Symbol['for'],
     r = b ? Symbol['for']('react.element') : 60103,
     U = b ? Symbol['for']('react.portal') : 60106,
@@ -61178,7 +61303,7 @@ module.exports = function (e) {
   function o(e, t, n, o, r) {
     this.children = [], this.sourceContents = {}, this.line = null == e ? null : e, this.column = null == t ? null : t, this.source = null == n ? null : n, this.name = null == r ? null : r, this[s] = !0, null != o && this.add(o)
   }
-  var r = n(297).SourceMapGenerator,
+  var r = n(299).SourceMapGenerator,
     a = n(101),
     i = /(\r?\n)/,
     s = '$$$isSourceNode$$$';
@@ -61401,10 +61526,10 @@ module.exports = function (e) {
     })
   }
   var d = n(101),
-    s = n(761),
-    l = n(295).ArraySet,
-    c = n(296),
-    p = n(760).quickSort;
+    s = n(765),
+    l = n(297).ArraySet,
+    c = n(298),
+    p = n(764).quickSort;
   o.fromSourceMap = function (e) {
     return r.fromSourceMap(e)
   }, o.prototype._version = 3, o.prototype.__generatedMappings = null, Object.defineProperty(o.prototype, '_generatedMappings', {
@@ -61697,7 +61822,7 @@ module.exports = function (e) {
     return t <= e && e <= 90 ? e - t : n <= e && e <= 122 ? e - n + 26 : o <= e && e <= 57 ? e - o + 52 : e == 43 ? 62 : e == 47 ? 63 : -1
   }
 }, function (e, t, n) {
-  t.SourceMapGenerator = n(297).SourceMapGenerator, t.SourceMapConsumer = n(762).SourceMapConsumer, t.SourceNode = n(759).SourceNode
+  t.SourceMapGenerator = n(299).SourceMapGenerator, t.SourceMapConsumer = n(766).SourceMapConsumer, t.SourceNode = n(763).SourceNode
 }, function (e, t, n) {
   function o() {
     return !('browser' !== w) || 'node' !== w && 'undefined' != typeof window && 'function' == typeof XMLHttpRequest && !(window.require && window.module && window.process && 'renderer' === window.process.type)
@@ -61881,7 +62006,7 @@ module.exports = function (e) {
       return e.apply(this, arguments)
     }
   }
-  var y = n(765).SourceMapConsumer,
+  var y = n(769).SourceMapConsumer,
     S = n(2),
     C;
   try {
@@ -61930,7 +62055,7 @@ module.exports = function (e) {
     if (e.retrieveFile && (e.overrideRetrieveFile && (T.length = 0), T.unshift(e.retrieveFile)), e.retrieveSourceMap && (e.overrideRetrieveSourceMap && (x.length = 0), x.unshift(e.retrieveSourceMap)), e.hookRequire && !o()) {
       var t;
       try {
-        t = n(758)
+        t = n(762)
       } catch (e) {}
       var i = t.prototype._compile;
       i.__sourceMapSupport || (t.prototype._compile = function (e, t) {
@@ -61957,7 +62082,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(298);
+  const o = n(300);
   t.formatError = function (e, t) {
     return e = o.withSourceMappedStack(e), e.stack ? t ? `${t}\n${e.stack}` : e.stack.trim() : t ? `${t}\n${e.name}: ${e.message}` : `${e.name}: ${e.message}`
   }
@@ -61966,7 +62091,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(768);
+  const o = n(772);
   t.formatLogMessage = function (e, t) {
     return t ? o.formatError(t, e) : e
   }
@@ -61980,7 +62105,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(21),
-    i = n(769),
+    i = n(773),
     a = global;
   a.log = {
     error(e, t) {
@@ -62000,84 +62125,88 @@ module.exports = function (e) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), n(770);
+  }), n(774);
   const o = n(0),
     r = n(41),
     i = n(2),
     a = n(21),
-    s = n(293),
-    d = n(326),
+    s = n(295),
+    d = n(328),
     l = n(80),
-    c = n(180),
+    c = n(181),
     p = n(28),
     u = n(82),
-    m = n(180),
-    h = n(318),
-    f = n(317),
-    g = n(25),
-    y = n(124),
+    m = n(181),
+    h = n(320),
+    f = n(319),
+    g = n(26),
+    y = n(125),
     S = n(82),
-    C = n(298),
-    b = n(316),
-    v = n(315),
-    E = n(314),
-    w = n(313);
-  !1, h.shellNeedsPatching(process) && h.updateEnvironmentForProcess(), C.enableSourceMaps(), process.env.LOCAL_GIT_DIRECTORY = i.resolve(__dirname, 'git'), n(309);
+    C = n(300),
+    b = n(318),
+    v = n(317),
+    E = n(316),
+    w = n(315);
+  !1, h.shellNeedsPatching(process) && h.updateEnvironmentForProcess(), C.enableSourceMaps(), process.env.LOCAL_GIT_DIRECTORY = i.resolve(__dirname, 'git'), n(311);
   const k = performance.now();
-  n(308);
+  n(310);
   let _ = null,
     R = null,
     T = null;
-  process.once('uncaughtException', (e) => {
+  const x = (e, t = {}, n) => {
     e = C.withSourceMappedStack(e), console.error('Uncaught exception', e); {
-      const t = {
+      const o = Object.assign({
         osVersion: y.getOS(),
         guid: S.getGUID()
-      };
+      }, t);
       try {
-        _ && (null !== _.currentBanner && (t.currentBanner = _.currentBanner.type), null !== _.currentPopup && (t.currentPopup = `${_.currentPopup.type}`), null !== _.selectedState && (t.selectedState = `${_.selectedState.type}`, _.selectedState.type === p.SelectionType.Repository && (t.selectedRepositorySection = `${_.selectedState.state.selectedSection}`)), null !== _.currentFoldout && (t.currentFoldout = `${_.currentFoldout.type}`), _.showWelcomeFlow && (t.inWelcomeFlow = 'true'), 1 !== _.windowZoomFactor && (t.windowZoomFactor = `${_.windowZoomFactor}`), 0 < _.errors.length && (t.activeAppErrors = `${_.errors.length}`), null != R && null != T && (t.lastUnhandledRejection = R, t.lastUnhandledRejectionTime = T.toString()), t.repositoryCount = `${_.repositories.length}`, t.windowState = _.windowState, t.accounts = `${_.accounts.length}`, !1)
+        _ && (null !== _.currentBanner && (o.currentBanner = _.currentBanner.type), null !== _.currentPopup && (o.currentPopup = `${_.currentPopup.type}`), null !== _.selectedState && (o.selectedState = `${_.selectedState.type}`, _.selectedState.type === p.SelectionType.Repository && (o.selectedRepositorySection = `${_.selectedState.state.selectedSection}`)), null !== _.currentFoldout && (o.currentFoldout = `${_.currentFoldout.type}`), _.showWelcomeFlow && (o.inWelcomeFlow = 'true'), 1 !== _.windowZoomFactor && (o.windowZoomFactor = `${_.windowZoomFactor}`), 0 < _.errors.length && (o.activeAppErrors = `${_.errors.length}`), null != R && null != T && (o.lastUnhandledRejection = R, o.lastUnhandledRejectionTime = T.toString()), o.repositoryCount = `${_.repositories.length}`, o.windowState = _.windowState, o.accounts = `${_.accounts.length}`, !1)
       } catch (e) {}
-      g.sendErrorReport(e, t)
+      g.sendErrorReport(e, o, n)
     }
-    g.reportUncaughtException(e)
+  };
+  process.once('uncaughtException', (e) => {
+    x(e), g.reportUncaughtException(e)
+  }), process.on('send-non-fatal-exception', (e, t) => {
+    x(e, t, !0)
   }), window.addEventListener('unhandledrejection', (e) => {
     if (null !== e.reason && e.reason !== void 0) try {
       R = `${e.reason}`, T = new Date
     } catch (e) {}
   });
-  const x = new l.GitHubUserStore(new c.GitHubUserDatabase('GitHubUserDatabase')),
-    P = new l.CloningRepositoriesStore,
-    M = new l.IssuesStore(new m.IssuesDatabase('IssuesDatabase')),
-    D = new u.StatsStore(new u.StatsDatabase('StatsDatabase'), new b.UiActivityMonitor()),
-    A = new l.SignInStore,
-    I = new l.AccountsStore(localStorage, l.TokenStore),
-    L = new l.RepositoriesStore(new m.RepositoriesDatabase('Database')),
-    B = new l.PullRequestStore(new m.PullRequestDatabase('PullRequestDatabase'), L),
-    F = new v.RepositoryStateCache((e) => x.getUsersForRepository(e)),
-    N = new E.ApiRepositoriesStore(I),
-    O = new w.CommitStatusStore(I),
-    H = new l.AppStore(x, P, M, D, A, I, L, B, F, N);
-  H.onDidUpdate((e) => {
+  const P = new l.GitHubUserStore(new c.GitHubUserDatabase('GitHubUserDatabase')),
+    M = new l.CloningRepositoriesStore,
+    D = new l.IssuesStore(new m.IssuesDatabase('IssuesDatabase')),
+    A = new u.StatsStore(new u.StatsDatabase('StatsDatabase'), new b.UiActivityMonitor()),
+    I = new l.SignInStore,
+    L = new l.AccountsStore(localStorage, l.TokenStore),
+    B = new l.RepositoriesStore(new m.RepositoriesDatabase('Database')),
+    F = new l.PullRequestStore(new m.PullRequestDatabase('PullRequestDatabase'), B),
+    N = new v.RepositoryStateCache((e) => P.getUsersForRepository(e)),
+    O = new E.ApiRepositoriesStore(L),
+    H = new w.CommitStatusStore(L),
+    z = new l.AppStore(P, M, D, A, I, L, B, F, N, O);
+  z.onDidUpdate((e) => {
     _ = e
   });
-  const z = new d.Dispatcher(H, F, D, O);
-  z.registerErrorHandler(d.defaultErrorHandler), z.registerErrorHandler(d.upstreamAlreadyExistsHandler), z.registerErrorHandler(d.externalEditorErrorHandler), z.registerErrorHandler(d.openShellErrorHandler), z.registerErrorHandler(d.mergeConflictHandler), z.registerErrorHandler(d.lfsAttributeMismatchHandler), z.registerErrorHandler(d.gitAuthenticationErrorHandler), z.registerErrorHandler(d.pushNeedsPullHandler), z.registerErrorHandler(d.backgroundTaskHandler), z.registerErrorHandler(d.missingRepositoryHandler), z.registerErrorHandler(d.localChangesOverwrittenHandler), z.registerErrorHandler(d.rebaseConflictsHandler), document.body.classList.add(`platform-${'win32'}`), z.setAppFocusState(a.remote.getCurrentWindow().isFocused()), a.ipcRenderer.on('focus', () => {
+  const U = new d.Dispatcher(z, N, A, H);
+  U.registerErrorHandler(d.defaultErrorHandler), U.registerErrorHandler(d.upstreamAlreadyExistsHandler), U.registerErrorHandler(d.externalEditorErrorHandler), U.registerErrorHandler(d.openShellErrorHandler), U.registerErrorHandler(d.mergeConflictHandler), U.registerErrorHandler(d.lfsAttributeMismatchHandler), U.registerErrorHandler(d.gitAuthenticationErrorHandler), U.registerErrorHandler(d.pushNeedsPullHandler), U.registerErrorHandler(d.backgroundTaskHandler), U.registerErrorHandler(d.missingRepositoryHandler), U.registerErrorHandler(d.localChangesOverwrittenHandler), U.registerErrorHandler(d.rebaseConflictsHandler), U.registerErrorHandler(d.refusedWorkflowUpdate), document.body.classList.add(`platform-${'win32'}`), U.setAppFocusState(a.remote.getCurrentWindow().isFocused()), a.ipcRenderer.on('focus', () => {
     const {
       selectedState: e
-    } = H.getState();
-    e && e.type !== p.SelectionType.CloningRepository && z.refreshRepository(e.repository), z.setAppFocusState(!0)
+    } = z.getState();
+    e && e.type !== p.SelectionType.CloningRepository && U.refreshRepository(e.repository), U.setAppFocusState(!0)
   }), a.ipcRenderer.on('blur', () => {
-    z.setAccessKeyHighlightState(!1), z.setAppFocusState(!1)
+    U.setAccessKeyHighlightState(!1), U.setAppFocusState(!1)
   }), a.ipcRenderer.on('url-action', (e, {
     action: t
   }) => {
-    z.dispatchURLAction(t)
+    U.dispatchURLAction(t)
   }), r.render(o.createElement(s.App, {
-    dispatcher: z,
-    appStore: H,
-    repositoryStateManager: F,
-    issuesStore: M,
-    gitHubUserStore: x,
+    dispatcher: U,
+    appStore: z,
+    repositoryStateManager: N,
+    issuesStore: D,
+    gitHubUserStore: P,
     startTime: k
   }), document.getElementById('desktop-app-container'))
 }]);
