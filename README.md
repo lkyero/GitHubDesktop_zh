@@ -15,4 +15,5 @@ GitHub桌面版 简体中文汉化
       【请记得做好备份:) 】
       
 重新打开GitHub Desketop ————完成
+
 ![](https://github.com/lkyero/GitHubDesktop_zh/wiki/Image.PNG)
