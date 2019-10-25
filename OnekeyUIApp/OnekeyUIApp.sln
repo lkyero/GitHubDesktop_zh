@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnekeyUIApp", "OnekeyUIApp\OnekeyUIApp.csproj", "{E5802B16-70D6-4A20-B56F-42F6203782F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5802B16-70D6-4A20-B56F-42F6203782F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5802B16-70D6-4A20-B56F-42F6203782F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5802B16-70D6-4A20-B56F-42F6203782F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5802B16-70D6-4A20-B56F-42F6203782F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D121D077-65E9-48E7-8951-E9163D716CD5}
+	EndGlobalSection
+EndGlobal
