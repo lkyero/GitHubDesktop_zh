@@ -47,13 +47,13 @@ namespace OnekeyUIApp
                     Backup(targetPath + "renderer.js", Environment.CurrentDirectory + "\\备份\\renderer.js", Environment.CurrentDirectory + "\\备份");
                 }
                 {//汉化文件替换原文件
-                    File.Copy("main.js", targetPath + "main.js", true);
-                    File.Copy("renderer.js", targetPath + "renderer.js", true);
+                    File.Copy("Resources\\main.js", targetPath + "main.js", true);
+                    File.Copy("Resources\\renderer.js", targetPath + "renderer.js", true);
                 }
 
                 KillProcess("GitHubDesktop");
                 StartProcess("GitHubDesktop.exe", softWarePath);
-
+                label1.Text += "\n汉化完成";
                 UpdateButton2();
             }
             catch (Exception ex)
@@ -76,6 +76,7 @@ namespace OnekeyUIApp
 
                 KillProcess("GitHubDesktop");
                 StartProcess("GitHubDesktop.exe", softWarePath);
+                label1.Text += "\n还原完成";
             }
             catch (Exception ex)
             {

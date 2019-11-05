@@ -212,92 +212,92 @@ module.exports = function (e) {
 - The repository is archived on GitHub. Check the repository settings to confirm you are still permitted to push commits.
 - If you use SSH authentication, check that your key is added to the ssh-agent and associated with your account.`;
       case i.GitError.RemoteDisconnection:
-        return 'The remote disconnected. Check your Internet connection and try again.';
+        return '遥控器断开了请检查您的Internet连接并重试。';
       case i.GitError.HostDown:
-        return 'The host is down. Check your Internet connection and try again.';
+        return '主机坏了。请检查您的Internet连接并重试。';
       case i.GitError.RebaseConflicts:
-        return 'We found some conflicts while trying to rebase. Please resolve the conflicts before continuing.';
+        return '我们在尝试重新定位时发现了一些冲突。请在继续之前解决冲突。';
       case i.GitError.MergeConflicts:
-        return 'We found some conflicts while trying to merge. Please resolve the conflicts and commit the changes.';
+        return '我们在尝试合并时发现一些冲突请解决冲突并提交更改。';
       case i.GitError.HTTPSRepositoryNotFound:
       case i.GitError.SSHRepositoryNotFound:
-        return 'The repository does not seem to exist anymore. You may not have access, or it may have been deleted or renamed.';
+        return '储存库似乎不再存在。您可能没有访问权限，或者它已被删除或重命名。';
       case i.GitError.PushNotFastForward:
-        return 'The repository has been updated since you last pulled. Try pulling before pushing.';
+        return '自上次提取以来，存储库已更新。推之前先拉。';
       case i.GitError.BranchDeletionFailed:
-        return 'Could not delete the branch. It was probably already deleted.';
+        return '无法删除分支可能已经被删除了。';
       case i.GitError.DefaultBranchDeletionFailed:
-        return `The branch is the repository's default branch and cannot be deleted.`;
+        return `无法删除分支可能已经被删除了。`;
       case i.GitError.RevertConflicts:
-        return 'To finish reverting, please merge and commit the changes.';
+        return '若要完成还原，请合并并提交更改。';
       case i.GitError.EmptyRebasePatch:
-        return 'There aren\u2019t any changes left to apply.';
+        return '没有任何要应用的更改。';
       case i.GitError.NoMatchingRemoteBranch:
-        return 'There aren\u2019t any remote branches that match the current branch.';
+        return '没有与当前分支匹配的远程分支。';
       case i.GitError.NothingToCommit:
-        return 'There are no changes to commit.';
+        return '没有要提交的更改。';
       case i.GitError.NoSubmoduleMapping:
-        return 'A submodule was removed from .gitmodules, but the folder still exists in the repository. Delete the folder, commit the change, then try again.';
+        return '一个子模块被移除，但是这个文件夹仍然存在于存储库中。删除文件夹，提交更改，然后重试。';
       case i.GitError.SubmoduleRepositoryDoesNotExist:
-        return 'A submodule points to a location which does not exist.';
+        return '子模块指向不存在的位置。';
       case i.GitError.InvalidSubmoduleSHA:
-        return 'A submodule points to a commit which does not exist.';
+        return '子模块指向不存在的提交。';
       case i.GitError.LocalPermissionDenied:
-        return 'Permission denied.';
+        return '权限被拒绝。';
       case i.GitError.InvalidMerge:
-        return 'This is not something we can merge.';
+        return '这不是我们可以合并的。';
       case i.GitError.InvalidRebase:
-        return 'This is not something we can rebase.';
+        return '这不是我们可以改变的。';
       case i.GitError.NonFastForwardMergeIntoEmptyHead:
-        return 'The merge you attempted is not a fast-forward, so it cannot be performed on an empty branch.';
+        return '您尝试的合并不是快进，因此不能在空分支上执行。';
       case i.GitError.PatchDoesNotApply:
-        return 'The requested changes conflict with one or more files in the repository.';
+        return '请求的更改与存储库中的一个或多个文件冲突。';
       case i.GitError.BranchAlreadyExists:
-        return 'A branch with that name already exists.';
+        return '具有该名称的分支已经存在。';
       case i.GitError.BadRevision:
-        return 'Bad revision.';
+        return '试镜不好。';
       case i.GitError.NotAGitRepository:
-        return 'This is not a git repository.';
+        return '这不是git存储库。';
       case i.GitError.ProtectedBranchForcePush:
-        return 'This branch is protected from force-push operations.';
+        return '此分支不受强制推送操作的保护。';
       case i.GitError.ProtectedBranchRequiresReview:
-        return 'This branch is protected and any changes requires an approved review. Open a pull request with changes targeting this branch instead.';
+        return '此分支受保护，任何更改都需要经过批准的审阅。使用针对此分支的更改打开拉取请求。';
       case i.GitError.PushWithFileSizeExceedingLimit:
-        return 'The push operation includes a file which exceeds GitHub\'s file size restriction of 100MB. Please remove the file from history and try again.';
+        return '推送操作包含一个超过GitHub的文件大小限制100MB的文件请从历史记录中删除该文件，然后重试。';
       case i.GitError.HexBranchNameRejected:
-        return 'The branch name cannot be a 40-character string of hexadecimal characters, as this is the format that Git uses for representing objects.';
+        return '分支名称不能是40个十六进制字符的字符串，因为这是Git用于表示对象的格式。';
       case i.GitError.ForcePushRejected:
-        return 'The force push has been rejected for the current branch.';
+        return '当前分支的强制推送已被拒绝。';
       case i.GitError.InvalidRefLength:
-        return 'A ref cannot be longer than 255 characters.';
+        return 'ref不能超过255个字符。';
       case i.GitError.CannotMergeUnrelatedHistories:
-        return 'Unable to merge unrelated histories in this repository.';
+        return '无法合并此存储库中不相关的历史记录。';
       case i.GitError.PushWithPrivateEmail:
-        return 'Cannot push these commits as they contain an email address marked as private on GitHub.';
+        return '无法推送这些提交，因为它们包含GitHub上标记为私有的电子邮件地址。';
       case i.GitError.LFSAttributeDoesNotMatch:
-        return 'Git LFS attribute found in global Git configuration does not match expected value.';
+        return '在全局git配置中找到的git lfs属性与预期值不匹配。';
       case i.GitError.ProtectedBranchDeleteRejected:
-        return 'This branch cannot be deleted from the remote repository because it is marked as protected.';
+        return '无法从远程存储库中删除此分支，因为它被标记为受保护。';
       case i.GitError.ProtectedBranchRequiredStatus:
-        return 'The push was rejected by the remote server because a required status check has not been satisfied.';
+        return '由于未满足所需的状态检查，远程服务器拒绝了推送。';
       case i.GitError.BranchRenameFailed:
-        return 'The branch could not be renamed.';
+        return '无法重命名分支。';
       case i.GitError.PathDoesNotExist:
-        return 'The path does not exist on disk.';
+        return '磁盘上不存在路径。';
       case i.GitError.InvalidObjectName:
-        return 'The object was not found in the Git repository.';
+        return '在Git存储库中找不到该对象。';
       case i.GitError.OutsideRepository:
-        return 'This path is not a valid path inside the repository.';
+        return '此路径不是存储库中的有效路径。';
       case i.GitError.LockFileAlreadyExists:
-        return 'A lock file already exists in the repository, which blocks this operation from completing.';
+        return '存储库中已经存在一个锁文件，它阻止此操作完成。';
       case i.GitError.NoMergeToAbort:
-        return 'There is no merge in progress, so there is nothing to abort.';
+        return '没有正在进行的合并，因此没有要中止的内容。';
       case i.GitError.NoExistingRemoteBranch:
-        return 'The remote branch does not exist.';
+        return '远程分支不存在。';
       case i.GitError.LocalChangesOverwritten:
-        return 'Unable to switch branches as there are working directory changes which would be overwritten. Please commit or stash your changes.';
+        return '无法切换分支，因为存在将被覆盖的工作目录更改。请提交或保存更改。';
       case i.GitError.UnresolvedConflicts:
-        return 'There are unresolved conflicts in the working directory.';
+        return '工作目录中存在未解决的冲突。';
       default:
         return a.assertNever(e, `Unknown error: ${e}`);
     }
@@ -30400,7 +30400,7 @@ module.exports = function (e) {
         disabled: this.state.isDiscarding,
         onSubmit: this.props.onDismissed,
         onDismissed: this.props.onDismissed
-      }, o.createElement(r.DialogContent, null, o.createElement(s.Row, null, 'Are you sure you want to discard these stashed changes?')), o.createElement(r.DialogFooter, null, o.createElement(i.ButtonGroup, {
+      }, o.createElement(r.DialogContent, null, o.createElement(s.Row, null, '你确定要放弃这些隐藏的更改吗？')), o.createElement(r.DialogFooter, null, o.createElement(i.ButtonGroup, {
         destructive: !0
       }, o.createElement(a.Button, {
         type: 'submit'
@@ -30455,7 +30455,7 @@ module.exports = function (e) {
         disabled: this.state.isCheckingOutBranch,
         onSubmit: this.props.onDismissed,
         onDismissed: this.props.onDismissed
-      }, o.createElement(r.DialogContent, null, o.createElement(s.Row, null, 'Are you sure you want to proceed? This will overwrite your existing stash with your current changes.')), o.createElement(r.DialogFooter, null, o.createElement(i.ButtonGroup, {
+      }, o.createElement(r.DialogContent, null, o.createElement(s.Row, null, '确定要继续吗？这将覆盖您现有的隐藏与您当前的变化。')), o.createElement(r.DialogFooter, null, o.createElement(i.ButtonGroup, {
         destructive: !0
       }, o.createElement(a.Button, {
         type: 'submit'
@@ -30546,20 +30546,20 @@ module.exports = function (e) {
     renderStashOverwriteWarning() {
       return this.props.hasAssociatedStash && this.state.selectedStashAction === m.StashOnCurrentBranch ? o.createElement(a.Row, null, o.createElement(c.Octicon, {
         symbol: c.OcticonSymbol.alert
-      }), ' Your current stash will be overwritten by creating a new stash') : null
+      }), ' 创建一个新的存储将覆盖您当前的存储') : null
     }
     renderStashActions() {
       const {
         branchToCheckout: e
       } = this.props, t = [{
-        title: `Leave my changes on ${this.state.currentBranchName}`,
-        description: 'Your in-progress work will be stashed on this branch for you to return to later'
+        title: `保留我的更改在 ${this.state.currentBranchName}上`,
+        description: '你正在进行的工作将被保存在这个分支上，供你稍后返回'
       }, {
-        title: `Bring my changes to ${e.name}`,
-        description: 'Your in-progress work will follow you to the new branch'
+        title: `把我的更改带到xx ${e.name}`,
+        description: '你正在进行的工作会跟着你到新的分支'
       }];
       return o.createElement(a.Row, null, o.createElement(i.VerticalSegmentedControl, {
-        label: 'You have changes on this branch. What would you like to do with them?',
+        label: '您对这个分支有更改。你想用它们做什么?',
         items: t,
         selectedIndex: this.state.selectedStashAction,
         onSelectionChanged: this.onSelectionChanged
@@ -30594,13 +30594,13 @@ module.exports = function (e) {
     }
     render() {
       return o.createElement(s.Dialog, {
-        title: 'Are you sure you want to force push?',
+        title: '你确定要强制推送吗？',
         dismissable: !this.state.isLoading,
         onDismissed: this.props.onDismissed,
         onSubmit: this.onForcePush,
         type: 'warning'
-      }, o.createElement(s.DialogContent, null, o.createElement('p', null, 'A force push will rewrite history on', ' ', o.createElement(d.Ref, null, this.props.upstreamBranch), '. Any collaborators working on this branch will need to reset their own local branch to match the history of the remote.'), o.createElement('div', null, o.createElement(a.Checkbox, {
-        label: 'Do not show this message again',
+      }, o.createElement(s.DialogContent, null, o.createElement('p', null, '一次强制推送将改写', ' ', o.createElement(d.Ref, null, this.props.upstreamBranch), '的历史。任何在此分支上工作的协作者都需要重置自己的本地分支以匹配远程的历史记录。'), o.createElement('div', null, o.createElement(a.Checkbox, {
+        label: '不再显示此消息',
         value: this.state.askForConfirmationOnForcePush ? a.CheckboxValue.Off : a.CheckboxValue.On,
         onChange: this.onAskForConfirmationOnForcePushChanged
       }))), o.createElement(s.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
@@ -30654,8 +30654,8 @@ module.exports = function (e) {
         onSubmit: this.onBeginRebase,
         disableClickDismissalAlways: !0,
         type: 'warning'
-      }, o.createElement(s.DialogContent, null, o.createElement('p', null, 'Are you sure you want to rebase ', o.createElement(d.Ref, null, t.name), ' onto', ' ', o.createElement(d.Ref, null, e.name), '?'), o.createElement('p', null, 'At the end of the rebase flow, GitHub Desktop will enable you to force push the branch to update the upstream branch. Force pushing will alter the history on the remote and potentially cause problems for others collaborating on this branch.'), o.createElement('div', null, o.createElement(a.Checkbox, {
-        label: 'Do not show this message again',
+      }, o.createElement(s.DialogContent, null, o.createElement('p', null, '是否确定要将', o.createElement(d.Ref, null, t.name), '改为', ' ', o.createElement(d.Ref, null, e.name), '?'), o.createElement('p', null, '在rebase流的末尾，github桌面将允许您强制推送分支以更新上游分支。强制推送将更改远程上的历史记录，并可能会给在此分支上协作的其他人带来问题。'), o.createElement('div', null, o.createElement(a.Checkbox, {
+        label: '不再显示此消息',
         value: this.state.askForConfirmationOnForcePush ? a.CheckboxValue.Off : a.CheckboxValue.On,
         onChange: this.onAskForConfirmationOnForcePushChanged
       }))), o.createElement(s.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
@@ -30693,9 +30693,9 @@ module.exports = function (e) {
     }
     renderTextContent(e, t) {
       let n;
-      return n = void 0 === t ? o.createElement('p', null, 'Are you sure you want to abort rebasing ', o.createElement(d.Ref, null, e), '?') : o.createElement('p', null, 'Are you sure you want to abort rebasing ', o.createElement(d.Ref, null, t), ' onto ', o.createElement(d.Ref, null, e), '?'), o.createElement('div', {
+      return n = void 0 === t ? o.createElement('p', null, '是否确实要中止重新调整', o.createElement(d.Ref, null, e), '?') : o.createElement('p', null, '是否确实要中止 rebasing ', o.createElement(d.Ref, null, t), ' onto ', o.createElement(d.Ref, null, e), '?'), o.createElement('div', {
         className: 'column-left'
-      }, n, o.createElement('p', null, 'Aborting this rebase will take you back to the original branch state and and the conflicts you have already resolved will be discarded.'))
+      }, n, o.createElement('p', null, '中止此rebase将使您返回到原始分支状态，并且已解决的冲突将被丢弃。'))
     }
     render() {
       const {
@@ -30704,7 +30704,7 @@ module.exports = function (e) {
       } = this.props.step.conflictState;
       return o.createElement(a.Dialog, {
         id: 'abort-merge-warning',
-        title: 'Confirm abort rebase',
+        title: '确认中止rebase',
         dismissable: !1,
         onDismissed: this.onCancel,
         onSubmit: this.onSubmit,
@@ -31315,11 +31315,11 @@ module.exports = function (e) {
         title: 'Files too large',
         onDismissed: this.props.onDismissed,
         type: 'warning'
-      }, o.createElement(a.DialogContent, null, o.createElement('p', null, 'The following files are over 100MB.', ' ', o.createElement('strong', null, 'If you commit these files, you will no longer be able to push this repository to GitHub.com.')), this.renderFileList(), o.createElement('p', {
+      }, o.createElement(a.DialogContent, null, o.createElement('p', null, '以下文件超过100MB。', ' ', o.createElement('strong', null, '如果提交这些文件，您将无法再将此存储库推送到GitHub.com。')), this.renderFileList(), o.createElement('p', {
         className: 'recommendation'
-      }, 'We recommend you avoid committing these files or use', ' ', o.createElement(s.LinkButton, {
+      }, '我们建议您避免提交这些文件，或者使用', ' ', o.createElement(s.LinkButton, {
         uri: 'https://help.github.com/articles/versioning-large-files/'
-      }, 'Git LFS'), ' to store large files on GitHub.')), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, {
+      }, 'Git LFS'), '在GiHub上存储大文件。')), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, {
         destructive: !0
       }, o.createElement(r.Button, {
         type: 'submit',
@@ -31365,14 +31365,14 @@ module.exports = function (e) {
     }
     renderTextContent(e, t) {
       let n;
-      return n = void 0 === t ? o.createElement('p', null, 'Are you sure you want to abort merging into ', o.createElement('strong', null, e), '?') : o.createElement('p', null, 'Are you sure you want to abort merging ', o.createElement('strong', null, t), ' into ', o.createElement('strong', null, e), '?'), o.createElement('div', {
+      return n = void 0 === t ? o.createElement('p', null, '是否确实要中止合并到', o.createElement('strong', null, e), '?') : o.createElement('p', null, '确实要中止合并', o.createElement('strong', null, t), ' 到 ', o.createElement('strong', null, e), '吗?'), o.createElement('div', {
         className: 'column-left'
-      }, n, o.createElement('p', null, 'Aborting this merge will take you back to the pre-merge state and the conflicts you\'ve already resolved will still be present.'))
+      }, n, o.createElement('p', null, '中止此合并将使您返回到合并前状态，并且已解决的冲突仍将存在。'))
     }
     render() {
       return o.createElement(a.Dialog, {
         id: 'abort-merge-warning',
-        title: 'Confirm abort merge',
+        title: '确认中止merge',
         dismissable: !1,
         onDismissed: this.onCancel,
         onSubmit: this.onSubmit
@@ -31462,9 +31462,9 @@ module.exports = function (e) {
         dismissable: !1,
         onDismissed: this.onCancel,
         onSubmit: this.onSubmit,
-        title: 'Confirm committing conflicted files',
+        title: '确认提交冲突文件',
         type: 'warning'
-      }, o.createElement(a.DialogContent, null, o.createElement('p', null, 'If you choose to commit, you\u2019ll be committing the following conflicted files into your repository:'), this.renderFiles(this.props.files), o.createElement('p', null, 'Are you sure you want to commit these conflicted files?')), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
+      }, o.createElement(a.DialogContent, null, o.createElement('p', null, '如果选择提交，则会将以下冲突文件提交到存储库中：'), this.renderFiles(this.props.files), o.createElement('p', null, '是否确实要提交这些冲突文件?')), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
         onClick: this.onCancel
       }, 'Cancel'), o.createElement(r.Button, {
         type: 'submit'
@@ -32157,9 +32157,9 @@ module.exports = function (e) {
         loading: e,
         onDismissed: this.cancel,
         onSubmit: this.cancel
-      }, o.createElement(s.DialogContent, null, o.createElement('p', null, 'Are you sure you want to remove the repository "', this.props.repository.name, '"?'), o.createElement('p', {
+      }, o.createElement(s.DialogContent, null, o.createElement('p', null, '是否确实要删除存储库 "', this.props.repository.name, '"?'), o.createElement('p', {
         className: 'description'
-      }, 'The repository will be removed from GitHub Desktop:', o.createElement('br', null), o.createElement(d.Ref, null, this.props.repository.path)), o.createElement('div', null, o.createElement(a.Checkbox, {
+      }, '存储库将从GitHub桌面删除：', o.createElement('br', null), o.createElement(d.Ref, null, this.props.repository.path)), o.createElement('div', null, o.createElement(a.Checkbox, {
         label: 'Also move this repository to ' + l.TrashNameLabel,
         value: this.state.deleteRepoFromDisk ? a.CheckboxValue.On : a.CheckboxValue.Off,
         onChange: this.onConfirmRepositoryDeletion
@@ -32851,7 +32851,7 @@ module.exports = function (e) {
           return o.createElement(r.Row, null, o.createElement(i.Button, {
             disabled: t,
             onClick: this.props.onCheckForUpdates
-          }, 'Check for Updates'));
+          }, '检查更新'));
         default:
           return u.assertNever(e, `Unknown update status ${e}`);
       }
@@ -32870,7 +32870,7 @@ module.exports = function (e) {
       const e = this.state.updateState.lastSuccessfulCheck;
       return e ? o.createElement('p', {
         className: 'update-status'
-      }, 'You have the latest version (last checked', ' ', o.createElement(p.RelativeTime, {
+      }, '你有最新的版本 (上次检查', ' ', o.createElement(p.RelativeTime, {
         date: e
       }), ')') : null
     }
@@ -32924,9 +32924,9 @@ module.exports = function (e) {
         className: 'no-padding'
       }, o.createElement(d.LinkButton, {
         onClick: this.props.onShowTermsAndConditions
-      }, 'Terms and Conditions')), o.createElement('p', null, o.createElement(d.LinkButton, {
+      }, '条款 和 条件')), o.createElement('p', null, o.createElement(d.LinkButton, {
         onClick: this.props.onShowAcknowledgements
-      }, 'License and Open Source Notices')), this.renderUpdateDetails(), this.renderUpdateButton()), o.createElement(s.DialogFooter, null, o.createElement(a.ButtonGroup, null, o.createElement(i.Button, {
+      }, '许可证 和 开源通知')), this.renderUpdateDetails(), this.renderUpdateButton()), o.createElement(s.DialogFooter, null, o.createElement(a.ButtonGroup, null, o.createElement(i.Button, {
         ref: this.onCloseButtonRef,
         onClick: this.props.onDismissed
       }, 'Close'))))
@@ -33334,15 +33334,15 @@ module.exports = function (e) {
         } else {
           const e = [{
               title: n.name,
-              description: 'The default branch in your repository. Pick this to start on something new that\'s not dependent on your current branch.'
+              description: '存储库中的默认分支。选择此选项可从不依赖于当前分支的新内容开始。'
             }, {
               title: t.name,
-              description: 'The currently checked out branch. Pick this if you need to build on work done in this branch.'
+              description: '当前已签出的分支。如果需要在该分支中完成的工作的基础上进行构建，请选择此选项。'
             }],
             r = this.state.startPoint,
             a = r === i.StartPoint.DefaultBranch ? 0 : 1;
           return o.createElement(s.Row, null, o.createElement(m.VerticalSegmentedControl, {
-            label: 'Create branch based on\u2026',
+            label: '创建分支基于\u2026',
             items: e,
             selectedIndex: a,
             onSelectionChanged: this.onBaseBranchChanged
@@ -33789,7 +33789,7 @@ module.exports = function (e) {
     async validateEmptyFolder(e) {
       try {
         const t = await a.readdir(e);
-        return 0 === t.length ? null : new Error('This folder contains files. Git can only clone to empty folders.')
+        return 0 === t.length ? null : new Error('此文件夹包含文件。Git只能克隆到空文件夹。')
       } catch (e) {
         if ('ENOENT' === e.code) return null;
         return log.error('CloneRepository: Path validation failed. Error: ' + e.message), new Error('Unable to read path on disk. Please check the path and try again.')
@@ -36578,12 +36578,12 @@ module.exports = function (e) {
         t = this.state.isDiscardingChanges;
       return o.createElement(a.Dialog, {
         id: 'discard-changes',
-        title: e ? p.toPlatformCase('Confirm Discard All Changes') : p.toPlatformCase('Confirm Discard Changes'),
+        title: e ? p.toPlatformCase('确认放弃所有更改') : p.toPlatformCase('确认放弃更改'),
         onDismissed: this.props.onDismissed,
         dismissable: !t,
         loading: t,
         type: 'warning'
-      }, o.createElement(a.DialogContent, null, this.renderFileList(), o.createElement('p', null, 'Changes can be restored by retrieving them from the ', c.TrashNameLabel, '.'), this.renderConfirmDiscardChanges()), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, {
+      }, o.createElement(a.DialogContent, null, this.renderFileList(), o.createElement('p', null, '可以通过从', c.TrashNameLabel, '检索更改来恢复更改.'), this.renderConfirmDiscardChanges()), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, {
         destructive: !0
       }, o.createElement(r.Button, {
         disabled: t,
@@ -36591,17 +36591,17 @@ module.exports = function (e) {
       }, 'Cancel'), o.createElement(r.Button, {
         onClick: this.discard,
         disabled: t
-      }, e ? p.toPlatformCase('Discard All Changes') : p.toPlatformCase('Discard Changes')))))
+      }, e ? p.toPlatformCase('放弃所有更改') : p.toPlatformCase('放弃更改')))))
     }
     renderConfirmDiscardChanges() {
       return this.props.showDiscardChangesSetting ? o.createElement(l.Checkbox, {
-        label: 'Do not show this message again',
+        label: '不再显示此消息',
         value: this.state.confirmDiscardChanges ? l.CheckboxValue.Off : l.CheckboxValue.On,
         onChange: this.onConfirmDiscardChangesChanged
       }) : null
     }
     renderFileList() {
-      return this.props.files.length > 10 ? o.createElement('p', null, 'Are you sure you want to discard all ', this.props.files.length, ' changed files?') : o.createElement('div', null, o.createElement('p', null, 'Are you sure you want to discard all changes to:'), o.createElement('ul', null, this.props.files.map((e) => o.createElement('li', {
+      return this.props.files.length > 10 ? o.createElement('p', null, '是否确定要放弃所有', this.props.files.length, ' 更改的文件?') : o.createElement('div', null, o.createElement('p', null, '是否确实要放弃对以下各项的所有更改：'), o.createElement('ul', null, this.props.files.map((e) => o.createElement('li', {
         key: e.id
       }, o.createElement(d.Monospaced, null, o.createElement(s.PathText, {
         path: e.path
@@ -37103,7 +37103,7 @@ module.exports = function (e) {
         onDismissed: this.props.onDismissed,
         onSubmit: this.props.onContinue,
         type: 'normal'
-      }, o.createElement(a.DialogContent, null, o.createElement('p', null, 'Are you sure you want to leave the tutorial? This will bring you back to the home screen.')), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
+      }, o.createElement(a.DialogContent, null, o.createElement('p', null, '你确定要离开教程吗？这会让你回到主屏幕。')), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
         type: 'submit'
       }, 'Exit tutorial'), o.createElement(r.Button, {
         onClick: this.props.onDismissed
@@ -42342,11 +42342,11 @@ module.exports = function (e) {
         id: 'diff'
       }, o.createElement('div', {
         className: 'image-header'
-      }, 'This binary file has changed.'), o.createElement('div', {
+      }, '此二进制文件已更改。'), o.createElement('div', {
         className: 'image-header'
       }, o.createElement(a.LinkButton, {
         onClick: this.open
-      }, 'Open file in external program.')))
+      }, '在外部程序中打开文件。')))
     }
   }
   t.BinaryFile = s
@@ -44357,12 +44357,12 @@ module.exports = function (e) {
           }
         }
       }, this.getDiscardChangesMenuItemLabel = (e) => {
-        const t = 1 === e.length ? `Discard changes` : `Discard ${e.length} selected changes`;
+        const t = 1 === e.length ? `放弃更改` : `放弃 ${e.length} 选定的更改`;
         return this.props.askForConfirmationOnDiscardChanges ? `${t}…` : t
       }, this.onContextMenu = (e) => {
         if (e.preventDefault(), !(null !== this.props.rebaseConflictState || this.props.isCommitting)) {
           const e = [{
-            label: 'Discard all changes\u2026',
+            label: '放弃所有更改\u2026',
             action: this.onDiscardAllChanges,
             enabled: 0 < this.props.workingDirectory.files.length
           }];
@@ -44486,18 +44486,18 @@ module.exports = function (e) {
         type: 'separator'
       }];
       1 === p.length ? f.push({
-        label: 'Ignore file (add to .gitignore)',
+        label: '忽略文件 (添加到.gitignore)',
         action: () => this.props.onIgnore(n),
         enabled: a.basename(n) !== k
       }) : 1 < p.length && f.push({
-        label: `Ignore ${p.length} selected files (add to .gitignore)`,
+        label: `忽略选定的 ${p.length} 文件 (添加到.gitignore)`,
         action: () => {
           this.props.onIgnore(p.filter((e) => a.basename(e) !== k))
         },
         enabled: p.some((e) => a.basename(e) !== k)
       }), Array.from(m).slice(0, 5).forEach((e) => {
         f.push({
-          label: `Ignore all ${e} files (add to .gitignore)`,
+          label: `忽略所有 ${e} 文件 (添加到 .gitignore)`,
           action: () => this.props.onIgnore(`*${e}`)
         })
       });
@@ -50130,10 +50130,10 @@ module.exports = function (e) {
   });
   const o = n(64),
     r = [{
-      title: 'Compressing objects',
+      title: '压缩对象',
       weight: .2
     }, {
-      title: 'Writing objects',
+      title: '写入对象',
       weight: .7
     }, {
       title: 'remote: Resolving deltas',
