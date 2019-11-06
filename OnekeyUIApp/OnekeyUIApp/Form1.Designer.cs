@@ -47,11 +47,10 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 138);
+            this.label1.Location = new System.Drawing.Point(11, 138);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 12);
+            this.label1.Size = new System.Drawing.Size(214, 64);
             this.label1.TabIndex = 1;
             // 
             // button2
@@ -81,7 +80,6 @@
             this.Text = "GitHub汉化";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
