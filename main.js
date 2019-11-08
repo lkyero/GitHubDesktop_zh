@@ -2132,7 +2132,7 @@ module.exports = function (e) {
   const r = t(4);
   n.reportError = async function (e, n, t) {
     const o = new Map;
-    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', '5a1cfa2de1fa46532038dede714bf579f56eb6dc'), o.set('version', r.app.getVersion()), n)
+    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', '3e4755f1aaedc74e38a71dbb7a7f6b8d279c9aef'), o.set('version', r.app.getVersion()), n)
       for (const e of Object.keys(n)) o.set(e, n[e]);
     const i = {
         method: 'POST',
@@ -2668,7 +2668,7 @@ module.exports = function (e) {
         click: a('remove-repository')
       }, F, {
         id: 'view-repository-on-github',
-        label: 'Github网页端查看',
+        label: '在Github查看',
         accelerator: 'CmdOrCtrl+Shift+G',
         click: a('view-repository-on-github')
       }, {
@@ -2677,7 +2677,7 @@ module.exports = function (e) {
         accelerator: 'Ctrl+`',
         click: a('open-in-shell')
       }, {
-        label: '资源管理器 E&xplorer',
+        label: '资源管理器',
         id: 'open-working-directory',
         accelerator: 'CmdOrCtrl+Shift+F',
         click: a('open-working-directory')
@@ -2794,7 +2794,7 @@ module.exports = function (e) {
   }
 
   function o(e, n) {
-    return e ? n ? 'Force P&ush\u2026' : 'Force P&ush' : '推送 P&ush'
+    return e ? n ? 'Force P&ush\u2026' : '强制推送Force P&ush' : '推送 P&ush'
   }
 
   function i(e) {
@@ -6627,8 +6627,12 @@ module.exports = function (e) {
   function s(e) {
     log.info(`Received possible protocol arguments: ${e.length}`); {
       const n = e.filter((e) => {
-        const n = m.parse(e);
-        return n.protocol && N.has(n.protocol.slice(0, -1))
+        try {
+          const n = m.parse(e);
+          return n.protocol && N.has(n.protocol.slice(0, -1))
+        } catch (n) {
+          return log.error(`Unable to parse argument as URL: ${e}`), !1
+        }
       });
       e.includes(F) && 1 === n.length ? a(n[0]) : log.error(`Malformed launch arguments received: ${e}`)
     }

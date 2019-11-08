@@ -10608,7 +10608,7 @@ module.exports = function (e) {
     value: !0
   });
   const n = ['.cmd', '.exe', '.bat', '.sh'];
-  t.CopyFilePathLabel = '复制文件路径', t.DefaultEditorLabel = '在外部编辑器中打开', t.RevealInFileManagerLabel = '在资源管理器中显示', t.TrashNameLabel = 'Recycle Bin', t.OpenWithDefaultProgramLabel = ' 用默认程序打开', t.isSafeFileExtension = function (e) {
+  t.CopyFilePathLabel = '复制文件路径', t.DefaultEditorLabel = '在外部编辑器中打开', t.RevealInFileManagerLabel = '在资源管理器中显示', t.TrashNameLabel = 'Recycle Bin', t.OpenWithDefaultProgramLabel = '用默认程序打开', t.isSafeFileExtension = function (e) {
     return -1 === n.indexOf(e.toLowerCase())
   }
 }, function (e, t, n) {
@@ -12503,7 +12503,7 @@ module.exports = function (e) {
         this.userInitiatedUpdate = !e;
         try {
           r.setFeedURL({
-            url: 'https://central.github.com/api/deployments/desktop/desktop/latest?version=2.2.2&env=production'
+            url: 'https://central.github.com/api/deployments/desktop/desktop/latest?version=2.2.3&env=production'
           }), r.checkForUpdates()
         } catch (t) {
           this.emitError(t)
@@ -13978,7 +13978,7 @@ module.exports = function (e) {
         null === e || null === this.props.repositories ? this.props.onSelectionChanged(null) : this.props.onSelectionChanged(r(this.props.repositories, e))
       }, this.renderGroupHeader = (e) => {
         let t = e;
-        return e === d.YourRepositoriesIdentifier && (t = 'Your repositories'), i.createElement('div', {
+        return e === d.YourRepositoriesIdentifier && (t = '您的存储库'), i.createElement('div', {
           className: 'clone-repository-list-content clone-repository-list-group-header'
         }, t)
       }, this.renderItem = (e, t) => i.createElement('div', {
@@ -30552,10 +30552,10 @@ module.exports = function (e) {
       const {
         branchToCheckout: e
       } = this.props, t = [{
-        title: `保留我的更改在 ${this.state.currentBranchName}上`,
+        title: `在${this.state.currentBranchName}上保留我的更改`,
         description: '你正在进行的工作将被保存在这个分支上，供你稍后返回'
       }, {
-        title: `把我的更改带到xx ${e.name}`,
+        title: `把我的更改带到${e.name}`,
         description: '你正在进行的工作会跟着你到新的分支'
       }];
       return o.createElement(a.Row, null, o.createElement(i.VerticalSegmentedControl, {
@@ -30654,7 +30654,7 @@ module.exports = function (e) {
         onSubmit: this.onBeginRebase,
         disableClickDismissalAlways: !0,
         type: 'warning'
-      }, o.createElement(s.DialogContent, null, o.createElement('p', null, '是否确定要将', o.createElement(d.Ref, null, t.name), '改为', ' ', o.createElement(d.Ref, null, e.name), '?'), o.createElement('p', null, '在rebase流的末尾，github桌面将允许您强制推送分支以更新上游分支。强制推送将更改远程上的历史记录，并可能会给在此分支上协作的其他人带来问题。'), o.createElement('div', null, o.createElement(a.Checkbox, {
+      }, o.createElement(s.DialogContent, null, o.createElement('p', null, '是否确定要将', o.createElement(d.Ref, null, t.name), ' 改为', ' ', o.createElement(d.Ref, null, e.name), '?'), o.createElement('p', null, '在rebase流的末尾，github桌面将允许您强制推送分支以更新上游分支。强制推送将更改远程上的历史记录，并可能会给在此分支上协作的其他人带来问题。'), o.createElement('div', null, o.createElement(a.Checkbox, {
         label: '不再显示此消息',
         value: this.state.askForConfirmationOnForcePush ? a.CheckboxValue.Off : a.CheckboxValue.On,
         onChange: this.onAskForConfirmationOnForcePushChanged
@@ -30693,7 +30693,7 @@ module.exports = function (e) {
     }
     renderTextContent(e, t) {
       let n;
-      return n = void 0 === t ? o.createElement('p', null, '是否确实要中止重新调整', o.createElement(d.Ref, null, e), '?') : o.createElement('p', null, '是否确实要中止 rebasing ', o.createElement(d.Ref, null, t), ' onto ', o.createElement(d.Ref, null, e), '?'), o.createElement('div', {
+      return n = void 0 === t ? o.createElement('p', null, '是否确实要中止重新调整', o.createElement(d.Ref, null, e), '?') : o.createElement('p', null, '是否确实要中止 rebasing', o.createElement(d.Ref, null, t), ' onto ', o.createElement(d.Ref, null, e), '?'), o.createElement('div', {
         className: 'column-left'
       }, n, o.createElement('p', null, '中止此rebase将使您返回到原始分支状态，并且已解决的冲突将被丢弃。'))
     }
@@ -31315,7 +31315,7 @@ module.exports = function (e) {
         title: 'Files too large',
         onDismissed: this.props.onDismissed,
         type: 'warning'
-      }, o.createElement(a.DialogContent, null, o.createElement('p', null, '以下文件超过100MB。', ' ', o.createElement('strong', null, '如果提交这些文件，您将无法再将此存储库推送到GitHub.com。')), this.renderFileList(), o.createElement('p', {
+      }, o.createElement(a.DialogContent, null, o.createElement('p', null, '以下文件超过100MB。', ' ', o.createElement('strong', null, '如果提交这些文件，您将无法再将此存储库推送到GitHub.')), this.renderFileList(), o.createElement('p', {
         className: 'recommendation'
       }, '我们建议您避免提交这些文件，或者使用', ' ', o.createElement(s.LinkButton, {
         uri: 'https://help.github.com/articles/versioning-large-files/'
@@ -31724,7 +31724,7 @@ module.exports = function (e) {
         type: 'submit'
       }, 'Close'), o.createElement(s.Button, {
         onClick: this.updateNow
-      }, 'Install and restart'))))
+      }, '安装并重新启动'))))
     }
   }
   t.ReleaseNotes = S
@@ -32843,7 +32843,7 @@ module.exports = function (e) {
         case l.UpdateStatus.UpdateReady:
           return o.createElement(r.Row, null, o.createElement(i.Button, {
             onClick: this.onQuitAndInstall
-          }, 'Quit and Install Update'));
+          }, '退出 并 安装更新'));
         case l.UpdateStatus.UpdateNotAvailable:
         case l.UpdateStatus.CheckingForUpdates:
         case l.UpdateStatus.UpdateAvailable:
@@ -32859,12 +32859,12 @@ module.exports = function (e) {
     renderCheckingForUpdate() {
       return o.createElement(r.Row, {
         className: 'update-status'
-      }, o.createElement(c.Loading, null), o.createElement('span', null, 'Checking for updates\u2026'))
+      }, o.createElement(c.Loading, null), o.createElement('span', null, '正在检查更新\u2026'))
     }
     renderUpdateAvailable() {
       return o.createElement(r.Row, {
         className: 'update-status'
-      }, o.createElement(c.Loading, null), o.createElement('span', null, 'Downloading update\u2026'))
+      }, o.createElement(c.Loading, null), o.createElement('span', null, '正在下载更新\u2026'))
     }
     renderUpdateNotAvailable() {
       const e = this.state.updateState.lastSuccessfulCheck;
@@ -32877,7 +32877,7 @@ module.exports = function (e) {
     renderUpdateReady() {
       return o.createElement('p', {
         className: 'update-status'
-      }, 'An update has been downloaded and is ready to be installed.')
+      }, '已下载并准备安装更新。')
     }
     renderUpdateDetails() {
       !1, !1;
@@ -34209,16 +34209,16 @@ module.exports = function (e) {
       }, this.renderInvalidPathError(), r.createElement(v.DialogContent, null, r.createElement(u.Row, null, r.createElement(l.TextBox, {
         value: this.state.name,
         label: 'Name',
-        placeholder: 'repository name',
+        placeholder: '存储库名称',
         onValueChanged: this.onNameChanged,
         autoFocus: !0
       })), this.renderSanitizedName(), r.createElement(u.Row, null, r.createElement(l.TextBox, {
         value: this.state.description,
-        label: 'Description',
+        label: '说明',
         onValueChanged: this.onDescriptionChanged
       })), r.createElement(u.Row, null, r.createElement(l.TextBox, {
         value: this.state.path,
-        label: 'Local path',
+        label: '本地路径',
         placeholder: 'repository path',
         onValueChanged: this.onPathChanged,
         disabled: t
@@ -34226,7 +34226,7 @@ module.exports = function (e) {
         onClick: this.showFilePicker,
         disabled: t
       }, 'Choose\u2026')), this.renderGitRepositoryWarning(), r.createElement(u.Row, null, r.createElement(m.Checkbox, {
-        label: 'Initialize this repository with a README',
+        label: '使用README初始化此存储库',
         value: this.state.createWithReadme ? m.CheckboxValue.On : m.CheckboxValue.Off,
         onChange: this.onCreateWithReadmeChange
       })), this.renderReadmeOverwriteWarning(), this.renderGitIgnores(), this.renderLicenses()), r.createElement(v.DialogFooter, null, r.createElement(c.ButtonGroup, null, r.createElement(p.Button, {
@@ -34858,7 +34858,7 @@ module.exports = function (e) {
     }
     renderConflictedMergeMessage(e, t, n) {
       const r = 1 === n ? '文件' : '文件';
-      return o.createElement(o.Fragment, null, '将有', o.createElement('strong', null, ` ${n} 冲突的 ${r}`), ` 当合并 `, o.createElement('strong', null, e.name), ` 进 `, o.createElement('strong', null, t.name),` 时 `)
+      return o.createElement(o.Fragment, null, '将有', o.createElement('strong', null, ` ${n} 冲突的 ${r}`), ` 当合并 `, o.createElement('strong', null, e.name), ` 到 `, o.createElement('strong', null, t.name),'时')
     }
     render() {
       const e = this.state.selectedBranch,
@@ -35054,7 +35054,7 @@ module.exports = function (e) {
       description: '默认主题 of GitHub Desktop'
     }, {
       title: 'Dark (beta)',
-      description: '黑暗主题的测试版。仍在开发中。请向我们的问题跟踪者报告您可能发现的任何问题。'
+      description: '黑夜主题的测试版。仍在开发中。请向我们的问题跟踪者报告您可能发现的任何问题。'
     }];
   class u extends o.Component {
     constructor() {
@@ -35747,11 +35747,11 @@ module.exports = function (e) {
         symbol: a.OcticonSymbol.desktopDownload
       }), o.createElement('span', {
         onSubmit: this.updateNow
-      }, 'An updated version of GitHub Desktop is available and will be installed at the next launch. See', ' ', o.createElement(r.LinkButton, {
+      }, 'Github Desktop的更新版本可用，并将在下一次启动时安装。 查看', ' ', o.createElement(r.LinkButton, {
         onClick: this.showReleaseNotes
-      }, 'what\'s new'), ' or', ' ', o.createElement(r.LinkButton, {
+      }, '新功能'), ' 或', ' ', o.createElement(r.LinkButton, {
         onClick: this.updateNow
-      }, 'restart GitHub Desktop'), '.'))
+      }, '重启 GitHub Desktop'), '.'))
     }
   }
   t.UpdateAvailable = p
@@ -37614,7 +37614,7 @@ module.exports = function (e) {
       const r = 1 === n ? '文件' : '文件';
       return o.createElement('div', {
         className: 'merge-message'
-      }, '将有', o.createElement('strong', null, ` ${n} 冲突的 ${r}`), ` 当 `, o.createElement('strong', null, t.name), ` 合并进 `, o.createElement('strong', null, e.name),`时`)
+      }, '将有', o.createElement('strong', null, ` ${n} 冲突的 ${r}`), ` 当 `, o.createElement('strong', null, t.name), ` 合并进 `, o.createElement('strong', null, e.name),'时')
     }
   }
   t.MergeCallToActionWithConflicts = d
@@ -38135,7 +38135,7 @@ module.exports = function (e) {
         className: 'icon',
         symbol: p.OcticonSymbol.gitMerge
       }), o.createElement('span', {
-        title: `将分支合并到 ${e}`
+        title: `将分支合并到${e}`
       }, '选择分支合并到 ', o.createElement('strong', null, e)))))
     }
     renderOpenPullRequestsBubble() {
@@ -39167,7 +39167,7 @@ module.exports = function (e) {
         }]);
         const r = s.extname(t),
           d = p.isSafeFileExtension(r),
-          c = this.props.externalEditorLabel ? `用${this.props.externalEditorLabel}打开` : p.DefaultEditorLabel,
+          c = this.props.externalEditorLabel ? `用 ${this.props.externalEditorLabel}打开` : p.DefaultEditorLabel,
           u = [{
             label: p.CopyFilePathLabel,
             action: () => i.clipboard.writeText(n)
@@ -39817,7 +39817,7 @@ module.exports = function (e) {
     }
     renderShowInFileManager() {
       const e = this.getPlatformFileManagerName();
-      return this.renderMenuBackedAction('open-working-directory', `在${e}中查看存储库的文件V`, void 0, this.onShowInFileManagerClicked)
+      return this.renderMenuBackedAction('open-working-directory', `在${e}中查看存储库的文件`, void 0, this.onShowInFileManagerClicked)
     }
     renderViewOnGitHub() {
       const e = null !== this.props.repository.gitHubRepository;
@@ -39875,7 +39875,7 @@ module.exports = function (e) {
       if (null === o) return null;
       if (o.files.kind !== S.StashedChangesLoadStates.Loaded) return null;
       const r = o.files.files.length,
-        i = s.createElement(s.Fragment, null, '您有', r, ' ', 1 === r ? '正在进行的更改' : '正在进行的更改', ' 尚未提交。'),
+        i = s.createElement(s.Fragment, null, '您有 ', r, ' ', 1 === r ? '正在进行的更改' : '正在进行的更改', ' 尚未提交。'),
         a = s.createElement(s.Fragment, null, '当有隐藏存在时, 在左侧“更改”选项卡的底部访问它。'),
         d = 'toggle-stashed-changes',
         l = this.getMenuItemInfo(d);
@@ -46258,13 +46258,13 @@ module.exports = function (e) {
         className: 'protip'
       }, 'ProTip! Press ', this.renderAddLocalShortcut(), ' to quickly add a local repository, and ', this.renderCloneRepositoryShortcut(), ' to clone from anywhere within the app')), this.onNewRepositoryButtonClick = () => {
         const e = [{
-          label: 'Clone repository\u2026',
+          label: '克隆存储库\u2026',
           action: this.onCloneRepository
         }, {
-          label: 'Create new repository\u2026',
+          label: '创建新存储库\u2026',
           action: this.onCreateNewRepository
         }, {
-          label: 'Add existing repository\u2026',
+          label: '添加现有存储库\u2026',
           action: this.onAddExistingRepository
         }];
         c.showContextualMenu(e)
