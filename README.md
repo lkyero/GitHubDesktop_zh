@@ -12,7 +12,9 @@ GitHub桌面版 简体中文汉化
 
 1.一键替换
 --------
-运行程序一键汉化并自动备份的原文件。
+https://github.com/lkyero/GitHubDesktop_zh/releases 下载
+
+运行程序：一键汉化并自动备份的原文件。
 
 2.手动替换文件
 ---------
