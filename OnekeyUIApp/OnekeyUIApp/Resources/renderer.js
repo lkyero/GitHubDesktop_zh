@@ -28,50 +28,10 @@ module.exports = function (e) {
     return t.d(n, 'a', n), n
   }, t.o = function (e, t) {
     return Object.prototype.hasOwnProperty.call(e, t)
-  }, t.p = '', t(t.s = 775)
+  }, t.p = '', t(t.s = 780)
 }([function (e, t, n) {
   'use strict';
-  e.exports = n(761)
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(0),
-    r = n(6);
-  class i extends o.Component {
-    constructor() {
-      super(...arguments), this.innerButton = null, this.onButtonRef = (e) => {
-        this.innerButton = e, this.props.onButtonRef && this.props.onButtonRef(e)
-      }, this.focus = () => {
-        this.innerButton && this.innerButton.focus()
-      }, this.getBoundingClientRect = () => this.innerButton ? this.innerButton.getBoundingClientRect() : void 0, this.onClick = (e) => {
-        this.props.onClick && this.props.onClick(e), 'submit' !== this.props.type && e.preventDefault()
-      }
-    }
-    blur() {
-      this.innerButton && this.innerButton.blur()
-    }
-    render() {
-      const e = r('button-component', {
-        "small-button": 'small' === this.props.size
-      }, this.props.className);
-      return o.createElement('button', {
-        className: e,
-        disabled: this.props.disabled,
-        onClick: this.onClick,
-        type: this.props.type || 'button',
-        ref: this.onButtonRef,
-        tabIndex: this.props.tabIndex,
-        onMouseEnter: this.props.onMouseEnter,
-        title: this.props.tooltip,
-        role: this.props.role,
-        "aria-expanded": this.props.ariaExpanded,
-        "aria-haspopup": this.props.ariaHasPopup
-      }, this.props.children)
-    }
-  }
-  t.Button = i
+  e.exports = n(766)
 }, function (e) {
   e.exports = require('path')
 }, function (e, t) {
@@ -89,26 +49,26 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  var o = n(601);
-  t.Octicon = o.Octicon;
-  var r = n(227);
-  t.OcticonSymbol = r.OcticonSymbol;
-  var i = n(600);
-  t.iconForRepository = i.iconForRepository;
-  var a = n(599);
-  t.iconForStatus = a.iconForStatus
-}, function (e, t, n) {
-  'use strict';
 
   function o(e) {
     for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(485)), o(n(484)), o(n(482)), o(n(481))
+  }), o(n(490)), o(n(489)), o(n(487)), o(n(203)), o(n(9)), o(n(486))
+}, function (e, t, n) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  var o = n(606);
+  t.Octicon = o.Octicon;
+  var r = n(229);
+  t.OcticonSymbol = r.OcticonSymbol;
+  var i = n(605);
+  t.iconForRepository = i.iconForRepository;
+  var a = n(604);
+  t.iconForStatus = a.iconForStatus
 }, function (e, t) {
   var n, o;
   /*!
@@ -148,24 +108,6 @@ module.exports = function (e) {
       for (var o in n = arguments[t], n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
     return e
   }
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(0),
-    r = n(1);
-  class i extends o.Component {
-    render() {
-      const e = [];
-      return o.Children.forEach(this.props.children, (t) => {
-        'string' != typeof t && 'number' != typeof t && t.type === r.Button && e.push(t)
-      }), 1 < e.length && 'submit' === e[e.length - 1].props.type && e.reverse(), o.createElement('div', {
-        className: 'button-group'
-      }, e)
-    }
-  }
-  t.ButtonGroup = i
 }, function (e, t) {
   'use strict';
   t.__esModule = !0, t.default = function (e, t) {
@@ -174,7 +116,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(225),
+  var o = n(227),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -188,6 +130,53 @@ module.exports = function (e) {
       return n && e(t.prototype, n), o && e(t, o), t
     }
   }()
+}, function (e, t, n) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0),
+    r = n(5),
+    i = n(13);
+  class a extends o.Component {
+    constructor() {
+      super(...arguments), this.onOkButtonClick = (e) => {
+        this.props.onOkButtonClick !== void 0 && this.props.onOkButtonClick(e);
+        e.defaultPrevented || !0 === this.props.destructive && (e.preventDefault(), e.currentTarget.form && e.currentTarget.form.dispatchEvent(new Event('submit')))
+      }, this.onCancelButtonClick = (e) => {
+        this.props.onCancelButtonClick !== void 0 && this.props.onCancelButtonClick(e);
+        e.defaultPrevented || !0 === this.props.destructive && (e.preventDefault(), e.currentTarget.form && e.currentTarget.form.dispatchEvent(new Event('reset')))
+      }
+    }
+    renderOkButton() {
+      return o.createElement(i.Button, {
+        onClick: this.onOkButtonClick,
+        disabled: this.props.okButtonDisabled,
+        tooltip: this.props.okButtonTitle,
+        type: !0 === this.props.destructive ? 'button' : 'submit'
+      }, this.props.okButtonText || 'Ok')
+    }
+    renderCancelButton() {
+      return !1 === this.props.cancelButtonVisible ? null : o.createElement(i.Button, {
+        onClick: this.onCancelButtonClick,
+        disabled: this.props.cancelButtonDisabled,
+        tooltip: this.props.cancelButtonTitle,
+        type: !0 === this.props.destructive ? 'submit' : 'reset'
+      }, this.props.cancelButtonText || 'Cancel')
+    }
+    renderButtons() {
+      return o.createElement(o.Fragment, null, this.renderOkButton(), this.renderCancelButton())
+    }
+    render() {
+      const e = r('button-group', this.props.className, {
+        destructive: !0 === this.props.destructive
+      });
+      return o.createElement('div', {
+        className: e
+      }, this.renderButtons(), this.props.children)
+    }
+  }
+  t.OkCancelButtonGroup = a
 }, function (e, t, n) {
   'use strict';
 
@@ -306,36 +295,40 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(34),
-    a = n(3),
-    s = n(13),
+    a = n(2),
+    s = n(12),
     d = n(167),
-    l = n(79);
-  class c extends Error {
+    l = n(79),
+    c = n(259);
+  class p extends Error {
     constructor(e, t) {
       super(o(e)), this.name = 'GitError', this.result = e, this.args = t
     }
   }
-  t.GitError = c, t.git = async function (e, t, n, o) {
+  t.GitError = p, t.git = async function (e, t, n, o) {
     const a = {
         successExitCodes: new Set([0]),
         expectedErrors: new Set
       },
       s = Object.assign({}, a, o),
       l = `${n}: git ${e.join(' ')}`,
-      p = await d.measure(l, () => i.GitProcess.exec(e, t, o)),
-      u = p.exitCode;
-    let m = null;
-    const h = !!s.successExitCodes && s.successExitCodes.has(u);
-    h || (m = i.GitProcess.parseError(p.stderr), !m && (m = i.GitProcess.parseError(p.stdout)));
-    const f = m ? r(m) : null,
-      g = Object.assign({}, p, {
-        gitError: m,
-        gitErrorDescription: f
+      u = await d.measure(l, () => i.GitProcess.exec(e, t, o)).catch((e) => {
+        if (c.isErrnoException(e)) throw new Error(`Failed to execute ${n}: ${e.code}`);
+        throw e
+      }),
+      m = u.exitCode;
+    let h = null;
+    const f = !!s.successExitCodes && s.successExitCodes.has(m);
+    f || (h = i.GitProcess.parseError(u.stderr), !h && (h = i.GitProcess.parseError(u.stdout)));
+    const g = h ? r(h) : null,
+      y = Object.assign({}, u, {
+        gitError: h,
+        gitErrorDescription: g
       });
-    let y = !0;
-    if (m && s.expectedErrors && (y = s.expectedErrors.has(m)), m && y || h) return g;
-    const S = [];
-    throw S.push(`\`git ${e.join(' ')}\` exited with an unexpected code: ${u}.`), p.stdout && (S.push('stdout:'), S.push(p.stdout)), p.stderr && (S.push('stderr:'), S.push(p.stderr)), m && S.push(`(The error was parsed as ${m}: ${f})`), log.error(S.join('\n')), new c(g, e)
+    let S = !0;
+    if (h && s.expectedErrors && (S = s.expectedErrors.has(h)), h && S || f) return y;
+    const C = [];
+    throw C.push(`\`git ${e.join(' ')}\` exited with an unexpected code: ${m}.`), u.stdout && (C.push('stdout:'), C.push(u.stdout)), u.stderr && (C.push('stderr:'), C.push(u.stderr)), h && C.push(`(The error was parsed as ${h}: ${g})`), log.error(C.join('\n')), new p(y, e)
   }, t.gitNetworkArguments = async function (e, t) {
     const n = ['-c', 'credential.helper='];
     if (null === t) return n;
@@ -350,7 +343,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(224),
+  var o = n(226),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -407,10 +400,10 @@ module.exports = function (e) {
       d = await s(),
       l = await h.request(e, null, 'POST', 'authorizations', {
         scopes: c(e),
-        client_id: b,
-        client_secret: v,
+        client_id: v,
+        client_secret: E,
         note: d,
-        note_url: _,
+        note_url: T,
         fingerprint: g.uuid()
       }, Object.assign({
         Authorization: i
@@ -420,7 +413,7 @@ module.exports = function (e) {
       if (e) {
         const t = e.token;
         if (t && 'string' == typeof t && t.length) return {
-          kind: x.Authorized,
+          kind: P.Authorized,
           token: t
         }
       }
@@ -432,29 +425,29 @@ module.exports = function (e) {
           if (2 === t.length) {
             const e = t[1].trim();
             return 'app' === e ? {
-              kind: x.TwoFactorAuthenticationRequired,
+              kind: P.TwoFactorAuthenticationRequired,
               type: f.AuthenticationMode.App
             } : 'sms' === e ? {
-              kind: x.TwoFactorAuthenticationRequired,
+              kind: P.TwoFactorAuthenticationRequired,
               type: f.AuthenticationMode.Sms
             } : {
-              kind: x.Failed,
+              kind: P.Failed,
               response: l
             }
           }
         }
         return {
-          kind: x.Failed,
+          kind: P.Failed,
           response: l
         }
       }
       const e = t instanceof h.APIError && t.apiError;
       if (e) {
         if (403 === l.status && 'This API can only be accessed with username and password Basic Auth' === e.message) return {
-          kind: x.PersonalAccessTokenBlocked
+          kind: P.PersonalAccessTokenBlocked
         };
         if (410 === l.status) return {
-          kind: x.WebFlowRequired
+          kind: P.WebFlowRequired
         };
         if (422 === l.status)
           if (e.errors)
@@ -462,22 +455,22 @@ module.exports = function (e) {
               const e = 'oauthaccess' === t.resource.toLowerCase(),
                 n = 'user' === t.field.toLowerCase();
               if (n && e) return {
-                kind: x.UserRequiresVerification
+                kind: P.UserRequiresVerification
               }
             } else if ('Invalid OAuth application client_id or secret.' === e.message) return {
-              kind: x.EnterpriseTooOld
+              kind: P.EnterpriseTooOld
             }
       }
     }
     return {
-      kind: x.Error,
+      kind: P.Error,
       response: l
     }
   }
   async function s() {
     let t = 'unknown';
     try {
-      t = await C()
+      t = await b()
     } catch (n) {
       log.error(`getNote: unable to resolve machine username, using '${t}' as a fallback`, n)
     }
@@ -485,7 +478,7 @@ module.exports = function (e) {
   }
 
   function d(e) {
-    if (e === l()) return 'https://github.com';
+    if (e === l() && !C) return 'https://github.com';
     else {
       const t = u.parse(e);
       return `${t.protocol}//${t.hostname}`
@@ -493,40 +486,40 @@ module.exports = function (e) {
   }
 
   function l() {
-    const e = process.env.DESKTOP_GITHUB_DOTCOM_API_ENDPOINT;
-    return e && 0 < e.length ? e : 'https://api.github.com'
+    return C && 0 < C.length ? C : 'https://api.github.com'
   }
 
   function c(e) {
-    return e === l() ? E : w
+    return e === l() ? w : k
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const p = n(59),
+  const p = n(58),
     u = n(47),
     m = n(129),
-    h = n(174),
-    f = n(173),
-    g = n(128),
+    h = n(175),
+    f = n(174),
+    g = n(101),
     y = n(100),
-    S = n(127),
-    C = n(739),
-    b = 'de0e3c7e9973e1c4dd77',
-    v = '1273305a5fc2737c2ca2911948ba24a9d961e2a3';
-  b.length && v && v.length || log.warn(`DESKTOP_OAUTH_CLIENT_ID and/or DESKTOP_OAUTH_CLIENT_SECRET is undefined. You won't be able to authenticate new users.`);
-  const E = ['repo', 'user', 'workflow'],
-    w = ['repo', 'user'];
-  var k;
+    S = n(128),
+    C = process.env.DESKTOP_GITHUB_DOTCOM_API_ENDPOINT,
+    b = n(747),
+    v = 'de0e3c7e9973e1c4dd77',
+    E = '1273305a5fc2737c2ca2911948ba24a9d961e2a3';
+  v.length && E && E.length || log.warn(`DESKTOP_OAUTH_CLIENT_ID and/or DESKTOP_OAUTH_CLIENT_SECRET is undefined. You won't be able to authenticate new users.`);
+  const w = ['repo', 'user', 'workflow'],
+    k = ['repo', 'user'];
+  var _;
   (function (e) {
     e[e.NotModified = 304] = 'NotModified', e[e.NotFound = 404] = 'NotFound'
-  })(k || (k = {}));
-  const _ = 'https://desktop.github.com/';
+  })(_ || (_ = {}));
+  const T = 'https://desktop.github.com/';
   class R extends Error {}
   t.MaxResultsError = R, t.getNextPagePathWithIncreasingPageSize = r;
-  class T {
+  class x {
     static fromAccount(e) {
-      return new T(e.endpoint, e.token)
+      return new x(e.endpoint, e.token)
     }
     constructor(e, t) {
       this.endpoint = e, this.token = t
@@ -534,7 +527,7 @@ module.exports = function (e) {
     async fetchRepository(t, n) {
       try {
         const e = await this.request('GET', `repos/${t}/${n}`);
-        return e.status === k.NotFound ? (log.warn(`fetchRepository: '${t}/${n}' returned a 404`), null) : await h.parsedResponse(e)
+        return e.status === _.NotFound ? (log.warn(`fetchRepository: '${t}/${n}' returned a 404`), null) : await h.parsedResponse(e)
       } catch (o) {
         return log.warn(`fetchRepository: an error occurred for '${t}/${n}'`, o), null
       }
@@ -568,7 +561,7 @@ module.exports = function (e) {
       try {
         const e = `repos/${t}/${n}/commits/${o}`,
           r = await this.request('GET', e);
-        return r.status === k.NotFound ? (log.warn(`fetchCommit: '${e}' returned a 404`), null) : await h.parsedResponse(r)
+        return r.status === _.NotFound ? (log.warn(`fetchCommit: '${e}' returned a 404`), null) : await h.parsedResponse(r)
       } catch (r) {
         return log.warn(`fetchCommit: returned an error '${t}/${n}@${o}'`, r), null
       }
@@ -663,6 +656,26 @@ module.exports = function (e) {
         r = await this.request('GET', o);
       return await h.parsedResponse(r)
     }
+    async fetchPushControl(e, t, n) {
+      const o = `repos/${e}/${t}/branches/${n}/push_control`;
+      try {
+        const e = await this.request('GET', o, void 0, {
+          Accept: 'application/vnd.github.phandalin-preview'
+        });
+        return await h.parsedResponse(e)
+      } catch (e) {
+        return log.info(`[fetchPushControl] unable to check if branch is potentially pushable`, e), {
+          pattern: null,
+          required_signatures: !1,
+          required_status_checks: [],
+          required_approving_review_count: 0,
+          required_linear_history: !1,
+          allow_actor: !0,
+          allow_deletions: !0,
+          allow_force_pushes: !0
+        }
+      }
+    }
     async fetchProtectedBranches(e, t) {
       const n = `repos/${e}/${t}/branches?protected=true`;
       try {
@@ -714,8 +727,8 @@ module.exports = function (e) {
       try {
         const e = `repos/${t}/${n}/mentionables/users`,
           r = await this.request('GET', e, void 0, o);
-        if (r.status === k.NotFound) return log.warn(`fetchMentionables: '${e}' returned a 404`), null;
-        if (r.status === k.NotModified) return null;
+        if (r.status === _.NotFound) return log.warn(`fetchMentionables: '${e}' returned a 404`), null;
+        if (r.status === _.NotModified) return null;
         const i = await h.parsedResponse(r),
           a = r.headers.get('etag');
         return {
@@ -735,12 +748,12 @@ module.exports = function (e) {
       }
     }
   }
-  t.API = T;
-  var x;
+  t.API = x;
+  var P;
   (function (e) {
     e[e.Authorized = 0] = 'Authorized', e[e.Failed = 1] = 'Failed', e[e.TwoFactorAuthenticationRequired = 2] = 'TwoFactorAuthenticationRequired', e[e.UserRequiresVerification = 3] = 'UserRequiresVerification', e[e.PersonalAccessTokenBlocked = 4] = 'PersonalAccessTokenBlocked', e[e.Error = 5] = 'Error', e[e.EnterpriseTooOld = 6] = 'EnterpriseTooOld', e[e.WebFlowRequired = 7] = 'WebFlowRequired'
-  })(x = t.AuthorizationResponseKind || (t.AuthorizationResponseKind = {})), t.createAuthorization = a, t.fetchUser = async function (t, e) {
-    const n = new T(t, e);
+  })(P = t.AuthorizationResponseKind || (t.AuthorizationResponseKind = {})), t.createAuthorization = a, t.fetchUser = async function (t, e) {
+    const n = new x(t, e);
     try {
       const o = await n.fetchAccount(),
         r = await n.fetchEmails(),
@@ -773,13 +786,13 @@ module.exports = function (e) {
     const n = d(e),
       o = c(e),
       r = encodeURIComponent(o.join(' '));
-    return `${n}/login/oauth/authorize?client_id=${b}&scope=${r}&state=${t}`
+    return `${n}/login/oauth/authorize?client_id=${v}&scope=${r}&state=${t}`
   }, t.requestOAuthToken = async function (t, e) {
     try {
       const n = d(t),
         o = await h.request(n, null, 'POST', 'login/oauth/access_token', {
-          client_id: b,
-          client_secret: v,
+          client_id: v,
+          client_secret: E,
           code: e
         }),
         r = await h.parsedResponse(o);
@@ -794,8 +807,48 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
+    r = n(5);
+  class i extends o.Component {
+    constructor() {
+      super(...arguments), this.innerButton = null, this.onButtonRef = (e) => {
+        this.innerButton = e, this.props.onButtonRef && this.props.onButtonRef(e)
+      }, this.focus = () => {
+        this.innerButton && this.innerButton.focus()
+      }, this.getBoundingClientRect = () => this.innerButton ? this.innerButton.getBoundingClientRect() : void 0, this.onClick = (e) => {
+        this.props.onClick && this.props.onClick(e), this.props.type === void 0 && e.preventDefault()
+      }
+    }
+    blur() {
+      this.innerButton && this.innerButton.blur()
+    }
+    render() {
+      const e = r('button-component', {
+        "small-button": 'small' === this.props.size
+      }, this.props.className);
+      return o.createElement('button', {
+        className: e,
+        disabled: this.props.disabled,
+        onClick: this.onClick,
+        type: this.props.type || 'button',
+        ref: this.onButtonRef,
+        tabIndex: this.props.tabIndex,
+        onMouseEnter: this.props.onMouseEnter,
+        title: this.props.tooltip,
+        role: this.props.role,
+        "aria-expanded": this.props.ariaExpanded,
+        "aria-haspopup": this.props.ariaHasPopup
+      }, this.props.children)
+    }
+  }
+  t.Button = i
+}, function (e, t, n) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0),
     r = n(38),
-    i = n(6);
+    i = n(5);
   class a extends o.Component {
     constructor() {
       super(...arguments), this.onClick = (e) => {
@@ -821,7 +874,7 @@ module.exports = function (e) {
   }
   t.LinkButton = a
 }, function (e, t, n) {
-  e.exports = n(752)()
+  e.exports = n(757)()
 }, function (e, t, n) {
   'use strict';
 
@@ -831,11 +884,11 @@ module.exports = function (e) {
     }
   }
   t.__esModule = !0;
-  var r = n(571),
+  var r = n(576),
     i = o(r),
-    a = n(567),
+    a = n(572),
     s = o(a),
-    d = n(224),
+    d = n(226),
     l = o(d);
   t.default = function (e, t) {
     if ('function' != typeof t && null !== t) throw new TypeError('Super expression must either be null or a function, not ' + ('undefined' == typeof t ? 'undefined' : (0, l.default)(t)));
@@ -850,7 +903,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   e.exports = {
-    default: n(591),
+    default: n(596),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -859,7 +912,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6);
+    r = n(5);
   class i extends o.Component {
     render() {
       const e = r('row-component', this.props.className);
@@ -871,7 +924,7 @@ module.exports = function (e) {
   t.Row = i
 }, function (e, t, n) {
   'use strict';
-  e.exports = Object.assign({}, n(278), n(274), n(270), n(708), n(706), n(700), n(39), n(696), n(695), n(694), n(51), n(124))
+  e.exports = Object.assign({}, n(280), n(276), n(272), n(716), n(714), n(708), n(39), n(704), n(703), n(702), n(51), n(125))
 }, function (e, t, n) {
   'use strict';
 
@@ -961,7 +1014,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(253)), o(n(674)), o(n(672)), o(n(665)), o(n(664)), o(n(79)), o(n(11)), o(n(243)), o(n(166)), o(n(663)), o(n(250)), o(n(22)), o(n(662)), o(n(242)), o(n(661)), o(n(660)), o(n(659)), o(n(248)), o(n(658)), o(n(246)), o(n(161)), o(n(657)), o(n(241)), o(n(652)), o(n(651)), o(n(240)), o(n(650)), o(n(649)), o(n(648)), o(n(646)), o(n(645)), o(n(644)), o(n(97)), o(n(642)), o(n(239)), o(n(641)), o(n(640))
+  }), o(n(255)), o(n(682)), o(n(680)), o(n(673)), o(n(672)), o(n(79)), o(n(10)), o(n(245)), o(n(166)), o(n(671)), o(n(252)), o(n(22)), o(n(670)), o(n(244)), o(n(669)), o(n(668)), o(n(667)), o(n(250)), o(n(666)), o(n(248)), o(n(161)), o(n(665)), o(n(243)), o(n(660)), o(n(659)), o(n(242)), o(n(658)), o(n(657)), o(n(656)), o(n(654)), o(n(653)), o(n(652)), o(n(97)), o(n(650)), o(n(241)), o(n(649)), o(n(648))
 }, function (e, t) {
   'use strict';
 
@@ -971,10 +1024,6 @@ module.exports = function (e) {
 
   function o() {
     return n() || !1
-  }
-
-  function r() {
-    return !0
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
@@ -995,12 +1044,14 @@ module.exports = function (e) {
     return !0
   }, t.enableStashing = function () {
     return !0
-  }, t.enableBranchProtectionChecks = r, t.enableWSLDetection = function () {
+  }, t.enableBranchProtectionChecks = function () {
+    return !0
+  }, t.enableWSLDetection = function () {
     return o()
   }, t.enableBranchProtectionWarningFlow = function () {
-    return r() && n()
+    return !0
   }, t.enableHideWhitespaceInDiffOption = function () {
-    return o()
+    return !0
   }, t.enableTutorial = function () {
     return !0
   }
@@ -1091,7 +1142,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6),
+    r = n(5),
     i = n(62),
     a = n(14),
     s = n(26);
@@ -1248,7 +1299,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(3);
+  const i = n(2);
   var a;
   (function (e) {
     e.Unknown = 'Unknown', e.Unborn = 'Unborn', e.Detached = 'Detached', e.Valid = 'Valid'
@@ -1261,7 +1312,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(692)), o(n(691)), o(n(690)), o(n(689)), o(n(688)), o(n(687))
+  }), o(n(700)), o(n(699)), o(n(698)), o(n(697)), o(n(696)), o(n(695))
 }, function (e, t, n) {
   function o(e) {
     function t(t) {
@@ -1358,17 +1409,17 @@ module.exports = function (e) {
     e && (p('RETRY', e[0].name, e[1]), e[0].apply(null, e[1]))
   }
   var a = n(32),
-    s = n(715),
-    d = n(713),
+    s = n(723),
+    d = n(721),
     l = [],
-    c = n(171),
+    c = n(172),
     p = function () {};
   c.debuglog ? p = c.debuglog('gfs4') : /\bgfs4\b/i.test(process.env.NODE_DEBUG || '') && (p = function () {
     var e = c.format.apply(c, arguments);
     e = 'GFS4: ' + e.split(/\n/).join('\nGFS4: '), console.error(e)
   }), /\bgfs4\b/i.test(process.env.NODE_DEBUG || '') && process.on('exit', function () {
-    p(l), n(275).equal(l.length, 0)
-  }), e.exports = o(n(277)), process.env.TEST_GRACEFUL_FS_GLOBAL_PATCH && (e.exports = o(a)), e.exports.close = a.close = function (e) {
+    p(l), n(277).equal(l.length, 0)
+  }), e.exports = o(n(279)), process.env.TEST_GRACEFUL_FS_GLOBAL_PATCH && (e.exports = o(a)), e.exports.close = a.close = function (e) {
     return function (t, n) {
       return e.call(a, t, function (e) {
         e || i(), 'function' == typeof n && n.apply(this, arguments)
@@ -1387,8 +1438,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(2),
-    r = n(626);
+  const o = n(1),
+    r = n(632);
   t.encodePathAsUrl = function (...e) {
     const t = o.resolve(...e);
     return r(t)
@@ -1398,9 +1449,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(682);
+  var o = n(690);
   t.GitProcess = o.GitProcess;
-  var r = n(257);
+  var r = n(260);
   t.GitError = r.GitError, t.RepositoryDoesNotExistErrorCode = r.RepositoryDoesNotExistErrorCode, t.GitNotFoundErrorCode = r.GitNotFoundErrorCode
 }, function (e, t, n) {
   'use strict';
@@ -1500,7 +1551,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(21),
-    r = n(2);
+    r = n(1);
   t.shell = {
     moveItemToTrash: o.shell.moveItemToTrash,
     beep: o.shell.beep,
@@ -1526,8 +1577,8 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(37).fromCallback,
-    r = o(n(711)),
-    i = n(710);
+    r = o(n(719)),
+    i = n(718);
   e.exports = {
     mkdirs: r,
     mkdirsSync: i,
@@ -1550,7 +1601,7 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(20),
-    a = n(3);
+    a = n(2);
   t.mapStatus = function (e) {
     switch (e.kind) {
       case i.AppFileStatusKind.New:
@@ -1601,7 +1652,7 @@ module.exports = function (e) {
       }
     }
   }
-  o(), e.exports = n(760)
+  o(), e.exports = n(765)
 }, function (e) {
   var t = String.fromCharCode,
     n = Math.round,
@@ -1722,11 +1773,11 @@ module.exports = function (e) {
       e.splice(o, 0, t)
     }
 
-    function R() {}
+    function T() {}
 
-    function T(e, t) {
+    function R(e, t) {
       var n;
-      return Object.create ? n = Object.create(e) : (R.prototype = e, n = new R), t && S(t, n), n
+      return Object.create ? n = Object.create(e) : (T.prototype = e, n = new T), t && S(t, n), n
     }
 
     function x(e) {
@@ -1767,10 +1818,10 @@ module.exports = function (e) {
       var o = this;
       this.input = n, o.scrollbarFiller = p('div', null, 'CodeMirror-scrollbar-filler'), o.scrollbarFiller.setAttribute('cm-not-content', 'true'), o.gutterFiller = p('div', null, 'CodeMirror-gutter-filler'), o.gutterFiller.setAttribute('cm-not-content', 'true'), o.lineDiv = u('div', null, 'CodeMirror-code'), o.selectionDiv = p('div', null, null, 'position: relative; z-index: 1'), o.cursorDiv = p('div', null, 'CodeMirror-cursors'), o.measure = p('div', null, 'CodeMirror-measure'), o.lineMeasure = p('div', null, 'CodeMirror-measure'), o.lineSpace = u('div', [o.measure, o.lineMeasure, o.selectionDiv, o.cursorDiv, o.lineDiv], null, 'position: relative; outline: none');
       var r = u('div', [o.lineSpace], 'CodeMirror-lines');
-      o.mover = p('div', [r], null, 'position: relative'), o.sizer = p('div', [o.mover], 'CodeMirror-sizer'), o.sizerWidth = null, o.heightForcer = p('div', null, null, 'position: absolute; height: ' + Qa + 'px; width: 1px;'), o.gutters = p('div', null, 'CodeMirror-gutters'), o.lineGutter = null, o.scroller = p('div', [o.sizer, o.heightForcer, o.gutters], 'CodeMirror-scroll'), o.scroller.setAttribute('tabIndex', '-1'), o.wrapper = p('div', [o.scrollbarFiller, o.gutterFiller, o.scroller], 'CodeMirror'), Ta && 8 > xa && (o.gutters.style.zIndex = -1, o.scroller.style.paddingRight = 0), Pa || wa && Oa || (o.scroller.draggable = !0), e && (e.appendChild ? e.appendChild(o.wrapper) : e(o.wrapper)), o.viewFrom = o.viewTo = t.first, o.reportedViewFrom = o.reportedViewTo = t.first, o.view = [], o.renderedView = null, o.externalMeasured = null, o.viewOffset = 0, o.lastWrapHeight = o.lastWrapWidth = 0, o.updateLineNumbers = null, o.nativeBarWidth = o.barHeight = o.barWidth = 0, o.scrollbarsClipped = !1, o.lineNumWidth = o.lineNumInnerWidth = o.lineNumChars = null, o.alignWidgets = !1, o.cachedCharWidth = o.cachedTextHeight = o.cachedPaddingH = null, o.maxLine = null, o.maxLineLength = 0, o.maxLineChanged = !1, o.wheelDX = o.wheelDY = o.wheelStartX = o.wheelStartY = null, o.shift = !1, o.selForContextMenu = null, o.activeTouch = null, n.init(o)
+      o.mover = p('div', [r], null, 'position: relative'), o.sizer = p('div', [o.mover], 'CodeMirror-sizer'), o.sizerWidth = null, o.heightForcer = p('div', null, null, 'position: absolute; height: ' + Xa + 'px; width: 1px;'), o.gutters = p('div', null, 'CodeMirror-gutters'), o.lineGutter = null, o.scroller = p('div', [o.sizer, o.heightForcer, o.gutters], 'CodeMirror-scroll'), o.scroller.setAttribute('tabIndex', '-1'), o.wrapper = p('div', [o.scrollbarFiller, o.gutterFiller, o.scroller], 'CodeMirror'), Ra && 8 > xa && (o.gutters.style.zIndex = -1, o.scroller.style.paddingRight = 0), Pa || wa && Oa || (o.scroller.draggable = !0), e && (e.appendChild ? e.appendChild(o.wrapper) : e(o.wrapper)), o.viewFrom = o.viewTo = t.first, o.reportedViewFrom = o.reportedViewTo = t.first, o.view = [], o.renderedView = null, o.externalMeasured = null, o.viewOffset = 0, o.lastWrapHeight = o.lastWrapWidth = 0, o.updateLineNumbers = null, o.nativeBarWidth = o.barHeight = o.barWidth = 0, o.scrollbarsClipped = !1, o.lineNumWidth = o.lineNumInnerWidth = o.lineNumChars = null, o.alignWidgets = !1, o.cachedCharWidth = o.cachedTextHeight = o.cachedPaddingH = null, o.maxLine = null, o.maxLineLength = 0, o.maxLineChanged = !1, o.wheelDX = o.wheelDY = o.wheelStartX = o.wheelStartY = null, o.shift = !1, o.selForContextMenu = null, o.activeTouch = null, n.init(o)
     }
 
-    function B(e, t) {
+    function F(e, t) {
       if (t -= e.first, 0 > t || t >= e.size) throw new Error('There is no line ' + (t + e.first) + ' in the document.');
       for (var n = e; !n.lines;)
         for (var o = 0;; ++o) {
@@ -1785,7 +1836,7 @@ module.exports = function (e) {
       return n.lines[t]
     }
 
-    function F(e, t, o) {
+    function B(e, t, o) {
       var r = [],
         i = t.line;
       return e.iter(t.line, o.line + 1, function (e) {
@@ -1872,14 +1923,14 @@ module.exports = function (e) {
       return 0 > G(e, t) ? e : t
     }
 
-    function Q(e, t) {
+    function X(e, t) {
       return r(e.first, d(t, e.first + e.size - 1))
     }
 
-    function X(e, t) {
+    function Q(e, t) {
       if (t.line < e.first) return V(e.first, 0);
       var n = e.first + e.size - 1;
-      return t.line > n ? V(n, B(e, n).text.length) : $(t, B(e, t.line).text.length)
+      return t.line > n ? V(n, F(e, n).text.length) : $(t, F(e, t.line).text.length)
     }
 
     function $(e, t) {
@@ -1888,7 +1939,7 @@ module.exports = function (e) {
     }
 
     function Z(e, t) {
-      for (var n = [], o = 0; o < t.length; o++) n[o] = X(e, t[o]);
+      for (var n = [], o = 0; o < t.length; o++) n[o] = Q(e, t[o]);
       return n
     }
 
@@ -1951,8 +2002,8 @@ module.exports = function (e) {
 
     function de(e, t) {
       if (t.full) return null;
-      var n = U(e, t.from.line) && B(e, t.from.line).markedSpans,
-        o = U(e, t.to.line) && B(e, t.to.line).markedSpans;
+      var n = U(e, t.from.line) && F(e, t.from.line).markedSpans,
+        o = U(e, t.to.line) && F(e, t.to.line).markedSpans;
       if (!n && !o) return null;
       var r = t.from.ch,
         a = t.to.ch,
@@ -2074,7 +2125,7 @@ module.exports = function (e) {
     }
 
     function be(e, t, n, o, r) {
-      var a = B(e, t),
+      var a = F(e, t),
         s = rs && a.markedSpans;
       if (s)
         for (var d = 0, i; d < s.length; ++d)
@@ -2102,38 +2153,38 @@ module.exports = function (e) {
     }
 
     function ke(e, t) {
-      var n = B(e, t),
+      var n = F(e, t),
         o = ve(n);
       return n == o ? t : H(o)
     }
 
     function _e(e, t) {
       if (t > e.lastLine()) return t;
-      var n = B(e, t),
+      var n = F(e, t),
         o;
-      if (!Re(e, n)) return t;
+      if (!Te(e, n)) return t;
       for (; o = Se(n);) n = o.find(1, !0).line;
       return H(n) + 1
     }
 
-    function Re(e, t) {
+    function Te(e, t) {
       var n = rs && t.markedSpans;
       if (n)
         for (var o = void 0, r = 0; r < n.length; ++r)
           if (o = n[r], !!o.marker.collapsed) {
             if (null == o.from) return !0;
-            if (!o.marker.widgetNode && 0 == o.from && o.marker.inclusiveLeft && Te(e, t, o)) return !0
+            if (!o.marker.widgetNode && 0 == o.from && o.marker.inclusiveLeft && Re(e, t, o)) return !0
           }
     }
 
-    function Te(e, t, n) {
+    function Re(e, t, n) {
       if (null == n.to) {
         var o = n.marker.find(1, !0);
-        return Te(e, o.line, ne(o.line.markedSpans, n.marker))
+        return Re(e, o.line, ne(o.line.markedSpans, n.marker))
       }
       if (n.marker.inclusiveRight && n.to == t.text.length) return !0;
       for (var r = void 0, a = 0; a < t.markedSpans.length; ++a)
-        if (r = t.markedSpans[a], r.marker.collapsed && !r.marker.widgetNode && r.from == n.to && (null == r.to || r.to != n.from) && (r.marker.inclusiveLeft || n.marker.inclusiveRight) && Te(e, t, r)) return !0
+        if (r = t.markedSpans[a], r.marker.collapsed && !r.marker.widgetNode && r.from == n.to && (null == r.to || r.to != n.from) && (r.marker.inclusiveLeft || n.marker.inclusiveRight) && Re(e, t, r)) return !0
     }
 
     function xe(e) {
@@ -2157,7 +2208,7 @@ module.exports = function (e) {
     function Me(e) {
       var t = e.display,
         n = e.doc;
-      t.maxLine = B(n, n.first), t.maxLineLength = Pe(t.maxLine), t.maxLineChanged = !0, n.iter(function (e) {
+      t.maxLine = F(n, n.first), t.maxLineLength = Pe(t.maxLine), t.maxLineChanged = !0, n.iter(function (e) {
         var n = Pe(e);
         n > t.maxLineLength && (t.maxLineLength = n, t.maxLine = e)
       })
@@ -2188,7 +2239,7 @@ module.exports = function (e) {
       return e._handlers && e._handlers[t] || ss
     }
 
-    function Be(e, t, n) {
+    function Fe(e, t, n) {
       if (e.removeEventListener) e.removeEventListener(t, n, !1);
       else if (e.detachEvent) e.detachEvent('on' + t, n);
       else {
@@ -2200,7 +2251,7 @@ module.exports = function (e) {
       }
     }
 
-    function Fe(e, t) {
+    function Be(e, t) {
       var n = Le(e, t);
       if (n.length)
         for (var o = Array.prototype.slice.call(arguments, 2), r = 0; r < n.length; ++r) n[r].apply(null, o)
@@ -2212,7 +2263,7 @@ module.exports = function (e) {
         preventDefault: function () {
           this.defaultPrevented = !0
         }
-      }), Fe(t, o || n.type, t, n), Ve(n) || n.codemirrorIgnore
+      }), Be(t, o || n.type, t, n), Ve(n) || n.codemirrorIgnore
     }
 
     function Oe(e) {
@@ -2229,7 +2280,7 @@ module.exports = function (e) {
       e.prototype.on = function (e, t) {
         ds(this, e, t)
       }, e.prototype.off = function (e, t) {
-        Be(this, e, t)
+        Fe(this, e, t)
       }
     }
 
@@ -2261,7 +2312,7 @@ module.exports = function (e) {
     function qe(e) {
       if (null == ys) {
         var t = p('span', '\u200B');
-        c(e, p('span', [t, document.createTextNode('x')])), 0 != e.firstChild.offsetHeight && (ys = 1 >= t.offsetWidth && 2 < t.offsetHeight && !(Ta && 8 > xa))
+        c(e, p('span', [t, document.createTextNode('x')])), 0 != e.firstChild.offsetHeight && (ys = 1 >= t.offsetWidth && 2 < t.offsetHeight && !(Ra && 8 > xa))
       }
       var n = ys ? p('span', '\u200B') : p('span', '\xA0', null, 'display: inline-block; width: 1px; margin-right: -1px');
       return n.setAttribute('cm-text', ''), n
@@ -2275,7 +2326,7 @@ module.exports = function (e) {
       return l(e), !!(n && n.left != n.right) && (Ss = 3 > o.right - n.right)
     }
 
-    function Qe(e) {
+    function Xe(e) {
       if (null != us) return us;
       var t = c(e, p('span', 'x')),
         n = t.getBoundingClientRect(),
@@ -2283,7 +2334,7 @@ module.exports = function (e) {
       return us = 1 < o(n.left - r.left)
     }
 
-    function Xe(e, t) {
+    function Qe(e, t) {
       2 < arguments.length && (t.dependencies = Array.prototype.slice.call(arguments, 2)), ms[e] = t
     }
 
@@ -2293,7 +2344,7 @@ module.exports = function (e) {
         var t = hs[e.name];
         'string' == typeof t && (t = {
           name: t
-        }), e = T(t, e), e.name = t.name
+        }), e = R(t, e), e.name = t.name
       } else {
         if ('string' == typeof e && /^[\w\-]+\/[\w\-]+\+xml$/.test(e)) return $e('application/xml');
         if ('string' == typeof e && /^[\w\-]+\/[\w\-]+\+json$/.test(e)) return $e('application/json')
@@ -2390,7 +2441,7 @@ module.exports = function (e) {
         r = e.display;
       if (!o.mode.startState) return new bs(o, !0, t);
       var i = ut(e, t, n),
-        a = i > o.first && B(o, i - 1).stateAfter,
+        a = i > o.first && F(o, i - 1).stateAfter,
         s = a ? bs.fromSaved(o, a, i) : new bs(o, nt(o.mode), i);
       return o.iter(i, t, function (n) {
         at(e, n.text, s);
@@ -2426,8 +2477,8 @@ module.exports = function (e) {
       var r = e.doc,
         i = r.mode,
         a;
-      t = X(r, t);
-      var s = B(r, t.line),
+      t = Q(r, t);
+      var s = F(r, t.line),
         d = it(e, t.line, n),
         l = new gs(s.text, e.options.tabSize, d),
         c;
@@ -2476,7 +2527,7 @@ module.exports = function (e) {
     function ut(e, t, n) {
       for (var o = e.doc, r = n ? -1 : t - (e.doc.mode.innerMode ? 1e3 : 100), i = t, a, s; i > r; --i) {
         if (i <= o.first) return o.first;
-        var d = B(o, i - 1),
+        var d = F(o, i - 1),
           l = d.stateAfter;
         if (l && (!n || i + (l instanceof Cs ? l.lookAhead : 0) <= o.modeFrontier)) return i;
         var c = C(d.text, null, e.options.tabSize);
@@ -2488,7 +2539,7 @@ module.exports = function (e) {
     function mt(e, t) {
       if (e.modeFrontier = d(e.modeFrontier, t), !(e.highlightFrontier < t - 10)) {
         for (var n = e.first, o = t - 1, r; o > n; o--)
-          if (r = B(e, o).stateAfter, r && (!(r instanceof Cs) || o + r.lookAhead < t)) {
+          if (r = F(e, o).stateAfter, r && (!(r instanceof Cs) || o + r.lookAhead < t)) {
             n = o + 1;
             break
           } e.highlightFrontier = d(e.highlightFrontier, n)
@@ -2534,7 +2585,7 @@ module.exports = function (e) {
         var d = o.content.lastChild;
         (/\bcm-tab\b/.test(d.className) || d.querySelector && d.querySelector('.cm-tab')) && (o.content.className = 'cm-tab-wrap-hack')
       }
-      return Fe(e, 'renderLine', e, t.line, o.pre), o.pre.className && (o.textClass = g(o.pre.className, o.textClass || '')), o
+      return Be(e, 'renderLine', e, t.line, o.pre), o.pre.className && (o.textClass = g(o.pre.className, o.textClass || '')), o
     }
 
     function St(e) {
@@ -2548,7 +2599,7 @@ module.exports = function (e) {
           d = e.cm.state.specialChars,
           l = !1,
           c;
-        if (!d.test(t)) e.col += t.length, c = document.createTextNode(s), e.map.push(e.pos, e.pos + t.length, c), Ta && 9 > xa && (l = !0), e.pos += t.length;
+        if (!d.test(t)) e.col += t.length, c = document.createTextNode(s), e.map.push(e.pos, e.pos + t.length, c), Ra && 9 > xa && (l = !0), e.pos += t.length;
         else {
           c = document.createDocumentFragment();
           for (var u = 0;;) {
@@ -2557,7 +2608,7 @@ module.exports = function (e) {
               f = h ? h.index - u : t.length - u;
             if (f) {
               var g = document.createTextNode(s.slice(u, u + f));
-              Ta && 9 > xa ? c.appendChild(p('span', [g])) : c.appendChild(g), e.map.push(e.pos, e.pos + f, g), e.col += f, e.pos += f
+              Ra && 9 > xa ? c.appendChild(p('span', [g])) : c.appendChild(g), e.map.push(e.pos, e.pos + f, g), e.col += f, e.pos += f
             }
             if (!h) break;
             u += f + 1;
@@ -2566,7 +2617,7 @@ module.exports = function (e) {
               var S = e.cm.options.tabSize,
                 C = S - e.col % S;
               y = c.appendChild(p('span', E(C), 'cm-tab')), y.setAttribute('role', 'presentation'), y.setAttribute('cm-text', '\t'), e.col += C
-            } else '\r' == h[0] || '\n' == h[0] ? (y = c.appendChild(p('span', '\r' == h[0] ? '\u240D' : '\u2424', 'cm-invalidchar')), y.setAttribute('cm-text', h[0]), e.col += 1) : (y = e.cm.options.specialCharPlaceholder(h[0]), y.setAttribute('cm-text', h[0]), Ta && 9 > xa ? c.appendChild(p('span', [y])) : c.appendChild(y), e.col += 1);
+            } else '\r' == h[0] || '\n' == h[0] ? (y = c.appendChild(p('span', '\r' == h[0] ? '\u240D' : '\u2424', 'cm-invalidchar')), y.setAttribute('cm-text', h[0]), e.col += 1) : (y = e.cm.options.specialCharPlaceholder(h[0]), y.setAttribute('cm-text', h[0]), Ra && 9 > xa ? c.appendChild(p('span', [y])) : c.appendChild(y), e.col += 1);
             e.map.push(e.pos, e.pos + 1, y), e.pos++
           }
         }
@@ -2626,9 +2677,9 @@ module.exports = function (e) {
             } else k.from > c && u > k.from && (u = k.from)
           }
           if (E)
-            for (var R = 0; R < E.length; R += 2) E[R + 1] == u && (y += ' ' + E[R]);
+            for (var T = 0; T < E.length; T += 2) E[T + 1] == u && (y += ' ' + E[T]);
           if (!C || C.from == c)
-            for (var T = 0; T < v.length; ++T) Et(t, 0, v[T]);
+            for (var R = 0; R < v.length; ++R) Et(t, 0, v[R]);
           if (C && (C.from || 0) == c) {
             if (Et(t, (null == C.to ? l + 1 : C.to) - c, C.marker, null == C.from), null == C.to) return;
             C.to == c && (C = !1)
@@ -2654,22 +2705,22 @@ module.exports = function (e) {
     }
 
     function kt(e, t, n) {
-      this.line = t, this.rest = we(t), this.size = this.rest ? H(w(this.rest)) - n + 1 : 1, this.node = this.text = null, this.hidden = Re(e, t)
+      this.line = t, this.rest = we(t), this.size = this.rest ? H(w(this.rest)) - n + 1 : 1, this.node = this.text = null, this.hidden = Te(e, t)
     }
 
     function _t(e, t, n) {
-      for (var o = [], r = t, i, a; r < n; r = i) a = new kt(e.doc, B(e.doc, r), r), i = r + a.size, o.push(a);
+      for (var o = [], r = t, i, a; r < n; r = i) a = new kt(e.doc, F(e.doc, r), r), i = r + a.size, o.push(a);
       return o
     }
 
-    function Rt(e) {
+    function Tt(e) {
       _s ? _s.ops.push(e) : e.ownsGroup = _s = {
         ops: [e],
         delayedCallbacks: []
       }
     }
 
-    function Tt(e) {
+    function Rt(e) {
       var t = e.delayedCallbacks,
         n = 0;
       do {
@@ -2683,7 +2734,7 @@ module.exports = function (e) {
     function xt(e, t) {
       var n = e.ownsGroup;
       if (n) try {
-        Tt(n)
+        Rt(n)
       } finally {
         _s = null, t(n)
       }
@@ -2694,7 +2745,7 @@ module.exports = function (e) {
       if (n.length) {
         var o = Array.prototype.slice.call(arguments, 2),
           r;
-        _s ? r = _s.delayedCallbacks : Rs ? r = Rs : (r = Rs = [], setTimeout(Mt, 0));
+        _s ? r = _s.delayedCallbacks : Ts ? r = Ts : (r = Ts = [], setTimeout(Mt, 0));
         for (var a = function (e) {
             r.push(function () {
               return n[e].apply(null, o)
@@ -2704,18 +2755,18 @@ module.exports = function (e) {
     }
 
     function Mt() {
-      var e = Rs;
-      Rs = null;
+      var e = Ts;
+      Ts = null;
       for (var t = 0; t < e.length; ++t) e[t]()
     }
 
     function Dt(e, t, n, o) {
-      for (var r = 0, i; r < t.changes.length; r++) i = t.changes[r], 'text' == i ? Bt(e, t) : 'gutter' == i ? Nt(e, t, n, o) : 'class' == i ? Ft(e, t) : 'widget' == i && Ot(e, t, o);
+      for (var r = 0, i; r < t.changes.length; r++) i = t.changes[r], 'text' == i ? Ft(e, t) : 'gutter' == i ? Nt(e, t, n, o) : 'class' == i ? Bt(e, t) : 'widget' == i && Ot(e, t, o);
       t.changes = null
     }
 
     function At(e) {
-      return e.node == e.text && (e.node = p('div', null, null, 'position: relative'), e.text.parentNode && e.text.parentNode.replaceChild(e.node, e.text), e.node.appendChild(e.text), Ta && 8 > xa && (e.node.style.zIndex = 2)), e.node
+      return e.node == e.text && (e.node = p('div', null, null, 'position: relative'), e.text.parentNode && e.text.parentNode.replaceChild(e.node, e.text), e.node.appendChild(e.text), Ra && 8 > xa && (e.node.style.zIndex = 2)), e.node
     }
 
     function It(e, t) {
@@ -2732,13 +2783,13 @@ module.exports = function (e) {
       return n && n.line == t.line ? (e.display.externalMeasured = null, t.measure = n.measure, n.built) : yt(e, t)
     }
 
-    function Bt(e, t) {
+    function Ft(e, t) {
       var n = t.text.className,
         o = Lt(e, t);
-      t.text == t.node && (t.node = o.pre), t.text.parentNode.replaceChild(o.pre, t.text), t.text = o.pre, o.bgClass != t.bgClass || o.textClass != t.textClass ? (t.bgClass = o.bgClass, t.textClass = o.textClass, Ft(e, t)) : n && (t.text.className = n)
+      t.text == t.node && (t.node = o.pre), t.text.parentNode.replaceChild(o.pre, t.text), t.text = o.pre, o.bgClass != t.bgClass || o.textClass != t.textClass ? (t.bgClass = o.bgClass, t.textClass = o.textClass, Bt(e, t)) : n && (t.text.className = n)
     }
 
-    function Ft(e, t) {
+    function Bt(e, t) {
       It(e, t), t.line.wrapClass ? At(t).className = t.line.wrapClass : t.node != t.text && (t.node.className = '');
       var n = t.textClass ? t.textClass + ' ' + (t.line.textClass || '') : t.line.textClass;
       t.text.className = n || ''
@@ -2770,7 +2821,7 @@ module.exports = function (e) {
 
     function Ht(e, t, n, o) {
       var r = Lt(e, t);
-      return t.text = t.node = r.pre, r.bgClass && (t.bgClass = r.bgClass), r.textClass && (t.textClass = r.textClass), Ft(e, t), Nt(e, t, n, o), zt(e, t, o), t.node
+      return t.text = t.node = r.pre, r.bgClass && (t.bgClass = r.bgClass), r.textClass && (t.textClass = r.textClass), Bt(e, t), Nt(e, t, n, o), zt(e, t, o), t.node
     }
 
     function zt(e, t, n) {
@@ -2832,20 +2883,20 @@ module.exports = function (e) {
     }
 
     function Yt(e) {
-      return Qa - e.display.nativeBarWidth
-    }
-
-    function Qt(e) {
-      return e.display.scroller.clientWidth - Yt(e) - e.display.barWidth
+      return Xa - e.display.nativeBarWidth
     }
 
     function Xt(e) {
+      return e.display.scroller.clientWidth - Yt(e) - e.display.barWidth
+    }
+
+    function Qt(e) {
       return e.display.scroller.clientHeight - Yt(e) - e.display.barHeight
     }
 
     function $t(e, t, n) {
       var r = e.options.lineWrapping,
-        a = r && Qt(e);
+        a = r && Xt(e);
       if (!t.measure.heights || r && t.measure.width != a) {
         var s = t.measure.heights = [];
         if (r) {
@@ -2892,7 +2943,7 @@ module.exports = function (e) {
     }
 
     function tn(e, t) {
-      if (t >= e.display.viewFrom && t < e.display.viewTo) return e.display.view[Fn(e, t)];
+      if (t >= e.display.viewFrom && t < e.display.viewTo) return e.display.view[Bn(e, t)];
       var n = e.display.externalMeasured;
       if (n && t >= n.lineN && t < n.lineN + n.size) return n
     }
@@ -2944,7 +2995,7 @@ module.exports = function (e) {
     }
 
     function sn(e, t) {
-      var n = Ts;
+      var n = Rs;
       if ('left' == t)
         for (var o = 0; o < e.length && (n = e[o]).left == n.right; o++);
       else
@@ -2963,23 +3014,23 @@ module.exports = function (e) {
         for (var p = 0; 4 > p; p++) {
           for (; s && D(t.line.text.charAt(r.coverStart + s));) --s;
           for (; r.coverStart + d < r.coverEnd && D(t.line.text.charAt(r.coverStart + d));) ++d;
-          if (c = Ta && 9 > xa && 0 == s && d == r.coverEnd - r.coverStart ? a.parentNode.getBoundingClientRect() : sn(ja(a, s, d).getClientRects(), o), c.left || c.right || 0 == s) break;
+          if (c = Ra && 9 > xa && 0 == s && d == r.coverEnd - r.coverStart ? a.parentNode.getBoundingClientRect() : sn(ja(a, s, d).getClientRects(), o), c.left || c.right || 0 == s) break;
           d = s, --s, l = 'right'
         }
-        Ta && 11 > xa && (c = ln(e.display.measure, c))
+        Ra && 11 > xa && (c = ln(e.display.measure, c))
       } else {
         0 < s && (l = o = 'right');
         var u;
         c = e.options.lineWrapping && 1 < (u = a.getClientRects()).length ? u['right' == o ? u.length - 1 : 0] : a.getBoundingClientRect()
       }
-      if (Ta && 9 > xa && !s && (!c || !c.left && !c.right)) {
+      if (Ra && 9 > xa && !s && (!c || !c.left && !c.right)) {
         var m = a.parentNode.getClientRects()[0];
         c = m ? {
           left: m.left,
           right: m.left + Mn(e.display),
           top: m.top,
           bottom: m.bottom
-        } : Ts
+        } : Rs
       }
       for (var h = c.top - t.rect.top, f = c.bottom - t.rect.top, g = t.view.measure.heights, y = 0; y < g.length - 1 && !((h + f) / 2 < g[y]); y++);
       var i = y ? g[y - 1] : 0,
@@ -2994,7 +3045,7 @@ module.exports = function (e) {
     }
 
     function ln(e, t) {
-      if (!window.screen || null == screen.logicalXDPI || screen.logicalXDPI == screen.deviceXDPI || !Qe(e)) return t;
+      if (!window.screen || null == screen.logicalXDPI || screen.logicalXDPI == screen.deviceXDPI || !Xe(e)) return t;
       var n = screen.logicalXDPI / screen.deviceXDPI,
         o = screen.logicalYDPI / screen.deviceYDPI;
       return {
@@ -3068,7 +3119,7 @@ module.exports = function (e) {
     }
 
     function Sn(e, t, n, o, r) {
-      return o || (o = B(e.doc, t.line)), gn(e, o, en(e, o, t.ch, r), n)
+      return o || (o = F(e.doc, t.line)), gn(e, o, en(e, o, t.ch, r), n)
     }
 
     function Cn(e, t, n, o, r, i) {
@@ -3082,7 +3133,7 @@ module.exports = function (e) {
           r = 1 == o.level;
         return a(n ? e - 1 : e, r != n)
       }
-      o = o || B(e.doc, t.line), r || (r = nn(e, o));
+      o = o || F(e.doc, t.line), r || (r = nn(e, o));
       var d = Ie(o, e.doc.direction),
         l = t.ch,
         c = t.sticky;
@@ -3095,8 +3146,8 @@ module.exports = function (e) {
 
     function bn(e, t) {
       var n = 0;
-      t = X(e.doc, t), e.options.lineWrapping || (n = Mn(e.display) * t.ch);
-      var o = B(e.doc, t.line),
+      t = Q(e.doc, t), e.options.lineWrapping || (n = Mn(e.display) * t.ch);
+      var o = F(e.doc, t.line),
         r = xe(o) + Kt(e.display);
       return {
         left: n,
@@ -3116,15 +3167,15 @@ module.exports = function (e) {
       if (n += e.display.viewOffset, 0 > n) return vn(o.first, 0, null, !0, -1);
       var r = z(o, n),
         i = o.first + o.size - 1;
-      if (r > i) return vn(o.first + o.size - 1, B(o, i).text.length, null, !0, 1);
+      if (r > i) return vn(o.first + o.size - 1, F(o, i).text.length, null, !0, 1);
       0 > t && (t = 0);
-      for (var a = B(o, r);;) {
-        var s = Rn(e, a, r, t, n),
+      for (var a = F(o, r);;) {
+        var s = Tn(e, a, r, t, n),
           d = Ce(a, s.ch + (0 < s.xRel ? 1 : 0));
         if (!d) return s;
         var l = d.find(1);
         if (l.line == r) return l;
-        a = B(o, r = l.line)
+        a = F(o, r = l.line)
       }
     }
 
@@ -3152,7 +3203,7 @@ module.exports = function (e) {
       return !(e.bottom <= n) && (!!(e.top > n) || (o ? e.left : e.right) > t)
     }
 
-    function Rn(e, t, n, o, r) {
+    function Tn(e, t, n, o, r) {
       r -= xe(t);
       var i = nn(e, t),
         a = fn(t),
@@ -3161,7 +3212,7 @@ module.exports = function (e) {
         l = !0,
         c = Ie(t, e.doc.direction);
       if (c) {
-        var p = (e.options.lineWrapping ? xn : Tn)(e, t, n, i, c, o, r);
+        var p = (e.options.lineWrapping ? xn : Rn)(e, t, n, i, c, o, r);
         l = 1 != p.level, s = l ? p.from : p.to - 1, d = l ? p.to : p.from - 1
       }
       var u = null,
@@ -3184,7 +3235,7 @@ module.exports = function (e) {
       return h = A(t.text, h, 1), vn(n, h, y, f, o - g)
     }
 
-    function Tn(e, t, n, o, r, a, s) {
+    function Rn(e, t, n, o, r, a, s) {
       var i = I(function (d) {
           var i = r[d],
             l = 1 != i.level;
@@ -3263,7 +3314,7 @@ module.exports = function (e) {
         n = e.options.lineWrapping,
         o = n && r(5, e.display.scroller.clientWidth / Mn(e.display) - 3);
       return function (r) {
-        if (Re(e.doc, r)) return 0;
+        if (Te(e.doc, r)) return 0;
         var a = 0;
         if (r.widgets)
           for (var d = 0; d < r.widgets.length; d++) r.widgets[d].height && (a += r.widgets[d].height);
@@ -3280,7 +3331,7 @@ module.exports = function (e) {
       })
     }
 
-    function Bn(t, o, e, i) {
+    function Fn(t, o, e, i) {
       var a = t.display;
       if (!e && 'true' == Ke(o).getAttribute('cm-not-content')) return null;
       var s = a.lineSpace.getBoundingClientRect(),
@@ -3292,14 +3343,14 @@ module.exports = function (e) {
       }
       var c = En(t, d, l),
         p;
-      if (i && 1 == c.xRel && (p = B(t.doc, c.line).text).length == c.ch) {
+      if (i && 1 == c.xRel && (p = F(t.doc, c.line).text).length == c.ch) {
         var u = C(p, p.length, t.options.tabSize) - p.length;
         c = V(c.line, r(0, n((d - qt(t.display).left) / Mn(t.display)) - u))
       }
       return c
     }
 
-    function Fn(e, t) {
+    function Bn(e, t) {
       if (t >= e.display.viewTo) return null;
       if (t -= e.display.viewFrom, 0 > t) return null;
       for (var n = e.display.view, o = 0; o < n.length; o++)
@@ -3351,7 +3402,7 @@ module.exports = function (e) {
             d = 'after' == o ? i.begin : i.end - (/\s/.test(s.text.charAt(i.end - 1)) ? 2 : 1);
           return r(d, a)[a]
         }
-        var s = B(d, t),
+        var s = F(d, t),
           l = s.text.length,
           c = Ie(s, d.direction),
           p, f;
@@ -3367,11 +3418,11 @@ module.exports = function (e) {
             var w = (h ? C : b) && v,
               k = (h ? b : C) && E,
               _ = w ? u : (g ? y : S).left,
-              R = k ? m : (g ? S : y).right;
-            i(_, y.top, R - _, y.bottom)
+              T = k ? m : (g ? S : y).right;
+            i(_, y.top, T - _, y.bottom)
           } else {
-            var T, x, P, M;
-            g ? (T = h && C && v ? u : y.left, x = h ? m : a(e, s, 'before'), P = h ? u : a(t, s, 'after'), M = h && b && E ? m : S.right) : (T = h ? a(e, s, 'before') : u, x = !h && C && v ? m : y.right, P = !h && b && E ? u : S.left, M = h ? a(t, s, 'after') : m), i(T, y.top, x - T, y.bottom), y.bottom < S.top && i(u, y.bottom, null, S.top), i(P, S.top, M - P, S.bottom)
+            var R, x, P, M;
+            g ? (R = h && C && v ? u : y.left, x = h ? m : a(e, s, 'before'), P = h ? u : a(t, s, 'after'), M = h && b && E ? m : S.right) : (R = h ? a(e, s, 'before') : u, x = !h && C && v ? m : y.right, P = !h && b && E ? u : S.left, M = h ? a(t, s, 'after') : m), i(R, y.top, x - R, y.bottom), y.bottom < S.top && i(u, y.bottom, null, S.top), i(P, S.top, M - P, S.bottom)
           }(!p || 0 > zn(y, p)) && (p = y), 0 > zn(S, p) && (p = S), (!f || 0 > zn(y, f)) && (f = y), 0 > zn(S, f) && (f = S)
         }), {
           start: p,
@@ -3383,14 +3434,14 @@ module.exports = function (e) {
         l = document.createDocumentFragment(),
         c = qt(e.display),
         u = c.left,
-        m = r(s.sizerWidth, Qt(e) - s.sizer.offsetLeft) - c.right,
+        m = r(s.sizerWidth, Xt(e) - s.sizer.offsetLeft) - c.right,
         h = 'ltr' == d.direction,
         f = t.from(),
         g = t.to();
       if (f.line == g.line) a(f.line, f.ch, g.ch);
       else {
-        var y = B(d, f.line),
-          S = B(d, g.line),
+        var y = F(d, f.line),
+          S = F(d, g.line),
           C = ve(y) == ve(S),
           b = a(f.line, f.ch, C ? y.text.length + 1 : null).end,
           v = a(g.line, C ? 0 : null, g.ch).start;
@@ -3421,13 +3472,13 @@ module.exports = function (e) {
     }
 
     function Kn(t, n) {
-      t.state.delayingBlurEvent && (t.state.delayingBlurEvent = !1), 'nocursor' == t.options.readOnly || (!t.state.focused && (Fe(t, 'focus', t, n), t.state.focused = !0, f(t.display.wrapper, 'CodeMirror-focused'), !t.curOp && t.display.selForContextMenu != t.doc.sel && (t.display.input.reset(), Pa && setTimeout(function () {
+      t.state.delayingBlurEvent && (t.state.delayingBlurEvent = !1), 'nocursor' == t.options.readOnly || (!t.state.focused && (Be(t, 'focus', t, n), t.state.focused = !0, f(t.display.wrapper, 'CodeMirror-focused'), !t.curOp && t.display.selForContextMenu != t.doc.sel && (t.display.input.reset(), Pa && setTimeout(function () {
         return t.display.input.reset(!0)
       }, 20)), t.display.input.receivedFocus()), Wn(t))
     }
 
     function jn(t, n) {
-      t.state.delayingBlurEvent || (t.state.focused && (Fe(t, 'blur', t, n), t.state.focused = !1, Ka(t.display.wrapper, 'CodeMirror-focused')), clearInterval(t.display.blinker), setTimeout(function () {
+      t.state.delayingBlurEvent || (t.state.focused && (Be(t, 'blur', t, n), t.state.focused = !1, Ka(t.display.wrapper, 'CodeMirror-focused')), clearInterval(t.display.blinker), setTimeout(function () {
         t.state.focused || (t.display.shift = !1)
       }, 150))
     }
@@ -3439,7 +3490,7 @@ module.exports = function (e) {
           a = void 0,
           d = 0;
         if (!r.hidden) {
-          if (Ta && 8 > xa) {
+          if (Ra && 8 > xa) {
             var l = r.node.offsetTop + r.node.offsetHeight;
             a = l - n, n = l
           } else {
@@ -3466,7 +3517,7 @@ module.exports = function (e) {
         }
     }
 
-    function Qn(e, t, n) {
+    function Xn(e, t, n) {
       var o = n && null != n.top ? r(0, n.top) : e.scroller.scrollTop;
       o = a(o - Kt(e));
       var i = n && null != n.bottom ? n.bottom : o + e.wrapper.clientHeight,
@@ -3475,7 +3526,7 @@ module.exports = function (e) {
       if (n && n.ensure) {
         var c = n.ensure.from.line,
           p = n.ensure.to.line;
-        c < s ? (s = c, l = z(t, xe(B(t, c)) + e.wrapper.clientHeight)) : d(p, t.lastLine()) >= l && (s = z(t, xe(B(t, p)) - e.wrapper.clientHeight), l = p)
+        c < s ? (s = c, l = z(t, xe(F(t, c)) + e.wrapper.clientHeight)) : d(p, t.lastLine()) >= l && (s = z(t, xe(F(t, p)) - e.wrapper.clientHeight), l = p)
       }
       return {
         from: s,
@@ -3483,7 +3534,7 @@ module.exports = function (e) {
       }
     }
 
-    function Xn(e) {
+    function Qn(e) {
       var t = e.display,
         n = t.view;
       if (t.alignWidgets || t.gutters.firstChild && e.options.fixedGutter) {
@@ -3516,7 +3567,7 @@ module.exports = function (e) {
         var n = e.display,
           o = n.sizer.getBoundingClientRect(),
           i = null;
-        if (0 > t.top + o.top ? i = !0 : t.bottom + o.top > (window.innerHeight || document.documentElement.clientHeight) && (i = !1), null != i && !Ba) {
+        if (0 > t.top + o.top ? i = !0 : t.bottom + o.top > (window.innerHeight || document.documentElement.clientHeight) && (i = !1), null != i && !Fa) {
           var a = p('div', '\u200B', null, 'position: absolute;\n                         top: ' + (t.top - n.viewOffset - Kt(e.display)) + 'px;\n                         height: ' + (t.bottom - t.top + Yt(e) + n.barHeight) + 'px;\n                         left: ' + t.left + 'px; width: ' + r(2, t.right - t.left) + 'px;');
           e.display.lineSpace.appendChild(a), a.scrollIntoView(i), e.display.lineSpace.removeChild(a)
         }
@@ -3555,7 +3606,7 @@ module.exports = function (e) {
         o = Pn(e.display);
       0 > t.top && (t.top = 0);
       var i = e.curOp && null != e.curOp.scrollTop ? e.curOp.scrollTop : n.scroller.scrollTop,
-        a = Xt(e),
+        a = Qt(e),
         s = {};
       t.bottom - t.top > a && (t.bottom = t.top + a);
       var l = e.doc.height + jt(n),
@@ -3567,7 +3618,7 @@ module.exports = function (e) {
         u != i && (s.scrollTop = u)
       }
       var m = e.curOp && null != e.curOp.scrollLeft ? e.curOp.scrollLeft : n.scroller.scrollLeft,
-        h = Qt(e) - (e.options.fixedGutter ? n.gutters.offsetWidth : 0),
+        h = Xt(e) - (e.options.fixedGutter ? n.gutters.offsetWidth : 0),
         f = t.right - t.left > h;
       return f && (t.right = t.left + h), 10 > t.left ? s.scrollLeft = 0 : t.left < m ? s.scrollLeft = r(0, t.left - (f ? 0 : 10)) : t.right > h + m - 3 && (s.scrollLeft = t.right + (f ? 0 : 10) - h), s
     }
@@ -3625,7 +3676,7 @@ module.exports = function (e) {
     }
 
     function po(e, t, n, r) {
-      t = d(t, e.display.scroller.scrollWidth - e.display.scroller.clientWidth), (n ? t == e.doc.scrollLeft : 2 > o(e.doc.scrollLeft - t)) && !r || (e.doc.scrollLeft = t, Xn(e), e.display.scroller.scrollLeft != t && (e.display.scroller.scrollLeft = t), e.display.scrollbars.setScrollLeft(t))
+      t = d(t, e.display.scroller.scrollWidth - e.display.scroller.clientWidth), (n ? t == e.doc.scrollLeft : 2 > o(e.doc.scrollLeft - t)) && !r || (e.doc.scrollLeft = t, Qn(e), e.display.scroller.scrollLeft != t && (e.display.scroller.scrollLeft = t), e.display.scrollbars.setScrollLeft(t))
     }
 
     function uo(e) {
@@ -3690,7 +3741,7 @@ module.exports = function (e) {
         scrollToPos: null,
         focus: !1,
         id: ++As
-      }, Rt(e.curOp)
+      }, Tt(e.curOp)
     }
 
     function yo(e) {
@@ -3712,7 +3763,7 @@ module.exports = function (e) {
     function Co(e) {
       var t = e.cm,
         n = t.display;
-      Fo(t), e.updateMaxLine && Me(t), e.mustUpdate = e.viewChanged || e.forceUpdate || null != e.scrollTop || e.scrollToPos && (e.scrollToPos.from.line < n.viewFrom || e.scrollToPos.to.line >= n.viewTo) || n.maxLineChanged && t.options.lineWrapping, e.update = e.mustUpdate && new Is(t, e.mustUpdate && {
+      Bo(t), e.updateMaxLine && Me(t), e.mustUpdate = e.viewChanged || e.forceUpdate || null != e.scrollTop || e.scrollToPos && (e.scrollToPos.from.line < n.viewFrom || e.scrollToPos.to.line >= n.viewTo) || n.maxLineChanged && t.options.lineWrapping, e.update = e.mustUpdate && new Is(t, e.mustUpdate && {
         top: e.scrollTop,
         ensure: e.scrollToPos
       }, e.forceUpdate)
@@ -3725,7 +3776,7 @@ module.exports = function (e) {
     function vo(e) {
       var t = e.cm,
         n = t.display;
-      e.updatedDisplay && qn(t), e.barMeasure = uo(t), n.maxLineChanged && !t.options.lineWrapping && (e.adjustWidthTo = en(t, n.maxLine, n.maxLine.text.length).left + 3, t.display.sizerWidth = e.adjustWidthTo, e.barMeasure.scrollWidth = r(n.scroller.clientWidth, n.sizer.offsetLeft + e.adjustWidthTo + Yt(t) + t.display.barWidth), e.maxScrollLeft = r(0, n.sizer.offsetLeft + e.adjustWidthTo - Qt(t))), (e.updatedDisplay || e.selectionChanged) && (e.preparedSelection = n.input.prepareSelection())
+      e.updatedDisplay && qn(t), e.barMeasure = uo(t), n.maxLineChanged && !t.options.lineWrapping && (e.adjustWidthTo = en(t, n.maxLine, n.maxLine.text.length).left + 3, t.display.sizerWidth = e.adjustWidthTo, e.barMeasure.scrollWidth = r(n.scroller.clientWidth, n.sizer.offsetLeft + e.adjustWidthTo + Yt(t) + t.display.barWidth), e.maxScrollLeft = r(0, n.sizer.offsetLeft + e.adjustWidthTo - Xt(t))), (e.updatedDisplay || e.selectionChanged) && (e.preparedSelection = n.input.prepareSelection())
     }
 
     function Eo(e) {
@@ -3740,16 +3791,16 @@ module.exports = function (e) {
         n = t.display,
         o = t.doc;
       if (e.updatedDisplay && zo(t, e.update), null != n.wheelStartX && (null != e.scrollTop || null != e.scrollLeft || e.scrollToPos) && (n.wheelStartX = n.wheelStartY = null), null != e.scrollTop && co(t, e.scrollTop, e.forceScroll), null != e.scrollLeft && po(t, e.scrollLeft, !0, !0), e.scrollToPos) {
-        var r = Jn(t, X(o, e.scrollToPos.from), X(o, e.scrollToPos.to), e.scrollToPos.margin);
+        var r = Jn(t, Q(o, e.scrollToPos.from), Q(o, e.scrollToPos.to), e.scrollToPos.margin);
         Zn(t, r)
       }
       var a = e.maybeHiddenMarkers,
         s = e.maybeUnhiddenMarkers;
       if (a)
-        for (var d = 0; d < a.length; ++d) a[d].lines.length || Fe(a[d], 'hide');
+        for (var d = 0; d < a.length; ++d) a[d].lines.length || Be(a[d], 'hide');
       if (s)
-        for (var i = 0; i < s.length; ++i) s[i].lines.length && Fe(s[i], 'unhide');
-      n.wrapper.offsetHeight && (o.scrollTop = t.display.scroller.scrollTop), e.changeObjs && Fe(t, 'changes', t, e.changeObjs), e.update && e.update.finish()
+        for (var i = 0; i < s.length; ++i) s[i].lines.length && Be(s[i], 'unhide');
+      n.wrapper.offsetHeight && (o.scrollTop = t.display.scroller.scrollTop), e.changeObjs && Be(t, 'changes', t, e.changeObjs), e.update && e.update.finish()
     }
 
     function ko(e, t) {
@@ -3774,7 +3825,7 @@ module.exports = function (e) {
       }
     }
 
-    function Ro(e) {
+    function To(e) {
       return function () {
         if (this.curOp) return e.apply(this, arguments);
         go(this);
@@ -3786,7 +3837,7 @@ module.exports = function (e) {
       }
     }
 
-    function To(e) {
+    function Ro(e) {
       return function () {
         var t = this.cm;
         if (!t || t.curOp) return e.apply(this, arguments);
@@ -3825,7 +3876,7 @@ module.exports = function (e) {
       var o = e.display,
         r = e.display.externalMeasured;
       if (r && t >= r.lineN && t < r.lineN + r.size && (o.externalMeasured = null), !(t < o.viewFrom || t >= o.viewTo)) {
-        var i = o.view[Fn(e, t)];
+        var i = o.view[Bn(e, t)];
         if (null != i.node) {
           var a = i.changes || (i.changes = []); - 1 == b(a, n) && a.push(n)
         }
@@ -3837,7 +3888,7 @@ module.exports = function (e) {
     }
 
     function Do(e, t, o, r) {
-      var a = Fn(e, t),
+      var a = Bn(e, t),
         s = e.display.view,
         d;
       if (!rs || o == e.doc.first + e.doc.size) return {
@@ -3865,7 +3916,7 @@ module.exports = function (e) {
     function Ao(e, t, n) {
       var o = e.display,
         r = o.view;
-      0 == r.length || t >= o.viewTo || n <= o.viewFrom ? (o.view = _t(e, t, n), o.viewFrom = t) : (o.viewFrom > t ? o.view = _t(e, t, o.viewFrom).concat(o.view) : o.viewFrom < t && (o.view = o.view.slice(Fn(e, t))), o.viewFrom = t, o.viewTo < n ? o.view = o.view.concat(_t(e, o.viewTo, n)) : o.viewTo > n && (o.view = o.view.slice(0, Fn(e, n)))), o.viewTo = n
+      0 == r.length || t >= o.viewTo || n <= o.viewFrom ? (o.view = _t(e, t, n), o.viewFrom = t) : (o.viewFrom > t ? o.view = _t(e, t, o.viewFrom).concat(o.view) : o.viewFrom < t && (o.view = o.view.slice(Bn(e, t))), o.viewFrom = t, o.viewTo < n ? o.view = o.view.concat(_t(e, o.viewTo, n)) : o.viewTo > n && (o.view = o.view.slice(0, Bn(e, n)))), o.viewTo = n
     }
 
     function Io(e) {
@@ -3874,10 +3925,10 @@ module.exports = function (e) {
     }
 
     function Lo(e, t) {
-      e.doc.highlightFrontier < e.display.viewTo && e.state.highlight.set(t, y(Bo, e))
+      e.doc.highlightFrontier < e.display.viewTo && e.state.highlight.set(t, y(Fo, e))
     }
 
-    function Bo(e) {
+    function Fo(e) {
       var t = e.doc;
       if (!(t.highlightFrontier >= e.display.viewTo)) {
         var n = +new Date + e.options.workTime,
@@ -3902,7 +3953,7 @@ module.exports = function (e) {
       }
     }
 
-    function Fo(e) {
+    function Bo(e) {
       var t = e.display;
       !t.scrollbarsClipped && t.scroller.offsetWidth && (t.nativeBarWidth = t.scroller.offsetWidth - t.scroller.clientWidth, t.heightForcer.style.height = Yt(e) + 'px', t.sizer.style.marginBottom = -t.nativeBarWidth + 'px', t.sizer.style.borderRightWidth = Yt(e) + 'px', t.scrollbarsClipped = !0)
     }
@@ -3940,7 +3991,7 @@ module.exports = function (e) {
         s = d(i, t.visible.to + e.options.viewportMargin);
       n.viewFrom < a && 20 > a - n.viewFrom && (a = r(o.first, n.viewFrom)), n.viewTo > s && 20 > n.viewTo - s && (s = d(i, n.viewTo)), rs && (a = ke(e.doc, a), s = _e(e.doc, s));
       var c = a != n.viewFrom || s != n.viewTo || n.lastWrapHeight != t.wrapperHeight || n.lastWrapWidth != t.wrapperWidth;
-      Ao(e, a, s), n.viewOffset = xe(B(e.doc, n.viewFrom)), e.display.mover.style.top = n.viewOffset + 'px';
+      Ao(e, a, s), n.viewOffset = xe(F(e.doc, n.viewFrom)), e.display.mover.style.top = n.viewOffset + 'px';
       var p = Io(e);
       if (!c && 0 == p && !t.force && n.renderedView == n.view && (null == n.updateLineNumbers || n.updateLineNumbers >= n.viewTo)) return !1;
       var u = No(e);
@@ -3949,9 +4000,9 @@ module.exports = function (e) {
 
     function zo(e, t) {
       for (var n = t.viewport, o = !0;; o = !1) {
-        if ((!o || !e.options.lineWrapping || t.oldDisplayWidth == Qt(e)) && (n && null != n.top && (n = {
-            top: d(e.doc.height + jt(e.display) - Xt(e), n.top)
-          }), t.visible = Qn(e.display, e.doc, n), t.visible.from >= e.display.viewFrom && t.visible.to <= e.display.viewTo)) break;
+        if ((!o || !e.options.lineWrapping || t.oldDisplayWidth == Xt(e)) && (n && null != n.top && (n = {
+            top: d(e.doc.height + jt(e.display) - Qt(e), n.top)
+          }), t.visible = Xn(e.display, e.doc, n), t.visible.from >= e.display.viewFrom && t.visible.to <= e.display.viewTo)) break;
         if (!Ho(e, t)) break;
         qn(e);
         var r = uo(e);
@@ -4025,10 +4076,10 @@ module.exports = function (e) {
 
     function Yo(t) {
       var e = qo(t);
-      return e.x *= Bs, e.y *= Bs, e
+      return e.x *= Fs, e.y *= Fs, e
     }
 
-    function Qo(t, n) {
+    function Xo(t, n) {
       var e = qo(n),
         o = e.x,
         a = e.y,
@@ -4042,9 +4093,9 @@ module.exports = function (e) {
             if (m[h].node == u) {
               t.display.currentWheelTarget = u;
               break outer
-            } if (o && !wa && !Aa && null != Bs) return a && p && lo(t, r(0, l.scrollTop + a * Bs)), po(t, r(0, l.scrollLeft + o * Bs)), (!a || a && p) && Ue(n), void(s.wheelStartX = null);
-        if (a && null != Bs) {
-          var i = a * Bs,
+            } if (o && !wa && !Aa && null != Fs) return a && p && lo(t, r(0, l.scrollTop + a * Fs)), po(t, r(0, l.scrollLeft + o * Fs)), (!a || a && p) && Ue(n), void(s.wheelStartX = null);
+        if (a && null != Fs) {
+          var i = a * Fs,
             f = t.doc.scrollTop,
             g = f + s.wrapper.clientHeight;
           0 > i ? f = r(0, f + i - 50) : g = d(t.doc.height, g + i + 50), Uo(t, {
@@ -4057,13 +4108,13 @@ module.exports = function (e) {
             var e = l.scrollLeft - s.wheelStartX,
               t = l.scrollTop - s.wheelStartY,
               n = t && s.wheelDY && t / s.wheelDY || e && s.wheelDX && e / s.wheelDX;
-            s.wheelStartX = s.wheelStartY = null, n && (Bs = (Bs * Ls + n) / (Ls + 1), ++Ls)
+            s.wheelStartX = s.wheelStartY = null, n && (Fs = (Fs * Ls + n) / (Ls + 1), ++Ls)
           }
         }, 200)) : (s.wheelDX += o, s.wheelDY += a))
       }
     }
 
-    function Xo(e, t, n) {
+    function Qo(e, t, n) {
       var o = e && e.options.selectionsMayTouch,
         r = t[n];
       t.sort(function (e, t) {
@@ -4080,11 +4131,11 @@ module.exports = function (e) {
           a <= n && --n, t.splice(--a, 2, new Ns(p ? c : l, p ? l : c))
         }
       }
-      return new Fs(t, n)
+      return new Bs(t, n)
     }
 
     function $o(e, t) {
-      return new Fs([new Ns(e, t || e)], 0)
+      return new Bs([new Ns(e, t || e)], 0)
     }
 
     function Zo(e) {
@@ -4101,7 +4152,7 @@ module.exports = function (e) {
 
     function er(e, t) {
       for (var n = [], o = 0, r; o < e.sel.ranges.length; o++) r = e.sel.ranges[o], n.push(new Ns(Jo(r.anchor, t), Jo(r.head, t)));
-      return Xo(e.cm, n, e.sel.primIndex)
+      return Qo(e.cm, n, e.sel.primIndex)
     }
 
     function tr(e, t, n) {
@@ -4119,7 +4170,7 @@ module.exports = function (e) {
           o[s] = new Ns(p ? l : d, p ? d : l)
         } else o[s] = new Ns(d, d)
       }
-      return new Fs(o, e.sel.primIndex)
+      return new Bs(o, e.sel.primIndex)
     }
 
     function or(e) {
@@ -4152,8 +4203,8 @@ module.exports = function (e) {
       var s = t.from,
         d = t.to,
         l = t.text,
-        c = B(e, s.line),
-        p = B(e, d.line),
+        c = F(e, s.line),
+        p = F(e, d.line),
         u = w(l),
         m = r(l.length - 1),
         h = d.line - s.line;
@@ -4211,7 +4262,7 @@ module.exports = function (e) {
       var n = {
         from: j(t.from),
         to: Zo(t),
-        text: F(e, t.from, t.to)
+        text: B(e, t.from, t.to)
       };
       return Cr(e, n, t.from.line, t.to.line + 1), sr(e, function (e) {
         return Cr(e, n, t.from.line, t.to.line + 1)
@@ -4243,7 +4294,7 @@ module.exports = function (e) {
             generation: r.generation
           }, r.done.push(a); r.done.length > r.undoDepth;) r.done.shift(), r.done[0].ranges || r.done.shift()
       }
-      r.done.push(n), r.generation = ++r.maxGeneration, r.lastModTime = r.lastSelTime = i, r.lastOp = r.lastSelOp = o, r.lastOrigin = r.lastSelOrigin = t.origin, s || Fe(e, 'historyAdded')
+      r.done.push(n), r.generation = ++r.maxGeneration, r.lastModTime = r.lastSelTime = i, r.lastOp = r.lastSelOp = o, r.lastOrigin = r.lastSelOrigin = t.origin, s || Be(e, 'historyAdded')
     }
 
     function gr(e, t, n, o) {
@@ -4304,7 +4355,7 @@ module.exports = function (e) {
     function wr(e, t, n) {
       for (var o = [], r = 0, i; r < e.length; ++r) {
         if (i = e[r], i.ranges) {
-          o.push(n ? Fs.prototype.deepCopy.call(i) : i);
+          o.push(n ? Bs.prototype.deepCopy.call(i) : i);
           continue
         }
         var a = i.changes,
@@ -4339,18 +4390,18 @@ module.exports = function (e) {
     }
 
     function _r(e, t, n, o, r) {
-      null == r && (r = e.cm && (e.cm.display.shift || e.extend)), Dr(e, new Fs([kr(e.sel.primary(), t, n, r)], 0), o)
+      null == r && (r = e.cm && (e.cm.display.shift || e.extend)), Dr(e, new Bs([kr(e.sel.primary(), t, n, r)], 0), o)
     }
 
-    function Rr(e, t, n) {
+    function Tr(e, t, n) {
       for (var o = [], r = e.cm && (e.cm.display.shift || e.extend), a = 0; a < e.sel.ranges.length; a++) o[a] = kr(e.sel.ranges[a], t[a], null, r);
-      var i = Xo(e.cm, o, e.sel.primIndex);
+      var i = Qo(e.cm, o, e.sel.primIndex);
       Dr(e, i, n)
     }
 
-    function Tr(e, t, n, o) {
+    function Rr(e, t, n, o) {
       var r = e.sel.ranges.slice(0);
-      r[t] = n, Dr(e, Xo(e.cm, r, e.sel.primIndex), o)
+      r[t] = n, Dr(e, Qo(e.cm, r, e.sel.primIndex), o)
     }
 
     function xr(e, t, n, o) {
@@ -4363,11 +4414,11 @@ module.exports = function (e) {
         update: function (t) {
           var n = this;
           this.ranges = [];
-          for (var o = 0; o < t.length; o++) n.ranges[o] = new Ns(X(e, t[o].anchor), X(e, t[o].head))
+          for (var o = 0; o < t.length; o++) n.ranges[o] = new Ns(Q(e, t[o].anchor), Q(e, t[o].head))
         },
         origin: n && n.origin
       };
-      return Fe(e, 'beforeSelectionChange', e, o), e.cm && Fe(e.cm, 'beforeSelectionChange', e.cm, o), o.ranges == t.ranges ? t : Xo(e.cm, o.ranges, o.ranges.length - 1)
+      return Be(e, 'beforeSelectionChange', e, o), e.cm && Be(e.cm, 'beforeSelectionChange', e.cm, o), o.ranges == t.ranges ? t : Qo(e.cm, o.ranges, o.ranges.length - 1)
     }
 
     function Mr(e, t, n) {
@@ -4383,7 +4434,7 @@ module.exports = function (e) {
     function Ar(e, t, n) {
       (He(e, 'beforeSelectionChange') || e.cm && He(e.cm, 'beforeSelectionChange')) && (t = Pr(e, t, n));
       var o = n && n.bias || (0 > G(t.primary().head, e.sel.primary().head) ? -1 : 1);
-      Ir(e, Br(e, t, o, !0)), !(n && !1 === n.scroll) && e.cm && oo(e.cm)
+      Ir(e, Fr(e, t, o, !0)), !(n && !1 === n.scroll) && e.cm && oo(e.cm)
     }
 
     function Ir(e, t) {
@@ -4391,10 +4442,10 @@ module.exports = function (e) {
     }
 
     function Lr(e) {
-      Ir(e, Br(e, e.sel, null, !1))
+      Ir(e, Fr(e, e.sel, null, !1))
     }
 
-    function Br(e, t, n, o) {
+    function Fr(e, t, n, o) {
       for (var r = 0, i; r < t.ranges.length; r++) {
         var a = t.ranges[r],
           s = t.ranges.length == e.sel.ranges.length && e.sel.ranges[r],
@@ -4402,17 +4453,17 @@ module.exports = function (e) {
           l = Nr(e, a.head, s && s.head, n, o);
         (i || d != a.anchor || l != a.head) && (!i && (i = t.ranges.slice(0, r)), i[r] = new Ns(d, l))
       }
-      return i ? Xo(e.cm, i, t.primIndex) : t
+      return i ? Qo(e.cm, i, t.primIndex) : t
     }
 
-    function Fr(e, t, n, o, r) {
-      var a = B(e, t.line);
+    function Br(e, t, n, o, r) {
+      var a = F(e, t.line);
       if (a.markedSpans)
         for (var s = 0; s < a.markedSpans.length; ++s) {
           var i = a.markedSpans[s],
             d = i.marker;
           if ((null == i.from || (d.inclusiveLeft ? i.from <= t.ch : i.from < t.ch)) && (null == i.to || (d.inclusiveRight ? i.to >= t.ch : i.to > t.ch))) {
-            if (r && (Fe(d, 'beforeCursorEnter'), d.explicitlyCleared))
+            if (r && (Be(d, 'beforeCursorEnter'), d.explicitlyCleared))
               if (!a.markedSpans) break;
               else {
                 --s;
@@ -4421,10 +4472,10 @@ module.exports = function (e) {
             if (n) {
               var l = d.find(0 > o ? 1 : -1),
                 c = void 0;
-              if ((0 > o ? d.inclusiveRight : d.inclusiveLeft) && (l = Or(e, l, -o, l && l.line == t.line ? a : null)), l && l.line == t.line && (c = G(l, n)) && (0 > o ? 0 > c : 0 < c)) return Fr(e, l, t, o, r)
+              if ((0 > o ? d.inclusiveRight : d.inclusiveLeft) && (l = Or(e, l, -o, l && l.line == t.line ? a : null)), l && l.line == t.line && (c = G(l, n)) && (0 > o ? 0 > c : 0 < c)) return Br(e, l, t, o, r)
             }
             var p = d.find(0 > o ? -1 : 1);
-            return (0 > o ? d.inclusiveLeft : d.inclusiveRight) && (p = Or(e, p, o, p.line == t.line ? a : null)), p ? Fr(e, p, t, o, r) : null
+            return (0 > o ? d.inclusiveLeft : d.inclusiveRight) && (p = Or(e, p, o, p.line == t.line ? a : null)), p ? Br(e, p, t, o, r) : null
           }
         }
       return t
@@ -4432,12 +4483,12 @@ module.exports = function (e) {
 
     function Nr(e, t, n, o, r) {
       var i = o || 1,
-        a = Fr(e, t, n, i, r) || !r && Fr(e, t, n, i, !0) || Fr(e, t, n, -i, r) || !r && Fr(e, t, n, -i, !0);
+        a = Br(e, t, n, i, r) || !r && Br(e, t, n, i, !0) || Br(e, t, n, -i, r) || !r && Br(e, t, n, -i, !0);
       return a ? a : (e.cantEdit = !0, V(e.first, 0))
     }
 
     function Or(e, t, n, o) {
-      return 0 > n && 0 == t.ch ? t.line > e.first ? X(e, V(t.line - 1)) : null : 0 < n && t.ch == (o || B(e, t.line)).text.length ? t.line < e.first + e.size - 1 ? V(t.line + 1, 0) : null : new V(t.line, t.ch + n)
+      return 0 > n && 0 == t.ch ? t.line > e.first ? Q(e, V(t.line - 1)) : null : 0 < n && t.ch == (o || F(e, t.line)).text.length ? t.line < e.first + e.size - 1 ? V(t.line + 1, 0) : null : new V(t.line, t.ch + n)
     }
 
     function Hr(e) {
@@ -4456,8 +4507,8 @@ module.exports = function (e) {
         }
       };
       return n && (o.update = function (t, n, r, i) {
-        t && (o.from = X(e, t)), n && (o.to = X(e, n)), r && (o.text = r), void 0 !== i && (o.origin = i)
-      }), Fe(e, 'beforeChange', e, o), e.cm && Fe(e.cm, 'beforeChange', e.cm, o), o.canceled ? (e.cm && (e.cm.curOp.updateInput = 2), null) : {
+        t && (o.from = Q(e, t)), n && (o.to = Q(e, n)), r && (o.text = r), void 0 !== i && (o.origin = i)
+      }), Be(e, 'beforeChange', e, o), e.cm && Be(e.cm, 'beforeChange', e.cm, o), o.canceled ? (e.cm && (e.cm.curOp.updateInput = 2), null) : {
         from: o.from,
         to: o.to,
         text: o.text,
@@ -4489,7 +4540,7 @@ module.exports = function (e) {
         fr(e, t, n, e.cm ? e.cm.curOp.id : NaN), Kr(e, t, n, de(e, t));
         var o = [];
         sr(e, function (e, n) {
-          n || -1 != b(o, e.history) || (Xr(e.history, t), o.push(e.history)), Kr(e, t, null, de(e, t))
+          n || -1 != b(o, e.history) || (Qr(e.history, t), o.push(e.history)), Kr(e, t, null, de(e, t))
         })
       }
     }
@@ -4524,7 +4575,7 @@ module.exports = function (e) {
               });
               var a = [];
               sr(e, function (e, t) {
-                t || -1 != b(a, e.history) || (Xr(e.history, o), a.push(e.history)), Kr(e, o, null, Er(e, o))
+                t || -1 != b(a, e.history) || (Qr(e.history, o), a.push(e.history)), Kr(e, o, null, Er(e, o))
               })
             }, m = c.changes.length - 1, h; 0 <= m; --m)
             if (h = i(m), h) return h.v
@@ -4533,7 +4584,7 @@ module.exports = function (e) {
     }
 
     function Gr(e, t) {
-      if (0 != t && (e.first += t, e.sel = new Fs(k(e.sel.ranges, function (e) {
+      if (0 != t && (e.first += t, e.sel = new Bs(k(e.sel.ranges, function (e) {
           return new Ns(V(e.anchor.line + t, e.anchor.ch), V(e.head.line + t, e.head.ch))
         }), e.sel.primIndex), e.cm)) {
         xo(e.cm, e.first, e.first - t, t);
@@ -4557,10 +4608,10 @@ module.exports = function (e) {
         var i = e.lastLine();
         t.to.line > i && (t = {
           from: t.from,
-          to: V(i, B(e, i).text.length),
+          to: V(i, F(e, i).text.length),
           text: [t.text[0]],
           origin: t.origin
-        }), t.removed = F(e, t.from, t.to), n || (n = er(e, t)), e.cm ? jr(e.cm, t, o) : ar(e, t, o), Ar(e, n, $a)
+        }), t.removed = B(e, t.from, t.to), n || (n = er(e, t)), e.cm ? jr(e.cm, t, o) : ar(e, t, o), Ar(e, n, $a)
       }
     }
 
@@ -4571,7 +4622,7 @@ module.exports = function (e) {
         a = t.to,
         s = !1,
         d = i.line;
-      e.options.lineWrapping || (d = H(ve(B(o, i.line))), o.iter(d, a.line + 1, function (e) {
+      e.options.lineWrapping || (d = H(ve(F(o, i.line))), o.iter(d, a.line + 1, function (e) {
         if (e == r.maxLine) return s = !0, !0
       })), -1 < o.sel.contains(t.from, t.to) && Oe(e), ar(o, t, n, In(e)), e.options.lineWrapping || (o.iter(d, i.line + t.text.length, function (e) {
         var t = Pe(e);
@@ -4608,7 +4659,7 @@ module.exports = function (e) {
       n < e.line ? e.line += o : t < e.line && (e.line = t, e.ch = 0)
     }
 
-    function Qr(e, t, n, o) {
+    function Xr(e, t, n, o) {
       for (var r = 0; r < e.length; ++r) {
         var i = e[r],
           a = !0;
@@ -4627,17 +4678,17 @@ module.exports = function (e) {
       }
     }
 
-    function Xr(e, t) {
+    function Qr(e, t) {
       var n = t.from.line,
         o = t.to.line,
         r = t.text.length - (o - n) - 1;
-      Qr(e.done, n, o, r), Qr(e.undone, n, o, r)
+      Xr(e.done, n, o, r), Xr(e.undone, n, o, r)
     }
 
     function $r(e, t, n, o) {
       var r = t,
         i = t;
-      return ('number' == typeof t ? i = B(e, Q(e, t)) : r = H(t), null == r) ? null : (o(i, r) && e.cm && Po(e.cm, r, n), i)
+      return ('number' == typeof t ? i = F(e, X(e, t)) : r = H(t), null == r) ? null : (o(i, r) && e.cm && Po(e.cm, r, n), i)
     }
 
     function Zr(e) {
@@ -4663,7 +4714,7 @@ module.exports = function (e) {
         a = e.cm;
       return a && i.noHScroll && (a.display.alignWidgets = !0), $r(e, t, 'widget', function (t) {
         var n = t.widgets || (t.widgets = []);
-        if (null == i.insertAt ? n.push(i) : n.splice(d(n.length - 1, r(0, i.insertAt)), 0, i), i.line = t, a && !Re(e, t)) {
+        if (null == i.insertAt ? n.push(i) : n.splice(d(n.length - 1, r(0, i.insertAt)), 0, i), i.line = t, a && !Te(e, t)) {
           var o = xe(t) < e.scrollTop;
           O(t, t.height + Vt(i)), o && to(a, i.height), a.curOp.forceUpdate = !0
         }
@@ -4692,7 +4743,7 @@ module.exports = function (e) {
       if (e.iter(d, n.line + 1, function (e) {
           l && a.collapsed && !l.options.lineWrapping && ve(e) == l.display.maxLine && (c = !0), a.collapsed && d != t.line && O(e, 0), re(e, new te(a, d == t.line ? t.ch : null, d == n.line ? n.ch : null)), ++d
         }), a.collapsed && e.iter(t.line, n.line + 1, function (t) {
-          Re(e, t) && O(t, 0)
+          Te(e, t) && O(t, 0)
         }), a.clearOnEnter && ds(a, 'beforeCursorEnter', function () {
           return a.clear()
         }), a.readOnly && (J(), (e.history.done.length || e.history.undone.length) && e.clearHistory()), a.collapsed && (a.id = ++Hs, a.atomic = !0), l) {
@@ -4710,7 +4761,7 @@ module.exports = function (e) {
         s = a[0],
         d = o.widgetNode;
       return sr(e, function (e) {
-        d && (o.widgetNode = d.cloneNode(!0)), a.push(ni(e, X(e, t), X(e, n), o, r));
+        d && (o.widgetNode = d.cloneNode(!0)), a.push(ni(e, Q(e, t), Q(e, n), o, r));
         for (var l = 0; l < e.linked.length; ++l)
           if (e.linked[l].isParent) return;
         s = w(a)
@@ -4750,8 +4801,8 @@ module.exports = function (e) {
     function si(t) {
       var e = this;
       if (ci(e), !(Ne(e, t) || Gt(e.display, t))) {
-        Ue(t), Ta && (Gs = +new Date);
-        var o = Bn(e, t, !0),
+        Ue(t), Ra && (Gs = +new Date);
+        var o = Fn(e, t, !0),
           r = t.dataTransfer.files;
         if (o && !e.isReadOnly())
           if (r && r.length && window.FileReader && window.File)
@@ -4761,7 +4812,7 @@ module.exports = function (e) {
                   i.onload = _o(e, function () {
                     var t = i.result;
                     if (/[\x00-\x08\x0e-\x1f]{2}/.test(t) && (t = ''), n[r] = t, ++s == a) {
-                      o = X(e.doc, o);
+                      o = Q(e.doc, o);
                       var d = {
                         from: o,
                         to: o,
@@ -4791,7 +4842,7 @@ module.exports = function (e) {
     }
 
     function di(t, n) {
-      if (Ta && (!t.state.draggingText || 100 > +new Date - Gs)) return void Ge(n);
+      if (Ra && (!t.state.draggingText || 100 > +new Date - Gs)) return void Ge(n);
       if (!(Ne(t, n) || Gt(t.display, n)) && (n.dataTransfer.setData('Text', t.getSelection()), n.dataTransfer.effectAllowed = 'copyMove', n.dataTransfer.setDragImage && !Ia)) {
         var e = p('img', null, null, 'position: fixed; left: 0; top: 0;');
         e.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==', Aa && (e.width = e.height = 1, t.display.wrapper.appendChild(e), e._top = e.offsetTop), n.dataTransfer.setDragImage(e, 0, 0), Aa && e.parentNode.removeChild(e)
@@ -4799,7 +4850,7 @@ module.exports = function (e) {
     }
 
     function li(t, n) {
-      var e = Bn(t, n);
+      var e = Fn(t, n);
       if (e) {
         var o = document.createDocumentFragment();
         Hn(t, e, o), t.display.dragCursor || (t.display.dragCursor = p('div', null, 'CodeMirror-cursors CodeMirror-dragcursors'), t.display.lineSpace.insertBefore(t.display.dragCursor, t.display.cursorDiv)), c(t.display.dragCursor, o)
@@ -4904,7 +4955,7 @@ module.exports = function (e) {
     }
 
     function vi(e) {
-      return 'string' == typeof e ? Qs[e] : e
+      return 'string' == typeof e ? Xs[e] : e
     }
 
     function Ei(e, t) {
@@ -4956,7 +5007,7 @@ module.exports = function (e) {
       return new V(o, 0 > r ? n.text.length : 0, 0 > r ? 'before' : 'after')
     }
 
-    function Ri(e, t, n, o) {
+    function Ti(e, t, n, o) {
       var r = Ie(t, e.doc.direction);
       if (!r) return ki(t, n, o);
       n.ch >= t.text.length ? (n.ch = t.text.length, n.sticky = 'before') : 0 >= n.ch && (n.ch = 0, n.sticky = 'after');
@@ -4999,21 +5050,21 @@ module.exports = function (e) {
       return null != g && !(0 < o && g == t.text.length) && (f = h(0 < o ? 0 : r.length - 1, o, d(g)), f) ? f : null
     }
 
-    function Ti(e, t) {
-      var n = B(e.doc, t),
+    function Ri(e, t) {
+      var n = F(e.doc, t),
         o = ve(n);
       return o != n && (t = H(o)), _i(!0, e, o, t, 1)
     }
 
     function xi(e, t) {
-      var n = B(e.doc, t),
+      var n = F(e.doc, t),
         o = Ee(n);
       return o != n && (t = H(o)), _i(!0, e, n, t, -1)
     }
 
     function Pi(e, t) {
-      var n = Ti(e, t.line),
-        o = B(e.doc, n.line),
+      var n = Ri(e, t.line),
+        o = F(e.doc, n.line),
         i = Ie(o, e.doc.direction);
       if (!i || 0 == i[0].level) {
         var a = r(0, o.text.search(/\S/)),
@@ -5024,12 +5075,12 @@ module.exports = function (e) {
     }
 
     function Mi(e, t, n) {
-      if ('string' == typeof t && (t = Xs[t], !t)) return !1;
+      if ('string' == typeof t && (t = Qs[t], !t)) return !1;
       e.display.input.ensurePolled();
       var o = e.display.shift,
         r = !1;
       try {
-        e.isReadOnly() && (e.state.suppressEdits = !0), n && (e.display.shift = !1), r = t(e) != Xa
+        e.isReadOnly() && (e.state.suppressEdits = !0), n && (e.display.shift = !1), r = t(e) != Qa
       } finally {
         e.display.shift = o, e.state.suppressEdits = !1
       }
@@ -5069,16 +5120,16 @@ module.exports = function (e) {
       }))
     }
 
-    function Bi(t, n, e) {
+    function Fi(t, n, e) {
       return Ai(t, '\'' + e + '\'', n, function (e) {
         return Mi(t, e, !0)
       })
     }
 
-    function Fi(t) {
+    function Bi(t) {
       var e = this;
       if (e.curOp.focus = h(), !Ne(e, t)) {
-        Ta && 11 > xa && 27 == t.keyCode && (t.returnValue = !1);
+        Ra && 11 > xa && 27 == t.keyCode && (t.returnValue = !1);
         var n = t.keyCode;
         e.display.shift = 16 == n || t.shiftKey;
         var o = Li(e, t);
@@ -5088,7 +5139,7 @@ module.exports = function (e) {
 
     function Ni(e) {
       function t(o) {
-        18 != o.keyCode && o.altKey || (Ka(n, 'CodeMirror-crosshair'), Be(document, 'keyup', t), Be(document, 'mouseover', t))
+        18 != o.keyCode && o.altKey || (Ka(n, 'CodeMirror-crosshair'), Fe(document, 'keyup', t), Fe(document, 'mouseover', t))
       }
       var n = e.display.lineDiv;
       f(n, 'CodeMirror-crosshair'), ds(document, 'keyup', t), ds(document, 'mouseover', t)
@@ -5106,7 +5157,7 @@ module.exports = function (e) {
         if (Aa && o == Zs) return Zs = null, void Ue(n);
         if (!(Aa && (!n.which || 10 > n.which) && Li(e, n))) {
           var i = t(null == r ? o : r);
-          '\b' == i || Bi(e, n, i) || e.display.input.onKeyPress(n)
+          '\b' == i || Fi(e, n, i) || e.display.input.onKeyPress(n)
         }
       }
     }
@@ -5123,8 +5174,8 @@ module.exports = function (e) {
         if (n.input.ensurePolled(), n.shift = t.shiftKey, Gt(n, t)) return void(Pa || (n.scroller.draggable = !1, setTimeout(function () {
           return n.scroller.draggable = !0
         }, 100)));
-        if (!Xi(e, t)) {
-          var o = Bn(e, t),
+        if (!Qi(e, t)) {
+          var o = Fn(e, t),
             r = je(t),
             i = o ? zi(o, r) : 'single';
           window.focus(), 1 == r && e.state.selectingText && e.state.selectingText(t), o && Wi(e, r, o, i, t) || (1 == r ? o ? Gi(e, o, i, t) : Ke(t) == n.scroller && Ue(t) : 2 == r ? (o && _r(e.doc, o), setTimeout(function () {
@@ -5137,10 +5188,10 @@ module.exports = function (e) {
     function Wi(e, t, n, o, r) {
       var i = 'Click';
       return 'double' == o ? i = 'Double' + i : 'triple' == o && (i = 'Triple' + i), i = (1 == t ? 'Left' : 2 == t ? 'Middle' : 'Right') + i, Ai(e, Ci(i, r), r, function (t) {
-        if ('string' == typeof t && (t = Xs[t]), !t) return !1;
+        if ('string' == typeof t && (t = Qs[t]), !t) return !1;
         var o = !1;
         try {
-          e.isReadOnly() && (e.state.suppressEdits = !0), o = t(e, n) != Xa
+          e.isReadOnly() && (e.state.suppressEdits = !0), o = t(e, n) != Qa
         } finally {
           e.state.suppressEdits = !1
         }
@@ -5159,7 +5210,7 @@ module.exports = function (e) {
     }
 
     function Gi(e, t, n, o) {
-      Ta ? setTimeout(y(Vn, e), 0) : e.curOp.focus = h();
+      Ra ? setTimeout(y(Vn, e), 0) : e.curOp.focus = h();
       var r = Vi(e, n, o),
         i = e.doc.sel,
         a;
@@ -5170,7 +5221,7 @@ module.exports = function (e) {
       var i = t.display,
         a = !1,
         s = _o(t, function (o) {
-          Pa && (i.scroller.draggable = !1), t.state.draggingText = !1, Be(i.wrapper.ownerDocument, 'mouseup', s), Be(i.wrapper.ownerDocument, 'mousemove', d), Be(i.scroller, 'dragstart', l), Be(i.scroller, 'drop', s), a || (Ue(o), !r.addNew && _r(t.doc, n, null, null, r.extend), Pa || Ta && 9 == xa ? setTimeout(function () {
+          Pa && (i.scroller.draggable = !1), t.state.draggingText = !1, Fe(i.wrapper.ownerDocument, 'mouseup', s), Fe(i.wrapper.ownerDocument, 'mousemove', d), Fe(i.scroller, 'dragstart', l), Fe(i.scroller, 'drop', s), a || (Ue(o), !r.addNew && _r(t.doc, n, null, null, r.extend), Pa || Ra && 9 == xa ? setTimeout(function () {
             i.wrapper.ownerDocument.body.focus(), i.input.focus()
           }, 20) : i.input.focus())
         }),
@@ -5188,7 +5239,7 @@ module.exports = function (e) {
     function ji(e, t, n) {
       if ('char' == n) return new Ns(t, t);
       if ('word' == n) return e.findWordAt(t);
-      if ('line' == n) return new Ns(V(t.line, 0), X(e.doc, V(t.line + 1, 0)));
+      if ('line' == n) return new Ns(V(t.line, 0), Q(e.doc, V(t.line + 1, 0)));
       var o = n(e, t);
       return new Ns(o.from, o.to)
     }
@@ -5197,12 +5248,12 @@ module.exports = function (e) {
       function i(e) {
         if (0 != G(y, e))
           if (y = e, 'rectangle' == o.unit) {
-            for (var i = [], a = t.options.tabSize, s = C(B(c, n.line).text, n.ch, a), l = C(B(c, e.line).text, e.ch, a), u = d(s, l), h = r(s, l), g = d(n.line, e.line), S = d(t.lastLine(), r(n.line, e.line)); g <= S; g++) {
-              var b = B(c, g).text,
+            for (var i = [], a = t.options.tabSize, s = C(F(c, n.line).text, n.ch, a), l = C(F(c, e.line).text, e.ch, a), u = d(s, l), h = r(s, l), g = d(n.line, e.line), S = d(t.lastLine(), r(n.line, e.line)); g <= S; g++) {
+              var b = F(c, g).text,
                 E = v(b, u, a);
               u == h ? i.push(new Ns(V(g, E), V(g, E))) : b.length > E && i.push(new Ns(V(g, E), V(g, v(b, h, a))))
             }
-            i.length || i.push(new Ns(n, n)), Dr(c, Xo(t, p.ranges.slice(0, f).concat(i), f), {
+            i.length || i.push(new Ns(n, n)), Dr(c, Qo(t, p.ranges.slice(0, f).concat(i), f), {
               origin: '*mouse',
               scroll: !1
             }), t.scrollIntoView(e)
@@ -5210,20 +5261,20 @@ module.exports = function (e) {
             var w = m,
               k = ji(t, e, o.unit),
               _ = w.anchor,
-              R;
-            0 < G(k.anchor, _) ? (R = k.head, _ = Y(w.from(), k.anchor)) : (R = k.anchor, _ = q(w.to(), k.head));
-            var T = p.ranges.slice(0);
-            T[f] = Yi(t, new Ns(X(c, _), R)), Dr(c, Xo(t, T, f), Za)
+              T;
+            0 < G(k.anchor, _) ? (T = k.head, _ = Y(w.from(), k.anchor)) : (T = k.anchor, _ = q(w.to(), k.head));
+            var R = p.ranges.slice(0);
+            R[f] = Yi(t, new Ns(Q(c, _), T)), Dr(c, Qo(t, R, f), Za)
           }
       }
 
       function a(n) {
         var e = ++b,
-          r = Bn(t, n, !0, 'rectangle' == o.unit);
+          r = Fn(t, n, !0, 'rectangle' == o.unit);
         if (r)
           if (0 != G(r, y)) {
             t.curOp.focus = h(), i(r);
-            var s = Qn(l, c);
+            var s = Xn(l, c);
             (r.line >= s.to || r.line < s.from) && setTimeout(_o(t, function () {
               b == e && a(n)
             }), 150)
@@ -5236,7 +5287,7 @@ module.exports = function (e) {
       }
 
       function s(n) {
-        t.state.selectingText = !1, b = Infinity, Ue(n), l.input.focus(), Be(l.wrapper.ownerDocument, 'mousemove', E), Be(l.wrapper.ownerDocument, 'mouseup', w), c.history.lastSelOrigin = null
+        t.state.selectingText = !1, b = Infinity, Ue(n), l.input.focus(), Fe(l.wrapper.ownerDocument, 'mousemove', E), Fe(l.wrapper.ownerDocument, 'mouseup', w), c.history.lastSelOrigin = null
       }
       var l = t.display,
         c = t.doc;
@@ -5244,18 +5295,18 @@ module.exports = function (e) {
       var p = c.sel,
         u = p.ranges,
         m, f;
-      if (o.addNew && !o.extend ? (f = c.sel.contains(n), m = -1 < f ? u[f] : new Ns(n, n)) : (m = c.sel.primary(), f = c.sel.primIndex), 'rectangle' == o.unit) o.addNew || (m = new Ns(n, n)), n = Bn(t, e, !0, !0), f = -1;
+      if (o.addNew && !o.extend ? (f = c.sel.contains(n), m = -1 < f ? u[f] : new Ns(n, n)) : (m = c.sel.primary(), f = c.sel.primIndex), 'rectangle' == o.unit) o.addNew || (m = new Ns(n, n)), n = Fn(t, e, !0, !0), f = -1;
       else {
         var g = ji(t, n, o.unit);
         m = o.extend ? kr(m, g.anchor, g.head, o.extend) : g
       }
-      o.addNew ? -1 == f ? (f = u.length, Dr(c, Xo(t, u.concat([m]), f), {
+      o.addNew ? -1 == f ? (f = u.length, Dr(c, Qo(t, u.concat([m]), f), {
         scroll: !1,
         origin: '*mouse'
-      })) : 1 < u.length && u[f].empty() && 'char' == o.unit && !o.extend ? (Dr(c, Xo(t, u.slice(0, f).concat(u.slice(f + 1)), 0), {
+      })) : 1 < u.length && u[f].empty() && 'char' == o.unit && !o.extend ? (Dr(c, Qo(t, u.slice(0, f).concat(u.slice(f + 1)), 0), {
         scroll: !1,
         origin: '*mouse'
-      }), p = c.sel) : Tr(c, f, m, Za) : (f = 0, Dr(c, new Fs([m], 0), Za), p = c.sel);
+      }), p = c.sel) : Rr(c, f, m, Za) : (f = 0, Dr(c, new Bs([m], 0), Za), p = c.sel);
       var y = n,
         S = l.wrapper.getBoundingClientRect(),
         b = 0,
@@ -5269,7 +5320,7 @@ module.exports = function (e) {
     function Yi(e, t) {
       var n = t.anchor,
         o = t.head,
-        r = B(e.doc, n.line);
+        r = F(e.doc, n.line);
       if (0 == G(n, o) && n.sticky == o.sticky) return t;
       var i = Ie(r);
       if (!i) return t;
@@ -5292,7 +5343,7 @@ module.exports = function (e) {
       return n.ch == h && n.sticky == f ? t : new Ns(new V(n.line, h, f), o)
     }
 
-    function Qi(t, n, e, o) {
+    function Xi(t, n, e, o) {
       var r, s;
       if (n.touches) r = n.touches[0].clientX, s = n.touches[0].clientY;
       else try {
@@ -5310,12 +5361,12 @@ module.exports = function (e) {
         if (i = d.gutters.childNodes[c], i && i.getBoundingClientRect().right >= r) {
           var p = z(t.doc, s),
             u = t.options.gutters[c];
-          return Fe(t, e, t, p, u, n), Ve(n)
+          return Be(t, e, t, p, u, n), Ve(n)
         }
     }
 
-    function Xi(t, n) {
-      return Qi(t, n, 'gutterClick', !0)
+    function Qi(t, n) {
+      return Xi(t, n, 'gutterClick', !0)
     }
 
     function $i(t, n) {
@@ -5323,7 +5374,7 @@ module.exports = function (e) {
     }
 
     function Zi(t, n) {
-      return !!He(t, 'gutterContextMenu') && Qi(t, n, 'gutterContextMenu', !1)
+      return !!He(t, 'gutterContextMenu') && Xi(t, n, 'gutterContextMenu', !1)
     }
 
     function Ji(e) {
@@ -5331,13 +5382,13 @@ module.exports = function (e) {
     }
 
     function ea(e) {
-      Ko(e), xo(e), Xn(e)
+      Ko(e), xo(e), Qn(e)
     }
 
     function ta(e, t, n) {
       if (!t != !(n && n != ed)) {
         var o = e.display.dragFunctions,
-          r = t ? ds : Be;
+          r = t ? ds : Fe;
         r(e.display.scroller, 'dragstart', o.start), r(e.display.scroller, 'dragenter', o.enter), r(e.display.scroller, 'dragover', o.over), r(e.display.scroller, 'dragleave', o.leave), r(e.display.scroller, 'drop', o.drop)
       }
     }
@@ -5371,7 +5422,7 @@ module.exports = function (e) {
           highlight: new Ya,
           keySeq: null,
           specialChars: null
-        }, t.autofocus && !Oa && a.input.focus(), Ta && 11 > xa && setTimeout(function () {
+        }, t.autofocus && !Oa && a.input.focus(), Ra && 11 > xa && setTimeout(function () {
           return n.display.input.reset(!0)
         }, 20), ra(this), ui(), go(this), this.curOp.forceUpdate = !0, dr(this, o), t.autofocus && !Oa || this.hasFocus() ? setTimeout(y(Kn, this), 20) : jn(this), nd) nd.hasOwnProperty(s) && nd[s](n, t[s], ed);
       $n(this), t.finishInit && t.finishInit(this);
@@ -5399,10 +5450,10 @@ module.exports = function (e) {
         return 400 < n * n + o * o
       }
       var i = t.display;
-      ds(i.scroller, 'mousedown', _o(t, Ui)), Ta && 11 > xa ? ds(i.scroller, 'dblclick', _o(t, function (n) {
+      ds(i.scroller, 'mousedown', _o(t, Ui)), Ra && 11 > xa ? ds(i.scroller, 'dblclick', _o(t, function (n) {
         if (!Ne(t, n)) {
-          var e = Bn(t, n);
-          if (!(!e || Xi(t, n) || Gt(t.display, n))) {
+          var e = Fn(t, n);
+          if (!(!e || Qi(t, n) || Gt(t.display, n))) {
             Ue(n);
             var o = t.findWordAt(e);
             _r(t.doc, o.anchor, o.head)
@@ -5418,7 +5469,7 @@ module.exports = function (e) {
         },
         s;
       ds(i.scroller, 'touchstart', function (n) {
-        if (!Ne(t, n) && !o(n) && !Xi(t, n)) {
+        if (!Ne(t, n) && !o(n) && !Qi(t, n)) {
           i.input.ensurePolled(), clearTimeout(s);
           var e = +new Date;
           i.activeTouch = {
@@ -5434,15 +5485,15 @@ module.exports = function (e) {
         if (e && !Gt(i, o) && null != e.left && !e.moved && 300 > new Date - e.start) {
           var a = t.coordsChar(i.activeTouch, 'page'),
             s;
-          s = !e.prev || r(e, e.prev) ? new Ns(a, a) : !e.prev.prev || r(e, e.prev.prev) ? t.findWordAt(a) : new Ns(V(a.line, 0), X(t.doc, V(a.line + 1, 0))), t.setSelection(s.anchor, s.head), t.focus(), Ue(o)
+          s = !e.prev || r(e, e.prev) ? new Ns(a, a) : !e.prev.prev || r(e, e.prev.prev) ? t.findWordAt(a) : new Ns(V(a.line, 0), Q(t.doc, V(a.line + 1, 0))), t.setSelection(s.anchor, s.head), t.focus(), Ue(o)
         }
         n()
       }), ds(i.scroller, 'touchcancel', n), ds(i.scroller, 'scroll', function () {
-        i.scroller.clientHeight && (lo(t, i.scroller.scrollTop), po(t, i.scroller.scrollLeft, !0), Fe(t, 'scroll', t))
+        i.scroller.clientHeight && (lo(t, i.scroller.scrollTop), po(t, i.scroller.scrollLeft, !0), Be(t, 'scroll', t))
       }), ds(i.scroller, 'mousewheel', function (n) {
-        return Qo(t, n)
+        return Xo(t, n)
       }), ds(i.scroller, 'DOMMouseScroll', function (n) {
-        return Qo(t, n)
+        return Xo(t, n)
       }), ds(i.wrapper, 'scroll', function () {
         return i.wrapper.scrollTop = i.wrapper.scrollLeft = 0
       }), i.dragFunctions = {
@@ -5463,7 +5514,7 @@ module.exports = function (e) {
       var e = i.input.getField();
       ds(e, 'keyup', function (n) {
         return Oi.call(t, n)
-      }), ds(e, 'keydown', _o(t, Fi)), ds(e, 'keypress', _o(t, Hi)), ds(e, 'focus', function (n) {
+      }), ds(e, 'keydown', _o(t, Bi)), ds(e, 'keypress', _o(t, Hi)), ds(e, 'focus', function (n) {
         return Kn(t, n)
       }), ds(e, 'blur', function (n) {
         return jn(t, n)
@@ -5475,17 +5526,17 @@ module.exports = function (e) {
         d;
       null == n && (n = 'add'), 'smart' == n && (s.mode.indent ? d = it(e, t).state : n = 'prev');
       var l = e.options.tabSize,
-        c = B(s, t),
+        c = F(s, t),
         p = C(c.text, null, l);
       c.stateAfter && (c.stateAfter = null);
       var u = c.text.match(/^\s*/)[0],
         m;
       if (!o && !/\S/.test(c.text)) m = 0, n = 'not';
-      else if ('smart' == n && (m = s.mode.indent(d, c.text.slice(u.length), c.text), m == Xa || 150 < m)) {
+      else if ('smart' == n && (m = s.mode.indent(d, c.text.slice(u.length), c.text), m == Qa || 150 < m)) {
         if (!o) return;
         n = 'prev'
       }
-      'prev' == n ? t > s.first ? m = C(B(s, t - 1).text, null, l) : m = 0 : 'add' == n ? m = p + e.options.indentUnit : 'subtract' == n ? m = p - e.options.indentUnit : 'number' == typeof n && (m = p + n), m = r(0, m);
+      'prev' == n ? t > s.first ? m = C(F(s, t - 1).text, null, l) : m = 0 : 'add' == n ? m = p + e.options.indentUnit : 'subtract' == n ? m = p - e.options.indentUnit : 'number' == typeof n && (m = p + n), m = r(0, m);
       var h = '',
         f = 0;
       if (e.options.indentWithTabs)
@@ -5494,7 +5545,7 @@ module.exports = function (e) {
       for (var i = 0, y; i < s.sel.ranges.length; i++)
         if (y = s.sel.ranges[i], y.head.line == t && y.head.ch < u.length) {
           var S = V(t, u.length);
-          Tr(s, i, new Ns(S, S));
+          Rr(s, i, new Ns(S, S));
           break
         }
     }
@@ -5522,7 +5573,7 @@ module.exports = function (e) {
         var h = o.ranges[m],
           f = h.from(),
           g = h.to();
-        h.empty() && (n && 0 < n ? f = V(f.line, f.ch - n) : e.state.overwrite && !l ? g = V(g.line, d(B(a, g.line).text.length, g.ch + w(c).length)) : l && ad && ad.lineWise && ad.text.join('\n') == t && (f = g = V(f.line, 0)));
+        h.empty() && (n && 0 < n ? f = V(f.line, f.ch - n) : e.state.overwrite && !l ? g = V(g.line, d(F(a, g.line).text.length, g.ch + w(c).length)) : l && ad && ad.lineWise && ad.text.join('\n') == t && (f = g = V(f.line, 0)));
         var y = {
           from: f,
           to: g,
@@ -5553,7 +5604,7 @@ module.exports = function (e) {
                   a = ia(e, r.head.line, 'smart');
                   break
                 }
-            } else i.electricInput && i.electricInput.test(B(e.doc, r.head.line).text.slice(0, r.head.ch)) && (a = ia(e, r.head.line, 'smart'));
+            } else i.electricInput && i.electricInput.test(F(e.doc, r.head.line).text.slice(0, r.head.ch)) && (a = ia(e, r.head.line, 'smart'));
             a && Pt(e, 'electricInput', e, r.head.line)
           }
     }
@@ -5580,25 +5631,25 @@ module.exports = function (e) {
     function ua() {
       var e = p('textarea', null, null, 'position: absolute; bottom: -1em; padding: 0; width: 1px; height: 1em; outline: none'),
         t = p('div', [e], null, 'overflow: hidden; position: relative; width: 3px; height: 0px;');
-      return Pa ? e.style.width = '1000px' : e.setAttribute('wrap', 'off'), Fa && (e.style.border = '1px solid black'), pa(e), t
+      return Pa ? e.style.width = '1000px' : e.setAttribute('wrap', 'off'), Ba && (e.style.border = '1px solid black'), pa(e), t
     }
 
     function ma(e, t, n, o, r) {
       function i() {
         var o = t.line + n;
-        return !(o < e.first || o >= e.first + e.size) && (t = new V(o, t.ch, t.sticky), c = B(e, o))
+        return !(o < e.first || o >= e.first + e.size) && (t = new V(o, t.ch, t.sticky), c = F(e, o))
       }
 
       function a(o) {
         var a;
-        if (a = r ? Ri(e.cm, c, t, n) : ki(c, t, n), null != a) t = a;
+        if (a = r ? Ti(e.cm, c, t, n) : ki(c, t, n), null != a) t = a;
         else if (!o && i()) t = _i(r, e.cm, c, t.line, n);
         else return !1;
         return !0
       }
       var s = t,
         d = n,
-        c = B(e, t.line);
+        c = F(e, t.line);
       if ('char' == o) a();
       else if ('column' == o) a(!0);
       else if ('word' == o || 'group' == o)
@@ -5639,7 +5690,7 @@ module.exports = function (e) {
     function fa(e, t) {
       var n = tn(e, t.line);
       if (!n || n.hidden) return null;
-      var o = B(e.doc, t.line),
+      var o = F(e.doc, t.line),
         r = Zt(n, o, t.line),
         i = Ie(o, e.doc.direction),
         a = 'left';
@@ -5684,7 +5735,7 @@ module.exports = function (e) {
             m;
           if (l) {
             var h = e.findMarks(V(o, 0), V(r + 1, 0), i(+l));
-            return void(h.length && (m = h[0].find(0)) && s(F(e.doc, m.from, m.to).join(p)))
+            return void(h.length && (m = h[0].find(0)) && s(B(e.doc, m.from, m.to).join(p)))
           }
           if ('false' == t.getAttribute('contenteditable')) return;
           var f = /^(pre|div|p|li|table|br)$/i.test(t.nodeName);
@@ -5755,26 +5806,26 @@ module.exports = function (e) {
       wa = /gecko\/\d/i.test(va),
       ka = /MSIE \d/.test(va),
       _a = /Trident\/(?:[7-9]|\d{2,})\..*rv:(\d+)/.exec(va),
-      Ra = /Edge\/(\d+)/.exec(va),
-      Ta = ka || _a || Ra,
-      xa = Ta && (ka ? document.documentMode || 6 : +(Ra || _a)[1]),
-      Pa = !Ra && /WebKit\//.test(va),
+      Ta = /Edge\/(\d+)/.exec(va),
+      Ra = ka || _a || Ta,
+      xa = Ra && (ka ? document.documentMode || 6 : +(Ta || _a)[1]),
+      Pa = !Ta && /WebKit\//.test(va),
       Ma = Pa && /Qt\/\d+\.\d+/.test(va),
-      Da = !Ra && /Chrome\//.test(va),
+      Da = !Ta && /Chrome\//.test(va),
       Aa = /Opera\//.test(va),
       Ia = /Apple Computer/.test(navigator.vendor),
       La = /Mac OS X 1\d\D([8-9]|\d\d)\D/.test(va),
-      Ba = /PhantomJS/.test(va),
-      Fa = !Ra && /AppleWebKit/.test(va) && /Mobile\/\w+/.test(va),
+      Fa = /PhantomJS/.test(va),
+      Ba = !Ta && /AppleWebKit/.test(va) && /Mobile\/\w+/.test(va),
       Na = /Android/.test(va),
-      Oa = Fa || Na || /webOS|BlackBerry|Opera Mini|Opera Mobi|IEMobile/i.test(va),
-      Ha = Fa || /Mac/.test(Ea),
+      Oa = Ba || Na || /webOS|BlackBerry|Opera Mini|Opera Mobi|IEMobile/i.test(va),
+      Ha = Ba || /Mac/.test(Ea),
       za = /\bCrOS\b/.test(va),
       Ua = /win/i.test(Ea),
       Wa = Aa && va.match(/Version\/(\d*\.\d*)/);
     Wa && (Wa = +Wa[1]), Wa && 15 <= Wa && (Aa = !1, Pa = !0);
     var Va = Ha && (Ma || Aa && (null == Wa || 12.11 > Wa)),
-      Ga = wa || Ta && 9 <= xa,
+      Ga = wa || Ra && 9 <= xa,
       Ka = function (t, n) {
         var o = t.className,
           r = e(n).exec(o);
@@ -5799,9 +5850,9 @@ module.exports = function (e) {
     var qa = function (e) {
       e.select()
     };
-    Fa ? qa = function (e) {
+    Ba ? qa = function (e) {
       e.selectionStart = 0, e.selectionEnd = e.value.length
-    } : Ta && (qa = function (e) {
+    } : Ra && (qa = function (e) {
       try {
         e.select()
       } catch (e) {}
@@ -5812,8 +5863,8 @@ module.exports = function (e) {
     Ya.prototype.set = function (e, t) {
       clearTimeout(this.id), this.id = setTimeout(t, e)
     };
-    var Qa = 30,
-      Xa = {
+    var Xa = 30,
+      Qa = {
         toString: function () {
           return 'CodeMirror.Pass'
         }
@@ -5858,17 +5909,17 @@ module.exports = function (e) {
           for (var k = 0, _; k < c; ++k)
             if (_ = p[k], ',' == _) p[k] = 'N';
             else if ('%' == _) {
-            var R = void 0;
-            for (R = k + 1; R < c && '%' == p[R]; ++R);
-            for (var T = k && '!' == p[k - 1] || R < c && '1' == p[R] ? '1' : 'N', x = k; x < R; ++x) p[x] = T;
-            k = R - 1
+            var T = void 0;
+            for (T = k + 1; T < c && '%' == p[T]; ++T);
+            for (var R = k && '!' == p[k - 1] || T < c && '1' == p[T] ? '1' : 'N', x = k; x < T; ++x) p[x] = R;
+            k = T - 1
           }
           for (var P = 0, M = l, D; P < c; ++P) D = p[P], 'L' == M && '1' == D ? p[P] = 'L' : a.test(D) && (M = D);
           for (var A = 0; A < c; ++A)
             if (i.test(p[A])) {
               var I = void 0;
               for (I = A + 1; I < c && i.test(p[I]); ++I);
-              for (var L = 'L' == (A ? p[A - 1] : l), B = 'L' == (I < c ? p[I] : l), F = L == B ? L ? 'L' : 'R' : l, N = A; N < I; ++N) p[N] = F;
+              for (var L = 'L' == (A ? p[A - 1] : l), F = 'L' == (I < c ? p[I] : l), B = L == F ? L ? 'L' : 'R' : l, N = A; N < I; ++N) p[N] = B;
               A = I - 1
             } for (var O = [], H = 0, z; H < c;)
             if (s.test(p[H])) {
@@ -5900,7 +5951,7 @@ module.exports = function (e) {
         }
       },
       on = function () {
-        if (Ta && 9 > xa) return !1;
+        if (Ra && 9 > xa) return !1;
         var e = p('div');
         return 'draggable' in e || 'dragDrop' in e
       }(),
@@ -6034,8 +6085,8 @@ module.exports = function (e) {
     var ws = {},
       ks = {},
       _s = null,
-      Rs = null,
-      Ts = {
+      Ts = null,
+      Rs = {
         left: 0,
         right: 0,
         top: 0,
@@ -6049,7 +6100,7 @@ module.exports = function (e) {
           o.clientHeight && t(o.scrollTop, 'vertical')
         }), ds(r, 'scroll', function () {
           r.clientWidth && t(r.scrollLeft, 'horizontal')
-        }), this.checkedZeroWidth = !1, Ta && 8 > xa && (this.horiz.style.minHeight = this.vert.style.minWidth = '18px')
+        }), this.checkedZeroWidth = !1, Ra && 8 > xa && (this.horiz.style.minHeight = this.vert.style.minWidth = '18px')
       },
       Ps;
     xs.prototype.update = function (e) {
@@ -6102,22 +6153,22 @@ module.exports = function (e) {
       As = 0,
       Is = function (e, t, n) {
         var o = e.display;
-        this.viewport = t, this.visible = Qn(o, e.doc, t), this.editorIsHidden = !o.wrapper.offsetWidth, this.wrapperHeight = o.wrapper.clientHeight, this.wrapperWidth = o.wrapper.clientWidth, this.oldDisplayWidth = Qt(e), this.force = n, this.dims = Dn(e), this.events = []
+        this.viewport = t, this.visible = Xn(o, e.doc, t), this.editorIsHidden = !o.wrapper.offsetWidth, this.wrapperHeight = o.wrapper.clientHeight, this.wrapperWidth = o.wrapper.clientWidth, this.oldDisplayWidth = Xt(e), this.force = n, this.dims = Dn(e), this.events = []
       };
     Is.prototype.signal = function (e, t) {
       He(e, t) && this.events.push(arguments)
     }, Is.prototype.finish = function () {
-      for (var e = this, t = 0; t < this.events.length; t++) Fe.apply(null, e.events[t])
+      for (var e = this, t = 0; t < this.events.length; t++) Be.apply(null, e.events[t])
     };
     var Ls = 0,
-      Bs = null;
-    Ta ? Bs = -.53 : wa ? Bs = 15 : Da ? Bs = -.7 : Ia && (Bs = -1 / 3);
-    var Fs = function (e, t) {
+      Fs = null;
+    Ra ? Fs = -.53 : wa ? Fs = 15 : Da ? Fs = -.7 : Ia && (Fs = -1 / 3);
+    var Bs = function (e, t) {
       this.ranges = e, this.primIndex = t
     };
-    Fs.prototype.primary = function () {
+    Bs.prototype.primary = function () {
       return this.ranges[this.primIndex]
-    }, Fs.prototype.equals = function (e) {
+    }, Bs.prototype.equals = function (e) {
       var t = this;
       if (e == this) return !0;
       if (e.primIndex != this.primIndex || e.ranges.length != this.ranges.length) return !1;
@@ -6127,14 +6178,14 @@ module.exports = function (e) {
         if (!K(o.anchor, r.anchor) || !K(o.head, r.head)) return !1
       }
       return !0
-    }, Fs.prototype.deepCopy = function () {
+    }, Bs.prototype.deepCopy = function () {
       for (var e = this, t = [], n = 0; n < this.ranges.length; n++) t[n] = new Ns(j(e.ranges[n].anchor), j(e.ranges[n].head));
-      return new Fs(t, this.primIndex)
-    }, Fs.prototype.somethingSelected = function () {
+      return new Bs(t, this.primIndex)
+    }, Bs.prototype.somethingSelected = function () {
       for (var e = this, t = 0; t < this.ranges.length; t++)
         if (!e.ranges[t].empty()) return !0;
       return !1
-    }, Fs.prototype.contains = function (e, t) {
+    }, Bs.prototype.contains = function (e, t) {
       var n = this;
       t || (t = e);
       for (var o = 0, r; o < this.ranges.length; o++)
@@ -6270,7 +6321,7 @@ module.exports = function (e) {
         o = this.line;
       this.height = null;
       var r = Vt(this) - t;
-      r && (!Re(this.doc, o) && O(o, o.height + r), n && ko(n, function () {
+      r && (!Te(this.doc, o) && O(o, o.height + r), n && ko(n, function () {
         n.curOp.forceUpdate = !0, ei(n, o, r), Pt(n, 'lineWidgetChanged', n, e, H(o))
       }))
     }, ze(Os);
@@ -6290,7 +6341,7 @@ module.exports = function (e) {
         for (var r = null, a = null, s = 0; s < this.lines.length; ++s) {
           var i = e.lines[s],
             d = ne(i.markedSpans, e);
-          t && !e.collapsed ? Po(t, H(i), 'text') : t && (null != d.to && (a = H(i)), null != d.from && (r = H(i))), i.markedSpans = oe(i.markedSpans, d), null == d.from && e.collapsed && !Re(e.doc, i) && t && O(i, Pn(t.display))
+          t && !e.collapsed ? Po(t, H(i), 'text') : t && (null != d.to && (a = H(i)), null != d.from && (r = H(i))), i.markedSpans = oe(i.markedSpans, d), null == d.from && e.collapsed && !Te(e.doc, i) && t && O(i, Pn(t.display))
         }
         if (t && this.collapsed && !t.options.lineWrapping)
           for (var l = 0; l < this.lines.length; ++l) {
@@ -6322,7 +6373,7 @@ module.exports = function (e) {
         var r = t.line,
           i = H(t.line),
           a = tn(o, i);
-        if (a && (cn(a), o.curOp.selectionChanged = o.curOp.forceUpdate = !0), o.curOp.updateMaxLine = !0, !Re(n.doc, r) && null != n.height) {
+        if (a && (cn(a), o.curOp.selectionChanged = o.curOp.forceUpdate = !0), o.curOp.updateMaxLine = !0, !Te(n.doc, r) && null != n.height) {
           var s = n.height;
           n.height = null;
           var d = Vt(n) - s;
@@ -6368,7 +6419,7 @@ module.exports = function (e) {
           text: e
         }), Dr(this, $o(i), $a)
       };
-    Vs.prototype = T(Jr.prototype, {
+    Vs.prototype = R(Jr.prototype, {
       constructor: Vs,
       iter: function (e, t, n) {
         n ? this.iterN(e - this.first, t - e, n) : this.iterN(this.first, this.first + this.size, e)
@@ -6384,22 +6435,22 @@ module.exports = function (e) {
         var t = N(this, this.first, this.first + this.size);
         return !1 === e ? t : t.join(e || this.lineSeparator())
       },
-      setValue: To(function (e) {
+      setValue: Ro(function (e) {
         var t = V(this.first, 0),
           n = this.first + this.size - 1;
         Ur(this, {
           from: t,
-          to: V(n, B(this, n).text.length),
+          to: V(n, F(this, n).text.length),
           text: this.splitLines(e),
           origin: 'setValue',
           full: !0
         }, !0), this.cm && ro(this.cm, 0, 0), Dr(this, $o(t), $a)
       }),
       replaceRange: function (e, t, n, o) {
-        t = X(this, t), n = n ? X(this, n) : t, qr(this, e, t, n, o)
+        t = Q(this, t), n = n ? Q(this, n) : t, qr(this, e, t, n, o)
       },
       getRange: function (e, t, n) {
-        var o = F(this, X(this, e), X(this, t));
+        var o = B(this, Q(this, e), Q(this, t));
         return !1 === n ? o : o.join(n || this.lineSeparator())
       },
       getLine: function (e) {
@@ -6407,13 +6458,13 @@ module.exports = function (e) {
         return t && t.text
       },
       getLineHandle: function (e) {
-        if (U(this, e)) return B(this, e)
+        if (U(this, e)) return F(this, e)
       },
       getLineNumber: function (e) {
         return H(e)
       },
       getLineHandleVisualStart: function (e) {
-        return 'number' == typeof e && (e = B(this, e)), ve(e)
+        return 'number' == typeof e && (e = F(this, e)), ve(e)
       },
       lineCount: function () {
         return this.size
@@ -6425,7 +6476,7 @@ module.exports = function (e) {
         return this.first + this.size - 1
       },
       clipPos: function (e) {
-        return X(this, e)
+        return Q(this, e)
       },
       getCursor: function (e) {
         var t = this.sel.primary(),
@@ -6438,46 +6489,46 @@ module.exports = function (e) {
       somethingSelected: function () {
         return this.sel.somethingSelected()
       },
-      setCursor: To(function (e, t, n) {
-        xr(this, X(this, 'number' == typeof e ? V(e, t || 0) : e), null, n)
+      setCursor: Ro(function (e, t, n) {
+        xr(this, Q(this, 'number' == typeof e ? V(e, t || 0) : e), null, n)
       }),
-      setSelection: To(function (e, t, n) {
-        xr(this, X(this, e), X(this, t || e), n)
+      setSelection: Ro(function (e, t, n) {
+        xr(this, Q(this, e), Q(this, t || e), n)
       }),
-      extendSelection: To(function (e, t, n) {
-        _r(this, X(this, e), t && X(this, t), n)
+      extendSelection: Ro(function (e, t, n) {
+        _r(this, Q(this, e), t && Q(this, t), n)
       }),
-      extendSelections: To(function (e, t) {
-        Rr(this, Z(this, e), t)
+      extendSelections: Ro(function (e, t) {
+        Tr(this, Z(this, e), t)
       }),
-      extendSelectionsBy: To(function (e, t) {
+      extendSelectionsBy: Ro(function (e, t) {
         var n = k(this.sel.ranges, e);
-        Rr(this, Z(this, n), t)
+        Tr(this, Z(this, n), t)
       }),
-      setSelections: To(function (e, t, n) {
+      setSelections: Ro(function (e, t, n) {
         var o = this;
         if (e.length) {
-          for (var r = [], a = 0; a < e.length; a++) r[a] = new Ns(X(o, e[a].anchor), X(o, e[a].head));
-          null == t && (t = d(e.length - 1, this.sel.primIndex)), Dr(this, Xo(this.cm, r, t), n)
+          for (var r = [], a = 0; a < e.length; a++) r[a] = new Ns(Q(o, e[a].anchor), Q(o, e[a].head));
+          null == t && (t = d(e.length - 1, this.sel.primIndex)), Dr(this, Qo(this.cm, r, t), n)
         }
       }),
-      addSelection: To(function (e, t, n) {
+      addSelection: Ro(function (e, t, n) {
         var o = this.sel.ranges.slice(0);
-        o.push(new Ns(X(this, e), X(this, t || e))), Dr(this, Xo(this.cm, o, o.length - 1), n)
+        o.push(new Ns(Q(this, e), Q(this, t || e))), Dr(this, Qo(this.cm, o, o.length - 1), n)
       }),
       getSelection: function (e) {
-        for (var t = this, n = this.sel.ranges, o = 0, r, i; o < n.length; o++) i = F(t, n[o].from(), n[o].to()), r = r ? r.concat(i) : i;
+        for (var t = this, n = this.sel.ranges, o = 0, r, i; o < n.length; o++) i = B(t, n[o].from(), n[o].to()), r = r ? r.concat(i) : i;
         return !1 === e ? r : r.join(e || this.lineSeparator())
       },
       getSelections: function (e) {
-        for (var t = this, n = [], o = this.sel.ranges, r = 0, i; r < o.length; r++) i = F(t, o[r].from(), o[r].to()), !1 !== e && (i = i.join(e || t.lineSeparator())), n[r] = i;
+        for (var t = this, n = [], o = this.sel.ranges, r = 0, i; r < o.length; r++) i = B(t, o[r].from(), o[r].to()), !1 !== e && (i = i.join(e || t.lineSeparator())), n[r] = i;
         return n
       },
       replaceSelection: function (e, t, n) {
         for (var o = [], r = 0; r < this.sel.ranges.length; r++) o[r] = e;
         this.replaceSelections(o, t, n || '+input')
       },
-      replaceSelections: To(function (e, t, n) {
+      replaceSelections: Ro(function (e, t, n) {
         for (var o = this, r = [], a = this.sel, s = 0, i; s < a.ranges.length; s++) i = a.ranges[s], r[s] = {
           from: i.from(),
           to: i.to(),
@@ -6487,16 +6538,16 @@ module.exports = function (e) {
         for (var d = t && 'end' != t && nr(this, r, t), l = r.length - 1; 0 <= l; l--) Ur(o, r[l]);
         d ? Mr(this, d) : this.cm && oo(this.cm)
       }),
-      undo: To(function () {
+      undo: Ro(function () {
         Vr(this, 'undo')
       }),
-      redo: To(function () {
+      redo: Ro(function () {
         Vr(this, 'redo')
       }),
-      undoSelection: To(function () {
+      undoSelection: Ro(function () {
         Vr(this, 'undo', !0)
       }),
-      redoSelection: To(function () {
+      redoSelection: Ro(function () {
         Vr(this, 'redo', !0)
       }),
       setExtending: function (e) {
@@ -6535,13 +6586,13 @@ module.exports = function (e) {
         var t = this.history = new pr(this.history.maxGeneration);
         t.done = wr(e.done.slice(0), null, !0), t.undone = wr(e.undone.slice(0), null, !0)
       },
-      setGutterMarker: To(function (e, t, n) {
+      setGutterMarker: Ro(function (e, t, n) {
         return $r(this, e, 'gutter', function (e) {
           var o = e.gutterMarkers || (e.gutterMarkers = {});
           return o[t] = n, !n && M(o) && (e.gutterMarkers = null), !0
         })
       }),
-      clearGutter: To(function (e) {
+      clearGutter: Ro(function (e) {
         var t = this;
         this.iter(function (n) {
           n.gutterMarkers && n.gutterMarkers[e] && $r(t, n, 'gutter', function () {
@@ -6553,7 +6604,7 @@ module.exports = function (e) {
         var t;
         if ('number' == typeof e) {
           if (!U(this, e)) return null;
-          if (t = e, e = B(this, e), !e) return null
+          if (t = e, e = F(this, e), !e) return null
         } else if (t = H(e), null == t) return null;
         return {
           line: t,
@@ -6566,7 +6617,7 @@ module.exports = function (e) {
           widgets: e.widgets
         }
       },
-      addLineClass: To(function (t, n, o) {
+      addLineClass: Ro(function (t, n, o) {
         return $r(this, t, 'gutter' == n ? 'gutter' : 'class', function (t) {
           var r = 'text' == n ? 'textClass' : 'background' == n ? 'bgClass' : 'gutter' == n ? 'gutterClass' : 'wrapClass';
           if (!t[r]) t[r] = o;
@@ -6577,7 +6628,7 @@ module.exports = function (e) {
           return !0
         })
       }),
-      removeLineClass: To(function (t, n, o) {
+      removeLineClass: Ro(function (t, n, o) {
         return $r(this, t, 'gutter' == n ? 'gutter' : 'class', function (t) {
           var r = 'text' == n ? 'textClass' : 'background' == n ? 'bgClass' : 'gutter' == n ? 'gutterClass' : 'wrapClass',
             i = t[r];
@@ -6592,14 +6643,14 @@ module.exports = function (e) {
           return !0
         })
       }),
-      addLineWidget: To(function (e, t, n) {
+      addLineWidget: Ro(function (e, t, n) {
         return ti(this, e, t, n)
       }),
       removeLineWidget: function (e) {
         e.clear()
       },
       markText: function (e, t, n) {
-        return ni(this, X(this, e), X(this, t), n, n && n.type || 'range')
+        return ni(this, Q(this, e), Q(this, t), n, n && n.type || 'range')
       },
       setBookmark: function (e, t) {
         var n = {
@@ -6609,18 +6660,18 @@ module.exports = function (e) {
           shared: t && t.shared,
           handleMouseEvents: t && t.handleMouseEvents
         };
-        return e = X(this, e), ni(this, e, e, n, 'bookmark')
+        return e = Q(this, e), ni(this, e, e, n, 'bookmark')
       },
       findMarksAt: function (e) {
-        e = X(this, e);
+        e = Q(this, e);
         var t = [],
-          n = B(this, e.line).markedSpans;
+          n = F(this, e.line).markedSpans;
         if (n)
           for (var o = 0, r; o < n.length; ++o) r = n[o], (null == r.from || r.from <= e.ch) && (null == r.to || r.to >= e.ch) && t.push(r.marker.parent || r.marker);
         return t
       },
       findMarks: function (e, t, n) {
-        e = X(this, e), t = X(this, t);
+        e = Q(this, e), t = Q(this, t);
         var o = [],
           r = e.line;
         return this.iter(e.line, t.line + 1, function (a) {
@@ -6645,10 +6696,10 @@ module.exports = function (e) {
         return this.iter(function (r) {
           var i = r.text.length + n;
           return i > e ? (o = e, !0) : void(e -= i, ++t)
-        }), X(this, V(t, o))
+        }), Q(this, V(t, o))
       },
       indexFromPos: function (e) {
-        e = X(this, e);
+        e = Q(this, e);
         var t = e.ch;
         if (e.line < this.first || 0 > e.ch) return 0;
         var n = this.lineSeparator().length;
@@ -6704,7 +6755,7 @@ module.exports = function (e) {
       lineSeparator: function () {
         return this.lineSep || '\n'
       },
-      setDirection: To(function (e) {
+      setDirection: Ro(function (e) {
         'rtl' != e && (e = 'ltr'), e == this.direction || (this.direction = e, this.iter(function (e) {
           return e.order = null
         }), this.cm && cr(this.cm))
@@ -6770,8 +6821,8 @@ module.exports = function (e) {
       }, qs = 0; 10 > qs; qs++) js[qs + 48] = js[qs + 96] = qs + '';
     for (var i = 65; 90 >= i; i++) js[i] = t(i);
     for (var Ys = 1; 12 >= Ys; Ys++) js[Ys + 111] = js[Ys + 63235] = 'F' + Ys;
-    var Qs = {};
-    Qs.basic = {
+    var Xs = {};
+    Xs.basic = {
       Left: 'goCharLeft',
       Right: 'goCharRight',
       Up: 'goLineUp',
@@ -6788,7 +6839,7 @@ module.exports = function (e) {
       Enter: 'newlineAndIndent',
       Insert: 'toggleOverwrite',
       Esc: 'singleSelection'
-    }, Qs.pcDefault = {
+    }, Xs.pcDefault = {
       "Ctrl-A": 'selectAll',
       "Ctrl-D": 'deleteLine',
       "Ctrl-Z": 'undo',
@@ -6816,7 +6867,7 @@ module.exports = function (e) {
       "Shift-Ctrl-U": 'redoSelection',
       "Alt-U": 'redoSelection',
       fallthrough: 'basic'
-    }, Qs.emacsy = {
+    }, Xs.emacsy = {
       "Ctrl-F": 'goCharRight',
       "Ctrl-B": 'goCharLeft',
       "Ctrl-P": 'goLineUp',
@@ -6834,7 +6885,7 @@ module.exports = function (e) {
       "Ctrl-K": 'killLine',
       "Ctrl-T": 'transposeChars',
       "Ctrl-O": 'openLine'
-    }, Qs.macDefault = {
+    }, Xs.macDefault = {
       "Cmd-A": 'selectAll',
       "Cmd-D": 'deleteLine',
       "Cmd-Z": 'undo',
@@ -6866,8 +6917,8 @@ module.exports = function (e) {
       "Ctrl-Up": 'goDocStart',
       "Ctrl-Down": 'goDocEnd',
       fallthrough: ['basic', 'emacsy']
-    }, Qs['default'] = Ha ? Qs.macDefault : Qs.pcDefault;
-    var Xs = {
+    }, Xs['default'] = Ha ? Xs.macDefault : Xs.pcDefault;
+    var Qs = {
         selectAll: Hr,
         singleSelection: function (e) {
           return e.setSelection(e.getCursor('anchor'), e.getCursor('head'), $a)
@@ -6875,7 +6926,7 @@ module.exports = function (e) {
         killLine: function (e) {
           return Ei(e, function (t) {
             if (t.empty()) {
-              var n = B(e.doc, t.head.line).text.length;
+              var n = F(e.doc, t.head.line).text.length;
               return t.head.ch == n && t.head.line < e.lastLine() ? {
                 from: t.head,
                 to: V(t.head.line + 1, 0)
@@ -6894,7 +6945,7 @@ module.exports = function (e) {
           return Ei(e, function (t) {
             return {
               from: V(t.from().line, 0),
-              to: X(e.doc, V(t.to().line + 1, 0))
+              to: Q(e.doc, V(t.to().line + 1, 0))
             }
           })
         },
@@ -6952,7 +7003,7 @@ module.exports = function (e) {
         },
         goLineStart: function (e) {
           return e.extendSelectionsBy(function (t) {
-            return Ti(e, t.head.line)
+            return Ri(e, t.head.line)
           }, {
             origin: '+move',
             bias: 1
@@ -7084,11 +7135,11 @@ module.exports = function (e) {
             for (var t = e.listSelections(), n = [], o = 0; o < t.length; o++)
               if (t[o].empty()) {
                 var r = t[o].head,
-                  i = B(e.doc, r.line).text;
+                  i = F(e.doc, r.line).text;
                 if (i)
                   if (r.ch == i.length && (r = new V(r.line, r.ch - 1)), 0 < r.ch) r = new V(r.line, r.ch + 1), e.replaceRange(i.charAt(r.ch - 1) + i.charAt(r.ch - 2), V(r.line, r.ch - 2), r, '+transpose');
                   else if (r.line > e.doc.first) {
-                  var a = B(e.doc, r.line - 1).text;
+                  var a = F(e.doc, r.line - 1).text;
                   a && (r = new V(r.line, 1), e.replaceRange(i.charAt(0) + e.doc.lineSeparator() + a.charAt(a.length - 1), V(r.line - 1, a.length - 1), r, '+transpose'))
                 }
                 n.push(new Ns(r, r))
@@ -7291,13 +7342,13 @@ module.exports = function (e) {
         n = e.doc.sel.primary(),
         o = n.from(),
         r = n.to();
-      if (0 == o.ch && o.line > e.firstLine() && (o = V(o.line - 1, B(e.doc, o.line - 1).length)), r.ch == B(e.doc, r.line).text.length && r.line < e.lastLine() && (r = V(r.line + 1, 0)), o.line < t.viewFrom || r.line > t.viewTo - 1) return !1;
+      if (0 == o.ch && o.line > e.firstLine() && (o = V(o.line - 1, F(e.doc, o.line - 1).length)), r.ch == F(e.doc, r.line).text.length && r.line < e.lastLine() && (r = V(r.line + 1, 0)), o.line < t.viewFrom || r.line > t.viewTo - 1) return !1;
       var i, a, s;
-      o.line == t.viewFrom || 0 == (i = Fn(e, o.line)) ? (a = H(t.view[0].line), s = t.view[0].node) : (a = H(t.view[i].line), s = t.view[i - 1].node.nextSibling);
-      var l = Fn(e, r.line),
+      o.line == t.viewFrom || 0 == (i = Bn(e, o.line)) ? (a = H(t.view[0].line), s = t.view[0].node) : (a = H(t.view[i].line), s = t.view[i - 1].node.nextSibling);
+      var l = Bn(e, r.line),
         c, p;
       if (l == t.view.length - 1 ? (c = t.viewTo - 1, p = t.lineDiv.lastChild) : (c = H(t.view[l + 1].line) - 1, p = t.view[l + 1].node.previousSibling), !s) return !1;
-      for (var u = e.doc.splitLines(Sa(e, s, p, a, c)), m = F(e.doc, V(a, 0), V(c, B(e.doc, c).text.length)); 1 < u.length && 1 < m.length;)
+      for (var u = e.doc.splitLines(Sa(e, s, p, a, c)), m = B(e.doc, V(a, 0), V(c, F(e.doc, c).text.length)); 1 < u.length && 1 < m.length;)
         if (w(u) == w(m)) u.pop(), m.pop(), c--;
         else if (u[0] == m[0]) u.shift(), m.shift(), a++;
       else break;
@@ -7361,8 +7412,8 @@ module.exports = function (e) {
           r = this.cm;
         this.createField(t);
         var i = this.textarea;
-        t.wrapper.insertBefore(this.wrapper, t.wrapper.firstChild), Fa && (i.style.width = '0px'), ds(i, 'input', function () {
-          Ta && 9 <= xa && n.hasSelection && (n.hasSelection = null), o.poll()
+        t.wrapper.insertBefore(this.wrapper, t.wrapper.firstChild), Ba && (i.style.width = '0px'), ds(i, 'input', function () {
+          Ra && 9 <= xa && n.hasSelection && (n.hasSelection = null), o.poll()
         }), ds(i, 'paste', function (t) {
           Ne(r, t) || da(t, r) || (r.state.pasteIncoming = +new Date, o.fastPoll())
         }), ds(i, 'cut', e), ds(i, 'copy', e), ds(t.scroller, 'paste', function (n) {
@@ -7408,8 +7459,8 @@ module.exports = function (e) {
           if (t.somethingSelected()) {
             this.prevInput = '';
             var n = t.getSelection();
-            this.textarea.value = n, t.state.focused && qa(this.textarea), Ta && 9 <= xa && (this.hasSelection = n)
-          } else e || (this.prevInput = this.textarea.value = '', Ta && 9 <= xa && (this.hasSelection = null))
+            this.textarea.value = n, t.state.focused && qa(this.textarea), Ra && 9 <= xa && (this.hasSelection = n)
+          } else e || (this.prevInput = this.textarea.value = '', Ra && 9 <= xa && (this.hasSelection = null))
         }
       }, dd.prototype.getField = function () {
         return this.textarea
@@ -7446,7 +7497,7 @@ module.exports = function (e) {
         if (this.contextMenuPending || !t.state.focused || cs(n) && !o && !this.composing || t.isReadOnly() || t.options.disableInput || t.state.keySeq) return !1;
         var r = n.value;
         if (r == o && !t.somethingSelected()) return !1;
-        if (Ta && 9 <= xa && this.hasSelection === r || Ha && /[\uf700-\uf7ff]/.test(r)) return t.display.input.reset(), !1;
+        if (Ra && 9 <= xa && this.hasSelection === r || Ha && /[\uf700-\uf7ff]/.test(r)) return t.display.input.reset(), !1;
         if (t.doc.sel == t.display.selForContextMenu) {
           var i = r.charCodeAt(0);
           if (8203 != i || o || (o = '\u200B'), 8666 == i) return this.reset(), this.cm.execCommand('undo')
@@ -7460,7 +7511,7 @@ module.exports = function (e) {
       }, dd.prototype.ensurePolled = function () {
         this.pollingFast && this.poll() && (this.pollingFast = !1)
       }, dd.prototype.onKeyPress = function () {
-        Ta && 9 <= xa && (this.hasSelection = null), this.fastPoll()
+        Ra && 9 <= xa && (this.hasSelection = null), this.fastPoll()
       }, dd.prototype.onContextMenu = function (t) {
         function e() {
           if (null != s.selectionStart) {
@@ -7471,8 +7522,8 @@ module.exports = function (e) {
         }
 
         function n() {
-          if (o.contextMenuPending == n && (o.contextMenuPending = !1, o.wrapper.style.cssText = p, s.style.cssText = c, Ta && 9 > xa && a.scrollbars.setScrollTop(a.scroller.scrollTop = d), null != s.selectionStart)) {
-            (!Ta || Ta && 9 > xa) && e();
+          if (o.contextMenuPending == n && (o.contextMenuPending = !1, o.wrapper.style.cssText = p, s.style.cssText = c, Ra && 9 > xa && a.scrollbars.setScrollTop(a.scroller.scrollTop = d), null != s.selectionStart)) {
+            (!Ra || Ra && 9 > xa) && e();
             var t = 0,
               i = function () {
                 a.selForContextMenu == r.doc.sel && 0 == s.selectionStart && 0 < s.selectionEnd && '\u200B' == o.prevInput ? _o(r, Hr)(r) : 10 > t++ ? a.detectingSelectAll = setTimeout(i, 500) : (a.selForContextMenu = null, a.input.reset())
@@ -7485,7 +7536,7 @@ module.exports = function (e) {
           a = r.display,
           s = o.textarea;
         o.contextMenuPending && o.contextMenuPending();
-        var i = Bn(r, t),
+        var i = Fn(r, t),
           d = a.scroller.scrollTop;
         if (i && !Aa) {
           var l = r.options.resetSelectionOnContextMenu;
@@ -7493,12 +7544,12 @@ module.exports = function (e) {
           var c = s.style.cssText,
             p = o.wrapper.style.cssText,
             u = o.wrapper.offsetParent.getBoundingClientRect();
-          o.wrapper.style.cssText = 'position: static', s.style.cssText = 'position: absolute; width: 30px; height: 30px;\n      top: ' + (t.clientY - u.top - 5) + 'px; left: ' + (t.clientX - u.left - 5) + 'px;\n      z-index: 1000; background: ' + (Ta ? 'rgba(255, 255, 255, .05)' : 'transparent') + ';\n      outline: none; border-width: 0; outline: none; overflow: hidden; opacity: .05; filter: alpha(opacity=5);';
+          o.wrapper.style.cssText = 'position: static', s.style.cssText = 'position: absolute; width: 30px; height: 30px;\n      top: ' + (t.clientY - u.top - 5) + 'px; left: ' + (t.clientX - u.left - 5) + 'px;\n      z-index: 1000; background: ' + (Ra ? 'rgba(255, 255, 255, .05)' : 'transparent') + ';\n      outline: none; border-width: 0; outline: none; overflow: hidden; opacity: .05; filter: alpha(opacity=5);';
           var m;
-          if (Pa && (m = window.scrollY), a.input.focus(), Pa && window.scrollTo(null, m), a.input.reset(), r.somethingSelected() || (s.value = o.prevInput = ' '), o.contextMenuPending = n, a.selForContextMenu = r.doc.sel, clearTimeout(a.detectingSelectAll), Ta && 9 <= xa && e(), Ga) {
+          if (Pa && (m = window.scrollY), a.input.focus(), Pa && window.scrollTo(null, m), a.input.reset(), r.somethingSelected() || (s.value = o.prevInput = ' '), o.contextMenuPending = n, a.selForContextMenu = r.doc.sel, clearTimeout(a.detectingSelectAll), Ra && 9 <= xa && e(), Ga) {
             Ge(t);
             var h = function () {
-              Be(window, 'mouseup', h), setTimeout(n, 20)
+              Fe(window, 'mouseup', h), setTimeout(n, 20)
             };
             ds(window, 'mouseup', h)
           } else setTimeout(n, 50)
@@ -7589,7 +7640,7 @@ module.exports = function (e) {
           setOption: function (e, n) {
             var o = this.options,
               r = o[e];
-            o[e] == n && 'mode' != e || (o[e] = n, t.hasOwnProperty(e) && _o(this, t[e])(this, n, r), Fe(this, 'optionChange', this, e))
+            o[e] == n && 'mode' != e || (o[e] = n, t.hasOwnProperty(e) && _o(this, t[e])(this, n, r), Be(this, 'optionChange', this, e))
           },
           getOption: function (e) {
             return this.options[e]
@@ -7604,7 +7655,7 @@ module.exports = function (e) {
             for (var t = this.state.keyMaps, n = 0; n < t.length; ++n)
               if (t[n] == e || t[n].name == e) return t.splice(n, 1), !0
           },
-          addOverlay: Ro(function (t, n) {
+          addOverlay: To(function (t, n) {
             var o = t.token ? t : e.getMode(this.options, t);
             if (o.startState) throw new Error('Overlays may not be stateful.');
             _(this.state.overlays, {
@@ -7616,14 +7667,14 @@ module.exports = function (e) {
               return e.priority
             }), this.state.modeGen++, xo(this)
           }),
-          removeOverlay: Ro(function (e) {
+          removeOverlay: To(function (e) {
             for (var t = this, n = this.state.overlays, o = 0, r; o < n.length; ++o)
               if (r = n[o].modeSpec, r == e || 'string' == typeof e && r.name == e) return n.splice(o, 1), t.state.modeGen++, void xo(t)
           }),
-          indentLine: Ro(function (e, t, n) {
+          indentLine: To(function (e, t, n) {
             'string' != typeof t && 'number' != typeof t && (null == t ? t = this.options.smartIndent ? 'smart' : 'prev' : t = t ? 'add' : 'subtract'), U(this.doc, e) && ia(this, e, t, n)
           }),
-          indentSelection: Ro(function (e) {
+          indentSelection: To(function (e) {
             for (var t = this, n = this.doc.sel.ranges, o = -1, a = 0, i; a < n.length; a++)
               if (i = n[a], !i.empty()) {
                 var s = i.from(),
@@ -7632,7 +7683,7 @@ module.exports = function (e) {
                 o = d(t.lastLine(), l.line - (l.ch ? 0 : 1)) + 1;
                 for (var p = c; p < o; ++p) ia(t, p, e);
                 var u = t.doc.sel.ranges;
-                0 == s.ch && n.length == u.length && 0 < u[a].from().ch && Tr(t.doc, a, new Ns(s, u[a].to()), $a)
+                0 == s.ch && n.length == u.length && 0 < u[a].from().ch && Rr(t.doc, a, new Ns(s, u[a].to()), $a)
               } else i.head.line > o && (ia(t, i.head.line, e, !0), o = i.head.line, a == t.doc.sel.primIndex && oo(t))
           }),
           getTokenAt: function (e, t) {
@@ -7642,8 +7693,8 @@ module.exports = function (e) {
             return lt(this, V(e), t, !0)
           },
           getTokenTypeAt: function (e) {
-            e = X(this.doc, e);
-            var t = rt(this, B(this.doc, e.line)),
+            e = Q(this.doc, e);
+            var t = rt(this, F(this.doc, e.line)),
               n = 0,
               o = (t.length - 1) / 2,
               r = e.ch,
@@ -7684,15 +7735,15 @@ module.exports = function (e) {
           },
           getStateAfter: function (e, t) {
             var n = this.doc;
-            return e = Q(n, null == e ? n.first + n.size - 1 : e), it(this, e + 1, t).state
+            return e = X(n, null == e ? n.first + n.size - 1 : e), it(this, e + 1, t).state
           },
           cursorCoords: function (e, t) {
             var n = this.doc.sel.primary(),
               o;
-            return o = null == e ? n.head : 'object' == typeof e ? X(this.doc, e) : e ? n.from() : n.to(), Cn(this, o, t || 'page')
+            return o = null == e ? n.head : 'object' == typeof e ? Q(this.doc, e) : e ? n.from() : n.to(), Cn(this, o, t || 'page')
           },
           charCoords: function (e, t) {
-            return Sn(this, X(this.doc, e), t || 'page')
+            return Sn(this, Q(this.doc, e), t || 'page')
           },
           coordsChar: function (e, t) {
             return e = yn(this, e, t || 'page'), En(this, e.left, e.top)
@@ -7708,7 +7759,7 @@ module.exports = function (e) {
               r;
             if ('number' == typeof e) {
               var i = this.doc.first + this.doc.size - 1;
-              e < this.doc.first ? e = this.doc.first : e > i && (e = i, o = !0), r = B(this.doc, e)
+              e < this.doc.first ? e = this.doc.first : e > i && (e = i, o = !0), r = F(this.doc, e)
             } else r = e;
             return gn(this, r, {
               top: 0,
@@ -7729,7 +7780,7 @@ module.exports = function (e) {
           },
           addWidget: function (e, t, n, o, i) {
             var a = this.display;
-            e = Cn(this, X(this.doc, e));
+            e = Cn(this, Q(this.doc, e));
             var s = e.bottom,
               d = e.left;
             if (t.style.position = 'absolute', t.setAttribute('cm-ignore-events', 'true'), this.display.input.setUneditable(t), a.sizer.appendChild(t), 'over' == o) s = e.top;
@@ -7745,30 +7796,30 @@ module.exports = function (e) {
               bottom: s + t.offsetHeight
             })
           },
-          triggerOnKeyDown: Ro(Fi),
-          triggerOnKeyPress: Ro(Hi),
+          triggerOnKeyDown: To(Bi),
+          triggerOnKeyPress: To(Hi),
           triggerOnKeyUp: Oi,
-          triggerOnMouseDown: Ro(Ui),
+          triggerOnMouseDown: To(Ui),
           execCommand: function (e) {
-            if (Xs.hasOwnProperty(e)) return Xs[e].call(null, this)
+            if (Qs.hasOwnProperty(e)) return Qs[e].call(null, this)
           },
-          triggerElectric: Ro(function (e) {
+          triggerElectric: To(function (e) {
             la(this, e)
           }),
           findPosH: function (e, t, n, o) {
             var r = this,
               a = 1;
             0 > t && (a = -1, t = -t);
-            for (var s = X(this.doc, e), d = 0; d < t && (s = ma(r.doc, s, a, n, o), !s.hitSide); ++d);
+            for (var s = Q(this.doc, e), d = 0; d < t && (s = ma(r.doc, s, a, n, o), !s.hitSide); ++d);
             return s
           },
-          moveH: Ro(function (e, t) {
+          moveH: To(function (e, t) {
             var n = this;
             this.extendSelectionsBy(function (o) {
               return n.display.shift || n.doc.extend || o.empty() ? ma(n.doc, o.head, e, t, n.options.rtlMoveVisually) : 0 > e ? o.from() : o.to()
             }, Ja)
           }),
-          deleteH: Ro(function (e, t) {
+          deleteH: To(function (e, t) {
             var n = this.doc.sel,
               o = this.doc;
             n.somethingSelected() ? o.replaceSelection('', null, '+delete') : Ei(this, function (n) {
@@ -7787,10 +7838,10 @@ module.exports = function (e) {
               a = 1,
               s = o;
             0 > t && (a = -1, t = -t);
-            for (var d = X(this.doc, e), l = 0, i; l < t && (i = Cn(r, d, 'div'), null == s ? s = i.left : i.left = s, d = ha(r, i, a, n), !d.hitSide); ++l);
+            for (var d = Q(this.doc, e), l = 0, i; l < t && (i = Cn(r, d, 'div'), null == s ? s = i.left : i.left = s, d = ha(r, i, a, n), !d.hitSide); ++l);
             return d
           },
-          moveV: Ro(function (e, t) {
+          moveV: To(function (e, t) {
             var n = this,
               o = this.doc,
               r = [],
@@ -7806,7 +7857,7 @@ module.exports = function (e) {
           }),
           findWordAt: function (e) {
             var t = this.doc,
-              n = B(t, e.line).text,
+              n = F(t, e.line).text,
               o = e.ch,
               r = e.ch;
             if (n) {
@@ -7824,7 +7875,7 @@ module.exports = function (e) {
             return new Ns(V(e.line, o), V(e.line, r))
           },
           toggleOverwrite: function (e) {
-            null != e && e == this.state.overwrite || ((this.state.overwrite = !this.state.overwrite) ? f(this.display.cursorDiv, 'CodeMirror-overwrite') : Ka(this.display.cursorDiv, 'CodeMirror-overwrite'), Fe(this, 'overwriteToggle', this, this.state.overwrite))
+            null != e && e == this.state.overwrite || ((this.state.overwrite = !this.state.overwrite) ? f(this.display.cursorDiv, 'CodeMirror-overwrite') : Ka(this.display.cursorDiv, 'CodeMirror-overwrite'), Be(this, 'overwriteToggle', this, this.state.overwrite))
           },
           hasFocus: function () {
             return this.display.input.getField() == h()
@@ -7832,7 +7883,7 @@ module.exports = function (e) {
           isReadOnly: function () {
             return !!(this.options.readOnly || this.doc.cantEdit)
           },
-          scrollTo: Ro(function (e, t) {
+          scrollTo: To(function (e, t) {
             ro(this, e, t)
           }),
           getScrollInfo: function () {
@@ -7842,11 +7893,11 @@ module.exports = function (e) {
               top: e.scrollTop,
               height: e.scrollHeight - Yt(this) - this.display.barHeight,
               width: e.scrollWidth - Yt(this) - this.display.barWidth,
-              clientHeight: Xt(this),
-              clientWidth: Qt(this)
+              clientHeight: Qt(this),
+              clientWidth: Xt(this)
             }
           },
-          scrollIntoView: Ro(function (e, t) {
+          scrollIntoView: To(function (e, t) {
             null == e ? (e = {
               from: this.doc.sel.primary().head,
               to: null
@@ -7858,7 +7909,7 @@ module.exports = function (e) {
               to: null
             }), e.to || (e.to = e.from), e.margin = t || 0, null == e.from.line ? so(this, e.from, e.to, e.margin) : io(this, e)
           }),
-          setSize: Ro(function (e, t) {
+          setSize: To(function (e, t) {
             var n = this,
               o = function (e) {
                 return 'number' == typeof e || /^\d+$/.test(e + '') ? e + 'px' : e
@@ -7872,7 +7923,7 @@ module.exports = function (e) {
                     Po(n, r, 'widget');
                     break
                   }++ r
-            }), this.curOp.forceUpdate = !0, Fe(this, 'refresh', this)
+            }), this.curOp.forceUpdate = !0, Be(this, 'refresh', this)
           }),
           operation: function (e) {
             return ko(this, e)
@@ -7883,11 +7934,11 @@ module.exports = function (e) {
           endOperation: function () {
             return yo(this)
           },
-          refresh: Ro(function () {
+          refresh: To(function () {
             var e = this.display.cachedTextHeight;
-            xo(this), this.curOp.forceUpdate = !0, un(this), ro(this, this.doc.scrollLeft, this.doc.scrollTop), Vo(this), (null == e || .5 < o(e - Pn(this.display))) && Ln(this), Fe(this, 'refresh', this)
+            xo(this), this.curOp.forceUpdate = !0, un(this), ro(this, this.doc.scrollLeft, this.doc.scrollTop), Vo(this), (null == e || .5 < o(e - Pn(this.display))) && Ln(this), Be(this, 'refresh', this)
           }),
-          swapDoc: Ro(function (e) {
+          swapDoc: To(function (e) {
             var t = this.doc;
             return t.cm = null, dr(this, e), un(this), this.display.input.reset(), ro(this, e.scrollLeft, e.scrollTop), this.curOp.forceScroll = !0, Pt(this, 'swapDoc', this, t), t
           }),
@@ -7928,7 +7979,7 @@ module.exports = function (e) {
         textarea: dd,
         contenteditable: sd
       }, oa.defineMode = function (e) {
-        oa.defaults.mode || 'null' == e || (oa.defaults.mode = e), Xe.apply(this, arguments)
+        oa.defaults.mode || 'null' == e || (oa.defaults.mode = e), Qe.apply(this, arguments)
       }, oa.defineMIME = function (e, t) {
         hs[e] = t
       }, oa.defineMode('null', function () {
@@ -7963,7 +8014,7 @@ module.exports = function (e) {
           t.save = n, t.getTextArea = function () {
             return e
           }, t.toTextArea = function () {
-            t.toTextArea = isNaN, n(), e.parentNode.removeChild(t.getWrapperElement()), e.style.display = '', e.form && (Be(e.form, 'submit', n), 'function' == typeof e.form.submit && (e.form.submit = r))
+            t.toTextArea = isNaN, n(), e.parentNode.removeChild(t.getWrapperElement()), e.style.display = '', e.form && (Fe(e.form, 'submit', n), 'function' == typeof e.form.submit && (e.form.submit = r))
           }
         }, e.style.display = 'none';
         var s = oa(function (t) {
@@ -7972,7 +8023,7 @@ module.exports = function (e) {
         return s
       },
       function (e) {
-        e.off = Be, e.on = ds, e.wheelEventPixels = Yo, e.Doc = Vs, e.splitLines = ls, e.countColumn = C, e.findColumn = v, e.isWordChar = x, e.Pass = Xa, e.signal = Fe, e.Line = Es, e.changeEnd = Zo, e.scrollbarModel = Ds, e.Pos = V, e.cmpPos = G, e.modes = ms, e.mimeModes = hs, e.resolveMode = $e, e.getMode = Ze, e.modeExtensions = fs, e.extendMode = Je, e.copyState = et, e.startState = nt, e.innerMode = tt, e.commands = Xs, e.keyMap = Qs, e.keyName = bi, e.isModifierKey = Si, e.lookupKey = yi, e.normalizeKeyMap = gi, e.StringStream = gs, e.SharedTextMarker = Us, e.TextMarker = zs, e.LineWidget = Os, e.e_preventDefault = Ue, e.e_stopPropagation = We, e.e_stop = Ge, e.addClass = f, e.contains = m, e.rmClass = Ka, e.keyNames = js
+        e.off = Fe, e.on = ds, e.wheelEventPixels = Yo, e.Doc = Vs, e.splitLines = ls, e.countColumn = C, e.findColumn = v, e.isWordChar = x, e.Pass = Qa, e.signal = Be, e.Line = Es, e.changeEnd = Zo, e.scrollbarModel = Ds, e.Pos = V, e.cmpPos = G, e.modes = ms, e.mimeModes = hs, e.resolveMode = $e, e.getMode = Ze, e.modeExtensions = fs, e.extendMode = Je, e.copyState = et, e.startState = nt, e.innerMode = tt, e.commands = Qs, e.keyMap = Xs, e.keyName = bi, e.isModifierKey = Si, e.lookupKey = yi, e.normalizeKeyMap = gi, e.StringStream = gs, e.SharedTextMarker = Us, e.TextMarker = zs, e.LineWidget = Os, e.e_preventDefault = Ue, e.e_stopPropagation = We, e.e_stop = Ge, e.addClass = f, e.contains = m, e.rmClass = Ka, e.keyNames = js
       }(oa), oa.version = '5.44.0', oa
   })
 }, function (e) {
@@ -7990,7 +8041,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(2),
+  const r = n(1),
     i = n(23);
   class a {
     constructor(e, t, n, r, i) {
@@ -8043,7 +8094,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6);
+    r = n(5);
   var i;
   (function (e) {
     e[e.Tabs = 0] = 'Tabs', e[e.Switch = 1] = 'Switch'
@@ -8127,7 +8178,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(2),
+  const i = n(1),
     a = n(34);
   t.envForAuthentication = function (e) {
     const t = {
@@ -8151,7 +8202,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(673);
+  const r = n(681);
   var i;
   (function (e) {
     e[e.Local = 0] = 'Local', e[e.Remote = 1] = 'Remote'
@@ -8185,7 +8236,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(37).fromPromise,
-    r = n(278);
+    r = n(280);
   e.exports = {
     pathExists: o(function (e) {
       return r.access(e).then(() => !0).catch(() => !1)
@@ -8203,7 +8254,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   (function () {
-    t.Emitter = n(747), t.Disposable = n(175), t.CompositeDisposable = n(746)
+    t.Emitter = n(752), t.Disposable = n(176), t.CompositeDisposable = n(751)
   }).call(this)
 }, function (e, t) {
   'use strict';
@@ -8212,22 +8263,6 @@ module.exports = function (e) {
     for (var o in e) 0 <= t.indexOf(o) || Object.prototype.hasOwnProperty.call(e, o) && (n[o] = e[o]);
     return n
   }
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(0),
-    r = n(4);
-  class i extends o.Component {
-    render() {
-      return o.createElement(r.Octicon, {
-        className: 'spin',
-        symbol: r.OcticonSymbol.sync
-      })
-    }
-  }
-  t.Loading = i
 }, function (e, t, n) {
   'use strict';
   n.r(t), n.d(t, 'bpfrpt_proptype_CellPosition', function () {
@@ -8290,9 +8325,9 @@ module.exports = function (e) {
     w = null,
     k = null
 }, function (e, t, n) {
-  var o = n(219)('wks'),
-    r = n(218),
-    i = n(113).Symbol;
+  var o = n(221)('wks'),
+    r = n(220),
+    i = n(114).Symbol;
   e.exports = function (e) {
     return o[e] || (o[e] = i && i[e] || (i || r)('Symbol.' + e))
   }
@@ -8361,16 +8396,16 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6),
+    r = n(5),
     i = n(33),
     a = n(80),
-    s = n(3),
-    d = n(448),
-    l = n(447),
-    c = n(443),
-    p = n(442),
+    s = n(2),
+    d = n(453),
+    l = n(452),
+    c = n(448),
+    p = n(447),
     u = n(88),
-    m = n(440);
+    m = n(445);
   var h;
   (function (e) {
     e.Start = 'Start', e.SignInToDotCom = 'SignInToDotCom', e.SignInToEnterprise = 'SignInToEnterprise', e.ConfigureGit = 'ConfigureGit', e.UsageOptOut = 'UsageOptOut'
@@ -8459,6 +8494,22 @@ module.exports = function (e) {
   t.Welcome = g
 }, function (e, t, n) {
   'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0),
+    r = n(4);
+  class i extends o.Component {
+    render() {
+      return o.createElement(r.Octicon, {
+        className: 'spin',
+        symbol: r.OcticonSymbol.sync
+      })
+    }
+  }
+  t.Loading = i
+}, function (e, t, n) {
+  'use strict';
 
   function o(e) {
     return e.replace(/[^a-z0-9\-_:.]+/gi, '_')
@@ -8466,7 +8517,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(128),
+  const r = n(101),
     a = new Set;
   t.createUniqueId = function (e) {
     const t = o(`${'__'}${e}`);
@@ -8586,9 +8637,9 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(47),
-    a = n(2),
-    s = n(13),
-    d = n(126),
+    a = n(1),
+    s = n(12),
+    d = n(127),
     l = n(45);
   t.matchGitHubRepository = function (e, t) {
     for (const n of e) {
@@ -8667,7 +8718,7 @@ module.exports = function (e) {
       }
 
       function g(e, t, n, o) {
-        return Qe(e, t, n, o, !0).utc()
+        return Xe(e, t, n, o, !0).utc()
       }
 
       function y() {
@@ -8736,7 +8787,7 @@ module.exports = function (e) {
         return 0 != t && isFinite(t) && (n = k(t)), n
       }
 
-      function R(e, t, n) {
+      function T(e, t, n) {
         var o = s(e.length, t.length),
           a = r(e.length - t.length),
           d = 0,
@@ -8745,7 +8796,7 @@ module.exports = function (e) {
         return d + a
       }
 
-      function T(e) {
+      function R(e) {
         !1 === t.suppressDeprecationWarnings && 'undefined' != typeof console && console.warn && console.warn('Deprecation warning: ' + e)
       }
 
@@ -8760,14 +8811,14 @@ module.exports = function (e) {
               } else i = arguments[a];
               r.push(i)
             }
-            T(e + '\nArguments: ' + Array.prototype.slice.call(r).join('') + '\n' + new Error().stack), o = !1
+            R(e + '\nArguments: ' + Array.prototype.slice.call(r).join('') + '\n' + new Error().stack), o = !1
           }
           return n.apply(this, arguments)
         }, n)
       }
 
       function P(e, n) {
-        null != t.deprecationHandler && t.deprecationHandler(e, n), Wt[e] || (T(n), Wt[e] = !0)
+        null != t.deprecationHandler && t.deprecationHandler(e, n), Wt[e] || (R(n), Wt[e] = !0)
       }
 
       function M(e) {
@@ -8795,14 +8846,14 @@ module.exports = function (e) {
         return 'string' == typeof e ? Kt[e] || Kt[e.toLowerCase()] : void 0
       }
 
-      function B(e) {
+      function F(e) {
         var t = {},
           n, o;
         for (o in e) h(e, o) && (n = L(o), n && (t[n] = e[o]));
         return t
       }
 
-      function F(e, t) {
+      function B(e, t) {
         jt[e] = t
       }
 
@@ -8827,9 +8878,9 @@ module.exports = function (e) {
         var r = o;
         'string' == typeof o && (r = function () {
           return this[o]()
-        }), e && (Xt[e] = r), t && (Xt[t[0]] = function () {
+        }), e && (Qt[e] = r), t && (Qt[t[0]] = function () {
           return O(r.apply(this, arguments), t[1], t[2])
-        }), n && (Xt[n] = function () {
+        }), n && (Qt[n] = function () {
           return this.localeData().ordinal(r.apply(this, arguments), e)
         })
       }
@@ -8841,7 +8892,7 @@ module.exports = function (e) {
       function U(e) {
         var t = e.match(qt),
           n, o;
-        for (n = 0, o = t.length; n < o; n++) t[n] = Xt[t[n]] ? Xt[t[n]] : z(t[n]);
+        for (n = 0, o = t.length; n < o; n++) t[n] = Qt[t[n]] ? Qt[t[n]] : z(t[n]);
         return function (n) {
           var r = '',
             a;
@@ -8851,7 +8902,7 @@ module.exports = function (e) {
       }
 
       function W(e, t) {
-        return e.isValid() ? (t = V(t, e.localeData()), Qt[t] = Qt[t] || U(t), Qt[t](e)) : e.localeData().invalidDate()
+        return e.isValid() ? (t = V(t, e.localeData()), Xt[t] = Xt[t] || U(t), Xt[t](e)) : e.localeData().invalidDate()
       }
 
       function V(e, t) {
@@ -8891,13 +8942,13 @@ module.exports = function (e) {
           }), o = 0; o < e.length; o++) gn[e[o]] = n
       }
 
-      function Q(e, t) {
+      function X(e, t) {
         Y(e, function (e, n, o, r) {
           o._w = o._w || {}, t(e, o._w, o, r)
         })
       }
 
-      function X(e, t, n) {
+      function Q(e, t, n) {
         null != t && h(gn, e) && gn[e](t, n._a, n, e)
       }
 
@@ -8938,7 +8989,7 @@ module.exports = function (e) {
           r, i, a;
         if (!this._monthsParse)
           for (this._monthsParse = [], this._longMonthsParse = [], this._shortMonthsParse = [], r = 0; 12 > r; ++r) a = g([2e3, r]), this._shortMonthsParse[r] = this.monthsShort(a, '').toLocaleLowerCase(), this._longMonthsParse[r] = this.months(a, '').toLocaleLowerCase();
-        return n ? 'MMM' === t ? (i = Tn.call(this._shortMonthsParse, o), -1 === i ? null : i) : (i = Tn.call(this._longMonthsParse, o), -1 === i ? null : i) : 'MMM' === t ? (i = Tn.call(this._shortMonthsParse, o), -1 !== i) ? i : (i = Tn.call(this._longMonthsParse, o), -1 === i ? null : i) : (i = Tn.call(this._longMonthsParse, o), -1 !== i) ? i : (i = Tn.call(this._shortMonthsParse, o), -1 === i ? null : i)
+        return n ? 'MMM' === t ? (i = Rn.call(this._shortMonthsParse, o), -1 === i ? null : i) : (i = Rn.call(this._longMonthsParse, o), -1 === i ? null : i) : 'MMM' === t ? (i = Rn.call(this._shortMonthsParse, o), -1 !== i) ? i : (i = Rn.call(this._longMonthsParse, o), -1 === i ? null : i) : (i = Rn.call(this._longMonthsParse, o), -1 !== i) ? i : (i = Rn.call(this._shortMonthsParse, o), -1 === i ? null : i)
       }
 
       function ie(e, t) {
@@ -9031,7 +9082,7 @@ module.exports = function (e) {
           r, i, a;
         if (!this._weekdaysParse)
           for (this._weekdaysParse = [], this._shortWeekdaysParse = [], this._minWeekdaysParse = [], r = 0; 7 > r; ++r) a = g([2e3, 1]).day(r), this._minWeekdaysParse[r] = this.weekdaysMin(a, '').toLocaleLowerCase(), this._shortWeekdaysParse[r] = this.weekdaysShort(a, '').toLocaleLowerCase(), this._weekdaysParse[r] = this.weekdays(a, '').toLocaleLowerCase();
-        return n ? 'dddd' === t ? (i = Tn.call(this._weekdaysParse, o), -1 === i ? null : i) : 'ddd' === t ? (i = Tn.call(this._shortWeekdaysParse, o), -1 === i ? null : i) : (i = Tn.call(this._minWeekdaysParse, o), -1 === i ? null : i) : 'dddd' === t ? (i = Tn.call(this._weekdaysParse, o), -1 !== i) ? i : (i = Tn.call(this._shortWeekdaysParse, o), -1 !== i) ? i : (i = Tn.call(this._minWeekdaysParse, o), -1 === i ? null : i) : 'ddd' === t ? (i = Tn.call(this._shortWeekdaysParse, o), -1 !== i) ? i : (i = Tn.call(this._weekdaysParse, o), -1 !== i) ? i : (i = Tn.call(this._minWeekdaysParse, o), -1 === i ? null : i) : (i = Tn.call(this._minWeekdaysParse, o), -1 !== i) ? i : (i = Tn.call(this._weekdaysParse, o), -1 !== i) ? i : (i = Tn.call(this._shortWeekdaysParse, o), -1 === i ? null : i)
+        return n ? 'dddd' === t ? (i = Rn.call(this._weekdaysParse, o), -1 === i ? null : i) : 'ddd' === t ? (i = Rn.call(this._shortWeekdaysParse, o), -1 === i ? null : i) : (i = Rn.call(this._minWeekdaysParse, o), -1 === i ? null : i) : 'dddd' === t ? (i = Rn.call(this._weekdaysParse, o), -1 !== i) ? i : (i = Rn.call(this._shortWeekdaysParse, o), -1 !== i) ? i : (i = Rn.call(this._minWeekdaysParse, o), -1 === i ? null : i) : 'ddd' === t ? (i = Rn.call(this._shortWeekdaysParse, o), -1 !== i) ? i : (i = Rn.call(this._weekdaysParse, o), -1 !== i) ? i : (i = Rn.call(this._minWeekdaysParse, o), -1 === i ? null : i) : (i = Rn.call(this._minWeekdaysParse, o), -1 !== i) ? i : (i = Rn.call(this._weekdaysParse, o), -1 !== i) ? i : (i = Rn.call(this._shortWeekdaysParse, o), -1 === i ? null : i)
       }
 
       function Se() {
@@ -9070,7 +9121,7 @@ module.exports = function (e) {
         for (var t = 0, n, o, r, i; t < e.length;) {
           for (i = Ee(e[t]).split('-'), n = i.length, o = Ee(e[t + 1]), o = o ? o.split('-') : null; 0 < n;) {
             if (r = ke(i.slice(0, n).join('-')), r) return r;
-            if (o && o.length >= n && R(i, o, !0) >= n - 1) break;
+            if (o && o.length >= n && T(i, o, !0) >= n - 1) break;
             n--
           }
           t++
@@ -9092,10 +9143,10 @@ module.exports = function (e) {
 
       function _e(e, t) {
         var n;
-        return e && (n = p(t) ? Te(e) : Re(e, t), n ? Gn = n : 'undefined' != typeof console && console.warn && console.warn('Locale ' + e + ' not found. Did you forget to load it?')), Gn._abbr
+        return e && (n = p(t) ? Re(e) : Te(e, t), n ? Gn = n : 'undefined' != typeof console && console.warn && console.warn('Locale ' + e + ' not found. Did you forget to load it?')), Gn._abbr
       }
 
-      function Re(e, t) {
+      function Te(e, t) {
         if (null !== t) {
           var n = In,
             o;
@@ -9103,18 +9154,18 @@ module.exports = function (e) {
           else if (null != t.parentLocale)
             if (null != Ln[t.parentLocale]) n = Ln[t.parentLocale]._config;
             else if (o = ke(t.parentLocale), null != o) n = o._config;
-          else return Bn[t.parentLocale] || (Bn[t.parentLocale] = []), Bn[t.parentLocale].push({
+          else return Fn[t.parentLocale] || (Fn[t.parentLocale] = []), Fn[t.parentLocale].push({
             name: e,
             config: t
           }), null;
-          return Ln[e] = new A(D(n, t)), Bn[e] && Bn[e].forEach(function (e) {
-            Re(e.name, e.config)
+          return Ln[e] = new A(D(n, t)), Fn[e] && Fn[e].forEach(function (e) {
+            Te(e.name, e.config)
           }), _e(e), Ln[e]
         }
         return delete Ln[e], null
       }
 
-      function Te(e) {
+      function Re(e) {
         var t;
         if (e && e._locale && e._locale._abbr && (e = e._locale._abbr), !e) return Gn;
         if (!n(e)) {
@@ -9155,10 +9206,10 @@ module.exports = function (e) {
 
       function Ie(e) {
         var t, n, o, r, i, a, s, d;
-        if (t = e._w, null != t.GG || null != t.W || null != t.E) i = 1, a = 4, n = Me(t.GG, e._a[yn], ue(Xe(), 1, 4).year), o = Me(t.W, 1), r = Me(t.E, 1), (1 > r || 7 < r) && (d = !0);
+        if (t = e._w, null != t.GG || null != t.W || null != t.E) i = 1, a = 4, n = Me(t.GG, e._a[yn], ue(Qe(), 1, 4).year), o = Me(t.W, 1), r = Me(t.E, 1), (1 > r || 7 < r) && (d = !0);
         else {
           i = e._locale._week.dow, a = e._locale._week.doy;
-          var l = ue(Xe(), i, a);
+          var l = ue(Qe(), i, a);
           n = Me(t.gg, e._a[yn], l.year), o = Me(t.w, l.week), null == t.d ? null == t.e ? r = i : (r = t.e + i, (0 > t.e || 6 < t.e) && (d = !0)) : (r = t.d, (0 > r || 6 < r) && (d = !0))
         }
         1 > o || o > me(n, i, a) ? S(e)._overflowWeeks = !0 : null == d ? (s = pe(n, o, r, i, a), e._a[yn] = s.year, e._dayOfYear = s.dayOfYear) : S(e)._overflowWeekday = !0
@@ -9166,7 +9217,7 @@ module.exports = function (e) {
 
       function Le(e) {
         var t = e._i,
-          n = Fn.exec(t) || Nn.exec(t),
+          n = Bn.exec(t) || Nn.exec(t),
           o, r, i, a, s, d;
         if (n) {
           for (S(e).iso = !0, o = 0, r = Hn.length; o < r; o++)
@@ -9189,12 +9240,12 @@ module.exports = function (e) {
         } else e._isValid = !1
       }
 
-      function Be(e, t, n, o, r, i) {
-        var a = [Fe(e), Pn.indexOf(t), parseInt(n, 10), parseInt(o, 10), parseInt(r, 10)];
+      function Fe(e, t, n, o, r, i) {
+        var a = [Be(e), Pn.indexOf(t), parseInt(n, 10), parseInt(o, 10), parseInt(r, 10)];
         return i && a.push(parseInt(i, 10)), a
       }
 
-      function Fe(e) {
+      function Be(e) {
         var t = parseInt(e, 10);
         return 49 >= t ? 2e3 + t : 999 >= t ? 1900 + t : t
       }
@@ -9223,7 +9274,7 @@ module.exports = function (e) {
       function ze(e) {
         var t = Wn.exec(Ne(e._i));
         if (t) {
-          var n = Be(t[4], t[3], t[2], t[5], t[6], t[7]);
+          var n = Fe(t[4], t[3], t[2], t[5], t[6], t[7]);
           if (!Oe(t[1], n, e)) return;
           e._a = n, e._tzm = He(t[8], t[9], t[10]), e._d = le.apply(null, e._a), e._d.setUTCMinutes(e._d.getUTCMinutes() - e._tzm), S(e).rfc2822 = !0
         } else e._isValid = !1
@@ -9247,7 +9298,7 @@ module.exports = function (e) {
           o = n.length,
           r = 0,
           a, i, s, d, l;
-        for (s = V(e._f, e._locale).match(qt) || [], a = 0; a < s.length; a++) d = s[a], i = (n.match(K(d, e)) || [])[0], i && (l = n.substr(0, n.indexOf(i)), 0 < l.length && S(e).unusedInput.push(l), n = n.slice(n.indexOf(i) + i.length), r += i.length), Xt[d] ? (i ? S(e).empty = !1 : S(e).unusedTokens.push(d), X(d, i, e)) : e._strict && !i && S(e).unusedTokens.push(d);
+        for (s = V(e._f, e._locale).match(qt) || [], a = 0; a < s.length; a++) d = s[a], i = (n.match(K(d, e)) || [])[0], i && (l = n.substr(0, n.indexOf(i)), 0 < l.length && S(e).unusedInput.push(l), n = n.slice(n.indexOf(i) + i.length), r += i.length), Qt[d] ? (i ? S(e).empty = !1 : S(e).unusedTokens.push(d), Q(d, i, e)) : e._strict && !i && S(e).unusedTokens.push(d);
         S(e).charsLeftOver = o - r, 0 < n.length && S(e).unusedInput.push(n), 12 >= e._a[bn] && !0 === S(e).bigHour && 0 < e._a[bn] && (S(e).bigHour = void 0), S(e).parsedDateParts = e._a.slice(0), S(e).meridiem = e._meridiem, e._a[bn] = Ve(e._locale, e._a[bn], e._meridiem), Ae(e), Pe(e)
       }
 
@@ -9265,7 +9316,7 @@ module.exports = function (e) {
 
       function Ke(e) {
         if (!e._d) {
-          var t = B(e._i);
+          var t = F(e._i);
           e._a = m([t.year, t.month, t.day || t.date, t.hour, t.minute, t.second, t.millisecond], function (e) {
             return e && parseInt(e, 10)
           }), Ae(e)
@@ -9280,7 +9331,7 @@ module.exports = function (e) {
       function qe(e) {
         var t = e._i,
           o = e._f;
-        return (e._locale = e._locale || Te(e._l), null === t || void 0 === o && '' === t) ? b({
+        return (e._locale = e._locale || Re(e._l), null === t || void 0 === o && '' === t) ? b({
           nullInput: !0
         }) : ('string' == typeof t && (e._i = t = e._locale.preparse(t)), w(t)) ? new E(Pe(t)) : (u(t) ? e._d = t : n(o) ? Ge(e) : o ? We(e) : Ye(e), C(e) || (e._d = null), e)
       }
@@ -9292,25 +9343,25 @@ module.exports = function (e) {
         }), Ae(e)) : d(o) ? Ke(e) : c(o) ? e._d = new Date(o) : t.createFromInputFallback(e)
       }
 
-      function Qe(e, t, o, r, i) {
+      function Xe(e, t, o, r, i) {
         var a = {};
         return (!0 === o || !1 === o) && (r = o, o = void 0), (d(e) && l(e) || n(e) && 0 === e.length) && (e = void 0), a._isAMomentObject = !0, a._useUTC = a._isUTC = i, a._l = o, a._i = e, a._f = t, a._strict = r, je(a)
       }
 
-      function Xe(e, t, n, o) {
-        return Qe(e, t, n, o, !1)
+      function Qe(e, t, n, o) {
+        return Xe(e, t, n, o, !1)
       }
 
       function $e(e, t) {
         var o, r;
-        if (1 === t.length && n(t[0]) && (t = t[0]), !t.length) return Xe();
+        if (1 === t.length && n(t[0]) && (t = t[0]), !t.length) return Qe();
         for (o = t[0], r = 1; r < t.length; ++r)(!t[r].isValid() || t[r][e](o)) && (o = t[r]);
         return o
       }
 
       function Ze(e) {
         for (var t in e)
-          if (-1 === Tn.call(qn, t) || null != e[t] && isNaN(e[t])) return !1;
+          if (-1 === Rn.call(qn, t) || null != e[t] && isNaN(e[t])) return !1;
         for (var n = !1, o = 0; o < qn.length; ++o)
           if (e[qn[o]]) {
             if (n) return !1;
@@ -9319,7 +9370,7 @@ module.exports = function (e) {
       }
 
       function Je(e) {
-        var t = B(e),
+        var t = F(e),
           n = t.year || 0,
           o = t.quarter || 0,
           r = t.month || 0,
@@ -9329,7 +9380,7 @@ module.exports = function (e) {
           d = t.minute || 0,
           l = t.second || 0,
           c = t.millisecond || 0;
-        this._isValid = Ze(t), this._milliseconds = +c + 1e3 * l + 6e4 * d + 60 * (60 * (1e3 * s)), this._days = +a + 7 * i, this._months = +r + 3 * o + 12 * n, this._data = {}, this._locale = Te(), this._bubble()
+        this._isValid = Ze(t), this._milliseconds = +c + 1e3 * l + 6e4 * d + 60 * (60 * (1e3 * s)), this._days = +a + 7 * i, this._months = +r + 3 * o + 12 * n, this._data = {}, this._locale = Re(), this._bubble()
       }
 
       function et(e) {
@@ -9359,7 +9410,7 @@ module.exports = function (e) {
 
       function rt(e, n) {
         var o, r;
-        return n._isUTC ? (o = n.clone(), r = (w(e) || u(e) ? e.valueOf() : Xe(e).valueOf()) - o.valueOf(), o._d.setTime(o._d.valueOf() + r), t.updateOffset(o, !1), o) : Xe(e).local()
+        return n._isUTC ? (o = n.clone(), r = (w(e) || u(e) ? e.valueOf() : Qe(e).valueOf()) - o.valueOf(), o._d.setTime(o._d.valueOf() + r), t.updateOffset(o, !1), o) : Qe(e).local()
       }
 
       function it(e) {
@@ -9378,14 +9429,14 @@ module.exports = function (e) {
           ms: e._milliseconds,
           d: e._days,
           M: e._months
-        } : c(e) ? (n = {}, t ? n[t] = e : n.milliseconds = e) : (o = Qn.exec(e)) ? (r = '-' === o[1] ? -1 : 1, n = {
+        } : c(e) ? (n = {}, t ? n[t] = e : n.milliseconds = e) : (o = Xn.exec(e)) ? (r = '-' === o[1] ? -1 : 1, n = {
           y: 0,
           d: _(o[Cn]) * r,
           h: _(o[bn]) * r,
           m: _(o[vn]) * r,
           s: _(o[En]) * r,
           ms: _(tt(1e3 * o[wn])) * r
-        }) : (o = Xn.exec(e)) ? (r = '-' === o[1] ? -1 : 1, n = {
+        }) : (o = Qn.exec(e)) ? (r = '-' === o[1] ? -1 : 1, n = {
           y: dt(o[2], r),
           M: dt(o[3], r),
           w: dt(o[4], r),
@@ -9393,7 +9444,7 @@ module.exports = function (e) {
           h: dt(o[6], r),
           m: dt(o[7], r),
           s: dt(o[8], r)
-        }) : null == n ? n = {} : 'object' == typeof n && ('from' in n || 'to' in n) && (a = ct(Xe(n.from), Xe(n.to)), n = {}, n.ms = a.milliseconds, n.M = a.months), i = new Je(n), et(e) && h(e, '_locale') && (i._locale = e._locale), i
+        }) : null == n ? n = {} : 'object' == typeof n && ('from' in n || 'to' in n) && (a = ct(Qe(n.from), Qe(n.to)), n = {}, n.ms = a.milliseconds, n.M = a.months), i = new Je(n), et(e) && h(e, '_locale') && (i._locale = e._locale), i
       }
 
       function dt(e, t) {
@@ -9437,7 +9488,7 @@ module.exports = function (e) {
 
       function ht(e) {
         var t;
-        return void 0 === e ? this._locale._abbr : (t = Te(e), null != t && (this._locale = t), this)
+        return void 0 === e ? this._locale._abbr : (t = Re(e), null != t && (this._locale = t), this)
       }
 
       function ft() {
@@ -9480,7 +9531,7 @@ module.exports = function (e) {
       }
 
       function kt(e, t, n, o) {
-        var r = Te(),
+        var r = Re(),
           i = g().set(o, t);
         return r[n](i, e)
       }
@@ -9493,9 +9544,9 @@ module.exports = function (e) {
         return o
       }
 
-      function Rt(e, t, n, o) {
+      function Tt(e, t, n, o) {
         'boolean' == typeof e ? (c(t) && (n = t, t = void 0), t = t || '') : (t = e, n = t, e = !1, c(t) && (n = t, t = void 0), t = t || '');
-        var r = Te(),
+        var r = Re(),
           a = e ? r._week.dow : 0;
         if (null != n) return kt(t, (n + a) % 7, o, 'day');
         var s = [],
@@ -9504,7 +9555,7 @@ module.exports = function (e) {
         return s
       }
 
-      function Tt(e, t, n, o) {
+      function Rt(e, t, n, o) {
         var r = st(t, n);
         return e._milliseconds += o * r._milliseconds, e._days += o * r._days, e._months += o * r._months, e._bubble()
       }
@@ -9549,11 +9600,11 @@ module.exports = function (e) {
         return p[2] = t, p[3] = 0 < +e, p[4] = n, It.apply(null, p)
       }
 
-      function Bt(e) {
+      function Ft(e) {
         return void 0 === e ? Po : 'function' == typeof e && (Po = e, !0)
       }
 
-      function Ft(e) {
+      function Bt(e) {
         return (0 < e) - (0 > e) || +e
       }
 
@@ -9573,9 +9624,9 @@ module.exports = function (e) {
           s = this.asSeconds();
         if (!s) return 'P0D';
         var m = 0 > s ? '-' : '',
-          h = Ft(this._months) === Ft(s) ? '' : '-',
-          f = Ft(this._days) === Ft(s) ? '' : '-',
-          g = Ft(this._milliseconds) === Ft(s) ? '' : '-';
+          h = Bt(this._months) === Bt(s) ? '' : '-',
+          f = Bt(this._days) === Bt(s) ? '' : '-',
+          g = Bt(this._milliseconds) === Bt(s) ? '' : '-';
         return m + 'P' + (a ? h + a + 'Y' : '') + (d ? h + d + 'M' : '') + (l ? f + l + 'D' : '') + (c || p || u ? 'T' : '') + (c ? g + c + 'H' : '') + (p ? g + p + 'M' : '') + (u ? g + u + 'S' : '')
       }
       var Ot, Ht;
@@ -9599,8 +9650,8 @@ module.exports = function (e) {
         jt = {},
         qt = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g,
         Yt = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g,
-        Qt = {},
         Xt = {},
+        Qt = {},
         $t = /\d/,
         Zt = /\d\d/,
         Jt = /\d{3}/,
@@ -9634,7 +9685,7 @@ module.exports = function (e) {
         return 9999 >= e ? '' + e : '+' + e
       }), H(0, ['YY', 2], 0, function () {
         return this.year() % 100
-      }), H(0, ['YYYY', 4], 0, 'year'), H(0, ['YYYYY', 5], 0, 'year'), H(0, ['YYYYYY', 6, !0], 0, 'year'), I('year', 'y'), F('year', 1), G('Y', cn), G('YY', nn, Zt), G('YYYY', sn, en), G('YYYYY', dn, tn), G('YYYYYY', dn, tn), Y(['YYYYY', 'YYYYYY'], yn), Y('YYYY', function (e, n) {
+      }), H(0, ['YYYY', 4], 0, 'year'), H(0, ['YYYYY', 5], 0, 'year'), H(0, ['YYYYYY', 6, !0], 0, 'year'), I('year', 'y'), B('year', 1), G('Y', cn), G('YY', nn, Zt), G('YYYY', sn, en), G('YYYYY', dn, tn), G('YYYYYY', dn, tn), Y(['YYYYY', 'YYYYYY'], yn), Y('YYYY', function (e, n) {
         n[yn] = 2 === e.length ? t.parseTwoDigitYear(e) : _(e)
       }), Y('YY', function (e, n) {
         n[yn] = t.parseTwoDigitYear(e)
@@ -9643,9 +9694,9 @@ module.exports = function (e) {
       }), t.parseTwoDigitYear = function (e) {
         return _(e) + (68 < _(e) ? 1900 : 2e3)
       };
-      var Rn = J('FullYear', !0),
-        Tn;
-      Tn = Array.prototype.indexOf ? Array.prototype.indexOf : function (e) {
+      var Tn = J('FullYear', !0),
+        Rn;
+      Rn = Array.prototype.indexOf ? Array.prototype.indexOf : function (e) {
         var t;
         for (t = 0; t < this.length; ++t)
           if (this[t] === e) return t;
@@ -9656,7 +9707,7 @@ module.exports = function (e) {
         return this.localeData().monthsShort(this, e)
       }), H('MMMM', 0, 0, function (e) {
         return this.localeData().months(this, e)
-      }), I('month', 'M'), F('month', 8), G('M', nn), G('MM', nn, Zt), G('MMM', function (e, t) {
+      }), I('month', 'M'), B('month', 8), G('M', nn), G('MM', nn, Zt), G('MMM', function (e, t) {
         return t.monthsShortRegex(e)
       }), G('MMMM', function (e, t) {
         return t.monthsRegex(e)
@@ -9668,7 +9719,7 @@ module.exports = function (e) {
       });
       var xn = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/,
         Pn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-      H('w', ['ww', 2], 'wo', 'week'), H('W', ['WW', 2], 'Wo', 'isoWeek'), I('week', 'w'), I('isoWeek', 'W'), F('week', 5), F('isoWeek', 5), G('w', nn), G('ww', nn, Zt), G('W', nn), G('WW', nn, Zt), Q(['w', 'ww', 'W', 'WW'], function (e, t, n, o) {
+      H('w', ['ww', 2], 'wo', 'week'), H('W', ['WW', 2], 'Wo', 'isoWeek'), I('week', 'w'), I('isoWeek', 'W'), B('week', 5), B('isoWeek', 5), G('w', nn), G('ww', nn, Zt), G('W', nn), G('WW', nn, Zt), X(['w', 'ww', 'W', 'WW'], function (e, t, n, o) {
         t[o.substr(0, 1)] = _(e)
       });
       H('d', 0, 'do', 'day'), H('dd', 0, 0, function (e) {
@@ -9677,16 +9728,16 @@ module.exports = function (e) {
         return this.localeData().weekdaysShort(this, e)
       }), H('dddd', 0, 0, function (e) {
         return this.localeData().weekdays(this, e)
-      }), H('e', 0, 0, 'weekday'), H('E', 0, 0, 'isoWeekday'), I('day', 'd'), I('weekday', 'e'), I('isoWeekday', 'E'), F('day', 11), F('weekday', 11), F('isoWeekday', 11), G('d', nn), G('e', nn), G('E', nn), G('dd', function (e, t) {
+      }), H('e', 0, 0, 'weekday'), H('E', 0, 0, 'isoWeekday'), I('day', 'd'), I('weekday', 'e'), I('isoWeekday', 'E'), B('day', 11), B('weekday', 11), B('isoWeekday', 11), G('d', nn), G('e', nn), G('E', nn), G('dd', function (e, t) {
         return t.weekdaysMinRegex(e)
       }), G('ddd', function (e, t) {
         return t.weekdaysShortRegex(e)
       }), G('dddd', function (e, t) {
         return t.weekdaysRegex(e)
-      }), Q(['dd', 'ddd', 'dddd'], function (e, t, n, o) {
+      }), X(['dd', 'ddd', 'dddd'], function (e, t, n, o) {
         var r = n._locale.weekdaysParse(e, o, n._strict);
         null == r ? S(n).invalidWeekday = e : t.d = r
-      }), Q(['d', 'e', 'E'], function (e, t, n, o) {
+      }), X(['d', 'e', 'E'], function (e, t, n, o) {
         t[o] = _(e)
       });
       var Mn = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -9700,7 +9751,7 @@ module.exports = function (e) {
         return '' + this.hours() + O(this.minutes(), 2)
       }), H('Hmmss', 0, 0, function () {
         return '' + this.hours() + O(this.minutes(), 2) + O(this.seconds(), 2)
-      }), be('a', !0), be('A', !1), I('hour', 'h'), F('hour', 13), G('a', ve), G('A', ve), G('H', nn), G('h', nn), G('k', nn), G('HH', nn, Zt), G('hh', nn, Zt), G('kk', nn, Zt), G('hmm', on), G('hmmss', rn), G('Hmm', on), G('Hmmss', rn), Y(['H', 'HH'], bn), Y(['k', 'kk'], function (e, t) {
+      }), be('a', !0), be('A', !1), I('hour', 'h'), B('hour', 13), G('a', ve), G('A', ve), G('H', nn), G('h', nn), G('k', nn), G('HH', nn, Zt), G('hh', nn, Zt), G('kk', nn, Zt), G('hmm', on), G('hmmss', rn), G('Hmm', on), G('Hmmss', rn), Y(['H', 'HH'], bn), Y(['k', 'kk'], function (e, t) {
         var n = _(e);
         t[bn] = 24 === n ? 0 : n
       }), Y(['a', 'A'], function (e, t, n) {
@@ -9772,8 +9823,8 @@ module.exports = function (e) {
           meridiemParse: Dn
         },
         Ln = {},
-        Bn = {},
-        Fn = /^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
+        Fn = {},
+        Bn = /^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
         Nn = /^\s*((?:[+-]\d{6}|\d{4})(?:\d\d\d\d|W\d\d\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?:\d\d(?:\d\d(?:[.,]\d+)?)?)?)([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/,
         On = /Z|[+-]\d\d(?::?\d\d)?/,
         Hn = [
@@ -9819,11 +9870,11 @@ module.exports = function (e) {
         e._d = new Date(e._i + (e._useUTC ? ' UTC' : ''))
       }), t.ISO_8601 = function () {}, t.RFC_2822 = function () {};
       var Kn = x('moment().min is deprecated, use moment.max instead. http://momentjs.com/guides/#/warnings/min-max/', function () {
-          var e = Xe.apply(null, arguments);
+          var e = Qe.apply(null, arguments);
           return this.isValid() && e.isValid() ? e < this ? this : e : b()
         }),
         jn = x('moment().max is deprecated, use moment.min instead. http://momentjs.com/guides/#/warnings/min-max/', function () {
-          var e = Xe.apply(null, arguments);
+          var e = Qe.apply(null, arguments);
           return this.isValid() && e.isValid() ? e > this ? this : e : b()
         }),
         qn = ['year', 'quarter', 'month', 'week', 'day', 'hour', 'minute', 'second', 'millisecond'];
@@ -9832,8 +9883,8 @@ module.exports = function (e) {
       });
       var Yn = /([\+\-]|\d\d)/gi;
       t.updateOffset = function () {};
-      var Qn = /^(\-|\+)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)(\.\d*)?)?$/,
-        Xn = /^(-|\+)?P(?:([-+]?[0-9,.]*)Y)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)W)?(?:([-+]?[0-9,.]*)D)?(?:T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?)?$/;
+      var Xn = /^(\-|\+)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)(\.\d*)?)?$/,
+        Qn = /^(-|\+)?P(?:([-+]?[0-9,.]*)Y)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)W)?(?:([-+]?[0-9,.]*)D)?(?:T(?:([-+]?[0-9,.]*)H)?(?:([-+]?[0-9,.]*)M)?(?:([-+]?[0-9,.]*)S)?)?$/;
       st.fn = Je.prototype, st.invalid = function () {
         return st(NaN)
       };
@@ -9851,23 +9902,23 @@ module.exports = function (e) {
         return this.weekYear() % 100
       }), H(0, ['GG', 2], 0, function () {
         return this.isoWeekYear() % 100
-      }), Ct('gggg', 'weekYear'), Ct('ggggg', 'weekYear'), Ct('GGGG', 'isoWeekYear'), Ct('GGGGG', 'isoWeekYear'), I('weekYear', 'gg'), I('isoWeekYear', 'GG'), F('weekYear', 1), F('isoWeekYear', 1), G('G', cn), G('g', cn), G('GG', nn, Zt), G('gg', nn, Zt), G('GGGG', sn, en), G('gggg', sn, en), G('GGGGG', dn, tn), G('ggggg', dn, tn), Q(['gggg', 'ggggg', 'GGGG', 'GGGGG'], function (e, t, n, o) {
+      }), Ct('gggg', 'weekYear'), Ct('ggggg', 'weekYear'), Ct('GGGG', 'isoWeekYear'), Ct('GGGGG', 'isoWeekYear'), I('weekYear', 'gg'), I('isoWeekYear', 'GG'), B('weekYear', 1), B('isoWeekYear', 1), G('G', cn), G('g', cn), G('GG', nn, Zt), G('gg', nn, Zt), G('GGGG', sn, en), G('gggg', sn, en), G('GGGGG', dn, tn), G('ggggg', dn, tn), X(['gggg', 'ggggg', 'GGGG', 'GGGGG'], function (e, t, n, o) {
         t[o.substr(0, 2)] = _(e)
-      }), Q(['gg', 'GG'], function (e, n, o, r) {
+      }), X(['gg', 'GG'], function (e, n, o, r) {
         n[r] = t.parseTwoDigitYear(e)
-      }), H('Q', 0, 'Qo', 'quarter'), I('quarter', 'Q'), F('quarter', 7), G('Q', $t), Y('Q', function (e, t) {
+      }), H('Q', 0, 'Qo', 'quarter'), I('quarter', 'Q'), B('quarter', 7), G('Q', $t), Y('Q', function (e, t) {
         t[Sn] = 3 * (_(e) - 1)
-      }), H('D', ['DD', 2], 'Do', 'date'), I('date', 'D'), F('date', 9), G('D', nn), G('DD', nn, Zt), G('Do', function (e, t) {
+      }), H('D', ['DD', 2], 'Do', 'date'), I('date', 'D'), B('date', 9), G('D', nn), G('DD', nn, Zt), G('Do', function (e, t) {
         return e ? t._dayOfMonthOrdinalParse || t._ordinalParse : t._dayOfMonthOrdinalParseLenient
       }), Y(['D', 'DD'], Cn), Y('Do', function (e, t) {
         t[Cn] = _(e.match(nn)[0])
       });
       var ro = J('Date', !0);
-      H('DDD', ['DDDD', 3], 'DDDo', 'dayOfYear'), I('dayOfYear', 'DDD'), F('dayOfYear', 4), G('DDD', an), G('DDDD', Jt), Y(['DDD', 'DDDD'], function (e, t, n) {
+      H('DDD', ['DDDD', 3], 'DDDo', 'dayOfYear'), I('dayOfYear', 'DDD'), B('dayOfYear', 4), G('DDD', an), G('DDDD', Jt), Y(['DDD', 'DDDD'], function (e, t, n) {
         n._dayOfYear = _(e)
-      }), H('m', ['mm', 2], 0, 'minute'), I('minute', 'm'), F('minute', 14), G('m', nn), G('mm', nn, Zt), Y(['m', 'mm'], vn);
+      }), H('m', ['mm', 2], 0, 'minute'), I('minute', 'm'), B('minute', 14), G('m', nn), G('mm', nn, Zt), Y(['m', 'mm'], vn);
       var io = J('Minutes', !1);
-      H('s', ['ss', 2], 0, 'second'), I('second', 's'), F('second', 15), G('s', nn), G('ss', nn, Zt), Y(['s', 'ss'], En);
+      H('s', ['ss', 2], 0, 'second'), I('second', 's'), B('second', 15), G('s', nn), G('ss', nn, Zt), Y(['s', 'ss'], En);
       var ao = J('Seconds', !1);
       H('S', 0, 0, function () {
         return ~~(this.millisecond() / 100)
@@ -9885,7 +9936,7 @@ module.exports = function (e) {
         return 1e5 * this.millisecond()
       }), H(0, ['SSSSSSSSS', 9], 0, function () {
         return 1e6 * this.millisecond()
-      }), I('millisecond', 'ms'), F('millisecond', 16), G('S', an, $t), G('SS', an, Zt), G('SSS', an, Jt);
+      }), I('millisecond', 'ms'), B('millisecond', 16), G('S', an, $t), G('SS', an, Zt), G('SSS', an, Jt);
       var so;
       for (so = 'SSSS'; 9 >= so.length; so += 'S') G(so, ln);
       for (so = 'S'; 9 >= so.length; so += 'S') Y(so, Et);
@@ -9893,11 +9944,11 @@ module.exports = function (e) {
       H('z', 0, 0, 'zoneAbbr'), H('zz', 0, 0, 'zoneName');
       var co = E.prototype;
       co.add = $n, co.calendar = function (e, n) {
-        var o = e || Xe(),
+        var o = e || Qe(),
           r = rt(o, this).startOf('day'),
           i = t.calendarFormat(this, r) || 'sameElse',
           a = n && (M(n[i]) ? n[i].call(this, o) : n[i]);
-        return this.format(a || this.localeData().calendar(i, this, Xe(o)))
+        return this.format(a || this.localeData().calendar(i, this, Qe(o)))
       }, co.clone = function () {
         return new E(this)
       }, co.diff = function (e, t, n) {
@@ -9913,35 +9964,35 @@ module.exports = function (e) {
         var n = W(this, e);
         return this.localeData().postformat(n)
       }, co.from = function (e, t) {
-        return this.isValid() && (w(e) && e.isValid() || Xe(e).isValid()) ? st({
+        return this.isValid() && (w(e) && e.isValid() || Qe(e).isValid()) ? st({
           to: this,
           from: e
         }).locale(this.locale()).humanize(!t) : this.localeData().invalidDate()
       }, co.fromNow = function (e) {
-        return this.from(Xe(), e)
+        return this.from(Qe(), e)
       }, co.to = function (e, t) {
-        return this.isValid() && (w(e) && e.isValid() || Xe(e).isValid()) ? st({
+        return this.isValid() && (w(e) && e.isValid() || Qe(e).isValid()) ? st({
           from: this,
           to: e
         }).locale(this.locale()).humanize(!t) : this.localeData().invalidDate()
       }, co.toNow = function (e) {
-        return this.to(Xe(), e)
+        return this.to(Qe(), e)
       }, co.get = function (e) {
         return e = L(e), M(this[e]) ? this[e]() : this
       }, co.invalidAt = function () {
         return S(this).overflow
       }, co.isAfter = function (e, t) {
-        var n = w(e) ? e : Xe(e);
+        var n = w(e) ? e : Qe(e);
         return !!(this.isValid() && n.isValid()) && (t = L(t) || 'millisecond', 'millisecond' === t ? this.valueOf() > n.valueOf() : n.valueOf() < this.clone().startOf(t).valueOf())
       }, co.isBefore = function (e, t) {
-        var n = w(e) ? e : Xe(e);
+        var n = w(e) ? e : Qe(e);
         return !!(this.isValid() && n.isValid()) && (t = L(t) || 'millisecond', 'millisecond' === t ? this.valueOf() < n.valueOf() : this.clone().endOf(t).valueOf() < n.valueOf())
       }, co.isBetween = function (e, t, n, o) {
-        var r = w(e) ? e : Xe(e),
-          i = w(t) ? t : Xe(t);
+        var r = w(e) ? e : Qe(e),
+          i = w(t) ? t : Qe(t);
         return !!(this.isValid() && r.isValid() && i.isValid()) && (o = o || '()', ('(' === o[0] ? this.isAfter(r, n) : !this.isBefore(r, n)) && (')' === o[1] ? this.isBefore(i, n) : !this.isAfter(i, n)))
       }, co.isSame = function (e, t) {
-        var n = w(e) ? e : Xe(e),
+        var n = w(e) ? e : Qe(e),
           o;
         return !!(this.isValid() && n.isValid()) && (t = L(t) || 'millisecond', 'millisecond' === t ? this.valueOf() === n.valueOf() : (o = n.valueOf(), this.clone().startOf(t).valueOf() <= o && o <= this.clone().endOf(t).valueOf()))
       }, co.isSameOrAfter = function (e, t) {
@@ -9954,7 +10005,7 @@ module.exports = function (e) {
         return f({}, S(this))
       }, co.set = function (e, t) {
         if ('object' == typeof e) {
-          e = B(e);
+          e = F(e);
           for (var n = N(e), o = 0; o < n.length; o++) this[n[o].unit](e[n[o].unit])
         } else if (e = L(e), M(this[e])) return this[e](t);
         return this
@@ -10009,7 +10060,7 @@ module.exports = function (e) {
           isUTC: this._isUTC,
           strict: this._strict
         }
-      }, co.year = Rn, co.isLeapYear = function () {
+      }, co.year = Tn, co.isLeapYear = function () {
         return Z(this.year())
       }, co.weekYear = function (e) {
         return bt.call(this, e, this.week(), this.weekday(), this.localeData()._week.dow, this.localeData()._week.doy)
@@ -10070,7 +10121,7 @@ module.exports = function (e) {
         }
         return this
       }, co.hasAlignedHourOffset = function (e) {
-        return !!this.isValid() && (e = e ? Xe(e).utcOffset() : 0, 0 == (this.utcOffset() - e) % 60)
+        return !!this.isValid() && (e = e ? Qe(e).utcOffset() : 0, 0 == (this.utcOffset() - e) % 60)
       }, co.isDST = function () {
         return this.utcOffset() > this.clone().month(0).utcOffset() || this.utcOffset() > this.clone().month(5).utcOffset()
       }, co.isLocal = function () {
@@ -10081,14 +10132,14 @@ module.exports = function (e) {
         return this._isUTC ? 'UTC' : ''
       }, co.zoneName = function () {
         return this._isUTC ? 'Coordinated Universal Time' : ''
-      }, co.dates = x('dates accessor is deprecated. Use date instead.', ro), co.months = x('months accessor is deprecated. Use month instead', ae), co.years = x('years accessor is deprecated. Use year instead', Rn), co.zone = x('moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/', function (e, t) {
+      }, co.dates = x('dates accessor is deprecated. Use date instead.', ro), co.months = x('months accessor is deprecated. Use month instead', ae), co.years = x('years accessor is deprecated. Use year instead', Tn), co.zone = x('moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/', function (e, t) {
         return null == e ? -this.utcOffset() : ('string' != typeof e && (e = -e), this.utcOffset(e, t), this)
       }), co.isDSTShifted = x('isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information', function () {
         if (!p(this._isDSTShifted)) return this._isDSTShifted;
         var e = {};
         if (v(e, this), e = qe(e), e._a) {
-          var t = e._isUTC ? g(e._a) : Xe(e._a);
-          this._isDSTShifted = this.isValid() && 0 < R(e._a, t.toArray())
+          var t = e._isUTC ? g(e._a) : Qe(e._a);
+          this._isDSTShifted = this.isValid() && 0 < T(e._a, t.toArray())
         } else this._isDSTShifted = !1;
         return this._isDSTShifted
       });
@@ -10171,7 +10222,7 @@ module.exports = function (e) {
             n = 1 === _(e % 100 / 10) ? 'th' : 1 == t ? 'st' : 2 == t ? 'nd' : 3 == t ? 'rd' : 'th';
           return e + n
         }
-      }), t.lang = x('moment.lang is deprecated. Use moment.locale instead.', _e), t.langData = x('moment.langData is deprecated. Use moment.localeData instead.', Te);
+      }), t.lang = x('moment.lang is deprecated. Use moment.locale instead.', _e), t.langData = x('moment.langData is deprecated. Use moment.localeData instead.', Re);
       var uo = r,
         mo = Dt('ms'),
         ho = Dt('s'),
@@ -10186,8 +10237,8 @@ module.exports = function (e) {
         wo = At('seconds'),
         ko = At('minutes'),
         _o = At('hours'),
-        Ro = At('days'),
-        To = At('months'),
+        To = At('days'),
+        Ro = At('months'),
         xo = At('years'),
         Po = o,
         Mo = {
@@ -10206,9 +10257,9 @@ module.exports = function (e) {
           var e = this._data;
           return this._milliseconds = uo(this._milliseconds), this._days = uo(this._days), this._months = uo(this._months), e.milliseconds = uo(e.milliseconds), e.seconds = uo(e.seconds), e.minutes = uo(e.minutes), e.hours = uo(e.hours), e.months = uo(e.months), e.years = uo(e.years), this
         }, Ao.add = function (e, t) {
-          return Tt(this, e, t, 1)
+          return Rt(this, e, t, 1)
         }, Ao.subtract = function (e, t) {
-          return Tt(this, e, t, -1)
+          return Rt(this, e, t, -1)
         }, Ao.as = function (e) {
           if (!this.isValid()) return NaN;
           var t = this._milliseconds,
@@ -10249,9 +10300,9 @@ module.exports = function (e) {
           return st(this)
         }, Ao.get = function (e) {
           return e = L(e), this.isValid() ? this[e + 's']() : NaN
-        }, Ao.milliseconds = Eo, Ao.seconds = wo, Ao.minutes = ko, Ao.hours = _o, Ao.days = Ro, Ao.weeks = function () {
+        }, Ao.milliseconds = Eo, Ao.seconds = wo, Ao.minutes = ko, Ao.hours = _o, Ao.days = To, Ao.weeks = function () {
           return k(this.days() / 7)
-        }, Ao.months = To, Ao.years = xo, Ao.humanize = function (e) {
+        }, Ao.months = Ro, Ao.years = xo, Ao.humanize = function (e) {
           if (!this.isValid()) return this.localeData().invalidDate();
           var t = this.localeData(),
             n = Lt(this, !e, t);
@@ -10263,7 +10314,7 @@ module.exports = function (e) {
         }), t.version = '2.24.0',
         function (e) {
           Ot = e
-        }(Xe), t.fn = co, t.min = function () {
+        }(Qe), t.fn = co, t.min = function () {
           var e = [].slice.call(arguments, 0);
           return $e('isBefore', e)
         }, t.max = function () {
@@ -10272,18 +10323,18 @@ module.exports = function (e) {
         }, t.now = function () {
           return Date.now ? Date.now() : +new Date
         }, t.utc = g, t.unix = function (e) {
-          return Xe(1e3 * e)
+          return Qe(1e3 * e)
         }, t.months = function (e, t) {
           return _t(e, t, 'months')
         }, t.isDate = u, t.locale = _e, t.invalid = b, t.duration = st, t.isMoment = w, t.weekdays = function (e, t, n) {
-          return Rt(e, t, n, 'weekdays')
+          return Tt(e, t, n, 'weekdays')
         }, t.parseZone = function () {
-          return Xe.apply(null, arguments).parseZone()
-        }, t.localeData = Te, t.isDuration = et, t.monthsShort = function (e, t) {
+          return Qe.apply(null, arguments).parseZone()
+        }, t.localeData = Re, t.isDuration = et, t.monthsShort = function (e, t) {
           return _t(e, t, 'monthsShort')
         }, t.weekdaysMin = function (e, t, n) {
-          return Rt(e, t, n, 'weekdaysMin')
-        }, t.defineLocale = Re, t.updateLocale = function (e, t) {
+          return Tt(e, t, n, 'weekdaysMin')
+        }, t.defineLocale = Te, t.updateLocale = function (e, t) {
           if (null != t) {
             var n = In,
               o, r;
@@ -10291,8 +10342,8 @@ module.exports = function (e) {
           } else null != Ln[e] && (null == Ln[e].parentLocale ? null != Ln[e] && delete Ln[e] : Ln[e] = Ln[e].parentLocale);
           return Ln[e]
         }, t.locales = xe, t.weekdaysShort = function (e, t, n) {
-          return Rt(e, t, n, 'weekdaysShort')
-        }, t.normalizeUnits = L, t.relativeTimeRounding = Bt, t.relativeTimeThreshold = function (e, t) {
+          return Tt(e, t, n, 'weekdaysShort')
+        }, t.normalizeUnits = L, t.relativeTimeRounding = Ft, t.relativeTimeThreshold = function (e, t) {
           return void 0 !== Mo[e] && (void 0 === t ? Mo[e] : (Mo[e] = t, 's' === e && (Mo.ss = t - 1), !0))
         }, t.calendarFormat = function (e, t) {
           var n = e.diff(t, 'days', !0);
@@ -10312,7 +10363,7 @@ module.exports = function (e) {
   }).call(this, n(130)(e))
 }, function (e, t, n) {
   e.exports = {
-    default: n(561),
+    default: n(566),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -10484,8 +10535,8 @@ module.exports = function (e) {
     value: !0
   });
   const l = n(0),
-    c = n(2),
-    p = n(118);
+    c = n(1),
+    p = n(119);
   t.truncateMid = o, t.truncatePath = r, t.extract = i;
   class u extends l.PureComponent {
     constructor(e) {
@@ -10601,7 +10652,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(592)), o(n(214))
+  }), o(n(597)), o(n(216))
 }, function (e, t) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -10616,7 +10667,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(620);
+  const o = n(626);
   t.structuralEquals = function (e, t) {
     return o(e, t, {
       strict: !0
@@ -10654,7 +10705,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(29),
-    r = n(118);
+    r = n(119);
   t.initializeNewRebaseFlow = function (e) {
     const {
       defaultBranch: t,
@@ -10708,38 +10759,40 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(671)), o(n(670)), o(n(669)), o(n(668)), o(n(64)), o(n(667)), o(n(247))
+  }), o(n(679)), o(n(678)), o(n(677)), o(n(676)), o(n(64)), o(n(675)), o(n(249))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(34),
-    r = n(167);
-  t.spawnAndComplete = function (e, t, n, i, a) {
-    const s = `${n}: git ${e.join(' ')}`;
-    return r.measure(s, () => new Promise((n, r) => {
-      const s = o.GitProcess.spawn(e, t);
-      let d = 0,
-        l = !1;
-      const c = [];
-      s.stdout.on('data', (e) => {
-        (!a || d < a) && (c.push(e), d += e.length), a && d >= a && !l && (s.kill(), l = !0)
+    r = n(167),
+    i = n(259);
+  t.spawnAndComplete = function (e, t, n, a, s) {
+    const d = `${n}: git ${e.join(' ')}`;
+    return r.measure(d, () => new Promise((r, d) => {
+      const l = o.GitProcess.spawn(e, t);
+      l.on('error', (e) => {
+        i.isErrnoException(e) ? d(new Error(`Failed to execute ${n}: ${e.code}`)) : d(e)
       });
-      const p = [];
-      s.stderr.on('data', (e) => {
-        p.push(e)
-      }), s.on('error', (e) => {
-        r(e)
-      }), s.on('close', (e, t) => {
-        const o = Buffer.concat(c, a ? Math.min(a, d) : d),
-          s = Buffer.concat(p),
-          l = i || new Set([0]);
-        return l.has(e) || t ? void n({
-          output: o,
-          error: s,
+      let c = 0,
+        p = !1;
+      const u = [];
+      l.stdout && l.stdout.on('data', (e) => {
+        (!s || c < s) && (u.push(e), c += e.length), s && c >= s && !p && (l.kill(), p = !0)
+      });
+      const m = [];
+      l.stderr && l.stderr.on('data', (e) => {
+        m.push(e)
+      }), l.on('close', (e, t) => {
+        const n = Buffer.concat(u, s ? Math.min(s, c) : c),
+          o = Buffer.concat(m),
+          i = a || new Set([0]);
+        return i.has(e) || t ? void r({
+          output: n,
+          error: o,
           exitCode: e
-        }) : void r(new Error(`Git returned an unexpected exit code '${e}' which should be handled by the caller.'`))
+        }) : void d(new Error(`Git returned an unexpected exit code '${e}' which should be handled by the caller.'`))
       })
     }))
   }
@@ -10764,8 +10817,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(11),
-    a = n(2);
+  const i = n(10),
+    a = n(1);
   t.getConfigValue = function (e, t) {
     return r(t, e.path)
   }, t.getGlobalConfigValue = o, t.setGlobalConfigValue = async function (e, t, n) {
@@ -10803,8 +10856,8 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(717)), o(n(716)), o(n(614)), o(n(233)), o(n(613)), o(n(612)), o(n(611)), o(n(610)), o(n(255)), o(n(607));
-  var r = n(231);
+  }), o(n(725)), o(n(724)), o(n(619)), o(n(235)), o(n(618)), o(n(617)), o(n(616)), o(n(615)), o(n(257)), o(n(612));
+  var r = n(233);
   t.UpstreamRemoteName = r.UpstreamRemoteName
 }, function (e, t, n) {
   'use strict';
@@ -10819,8 +10872,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(3),
-    a = n(60);
+  const i = n(2),
+    a = n(59);
   var s;
   (function (e) {
     e[e.Light = 0] = 'Light', e[e.Dark = 1] = 'Dark'
@@ -10842,13 +10895,13 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(721);
+  var o = n(729);
   t.StatsDatabase = o.StatsDatabase;
-  var r = n(720);
+  var r = n(728);
   t.StatsStore = r.StatsStore, t.SamplesURL = r.SamplesURL;
-  var i = n(280);
+  var i = n(282);
   t.getGUID = i.getGUID;
-  var a = n(605);
+  var a = n(610);
   t.hasSeenUsageStatsNote = a.hasSeenUsageStatsNote, t.markUsageStatsNoteSeen = a.markUsageStatsNoteSeen
 }, function (e, t, n) {
   'use strict';
@@ -10903,9 +10956,9 @@ module.exports = function (e) {
       default: e
     }
   }
-  var r = n(753),
+  var r = n(758),
     i = o(r),
-    a = n(294),
+    a = n(299),
     s = o(a);
   e.exports = {
     TransitionGroup: s.default,
@@ -10917,7 +10970,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6);
+    r = n(5);
   class i extends o.Component {
     constructor() {
       super(...arguments), this.onSubmit = (e) => {
@@ -10938,19 +10991,19 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(486);
+  var o = n(491);
   t.PushBranchCommits = o.PushBranchCommits;
-  var r = n(201);
+  var r = n(202);
   t.BranchList = r.BranchList;
-  var i = n(479);
+  var i = n(484);
   t.BranchesContainer = i.BranchesContainer;
-  var a = n(474);
+  var a = n(479);
   t.PullRequestBadge = a.PullRequestBadge;
-  var s = n(200);
+  var s = n(201);
   t.groupBranches = s.groupBranches;
-  var d = n(197);
+  var d = n(198);
   t.BranchListItem = d.BranchListItem;
-  var l = n(198);
+  var l = n(199);
   t.renderDefaultBranch = l.renderDefaultBranch
 }, function (e, t, n) {
   'use strict';
@@ -10959,8 +11012,8 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(14),
-    i = n(526),
-    a = n(3);
+    i = n(531),
+    a = n(2);
   class s extends o.Component {
     render() {
       const e = this.props.text;
@@ -11004,7 +11057,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6);
+    r = n(5);
   class i extends o.Component {
     render() {
       const e = r(this.props.className, 'ui-view'),
@@ -11016,7 +11069,7 @@ module.exports = function (e) {
   }
   t.UiView = i
 }, function (e, t, n) {
-  var o = n(217),
+  var o = n(219),
     r = n(156);
   e.exports = function (e) {
     return o(r(e))
@@ -11024,9 +11077,9 @@ module.exports = function (e) {
 }, function (e) {
   e.exports = {}
 }, function (e, t, n) {
-  var o = n(113),
+  var o = n(114),
     r = n(43),
-    i = n(226),
+    i = n(228),
     a = 'prototype',
     s = function (e, t, n) {
       var d = e & s.F,
@@ -11143,7 +11196,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = n(11),
+  const a = n(10),
     s = n(79);
   t.isCoAuthoredByTrailer = function (e) {
     return 'co-authored-by' === e.token.toLowerCase()
@@ -11169,9 +11222,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(264),
-    r = n(262),
-    i = n(260);
+  const o = n(267),
+    r = n(265),
+    i = n(263);
   t.parse = function (e) {
     return r.parse(e)
   };
@@ -11186,7 +11239,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(2);
+  const o = n(1);
   let r = 1;
   class i {
     constructor(e, t) {
@@ -11211,10 +11264,30 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(172),
-    i = n(13);
+  const r = n(173),
+    i = n(12);
   t.generateGravatarUrl = o, t.getAvatarWithEnterpriseFallback = function (e, t, n) {
     return n === i.getDotComAPIEndpoint() || null === t || 0 === t.length ? e : o(t)
+  }
+}, function (e, t, n) {
+  'use strict';
+
+  function o(e) {
+    if (window.crypto) {
+      const t = new Uint8Array(e);
+      return crypto.getRandomValues(t), Buffer.from(t.buffer)
+    }
+    return r.randomBytes(e)
+  }
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const r = n(173),
+    i = n(292);
+  t.uuid = function () {
+    return i({
+      random: o(16)
+    })
   }
 }, function (e, t) {
   function n(e, t, n) {
@@ -11319,7 +11392,7 @@ module.exports = function (e) {
     }
     return i
   };
-  var o = n(176),
+  var o = n(177),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -11330,7 +11403,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(225),
+  var o = n(227),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -11351,7 +11424,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(18),
-    i = n(1);
+    i = n(13);
   class a extends o.Component {
     constructor() {
       super(...arguments), this.onClick = (e) => {
@@ -11376,10 +11449,10 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(6),
-    a = n(3),
-    s = n(1),
-    d = n(118);
+    i = n(5),
+    a = n(2),
+    s = n(13),
+    d = n(119);
   var l;
   (function (e) {
     e[e.Standard = 0] = 'Standard', e[e.Subtitle = 1] = 'Subtitle'
@@ -11450,7 +11523,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(209)), o(n(498)), o(n(497))
+  }), o(n(211)), o(n(503)), o(n(502))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -11587,28 +11660,28 @@ module.exports = function (e) {
       }
       return !0
     }, t.computeScore = n = function (e, t, a) {
-      var s, d, l, u, S, C, v, E, i, w, k, _, R, n, T, x, P, M, D, A, I, L, B, F;
-      if (T = a.query, x = a.query_lw, w = e.length, R = T.length, s = h(e, t, T, x), d = s.score, s.count === R) return g(R, w, d, s.pos);
-      if (n = t.indexOf(x), -1 < n) return y(e, t, T, x, n, R, w);
-      for (A = Array(R), S = Array(R), F = b(R, w), k = r(p * R) + 5, _ = k, v = !0, i = -1; ++i < R;) A[i] = 0, S[i] = 0;
+      var s, d, l, u, S, C, v, E, i, w, k, _, T, n, R, x, P, M, D, A, I, L, F, B;
+      if (R = a.query, x = a.query_lw, w = e.length, T = R.length, s = h(e, t, R, x), d = s.score, s.count === T) return g(T, w, d, s.pos);
+      if (n = t.indexOf(x), -1 < n) return y(e, t, R, x, n, T, w);
+      for (A = Array(T), S = Array(T), B = b(T, w), k = r(p * T) + 5, _ = k, v = !0, i = -1; ++i < T;) A[i] = 0, S[i] = 0;
       for (E = -1; ++E < w;) {
         if (L = t[E], !L.charCodeAt(0) in a.charCodes) {
           if (v) {
-            for (i = -1; ++i < R;) S[i] = 0;
+            for (i = -1; ++i < T;) S[i] = 0;
             v = !1
           }
           continue
         }
-        for (M = 0, D = 0, u = 0, P = !0, v = !0, i = -1; ++i < R;) {
+        for (M = 0, D = 0, u = 0, P = !0, v = !0, i = -1; ++i < T;) {
           if (I = A[i], I > M && (M = I), C = 0, x[i] === L)
-            if (B = c(E, e, t), C = 0 < u ? u : f(e, t, T, x, E, i, B), l = D + m(E, i, B, d, C), l > M) M = l, _ = k;
+            if (F = c(E, e, t), C = 0 < u ? u : f(e, t, R, x, E, i, F), l = D + m(E, i, F, d, C), l > M) M = l, _ = k;
             else {
-              if (P && 0 >= --_) return o(M, A[R - 1]) * F;
+              if (P && 0 >= --_) return o(M, A[T - 1]) * B;
               P = !1
             } D = I, u = S[i], S[i] = C, A[i] = M
         }
       }
-      return M = A[R - 1], M * F
+      return M = A[T - 1], M * B
     }, t.isWordStart = c = function (e, t, n) {
       var o, r;
       return !(0 !== e) || (o = t[e], r = t[e - 1], d(r) || o !== n[e] && r === n[e - 1])
@@ -11735,11 +11808,11 @@ module.exports = function (e) {
     value: !0
   });
   const s = n(0),
-    d = n(6),
+    d = n(5),
     l = n(72),
     c = n(27),
     p = n(18),
-    u = n(547);
+    u = n(552);
   class m extends s.Component {
     constructor(e) {
       super(e), this.list = null, this.filterTextBox = null, this.renderRow = (e) => {
@@ -11918,7 +11991,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(282);
+  const o = n(284);
   class r extends o.default {
     constructor(e, t) {
       super(e), this.schemaVersion = t
@@ -11938,8 +12011,8 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(637));
-  var o = n(237);
+    }(n(643));
+  var o = n(239);
   t.ShellError = o.ShellError
 }, function (e, t) {
   'use strict';
@@ -11987,10 +12060,10 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(19),
-    r = n(59),
-    i = n(2),
+    r = n(58),
+    i = n(1),
     a = n(53),
-    s = n(678),
+    s = n(686),
     d = n(165);
   t.getTempFilePath = async function (e) {
     const t = i.join(r.tmpdir(), `${e}-`),
@@ -12146,7 +12219,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const p = n(3);
+  const p = n(2);
   t.menuFromElectronMenu = s, t.itemMayHaveAccessKey = l, t.itemIsSelectable = c, t.findItemByAccessKey = function (e, t) {
     const n = e.toLowerCase();
     for (const o of t)
@@ -12262,7 +12335,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(37).fromCallback,
-    r = n(707);
+    r = n(715);
   e.exports = {
     remove: o(r),
     removeSync: r.sync
@@ -12272,8 +12345,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(59),
-    r = n(719);
+  const o = n(58),
+    r = n(727);
   t.getOS = function () {
     return `Windows ${o.release()}`
   }, t.isMojaveOrLater = function () {
@@ -12358,7 +12431,7 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(47),
-    a = n(13);
+    a = n(12);
   t.lookupPreferredEmail = function (e) {
     const t = e.emails;
     if (0 === t.length) return null;
@@ -12372,30 +12445,10 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-
-  function o(e) {
-    if (window.crypto) {
-      const t = new Uint8Array(e);
-      return crypto.getRandomValues(t), Buffer.from(t.buffer)
-    }
-    return r.randomBytes(e)
-  }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(172),
-    i = n(742);
-  t.uuid = function () {
-    return i({
-      random: o(16)
-    })
-  }
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(13);
+  const o = n(12);
   class r {
     constructor(e, t, n, o, r, i, a) {
       this.login = e, this.endpoint = t, this.token = n, this.emails = o, this.avatarURL = r, this.id = i, this.name = a
@@ -12444,9 +12497,9 @@ module.exports = function (e) {
     a = n(53),
     s = n(26),
     d = n(131),
-    l = n(745),
-    c = n(744),
-    p = n(60);
+    l = n(750),
+    c = n(749),
+    p = n(59);
   var u;
   (function (e) {
     e[e.CheckingForUpdates = 0] = 'CheckingForUpdates', e[e.UpdateAvailable = 1] = 'UpdateAvailable', e[e.UpdateNotAvailable = 2] = 'UpdateNotAvailable', e[e.UpdateReady = 3] = 'UpdateReady'
@@ -12503,7 +12556,7 @@ module.exports = function (e) {
         this.userInitiatedUpdate = !e;
         try {
           r.setFeedURL({
-            url: 'https://central.github.com/api/deployments/desktop/desktop/latest?version=2.2.3&env=production'
+            url: 'https://central.github.com/api/deployments/desktop/desktop/latest?version=2.2.4&env=production'
           }), r.checkForUpdates()
         } catch (t) {
           this.emitError(t)
@@ -12517,7 +12570,7 @@ module.exports = function (e) {
   t.updateStore = new m
 }, function (e, t, n) {
   e.exports = {
-    default: n(564),
+    default: n(569),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -12525,7 +12578,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(2),
+  const o = n(1),
     r = n(83),
     i = 'last-clone-location';
   t.getDefaultDir = function () {
@@ -12540,7 +12593,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(421))
+    }(n(426))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -12589,7 +12642,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6);
+    r = n(5);
   class i extends o.Component {
     render() {
       const e = r('errors-component', this.props.className);
@@ -12609,9 +12662,9 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(6),
+    i = n(5),
     a = n(63),
-    s = n(3),
+    s = n(2),
     d = n(4);
   class l extends r.Component {
     render() {
@@ -12639,21 +12692,21 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(490))
+    }(n(495))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(3),
+    r = n(2),
     i = n(33),
     a = n(20),
     s = n(30),
-    d = n(1),
-    l = n(523),
-    c = n(513),
-    p = n(512),
+    d = n(13),
+    l = n(528),
+    c = n(518),
+    p = n(517),
     u = i.encodePathAsUrl(__dirname, 'static/ufo-alert.svg');
   class m extends o.Component {
     constructor(e) {
@@ -12702,7 +12755,7 @@ module.exports = function (e) {
       }, o.createElement('img', {
         src: u,
         className: 'blankslate-image'
-      }), o.createElement('p', null, 'The diff is too large to be displayed by default.', o.createElement('br', null), 'You can try to show it anyways, but performance may be negatively impacted.'), o.createElement(d.Button, {
+      }), o.createElement('p', null, 'The diff is too large to be displayed by default.', o.createElement('br', null), 'You can try to show it anyway, but performance may be negatively impacted.'), o.createElement(d.Button, {
         onClick: this.showLargeDiff
       }, 'Show diff'))
     }
@@ -12799,7 +12852,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(33),
-    i = n(532),
+    i = n(537),
     a = r.encodePathAsUrl(__dirname, 'static/default-avatar.png');
   class s extends o.Component {
     constructor(e) {
@@ -12872,7 +12925,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   (function () {
     var e, o, r, i, a, s, d, l, c, p;
-    p = n(111), s = p.isMatch, e = p.computeScore, l = p.scoreSize, c = 20, r = 2.5, t.score = function (t, n, o) {
+    p = n(112), s = p.isMatch, e = p.computeScore, l = p.scoreSize, c = 20, r = 2.5, t.score = function (t, n, o) {
       var r, i, a, l;
       return (i = o.preparedQuery, r = o.allowErrors, !(r || s(t, i.core_lw, i.core_up))) ? 0 : (l = t.toLowerCase(), a = e(t, l, i), a = d(t, l, a, o), Math.ceil(a))
     }, d = function (t, n, i, s) {
@@ -12907,7 +12960,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6);
+    r = n(5);
   class i extends o.Component {
     constructor(e) {
       super(e), this.wrapperRef = null, this.focusWithinChangedTimeoutId = null, this.onWrapperRef = (e) => {
@@ -12948,7 +13001,7 @@ module.exports = function (e) {
   }
   t.FocusContainer = i
 }, function (e, t, n) {
-  var o = n(216);
+  var o = n(218);
   e.exports = function (e) {
     if (!o(e)) throw TypeError(e + ' is not an object!');
     return e
@@ -12959,13 +13012,13 @@ module.exports = function (e) {
     return t.call(e).slice(8, -1)
   }
 }, function (e, t, n) {
-  n(582);
+  n(587);
   var o = n(90);
   o.NodeList = o.HTMLCollection = o.Array
 }, function (e, t, n) {
   var o = n(36).setDesc,
     r = n(151),
-    i = n(57)('toStringTag');
+    i = n(56)('toStringTag');
   e.exports = function (e, t, n) {
     e && !r(e = n ? e : e.prototype, i) && o(e, i, {
       configurable: !0,
@@ -12989,15 +13042,15 @@ module.exports = function (e) {
 }, function (e, t, n) {
   var o = n(36),
     r = n(152);
-  e.exports = n(220) ? function (e, t, n) {
+  e.exports = n(222) ? function (e, t, n) {
     return o.setDesc(e, t, r(1, n))
   } : function (e, t, n) {
     return e[t] = n, e
   }
 }, function (e, t, n) {
   'use strict';
-  var o = n(585)(!0);
-  n(223)(String, 'String', function (e) {
+  var o = n(590)(!0);
+  n(225)(String, 'String', function (e) {
     this._t = e + '', this._i = 0
   }, function () {
     var e = this._t,
@@ -13014,7 +13067,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   var o = n(91),
     r = n(43),
-    i = n(112);
+    i = n(113);
   e.exports = function (e, t) {
     var n = (r.Object || {})[e] || Object[e],
       a = {};
@@ -13109,7 +13162,7 @@ module.exports = function (e) {
     value: !0
   });
   const a = n(34),
-    s = n(11),
+    s = n(10),
     d = n(50);
   t.revRange = o, t.revSymmetricDifference = r, t.getAheadBehind = i, t.getBranchAheadBehind = async function (e, t) {
     if (t.type === d.BranchType.Remote) return null;
@@ -13154,9 +13207,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(11),
+  const r = n(10),
     i = n(30),
-    a = n(253),
+    a = n(255),
     s = n(20);
   t.stageFiles = async function (e, t) {
     const n = [],
@@ -13186,7 +13239,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(97),
-    i = n(249);
+    i = n(251);
   t.Commit = class {
     constructor(e, t, n, r, i, a, s, d) {
       this.sha = e, this.shortSha = t, this.summary = n, this.body = r, this.author = i, this.committer = a, this.parentSHAs = s, this.trailers = d, this.coAuthors = o(d), this.authoredByCommitter = this.author.name === this.committer.name && this.author.email === this.committer.email
@@ -13223,9 +13276,9 @@ module.exports = function (e) {
       !t.encoding && e instanceof i.Readable && (t.encoding = e._readableState.encoding)
     })
   }
-  var i = n(276),
-    a = n(171),
-    s = n(677);
+  var i = n(278),
+    a = n(172),
+    s = n(685);
   e.exports = function (t, n) {
     return e.exports.createStream(t, n)
   }, e.exports.createStream = function (e, t) {
@@ -13285,7 +13338,7 @@ module.exports = function (e) {
   }
   async function s(e, t, n, o, r) {
     const i = h.extname(t.path).toLowerCase();
-    return n.isBinary ? R.has(i) ? a(e, t, o) : {
+    return n.isBinary ? T.has(i) ? a(e, t, o) : {
       kind: S.DiffType.Binary
     } : {
       kind: S.DiffType.Text,
@@ -13302,7 +13355,7 @@ module.exports = function (e) {
   function l(e) {
     if (0 !== e.length) {
       const t = e.toString('utf-8'),
-        n = T.exec(t);
+        n = R.exec(t);
       if (n) {
         const e = S.parseLineEndingText(n[1]),
           t = S.parseLineEndingText(n[2]);
@@ -13349,19 +13402,19 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const h = n(2),
-    f = n(120),
-    g = n(252),
+  const h = n(1),
+    f = n(121),
+    g = n(254),
     y = n(20),
     S = n(30),
     C = n(78),
-    b = n(676),
-    v = n(251),
+    b = n(684),
+    v = n(253),
     E = n(164),
     w = 7e7,
     k = w / 16,
     _ = 5e3,
-    R = new Set(['.png', '.jpg', '.jpeg', '.gif', '.ico', '.webp', '.bmp']);
+    T = new Set(['.png', '.jpg', '.jpeg', '.gif', '.ico', '.webp', '.bmp']);
   t.getCommitDiff = async function (e, t, n, o = !1) {
     const r = ['log', n, ...(o ? ['-w'] : []), '-m', '-1', '--first-parent', '--patch-with-raw', '-z', '--no-color', '--', t.path];
     (t.status.kind === y.AppFileStatusKind.Renamed || t.status.kind === y.AppFileStatusKind.Copied) && r.push(t.status.oldPath);
@@ -13378,7 +13431,7 @@ module.exports = function (e) {
     } = await C.spawnAndComplete(o, e.path, 'getWorkingDirectoryDiff', n), a = l(i);
     return p(r, e, t, 'HEAD', a)
   }, t.convertDiff = s;
-  const T = /warning: (CRLF|CR|LF) will be replaced by (CRLF|CR|LF) in .*/;
+  const R = /warning: (CRLF|CR|LF) will be replaced by (CRLF|CR|LF) in .*/;
   t.getBlobImage = u, t.getWorkingDirectoryImage = m, t.getBinaryPaths = async function (e, t) {
     const {
       output: n
@@ -13442,7 +13495,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(21),
-    i = n(125);
+    i = n(126);
   t.supportsDarkMode = o, t.isDarkModeEnabled = function () {
     return !!o() && r.remote.systemPreferences.isDarkMode()
   }
@@ -13455,10 +13508,35 @@ module.exports = function (e) {
   }, t.remoteEquals = function (e, t) {
     return !(e !== t) || null !== e && null !== t && e.name === t.name && e.url === t.url
   }
+}, function (e, t) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  class n {
+    constructor(e, t, n, o = null, r = null, i = 'master', a = null, s = null, d = null) {
+      this.name = e, this.owner = t, this.dbID = n, this.isPrivate = o, this.htmlURL = r, this.defaultBranch = i, this.cloneURL = a, this.permissions = s, this.parent = d
+    }
+    get endpoint() {
+      return this.owner.endpoint
+    }
+    get fullName() {
+      return `${this.owner.login}/${this.name}`
+    }
+    get fork() {
+      return !!this.parent
+    }
+    get hash() {
+      return `${this.dbID}+${this.defaultBranch}+${this.isPrivate}+${this.cloneURL}+${this.name}+${this.htmlURL}+${this.owner.hash}+${this.parent&&this.parent.hash}`
+    }
+  }
+  t.GitHubRepository = n, t.hasWritePermission = function (e) {
+    return null === e.permissions || 'read' !== e.permissions
+  }
 }, function (e, t, n) {
   'use strict';
   const o = n(37).fromCallback,
-    r = n(699);
+    r = n(707);
   e.exports = {
     readJson: o(r.readFile),
     readJsonSync: r.readFileSync,
@@ -13585,7 +13663,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var r = n(176),
+  var r = n(177),
     i = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -13689,7 +13767,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(323)), o(n(322)), o(n(321)), o(n(228))
+  }), o(n(328)), o(n(327)), o(n(326)), o(n(230))
 }, function (e, t, n) {
   'use strict';
 
@@ -13727,15 +13805,15 @@ module.exports = function (e) {
   });
   const l = n(0),
     c = n(20),
-    p = n(2),
+    p = n(1),
     u = n(26),
     m = n(4),
     h = n(71),
-    f = n(244),
+    f = n(246),
     g = n(73),
-    y = n(107),
+    y = n(108),
     S = n(21),
-    C = n(1),
+    C = n(13),
     b = n(14),
     v = n(40);
   t.renderUnmergedFile = (e) => c.isConflictWithMarkers(e.status) && v.hasUnresolvedConflicts(e.status, e.manualResolution) ? k({
@@ -13805,7 +13883,7 @@ module.exports = function (e) {
         n = 1 === t ? `1 conflict` : `${t} conflicts`,
         r = null === e.resolvedExternalEditor,
         i = d(e.resolvedExternalEditor),
-        c = T(e.path, e.repository.path, e.dispatcher),
+        c = R(e.path, e.repository.path, e.dispatcher),
         p = l.createElement(l.Fragment, null, l.createElement('div', {
           className: 'column-left'
         }, l.createElement(h.PathText, {
@@ -13837,8 +13915,8 @@ module.exports = function (e) {
       }];
       u.showContextualMenu(a)
     },
-    R = (e, t, n) => () => n.updateManualConflictResolution(t, e, null),
-    T = (e, t, n) => () => {
+    T = (e, t, n) => () => n.updateManualConflictResolution(t, e, null),
+    R = (e, t, n) => () => {
       const o = p.join(t, e),
         r = [{
           label: g.OpenWithDefaultProgramLabel,
@@ -13856,7 +13934,7 @@ module.exports = function (e) {
       }, t) : l.createElement('div', {
         className: 'file-conflicts-status'
       }, t, '\xA0', l.createElement(b.LinkButton, {
-        onClick: R(e.path, e.repository, e.dispatcher)
+        onClick: T(e.path, e.repository, e.dispatcher)
       }, 'Undo'))
     }
 }, function (e, t, n) {
@@ -13922,8 +14000,8 @@ module.exports = function (e) {
     value: !0
   });
   const d = n(19),
-    l = n(2),
-    c = n(369);
+    l = n(1),
+    c = n(374);
   t.InstalledCLIPath = '/usr/local/bin/github';
   const p = l.resolve(__dirname, 'static', 'github.sh');
   t.installCLI = async function () {
@@ -13952,11 +14030,11 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(0),
-    a = n(114),
-    s = n(13),
-    d = n(397),
-    l = n(110),
-    c = n(1),
+    a = n(115),
+    s = n(12),
+    d = n(402),
+    l = n(111),
+    c = n(13),
     p = n(4),
     u = n(92),
     m = n(14),
@@ -14078,10 +14156,10 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(6),
+    i = n(5),
     a = n(4),
-    s = n(438),
-    d = n(210);
+    s = n(443),
+    d = n(212);
   t.friendlyAcceleratorText = o;
   class l extends r.Component {
     getIcon(e) {
@@ -14156,10 +14234,10 @@ module.exports = function (e) {
     value: !0
   });
   const s = n(0),
-    d = n(6),
+    d = n(5),
     l = n(72),
-    c = n(123),
-    p = n(188),
+    c = n(124),
+    p = n(189),
     u = 30,
     m = 10;
   t.getListHeight = r, t.getRowHeight = i;
@@ -14257,7 +14335,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(189),
+    i = n(190),
     a = 300;
   class s extends r.Component {
     constructor(e) {
@@ -14357,10 +14435,10 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(446),
-    i = n(3),
-    a = n(445),
-    s = n(444),
+    r = n(451),
+    i = n(2),
+    a = n(450),
+    s = n(449),
     d = n(80);
   class l extends o.Component {
     constructor() {
@@ -14430,10 +14508,10 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(3),
-    a = n(105),
-    s = n(456),
-    d = n(6);
+    i = n(2),
+    a = n(106),
+    s = n(461),
+    d = n(5);
   class l extends o.Component {
     constructor(e) {
       super(e), this.innerButton = null, this.onClick = (e) => {
@@ -14554,8 +14632,8 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(457)), o(n(105)), o(n(192)), o(n(455)), o(n(454));
-  var r = n(453);
+  }), o(n(462)), o(n(106)), o(n(193)), o(n(460)), o(n(459));
+  var r = n(458);
   t.RevertProgress = r.RevertProgress
 }, function (e, t, n) {
   'use strict';
@@ -14613,13 +14691,13 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(466);
+  var o = n(471);
   t.TutorialPanel = o.TutorialPanel;
-  var r = n(465);
+  var r = n(470);
   t.TutorialWelcome = r.TutorialWelcome;
-  var i = n(464);
+  var i = n(469);
   t.TutorialDone = i.TutorialDone;
-  var a = n(463);
+  var a = n(468);
   t.ConfirmExitTutorial = a.ConfirmExitTutorial
 }, function (e, t, n) {
   'use strict';
@@ -14662,7 +14740,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(197);
+    r = n(198);
   t.renderDefaultBranch = function (e, t, n) {
     const i = e.branch,
       a = i.tip,
@@ -14685,9 +14763,9 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(4),
-    a = n(3),
-    s = n(6),
-    d = n(476);
+    a = n(2),
+    s = n(5),
+    d = n(481);
   class l extends r.PureComponent {
     constructor(e) {
       super(e), this.statusSubscription = null, this.onStatus = (e) => {
@@ -14792,11 +14870,11 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(3),
-    a = n(114),
-    s = n(1),
-    d = n(200),
-    l = n(480);
+    i = n(2),
+    a = n(115),
+    s = n(13),
+    d = n(201),
+    l = n(485);
   class c extends r.Component {
     constructor(e) {
       super(e), this.branchFilterList = null, this.onBranchesFilterListRef = (e) => {
@@ -14860,15 +14938,29 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
+  const o = n(0);
+  class r extends o.Component {
+    render() {
+      return o.createElement('div', {
+        className: 'dialog-footer'
+      }, this.props.children)
+    }
+  }
+  t.DialogFooter = r
+}, function (e, t, n) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
   const o = n(0),
-    r = n(207),
+    r = n(209),
     i = n(87),
-    a = n(108),
-    s = n(13),
+    a = n(109),
+    s = n(12),
     d = n(21),
     l = n(26),
-    c = n(204),
-    p = n(205);
+    c = n(206),
+    p = n(207);
   class u extends o.Component {
     constructor(e) {
       super(e), this.onCopySHA = () => {
@@ -14993,7 +15085,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(206);
+    r = n(208);
   class i extends o.Component {
     renderAuthorInline(e) {
       return o.createElement('span', {
@@ -15041,7 +15133,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6),
+    r = n(5),
     a = n(143),
     s = 3;
   class i extends o.Component {
@@ -15077,7 +15169,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(13);
+  const o = n(12);
   t.isWebFlowCommitter = function (e, t) {
     if (!t) return !1;
     const n = t.owner.endpoint,
@@ -15112,8 +15204,8 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(100),
-    a = n(13),
-    s = n(206);
+    a = n(12),
+    s = n(208);
   t.getAvatarUsersForCommit = function (e, t, n) {
     const o = [r(e, t, n.author), ...n.coAuthors.map((n) => r(e, t, n))],
       i = n.coAuthors.some((e) => e.name === n.committer.name && e.email === n.committer.email),
@@ -15161,8 +15253,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6),
-    i = n(1);
+    r = n(5),
+    i = n(13);
   class a extends o.Component {
     render() {
       const e = 'primary' === this.props.type,
@@ -15271,7 +15363,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(538)), o(n(535)), o(n(534)), o(n(533))
+  }), o(n(543)), o(n(540)), o(n(539)), o(n(538))
 }, function (e, t, n) {
   (function () {
     var t, o, r, i, a, s, d, l;
@@ -15319,7 +15411,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   var o = n(148),
-    r = n(57)('toStringTag'),
+    r = n(56)('toStringTag'),
     i = 'Arguments' == o(function () {
       return arguments
     }());
@@ -15343,14 +15435,14 @@ module.exports = function (e) {
     return 'Symbol('.concat(e === void 0 ? '' : e, ')_', (++t + n).toString(36))
   }
 }, function (e, t, n) {
-  var o = n(113),
+  var o = n(114),
     r = '__core-js_shared__',
     i = o[r] || (o[r] = {});
   e.exports = function (e) {
     return i[e] || (i[e] = {})
   }
 }, function (e, t, n) {
-  e.exports = !n(112)(function () {
+  e.exports = !n(113)(function () {
     return 7 != Object.defineProperty({}, 'a', {
       get: function () {
         return 7
@@ -15363,16 +15455,16 @@ module.exports = function (e) {
   e.exports = !0
 }, function (e, t, n) {
   'use strict';
-  var o = n(222),
+  var o = n(224),
     r = n(91),
-    i = n(221),
+    i = n(223),
     a = n(153),
     s = n(151),
     d = n(90),
-    l = n(583),
+    l = n(588),
     c = n(150),
     p = n(36).getProto,
-    u = n(57)('iterator'),
+    u = n(56)('iterator'),
     m = !([].keys && 'next' in [].keys()),
     h = '@@iterator',
     f = 'keys',
@@ -15383,7 +15475,7 @@ module.exports = function (e) {
   e.exports = function (e, t, n, S, C, b, v) {
     l(n, t, S);
     var E = function (e) {
-        return !m && e in R ? R[e] : e === f ? function () {
+        return !m && e in T ? T[e] : e === f ? function () {
           return new n(this, e)
         } : e === g ? function () {
           return new n(this, e)
@@ -15394,23 +15486,23 @@ module.exports = function (e) {
       w = t + ' Iterator',
       k = C == g,
       _ = !1,
-      R = e.prototype,
-      T = R[u] || R[h] || C && R[C],
-      x = T || E(C),
+      T = e.prototype,
+      R = T[u] || T[h] || C && T[C],
+      x = R || E(C),
       P, M;
-    if (T) {
+    if (R) {
       var D = p(x.call(new e));
-      c(D, w, !0), !o && s(R, h) && a(D, u, y), k && T.name !== g && (_ = !0, x = function () {
-        return T.call(this)
+      c(D, w, !0), !o && s(T, h) && a(D, u, y), k && R.name !== g && (_ = !0, x = function () {
+        return R.call(this)
       })
     }
-    if ((!o || v) && (m || _ || !R[u]) && a(R, u, x), d[t] = x, d[w] = y, C)
+    if ((!o || v) && (m || _ || !T[u]) && a(T, u, x), d[t] = x, d[w] = y, C)
       if (P = {
           values: k ? x : E(g),
           keys: b ? x : E(f),
           entries: k ? E('entries') : x
         }, v)
-        for (M in P) M in R || i(R, M, P[M]);
+        for (M in P) M in T || i(T, M, P[M]);
       else r(r.P + r.F * (m || _), t, P);
     return P
   }
@@ -15423,9 +15515,9 @@ module.exports = function (e) {
     }
   }
   t.__esModule = !0;
-  var r = n(587),
+  var r = n(592),
     i = o(r),
-    a = n(579),
+    a = n(584),
     s = o(a),
     d = 'function' == typeof s.default && 'symbol' == typeof i.default ? function (e) {
       return typeof e
@@ -15439,11 +15531,11 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   e.exports = {
-    default: n(588),
+    default: n(593),
     __esModule: !0
   }
 }, function (e, t, n) {
-  var o = n(589);
+  var o = n(594);
   e.exports = function (e, t, n) {
     return (o(e), void 0 === t) ? e : 1 === n ? function (n) {
       return e.call(t, n)
@@ -16044,8 +16136,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(115),
-    r = n(3);
+  const o = n(116),
+    r = n(2);
   class i extends o.BaseDatabase {
     constructor(e, t) {
       super(e, t), this.conditionalVersion(1, {
@@ -16121,9 +16213,9 @@ module.exports = function (e) {
     value: !0
   });
   const a = n(38),
-    s = n(3),
-    d = n(13),
-    l = n(128);
+    s = n(2),
+    d = n(12),
+    l = n(101);
   let c = null;
   t.askUserToOAuth = function (e) {
     return new Promise((t, n) => {
@@ -16202,9 +16294,9 @@ module.exports = function (e) {
     value: !0
   });
   const l = n(34),
-    c = n(11),
+    c = n(10),
     p = n(75),
-    u = n(242),
+    u = n(244),
     m = n(162);
   t.DesktopStashEntryMarker = '!!GitHub_Desktop';
   const h = /!!GitHub_Desktop<(.+)>$/;
@@ -16272,7 +16364,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(32),
-    r = n(2),
+    r = n(1),
     i = n(20),
     a = n(50),
     s = n(29),
@@ -16281,21 +16373,21 @@ module.exports = function (e) {
     c = n(28),
     p = n(131),
     u = n(45),
-    m = n(624),
+    m = n(630),
     h = n(22),
-    f = n(117),
-    g = n(232),
-    y = n(3),
-    S = n(231),
-    C = n(623),
-    b = n(258),
-    v = n(249),
-    E = n(58),
+    f = n(118),
+    g = n(234),
+    y = n(2),
+    S = n(233),
+    C = n(629),
+    b = n(261),
+    v = n(251),
+    E = n(57),
     w = n(23),
-    k = n(230),
+    k = n(232),
     _ = n(75),
-    R = 100,
-    T = 'history';
+    T = 100,
+    R = 'history';
   class x extends E.BaseStore {
     constructor(e, t) {
       super(), this.commitLookup = new Map, this._history = [], this.requestsInFight = new Set, this._tip = {
@@ -16310,10 +16402,10 @@ module.exports = function (e) {
     }
     async reconcileHistory(e) {
       if (0 === this._history.length) return;
-      if (this.requestsInFight.has(T)) return;
-      this.requestsInFight.add(T);
+      if (this.requestsInFight.has(R)) return;
+      this.requestsInFight.add(R);
       const t = h.revRange('HEAD', e),
-        n = await this.performFailableOperation(() => h.getCommits(this.repository, t, R));
+        n = await this.performFailableOperation(() => h.getCommits(this.repository, t, T));
       if (null != n) {
         const t = this._history,
           o = t.findIndex((t) => t === e);
@@ -16322,26 +16414,26 @@ module.exports = function (e) {
           const r = t.slice(o);
           this._history = [...n.map((e) => e.sha), ...r]
         }
-        this.storeCommits(n, !0), this.requestsInFight.delete(T), this.emitUpdate()
+        this.storeCommits(n, !0), this.requestsInFight.delete(R), this.emitUpdate()
       }
     }
     async loadNextHistoryBatch() {
-      if (this.requestsInFight.has(T)) return;
+      if (this.requestsInFight.has(R)) return;
       if (!this.history.length) return;
       const e = this.history[this.history.length - 1],
         t = `history/${e}`;
       if (!this.requestsInFight.has(t)) {
         this.requestsInFight.add(t);
-        const n = await this.performFailableOperation(() => h.getCommits(this.repository, `${e}^`, R));
+        const n = await this.performFailableOperation(() => h.getCommits(this.repository, `${e}^`, T));
         n && (this._history = this._history.concat(n.map((e) => e.sha)), this.storeCommits(n, !0), this.requestsInFight.delete(t), this.emitUpdate())
       }
     }
     async loadCommitBatch(e) {
-      if (this.requestsInFight.has(T)) return null;
+      if (this.requestsInFight.has(R)) return null;
       const t = `history/compare/${e}`;
       if (this.requestsInFight.has(t)) return null;
       this.requestsInFight.add(t);
-      const n = await this.performFailableOperation(() => h.getCommits(this.repository, e, R));
+      const n = await this.performFailableOperation(() => h.getCommits(this.repository, e, T));
       return (this.requestsInFight.delete(t), !n) ? null : (this.storeCommits(n, !1), n.map((e) => e.sha))
     }
     get history() {
@@ -16413,8 +16505,8 @@ module.exports = function (e) {
       let t;
       if (e.upstream) {
         const n = h.revRange(e.upstream, e.name);
-        t = await this.performFailableOperation(() => h.getCommits(this.repository, n, R))
-      } else t = await this.performFailableOperation(() => h.getCommits(this.repository, 'HEAD', R, ['--not', '--remotes']));
+        t = await this.performFailableOperation(() => h.getCommits(this.repository, n, T))
+      } else t = await this.performFailableOperation(() => h.getCommits(this.repository, 'HEAD', T, ['--not', '--remotes']));
       t && (this.storeCommits(t), this._localCommitSHAs = t.map((e) => e.sha), this.emitUpdate())
     }
     get localCommitSHAs() {
@@ -16817,7 +16909,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(11);
+  const r = n(10);
   t.installGlobalLFSFilters = async function (e) {
     const t = ['lfs', 'install', '--skip-repo'];
     e && t.push('--force'), await r.git(t, __dirname, 'installGlobalLFSFilter')
@@ -16898,6 +16990,7 @@ module.exports = function (e) {
     } = t;
     return f.merge(e, {
       processCallback: (e) => {
+        if (!e.stdout) return;
         const t = new k(n, o);
         m(e.stdout).on('data', (e) => {
           const n = t.parse(e);
@@ -16974,17 +17067,17 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const c = n(2),
+  const c = n(1),
     p = n(19),
     u = n(34),
     m = n(165),
     h = n(20),
     f = n(52),
     g = n(76),
-    y = n(11),
-    S = n(245),
+    y = n(10),
+    S = n(247),
     C = n(162),
-    b = n(241),
+    b = n(243),
     v = n(161);
   var E;
   (function (e) {
@@ -17041,11 +17134,11 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(19),
-    i = n(2),
-    a = n(11),
+    i = n(1),
+    a = n(10),
     s = n(34),
     d = n(63),
-    l = n(653),
+    l = n(661),
     c = n(78);
   t.merge = async function (e, t) {
     const {
@@ -17224,14 +17317,14 @@ module.exports = function (e) {
     value: !0
   });
   const p = n(78),
-    u = n(656),
+    u = n(664),
     m = n(20),
-    h = n(655),
+    h = n(663),
     f = n(30),
-    g = n(3),
-    y = n(240),
+    g = n(2),
+    y = n(242),
     S = n(166),
-    C = n(239),
+    C = n(241),
     b = 2e7,
     v = ['DD', 'AU', 'UD', 'UA', 'DU', 'AA', 'UU'];
   t.getStatus = async function (e) {
@@ -17324,9 +17417,9 @@ module.exports = function (e) {
           m = u.length ? u.split(' ') : [],
           f = c.parseRawUnfoldedTrailers(t[7], h),
           g = l.CommitIdentity.parseIdentity(s);
-        if (!g) throw new Error(`Couldn't parse author identity ${s}`);
+        if (!g) throw new Error(`Couldn't parse author identity for '${o}'`);
         const y = l.CommitIdentity.parseIdentity(p);
-        if (!y) throw new Error(`Couldn't parse committer identity ${p}`);
+        if (!y) throw new Error(`Couldn't parse committer identity for '${o}'`);
         return new d.Commit(n, o, r, a, g, y, m, f)
       });
     return f
@@ -17349,10 +17442,10 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = n(11),
+  const a = n(10),
     s = n(20),
     d = n(163),
-    l = n(119),
+    l = n(120),
     c = n(97);
   t.getCommits = r, t.getChangedFiles = async function (e, t) {
     const n = await a.git(['log', t, '-C', '-M', '-m', '-1', '--no-show-signature', '--first-parent', '--name-status', '--format=format:', '-z', '--'], e.path, 'getChangedFiles');
@@ -17366,7 +17459,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(2),
+  const o = n(1),
     r = n(19),
     i = '.git/description';
   t.getGitDescription = async function (e) {
@@ -17396,9 +17489,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(20),
-    r = n(244),
+    r = n(246),
     i = n(22),
-    a = n(3);
+    a = n(2);
   t.stageManualConflictResolution = async function (e, t, n) {
     const {
       status: s
@@ -17433,8 +17526,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(11),
-    i = n(3);
+  const r = n(10),
+    i = n(2);
   t.reset = async function (e, t, n) {
     const i = o(t, n);
     return await r.git(i, e.path, 'reset'), !0
@@ -17474,7 +17567,7 @@ module.exports = function (e) {
           })
         })
       }
-      a(o.stderr).on('data', (t) => {
+      o.stderr && a(o.stderr).on('data', (t) => {
         n(e.parse(t))
       })
     }
@@ -17483,11 +17576,11 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(32),
-    i = n(2),
+    i = n(1),
     a = n(165),
     s = n(52),
-    d = n(666),
-    l = n(120);
+    d = n(674),
+    l = n(121);
   t.executionOptionsWithProgress = async function (e, t, n) {
     let r = null,
       i = {};
@@ -17510,7 +17603,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(11);
+  const o = n(10);
   t.formatAsLocalRef = function (e) {
     return e.startsWith('heads/') ? `refs/${e}` : e.startsWith('refs/heads/') ? e : `refs/heads/${e}`
   }, t.getSymbolicRef = async function (e, t) {
@@ -17542,11 +17635,11 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(11),
+  const o = n(10),
     r = n(34),
     i = n(163),
     a = n(50),
-    s = n(119),
+    s = n(120),
     d = n(169),
     l = n(97),
     c = `refs/remotes/${d.ForkedRemotePrefix}`;
@@ -17571,10 +17664,10 @@ module.exports = function (e) {
         u = e[4],
         f = e[5],
         g = s.CommitIdentity.parseIdentity(f);
-      if (!g) throw new Error(`Couldn't parse author identity ${f}`);
+      if (!g) throw new Error(`Couldn't parse author identity for '${u}'`);
       const y = e[6],
         S = s.CommitIdentity.parseIdentity(y);
-      if (!S) throw new Error(`Couldn't parse committer identity ${y}`);
+      if (!S) throw new Error(`Couldn't parse committer identity for '${u}'`);
       const C = e[7].split(' '),
         b = e[8],
         v = e[9],
@@ -17600,14 +17693,16 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(11),
+  const o = n(10),
     r = n(78);
   t.getBlobContents = async function (e, t, n) {
     const r = new Set([0, 1]),
       i = ['show', `${t}:${n}`],
       a = await o.git(i, e.path, 'getBlobContents', {
         successExitCodes: r,
-        processCallback: (e) => e.stdout.setEncoding('binary')
+        processCallback: (e) => {
+          e.stdout && e.stdout.setEncoding('binary')
+        }
       });
     return Buffer.from(a.stdout, 'binary')
   }, t.getPartialBlobContents = async function (e, t, n, o) {
@@ -17624,11 +17719,11 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(34),
-    r = n(11),
+    r = n(10),
     i = n(20),
     a = n(30),
     s = n(166),
-    d = n(675);
+    d = n(683);
   t.applyPatchToIndex = async function (e, t) {
     if (t.status.kind === i.AppFileStatusKind.Renamed) {
       await r.git(['add', '--u', '--', t.status.oldPath], e.path, 'applyPatchToIndex');
@@ -17656,7 +17751,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(13);
+  const o = n(12);
   t.getAccountForRepository = function (e, t) {
     const n = t.gitHubRepository;
     return n ? o.getAccountForEndpoint(e, n.endpoint) : null
@@ -17666,7 +17761,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(680);
+  const o = n(688);
   t.TokenStore = {
     setItem: function (e, t, n) {
       return o.setPassword(e, t, n)
@@ -17688,9 +17783,9 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(47),
-    i = n(126),
-    a = n(279),
-    s = n(255);
+    i = n(127),
+    a = n(281),
+    s = n(257);
   t.getGenericHostname = function (e) {
     const t = i.parseRemote(e);
     if (t) return t.hostname;
@@ -17705,6 +17800,13 @@ module.exports = function (e) {
   }, t.setGenericPassword = function (e, t, n) {
     const o = a.getKeyForEndpoint(e);
     return s.TokenStore.setItem(o, t, n)
+  }
+}, function (e, t) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  }), t.isErrnoException = function (e) {
+    return e instanceof Error && 'string' == typeof e.code && 'string' == typeof e.syscall
   }
 }, function (e, t) {
   'use strict';
@@ -17791,8 +17893,8 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(47),
-    i = n(13),
-    a = n(126),
+    i = n(12),
+    a = n(127),
     s = n(129);
   t.findAccountForRemoteURL = async function (e, t, n = o) {
     const d = [...t, s.Account.anonymous()],
@@ -17888,7 +17990,7 @@ module.exports = function (e) {
     value: !0
   });
   const s = n(19),
-    d = n(3);
+    d = n(2);
   var l;
   (function (e) {
     e.Atom = 'Atom', e.VSCode = 'Visual Studio Code', e.VSCodeInsiders = 'Visual Studio Code (Insiders)', e.VSCodium = 'VSCodium', e.SublimeText = 'Sublime Text', e.Typora = 'Typora', e.SlickEdit = 'SlickEdit'
@@ -17900,7 +18002,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(685))
+    }(n(693))
 }, function (e, t, n) {
   'use strict';
 
@@ -18172,10 +18274,10 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const p = n(2),
-    u = n(261),
+  const p = n(1),
+    u = n(264),
     m = n(19),
-    h = n(3);
+    h = n(2);
   var f;
   (function (e) {
     e.Atom = 'Atom', e.AtomBeta = 'Atom Beta', e.AtomNightly = 'Atom Nightly', e.VSCode = 'Visual Studio Code', e.VSCodeInsiders = 'Visual Studio Code (Insiders)', e.VSCodium = 'Visual Studio Codium', e.SublimeText = 'Sublime Text', e.CFBuilder = 'ColdFusion Builder', e.Typora = 'Typora', e.SlickEdit = 'SlickEdit', e.Webstorm = 'JetBrains Webstorm'
@@ -18186,7 +18288,7 @@ module.exports = function (e) {
   function o(e) {
     throw 2 === e.code && (e.message = 'Couldn\'t find the app'), e
   }
-  const r = n(287);
+  const r = n(289);
   e.exports = (e) => {
     return Promise.reject(new Error('macOS only'))
   }, e.exports.sync = (e) => {
@@ -18196,15 +18298,15 @@ module.exports = function (e) {
   'use strict';
 
   function o(e) {
-    return e === p.Atom ? p.Atom : e === p.MacVim ? p.MacVim : e === p.VSCode ? p.VSCode : e === p.VSCodeInsiders ? p.VSCodeInsiders : e === p.VSCodium ? p.VSCodium : e === p.SublimeText ? p.SublimeText : e === p.BBEdit ? p.BBEdit : e === p.PhpStorm ? p.PhpStorm : e === p.RubyMine ? p.RubyMine : e === p.TextMate ? p.TextMate : e === p.Brackets ? p.Brackets : e === p.WebStorm ? p.WebStorm : e === p.Typora ? p.Typora : e === p.CodeRunner ? p.CodeRunner : e === p.SlickEdit ? p.SlickEdit : null
+    return e === p.Atom ? p.Atom : e === p.MacVim ? p.MacVim : e === p.VSCode ? p.VSCode : e === p.VSCodeInsiders ? p.VSCodeInsiders : e === p.VSCodium ? p.VSCodium : e === p.SublimeText ? p.SublimeText : e === p.BBEdit ? p.BBEdit : e === p.PhpStorm ? p.PhpStorm : e === p.RubyMine ? p.RubyMine : e === p.TextMate ? p.TextMate : e === p.Brackets ? p.Brackets : e === p.WebStorm ? p.WebStorm : e === p.Typora ? p.Typora : e === p.CodeRunner ? p.CodeRunner : e === p.SlickEdit ? p.SlickEdit : e === p.Xcode ? p.Xcode : null
   }
 
   function r(e) {
-    return e === p.Atom ? ['com.github.atom'] : e === p.MacVim ? ['org.vim.MacVim'] : e === p.VSCode ? ['com.microsoft.VSCode'] : e === p.VSCodeInsiders ? ['com.microsoft.VSCodeInsiders'] : e === p.VSCodium ? ['com.visualstudio.code.oss'] : e === p.SublimeText ? ['com.sublimetext.3'] : e === p.BBEdit ? ['com.barebones.bbedit'] : e === p.PhpStorm ? ['com.jetbrains.PhpStorm'] : e === p.RubyMine ? ['com.jetbrains.RubyMine'] : e === p.TextMate ? ['com.macromates.TextMate'] : e === p.Brackets ? ['io.brackets.appshell'] : e === p.WebStorm ? ['com.jetbrains.WebStorm'] : e === p.Typora ? ['abnerworks.Typora'] : e === p.CodeRunner ? ['com.krill.CodeRunner'] : e === p.SlickEdit ? ['com.slickedit.SlickEditPro2018', 'com.slickedit.SlickEditPro2017', 'com.slickedit.SlickEditPro2016', 'com.slickedit.SlickEditPro2015'] : c.assertNever(e, `Unknown external editor: ${e}`)
+    return e === p.Atom ? ['com.github.atom'] : e === p.MacVim ? ['org.vim.MacVim'] : e === p.VSCode ? ['com.microsoft.VSCode'] : e === p.VSCodeInsiders ? ['com.microsoft.VSCodeInsiders'] : e === p.VSCodium ? ['com.visualstudio.code.oss'] : e === p.SublimeText ? ['com.sublimetext.3'] : e === p.BBEdit ? ['com.barebones.bbedit'] : e === p.PhpStorm ? ['com.jetbrains.PhpStorm'] : e === p.RubyMine ? ['com.jetbrains.RubyMine'] : e === p.TextMate ? ['com.macromates.TextMate'] : e === p.Brackets ? ['io.brackets.appshell'] : e === p.WebStorm ? ['com.jetbrains.WebStorm'] : e === p.Typora ? ['abnerworks.Typora'] : e === p.CodeRunner ? ['com.krill.CodeRunner'] : e === p.SlickEdit ? ['com.slickedit.SlickEditPro2018', 'com.slickedit.SlickEditPro2017', 'com.slickedit.SlickEditPro2016', 'com.slickedit.SlickEditPro2015'] : e === p.Xcode ? ['com.apple.dt.Xcode'] : c.assertNever(e, `Unknown external editor: ${e}`)
   }
 
   function i(e, t) {
-    return e === p.Atom ? d.join(t, 'Contents', 'Resources', 'app', 'atom.sh') : e === p.VSCode || e === p.VSCodeInsiders ? d.join(t, 'Contents', 'Resources', 'app', 'bin', 'code') : e === p.VSCodium ? d.join(t, 'Contents', 'Resources', 'app', 'bin', 'code') : e === p.MacVim ? d.join(t, 'Contents', 'MacOS', 'MacVim') : e === p.SublimeText ? d.join(t, 'Contents', 'SharedSupport', 'bin', 'subl') : e === p.BBEdit ? d.join(t, 'Contents', 'Helpers', 'bbedit_tool') : e === p.PhpStorm ? d.join(t, 'Contents', 'MacOS', 'phpstorm') : e === p.RubyMine ? d.join(t, 'Contents', 'MacOS', 'rubymine') : e === p.TextMate ? d.join(t, 'Contents', 'Resources', 'mate') : e === p.Brackets ? d.join(t, 'Contents', 'MacOS', 'Brackets') : e === p.WebStorm ? d.join(t, 'Contents', 'MacOS', 'WebStorm') : e === p.Typora ? d.join(t, 'Contents', 'MacOS', 'Typora') : e === p.CodeRunner ? d.join(t, 'Contents', 'MacOS', 'CodeRunner') : e === p.SlickEdit ? d.join(t, 'Contents', 'MacOS', 'vs') : c.assertNever(e, `Unknown external editor: ${e}`)
+    return e === p.Atom ? d.join(t, 'Contents', 'Resources', 'app', 'atom.sh') : e === p.VSCode || e === p.VSCodeInsiders ? d.join(t, 'Contents', 'Resources', 'app', 'bin', 'code') : e === p.VSCodium ? d.join(t, 'Contents', 'Resources', 'app', 'bin', 'code') : e === p.MacVim ? d.join(t, 'Contents', 'MacOS', 'MacVim') : e === p.SublimeText ? d.join(t, 'Contents', 'SharedSupport', 'bin', 'subl') : e === p.BBEdit ? d.join(t, 'Contents', 'Helpers', 'bbedit_tool') : e === p.PhpStorm ? d.join(t, 'Contents', 'MacOS', 'phpstorm') : e === p.RubyMine ? d.join(t, 'Contents', 'MacOS', 'rubymine') : e === p.TextMate ? d.join(t, 'Contents', 'Resources', 'mate') : e === p.Brackets ? d.join(t, 'Contents', 'MacOS', 'Brackets') : e === p.WebStorm ? d.join(t, 'Contents', 'MacOS', 'WebStorm') : e === p.Typora ? d.join(t, 'Contents', 'MacOS', 'Typora') : e === p.CodeRunner ? d.join(t, 'Contents', 'MacOS', 'CodeRunner') : e === p.SlickEdit ? d.join(t, 'Contents', 'MacOS', 'vs') : e === p.Xcode ? '/usr/bin/xed' : c.assertNever(e, `Unknown external editor: ${e}`)
   }
   async function a(e) {
     const t = r(e);
@@ -18221,7 +18323,7 @@ module.exports = function (e) {
   }
   async function s() {
     const e = [],
-      [t, n, o, r, i, s, d, l, c, u, m, h, f, g, y] = await Promise.all([a(p.Atom), a(p.MacVim), a(p.VSCode), a(p.VSCodeInsiders), a(p.VSCodium), a(p.SublimeText), a(p.BBEdit), a(p.PhpStorm), a(p.RubyMine), a(p.TextMate), a(p.Brackets), a(p.WebStorm), a(p.Typora), a(p.CodeRunner), a(p.SlickEdit)]);
+      [t, n, o, r, i, s, d, l, c, u, m, h, f, g, y, S] = await Promise.all([a(p.Atom), a(p.MacVim), a(p.VSCode), a(p.VSCodeInsiders), a(p.VSCodium), a(p.SublimeText), a(p.BBEdit), a(p.PhpStorm), a(p.RubyMine), a(p.TextMate), a(p.Brackets), a(p.WebStorm), a(p.Typora), a(p.CodeRunner), a(p.SlickEdit), a(p.Xcode)]);
     return t && e.push({
       editor: p.Atom,
       path: t
@@ -18267,19 +18369,22 @@ module.exports = function (e) {
     }), y && e.push({
       editor: p.SlickEdit,
       path: y
+    }), S && e.push({
+      editor: p.Xcode,
+      path: S
     }), e
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const d = n(2),
+  const d = n(1),
     l = n(19),
-    c = n(3);
+    c = n(2);
   var p;
   (function (e) {
-    e.Atom = 'Atom', e.MacVim = 'MacVim', e.VSCode = 'Visual Studio Code', e.VSCodeInsiders = 'Visual Studio Code (Insiders)', e.VSCodium = 'VSCodium', e.SublimeText = 'Sublime Text', e.BBEdit = 'BBEdit', e.PhpStorm = 'PhpStorm', e.RubyMine = 'RubyMine', e.TextMate = 'TextMate', e.Brackets = 'Brackets', e.WebStorm = 'WebStorm', e.Typora = 'Typora', e.CodeRunner = 'CodeRunner', e.SlickEdit = 'SlickEdit'
+    e.Atom = 'Atom', e.MacVim = 'MacVim', e.VSCode = 'Visual Studio Code', e.VSCodeInsiders = 'Visual Studio Code (Insiders)', e.VSCodium = 'VSCodium', e.SublimeText = 'Sublime Text', e.BBEdit = 'BBEdit', e.PhpStorm = 'PhpStorm', e.RubyMine = 'RubyMine', e.TextMate = 'TextMate', e.Brackets = 'Brackets', e.WebStorm = 'WebStorm', e.Typora = 'Typora', e.CodeRunner = 'CodeRunner', e.SlickEdit = 'SlickEdit', e.Xcode = 'Xcode'
   })(p = t.ExternalEditor || (t.ExternalEditor = {})), t.parse = o;
-  const u = n(263);
+  const u = n(266);
   t.getAvailableEditors = s
 }, function (e, t, n) {
   'use strict';
@@ -18290,9 +18395,9 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(98),
-    i = n(264),
-    a = n(262),
-    s = n(260);
+    i = n(267),
+    a = n(265),
+    s = n(263);
   let d = null;
   t.getAvailableEditors = o, t.findEditorOrDefault = async function (e) {
     const t = await o();
@@ -18318,7 +18423,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(265)), o(n(683));
+  }), o(n(268)), o(n(691));
   var r = n(98);
   t.parse = r.parse
 }, function (e, t) {
@@ -18340,29 +18445,6 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  class n {
-    constructor(e, t, n, o = null, r = null, i = 'master', a = null, s = null) {
-      this.name = e, this.owner = t, this.dbID = n, this.private = o, this.htmlURL = r, this.defaultBranch = i, this.cloneURL = a, this.parent = s
-    }
-    get endpoint() {
-      return this.owner.endpoint
-    }
-    get fullName() {
-      return `${this.owner.login}/${this.name}`
-    }
-    get fork() {
-      return !!this.parent
-    }
-    get hash() {
-      return `${this.dbID}+${this.defaultBranch}+${this.private}+${this.cloneURL}+${this.name}+${this.htmlURL}+${this.owner.hash}+${this.parent&&this.parent.hash}`
-    }
-  }
-  t.GitHubRepository = n
-}, function (e, t) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
   var n;
   (function (e) {
     e[e.Branches = 0] = 'Branches', e[e.PullRequests = 1] = 'PullRequests'
@@ -18371,7 +18453,7 @@ module.exports = function (e) {
   'use strict';
   const o = n(37).fromCallback;
   e.exports = {
-    copy: o(n(709))
+    copy: o(n(717))
   }
 }, function (e) {
   'use strict';
@@ -18387,8 +18469,8 @@ module.exports = function (e) {
   'use strict';
   var o = Math.floor;
   const r = n(31),
-    i = n(59),
-    a = n(2);
+    i = n(58),
+    a = n(1);
   e.exports = {
     hasMillisRes: function (e) {
       let t = a.join('millis-test' + Date.now().toString() + Math.random().toString().slice(2));
@@ -18427,7 +18509,7 @@ module.exports = function (e) {
   function o(e) {
     return e = r.normalize(r.resolve(e)).split(r.sep), 0 < e.length ? e[0] : null
   }
-  const r = n(2),
+  const r = n(1),
     i = /[<>:"|?*]/;
   e.exports = {
     getRootPath: o,
@@ -18439,7 +18521,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   e.exports = {
-    copySync: n(712)
+    copySync: n(720)
   }
 }, function (e) {
   e.exports = require('assert')
@@ -18509,7 +18591,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(128),
+  const r = n(101),
     i = 'stats-guid';
   let a = null;
   t.getGUID = o
@@ -18518,7 +18600,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(60),
+  const o = n(59),
     r = 'has-shown-welcome-flow';
   t.hasShownWelcomeFlow = function () {
     return o.getBoolean(r, !1)
@@ -18585,7 +18667,7 @@ module.exports = function (e) {
   }
 
   function u(e) {
-    Fe.setImmediate ? setImmediate(e) : setTimeout(e, 0)
+    Be.setImmediate ? setImmediate(e) : setTimeout(e, 0)
   }
 
   function m(e, t) {
@@ -18665,7 +18747,7 @@ module.exports = function (e) {
   function v(e) {
     if (!e || 'object' != typeof e) return e;
     var t;
-    if (Be(e)) {
+    if (Fe(e)) {
       t = [];
       for (var n = 0, o = e.length; n < o; ++n) t.push(v(e[n]))
     } else if (0 <= Ve.indexOf(e.constructor)) t = e;
@@ -18690,7 +18772,7 @@ module.exports = function (e) {
   function w(e) {
     var t, n, o, r;
     if (1 === arguments.length) {
-      if (Be(e)) return e.slice();
+      if (Fe(e)) return e.slice();
       if (this === je && 'string' == typeof e) return [e];
       if (r = Ke(e)) {
         for (n = []; o = r.next(), !o.done;) n.push(o.value);
@@ -18712,7 +18794,7 @@ module.exports = function (e) {
   }
 
   function _() {
-    if (Qe) try {
+    if (Xe) try {
       throw _.arguments, new Error
     } catch (t) {
       return t
@@ -18720,16 +18802,16 @@ module.exports = function (e) {
     return new Error
   }
 
-  function R(e, t) {
+  function T(e, t) {
     var n = e.stack;
     return n ? (t = t || 0, 0 === n.indexOf(e.name) && (t += (e.name + e.message).split('\n').length), n.split('\n').slice(t).filter(Ye).map(function (e) {
       return '\n' + e
     }).join('')) : ''
   }
 
-  function T(e, t) {
+  function R(e, t) {
     return function () {
-      return console.warn(e + ' is deprecated. See https://github.com/dfahlander/Dexie.js/wiki/Deprecations. ' + R(_(), 1)), t.apply(this, arguments)
+      return console.warn(e + ' is deprecated. See https://github.com/dfahlander/Dexie.js/wiki/Deprecations. ' + T(_(), 1)), t.apply(this, arguments)
     }
   }
 
@@ -18769,13 +18851,13 @@ module.exports = function (e) {
     return e
   }
 
-  function B(e, t) {
+  function F(e, t) {
     return null == e || e === L ? t : function (n) {
       return t(e(n))
     }
   }
 
-  function F(e, t) {
+  function B(e, t) {
     return function () {
       e.apply(this, arguments), t.apply(this, arguments)
     }
@@ -18789,7 +18871,7 @@ module.exports = function (e) {
         r = this.onerror;
       this.onsuccess = null, this.onerror = null;
       var i = t.apply(this, arguments);
-      return o && (this.onsuccess = this.onsuccess ? F(o, this.onsuccess) : o), r && (this.onerror = this.onerror ? F(r, this.onerror) : r), void 0 === i ? n : i
+      return o && (this.onsuccess = this.onsuccess ? B(o, this.onsuccess) : o), r && (this.onerror = this.onerror ? B(r, this.onerror) : r), void 0 === i ? n : i
     }
   }
 
@@ -18798,7 +18880,7 @@ module.exports = function (e) {
       e.apply(this, arguments);
       var n = this.onsuccess,
         o = this.onerror;
-      this.onsuccess = this.onerror = null, t.apply(this, arguments), n && (this.onsuccess = this.onsuccess ? F(n, this.onsuccess) : n), o && (this.onerror = this.onerror ? F(o, this.onerror) : o)
+      this.onsuccess = this.onerror = null, t.apply(this, arguments), n && (this.onsuccess = this.onsuccess ? B(n, this.onsuccess) : n), o && (this.onerror = this.onerror ? B(o, this.onerror) : o)
     }
   }
 
@@ -18810,7 +18892,7 @@ module.exports = function (e) {
         a = this.onerror;
       this.onsuccess = null, this.onerror = null;
       var s = t.apply(this, arguments);
-      return i && (this.onsuccess = this.onsuccess ? F(i, this.onsuccess) : i), a && (this.onerror = this.onerror ? F(a, this.onerror) : a), void 0 === r ? void 0 === s ? void 0 : s : o(r, s)
+      return i && (this.onsuccess = this.onsuccess ? B(i, this.onsuccess) : i), a && (this.onerror = this.onerror ? B(a, this.onerror) : a), void 0 === r ? void 0 === s ? void 0 : s : o(r, s)
     }
   }
 
@@ -18883,15 +18965,15 @@ module.exports = function (e) {
     e._listeners = [];
     for (var n = 0, o = t.length; n < o; ++n) q(e, t[n]);
     var r = e._PSD;
-    --r.ref || r.finalize(), 0 === Tt && (++Tt, yt(function () {
-      0 == --Tt && ee()
+    --r.ref || r.finalize(), 0 === Rt && (++Rt, yt(function () {
+      0 == --Rt && ee()
     }, []))
   }
 
   function q(e, t) {
     if (null === e._state) return void e._listeners.push(t);
     var n = e._state ? t.onFulfilled : t.onRejected;
-    return null === n ? (e._state ? t.resolve : t.reject)(e._value) : void(++t.psd.ref, ++Tt, yt(Y, [n, e, t]))
+    return null === n ? (e._state ? t.resolve : t.reject)(e._value) : void(++t.psd.ref, ++Rt, yt(Y, [n, e, t]))
   }
 
   function Y(e, t, n) {
@@ -18903,22 +18985,22 @@ module.exports = function (e) {
     } catch (t) {
       n.reject(t)
     } finally {
-      Et = null, 0 == --Tt && ee(), --n.psd.ref || n.psd.finalize()
+      Et = null, 0 == --Rt && ee(), --n.psd.ref || n.psd.finalize()
     }
   }
 
-  function Q(e, t, n) {
+  function X(e, t, n) {
     if (t.length === n) return t;
     var o = '';
     if (!1 === e._state) {
       var r = e._value,
         i, a;
-      null == r ? (i = r, a = '') : (i = r.name || 'Error', a = r.message || r, o = R(r, 0)), t.push(i + (a ? ': ' + a : '') + o)
+      null == r ? (i = r, a = '') : (i = r.name || 'Error', a = r.message || r, o = T(r, 0)), t.push(i + (a ? ': ' + a : '') + o)
     }
-    return qe && (o = R(e._stackHolder, 2), o && -1 === t.indexOf(o) && t.push(o), e._prev && Q(e._prev, t, n)), t
+    return qe && (o = T(e._stackHolder, 2), o && -1 === t.indexOf(o) && t.push(o), e._prev && X(e._prev, t, n)), t
   }
 
-  function X(e, t) {
+  function Q(e, t) {
     var n = t ? t._numPrev + 1 : 0;
     n < it && (e._prev = t, e._numPrev = n)
   }
@@ -18935,12 +19017,12 @@ module.exports = function (e) {
   function J() {
     var e, t, n;
     do
-      for (; 0 < Rt.length;)
-        for (e = Rt, Rt = [], n = e.length, t = 0; t < n; ++t) {
+      for (; 0 < Tt.length;)
+        for (e = Tt, Tt = [], n = e.length, t = 0; t < n; ++t) {
           var o = e[t];
           o[0].apply(null, o[1])
         }
-    while (0 < Rt.length);
+    while (0 < Tt.length);
     St = !0, Ct = !0
   }
 
@@ -18956,8 +19038,8 @@ module.exports = function (e) {
     function t() {
       e(), xt.splice(xt.indexOf(t), 1)
     }
-    xt.push(t), ++Tt, yt(function () {
-      0 == --Tt && ee()
+    xt.push(t), ++Rt, yt(function () {
+      0 == --Rt && ee()
     }, [])
   }
 
@@ -18994,7 +19076,7 @@ module.exports = function (e) {
   function ae(e, t, n, r) {
     var i = _t,
       a = Object.create(i);
-    a.parent = i, a.ref = 0, a.global = !1, a.id = ++Bt;
+    a.parent = i, a.ref = 0, a.global = !1, a.id = ++Ft;
     var s = kt.env;
     a.env = ht ? {
       Promise: W,
@@ -19046,15 +19128,15 @@ module.exports = function (e) {
     if (((t ? Mt.echoes && (!It++ || e !== _t) : It && (!--It || e !== _t)) && fe(t ? ce.bind(null, e) : pe), e !== _t) && (_t = e, n === kt && (kt.env = me()), ht)) {
       var o = kt.env.Promise,
         r = e.env;
-      lt.then = r.nthen, o.prototype.then = r.gthen, (n.global || e.global) && (Object.defineProperty(Fe, 'Promise', r.PromiseProp), o.all = r.all, o.race = r.race, o.resolve = r.resolve, o.reject = r.reject)
+      lt.then = r.nthen, o.prototype.then = r.gthen, (n.global || e.global) && (Object.defineProperty(Be, 'Promise', r.PromiseProp), o.all = r.all, o.race = r.race, o.resolve = r.resolve, o.reject = r.reject)
     }
   }
 
   function me() {
-    var e = Fe.Promise;
+    var e = Be.Promise;
     return ht ? {
       Promise: e,
-      PromiseProp: Object.getOwnPropertyDescriptor(Fe, 'Promise'),
+      PromiseProp: Object.getOwnPropertyDescriptor(Be, 'Promise'),
       all: e.all,
       race: e.race,
       resolve: e.resolve,
@@ -19106,10 +19188,10 @@ module.exports = function (e) {
           reason: e
         },
         i;
-      if (Fe.document && document.createEvent ? (i = document.createEvent('Event'), i.initEvent(Ft, !0, !0), o(i, r)) : Fe.CustomEvent && (i = new CustomEvent(Ft, {
+      if (Be.document && document.createEvent ? (i = document.createEvent('Event'), i.initEvent(Bt, !0, !0), o(i, r)) : Be.CustomEvent && (i = new CustomEvent(Bt, {
           detail: r
-        }), o(i, r)), i && Fe.dispatchEvent && (dispatchEvent(i), !Fe.PromiseRejectionEvent && Fe.onunhandledrejection)) try {
-        Fe.onunhandledrejection(i)
+        }), o(i, r)), i && Be.dispatchEvent && (dispatchEvent(i), !Be.PromiseRejectionEvent && Be.onunhandledrejection)) try {
+        Be.onunhandledrejection(i)
       } catch (e) {}
       i.defaultPrevented || console.warn('Unhandled rejection: ' + (e.stack || e))
     } catch (t) {}
@@ -19137,7 +19219,7 @@ module.exports = function (e) {
     function n(e) {
       Le(e).forEach(function (n) {
         var o = e[n];
-        if (Be(o)) t(n, e[n][0], e[n][1]);
+        if (Fe(o)) t(n, e[n][0], e[n][1]);
         else if ('asap' === o) var r = t(n, L, function () {
           for (var e = arguments.length, t = Array(e); e--;) t[e] = arguments[e];
           r.subscribers.forEach(function (e) {
@@ -19174,7 +19256,7 @@ module.exports = function (e) {
     }
 
     function s(e, t, n) {
-      var o = $e._createTransaction(Xe, ze, Oe);
+      var o = $e._createTransaction(Qe, ze, Oe);
       o.create(t), o._completion.catch(n);
       var r = o._reject.bind(o);
       ae(function () {
@@ -19226,7 +19308,7 @@ module.exports = function (e) {
         }), r.push(function (t) {
           if (!a || !jt) {
             var n = e._cfg.dbschema;
-            R(n, t)
+            T(n, t)
           }
         })
       }), o().then(function () {
@@ -19288,7 +19370,7 @@ module.exports = function (e) {
       })
     }
 
-    function R(e, t) {
+    function T(e, t) {
       for (var n = 0, o; n < t.db.objectStoreNames.length; ++n) o = t.db.objectStoreNames[n], null == e[o] && t.db.deleteObjectStore(o)
     }
 
@@ -19335,17 +19417,17 @@ module.exports = function (e) {
       return [e, i, n]
     }
 
-    function F(e, t, n) {
+    function B(e, t, n) {
       this.name = e, this.schema = t, this._tx = n, this.hook = Ue[e] ? Ue[e].hook : Ce(null, {
         creating: [N, I],
-        reading: [B, L],
+        reading: [F, L],
         updating: [H, I],
         deleting: [O, I]
       })
     }
 
     function z(t, n, e) {
-      return (e ? Re : ke)(function (o) {
+      return (e ? Te : ke)(function (o) {
         t.push(o), n && n()
       })
     }
@@ -19360,7 +19442,7 @@ module.exports = function (e) {
             return a()
           }));
         else {
-          var p = Re(s),
+          var p = Te(s),
             u = we(null),
             m;
           f(function () {
@@ -19440,7 +19522,7 @@ module.exports = function (e) {
       return e._cfg.version - t._cfg.version
     }
 
-    function Q(e, t, n) {
+    function X(e, t, n) {
       t.forEach(function (t) {
         var o = n[t];
         e.forEach(function (e) {
@@ -19448,14 +19530,14 @@ module.exports = function (e) {
             get: function () {
               return this.table(t)
             }
-          }) : e[t] = new F(t, o))
+          }) : e[t] = new B(t, o))
         })
       })
     }
 
-    function X(e) {
+    function Q(e) {
       e.forEach(function (e) {
-        for (var t in e) e[t] instanceof F && delete e[t]
+        for (var t in e) e[t] instanceof B && delete e[t]
       })
     }
 
@@ -19495,7 +19577,7 @@ module.exports = function (e) {
         e = e.trim();
         var n = e.replace(/([&*]|\+\+)/g, ''),
           o = /^\[/.test(n) ? n.match(/^\[(.*)\]$/)[1].split('+') : n;
-        t.push(new Pe(n, o || null, /\&/.test(e), /\*/.test(e), /\+\+/.test(e), Be(o), /\./.test(e)))
+        t.push(new Pe(n, o || null, /\&/.test(e), /\*/.test(e), /\+\+/.test(e), Fe(o), /\./.test(e)))
       }), t
     }
 
@@ -19543,7 +19625,7 @@ module.exports = function (e) {
             a.push(l)
           }
           Oe[t] = new Me(t, i, a, {})
-        }), Q([Ue], Le(Oe), Oe)
+        }), X([Ue], Le(Oe), Oe)
       }
     }
 
@@ -19562,7 +19644,7 @@ module.exports = function (e) {
           }
         }
       }
-      /Safari/.test(navigator.userAgent) && !/(Chrome\/|Edge\/)/.test(navigator.userAgent) && Fe.WorkerGlobalScope && Fe instanceof Fe.WorkerGlobalScope && 604 > [].concat(navigator.userAgent.match(/Safari\/(\d*)/))[1] && (it = !1)
+      /Safari/.test(navigator.userAgent) && !/(Chrome\/|Edge\/)/.test(navigator.userAgent) && Be.WorkerGlobalScope && Be instanceof Be.WorkerGlobalScope && 604 > [].concat(navigator.userAgent.match(/Safari\/(\d*)/))[1] && (it = !1)
     }
 
     function me(e) {
@@ -19592,8 +19674,8 @@ module.exports = function (e) {
       Ge = !1,
       Ke = null,
       Ye = !1,
-      Qe = 'readonly',
-      Xe = 'readwrite',
+      Xe = 'readonly',
+      Qe = 'readwrite',
       $e = this,
       Ze = new W(function (e) {
         ot = e
@@ -19619,7 +19701,7 @@ module.exports = function (e) {
             o(t, e._cfg.storesSource)
           });
           var n = this._cfg.dbschema = {};
-          return this._parseStoresSpec(t, n), Oe = $e._dbSchema = n, X([Ue, $e, G.prototype]), Q([Ue, $e, G.prototype, this._cfg.tables], Le(n), n), ze = Le(n), this
+          return this._parseStoresSpec(t, n), Oe = $e._dbSchema = n, Q([Ue, $e, G.prototype]), X([Ue, $e, G.prototype, this._cfg.tables], Le(n), n), ze = Le(n), this
         },
         upgrade: function (e) {
           return this._cfg.contentUpgrade = e, this
@@ -19664,7 +19746,7 @@ module.exports = function (e) {
           if (!r) throw new tt.MissingAPI('IndexedDB API not available');
           r.onerror = ke(o), r.onblocked = ie(me), r.onupgradeneeded = ie(function (t) {
             if (n = r.transaction, et && !$e._allowEmptyDB) {
-              r.onerror = Te, n.abort(), r.result.close();
+              r.onerror = Re, n.abort(), r.result.close();
               var i = ve.deleteDatabase(e);
               i.onsuccess = i.onerror = ie(function () {
                 o(new tt.NoSuchDatabase('Database ' + e + ' doesnt exist'))
@@ -19677,11 +19759,11 @@ module.exports = function (e) {
           }, o), r.onsuccess = ie(function () {
             if (n = null, We = r.result, Gt.push($e), et) pe();
             else if (0 < We.objectStoreNames.length) try {
-              ue(Oe, We.transaction(De(We.objectStoreNames), Qe))
+              ue(Oe, We.transaction(De(We.objectStoreNames), Xe))
             } catch (t) {}
             We.onversionchange = ie(function (e) {
               $e._vcFired = !0, $e.on('versionchange').fire(e)
-            }), nt || '__dbnames' === e || Qt.dbnames.put({
+            }), nt || '__dbnames' === e || Xt.dbnames.put({
               name: e
             }).catch(I), t()
           }, o)
@@ -19724,7 +19806,7 @@ module.exports = function (e) {
             $e.close();
             var t = ve.deleteDatabase(e);
             t.onsuccess = ie(function () {
-              nt || Qt.dbnames.delete(e).catch(I), n()
+              nt || Xt.dbnames.delete(e).catch(I), n()
             }), t.onerror = ke(o), t.onblocked = me
           }
           if (t) throw new tt.InvalidArgument('Arguments not allowed in db.delete()');
@@ -19797,15 +19879,15 @@ module.exports = function (e) {
         e = e.replace('!', '').replace('?', '');
         try {
           var a = t.map(function (e) {
-            var t = e instanceof F ? e.name : e;
+            var t = e instanceof B ? e.name : e;
             if ('string' != typeof t) throw new TypeError('Invalid table argument to Dexie.transaction(). Only Table or String are allowed');
             return t
           });
-          if ('r' == e || e == Qe) e = Qe;
-          else if ('rw' == e || e == Xe) e = Xe;
+          if ('r' == e || e == Xe) e = Xe;
+          else if ('rw' == e || e == Qe) e = Qe;
           else throw new tt.InvalidArgument('Invalid transaction mode: ' + e);
           if (r) {
-            if (r.mode === Qe && e === Xe)
+            if (r.mode === Xe && e === Qe)
               if (i) r = null;
               else throw new tt.SubTransaction('Cannot enter a sub-transaction with READWRITE mode when parent transaction is READONLY');
             r && a.forEach(function (e) {
@@ -19825,7 +19907,7 @@ module.exports = function (e) {
       }, this.table = function (e) {
         if (!r(Ue, e)) throw new tt.InvalidTable('Table ' + e + ' does not exist');
         return Ue[e]
-      }, i(F.prototype, {
+      }, i(B.prototype, {
         _trans: function (e, t, n) {
           var o = this._tx || _t.trans;
           return o && o.db === $e ? o === _t.trans ? o._promise(e, t, n) : ae(function () {
@@ -19845,7 +19927,7 @@ module.exports = function (e) {
         get: function (e, t) {
           if (e && e.constructor === Object) return this.where(e).first(t);
           var n = this;
-          return this._idbstore(Qe, function (t, o, r) {
+          return this._idbstore(Xe, function (t, o, r) {
             var i = r.get(e);
             i.onerror = ke(o), i.onsuccess = ie(function () {
               t(n.hook.reading.fire(i.result))
@@ -19854,7 +19936,7 @@ module.exports = function (e) {
         },
         where: function (e) {
           if ('string' == typeof e) return new K(this, e);
-          if (Be(e)) return new K(this, '[' + e.join('+') + ']');
+          if (Fe(e)) return new K(this, '[' + e.join('+') + ']');
           var t = Le(e);
           if (1 === t.length) return this.where(t[0]).equals(e[t[0]]);
           var n = this.schema.indexes.concat(this.schema.primKey).filter(function (e) {
@@ -19899,7 +19981,7 @@ module.exports = function (e) {
           return this.toCollection().toArray(e)
         },
         orderBy: function (e) {
-          return new j(new K(this, Be(e) ? '[' + e.join('+') + ']' : e))
+          return new j(new K(this, Fe(e) ? '[' + e.join('+') + ']' : e))
         },
         toCollection: function () {
           return new j(new K(this))
@@ -19923,13 +20005,13 @@ module.exports = function (e) {
           return this.mapToClass(be.defineClass(e), e)
         },
         bulkDelete: function (e) {
-          return this.hook.deleting.fire === I ? this._idbstore(Xe, function (t, n, o, r) {
+          return this.hook.deleting.fire === I ? this._idbstore(Qe, function (t, n, o, r) {
             t(V(o, r, e, !1, I))
           }) : this.where(':id').anyOf(e).delete().then(function () {})
         },
         bulkPut: function (e, t) {
           var n = this;
-          return this._idbstore(Xe, function (o, r, a) {
+          return this._idbstore(Qe, function (o, r, a) {
             if (!a.keyPath && !n.schema.primKey.auto && !t) throw new tt.InvalidArgument('bulkPut() with non-inbound keys requires keys array in second argument');
             if (a.keyPath && t) throw new tt.InvalidArgument('bulkPut(): keys argument invalid on tables with inbound keys');
             if (t && t.length !== e.length) throw new tt.InvalidArgument('Arguments objects and keys must have the same length');
@@ -19974,7 +20056,7 @@ module.exports = function (e) {
         bulkAdd: function (e, t) {
           var n = this,
             o = this.hook.creating.fire;
-          return this._idbstore(Xe, function (r, a, s, d) {
+          return this._idbstore(Qe, function (r, a, s, d) {
             function c(e) {
               0 === p.length ? r(e) : a(new D(n.name + '.bulkAdd(): ' + p.length + ' of ' + u + ' operations failed', p))
             }
@@ -20012,7 +20094,7 @@ module.exports = function (e) {
         },
         add: function (e, t) {
           var n = this.hook.creating.fire;
-          return this._idbstore(Xe, function (o, r, i, a) {
+          return this._idbstore(Qe, function (o, r, i, a) {
             var s = {
               onsuccess: null,
               onerror: null
@@ -20024,7 +20106,7 @@ module.exports = function (e) {
             }
             try {
               var c = null == t ? i.add(e) : i.add(e, t);
-              c._hookCtx = s, c.onerror = Re(r), c.onsuccess = we(function (t) {
+              c._hookCtx = s, c.onerror = Te(r), c.onsuccess = we(function (t) {
                 var n = i.keyPath;
                 n && y(e, n, t), o(t)
               })
@@ -20040,7 +20122,7 @@ module.exports = function (e) {
           if (o !== I || r !== I) {
             var i = this.schema.primKey.keyPath,
               a = void 0 === t ? i && g(e, i) : t;
-            return null == a ? this.add(e) : (e = v(e), this._trans(Xe, function () {
+            return null == a ? this.add(e) : (e = v(e), this._trans(Qe, function () {
               return n.where(':id').equals(a).modify(function () {
                 this.value = e
               }).then(function (o) {
@@ -20048,7 +20130,7 @@ module.exports = function (e) {
               })
             }, 'locked'))
           }
-          return this._idbstore(Xe, function (n, o, r) {
+          return this._idbstore(Qe, function (n, o, r) {
             var i = void 0 === t ? r.put(e) : r.put(e, t);
             i.onerror = ke(o), i.onsuccess = ie(function (t) {
               var o = r.keyPath;
@@ -20057,7 +20139,7 @@ module.exports = function (e) {
           })
         },
         delete: function (e) {
-          return this.hook.deleting.subscribers.length ? this.where(':id').equals(e).delete() : this._idbstore(Xe, function (t, n, o) {
+          return this.hook.deleting.subscribers.length ? this.where(':id').equals(e).delete() : this._idbstore(Qe, function (t, n, o) {
             var r = o.delete(e);
             r.onerror = ke(n), r.onsuccess = ie(function () {
               t(r.result)
@@ -20065,7 +20147,7 @@ module.exports = function (e) {
           })
         },
         clear: function () {
-          return this.hook.deleting.subscribers.length ? this.toCollection().delete() : this._idbstore(Xe, function (e, t, n) {
+          return this.hook.deleting.subscribers.length ? this.toCollection().delete() : this._idbstore(Qe, function (e, t, n) {
             var o = n.clear();
             o.onerror = ke(t), o.onsuccess = ie(function () {
               e(o.result)
@@ -20073,8 +20155,8 @@ module.exports = function (e) {
           })
         },
         update: function (e, t) {
-          if ('object' != typeof t || Be(t)) throw new tt.InvalidArgument('Modifications must be an object.');
-          if ('object' == typeof e && !Be(e)) {
+          if ('object' != typeof t || Fe(t)) throw new tt.InvalidArgument('Modifications must be an object.');
+          if ('object' == typeof e && !Fe(e)) {
             Le(t).forEach(function (n) {
               y(e, n, t[n])
             });
@@ -20113,16 +20195,16 @@ module.exports = function (e) {
           }
           if (!this.active) throw new tt.TransactionInactive;
           return p(null === this._completion._state), e = this.idbtrans = e || We.transaction(De(this.storeNames), this.mode), e.onerror = ie(function (n) {
-            Te(n), t._reject(e.error)
+            Re(n), t._reject(e.error)
           }), e.onabort = ie(function (n) {
-            Te(n), t.active && t._reject(new tt.Abort(e.error)), t.active = !1, t.on('abort').fire(n)
+            Re(n), t.active && t._reject(new tt.Abort(e.error)), t.active = !1, t.on('abort').fire(n)
           }), e.oncomplete = ie(function () {
             t.active = !1, t._resolve()
           }), this
         },
         _promise: function (e, t, n) {
           var o = this;
-          if (e === Xe && this.mode !== Xe) return Nt(new tt.ReadOnly('Transaction is readonly'));
+          if (e === Qe && this.mode !== Qe) return Nt(new tt.ReadOnly('Transaction is readonly'));
           if (!this.active) return Nt(new tt.TransactionInactive);
           if (this._locked()) return new W(function (r, i) {
             o._blockedFuncs.push([function () {
@@ -20176,13 +20258,13 @@ module.exports = function (e) {
           this.active && this._reject(new tt.Abort), this.active = !1
         },
         tables: {
-          get: T('Transaction.tables', function () {
+          get: R('Transaction.tables', function () {
             return Ue
           })
         },
         table: function (e) {
           var t = $e.table(e);
-          return new F(e, t.schema, this)
+          return new B(e, t.schema, this)
         }
       }), i(K.prototype, function () {
         function e(e, t, n) {
@@ -20490,11 +20572,11 @@ module.exports = function (e) {
         return {
           _read: function (e, t) {
             var n = this._ctx;
-            return n.error ? n.table._trans(null, Nt.bind(null, n.error)) : n.table._idbstore(Qe, e).then(t)
+            return n.error ? n.table._trans(null, Nt.bind(null, n.error)) : n.table._idbstore(Xe, e).then(t)
           },
           _write: function (e) {
             var t = this._ctx;
-            return t.error ? t.table._trans(null, Nt.bind(null, t.error)) : t.table._idbstore(Xe, e, 'locked')
+            return t.error ? t.table._trans(null, Nt.bind(null, t.error)) : t.table._idbstore(Qe, e, 'locked')
           },
           _addAlgorithm: function (e) {
             var t = this._ctx;
@@ -20702,7 +20784,7 @@ module.exports = function (e) {
             return this._write(function (n, i, d, l) {
               function c(e, t) {
                 function n(t) {
-                  return R.push(t), T.push(o.primKey), u(), !0
+                  return T.push(t), R.push(o.primKey), u(), !0
                 }
                 x = t.primaryKey;
                 var o = {
@@ -20715,7 +20797,7 @@ module.exports = function (e) {
                   var i = !r(o, 'value');
                   ++w, f(function () {
                     var e = i ? t.delete() : t.update(o.value);
-                    e._hookCtx = o, e.onerror = Re(n), e.onsuccess = we(function () {
+                    e._hookCtx = o, e.onerror = Te(n), e.onsuccess = we(function () {
                       ++k, u()
                     })
                   }, n)
@@ -20723,11 +20805,11 @@ module.exports = function (e) {
               }
 
               function p(t) {
-                return t && (R.push(t), T.push(x)), i(new M('Error modifying one or more objects', R, k, T))
+                return t && (T.push(t), R.push(x)), i(new M('Error modifying one or more objects', T, k, R))
               }
 
               function u() {
-                _ && k + R.length === w && (0 < R.length ? p() : n(k))
+                _ && k + T.length === w && (0 < T.length ? p() : n(k))
               }
               var m;
               if ('function' == typeof e) m = a === I && s === I ? e : function (t) {
@@ -20767,8 +20849,8 @@ module.exports = function (e) {
               var w = 0,
                 k = 0,
                 _ = !1,
-                R = [],
                 T = [],
+                R = [],
                 x = null;
               t.clone().raw()._iterate(c, function () {
                 _ = !0, u()
@@ -20823,7 +20905,7 @@ module.exports = function (e) {
         }
       }), o(this, {
         Collection: j,
-        Table: F,
+        Table: B,
         Transaction: G,
         Version: n,
         WhereClause: K
@@ -20841,7 +20923,7 @@ module.exports = function (e) {
 
   function ve(e) {
     if ('function' == typeof e) return new e;
-    if (Be(e)) return [ve(e[0])];
+    if (Fe(e)) return [ve(e[0])];
     if (e && 'object' == typeof e) {
       var t = {};
       return Ee(t, e), t
@@ -20868,7 +20950,7 @@ module.exports = function (e) {
 
   function ke(e) {
     return ie(function (t) {
-      return Te(t), e(t.target.error), !1
+      return Re(t), e(t.target.error), !1
     })
   }
 
@@ -20878,17 +20960,17 @@ module.exports = function (e) {
     })
   }
 
-  function Re(e) {
+  function Te(e) {
     return ie(function (t) {
       var n = t.target,
         o = n.error,
         r = n._hookCtx,
         i = r && r.onerror;
-      return i && i(o), Te(t), e(o), !1
+      return i && i(o), Re(t), e(o), !1
     })
   }
 
-  function Te(e) {
+  function Re(e) {
     e.stopPropagation && e.stopPropagation(), e.preventDefault && e.preventDefault()
   }
 
@@ -20897,7 +20979,7 @@ module.exports = function (e) {
       return function (t) {
         var n = e(t),
           i = n.value;
-        return n.done ? i : i && 'function' == typeof i.then ? i.then(o, r) : Be(i) ? W.all(i).then(o, r) : o(i)
+        return n.done ? i : i && 'function' == typeof i.then ? i.then(o, r) : Fe(i) ? W.all(i).then(o, r) : o(i)
       }
     }
     var n = function (t) {
@@ -20933,8 +21015,8 @@ module.exports = function (e) {
   var Ie = Math.min;
   n.r(t);
   var Le = Object.keys,
-    Be = Array.isArray,
-    Fe = 'undefined' == typeof self ? 'undefined' == typeof window ? global : window : self,
+    Fe = Array.isArray,
+    Be = 'undefined' == typeof self ? 'undefined' == typeof window ? global : window : self,
     Ne = Object.getPrototypeOf,
     Oe = {}.hasOwnProperty,
     He = Object.defineProperty,
@@ -20946,9 +21028,9 @@ module.exports = function (e) {
         return n + e + 'Array'
       })
     }))).filter(function (e) {
-      return Fe[e]
+      return Be[e]
     }).map(function (e) {
-      return Fe[e]
+      return Be[e]
     }),
     Ge = 'undefined' != typeof Symbol && Symbol.iterator,
     Ke = Ge ? function (e) {
@@ -20962,9 +21044,9 @@ module.exports = function (e) {
     Ye = function () {
       return !0
     },
-    Qe = !new Error('').stack,
-    Xe = ['Unknown', 'Constraint', 'Data', 'TransactionInactive', 'ReadOnly', 'Version', 'NotFound', 'InvalidState', 'InvalidAccess', 'Abort', 'Timeout', 'QuotaExceeded', 'Syntax', 'DataClone'],
-    $e = ['Modify', 'Bulk', 'OpenFailed', 'VersionChange', 'Schema', 'Upgrade', 'InvalidTable', 'MissingAPI', 'NoSuchDatabase', 'InvalidArgument', 'SubTransaction', 'Unsupported', 'Internal', 'DatabaseClosed', 'PrematureCommit', 'ForeignAwait'].concat(Xe),
+    Xe = !new Error('').stack,
+    Qe = ['Unknown', 'Constraint', 'Data', 'TransactionInactive', 'ReadOnly', 'Version', 'NotFound', 'InvalidState', 'InvalidAccess', 'Abort', 'Timeout', 'QuotaExceeded', 'Syntax', 'DataClone'],
+    $e = ['Modify', 'Bulk', 'OpenFailed', 'VersionChange', 'Schema', 'Upgrade', 'InvalidTable', 'MissingAPI', 'NoSuchDatabase', 'InvalidArgument', 'SubTransaction', 'Unsupported', 'Internal', 'DatabaseClosed', 'PrematureCommit', 'ForeignAwait'].concat(Qe),
     Ze = {
       VersionChanged: 'Database version changed by other database connection',
       DatabaseClosed: 'Database has been closed',
@@ -20974,7 +21056,7 @@ module.exports = function (e) {
   s(x).from(Error).extend({
     stack: {
       get: function () {
-        return this._stack || (this._stack = this.name + ': ' + this.message + R(this._e, 2))
+        return this._stack || (this._stack = this.name + ': ' + this.message + T(this._e, 2))
       }
     },
     toString: function () {
@@ -20993,7 +21075,7 @@ module.exports = function (e) {
       return s(n).from(et), e[t] = n, e
     }, {});
   tt.Syntax = SyntaxError, tt.Type = TypeError, tt.Range = RangeError;
-  var nt = Xe.reduce(function (e, t) {
+  var nt = Qe.reduce(function (e, t) {
       return e[t + 'Error'] = tt[t], e
     }, {}),
     ot = $e.reduce(function (e, t) {
@@ -21007,7 +21089,7 @@ module.exports = function (e) {
       try {
         return new Function('let F=async ()=>{},p=F();return [p,Object.getPrototypeOf(p),Promise.resolve(),F.constructor];')()
       } catch (t) {
-        var e = Fe.Promise;
+        var e = Be.Promise;
         return e ? [e.resolve(), e.prototype, e.resolve()] : []
       }
     }(),
@@ -21021,7 +21103,7 @@ module.exports = function (e) {
     ft = !1,
     gt = ct ? function () {
       ct.then($)
-    } : Fe.setImmediate ? setImmediate.bind(null, $) : Fe.MutationObserver ? function () {
+    } : Be.setImmediate ? setImmediate.bind(null, $) : Be.MutationObserver ? function () {
       var e = document.createElement('div');
       new MutationObserver(function () {
         $(), e = null
@@ -21032,7 +21114,7 @@ module.exports = function (e) {
       setTimeout($, 0)
     },
     yt = function (e, t) {
-      Rt.push([e, t]), Ct && (gt(), Ct = !1)
+      Tt.push([e, t]), Ct && (gt(), Ct = !1)
     },
     St = !0,
     Ct = !0,
@@ -21057,8 +21139,8 @@ module.exports = function (e) {
       }
     },
     _t = kt,
-    Rt = [],
-    Tt = 0,
+    Tt = [],
+    Rt = 0,
     xt = [],
     Pt = {
       get: function () {
@@ -21069,7 +21151,7 @@ module.exports = function (e) {
           var a = new W(function (n, a) {
             q(r, new V(ge(e, t, i), ge(o, t, i), n, a, t))
           });
-          return qe && X(a, this), a
+          return qe && Q(a, this), a
         }
         var t = _t,
           n = Lt;
@@ -21111,7 +21193,7 @@ module.exports = function (e) {
         if (this._stack) return this._stack;
         try {
           ft = !0;
-          var e = Q(this, [], 20),
+          var e = X(this, [], 20),
             t = e.join('\nFrom previous: ');
           return null !== this._state && (this._stack = t), t
         } finally {
@@ -21147,7 +21229,7 @@ module.exports = function (e) {
         e.then(t, n)
       });
       var t = new W(rt, !0, e);
-      return X(t, Et), t
+      return Q(t, Et), t
     },
     reject: re,
     race: function () {
@@ -21188,7 +21270,7 @@ module.exports = function (e) {
       return new W(function (n, o) {
         return ae(function (t, n) {
           var o = _t;
-          o.unhandleds = [], o.onunhandled = n, o.finalize = F(function () {
+          o.unhandleds = [], o.onunhandled = n, o.finalize = B(function () {
             var e = this;
             te(function () {
               0 === e.unhandleds.length ? t() : n(e.unhandleds[0])
@@ -21207,8 +21289,8 @@ module.exports = function (e) {
     At = [],
     It = 0,
     Lt = 0,
-    Bt = 0,
-    Ft = 'unhandledrejection',
+    Ft = 0,
+    Bt = 'unhandledrejection',
     Nt = W.reject,
     Ot = '{version}',
     Ht = '\uFFFF',
@@ -21233,7 +21315,7 @@ module.exports = function (e) {
     Yt = function (e) {
       return !/(dexie\.js|dexie\.min\.js)/.test(e)
     },
-    Qt;
+    Xt;
   k(qe, Yt), i(be, ot), i(be, {
       delete: function (e) {
         var t = new be(e),
@@ -21256,7 +21338,7 @@ module.exports = function (e) {
           o.onsuccess = function (t) {
             e(l(t.target.result, 0))
           }, o.onerror = ke(n)
-        }).then(e) : Qt.dbnames.toCollection().primaryKeys(e)
+        }).then(e) : Xt.dbnames.toCollection().primaryKeys(e)
       },
       defineClass: function () {
         return function (e) {
@@ -21333,8 +21415,8 @@ module.exports = function (e) {
       dependencies: function () {
         try {
           return {
-            indexedDB: Fe.indexedDB || Fe.mozIndexedDB || Fe.webkitIndexedDB || Fe.msIndexedDB,
-            IDBKeyRange: Fe.IDBKeyRange || Fe.webkitIDBKeyRange
+            indexedDB: Be.indexedDB || Be.mozIndexedDB || Be.webkitIndexedDB || Be.msIndexedDB,
+            IDBKeyRange: Be.IDBKeyRange || Be.webkitIDBKeyRange
           }
         } catch (t) {
           return {
@@ -21351,14 +21433,14 @@ module.exports = function (e) {
       }),
       default: be,
       Dexie: be
-    }), W.rejectionMapper = A, Qt = new be('__dbnames'), Qt.version(1).stores({
+    }), W.rejectionMapper = A, Xt = new be('__dbnames'), Xt.version(1).stores({
       dbnames: 'name'
     }),
     function () {
       var e = 'Dexie.DatabaseNames';
       try {
-        typeof localStorage !== void 0 && Fe.document !== void 0 && (JSON.parse(localStorage.getItem(e) || '[]').forEach(function (e) {
-          return Qt.dbnames.put({
+        typeof localStorage !== void 0 && Be.document !== void 0 && (JSON.parse(localStorage.getItem(e) || '[]').forEach(function (e) {
+          return Xt.dbnames.put({
             name: e
           }).catch(I)
         }), localStorage.removeItem(e))
@@ -21366,9 +21448,9 @@ module.exports = function (e) {
     }(), t['default'] = be
 }, function (e, t, n) {
   'use strict';
-  const o = n(725),
-    r = n(724),
-    i = n(723),
+  const o = n(733),
+    r = n(732),
+    i = n(731),
     a = new WeakMap,
     s = (...e) => {
       if (0 === e.length) return '__defaultKey';
@@ -21539,7 +21621,7 @@ module.exports = function (e) {
     return this.head = t, this.tail = e, this
   };
   try {
-    n(734)
+    n(742)
   } catch (e) {}
 }, function (e, t, n) {
   'use strict';
@@ -21596,9 +21678,9 @@ module.exports = function (e) {
     this.key = e, this.value = t, this.length = n, this.now = o, this.maxAge = r || 0
   }
   e.exports = r;
-  var p = n(736),
-    u = n(171),
-    m = n(285),
+  var p = n(744),
+    u = n(172),
+    m = n(287),
     h = 'function' == typeof Symbol,
     f;
   f = h ? function (e) {
@@ -21791,12 +21873,12 @@ module.exports = function (e) {
     return n = c({}, n), n.__winShell = !0, o = process.env.comspec || 'cmd.exe', r = ['/s', '/c', '"' + t + '"'], n.windowsVerbatimArguments = !0, n.shell && (o = n.shell), e(o, r, n)
   }
   var s = n(46),
-    d = n(738),
-    l = n(728),
-    c = n(180),
-    p = n(727),
-    u = n(726),
-    m = n(284)(),
+    d = n(746),
+    l = n(736),
+    c = n(181),
+    p = n(735),
+    u = n(734),
+    m = n(286)(),
     h = 10485760;
   e.exports = function (e, t, n) {
     var a = new Promise(function (a, c) {
@@ -21831,6 +21913,30 @@ module.exports = function (e) {
     return r.opts.stripEof && (i.stdout = l(i.stdout), i.stderr = l(i.stderr)), i
   }, e.exports.shellSync = function (t, n) {
     return a(e.exports.sync, t, n)
+  }
+}, function (e) {
+  function t(e, t) {
+    var o = t || 0,
+      r = n;
+    return r[e[o++]] + r[e[o++]] + r[e[o++]] + r[e[o++]] + '-' + r[e[o++]] + r[e[o++]] + '-' + r[e[o++]] + r[e[o++]] + '-' + r[e[o++]] + r[e[o++]] + '-' + r[e[o++]] + r[e[o++]] + r[e[o++]] + r[e[o++]] + r[e[o++]] + r[e[o++]]
+  }
+  for (var n = [], o = 0; 256 > o; ++o) n[o] = (o + 256).toString(16).substr(1);
+  e.exports = t
+}, function (e, t, n) {
+  var o = n(173).randomBytes;
+  e.exports = function () {
+    return o(16)
+  }
+}, function (e, t, n) {
+  var o = n(291),
+    r = n(290);
+  e.exports = function (e, t, n) {
+    var a = t && n || 0;
+    'string' == typeof e && (t = 'binary' == e ? Array(16) : null, e = null), e = e || {};
+    var i = e.random || (e.rng || o)();
+    if (i[6] = 64 | 15 & i[6], i[8] = 128 | 63 & i[8], t)
+      for (var s = 0; 16 > s; ++s) t[a + s] = i[s];
+    return t || r(i)
   }
 }, function (e, t, n) {
   'use strict';
@@ -21896,7 +22002,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   }), t.animationEnd = t.animationDelay = t.animationTiming = t.animationDuration = t.animationName = t.transitionEnd = t.transitionDuration = t.transitionDelay = t.transitionTiming = t.transitionProperty = t.transform = void 0;
-  var r = n(176),
+  var r = n(177),
     i = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -21938,7 +22044,7 @@ module.exports = function (e) {
   }), t.default = function (e, t) {
     e.classList ? e.classList.add(t) : !(0, r.default)(e) && (e.className = e.className + ' ' + t)
   };
-  var o = n(748),
+  var o = n(753),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -21994,15 +22100,15 @@ module.exports = function (e) {
         for (var o in n = arguments[t], n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
       return e
     },
-    d = n(293),
+    d = n(298),
     l = o(d),
     c = n(0),
     p = o(c),
     u = n(15),
     m = o(u),
-    h = n(292),
+    h = n(297),
     f = o(h),
-    g = n(750),
+    g = n(755),
     y = {
       component: m.default.any,
       childFactory: m.default.func,
@@ -22110,81 +22216,81 @@ module.exports = function (e) {
     i = n(21),
     a = n(84),
     s = n(28),
-    d = n(3),
+    d = n(2),
     l = n(38),
     c = n(132),
-    p = n(743),
+    p = n(748),
     u = n(65),
-    m = n(13),
+    m = n(12),
     h = n(82),
     f = n(83),
-    g = n(125),
+    g = n(126),
     y = n(159),
     S = n(44),
     C = n(158),
-    b = n(123),
+    b = n(124),
     v = n(29),
-    E = n(122),
+    E = n(123),
     w = n(99),
-    k = n(604),
-    _ = n(596),
-    R = n(543),
-    T = n(462),
-    x = n(460),
-    P = n(458),
-    M = n(193),
+    k = n(609),
+    _ = n(601),
+    T = n(548),
+    R = n(467),
+    x = n(465),
+    P = n(463),
+    M = n(194),
     D = n(4),
     A = n(26),
-    I = n(452),
-    L = n(449),
-    B = n(439),
-    F = n(435),
-    N = n(428),
-    O = n(419),
-    H = n(417),
-    z = n(411),
-    U = n(410),
-    W = n(409),
-    V = n(401),
-    G = n(396),
-    K = n(393),
-    j = n(391),
-    q = n(389),
-    Y = n(387),
-    Q = n(385),
-    X = n(381),
-    $ = n(379),
-    Z = n(377),
-    J = n(375),
-    ee = n(373),
+    I = n(457),
+    L = n(454),
+    F = n(444),
+    B = n(440),
+    N = n(433),
+    O = n(424),
+    H = n(422),
+    z = n(416),
+    U = n(415),
+    W = n(414),
+    V = n(406),
+    G = n(401),
+    K = n(398),
+    j = n(396),
+    q = n(394),
+    Y = n(392),
+    X = n(390),
+    Q = n(386),
+    $ = n(384),
+    Z = n(382),
+    J = n(380),
+    ee = n(378),
     te = n(86),
-    ne = n(371),
-    oe = n(366),
-    re = n(364),
-    ie = n(362),
-    ae = n(359),
-    se = n(357),
-    de = n(355),
-    le = n(354),
-    ce = n(350),
+    ne = n(376),
+    oe = n(371),
+    re = n(369),
+    ie = n(367),
+    ae = n(364),
+    se = n(362),
+    de = n(360),
+    le = n(359),
+    ce = n(355),
     pe = n(81),
-    ue = n(349),
+    ue = n(354),
     me = n(40),
     he = n(25),
-    fe = n(347),
-    ge = n(346),
-    ye = n(344),
-    Se = n(342),
+    fe = n(352),
+    ge = n(351),
+    ye = n(349),
+    Se = n(347),
     Ce = n(76),
     be = n(95),
-    ve = n(334),
-    Ee = n(333),
-    we = n(332),
-    ke = n(331),
+    ve = n(339),
+    Ee = n(338),
+    we = n(337),
+    ke = n(336),
     _e = n(23),
-    Re = n(196),
-    Te = n(93),
-    xe = n(329),
+    Te = n(197),
+    Re = n(93),
+    xe = n(334),
     Pe = 60000,
     Me = 60 * Pe;
   t.dialogTransitionEnterTimeout = 250, t.dialogTransitionLeaveTimeout = 100;
@@ -22350,16 +22456,19 @@ module.exports = function (e) {
           type: s.FoldoutType.Repository
         }) : this.props.dispatcher.closeFoldout(s.FoldoutType.Repository)
       }, this.onExitTutorial = () => {
-        1 === this.state.repositories.length && Te.isValidTutorialStep(this.state.currentOnboardingTutorialStep) ? this.props.dispatcher.showPopup({
+        1 === this.state.repositories.length && Re.isValidTutorialStep(this.state.currentOnboardingTutorialStep) ? this.props.dispatcher.showPopup({
           type: he.PopupType.ConfirmExitTutorial
         }) : this.onRepositoryDropdownStateChanged('open')
       }, this.showCreateBranch = () => {
         const e = this.state.selectedState;
         if (e && e.type === s.SelectionType.Repository && e.state.branchesState.tip.kind !== v.TipState.Unknown) {
-          const t = e.repository;
+          const t = e.repository,
+            n = this.props.repositoryStateManager.get(t),
+            o = n.changesState.currentBranchProtected;
           return this.props.dispatcher.showPopup({
             type: he.PopupType.CreateBranch,
-            repository: t
+            repository: t,
+            currentBranchProtected: o
           })
         }
       }, this.openPullRequest = () => {
@@ -22703,7 +22812,7 @@ module.exports = function (e) {
       if (this.state.showWelcomeFlow) return null;
       const e = this.state.currentFoldout,
         t = e && e.type === s.FoldoutType.AppMenu ? e : null;
-      return r.createElement(B.AppMenuBar, {
+      return r.createElement(F.AppMenuBar, {
         appMenu: this.state.appMenuState,
         dispatcher: this.props.dispatcher,
         highlightAppMenuAccessKeys: this.state.highlightAccessKeys,
@@ -22733,12 +22842,13 @@ module.exports = function (e) {
       switch (e.type) {
         case he.PopupType.RenameBranch:
           const t = null !== this.state.selectedState && this.state.selectedState.type === s.SelectionType.Repository ? this.state.selectedState.state.changesState.stashEntry : null;
-          return r.createElement(T.RenameBranch, {
+          return r.createElement(R.RenameBranch, {
             key: 'rename-branch',
             dispatcher: this.props.dispatcher,
             repository: e.repository,
             branch: e.branch,
-            stash: t
+            stash: t,
+            onDismissed: this.onPopupDismissed
           });
         case he.PopupType.DeleteBranch:
           return r.createElement(x.DeleteBranch, {
@@ -22848,17 +22958,18 @@ module.exports = function (e) {
         case he.PopupType.CreateBranch: {
           const t = this.props.repositoryStateManager.get(e.repository),
             n = t.branchesState,
-            o = e.repository;
+            o = t.changesState.currentBranchProtected,
+            i = e.repository;
           return n.tip.kind === v.TipState.Unknown ? (this.props.dispatcher.closePopup(), null) : r.createElement(G.CreateBranch, {
             key: 'create-branch',
             tip: n.tip,
             defaultBranch: n.defaultBranch,
             allBranches: n.allBranches,
-            repository: o,
+            repository: i,
             onDismissed: this.onPopupDismissed,
             dispatcher: this.props.dispatcher,
             initialName: e.initialName || '',
-            handleProtectedBranchWarning: e.handleProtectedBranchWarning
+            currentBranchProtected: o
           })
         }
         case he.PopupType.InstallGit:
@@ -22880,7 +22991,7 @@ module.exports = function (e) {
             onShowTermsAndConditions: this.showTermsAndConditions
           });
         case he.PopupType.PublishRepository:
-          return r.createElement(Q.Publish, {
+          return r.createElement(X.Publish, {
             key: 'publish',
             dispatcher: this.props.dispatcher,
             repository: e.repository,
@@ -22896,7 +23007,7 @@ module.exports = function (e) {
             onContinue: this.onContinueWithUntrustedCertificate
           });
         case he.PopupType.Acknowledgements:
-          return r.createElement(X.Acknowledgements, {
+          return r.createElement(Q.Acknowledgements, {
             key: 'acknowledgements',
             onDismissed: this.onPopupDismissed,
             applicationVersion: f.getVersion()
@@ -23169,7 +23280,7 @@ module.exports = function (e) {
             onError: this.onTutorialRepositoryError
           });
         case he.PopupType.ConfirmExitTutorial:
-          return r.createElement(Re.ConfirmExitTutorial, {
+          return r.createElement(Te.ConfirmExitTutorial, {
             key: 'confirm-exit-tutorial',
             onDismissed: this.onPopupDismissed,
             onContinue: this.onExitTutorialToHomeScreen
@@ -23278,36 +23389,33 @@ module.exports = function (e) {
         pullWithRebase: p,
         rebaseInProgress: d,
         isForcePush: m,
-        shouldNudge: this.state.currentOnboardingTutorialStep === Te.TutorialStep.PushBranch
+        shouldNudge: this.state.currentOnboardingTutorialStep === Re.TutorialStep.PushBranch
       })
     }
     renderBranchToolbarButton() {
       const e = this.state.selectedState;
       if (null == e || e.type !== s.SelectionType.Repository) return null;
-      const t = this.state.currentFoldout;
-      let n = !1,
-        o;
-      null !== t && t.type === s.FoldoutType.Branch && (n = !0, o = t.handleProtectedBranchWarning);
-      const i = e.repository,
-        a = e.state.branchesState;
+      const t = this.state.currentFoldout,
+        n = null !== t && t.type === s.FoldoutType.Branch,
+        o = e.repository,
+        i = e.state.branchesState;
       return r.createElement(M.BranchDropdown, {
         dispatcher: this.props.dispatcher,
         isOpen: n,
         onDropDownStateChanged: this.onBranchDropdownStateChanged,
-        repository: i,
+        repository: o,
         repositoryState: e.state,
         selectedTab: this.state.selectedBranchesTab,
-        pullRequests: a.openPullRequests,
-        currentPullRequest: a.currentPullRequest,
-        isLoadingPullRequests: a.isLoadingPullRequests,
-        handleProtectedBranchWarning: o,
-        shouldNudge: this.state.currentOnboardingTutorialStep === Te.TutorialStep.CreateBranch
+        pullRequests: i.openPullRequests,
+        currentPullRequest: i.currentPullRequest,
+        isLoadingPullRequests: i.isLoadingPullRequests,
+        shouldNudge: this.state.currentOnboardingTutorialStep === Re.TutorialStep.CreateBranch
       })
     }
     renderBanner() {
       if (this.inNoRepositoriesViewState()) return null;
       let e = null;
-      return null === this.state.currentBanner ? this.state.isUpdateAvailableBannerVisible && (e = this.renderUpdateBanner()) : e = F.renderBanner(this.state.currentBanner, this.props.dispatcher, this.onBannerDismissed), r.createElement(a.CSSTransitionGroup, {
+      return null === this.state.currentBanner ? this.state.isUpdateAvailableBannerVisible && (e = this.renderUpdateBanner()) : e = B.renderBanner(this.state.currentBanner, this.props.dispatcher, this.onBannerDismissed), r.createElement(a.CSSTransitionGroup, {
         transitionName: 'banner',
         component: 'div',
         transitionEnterTimeout: 500,
@@ -23315,7 +23423,7 @@ module.exports = function (e) {
       }, e)
     }
     renderUpdateBanner() {
-      return r.createElement(F.UpdateAvailable, {
+      return r.createElement(B.UpdateAvailable, {
         dispatcher: this.props.dispatcher,
         newRelease: c.updateStore.state.newRelease,
         onDismissed: this.onUpdateAvailableDismissed,
@@ -23350,7 +23458,7 @@ module.exports = function (e) {
       if (!t) return r.createElement(o, null);
       if (t.type === s.SelectionType.Repository) {
         const n = e.selectedExternalEditor ? e.selectedExternalEditor : void 0;
-        return r.createElement(R.RepositoryView, {
+        return r.createElement(T.RepositoryView, {
           repository: t.repository,
           state: t.state,
           dispatcher: this.props.dispatcher,
@@ -23405,7 +23513,7 @@ module.exports = function (e) {
       return 0 === this.state.repositories.length || this.isTutorialPaused()
     }
     isTutorialPaused() {
-      return this.state.currentOnboardingTutorialStep === Te.TutorialStep.Paused
+      return this.state.currentOnboardingTutorialStep === Re.TutorialStep.Paused
     }
   }
   t.App = De
@@ -23416,7 +23524,7 @@ module.exports = function (e) {
   function o() {
     this._array = [], this._set = a ? new Map : Object.create(null)
   }
-  var r = n(101),
+  var r = n(102),
     i = Object.prototype.hasOwnProperty,
     a = 'undefined' != typeof Map;
   o.fromArray = function (e, t) {
@@ -23457,7 +23565,7 @@ module.exports = function (e) {
     var t = e >> 1;
     return 1 == (1 & e) ? -t : t
   }
-  var i = n(768),
+  var i = n(773),
     a = 5,
     s = 1 << a,
     d = s - 1,
@@ -23484,10 +23592,10 @@ module.exports = function (e) {
   function o(e) {
     e || (e = {}), this._file = a.getArg(e, 'file', null), this._sourceRoot = a.getArg(e, 'sourceRoot', null), this._skipValidation = a.getArg(e, 'skipValidation', !1), this._sources = new i, this._names = new i, this._mappings = new s, this._sourcesContents = null
   }
-  var r = n(298),
-    a = n(101),
-    i = n(297).ArraySet,
-    s = n(767).MappingList;
+  var r = n(303),
+    a = n(102),
+    i = n(302).ArraySet,
+    s = n(772).MappingList;
   o.prototype._version = 3, o.fromSourceMap = function (e) {
     var t = e.sourceRoot,
       n = new o({
@@ -23615,10 +23723,10 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = n(2),
+  const a = n(1),
     s = n(32),
-    d = n(771),
-    l = n(770),
+    d = n(776),
+    l = n(775),
     c = ['renderer.js', 'main.js'],
     p = new WeakMap;
   let u;
@@ -23646,9 +23754,9 @@ module.exports = function (e) {
     }
   }
   t.__esModule = !0;
-  var r = n(556),
+  var r = n(561),
     a = o(r),
-    i = n(553),
+    i = n(558),
     s = o(i);
   t.default = function () {
     function e(e, t) {
@@ -23677,7 +23785,7 @@ module.exports = function (e) {
   }()
 }, function (e, t, n) {
   e.exports = {
-    default: n(559),
+    default: n(564),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -23929,31 +24037,31 @@ module.exports = function (e) {
         var w = o.getSizeAndPositionOfCell(E),
           k = E >= g.start && E <= g.stop && b >= y.start && b <= y.stop,
           _ = b + '-' + E,
-          R = void 0;
-        !d && !C && h[_] ? R = h[_] : a && !a.has(b, E) ? R = {
+          T = void 0;
+        !d && !C && h[_] ? T = h[_] : a && !a.has(b, E) ? T = {
           height: 'auto',
           left: 0,
           position: 'absolute',
           top: 0,
           width: 'auto'
-        } : (R = {
+        } : (T = {
           height: v.size,
           left: w.offset + s,
           position: 'absolute',
           top: v.offset + f,
           width: w.size
-        }, h[_] = R);
-        var T = {
+        }, h[_] = T);
+        var R = {
             columnIndex: E,
             isScrolling: d,
             isVisible: k,
             key: _,
             parent: c,
             rowIndex: b,
-            style: R
+            style: T
           },
           x = void 0;
-        ((l || d) && !s && !f ? (!t[_] && (t[_] = n(T)), x = t[_]) : x = n(T), null != x && !1 !== x) && (!1, S.push(x))
+        ((l || d) && !s && !f ? (!t[_] && (t[_] = n(R)), x = t[_]) : x = n(R), null != x && !1 !== x) && (!1, S.push(x))
       }
     }
     return S
@@ -24082,7 +24190,7 @@ module.exports = function (e) {
     return r
   }
 
-  function R(e, t, n, o, r) {
+  function T(e, t, n, o, r) {
     for (var a = t - 1; t <= n;) {
       var i = t + n >>> 1,
         s = e[i];
@@ -24091,7 +24199,7 @@ module.exports = function (e) {
     return a
   }
 
-  function T(e, t, n, o) {
+  function R(e, t, n, o) {
     for (var r = t - 1; t <= n;) {
       var i = t + n >>> 1,
         a = e[i];
@@ -24148,13 +24256,13 @@ module.exports = function (e) {
     n.push(t), I(e, n)
   }
 
-  function B(e, t) {
+  function F(e, t) {
     var n = e.intervals([]),
       o = n.indexOf(t);
-    return 0 > o ? Tt : (n.splice(o, 1), I(e, n), xt)
+    return 0 > o ? Rt : (n.splice(o, 1), I(e, n), xt)
   }
 
-  function F(e, t, n) {
+  function B(e, t, n) {
     for (var o = 0, i; o < e.length && e[o][0] <= t; ++o)
       if (i = n(e[o]), i) return i
   }
@@ -24244,7 +24352,7 @@ module.exports = function (e) {
     return null == t ? '' : t + ''
   }
 
-  function Q(e) {
+  function X(e) {
     var t = e.className,
       n = e.columns,
       o = e.style;
@@ -24255,9 +24363,9 @@ module.exports = function (e) {
     }, n)
   }
 
-  function X(e) {
+  function Q(e) {
     var t = e.sortDirection,
-      n = Fe()('ReactVirtualized__Table__sortableHeaderIcon', {
+      n = Be()('ReactVirtualized__Table__sortableHeaderIcon', {
         "ReactVirtualized__Table__sortableHeaderIcon--ASC": t === Kt.ASC,
         "ReactVirtualized__Table__sortableHeaderIcon--DESC": t === Kt.DESC
       });
@@ -24286,7 +24394,7 @@ module.exports = function (e) {
         key: 'label',
         title: n
       }, n)];
-    return o === t && i.push(we.createElement(X, {
+    return o === t && i.push(we.createElement(Q, {
       key: 'SortIndicator',
       sortDirection: r
     })), i
@@ -24335,7 +24443,7 @@ module.exports = function (e) {
         index: o,
         rowData: c
       })
-    })), we.createElement('div', Te()({}, u, {
+    })), we.createElement('div', Re()({}, u, {
       className: t,
       key: r,
       role: 'row',
@@ -24344,11 +24452,11 @@ module.exports = function (e) {
   }
 
   function J() {
-    $t && ($t = null, document.body && null != Xt && (document.body.style.pointerEvents = Xt), Xt = null)
+    $t && ($t = null, document.body && null != Qt && (document.body.style.pointerEvents = Qt), Qt = null)
   }
 
   function ee() {
-    J(), Qt.forEach(function (e) {
+    J(), Xt.forEach(function (e) {
       return e.__resetIsScrolling()
     })
   }
@@ -24356,27 +24464,27 @@ module.exports = function (e) {
   function te() {
     $t && pt($t);
     var e = 0;
-    Qt.forEach(function (t) {
+    Xt.forEach(function (t) {
       e = le(e, t.props.scrollingResetTimeInterval)
     }), $t = ut(ee, e)
   }
 
   function ne(e) {
-    e.currentTarget === window && null == Xt && document.body && (Xt = document.body.style.pointerEvents, document.body.style.pointerEvents = 'none'), te(), Qt.forEach(function (t) {
+    e.currentTarget === window && null == Qt && document.body && (Qt = document.body.style.pointerEvents, document.body.style.pointerEvents = 'none'), te(), Xt.forEach(function (t) {
       t.props.scrollElement === e.currentTarget && t.__handleWindowScrollEvent()
     })
   }
 
   function oe(e, t) {
-    Qt.some(function (e) {
+    Xt.some(function (e) {
       return e.props.scrollElement === t
-    }) || t.addEventListener('scroll', ne), Qt.push(e)
+    }) || t.addEventListener('scroll', ne), Xt.push(e)
   }
 
   function re(e, t) {
-    Qt = Qt.filter(function (t) {
+    Xt = Xt.filter(function (t) {
       return t !== e
-    }), Qt.length || (t.removeEventListener('scroll', ne), $t && (pt($t), J()))
+    }), Xt.length || (t.removeEventListener('scroll', ne), $t && (pt($t), J()))
   }
 
   function ie(e, t) {
@@ -24432,11 +24540,11 @@ module.exports = function (e) {
   n.r(t);
   var me = n(17),
     he = n.n(me),
-    fe = n(9),
+    fe = n(7),
     ge = n.n(fe),
-    ye = n(10),
+    ye = n(8),
     Se = n.n(ye),
-    Ce = n(12),
+    Ce = n(11),
     be = n.n(Ce),
     ve = n(16),
     Ee = n.n(ve),
@@ -24555,8 +24663,8 @@ module.exports = function (e) {
     scrollToColumn: 0,
     scrollToRow: 0
   }, _e.propTypes = null, a(_e);
-  var Re = n(7),
-    Te = n.n(Re),
+  var Te = n(6),
+    Re = n.n(Te),
     xe = function (e) {
       function t() {
         var e, n, o, r;
@@ -24620,7 +24728,7 @@ module.exports = function (e) {
           return o || (l.height = 0, c.height = s), r || (l.width = 0, c.width = d), we.createElement('div', {
             className: n,
             ref: this._setRef,
-            style: Te()({}, l, i)
+            style: Re()({}, l, i)
           }, t(c))
         }
       }]), t
@@ -24818,11 +24926,11 @@ module.exports = function (e) {
     }(),
     Ie = n(54),
     Le = n.n(Ie),
-    Be = n(6),
-    Fe = n.n(Be),
+    Fe = n(5),
+    Be = n.n(Fe),
     Ne = n(67),
     Oe = n.n(Ne),
-    He = n(102),
+    He = n(103),
     ze = n.n(He),
     Ue = {
       OBSERVED: 'observed',
@@ -24993,15 +25101,15 @@ module.exports = function (e) {
               willChange: 'transform'
             },
             _ = y > i ? this._scrollbarSize : 0,
-            R = S > p ? this._scrollbarSize : 0;
-          return k.overflowX = S + _ <= p ? 'hidden' : 'auto', k.overflowY = y + R <= i ? 'hidden' : 'auto', we.createElement('div', {
+            T = S > p ? this._scrollbarSize : 0;
+          return k.overflowX = S + _ <= p ? 'hidden' : 'auto', k.overflowY = y + T <= i ? 'hidden' : 'auto', we.createElement('div', {
             ref: this._setScrollingContainerRef,
             "aria-label": this.props['aria-label'],
-            className: Fe()('ReactVirtualized__Collection', r),
+            className: Be()('ReactVirtualized__Collection', r),
             id: s,
             onScroll: this._onScroll,
             role: 'grid',
-            style: Te()({}, k, l),
+            style: Re()({}, k, l),
             tabIndex: 0
           }, 0 < n && we.createElement('div', {
             className: 'ReactVirtualized__Collection__innerScrollContainer',
@@ -25214,7 +25322,7 @@ module.exports = function (e) {
         key: 'render',
         value: function () {
           var e = Le()(this.props, []);
-          return we.createElement(We, Te()({
+          return we.createElement(We, Re()({
             cellLayoutManager: this,
             isScrollingChange: this._isScrollingChange,
             ref: this._setCollectionViewRef
@@ -25400,10 +25508,10 @@ module.exports = function (e) {
         }
       }]), t
     }(we.PureComponent),
-    Qe = Ye;
+    Xe = Ye;
   Ye.propTypes = {};
-  var Xe = n(133),
-    $e = n.n(Xe),
+  var Qe = n(133),
+    $e = n.n(Qe),
     Ze = function () {
       function e(t) {
         var n = t.cellCount,
@@ -25802,7 +25910,7 @@ module.exports = function (e) {
             r = void 0 === o ? this.props.scrollToColumn : o,
             i = e.rowIndex,
             a = void 0 === i ? this.props.scrollToRow : i,
-            s = Te()({}, this.props, {
+            s = Re()({}, this.props, {
               scrollToAlignment: n,
               scrollToColumn: r,
               scrollToRow: a
@@ -25898,9 +26006,9 @@ module.exports = function (e) {
             n = e.rowIndex,
             o = this.props.columnCount,
             r = this.props;
-          1 < o && void 0 !== t && this._updateScrollLeftForScrollToColumn(Te()({}, r, {
+          1 < o && void 0 !== t && this._updateScrollLeftForScrollToColumn(Re()({}, r, {
             scrollToColumn: t
-          })), void 0 !== n && this._updateScrollTopForScrollToRow(Te()({}, r, {
+          })), void 0 !== n && this._updateScrollTopForScrollToRow(Re()({}, r, {
             scrollToRow: n
           }))
         }
@@ -25917,7 +26025,7 @@ module.exports = function (e) {
             d = e.width,
             l = this.state.instanceProps;
           if (this._initialScrollTop = 0, this._initialScrollLeft = 0, this._handleInvalidatedGridSize(), l.scrollbarSizeMeasured || this.setState(function (e) {
-              var t = Te()({}, e, {
+              var t = Re()({}, e, {
                 needToResetStyleCache: !1
               });
               return t.instanceProps.scrollbarSize = n(), t.instanceProps.scrollbarSizeMeasured = !0, t
@@ -26047,21 +26155,21 @@ module.exports = function (e) {
           (w !== this._horizontalScrollBarSize || E !== this._verticalScrollBarSize) && (this._horizontalScrollBarSize = w, this._verticalScrollBarSize = E, this._scrollbarPresenceChanged = !0), C.overflowX = b + E <= h ? 'hidden' : 'auto', C.overflowY = v + w <= d ? 'hidden' : 'auto';
           var k = this._childrenToDisplay,
             _ = 0 === k.length && 0 < d && 0 < h;
-          return we.createElement('div', Te()({
+          return we.createElement('div', Re()({
             ref: this._setScrollingContainerRef
           }, i, {
             "aria-label": this.props['aria-label'],
             "aria-readonly": this.props['aria-readonly'],
-            className: Fe()('ReactVirtualized__Grid', r),
+            className: Be()('ReactVirtualized__Grid', r),
             id: l,
             onScroll: this._onScroll,
             role: p,
-            style: Te()({}, C, u),
+            style: Re()({}, C, u),
             tabIndex: m
           }), 0 < k.length && we.createElement('div', {
             className: 'ReactVirtualized__Grid__innerScrollContainer',
             role: a,
-            style: Te()({
+            style: Re()({
               width: t ? 'auto' : b,
               height: v,
               maxWidth: b,
@@ -26129,19 +26237,19 @@ module.exports = function (e) {
                 stopIndex: 'number' == typeof b.stop ? b.stop : -1
               }),
               _ = w.overscanStartIndex,
-              R = w.overscanStopIndex,
-              T = k.overscanStartIndex,
+              T = w.overscanStopIndex,
+              R = k.overscanStartIndex,
               x = k.overscanStopIndex;
             if (i) {
               if (!i.hasFixedHeight())
-                for (var P = T; P <= x; P++)
+                for (var P = R; P <= x; P++)
                   if (!i.has(P, 0)) {
-                    _ = 0, R = r - 1;
+                    _ = 0, T = r - 1;
                     break
                   } if (!i.hasFixedWidth())
-                for (var M = _; M <= R; M++)
+                for (var M = _; M <= T; M++)
                   if (!i.has(0, M)) {
-                    T = 0, x = c - 1;
+                    R = 0, x = c - 1;
                     break
                   }
             }
@@ -26150,14 +26258,14 @@ module.exports = function (e) {
               cellRenderer: n,
               columnSizeAndPositionManager: f.columnSizeAndPositionManager,
               columnStartIndex: _,
-              columnStopIndex: R,
+              columnStopIndex: T,
               deferredMeasurementCache: i,
               horizontalOffsetAdjustment: v,
               isScrolling: S,
               isScrollingOptOut: u,
               parent: this,
               rowSizeAndPositionManager: f.rowSizeAndPositionManager,
-              rowStartIndex: T,
+              rowStartIndex: R,
               rowStopIndex: x,
               scrollLeft: y,
               scrollTop: g,
@@ -26165,7 +26273,7 @@ module.exports = function (e) {
               verticalOffsetAdjustment: E,
               visibleColumnIndices: C,
               visibleRowIndices: b
-            }), this._columnStartIndex = _, this._columnStopIndex = R, this._rowStartIndex = T, this._rowStopIndex = x
+            }), this._columnStartIndex = _, this._columnStopIndex = T, this._rowStartIndex = R, this._rowStopIndex = x
           }
         }
       }, {
@@ -26339,7 +26447,7 @@ module.exports = function (e) {
             updateScrollOffsetForScrollToIndex: function () {
               a = t._getScrollTopForScrollToRowStateUpdate(e, n)
             }
-          }), r.prevColumnCount = e.columnCount, r.prevColumnWidth = e.columnWidth, r.prevIsScrolling = !0 === e.isScrolling, r.prevRowCount = e.rowCount, r.prevRowHeight = e.rowHeight, r.prevScrollToColumn = e.scrollToColumn, r.prevScrollToRow = e.scrollToRow, r.scrollbarSize = e.getScrollbarSize(), void 0 === r.scrollbarSize ? (r.scrollbarSizeMeasured = !1, r.scrollbarSize = 0) : r.scrollbarSizeMeasured = !0, o.instanceProps = r, Te()({}, o, i, a)
+          }), r.prevColumnCount = e.columnCount, r.prevColumnWidth = e.columnWidth, r.prevIsScrolling = !0 === e.isScrolling, r.prevRowCount = e.rowCount, r.prevRowHeight = e.rowHeight, r.prevScrollToColumn = e.scrollToColumn, r.prevScrollToRow = e.scrollToRow, r.scrollbarSize = e.getScrollbarSize(), void 0 === r.scrollbarSize ? (r.scrollbarSizeMeasured = !1, r.scrollbarSize = 0) : r.scrollbarSizeMeasured = !0, o.instanceProps = r, Re()({}, o, i, a)
         }
       }, {
         key: '_getEstimatedColumnSize',
@@ -26559,7 +26667,7 @@ module.exports = function (e) {
   };
   var St = yt;
   yt.propTypes = {};
-  var Ct = n(302),
+  var Ct = n(307),
     bt = n.n(Ct),
     vt = function (e) {
       function t() {
@@ -26693,8 +26801,8 @@ module.exports = function (e) {
             n = e.noRowsRenderer,
             o = e.scrollToIndex,
             r = e.width,
-            i = Fe()('ReactVirtualized__List', t);
-          return we.createElement(ft, Te()({}, this.props, {
+            i = Be()('ReactVirtualized__List', t);
+          return we.createElement(ft, Re()({}, this.props, {
             autoContainerWidth: !0,
             cellRenderer: this._cellRenderer,
             className: i,
@@ -26723,11 +26831,11 @@ module.exports = function (e) {
     scrollToIndex: -1,
     style: {}
   }, vt.propTypes = null;
-  var Et = n(103),
+  var Et = n(104),
     wt = n.n(Et),
-    kt = n(301),
+    kt = n(306),
     _t = n.n(kt),
-    Rt = {
+    Tt = {
       ge: function (e, t, n, o, r) {
         return 'function' == typeof n ? E(e, void 0 === o ? 0 : 0 | o, void 0 === r ? e.length - 1 : 0 | r, t, n) : v(e, void 0 === n ? 0 : 0 | n, void 0 === o ? e.length - 1 : 0 | o, t)
       },
@@ -26735,16 +26843,16 @@ module.exports = function (e) {
         return 'function' == typeof n ? k(e, void 0 === o ? 0 : 0 | o, void 0 === r ? e.length - 1 : 0 | r, t, n) : w(e, void 0 === n ? 0 : 0 | n, void 0 === o ? e.length - 1 : 0 | o, t)
       },
       lt: function (e, t, n, o, r) {
-        return 'function' == typeof n ? R(e, void 0 === o ? 0 : 0 | o, void 0 === r ? e.length - 1 : 0 | r, t, n) : _(e, void 0 === n ? 0 : 0 | n, void 0 === o ? e.length - 1 : 0 | o, t)
+        return 'function' == typeof n ? T(e, void 0 === o ? 0 : 0 | o, void 0 === r ? e.length - 1 : 0 | r, t, n) : _(e, void 0 === n ? 0 : 0 | n, void 0 === o ? e.length - 1 : 0 | o, t)
       },
       le: function (e, t, n, o, r) {
-        return 'function' == typeof n ? x(e, void 0 === o ? 0 : 0 | o, void 0 === r ? e.length - 1 : 0 | r, t, n) : T(e, void 0 === n ? 0 : 0 | n, void 0 === o ? e.length - 1 : 0 | o, t)
+        return 'function' == typeof n ? x(e, void 0 === o ? 0 : 0 | o, void 0 === r ? e.length - 1 : 0 | r, t, n) : R(e, void 0 === n ? 0 : 0 | n, void 0 === o ? e.length - 1 : 0 | o, t)
       },
       eq: function (e, t, n, o, r) {
         return 'function' == typeof n ? M(e, void 0 === o ? 0 : 0 | o, void 0 === r ? e.length - 1 : 0 | r, t, n) : P(e, void 0 === n ? 0 : 0 | n, void 0 === o ? e.length - 1 : 0 | o, t)
       }
     },
-    Tt = 0,
+    Rt = 0,
     xt = 1,
     Pt = 2,
     Mt = D.prototype;
@@ -26755,27 +26863,27 @@ module.exports = function (e) {
     if (this.count += 1, e[1] < this.mid) this.left ? 4 * (this.left.count + 1) > 3 * (t + 1) ? L(this, e) : this.left.insert(e) : this.left = W([e]);
     else if (e[0] > this.mid) this.right ? 4 * (this.right.count + 1) > 3 * (t + 1) ? L(this, e) : this.right.insert(e) : this.right = W([e]);
     else {
-      var n = Rt.ge(this.leftPoints, e, z),
-        o = Rt.ge(this.rightPoints, e, U);
+      var n = Tt.ge(this.leftPoints, e, z),
+        o = Tt.ge(this.rightPoints, e, U);
       this.leftPoints.splice(n, 0, e), this.rightPoints.splice(o, 0, e)
     }
   }, Mt.remove = function (e) {
     var t = this.count - this.leftPoints;
     if (e[1] < this.mid) {
-      if (!this.left) return Tt;
+      if (!this.left) return Rt;
       var o = this.right ? this.right.count : 0;
-      if (4 * o > 3 * (t - 1)) return B(this, e);
+      if (4 * o > 3 * (t - 1)) return F(this, e);
       var i = this.left.remove(e);
       return i === Pt ? (this.left = null, this.count -= 1, xt) : (i === xt && (this.count -= 1), i)
     }
     if (e[0] > this.mid) {
-      if (!this.right) return Tt;
+      if (!this.right) return Rt;
       var r = this.left ? this.left.count : 0;
-      if (4 * r > 3 * (t - 1)) return B(this, e);
+      if (4 * r > 3 * (t - 1)) return F(this, e);
       var i = this.right.remove(e);
       return i === Pt ? (this.right = null, this.count -= 1, xt) : (i === xt && (this.count -= 1), i)
     }
-    if (1 === this.count) return this.leftPoints[0] === e ? Pt : Tt;
+    if (1 === this.count) return this.leftPoints[0] === e ? Pt : Rt;
     if (1 === this.leftPoints.length && this.leftPoints[0] === e) {
       if (this.left && this.right) {
         for (var a = this, s = this.left; s.right;) a = s, s = s.right;
@@ -26789,19 +26897,19 @@ module.exports = function (e) {
       } else this.left ? A(this, this.left) : A(this, this.right);
       return xt
     }
-    for (var n = Rt.ge(this.leftPoints, e, z); n < this.leftPoints.length && this.leftPoints[n][0] === e[0]; ++n)
+    for (var n = Tt.ge(this.leftPoints, e, z); n < this.leftPoints.length && this.leftPoints[n][0] === e[0]; ++n)
       if (this.leftPoints[n] === e) {
         this.count -= 1, this.leftPoints.splice(n, 1);
-        for (var i = Rt.ge(this.rightPoints, e, U); i < this.rightPoints.length && this.rightPoints[i][1] === e[1]; ++i)
+        for (var i = Tt.ge(this.rightPoints, e, U); i < this.rightPoints.length && this.rightPoints[i][1] === e[1]; ++i)
           if (this.rightPoints[i] === e) return this.rightPoints.splice(i, 1), xt
-      } return Tt
+      } return Rt
   }, Mt.queryPoint = function (e, t) {
     if (e < this.mid) {
       if (this.left) {
         var n = this.left.queryPoint(e, t);
         if (n) return n
       }
-      return F(this.leftPoints, e, t)
+      return B(this.leftPoints, e, t)
     }
     if (e > this.mid) {
       if (this.right) {
@@ -26820,7 +26928,7 @@ module.exports = function (e) {
       var o = this.right.queryInterval(e, t, n);
       if (o) return o
     }
-    return t < this.mid ? F(this.leftPoints, t, n) : e > this.mid ? N(this.rightPoints, e, n) : O(this.leftPoints, n)
+    return t < this.mid ? B(this.leftPoints, t, n) : e > this.mid ? N(this.rightPoints, e, n) : O(this.leftPoints, n)
   };
   var Dt = V.prototype;
   Dt.insert = function (e) {
@@ -26828,7 +26936,7 @@ module.exports = function (e) {
   }, Dt.remove = function (e) {
     if (this.root) {
       var t = this.root.remove(e);
-      return t === Pt && (this.root = null), t !== Tt
+      return t === Pt && (this.root = null), t !== Rt
     }
     return !1
   }, Dt.queryPoint = function (e, t) {
@@ -27000,23 +27108,23 @@ module.exports = function (e) {
                 }, wt()(a, 'ltr' === f ? 'left' : 'right', n), wt()(a, 'position', 'absolute'), wt()(a, 'top', o), wt()(a, 'width', r.getWidth(t)), a)
               }))
             }), v < S + s + c && E < o)
-            for (var _ = ue(o - E, pe((S + s + c - v) / r.defaultHeight * h / r.defaultWidth)), R = E; R < E + _; R++) k = R, C.push(i({
-              index: R,
+            for (var _ = ue(o - E, pe((S + s + c - v) / r.defaultHeight * h / r.defaultWidth)), T = E; T < E + _; T++) k = T, C.push(i({
+              index: T,
               isScrolling: y,
-              key: l(R),
+              key: l(T),
               parent: this,
               style: {
-                width: r.getWidth(R)
+                width: r.getWidth(T)
               }
             }));
           return this._startIndex = w, this._stopIndex = k, we.createElement('div', {
             ref: this._setScrollingContainerRef,
             "aria-label": this.props['aria-label'],
-            className: Fe()('ReactVirtualized__Masonry', a),
+            className: Be()('ReactVirtualized__Masonry', a),
             id: d,
             onScroll: this._onScroll,
             role: p,
-            style: Te()({
+            style: Re()({
               boxSizing: 'border-box',
               direction: 'ltr',
               height: n ? 'auto' : s,
@@ -27126,8 +27234,8 @@ module.exports = function (e) {
   }, Lt.propTypes = null;
   null;
   a(Lt);
-  var Bt = Lt,
-    Ft = null,
+  var Ft = Lt,
+    Bt = null,
     Nt = function () {
       function e() {
         var t = this,
@@ -27313,15 +27421,15 @@ module.exports = function (e) {
             style: this._containerOuterStyle
           }, we.createElement('div', {
             style: this._containerTopStyle
-          }, this._renderTopLeftGrid(d), this._renderTopRightGrid(Te()({}, d, {
+          }, this._renderTopLeftGrid(d), this._renderTopRightGrid(Re()({}, d, {
             onScroll: t,
             scrollLeft: c
           }))), we.createElement('div', {
             style: this._containerBottomStyle
-          }, this._renderBottomLeftGrid(Te()({}, d, {
+          }, this._renderBottomLeftGrid(Re()({}, d, {
             onScroll: t,
             scrollTop: p
-          })), this._renderBottomRightGrid(Te()({}, d, {
+          })), this._renderBottomRightGrid(Re()({}, d, {
             onScroll: t,
             onSectionRendered: n,
             scrollLeft: c,
@@ -27404,7 +27512,7 @@ module.exports = function (e) {
             f = e || i !== this._lastRenderedHeight || h !== this._lastRenderedWidth,
             g = e || n !== this._lastRenderedColumnWidth || a !== this._lastRenderedFixedColumnCount,
             y = e || s !== this._lastRenderedFixedRowCount || d !== this._lastRenderedRowHeight;
-          (e || f || l !== this._lastRenderedStyle) && (this._containerOuterStyle = Te()({
+          (e || f || l !== this._lastRenderedStyle) && (this._containerOuterStyle = Re()({
             height: i,
             overflow: 'visible',
             width: h
@@ -27417,21 +27525,21 @@ module.exports = function (e) {
             overflow: 'visible',
             position: 'relative',
             width: h
-          }), (e || c !== this._lastRenderedStyleBottomLeftGrid) && (this._bottomLeftGridStyle = Te()({
+          }), (e || c !== this._lastRenderedStyleBottomLeftGrid) && (this._bottomLeftGridStyle = Re()({
             left: 0,
             overflowX: 'hidden',
             overflowY: o ? 'auto' : 'hidden',
             position: 'absolute'
-          }, c)), (e || g || p !== this._lastRenderedStyleBottomRightGrid) && (this._bottomRightGridStyle = Te()({
+          }, c)), (e || g || p !== this._lastRenderedStyleBottomRightGrid) && (this._bottomRightGridStyle = Re()({
             left: this._getLeftGridWidth(this.props),
             position: 'absolute'
-          }, p)), (e || u !== this._lastRenderedStyleTopLeftGrid) && (this._topLeftGridStyle = Te()({
+          }, p)), (e || u !== this._lastRenderedStyleTopLeftGrid) && (this._topLeftGridStyle = Re()({
             left: 0,
             overflowX: 'hidden',
             overflowY: 'hidden',
             position: 'absolute',
             top: 0
-          }, u)), (e || g || m !== this._lastRenderedStyleTopRightGrid) && (this._topRightGridStyle = Te()({
+          }, u)), (e || g || m !== this._lastRenderedStyleTopRightGrid) && (this._topRightGridStyle = Re()({
             left: this._getLeftGridWidth(this.props),
             overflowX: r ? 'auto' : 'hidden',
             overflowY: 'hidden',
@@ -27459,7 +27567,7 @@ module.exports = function (e) {
             l = this._getLeftGridWidth(e),
             c = this.state.showVerticalScrollbar ? this.state.scrollbarSize : 0,
             p = i ? l + c : l,
-            u = we.createElement(ft, Te()({}, e, {
+            u = we.createElement(ft, Re()({}, e, {
               cellRenderer: this._cellRendererBottomLeftGrid,
               className: this.props.classNameBottomLeftGrid,
               columnCount: n,
@@ -27475,7 +27583,7 @@ module.exports = function (e) {
             }));
           return i ? we.createElement('div', {
             className: 'BottomLeftGrid_ScrollWrapper',
-            style: Te()({}, this._bottomLeftGridStyle, {
+            style: Re()({}, this._bottomLeftGridStyle, {
               height: d,
               width: l,
               overflowY: 'hidden'
@@ -27491,7 +27599,7 @@ module.exports = function (e) {
             r = e.rowCount,
             i = e.scrollToColumn,
             a = e.scrollToRow;
-          return we.createElement(ft, Te()({}, e, {
+          return we.createElement(ft, Re()({}, e, {
             cellRenderer: this._cellRendererBottomRightGrid,
             className: this.props.classNameBottomRightGrid,
             columnCount: le(0, t - n),
@@ -27514,7 +27622,7 @@ module.exports = function (e) {
         value: function (e) {
           var t = e.fixedColumnCount,
             n = e.fixedRowCount;
-          return t && n ? we.createElement(ft, Te()({}, e, {
+          return t && n ? we.createElement(ft, Re()({}, e, {
             className: this.props.classNameTopLeftGrid,
             columnCount: t,
             height: this._getTopGridHeight(e),
@@ -27544,10 +27652,10 @@ module.exports = function (e) {
             m = d ? l : 0,
             h = p,
             f = this._topRightGridStyle;
-          a && (h = p + m, f = Te()({}, this._topRightGridStyle, {
+          a && (h = p + m, f = Re()({}, this._topRightGridStyle, {
             left: 0
           }));
-          var g = we.createElement(ft, Te()({}, e, {
+          var g = we.createElement(ft, Re()({}, e, {
             cellRenderer: this._cellRendererTopRightGrid,
             className: this.props.classNameTopRightGrid,
             columnCount: le(0, t - o) + c,
@@ -27564,7 +27672,7 @@ module.exports = function (e) {
           }));
           return a ? we.createElement('div', {
             className: 'TopRightGrid_ScrollWrapper',
-            style: Te()({}, this._topRightGridStyle, {
+            style: Re()({}, this._topRightGridStyle, {
               height: p,
               width: u,
               overflowX: 'hidden'
@@ -27621,10 +27729,10 @@ module.exports = function (e) {
         s = r.rowCount;
       return n === s - a ? we.createElement('div', {
         key: o.key,
-        style: Te()({}, o.style, {
+        style: Re()({}, o.style, {
           height: Ht
         })
-      }) : i(Te()({}, o, {
+      }) : i(Re()({}, o, {
         parent: e,
         rowIndex: n + a
       }))
@@ -27636,7 +27744,7 @@ module.exports = function (e) {
         a = i.cellRenderer,
         s = i.fixedColumnCount,
         d = i.fixedRowCount;
-      return a(Te()({}, r, {
+      return a(Re()({}, r, {
         columnIndex: n + s,
         parent: e,
         rowIndex: o + d
@@ -27650,10 +27758,10 @@ module.exports = function (e) {
         s = r.fixedColumnCount;
       return n === a - s ? we.createElement('div', {
         key: o.key,
-        style: Te()({}, o.style, {
+        style: Re()({}, o.style, {
           width: Ht
         })
-      }) : i(Te()({}, o, {
+      }) : i(Re()({}, o, {
         columnIndex: n + s,
         parent: e
       }))
@@ -27786,12 +27894,12 @@ module.exports = function (e) {
     }(we.PureComponent),
     Gt = Vt;
   Vt.propTypes = {};
-  Q.propTypes = null;
+  X.propTypes = null;
   var Kt = {
     ASC: 'ASC',
     DESC: 'DESC'
   };
-  X.propTypes = {}, $.propTypes = null, Z.propTypes = null;
+  Q.propTypes = {}, $.propTypes = null, Z.propTypes = null;
   var jt = function (e) {
     function t() {
       return ge()(this, t), be()(this, (t.__proto__ || he()(t)).apply(this, arguments))
@@ -27929,26 +28037,26 @@ module.exports = function (e) {
           }) : m;
         return this._cachedColumnStyles = [], we.Children.toArray(n).forEach(function (t, n) {
           var o = e._getFlexStyleForColumn(t, t.props.style);
-          e._cachedColumnStyles[n] = Te()({}, o, {
+          e._cachedColumnStyles[n] = Re()({}, o, {
             overflow: 'hidden'
           })
         }), we.createElement('div', {
-          className: Fe()('ReactVirtualized__Table', o),
+          className: Be()('ReactVirtualized__Table', o),
           id: c,
           role: 'grid',
           style: f
         }, !r && d({
-          className: Fe()('ReactVirtualized__Table__headerRow', C),
+          className: Be()('ReactVirtualized__Table__headerRow', C),
           columns: this._getHeaderColumns(),
-          style: Te()({}, b, {
+          style: Re()({}, b, {
             height: s,
             overflow: 'hidden',
             paddingRight: y,
             width: g
           })
-        }), we.createElement(ft, Te()({}, this.props, {
+        }), we.createElement(ft, Re()({}, this.props, {
           autoContainerWidth: !0,
-          className: Fe()('ReactVirtualized__Table__Grid', i),
+          className: Be()('ReactVirtualized__Table__Grid', i),
           cellRenderer: this._createRow,
           columnWidth: g,
           columnCount: 1,
@@ -27961,7 +28069,7 @@ module.exports = function (e) {
           role: 'rowgroup',
           scrollbarWidth: y,
           scrollToRow: h,
-          style: Te()({}, a, {
+          style: Re()({}, a, {
             overflowX: 'hidden'
           })
         })))
@@ -28001,7 +28109,7 @@ module.exports = function (e) {
           y = 'string' == typeof f ? f : null;
         return we.createElement('div', {
           "aria-describedby": m,
-          className: Fe()('ReactVirtualized__Table__rowColumn', c),
+          className: Be()('ReactVirtualized__Table__rowColumn', c),
           key: 'Row' + a + '-Col' + n,
           role: 'gridcell',
           style: g,
@@ -28029,10 +28137,10 @@ module.exports = function (e) {
           g = c.id,
           y = c.label,
           S = !h && s,
-          C = Fe()('ReactVirtualized__Table__headerColumn', r, t.props.headerClassName, {
+          C = Be()('ReactVirtualized__Table__headerColumn', r, t.props.headerClassName, {
             ReactVirtualized__Table__sortableHeaderColumn: S
           }),
-          b = this._getFlexStyleForColumn(t, Te()({}, i, t.props.headerStyle)),
+          b = this._getFlexStyleForColumn(t, Re()({}, i, t.props.headerStyle)),
           v = f({
             columnData: p,
             dataKey: u,
@@ -28045,15 +28153,15 @@ module.exports = function (e) {
           w = void 0,
           k = void 0,
           _ = void 0,
-          R = void 0;
+          T = void 0;
         if (S || a) {
-          var T = d !== u ? m : l === Kt.DESC ? Kt.ASC : Kt.DESC,
+          var R = d !== u ? m : l === Kt.DESC ? Kt.ASC : Kt.DESC,
             x = function (e) {
               S && s({
                 defaultSortDirection: m,
                 event: e,
                 sortBy: u,
-                sortDirection: T
+                sortDirection: R
               }), a && a({
                 columnData: p,
                 dataKey: u,
@@ -28063,10 +28171,10 @@ module.exports = function (e) {
             P = function (e) {
               ('Enter' === e.key || ' ' === e.key) && x(e)
             };
-          R = t.props['aria-label'] || y || u, k = 0, E = x, w = P
+          T = t.props['aria-label'] || y || u, k = 0, E = x, w = P
         }
         return d === u && (_ = l === Kt.ASC ? 'ascending' : 'descending'), we.createElement('div', {
-          "aria-label": R,
+          "aria-label": T,
           "aria-sort": _,
           className: C,
           id: g,
@@ -28119,8 +28227,8 @@ module.exports = function (e) {
               scrollbarWidth: S
             })
           }),
-          w = Fe()('ReactVirtualized__Table__row', C),
-          k = Te()({}, a, b, {
+          w = Be()('ReactVirtualized__Table__row', C),
+          k = Re()({}, a, b, {
             height: this._getRowHeight(n),
             overflow: 'hidden',
             paddingRight: S
@@ -28145,7 +28253,7 @@ module.exports = function (e) {
       value: function (e) {
         var t = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : {},
           n = e.props.flexGrow + ' ' + e.props.flexShrink + ' ' + e.props.width + 'px',
-          o = Te()({}, t, {
+          o = Re()({}, t, {
             flex: n,
             msFlex: n,
             WebkitFlex: n
@@ -28239,7 +28347,7 @@ module.exports = function (e) {
     overscanIndicesGetter: g,
     overscanRowCount: 10,
     rowRenderer: Z,
-    headerRowRenderer: Q,
+    headerRowRenderer: X,
     rowStyle: {},
     scrollToAlignment: 'auto',
     scrollToIndex: -1,
@@ -28247,8 +28355,8 @@ module.exports = function (e) {
   };
   var Yt = qt;
   qt.propTypes = {};
-  var Qt = [],
-    Xt = null,
+  var Xt = [],
+    Qt = null,
     $t = null,
     Zt = function (e) {
       return e === window
@@ -28264,7 +28372,7 @@ module.exports = function (e) {
         var e, n, o, r;
         ge()(this, t);
         for (var i = arguments.length, a = Array(i), s = 0; s < i; s++) a[s] = arguments[s];
-        return r = (n = (o = be()(this, (e = t.__proto__ || he()(t)).call.apply(e, [this].concat(a))), o), o._window = en(), o._isMounted = !1, o._positionFromTop = 0, o._positionFromLeft = 0, o.state = Te()({}, ie(o.props.scrollElement, o.props), {
+        return r = (n = (o = be()(this, (e = t.__proto__ || he()(t)).call.apply(e, [this].concat(a))), o), o._window = en(), o._isMounted = !1, o._positionFromTop = 0, o._positionFromLeft = 0, o.state = Re()({}, ie(o.props.scrollElement, o.props), {
           isScrolling: !1,
           scrollLeft: 0,
           scrollTop: 0
@@ -28389,7 +28497,7 @@ module.exports = function (e) {
   }), n.d(t, 'Collection', function () {
     return qe
   }), n.d(t, 'ColumnSizer', function () {
-    return Qe
+    return Xe
   }), n.d(t, 'accessibilityOverscanIndicesGetter', function () {
     return g
   }), n.d(t, 'defaultCellRangeRenderer', function () {
@@ -28405,7 +28513,7 @@ module.exports = function (e) {
   }), n.d(t, 'createMasonryCellPositioner', function () {
     return b
   }), n.d(t, 'Masonry', function () {
-    return Bt
+    return Ft
   }), n.d(t, 'MultiGrid', function () {
     return Wt
   }), n.d(t, 'ScrollSync', function () {
@@ -28419,7 +28527,7 @@ module.exports = function (e) {
   }), n.d(t, 'defaultTableHeaderRenderer', function () {
     return $
   }), n.d(t, 'defaultTableHeaderRowRenderer', function () {
-    return Q
+    return X
   }), n.d(t, 'defaultTableRowRenderer', function () {
     return Z
   }), n.d(t, 'Table', function () {
@@ -28429,7 +28537,7 @@ module.exports = function (e) {
   }), n.d(t, 'SortDirection', function () {
     return Kt
   }), n.d(t, 'SortIndicator', function () {
-    return X
+    return Q
   }), n.d(t, 'WindowScroller', function () {
     return nn
   })
@@ -28570,7 +28678,7 @@ module.exports = function (e) {
   e.exports = t, e.exports.default = t
 }, function (e, t, n) {
   'use strict';
-  const o = n(313),
+  const o = n(318),
     r = (e) => {
       if (1 > e) throw new TypeError('Expected `concurrency` to be a number from 1 and up');
       const t = [];
@@ -28621,9 +28729,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = n(314),
-    s = n(312),
-    d = n(13),
+  const a = n(319),
+    s = n(317),
+    d = n(12),
     l = n(53);
   t.CommitStatusStore = class {
     constructor(e) {
@@ -28716,8 +28824,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(58),
-    a = n(13),
+  const i = n(57),
+    a = n(12),
     s = n(52);
   class d extends i.BaseStore {
     constructor(e) {
@@ -28846,7 +28954,7 @@ module.exports = function (e) {
   const r = n(20),
     i = n(29),
     a = n(28),
-    s = n(234),
+    s = n(236),
     d = n(52),
     l = n(96);
   t.RepositoryStateCache = class {
@@ -28991,7 +29099,7 @@ module.exports = function (e) {
         const d = [];
         n.on('error', (t) => {
           i = !0, o = t
-        }), n.stdout.on('data', (e) => {
+        }), n.stdout && n.stdout.on('data', (e) => {
           d.push(e)
         }), n.on('close', () => {
           i = !0, process.removeListener('exit', a), d.length && (r = Buffer.concat(d).toString('utf8')), t({
@@ -29019,7 +29127,7 @@ module.exports = function (e) {
     value: !0
   });
   const s = n(46),
-    d = n(59),
+    d = n(58),
     l = new Set(['LOCAL_GIT_DIRECTORY']);
   t.shellNeedsPatching = function () {
     return !1
@@ -29043,7 +29151,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(115);
+  const r = n(116);
   class i extends r.BaseDatabase {
     constructor(e, t) {
       super(e, t), this.conditionalVersion(1, {
@@ -29075,7 +29183,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(115);
+  const i = n(116);
   class a extends i.BaseDatabase {
     constructor(e, t) {
       super(e, t), this.conditionalVersion(1, {
@@ -29091,7 +29199,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(115);
+  const o = n(116);
   class r extends o.BaseDatabase {
     constructor(e, t) {
       super(e, t), this.conditionalVersion(1, {
@@ -29106,111 +29214,114 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
 
-  function o(t) {
-    const n = t;
-    return n.code ? n : null
+  function o(e) {
+    return e instanceof Error && 'string' == typeof e.code
   }
 
   function r(e) {
-    return e instanceof l.ErrorWithMetadata ? e : null
+    return o(e) ? e : null
   }
 
   function i(e) {
-    return e instanceof p.GitError ? e : null
+    return e instanceof c.ErrorWithMetadata ? e : null
   }
 
   function a(e) {
-    return e instanceof d.ExternalEditorError ? e : null
+    return e instanceof u.GitError ? e : null
+  }
+
+  function s(e) {
+    return e instanceof l.ExternalEditorError ? e : null
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const s = n(34),
-    d = n(98),
-    l = n(131),
-    c = n(49),
-    p = n(11),
-    u = n(116),
-    m = n(232),
-    h = n(25),
-    f = n(44),
-    g = n(13);
+  const d = n(34),
+    l = n(98),
+    c = n(131),
+    p = n(49),
+    u = n(10),
+    m = n(117),
+    h = n(234),
+    f = n(25),
+    g = n(44),
+    y = n(12);
   t.defaultErrorHandler = async function (t, n) {
-    const o = r(t) || t;
+    const o = i(t) || t;
     return await n.presentError(o), null
   }, t.missingRepositoryHandler = async function (t, n) {
-    const a = r(t);
-    if (!a) return t;
-    const d = a.metadata.repository;
-    if (!d || !(d instanceof f.Repository)) return t;
-    if (d.missing) return null;
-    const l = o(a.underlyingError),
-      c = i(a.underlyingError),
-      p = c && c.result.gitError === s.GitError.NotAGitRepository || l && l.code === s.RepositoryDoesNotExistErrorCode;
-    return p ? (await n.updateRepositoryMissing(d, !0), null) : t
+    const o = i(t);
+    if (!o) return t;
+    const s = o.metadata.repository;
+    if (!s || !(s instanceof g.Repository)) return t;
+    if (s.missing) return null;
+    const l = r(o.underlyingError),
+      c = a(o.underlyingError),
+      p = c && c.result.gitError === d.GitError.NotAGitRepository || l && l.code === d.RepositoryDoesNotExistErrorCode;
+    return p ? (await n.updateRepositoryMissing(s, !0), null) : t
   }, t.backgroundTaskHandler = async function (t) {
-    const n = r(t);
+    const n = i(t);
     if (!n) return t;
     const o = n.metadata;
     return o.backgroundTask ? null : t
   }, t.gitAuthenticationErrorHandler = async function (t, n) {
-    const o = r(t);
+    const o = i(t);
     if (!o) return t;
-    const a = i(o.underlyingError);
-    if (!a) return t;
-    const s = a.result.gitError;
+    const r = a(o.underlyingError);
+    if (!r) return t;
+    const s = r.result.gitError;
     if (!s) return t;
-    if (!c.AuthenticationErrors.has(s)) return t;
+    if (!p.AuthenticationErrors.has(s)) return t;
     const d = o.metadata.repository;
     if (!d) return t;
-    if (d instanceof f.Repository && d.gitHubRepository) return t;
+    if (d instanceof g.Repository && d.gitHubRepository) return t;
     const l = o.metadata.retryAction;
     return l ? (await n.promptForGenericGitAuthentication(d, l), null) : (log.error(`No retry action provided for a git authentication error.`, o), t)
   }, t.externalEditorErrorHandler = async function (t, n) {
-    const o = a(t);
+    const o = s(t);
     if (!o) return t;
     const {
       suggestAtom: r,
       openPreferences: i
     } = o.metadata;
     return await n.showPopup({
-      type: h.PopupType.ExternalEditorFailed,
+      type: f.PopupType.ExternalEditorFailed,
       message: o.message,
       suggestAtom: r,
       openPreferences: i
     }), null
   }, t.openShellErrorHandler = async function (e, t) {
-    return e instanceof u.ShellError ? (await t.showPopup({
-      type: h.PopupType.OpenShellFailed,
+    return e instanceof m.ShellError ? (await t.showPopup({
+      type: f.PopupType.OpenShellFailed,
       message: e.message
     }), null) : e
   }, t.pushNeedsPullHandler = async function (t, n) {
-    const o = r(t);
+    const o = i(t);
     if (!o) return t;
-    const a = i(o.underlyingError);
-    if (!a) return t;
-    const d = a.result.gitError;
-    if (!d) return t;
-    if (d !== s.GitError.PushNotFastForward) return t;
+    const r = a(o.underlyingError);
+    if (!r) return t;
+    const s = r.result.gitError;
+    if (!s) return t;
+    if (s !== d.GitError.PushNotFastForward) return t;
     const l = o.metadata.repository;
-    return l ? l instanceof f.Repository ? (n.showPopup({
-      type: h.PopupType.PushNeedsPull,
+    return l ? l instanceof g.Repository ? (n.showPopup({
+      type: f.PopupType.PushNeedsPull,
       repository: l
     }), null) : t : t
   }, t.mergeConflictHandler = async function (t, n) {
-    const o = r(t);
+    const o = i(t);
     if (!o) return t;
-    const a = i(o.underlyingError);
-    if (!a) return t;
-    const d = a.result.gitError;
-    if (!d) return t;
-    if (d !== s.GitError.MergeConflicts) return t;
+    const r = a(o.underlyingError);
+    if (!r) return t;
+    const s = r.result.gitError;
+    if (!s) return t;
+    if (s !== d.GitError.MergeConflicts) return t;
     const {
       repository: l,
       gitContext: c
     } = o.metadata;
     if (null == l) return t;
-    if (!(l instanceof f.Repository)) return t;
+    if (!(l instanceof g.Repository)) return t;
     if (null == c) return t;
     if ('merge' !== c.kind && 'pull' !== c.kind) return t;
     switch (c.kind) {
@@ -29225,38 +29336,38 @@ module.exports = function (e) {
       theirBranch: u
     } = c;
     return n.showPopup({
-      type: h.PopupType.MergeConflicts,
+      type: f.PopupType.MergeConflicts,
       repository: l,
       ourBranch: p,
       theirBranch: u
     }), null
   }, t.lfsAttributeMismatchHandler = async function (e, t) {
-    const n = i(e);
+    const n = a(e);
     if (!n) return e;
     const o = n.result.gitError;
-    return o ? o === s.GitError.LFSAttributeDoesNotMatch ? (t.showPopup({
-      type: h.PopupType.LFSAttributeMismatch
+    return o ? o === d.GitError.LFSAttributeDoesNotMatch ? (t.showPopup({
+      type: f.PopupType.LFSAttributeMismatch
     }), null) : e : e
   }, t.upstreamAlreadyExistsHandler = async function (e, t) {
-    return e instanceof m.UpstreamAlreadyExistsError ? (t.showPopup({
-      type: h.PopupType.UpstreamAlreadyExists,
+    return e instanceof h.UpstreamAlreadyExistsError ? (t.showPopup({
+      type: f.PopupType.UpstreamAlreadyExists,
       repository: e.repository,
       existingRemote: e.existingRemote
     }), null) : e
   }, t.rebaseConflictsHandler = async function (t, n) {
-    const o = r(t);
+    const o = i(t);
     if (!o) return t;
-    const a = i(o.underlyingError);
-    if (!a) return t;
-    const d = a.result.gitError;
-    if (!d) return t;
-    if (d !== s.GitError.RebaseConflicts) return t;
+    const r = a(o.underlyingError);
+    if (!r) return t;
+    const s = r.result.gitError;
+    if (!s) return t;
+    if (s !== d.GitError.RebaseConflicts) return t;
     const {
       repository: l,
       gitContext: c
     } = o.metadata;
     if (null == l) return t;
-    if (!(l instanceof f.Repository)) return t;
+    if (!(l instanceof g.Repository)) return t;
     if (null == c) return t;
     if ('merge' !== c.kind && 'pull' !== c.kind) return t;
     const {
@@ -29264,43 +29375,43 @@ module.exports = function (e) {
     } = c;
     return n.launchRebaseFlow(l, p), null
   }, t.localChangesOverwrittenHandler = async function (t, n) {
-    const o = r(t);
+    const o = i(t);
     if (!o) return t;
-    const a = i(o.underlyingError);
-    if (!a) return t;
-    const d = a.result.gitError;
-    if (!d) return t;
-    if (d !== s.GitError.LocalChangesOverwritten) return t;
+    const r = a(o.underlyingError);
+    if (!r) return t;
+    const s = r.result.gitError;
+    if (!s) return t;
+    if (s !== d.GitError.LocalChangesOverwritten) return t;
     const {
       repository: l,
       gitContext: c
     } = o.metadata;
     if (null == l) return t;
-    if (!(l instanceof f.Repository)) return t;
+    if (!(l instanceof g.Repository)) return t;
     if (void 0 === c || 'checkout' !== c.kind) return n.recordErrorWhenSwitchingBranchesWithUncommmittedChanges(), t;
     const {
       branchToCheckout: p
     } = c;
     return await n.moveChangesToBranchAndCheckout(l, p), null
   };
-  const y = /^ ! \[remote rejected\] .*? -> .*? \(refusing to allow an integration to create or update (.*?)\)$/m;
+  const S = /^ ! \[remote rejected\] .*? -> .*? \(refusing to allow an integration to create or update (.*?)\)$/m;
   t.refusedWorkflowUpdate = async function (t, n) {
-    const o = r(t);
+    const o = i(t);
     if (!o) return t;
-    const a = i(o.underlyingError);
-    if (!a) return t;
+    const r = a(o.underlyingError);
+    if (!r) return t;
     const {
       repository: s
     } = o.metadata;
-    if (!(s instanceof f.Repository)) return t;
+    if (!(s instanceof g.Repository)) return t;
     if (null === s.gitHubRepository) return t;
-    if (s.gitHubRepository.endpoint !== g.getDotComAPIEndpoint()) return t;
-    const d = y.exec(t.message);
+    if (s.gitHubRepository.endpoint !== y.getDotComAPIEndpoint()) return t;
+    const d = S.exec(t.message);
     if (!d) return t;
     const l = d[1],
       c = l.startsWith('.github/') && 0 <= l.indexOf('workflow');
     return c ? (n.showPopup({
-      type: h.PopupType.PushRejectedDueToMissingWorkflowScope,
+      type: f.PopupType.PushRejectedDueToMissingWorkflowScope,
       rejectedPath: l,
       repository: s
     }), null) : t
@@ -29320,7 +29431,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(46),
-    r = n(2);
+    r = n(1);
   t.isGitOnPath = function () {
     return !1, new Promise((e) => {
       const t = process.env.SystemRoot || 'C:\\Windows',
@@ -29340,26 +29451,26 @@ module.exports = function (e) {
   });
   const o = n(21),
     r = n(53),
-    i = n(2),
+    i = n(1),
     a = n(38),
     s = n(28),
-    d = n(3),
-    l = n(256),
+    d = n(2),
+    l = n(258),
     c = n(22),
-    p = n(326),
-    u = n(229),
+    p = n(331),
+    u = n(231),
     m = n(65),
     h = n(159),
-    f = n(325),
+    f = n(330),
     g = n(76),
-    y = n(122),
-    S = n(121),
+    y = n(123),
+    S = n(122),
     C = n(25),
     b = n(44),
-    v = n(117),
+    v = n(118),
     E = n(29),
     w = n(95),
-    k = n(184),
+    k = n(185),
     _ = n(26);
   t.Dispatcher = class {
     constructor(e, t, n, o) {
@@ -30189,18 +30300,17 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(327)), o(n(324))
+  }), o(n(332)), o(n(329))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(5),
-    i = n(8),
-    a = n(1),
-    s = n(24);
-  class d extends o.Component {
+    r = n(3),
+    i = n(24),
+    a = n(9);
+  class s extends o.Component {
     constructor(e) {
       super(e), this.onSignIn = async () => {
         this.setState({
@@ -30217,14 +30327,12 @@ module.exports = function (e) {
         onDismissed: this.props.onDismissed,
         onSubmit: this.onSignIn,
         type: 'error'
-      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'The push was rejected by the server for containing a modification to a workflow file ( ', o.createElement(s.Ref, null, this.props.rejectedPath), '). In order to be able to push to workflow files GitHub Desktop needs to request additional permissions.'), o.createElement('p', null, 'Would you like to open a browser to grant GitHub Desktop permission to update workflow files?')), o.createElement(r.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(a.Button, {
-        type: 'submit'
-      }, 'Grant'), o.createElement(a.Button, {
-        onClick: this.props.onDismissed
-      }, 'Cancel'))))
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'The push was rejected by the server for containing a modification to a workflow file ( ', o.createElement(i.Ref, null, this.props.rejectedPath), '). In order to be able to push to workflow files GitHub Desktop needs to request additional permissions.'), o.createElement('p', null, 'Would you like to open a browser to grant GitHub Desktop permission to update workflow files?')), o.createElement(r.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
+        okButtonText: 'Grant'
+      })))
     }
   }
-  t.WorkflowPushRejectedDialog = d
+  t.WorkflowPushRejectedDialog = s
 }, function (e, t) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -30238,30 +30346,29 @@ module.exports = function (e) {
   'use strict';
 
   function o(e) {
-    return e.endpoint === c.getDotComAPIEndpoint() ? 'GitHub.com' : i.parse(e.endpoint).hostname || e.endpoint
+    return e.endpoint === d.getDotComAPIEndpoint() ? 'GitHub.com' : i.parse(e.endpoint).hostname || e.endpoint
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const r = n(0),
     i = n(47),
-    a = n(2),
-    s = n(5),
-    d = n(1),
-    l = n(8),
-    c = n(13),
-    p = n(24),
-    u = n(14),
-    m = n(134),
-    h = n(19),
-    f = n(22),
-    g = n(49),
-    y = n(77),
-    S = n(174),
-    C = n(330),
-    b = '\r\n',
-    v = `# Welcome to GitHub Desktop!${b}${b}` + `This is your README. READMEs are where you can communicate ` + `what your project is and how to use it.${b}${b}` + `Write your name on line 6, save it, and then head ` + `back to GitHub Desktop.${b}`;
-  class E extends r.Component {
+    a = n(1),
+    s = n(3),
+    d = n(12),
+    l = n(24),
+    c = n(14),
+    p = n(134),
+    u = n(19),
+    m = n(22),
+    h = n(49),
+    f = n(77),
+    g = n(175),
+    y = n(335),
+    S = n(9),
+    C = '\r\n',
+    b = `# Welcome to GitHub Desktop!${C}${C}` + `This is your README. READMEs are where you can communicate ` + `what your project is and how to use it.${C}${C}` + `Write your name on line 6, save it, and then head ` + `back to GitHub Desktop.${C}`;
+  class v extends r.Component {
     constructor(e) {
       super(e), this.onSubmit = async () => {
         this.props.dispatcher.recordTutorialStarted();
@@ -30273,43 +30380,41 @@ module.exports = function (e) {
         });
         const n = 'desktop-tutorial';
         try {
-          const o = a.resolve(m.getDefaultDir(), n);
-          if (await h.pathExists(o)) throw new Error(`The path ${o} already exists. Please move it ` + 'out of the way, or remove it, and then try again.');
+          const o = a.resolve(p.getDefaultDir(), n);
+          if (await u.pathExists(o)) throw new Error(`The path '${o}' already exists. Please move it ` + 'out of the way, or remove it, and then try again.');
           this.setProgress(`Creating repository on ${t}`, 0);
           const r = await this.createAPIRepository(e, n);
-          this.setProgress('Initializing local repository', .2), await h.ensureDir(o), await f.git(['init'], o, 'tutorial:init'), await h.writeFile(a.join(o, 'README.md'), v), await f.git(['add', '--', 'README.md'], o, 'tutorial:add'), await f.git(['commit', '-m', 'Initial commit', '--', 'README.md'], o, 'tutorial:commit'), await f.git(['remote', 'add', 'origin', r.clone_url], o, 'tutorial:add-remote'), await this.pushRepo(o, e, (e, t, n) => {
+          this.setProgress('Initializing local repository', .2), await u.ensureDir(o), await m.git(['init'], o, 'tutorial:init'), await u.writeFile(a.join(o, 'README.md'), b), await m.git(['add', '--', 'README.md'], o, 'tutorial:add'), await m.git(['commit', '-m', 'Initial commit', '--', 'README.md'], o, 'tutorial:commit'), await m.git(['remote', 'add', 'origin', r.clone_url], o, 'tutorial:add-remote'), await this.pushRepo(o, e, (e, t, n) => {
             this.setProgress(e, .3 + .6 * t, n)
           }), this.setProgress('Finalizing tutorial repository', .9), await this.props.onTutorialRepositoryCreated(o, e, r), this.props.dispatcher.recordTutorialRepoCreated(), this.props.onDismissed()
         } catch (e) {
           this.setState({
             loading: !1,
             progress: void 0
-          }), C.sendNonFatalException('tutorialRepoCreation', e), e instanceof f.GitError ? this.props.onError(e) : this.props.onError(new Error(`Failed creating the tutorial repository.\n\n${e.message}`))
+          }), y.sendNonFatalException('tutorialRepoCreation', e), e instanceof m.GitError ? this.props.onError(e) : this.props.onError(new Error(`Failed creating the tutorial repository.\n\n${e.message}`))
         }
-      }, this.onCancel = () => {
-        this.props.onDismissed()
       }, this.state = {
         loading: !1
       }
     }
     async createAPIRepository(e, t) {
-      const n = new c.API(e.endpoint, e.token);
+      const n = new d.API(e.endpoint, e.token);
       try {
         return await n.createRepository(null, t, 'GitHub Desktop tutorial repository', !0)
       } catch (n) {
-        if (n instanceof S.APIError && 422 === n.responseStatus && null !== n.apiError && 'Repository creation failed.' === n.apiError.message && n.apiError.errors && n.apiError.errors.some((e) => 'name already exists on this account' === e.message)) throw new Error('You already have a repository named ' + `"${t}" on your account at ${o(e)}.\n\n` + 'Please delete the repository and try again.');
+        if (n instanceof g.APIError && 422 === n.responseStatus && null !== n.apiError && 'Repository creation failed.' === n.apiError.message && n.apiError.errors && n.apiError.errors.some((e) => 'name already exists on this account' === e.message)) throw new Error('You already have a repository named ' + `"${t}" on your account at ${o(e)}.\n\n` + 'Please delete the repository and try again.');
         throw n
       }
     }
     async pushRepo(e, t, n) {
       const r = `Pushing repository to ${o(t)}`;
       n(r, 0);
-      const i = await y.executionOptionsWithProgress({
-        env: g.envForAuthentication(t)
-      }, new y.PushProgressParser, (e) => {
+      const i = await f.executionOptionsWithProgress({
+        env: h.envForAuthentication(t)
+      }, new f.PushProgressParser, (e) => {
         'progress' === e.kind && n(r, e.percent, e.details.text)
       });
-      await f.git(['push', '-u', 'origin', 'master'], e, 'tutorial:push', i)
+      await m.git(['push', '-u', 'origin', 'master'], e, 'tutorial:push', i)
     }
     setProgress(e, t, n) {
       this.setState({
@@ -30341,34 +30446,31 @@ module.exports = function (e) {
       return r.createElement(s.Dialog, {
         id: 'create-tutorial-repository-dialog',
         title: 'Start tutorial',
-        onDismissed: this.onCancel,
+        onDismissed: this.props.onDismissed,
         onSubmit: this.onSubmit,
         dismissable: !this.state.loading,
         loading: this.state.loading,
         disabled: this.state.loading
-      }, r.createElement(s.DialogContent, null, r.createElement('div', null, 'This will create a repository on your local machine, and push it to your account ', r.createElement(p.Ref, null, '@', this.props.account.login), ' on', ' ', r.createElement(u.LinkButton, {
-        uri: c.getHTMLURL(e.endpoint)
-      }, o(e)), '. This repository will only be visible to you, and not visible publicly.'), this.renderProgress()), r.createElement(s.DialogFooter, null, r.createElement(l.ButtonGroup, null, r.createElement(d.Button, {
-        type: 'submit'
-      }, 'Continue'), r.createElement(d.Button, {
-        onClick: this.onCancel
-      }, 'Cancel'))))
+      }, r.createElement(s.DialogContent, null, r.createElement('div', null, 'This will create a repository on your local machine, and push it to your account ', r.createElement(l.Ref, null, '@', this.props.account.login), ' on', ' ', r.createElement(c.LinkButton, {
+        uri: d.getHTMLURL(e.endpoint)
+      }, o(e)), '. This repository will only be visible to you, and not visible publicly.'), this.renderProgress()), r.createElement(s.DialogFooter, null, r.createElement(S.OkCancelButtonGroup, {
+        okButtonText: 'Continue'
+      })))
     }
   }
-  t.CreateTutorialRepositoryDialog = E
+  t.CreateTutorialRepositoryDialog = v
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(5),
-    i = n(8),
-    a = n(1),
-    s = n(18);
-  class d extends o.Component {
+    r = n(3),
+    i = n(18),
+    a = n(9);
+  class s extends o.Component {
     constructor(e) {
-      super(e), this.onDiscardClick = async () => {
+      super(e), this.onSubmit = async () => {
         const {
           dispatcher: e,
           repository: t,
@@ -30398,30 +30500,26 @@ module.exports = function (e) {
         title: e,
         loading: this.state.isDiscarding,
         disabled: this.state.isDiscarding,
-        onSubmit: this.props.onDismissed,
+        onSubmit: this.onSubmit,
         onDismissed: this.props.onDismissed
-      }, o.createElement(r.DialogContent, null, o.createElement(s.Row, null, '你确定要放弃这些隐藏的更改吗？')), o.createElement(r.DialogFooter, null, o.createElement(i.ButtonGroup, {
-        destructive: !0
-      }, o.createElement(a.Button, {
-        type: 'submit'
-      }, 'Cancel'), o.createElement(a.Button, {
-        onClick: this.onDiscardClick
-      }, 'Discard'))))
+      }, o.createElement(r.DialogContent, null, o.createElement(i.Row, null, '你确定要放弃这些隐藏的更改吗？')), o.createElement(r.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: 'Discard'
+      })))
     }
   }
-  t.ConfirmDiscardStashDialog = d
+  t.ConfirmDiscardStashDialog = s
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(5),
-    i = n(8),
-    a = n(1),
-    s = n(18),
-    d = n(94);
-  class l extends o.Component {
+    r = n(3),
+    i = n(18),
+    a = n(94),
+    s = n(9);
+  class d extends o.Component {
     constructor(e) {
       super(e), this.onSubmit = async () => {
         const {
@@ -30434,7 +30532,7 @@ module.exports = function (e) {
           isCheckingOutBranch: !0
         });
         try {
-          await e.checkoutBranch(t, n, d.stashOnCurrentBranch)
+          await e.checkoutBranch(t, n, a.stashOnCurrentBranch)
         } finally {
           this.setState({
             isCheckingOutBranch: !1
@@ -30453,38 +30551,34 @@ module.exports = function (e) {
         title: e,
         loading: this.state.isCheckingOutBranch,
         disabled: this.state.isCheckingOutBranch,
-        onSubmit: this.props.onDismissed,
+        onSubmit: this.onSubmit,
         onDismissed: this.props.onDismissed
-      }, o.createElement(r.DialogContent, null, o.createElement(s.Row, null, '确定要继续吗？这将覆盖您现有的隐藏与您当前的变化。')), o.createElement(r.DialogFooter, null, o.createElement(i.ButtonGroup, {
-        destructive: !0
-      }, o.createElement(a.Button, {
-        type: 'submit'
-      }, 'Cancel'), o.createElement(a.Button, {
-        onClick: this.onSubmit
-      }, 'Overwrite'))))
+      }, o.createElement(r.DialogContent, null, o.createElement(i.Row, null, '确定要继续吗？这将覆盖您现有的隐藏与您当前的变化。')), o.createElement(r.DialogFooter, null, o.createElement(s.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: 'Overwrite'
+      })))
     }
   }
-  t.OverwriteStash = l
+  t.OverwriteStash = d
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(5),
+    r = n(3),
     i = n(135),
     a = n(18),
-    s = n(8),
-    d = n(1),
-    l = n(94),
-    c = n(4),
-    p = n(25),
-    u = n(109);
-  var m;
+    s = n(94),
+    d = n(4),
+    l = n(25),
+    c = n(110),
+    p = n(9);
+  var u;
   (function (e) {
     e[e.StashOnCurrentBranch = 0] = 'StashOnCurrentBranch', e[e.MoveToNewBranch = 1] = 'MoveToNewBranch'
-  })(m || (m = {}));
-  class h extends o.Component {
+  })(u || (u = {}));
+  class m extends o.Component {
     constructor(e) {
       super(e), this.onSelectionChanged = (e) => {
         this.setState({
@@ -30499,18 +30593,18 @@ module.exports = function (e) {
         } = this.props, {
           selectedStashAction: r
         } = this.state;
-        if (r === m.StashOnCurrentBranch && o) return void n.showPopup({
-          type: p.PopupType.ConfirmOverwriteStash,
+        if (r === u.StashOnCurrentBranch && o) return void n.showPopup({
+          type: l.PopupType.ConfirmOverwriteStash,
           repository: e,
           branchToCheckout: t
         });
         this.setState({
           isStashingChanges: !0
         });
-        const i = u.startTimer('stash and checkout', e);
+        const i = c.startTimer('stash and checkout', e);
         try {
-          r === m.StashOnCurrentBranch ? await n.checkoutBranch(e, t, l.stashOnCurrentBranch) : r === m.MoveToNewBranch && (await n.checkoutBranch(e, t, {
-            kind: l.UncommittedChangesStrategyKind.MoveToNewBranch,
+          r === u.StashOnCurrentBranch ? await n.checkoutBranch(e, t, s.stashOnCurrentBranch) : r === u.MoveToNewBranch && (await n.checkoutBranch(e, t, {
+            kind: s.UncommittedChangesStrategyKind.MoveToNewBranch,
             transientStashEntry: null
           }))
         } finally {
@@ -30522,7 +30616,7 @@ module.exports = function (e) {
         }
       }, this.state = {
         isStashingChanges: !1,
-        selectedStashAction: m.StashOnCurrentBranch,
+        selectedStashAction: u.StashOnCurrentBranch,
         currentBranchName: e.currentBranch.name
       }
     }
@@ -30537,15 +30631,13 @@ module.exports = function (e) {
         onDismissed: this.props.onDismissed,
         loading: e,
         disabled: e
-      }, o.createElement(r.DialogContent, null, this.renderStashActions(), this.renderStashOverwriteWarning()), o.createElement(r.DialogFooter, null, o.createElement(s.ButtonGroup, null, o.createElement(d.Button, {
-        type: 'submit'
-      }, 'Switch branch'), o.createElement(d.Button, {
-        onClick: this.props.onDismissed
-      }, 'Cancel'))))
+      }, o.createElement(r.DialogContent, null, this.renderStashActions(), this.renderStashOverwriteWarning()), o.createElement(r.DialogFooter, null, o.createElement(p.OkCancelButtonGroup, {
+        okButtonText: 'Switch branch'
+      })))
     }
     renderStashOverwriteWarning() {
-      return this.props.hasAssociatedStash && this.state.selectedStashAction === m.StashOnCurrentBranch ? o.createElement(a.Row, null, o.createElement(c.Octicon, {
-        symbol: c.OcticonSymbol.alert
+      return this.props.hasAssociatedStash && this.state.selectedStashAction === u.StashOnCurrentBranch ? o.createElement(a.Row, null, o.createElement(d.Octicon, {
+        symbol: d.OcticonSymbol.alert
       }), ' 创建一个新的存储将覆盖您当前的存储') : null
     }
     renderStashActions() {
@@ -30566,19 +30658,18 @@ module.exports = function (e) {
       }))
     }
   }
-  t.StashAndSwitchBranch = h
+  t.StashAndSwitchBranch = m
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(35),
-    s = n(5),
-    d = n(24);
-  class l extends o.Component {
+    r = n(35),
+    i = n(3),
+    a = n(24),
+    s = n(9);
+  class d extends o.Component {
     constructor(e) {
       super(e), this.onAskForConfirmationOnForcePushChanged = (e) => {
         const t = !e.currentTarget.checked;
@@ -30593,36 +30684,34 @@ module.exports = function (e) {
       }
     }
     render() {
-      return o.createElement(s.Dialog, {
+      return o.createElement(i.Dialog, {
         title: '你确定要强制推送吗？',
         dismissable: !this.state.isLoading,
         onDismissed: this.props.onDismissed,
         onSubmit: this.onForcePush,
         type: 'warning'
-      }, o.createElement(s.DialogContent, null, o.createElement('p', null, '一次强制推送将改写', ' ', o.createElement(d.Ref, null, this.props.upstreamBranch), '的历史。任何在此分支上工作的协作者都需要重置自己的本地分支以匹配远程的历史记录。'), o.createElement('div', null, o.createElement(a.Checkbox, {
+      }, o.createElement(i.DialogContent, null, o.createElement('p', null, '一次强制推送将改写', ' ', o.createElement(a.Ref, null, this.props.upstreamBranch), '的历史。任何在此分支上工作的协作者都需要重置自己的本地分支以匹配远程的历史记录。'), o.createElement('div', null, o.createElement(r.Checkbox, {
         label: '不再显示此消息',
-        value: this.state.askForConfirmationOnForcePush ? a.CheckboxValue.Off : a.CheckboxValue.On,
+        value: this.state.askForConfirmationOnForcePush ? r.CheckboxValue.Off : r.CheckboxValue.On,
         onChange: this.onAskForConfirmationOnForcePushChanged
-      }))), o.createElement(s.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit'
-      }, 'I\'m sure'), o.createElement(r.Button, {
-        onClick: this.props.onDismissed
-      }, 'Cancel'))))
+      }))), o.createElement(i.DialogFooter, null, o.createElement(s.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: 'I\'m sure'
+      })))
     }
   }
-  t.ConfirmForcePush = l
+  t.ConfirmForcePush = d
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(35),
-    s = n(5),
-    d = n(24);
-  class l extends o.Component {
+    r = n(35),
+    i = n(3),
+    a = n(24),
+    s = n(9);
+  class d extends o.Component {
     constructor(e) {
       super(e), this.onAskForConfirmationOnForcePushChanged = (e) => {
         const t = !e.currentTarget.checked;
@@ -30648,36 +30737,32 @@ module.exports = function (e) {
         baseBranch: e,
         targetBranch: t
       } = this.props.step, n = 'Rebase will require force push';
-      return o.createElement(s.Dialog, {
+      return o.createElement(i.Dialog, {
         title: n,
         onDismissed: this.props.onDismissed,
         onSubmit: this.onBeginRebase,
         disableClickDismissalAlways: !0,
         type: 'warning'
-      }, o.createElement(s.DialogContent, null, o.createElement('p', null, '是否确定要将', o.createElement(d.Ref, null, t.name), ' 改为', ' ', o.createElement(d.Ref, null, e.name), '?'), o.createElement('p', null, '在rebase流的末尾，github桌面将允许您强制推送分支以更新上游分支。强制推送将更改远程上的历史记录，并可能会给在此分支上协作的其他人带来问题。'), o.createElement('div', null, o.createElement(a.Checkbox, {
+      }, o.createElement(i.DialogContent, null, o.createElement('p', null, '是否确定要将', o.createElement(a.Ref, null, t.name), ' 改为', ' ', o.createElement(a.Ref, null, e.name), '?'), o.createElement('p', null, '在rebase流的末尾，github桌面将允许您强制推送分支以更新上游分支。强制推送将更改远程上的历史记录，并可能会给在此分支上协作的其他人带来问题。'), o.createElement('div', null, o.createElement(r.Checkbox, {
         label: '不再显示此消息',
-        value: this.state.askForConfirmationOnForcePush ? a.CheckboxValue.Off : a.CheckboxValue.On,
+        value: this.state.askForConfirmationOnForcePush ? r.CheckboxValue.Off : r.CheckboxValue.On,
         onChange: this.onAskForConfirmationOnForcePushChanged
-      }))), o.createElement(s.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit'
-      }, 'Begin rebase'), o.createElement(r.Button, {
-        onClick: this.props.onDismissed
-      }, 'Cancel'))))
+      }))), o.createElement(i.DialogFooter, null, o.createElement(s.OkCancelButtonGroup, {
+        okButtonText: 'Begin rebase'
+      })))
     }
   }
-  t.WarnForcePushDialog = l
+  t.WarnForcePushDialog = d
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(8),
-    i = n(1),
-    a = n(5),
-    s = n(4),
-    d = n(24);
-  class l extends o.Component {
+    r = n(3),
+    i = n(24),
+    a = n(9);
+  class s extends o.Component {
     constructor(e) {
       super(e), this.onSubmit = async () => {
         this.setState({
@@ -30693,7 +30778,7 @@ module.exports = function (e) {
     }
     renderTextContent(e, t) {
       let n;
-      return n = void 0 === t ? o.createElement('p', null, '是否确实要中止重新调整', o.createElement(d.Ref, null, e), '?') : o.createElement('p', null, '是否确实要中止 rebasing', o.createElement(d.Ref, null, t), ' onto ', o.createElement(d.Ref, null, e), '?'), o.createElement('div', {
+      return n = void 0 === t ? o.createElement('p', null, '是否确实要中止重新调整', o.createElement(i.Ref, null, e), '?') : o.createElement('p', null, '是否确实要中止 rebasing ', o.createElement(i.Ref, null, t), ' onto ', o.createElement(i.Ref, null, e), '?'), o.createElement('div', {
         className: 'column-left'
       }, n, o.createElement('p', null, '中止此rebase将使您返回到原始分支状态，并且已解决的冲突将被丢弃。'))
     }
@@ -30702,25 +30787,20 @@ module.exports = function (e) {
         targetBranch: e,
         baseBranch: t
       } = this.props.step.conflictState;
-      return o.createElement(a.Dialog, {
+      return o.createElement(r.Dialog, {
         id: 'abort-merge-warning',
         title: '确认中止rebase',
-        dismissable: !1,
         onDismissed: this.onCancel,
         onSubmit: this.onSubmit,
-        disabled: this.state.isAborting
-      }, o.createElement(a.DialogContent, {
-        className: 'content-wrapper'
-      }, o.createElement(s.Octicon, {
-        symbol: s.OcticonSymbol.alert
-      }), this.renderTextContent(e, t)), o.createElement(a.DialogFooter, null, o.createElement(r.ButtonGroup, null, o.createElement(i.Button, {
-        type: 'submit'
-      }, 'Abort rebase'), o.createElement(i.Button, {
-        onClick: this.onCancel
-      }, 'Cancel'))))
+        disabled: this.state.isAborting,
+        type: 'warning'
+      }, o.createElement(r.DialogContent, null, this.renderTextContent(e, t)), o.createElement(r.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: 'Abort rebase'
+      })))
     }
   }
-  t.ConfirmAbortDialog = l
+  t.ConfirmAbortDialog = s
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -30729,7 +30809,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(76),
     i = n(87),
-    a = n(5),
+    a = n(3),
     s = n(4);
   class d extends o.Component {
     constructor() {
@@ -30776,15 +30856,13 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(40),
-    i = n(8),
-    a = n(1),
-    s = n(183),
-    d = n(182),
-    l = n(5);
-  class c extends o.Component {
+    i = n(184),
+    a = n(183),
+    s = n(3);
+  class d extends o.Component {
     constructor(e) {
-      super(e), this.onCancel = async () => {
-        this.setState({
+      super(e), this.onCancel = (t) => {
+        t.preventDefault(), this.setState({
           isAborting: !0
         }), this.props.onAbortRebase(this.props.step), this.setState({
           isAborting: !1
@@ -30823,7 +30901,7 @@ module.exports = function (e) {
       } = this.props.step.conflictState;
       return o.createElement('ul', {
         className: 'unmerged-file-statuses'
-      }, e.map((e) => r.isConflictedFile(e.status) ? d.renderUnmergedFile({
+      }, e.map((e) => r.isConflictedFile(e.status) ? a.renderUnmergedFile({
         path: e.path,
         status: e.status,
         resolvedExternalEditor: this.props.resolvedExternalEditor,
@@ -30836,7 +30914,7 @@ module.exports = function (e) {
       }) : null))
     }
     renderContent(e, t) {
-      return 0 === e.length ? s.renderAllResolved() : o.createElement(o.Fragment, null, s.renderUnmergedFilesSummary(t), this.renderUnmergedFiles(e), s.renderShellLink(this.openThisRepositoryInShell))
+      return 0 === e.length ? i.renderAllResolved() : o.createElement(o.Fragment, null, i.renderUnmergedFilesSummary(t), this.renderUnmergedFiles(e), i.renderShellLink(this.openThisRepositoryInShell))
     }
     render() {
       const {
@@ -30844,27 +30922,27 @@ module.exports = function (e) {
         step: t
       } = this.props, {
         manualResolutions: n,
-        targetBranch: s,
-        baseBranch: d
-      } = t.conflictState, c = r.getUnmergedFiles(e), p = r.getConflictedFiles(e, n).length, u = this.renderHeaderTitle(s, d), m = 0 < p ? 'Resolve all conflicts before continuing' : void 0;
-      return o.createElement(l.Dialog, {
+        targetBranch: i,
+        baseBranch: a
+      } = t.conflictState, d = r.getUnmergedFiles(e), l = r.getConflictedFiles(e, n).length, c = this.renderHeaderTitle(i, a), p = 0 < l ? 'Resolve all conflicts before continuing' : void 0;
+      return o.createElement(s.Dialog, {
         id: 'rebase-conflicts-list',
         dismissable: !0,
         onDismissed: this.onDismissed,
-        title: u,
+        title: c,
         disableClickDismissalAlways: !0,
         onSubmit: this.onSubmit
-      }, o.createElement(l.DialogContent, null, this.renderContent(c, p)), o.createElement(l.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(a.Button, {
-        type: 'submit',
-        disabled: 0 < p,
-        tooltip: m
-      }, 'Continue rebase'), o.createElement(a.Button, {
-        onClick: this.onCancel,
-        disabled: this.state.isAborting
-      }, 'Abort rebase'))))
+      }, o.createElement(s.DialogContent, null, this.renderContent(d, l)), o.createElement(s.DialogFooter, null, o.createElement(s.OkCancelButtonGroup, {
+        okButtonText: 'Continue rebase',
+        okButtonDisabled: 0 < l,
+        okButtonTitle: p,
+        cancelButtonText: 'Abort rebase',
+        cancelButtonDisabled: this.state.isAborting,
+        onCancelButtonClick: this.onCancel
+      })))
     }
   }
-  t.ShowConflictedFilesDialog = c
+  t.ShowConflictedFilesDialog = d
 }, function (e, t, n) {
   'use strict';
 
@@ -30876,15 +30954,13 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(63),
-    a = n(187),
+    a = n(188),
     s = n(22),
-    d = n(1),
-    l = n(8),
-    c = n(139),
-    p = n(5),
-    u = n(86),
-    m = n(160);
-  class h extends r.Component {
+    d = n(139),
+    l = n(3),
+    c = n(86),
+    p = n(160);
+  class u extends r.Component {
     constructor(e) {
       super(e), this.computingRebaseForBranch = null, this.onFilterTextChanged = (e) => {
         this.setState({
@@ -30899,7 +30975,7 @@ module.exports = function (e) {
         this.setState({
           selectedBranch: e
         }), null !== e && this.onBranchChanged(e)
-      }, this.renderBranch = (e, t) => u.renderDefaultBranch(e, t, this.props.currentBranch), this.renderRebaseStatus = () => {
+      }, this.renderBranch = (e, t) => c.renderDefaultBranch(e, t, this.props.currentBranch), this.renderRebaseStatus = () => {
         const {
           currentBranch: e
         } = this.props, {
@@ -30908,7 +30984,7 @@ module.exports = function (e) {
         } = this.state;
         return null === n ? null : null === t ? null : e.name === t.name ? null : r.createElement('div', {
           className: 'rebase-status-component'
-        }, r.createElement(c.ActionStatusIcon, {
+        }, r.createElement(d.ActionStatusIcon, {
           status: n,
           classNamePrefix: 'rebase-status'
         }), r.createElement('p', {
@@ -30954,7 +31030,7 @@ module.exports = function (e) {
       const {
         commits: o,
         base: r
-      } = await m.promiseWithMinimumTimeout(async () => {
+      } = await p.promiseWithMinimumTimeout(async () => {
         const o = await s.getCommitsInRange(n, e.tip.sha, t.tip.sha),
           r = await s.getMergeBase(n, e.tip.sha, t.tip.sha);
         return {
@@ -30984,14 +31060,14 @@ module.exports = function (e) {
         rebasePreview: t
       } = this.state, {
         currentBranch: n
-      } = this.props, o = null === e || null === n || n.name === e.name, s = null === t || t.kind !== i.ComputedAction.Clean || 0 === t.commits.length, c = o ? 'You are not able to rebase this branch onto itself' : s ? 'There are no commits on the current branch to rebase' : void 0, m = n.name, h = a.truncateWithEllipsis(m, 40);
-      return r.createElement(p.Dialog, {
+      } = this.props, o = null === e || null === n || n.name === e.name, s = null === t || t.kind !== i.ComputedAction.Clean || 0 === t.commits.length, d = o ? 'You are not able to rebase this branch onto itself' : s ? 'There are no commits on the current branch to rebase' : void 0, p = n.name, u = a.truncateWithEllipsis(p, 40);
+      return r.createElement(l.Dialog, {
         id: 'rebase',
         onDismissed: this.props.onDismissed,
         onSubmit: this.startRebase,
         dismissable: !0,
-        title: r.createElement(r.Fragment, null, 'Rebase ', r.createElement('strong', null, h), '\u2026')
-      }, r.createElement(p.DialogContent, null, r.createElement(u.BranchList, {
+        title: r.createElement(r.Fragment, null, 'Rebase ', r.createElement('strong', null, u), '\u2026')
+      }, r.createElement(l.DialogContent, null, r.createElement(c.BranchList, {
         allBranches: this.props.allBranches,
         currentBranch: n,
         defaultBranch: this.props.defaultBranch,
@@ -31002,11 +31078,12 @@ module.exports = function (e) {
         onSelectionChanged: this.onSelectionChanged,
         canCreateNewBranch: !1,
         renderBranch: this.renderBranch
-      })), r.createElement(p.DialogFooter, null, this.renderRebaseStatus(), r.createElement(l.ButtonGroup, null, r.createElement(d.Button, {
-        type: 'submit',
-        disabled: o || s,
-        tooltip: c
-      }, 'Start rebase'))))
+      })), r.createElement(l.DialogFooter, null, this.renderRebaseStatus(), r.createElement(l.OkCancelButtonGroup, {
+        okButtonText: 'Start rebase',
+        okButtonDisabled: o || s,
+        okButtonTitle: d,
+        cancelButtonVisible: !1
+      })))
     }
     renderRebaseDetails(e, t, n) {
       return n.kind === i.ComputedAction.Loading ? this.renderLoadingRebaseMessage() : n.kind === i.ComputedAction.Clean ? this.renderCleanRebaseMessage(e, t, n.commits.length) : n.kind === i.ComputedAction.Invalid ? this.renderInvalidRebaseMessage() : null
@@ -31023,20 +31100,20 @@ module.exports = function (e) {
       return r.createElement(r.Fragment, null, 'This will update ', r.createElement('strong', null, e.name), ` by applying its `, r.createElement('strong', null, ` ${n} ${o}`), ` on top of `, r.createElement('strong', null, t.name))
     }
   }
-  t.ChooseBranchDialog = h
+  t.ChooseBranchDialog = u
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(3),
-    i = n(340),
-    a = n(339),
-    s = n(338),
-    d = n(337),
+    r = n(2),
+    i = n(345),
+    a = n(344),
+    s = n(343),
+    d = n(342),
     l = n(40),
-    c = n(336);
+    c = n(341);
   class p extends o.Component {
     constructor(e) {
       super(e), this.moveToShowConflictedFileState = (e) => {
@@ -31182,9 +31259,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(341);
+  var o = n(346);
   t.RebaseFlow = o.RebaseFlow;
-  var r = n(335);
+  var r = n(340);
   t.ConfirmForcePush = r.ConfirmForcePush
 }, function (e, t, n) {
   'use strict';
@@ -31192,17 +31269,15 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(8),
-    i = n(5),
-    a = n(121),
-    s = n(1),
-    d = n(55);
-  class l extends o.Component {
+    r = n(3),
+    i = n(122),
+    a = n(9);
+  class s extends o.Component {
     constructor(e) {
       super(e), this.onFetch = async () => {
         this.setState({
           isLoading: !0
-        }), await this.props.dispatcher.fetch(this.props.repository, a.FetchType.UserInitiatedTask), this.setState({
+        }), await this.props.dispatcher.fetch(this.props.repository, i.FetchType.UserInitiatedTask), this.setState({
           isLoading: !1
         }), this.props.onDismissed()
       }, this.state = {
@@ -31210,25 +31285,27 @@ module.exports = function (e) {
       }
     }
     render() {
-      return o.createElement(i.Dialog, {
+      return o.createElement(r.Dialog, {
         title: 'Newer commits on remote',
         dismissable: !this.state.isLoading,
+        disabled: this.state.isLoading,
         onDismissed: this.props.onDismissed,
         onSubmit: this.onFetch,
+        loading: this.state.isLoading,
         type: 'warning'
-      }, o.createElement(i.DialogContent, null, o.createElement('p', null, 'Desktop is unable to push commits to this branch because there are commits on the remote that are not present on your local branch. Fetch these new commits before pushing in order to reconcile them with your local commits.')), o.createElement(i.DialogFooter, null, o.createElement(r.ButtonGroup, null, o.createElement(s.Button, {
-        type: 'submit',
-        disabled: this.state.isLoading
-      }, this.state.isLoading ? o.createElement(d.Loading, null) : null, ' Fetch'))))
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'Desktop is unable to push commits to this branch because there are commits on the remote that are not present on your local branch. Fetch these new commits before pushing in order to reconcile them with your local commits.')), o.createElement(r.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
+        okButtonText: 'Fetch',
+        okButtonDisabled: this.state.isLoading
+      })))
     }
   }
-  t.PushNeedsPullWarning = l
+  t.PushNeedsPullWarning = s
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(343);
+  var o = n(348);
   t.PushNeedsPullWarning = o.PushNeedsPullWarning
 }, function (e, t, n) {
   'use strict';
@@ -31236,12 +31313,11 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(5),
-    i = n(8),
-    a = n(1),
-    s = n(18),
-    d = n(35);
-  class l extends o.Component {
+    r = n(3),
+    i = n(18),
+    a = n(35),
+    s = n(9);
+  class d extends o.Component {
     constructor(e) {
       super(e), this.onReportingOptOutChanged = (e) => {
         const t = !e.currentTarget.checked;
@@ -31250,8 +31326,8 @@ module.exports = function (e) {
         })
       }, this.onDismissed = () => {
         this.props.onDismissed(this.state.optOutOfUsageTracking)
-      }, this.viewMoreInfo = () => {
-        this.props.onOpenUsageDataUrl()
+      }, this.viewMoreInfo = (t) => {
+        t.preventDefault(), this.props.onOpenUsageDataUrl()
       }, this.state = {
         optOutOfUsageTracking: !1
       }
@@ -31264,26 +31340,26 @@ module.exports = function (e) {
         onDismissed: this.onDismissed,
         onSubmit: this.onDismissed,
         type: 'normal'
-      }, o.createElement(r.DialogContent, null, o.createElement(s.Row, null, 'GitHub Desktop has introduced a change around how it reports usage stats, to help us better understand how our GitHub users get value from Desktop:'), o.createElement(s.Row, null, o.createElement('ul', null, o.createElement('li', null, o.createElement('span', null, o.createElement('strong', null, 'If you are signed into a GitHub account'), ', your GitHub.com account ID will be included in the periodic usage stats.')), o.createElement('li', null, o.createElement('span', null, o.createElement('strong', null, 'If you are only signed into a GitHub Enterprise Server account, or only using Desktop with non-GitHub remotes'), ', nothing is going to change.')))), o.createElement(s.Row, {
+      }, o.createElement(r.DialogContent, null, o.createElement(i.Row, null, 'GitHub Desktop has introduced a change around how it reports usage stats, to help us better understand how our GitHub users get value from Desktop:'), o.createElement(i.Row, null, o.createElement('ul', null, o.createElement('li', null, o.createElement('span', null, o.createElement('strong', null, 'If you are signed into a GitHub account'), ', your GitHub.com account ID will be included in the periodic usage stats.')), o.createElement('li', null, o.createElement('span', null, o.createElement('strong', null, 'If you are only signed into a GitHub Enterprise Server account, or only using Desktop with non-GitHub remotes'), ', nothing is going to change.')))), o.createElement(i.Row, {
         className: 'selection'
-      }, o.createElement(d.Checkbox, {
+      }, o.createElement(a.Checkbox, {
         label: 'Help GitHub Desktop improve by submitting usage stats',
-        value: this.state.optOutOfUsageTracking ? d.CheckboxValue.Off : d.CheckboxValue.On,
+        value: this.state.optOutOfUsageTracking ? a.CheckboxValue.Off : a.CheckboxValue.On,
         onChange: this.onReportingOptOutChanged
-      }))), o.createElement(r.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(a.Button, {
-        type: 'submit'
-      }, 'Continue'), o.createElement(a.Button, {
-        onClick: this.viewMoreInfo
-      }, ' ', 'More info'))))
+      }))), o.createElement(r.DialogFooter, null, o.createElement(s.OkCancelButtonGroup, {
+        okButtonText: 'Continue',
+        cancelButtonText: 'More info',
+        onCancelButtonClick: this.viewMoreInfo
+      })))
     }
   }
-  t.UsageStatsChange = l
+  t.UsageStatsChange = d
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(345);
+  var o = n(350);
   t.UsageStatsChange = o.UsageStatsChange
 }, function (e, t, n) {
   'use strict';
@@ -31291,72 +31367,61 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(5),
-    s = n(14),
-    d = n(69),
-    l = n(71),
-    c = n(96);
-  class p extends o.Component {
+    r = n(3),
+    i = n(14),
+    a = n(69),
+    s = n(71),
+    d = n(96),
+    l = n(9);
+  class c extends o.Component {
     constructor(e) {
-      super(e), this.closeButton = null, this.onCloseButtonRef = (e) => {
-        this.closeButton = e
-      }, this.commitAnyway = async () => {
-        this.props.dispatcher.closePopup(), await this.props.dispatcher.commitIncludedChanges(this.props.repository, this.props.context), this.props.dispatcher.setCommitMessage(this.props.repository, c.DefaultCommitMessage)
+      super(e), this.onSubmit = async () => {
+        this.props.dispatcher.closePopup(), await this.props.dispatcher.commitIncludedChanges(this.props.repository, this.props.context), this.props.dispatcher.setCommitMessage(this.props.repository, d.DefaultCommitMessage)
       }
     }
-    componentDidMount() {
-      null != this.closeButton && this.closeButton.focus()
-    }
     render() {
-      return o.createElement(a.Dialog, {
+      return o.createElement(r.Dialog, {
         id: 'oversized-files',
         title: 'Files too large',
+        onSubmit: this.onSubmit,
         onDismissed: this.props.onDismissed,
         type: 'warning'
-      }, o.createElement(a.DialogContent, null, o.createElement('p', null, '以下文件超过100MB。', ' ', o.createElement('strong', null, '如果提交这些文件，您将无法再将此存储库推送到GitHub.')), this.renderFileList(), o.createElement('p', {
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, '以下文件超过100MB。', ' ', o.createElement('strong', null, '如果提交这些文件，您将无法再将此存储库推送到GitHub')), this.renderFileList(), o.createElement('p', {
         className: 'recommendation'
-      }, '我们建议您避免提交这些文件，或者使用', ' ', o.createElement(s.LinkButton, {
+      }, '我们建议您避免提交这些文件，或者使用', ' ', o.createElement(i.LinkButton, {
         uri: 'https://help.github.com/articles/versioning-large-files/'
-      }, 'Git LFS'), '在GiHub上存储大文件。')), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, {
-        destructive: !0
-      }, o.createElement(r.Button, {
-        type: 'submit',
-        ref: this.onCloseButtonRef
-      }, 'Cancel'), o.createElement(r.Button, {
-        onClick: this.commitAnyway
-      }, 'Commit anyway'))))
+      }, 'Git LFS'), '在GiHub上存储大文件。')), o.createElement(r.DialogFooter, null, o.createElement(l.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: 'Commit anyway'
+      })))
     }
     renderFileList() {
       return o.createElement('div', {
         className: 'files-list'
       }, this.props.oversizedFiles.map((e) => o.createElement('ul', {
         key: e
-      }, o.createElement(d.Monospaced, null, o.createElement(l.PathText, {
+      }, o.createElement(a.Monospaced, null, o.createElement(s.PathText, {
         path: e
       })))))
     }
   }
-  t.OversizedFiles = p
+  t.OversizedFiles = c
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(5),
-    s = n(25),
-    d = n(4);
-  class l extends o.Component {
+    r = n(3),
+    i = n(25),
+    a = n(9);
+  class s extends o.Component {
     constructor() {
       super(...arguments), this.onSubmit = async () => {
         await this.props.dispatcher.abortMerge(this.props.repository), this.props.onDismissed()
       }, this.onCancel = () => {
         this.props.onDismissed(), this.props.dispatcher.showPopup({
-          type: s.PopupType.MergeConflicts,
+          type: i.PopupType.MergeConflicts,
           repository: this.props.repository,
           ourBranch: this.props.ourBranch,
           theirBranch: this.props.theirBranch
@@ -31365,29 +31430,24 @@ module.exports = function (e) {
     }
     renderTextContent(e, t) {
       let n;
-      return n = void 0 === t ? o.createElement('p', null, '是否确实要中止合并到', o.createElement('strong', null, e), '?') : o.createElement('p', null, '确实要中止合并', o.createElement('strong', null, t), ' 到 ', o.createElement('strong', null, e), '吗?'), o.createElement('div', {
+      return n = void 0 === t ? o.createElement('p', null, '是否确实要中止合并到', o.createElement('strong', null, e), '?') : o.createElement('p', null, '确实要中止合并', o.createElement('strong', null, t), ' 到 ', o.createElement('strong', null, e), '?'), o.createElement('div', {
         className: 'column-left'
       }, n, o.createElement('p', null, '中止此合并将使您返回到合并前状态，并且已解决的冲突仍将存在。'))
     }
     render() {
-      return o.createElement(a.Dialog, {
+      return o.createElement(r.Dialog, {
         id: 'abort-merge-warning',
         title: '确认中止merge',
-        dismissable: !1,
         onDismissed: this.onCancel,
-        onSubmit: this.onSubmit
-      }, o.createElement(a.DialogContent, {
-        className: 'content-wrapper'
-      }, o.createElement(d.Octicon, {
-        symbol: d.OcticonSymbol.alert
-      }), this.renderTextContent(this.props.ourBranch, this.props.theirBranch)), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit'
-      }, 'Abort merge'), o.createElement(r.Button, {
-        onClick: this.onCancel
-      }, 'Cancel'))))
+        onSubmit: this.onSubmit,
+        type: 'warning'
+      }, o.createElement(r.DialogContent, null, this.renderTextContent(this.props.ourBranch, this.props.theirBranch)), o.createElement(r.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: 'Abort merge'
+      })))
     }
   }
-  t.AbortMergeWarning = l
+  t.AbortMergeWarning = s
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -31395,7 +31455,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(348))
+    }(n(353))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -31433,45 +31493,42 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(5),
-    s = n(71),
-    d = n(69),
-    l = n(96);
-  class c extends o.Component {
+    r = n(3),
+    i = n(71),
+    a = n(69),
+    s = n(96),
+    d = n(9);
+  class l extends o.Component {
     constructor() {
       super(...arguments), this.onCancel = () => {
         this.props.onDismissed()
       }, this.onSubmit = async () => {
-        this.props.onDismissed(), await this.props.dispatcher.commitIncludedChanges(this.props.repository, this.props.context), this.props.dispatcher.clearBanner(), this.props.dispatcher.setCommitMessage(this.props.repository, l.DefaultCommitMessage)
+        this.props.onDismissed(), await this.props.dispatcher.commitIncludedChanges(this.props.repository, this.props.context), this.props.dispatcher.clearBanner(), this.props.dispatcher.setCommitMessage(this.props.repository, s.DefaultCommitMessage)
       }
     }
     renderFiles(e) {
       return o.createElement('div', {
         className: 'conflicted-files-text'
-      }, e.map((e) => o.createElement(d.Monospaced, {
+      }, e.map((e) => o.createElement(a.Monospaced, {
         key: e.path
-      }, o.createElement(s.PathText, {
+      }, o.createElement(i.PathText, {
         path: e.path
       }))))
     }
     render() {
-      return o.createElement(a.Dialog, {
+      return o.createElement(r.Dialog, {
         id: 'commit-conflict-markers-warning',
-        dismissable: !1,
         onDismissed: this.onCancel,
         onSubmit: this.onSubmit,
         title: '确认提交冲突文件',
         type: 'warning'
-      }, o.createElement(a.DialogContent, null, o.createElement('p', null, '如果选择提交，则会将以下冲突文件提交到存储库中：'), this.renderFiles(this.props.files), o.createElement('p', null, '是否确实要提交这些冲突文件?')), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        onClick: this.onCancel
-      }, 'Cancel'), o.createElement(r.Button, {
-        type: 'submit'
-      }, 'Yes, commit files'))))
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, '如果选择提交，则会将以下冲突文件提交到存储库中：'), this.renderFiles(this.props.files), o.createElement('p', null, '是否确实要提交这些冲突文件?')), o.createElement(r.DialogFooter, null, o.createElement(d.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: 'Yes, commit files'
+      })))
     }
   }
-  t.CommitConflictsWarning = c
+  t.CommitConflictsWarning = l
 }, function (e, t, n) {
   'use strict';
 
@@ -31480,50 +31537,50 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(183)), o(n(182))
+  }), o(n(184)), o(n(183))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(5),
-    s = n(25),
-    d = n(28),
-    l = n(40),
-    c = n(96),
-    p = n(352),
-    u = n(95);
-  class m extends o.Component {
+    r = n(3),
+    i = n(25),
+    a = n(28),
+    s = n(40),
+    d = n(96),
+    l = n(357),
+    c = n(95),
+    p = n(9);
+  class u extends o.Component {
     constructor() {
       super(...arguments), this.onSubmit = async () => {
         await this.props.dispatcher.finishConflictedMerge(this.props.repository, this.props.workingDirectory, {
-          type: u.BannerType.SuccessfulMerge,
+          type: c.BannerType.SuccessfulMerge,
           ourBranch: this.props.ourBranch,
           theirBranch: this.props.theirBranch
-        }), this.props.dispatcher.setCommitMessage(this.props.repository, c.DefaultCommitMessage), this.props.dispatcher.changeRepositorySection(this.props.repository, d.RepositorySectionTab.Changes), this.props.onDismissed(), this.props.dispatcher.recordGuidedConflictedMergeCompletion()
-      }, this.onCancel = async () => {
-        const e = 0 < l.getResolvedFiles(this.props.workingDirectory, this.props.manualResolutions).length;
+        }), this.props.dispatcher.setCommitMessage(this.props.repository, d.DefaultCommitMessage), this.props.dispatcher.changeRepositorySection(this.props.repository, a.RepositorySectionTab.Changes), this.props.onDismissed(), this.props.dispatcher.recordGuidedConflictedMergeCompletion()
+      }, this.onCancel = async (t) => {
+        t.preventDefault();
+        const e = 0 < s.getResolvedFiles(this.props.workingDirectory, this.props.manualResolutions).length;
         e ? (this.props.onDismissed(), this.props.dispatcher.showPopup({
-          type: s.PopupType.AbortMerge,
+          type: i.PopupType.AbortMerge,
           repository: this.props.repository,
           ourBranch: this.props.ourBranch,
           theirBranch: this.props.theirBranch
         })) : (await this.props.dispatcher.abortMerge(this.props.repository), this.props.onDismissed())
       }, this.onDismissed = async () => {
         this.props.onDismissed(), this.props.dispatcher.setBanner({
-          type: u.BannerType.MergeConflictsFound,
+          type: c.BannerType.MergeConflictsFound,
           ourBranch: this.props.ourBranch,
           popup: {
-            type: s.PopupType.MergeConflicts,
+            type: i.PopupType.MergeConflicts,
             ourBranch: this.props.ourBranch,
             theirBranch: this.props.theirBranch,
             repository: this.props.repository
           }
         }), this.props.dispatcher.recordMergeConflictsDialogDismissal();
-        const e = 0 < l.getConflictedFiles(this.props.workingDirectory, this.props.manualResolutions).length;
+        const e = 0 < s.getConflictedFiles(this.props.workingDirectory, this.props.manualResolutions).length;
         e && this.props.dispatcher.recordAnyConflictsLeftOnMergeConflictsDialogDismissal()
       }, this.openThisRepositoryInShell = () => this.props.openRepositoryInShell(this.props.repository)
     }
@@ -31533,7 +31590,7 @@ module.exports = function (e) {
     renderUnmergedFiles(e) {
       return o.createElement('ul', {
         className: 'unmerged-file-statuses'
-      }, e.map((e) => l.isConflictedFile(e.status) ? p.renderUnmergedFile({
+      }, e.map((e) => s.isConflictedFile(e.status) ? l.renderUnmergedFile({
         path: e.path,
         status: e.status,
         resolvedExternalEditor: this.props.resolvedExternalEditor,
@@ -31546,30 +31603,30 @@ module.exports = function (e) {
       }) : null))
     }
     renderContent(e, t) {
-      return 0 === e.length ? p.renderAllResolved() : o.createElement(o.Fragment, null, p.renderUnmergedFilesSummary(t), this.renderUnmergedFiles(e), p.renderShellLink(this.openThisRepositoryInShell))
+      return 0 === e.length ? l.renderAllResolved() : o.createElement(o.Fragment, null, l.renderUnmergedFilesSummary(t), this.renderUnmergedFiles(e), l.renderShellLink(this.openThisRepositoryInShell))
     }
     render() {
-      const e = l.getUnmergedFiles(this.props.workingDirectory),
-        t = l.getConflictedFiles(this.props.workingDirectory, this.props.manualResolutions).length,
+      const e = s.getUnmergedFiles(this.props.workingDirectory),
+        t = s.getConflictedFiles(this.props.workingDirectory, this.props.manualResolutions).length,
         n = this.renderHeaderTitle(this.props.ourBranch, this.props.theirBranch),
-        s = 0 < t ? 'Resolve all changes before merging' : void 0;
-      return o.createElement(a.Dialog, {
+        i = 0 < t ? 'Resolve all changes before merging' : void 0;
+      return o.createElement(r.Dialog, {
         id: 'merge-conflicts-list',
         dismissable: !0,
         onDismissed: this.onDismissed,
         disableClickDismissalAlways: !0,
         onSubmit: this.onSubmit,
         title: n
-      }, o.createElement(a.DialogContent, null, this.renderContent(e, t)), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit',
-        disabled: 0 < t,
-        tooltip: s
-      }, 'Commit merge'), o.createElement(r.Button, {
-        onClick: this.onCancel
-      }, 'Abort merge'))))
+      }, o.createElement(r.DialogContent, null, this.renderContent(e, t)), o.createElement(r.DialogFooter, null, o.createElement(p.OkCancelButtonGroup, {
+        okButtonText: 'Commit merge',
+        okButtonDisabled: 0 < t,
+        okButtonTitle: i,
+        cancelButtonText: 'Abort merge',
+        onCancelButtonClick: this.onCancel
+      })))
     }
   }
-  t.MergeConflictsDialog = m
+  t.MergeConflictsDialog = u
 }, function (e, t, n) {
   'use strict';
 
@@ -31578,18 +31635,17 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(353)), o(n(351))
+  }), o(n(358)), o(n(356))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(5),
-    i = n(1),
-    a = n(8),
-    s = n(14);
-  class d extends o.Component {
+    r = n(3),
+    i = n(14),
+    a = n(9);
+  class s extends o.Component {
     constructor() {
       super(...arguments), this.openPullRequest = () => {
         this.props.dispatcher.showPullRequest(this.props.repository)
@@ -31600,19 +31656,17 @@ module.exports = function (e) {
         id: 'delete-branch',
         title: 'Delete branch',
         type: 'warning',
-        onDismissed: this.props.onDismissed
-      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'This branch has an open pull request associated with it.'), o.createElement('p', null, 'If', ' ', o.createElement(s.LinkButton, {
+        onDismissed: this.props.onDismissed,
+        onSubmit: this.deleteBranch
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'This branch may have an open pull request associated with it.'), o.createElement('p', null, 'If', ' ', o.createElement(i.LinkButton, {
         onClick: this.openPullRequest
-      }, '#', this.props.pullRequest.pullRequestNumber), ' ', 'has been merged, you can also remove the remote branch on GitHub.')), o.createElement(r.DialogFooter, null, o.createElement(a.ButtonGroup, {
-        destructive: !0
-      }, o.createElement(i.Button, {
-        type: 'submit'
-      }, 'Cancel'), o.createElement(i.Button, {
-        onClick: this.deleteBranch
-      }, 'Delete'))))
+      }, '#', this.props.pullRequest.pullRequestNumber), ' ', 'has been merged, you can also go to GitHub to delete the remote branch.')), o.createElement(r.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: 'Delete'
+      })))
     }
   }
-  t.DeletePullRequest = d
+  t.DeletePullRequest = s
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -31621,42 +31675,42 @@ module.exports = function (e) {
   const o = n(0),
     r = n(33),
     i = n(132),
-    a = n(8),
-    s = n(1),
-    d = n(14),
-    l = n(5),
-    c = n(87),
-    p = n(44),
-    u = n(13),
-    m = n(38),
-    h = n(137),
-    f = new p.Repository('', -1, {
+    a = n(14),
+    s = n(3),
+    d = n(87),
+    l = n(44),
+    c = n(12),
+    p = n(38),
+    u = n(137),
+    m = n(9),
+    h = new l.Repository('', -1, {
       dbID: null,
       name: 'desktop',
       owner: {
         id: null,
         login: 'desktop',
-        endpoint: u.getDotComAPIEndpoint(),
+        endpoint: c.getDotComAPIEndpoint(),
         hash: ''
       },
-      private: !1,
+      isPrivate: !1,
       parent: null,
       htmlURL: 'https://github.com/desktop/desktop',
       defaultBranch: 'master',
       cloneURL: 'https://github.com/desktop/desktop',
-      endpoint: u.getDotComAPIEndpoint(),
+      endpoint: c.getDotComAPIEndpoint(),
       fullName: 'desktop/desktop',
       fork: !1,
-      hash: ''
+      hash: '',
+      permissions: null
     }, !0),
-    g = r.encodePathAsUrl(__dirname, 'static/release-note-header-left.svg'),
-    y = r.encodePathAsUrl(__dirname, 'static/release-note-header-right.svg');
-  class S extends o.Component {
+    f = r.encodePathAsUrl(__dirname, 'static/release-note-header-left.svg'),
+    g = r.encodePathAsUrl(__dirname, 'static/release-note-header-right.svg');
+  class y extends o.Component {
     constructor() {
       super(...arguments), this.updateNow = () => {
         i.updateStore.quitAndInstallUpdate()
       }, this.showAllReleaseNotes = () => {
-        m.shell.openExternal(h.ReleaseNotesUri)
+        p.shell.openExternal(u.ReleaseNotesUri)
       }
     }
     renderList(e, t) {
@@ -31664,11 +31718,11 @@ module.exports = function (e) {
       const n = [];
       for (const [r, a] of e.entries()) n.push(o.createElement('li', {
         key: r
-      }, o.createElement(c.RichText, {
+      }, o.createElement(d.RichText, {
         text: a.message,
         emoji: this.props.emoji,
         renderUrlsAsLinks: !0,
-        repository: f
+        repository: h
       })));
       return o.createElement('div', {
         className: 'section'
@@ -31701,7 +31755,7 @@ module.exports = function (e) {
           className: 'release-notes-header'
         }, o.createElement('img', {
           className: 'release-note-graphic-left',
-          src: g
+          src: f
         }), o.createElement('div', {
           className: 'title'
         }, o.createElement('p', {
@@ -31710,30 +31764,29 @@ module.exports = function (e) {
           className: 'date'
         }, e.datePublished)), o.createElement('img', {
           className: 'release-note-graphic-right',
-          src: y
+          src: g
         }));
-      return o.createElement(l.Dialog, {
+      return o.createElement(s.Dialog, {
         id: 'release-notes',
         onDismissed: this.props.onDismissed,
+        onSubmit: this.updateNow,
         title: n
-      }, o.createElement(l.DialogContent, null, t), o.createElement(l.DialogFooter, null, o.createElement(d.LinkButton, {
+      }, o.createElement(s.DialogContent, null, t), o.createElement(s.DialogFooter, null, o.createElement(a.LinkButton, {
         onClick: this.showAllReleaseNotes
-      }, 'View all release notes'), o.createElement(a.ButtonGroup, {
-        destructive: !0
-      }, o.createElement(s.Button, {
-        type: 'submit'
-      }, 'Close'), o.createElement(s.Button, {
-        onClick: this.updateNow
-      }, '安装并重新启动'))))
+      }, 'View all release notes'), o.createElement(m.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: '安装并重启GitHub',
+        cancelButtonText: 'Close'
+      })))
     }
   }
-  t.ReleaseNotes = S
+  t.ReleaseNotes = y
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(356);
+  var o = n(361);
   t.ReleaseNotes = o.ReleaseNotes
 }, function (e, t, n) {
   'use strict';
@@ -31741,48 +31794,46 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(5),
-    i = n(8),
-    a = n(1),
-    s = n(24),
-    d = n(3),
-    l = n(80);
-  class c extends o.Component {
+    r = n(3),
+    i = n(24),
+    a = n(2),
+    s = n(80),
+    d = n(9);
+  class l extends o.Component {
     constructor() {
       super(...arguments), this.onUpdate = () => {
         this.props.onUpdate(this.props.repository), this.props.onDismissed()
-      }, this.onIgnore = () => {
-        this.props.onIgnore(this.props.repository), this.props.onDismissed()
+      }, this.onIgnore = (t) => {
+        t.preventDefault(), this.props.onIgnore(this.props.repository), this.props.onDismissed()
       }
     }
     render() {
       const e = this.props.repository.name,
-        t = d.forceUnwrap('A repository must have a GitHub repository to add an upstream remote', this.props.repository.gitHubRepository),
-        n = d.forceUnwrap('A repository must have a parent repository to add an upstream remote', t.parent),
-        c = n.fullName,
-        p = this.props.existingRemote.url,
-        u = n.cloneURL;
+        t = a.forceUnwrap('A repository must have a GitHub repository to add an upstream remote', this.props.repository.gitHubRepository),
+        n = a.forceUnwrap('A repository must have a parent repository to add an upstream remote', t.parent),
+        l = n.fullName,
+        c = this.props.existingRemote.url,
+        p = n.cloneURL;
       return o.createElement(r.Dialog, {
         title: 'Upstream already exists',
         onDismissed: this.props.onDismissed,
-        onSubmit: this.onIgnore,
+        onSubmit: this.onUpdate,
         type: 'warning'
-      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'The repository ', o.createElement(s.Ref, null, e), ' is a fork of', ' ', o.createElement(s.Ref, null, c), ', but its ', o.createElement(s.Ref, null, l.UpstreamRemoteName), ' ', 'remote points elsewhere.'), o.createElement('ul', null, o.createElement('li', null, 'Current: ', o.createElement(s.Ref, null, p)), o.createElement('li', null, 'Expected: ', o.createElement(s.Ref, null, u))), o.createElement('p', null, 'Would you like to update the remote to use the expected URL?')), o.createElement(r.DialogFooter, null, o.createElement(i.ButtonGroup, {
-        destructive: !0
-      }, o.createElement(a.Button, {
-        type: 'submit'
-      }, 'Ignore'), o.createElement(a.Button, {
-        onClick: this.onUpdate
-      }, 'Update'))))
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'The repository ', o.createElement(i.Ref, null, e), ' is a fork of', ' ', o.createElement(i.Ref, null, l), ', but its ', o.createElement(i.Ref, null, s.UpstreamRemoteName), ' ', 'remote points elsewhere.'), o.createElement('ul', null, o.createElement('li', null, 'Current: ', o.createElement(i.Ref, null, c)), o.createElement('li', null, 'Expected: ', o.createElement(i.Ref, null, p))), o.createElement('p', null, 'Would you like to update the remote to use the expected URL?')), o.createElement(r.DialogFooter, null, o.createElement(d.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: 'Update',
+        cancelButtonText: 'Ignore',
+        onCancelButtonClick: this.onIgnore
+      })))
     }
   }
-  t.UpstreamAlreadyExists = c
+  t.UpstreamAlreadyExists = l
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(358);
+  var o = n(363);
   t.UpstreamAlreadyExists = o.UpstreamAlreadyExists
 }, function (e, t, n) {
   'use strict';
@@ -31790,24 +31841,23 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(5),
-    s = n(14),
-    d = n(22),
-    l = n(38);
-  class c extends o.Component {
+    r = n(3),
+    i = n(14),
+    a = n(22),
+    s = n(38),
+    d = n(9);
+  class l extends o.Component {
     constructor(e) {
       super(e), this.showGlobalGitConfig = () => {
         const e = this.state.globalGitConfigPath;
-        e && l.shell.openItem(e)
+        e && s.shell.openItem(e)
       }, this.state = {
         globalGitConfigPath: null
       }
     }
     async componentDidMount() {
       try {
-        const e = await d.getGlobalConfigPath();
+        const e = await a.getGlobalConfigPath();
         this.setState({
           globalGitConfigPath: e
         })
@@ -31818,82 +31868,79 @@ module.exports = function (e) {
     renderGlobalGitConfigLink() {
       const e = this.state.globalGitConfigPath,
         t = 'your global git config';
-      return e ? o.createElement(s.LinkButton, {
+      return e ? o.createElement(i.LinkButton, {
         onClick: this.showGlobalGitConfig
       }, t) : t
     }
     render() {
-      return o.createElement(a.Dialog, {
+      return o.createElement(r.Dialog, {
         id: 'lfs-attribute-mismatch',
         title: 'Update existing Git LFS filters?',
         onDismissed: this.props.onDismissed,
         onSubmit: this.props.onUpdateExistingFilters
-      }, o.createElement(a.DialogContent, null, o.createElement('p', null, 'Git LFS filters are already configured in', ' ', this.renderGlobalGitConfigLink(), ' but are not the values it expects. Would you like to update them now?')), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit'
-      }, 'Update existing filters'), o.createElement(r.Button, {
-        onClick: this.props.onDismissed
-      }, 'Not now'))))
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'Git LFS filters are already configured in', ' ', this.renderGlobalGitConfigLink(), ' but are not the values it expects. Would you like to update them now?')), o.createElement(r.DialogFooter, null, o.createElement(d.OkCancelButtonGroup, {
+        okButtonText: 'Update existing filters',
+        cancelButtonText: 'Not now'
+      })))
     }
   }
-  t.AttributeMismatch = c
+  t.AttributeMismatch = l
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(5),
-    s = n(69),
-    d = n(71),
-    l = n(14),
-    c = 'https://git-lfs.github.com/';
-  class p extends o.Component {
+    r = n(3),
+    i = n(69),
+    a = n(71),
+    s = n(14),
+    d = n(9),
+    l = 'https://git-lfs.github.com/';
+  class c extends o.Component {
     constructor() {
       super(...arguments), this.onInitialize = () => {
         this.props.onInitialize(this.props.repositories)
       }
     }
     render() {
-      return o.createElement(a.Dialog, {
+      return o.createElement(r.Dialog, {
         id: 'initialize-lfs',
         title: 'Initialize Git LFS',
         onDismissed: this.props.onDismissed,
         onSubmit: this.onInitialize
-      }, o.createElement(a.DialogContent, null, this.renderRepositories()), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit'
-      }, 'Initialize Git LFS'), o.createElement(r.Button, {
-        onClick: this.props.onDismissed
-      }, 'Not now'))))
+      }, o.createElement(r.DialogContent, null, this.renderRepositories()), o.createElement(r.DialogFooter, null, o.createElement(d.OkCancelButtonGroup, {
+        okButtonText: 'Initialize Git LFS',
+        cancelButtonText: 'Not now'
+      })))
     }
     renderRepositories() {
-      if (this.props.repositories.length > 10) return o.createElement('p', null, this.props.repositories.length, ' repositories use', ' ', o.createElement(l.LinkButton, {
-        uri: c
+      if (this.props.repositories.length > 10) return o.createElement('p', null, this.props.repositories.length, ' repositories use', ' ', o.createElement(s.LinkButton, {
+        uri: l
       }, 'Git LFS'), '. To contribute to them, Git LFS must first be initialized. Would you like to do so now?');
       else {
         const e = 1 !== this.props.repositories.length,
           t = e ? 'The repositories use' : 'This repository uses',
           n = e ? 'them' : 'it';
-        return o.createElement('div', null, o.createElement('p', null, t, ' ', o.createElement(l.LinkButton, {
-          uri: c
+        return o.createElement('div', null, o.createElement('p', null, t, ' ', o.createElement(s.LinkButton, {
+          uri: l
         }, 'Git LFS'), '. To contribute to', ' ', n, ', Git LFS must first be initialized. Would you like to do so now?'), o.createElement('ul', null, this.props.repositories.map((e) => o.createElement('li', {
           key: e.id
-        }, o.createElement(s.Monospaced, null, o.createElement(d.PathText, {
+        }, o.createElement(i.Monospaced, null, o.createElement(a.PathText, {
           path: e.path
         }))))))
       }
     }
   }
-  t.InitializeLFS = p
+  t.InitializeLFS = c
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(361);
+  var o = n(366);
   t.InitializeLFS = o.InitializeLFS;
-  var r = n(360);
+  var r = n(365);
   t.AttributeMismatch = r.AttributeMismatch
 }, function (e, t, n) {
   'use strict';
@@ -31901,38 +31948,35 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(5);
-  class s extends o.Component {
+    r = n(3);
+  class i extends o.Component {
     constructor() {
-      super(...arguments), this.onShowPreferencesDialog = () => {
-        this.props.onDismissed(), this.props.showPreferencesDialog()
+      super(...arguments), this.onShowPreferencesDialog = (t) => {
+        t.preventDefault(), this.props.onDismissed(), this.props.showPreferencesDialog()
       }
     }
     render() {
       const e = 'Unable to open shell';
-      return o.createElement(a.Dialog, {
+      return o.createElement(r.Dialog, {
         id: 'shell-error',
         type: 'error',
         title: e,
         onSubmit: this.props.onDismissed,
         onDismissed: this.props.onDismissed
-      }, o.createElement(a.DialogContent, null, o.createElement('p', null, this.props.message)), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit',
-        onClick: this.props.onDismissed
-      }, 'Close'), o.createElement(r.Button, {
-        onClick: this.onShowPreferencesDialog
-      }, 'Open options'))))
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, this.props.message)), o.createElement(r.DialogFooter, null, o.createElement(r.OkCancelButtonGroup, {
+        okButtonText: 'Close',
+        cancelButtonText: 'Open options',
+        onCancelButtonClick: this.onShowPreferencesDialog
+      })))
     }
   }
-  t.ShellError = s
+  t.ShellError = i
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(363);
+  var o = n(368);
   t.ShellError = o.ShellError
 }, function (e, t, n) {
   'use strict';
@@ -31942,11 +31986,10 @@ module.exports = function (e) {
   const o = n(0),
     r = n(27),
     i = n(18),
-    a = n(1),
-    s = n(8),
-    d = n(5),
-    l = n(69);
-  class c extends o.Component {
+    a = n(3),
+    s = n(69),
+    d = n(9);
+  class l extends o.Component {
     constructor(e) {
       super(e), this.onUsernameChange = (e) => {
         this.setState({
@@ -31965,12 +32008,12 @@ module.exports = function (e) {
     }
     render() {
       const e = !this.state.password.length || !this.state.username.length;
-      return o.createElement(d.Dialog, {
+      return o.createElement(a.Dialog, {
         id: 'generic-git-auth',
         title: `Authentication failed`,
         onDismissed: this.props.onDismiss,
         onSubmit: this.save
-      }, o.createElement(d.DialogContent, null, o.createElement('p', null, 'We were unable to authenticate with', ' ', o.createElement(l.Monospaced, null, this.props.hostname), '. Please enter your username and password to try again.'), o.createElement(i.Row, null, o.createElement(r.TextBox, {
+      }, o.createElement(a.DialogContent, null, o.createElement('p', null, 'We were unable to authenticate with', ' ', o.createElement(s.Monospaced, null, this.props.hostname), '. Please enter your username and password to try again.'), o.createElement(i.Row, null, o.createElement(r.TextBox, {
         label: 'Username',
         autoFocus: !0,
         value: this.state.username,
@@ -31980,27 +32023,25 @@ module.exports = function (e) {
         type: 'password',
         value: this.state.password,
         onValueChanged: this.onPasswordChange
-      }))), o.createElement(d.DialogFooter, null, o.createElement(s.ButtonGroup, null, o.createElement(a.Button, {
-        type: 'submit',
-        disabled: e
-      }, 'Save and retry'), o.createElement(a.Button, {
-        onClick: this.props.onDismiss
-      }, 'Cancel'))))
+      }))), o.createElement(a.DialogFooter, null, o.createElement(d.OkCancelButtonGroup, {
+        okButtonText: 'Save and retry',
+        okButtonDisabled: e
+      })))
     }
   }
-  t.GenericGitAuthentication = c
+  t.GenericGitAuthentication = l
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(365);
+  var o = n(370);
   t.GenericGitAuthentication = o.GenericGitAuthentication
 }, function (e, t, n) {
   e.exports = n.p + 'fff110f06938764612a1a3588659e22e.cmd'
 }, function (e, t, n) {
   (function (e) {
-    const t = n(2),
+    const t = n(1),
       o = t.join(__dirname, 'fs_admin.node');
     try {
       global.process.dlopen(e, o)
@@ -32016,8 +32057,8 @@ module.exports = function (e) {
     {
       spawn: i
     } = n(46),
-    a = n(235),
-    s = n(368),
+    a = n(237),
+    s = n(373),
     d = e.exports;
   Object.assign(d, {
     symlink(e, t, n) {
@@ -32030,7 +32071,7 @@ module.exports = function (e) {
       s.spawnAsAdmin('cmd', ['/c', 'mkdir', e], d.testMode, o('mkdir', t))
     },
     recursiveCopy(e, t, n) {
-      s.spawnAsAdmin('cmd', ['/c', 367, e, t], d.testMode, o('robocopy', n))
+      s.spawnAsAdmin('cmd', ['/c', 372, e, t], d.testMode, o('robocopy', n))
     }
   })
 }, function (e, t, n) {
@@ -32039,28 +32080,26 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(5),
-    s = n(184);
-  class d extends o.Component {
+    r = n(3),
+    i = n(185);
+  class a extends o.Component {
     render() {
-      return o.createElement(a.Dialog, {
+      return o.createElement(r.Dialog, {
         title: 'Command line tool installed',
         onDismissed: this.props.onDismissed,
         onSubmit: this.props.onDismissed
-      }, o.createElement(a.DialogContent, null, o.createElement('div', null, 'The command line tool has been installed at', ' ', o.createElement('strong', null, s.InstalledCLIPath), '.')), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit'
-      }, 'OK'))))
+      }, o.createElement(r.DialogContent, null, o.createElement('div', null, 'The command line tool has been installed at', ' ', o.createElement('strong', null, i.InstalledCLIPath), '.')), o.createElement(r.DefaultDialogFooter, {
+        buttonText: 'Ok'
+      }))
     }
   }
-  t.CLIInstalled = d
+  t.CLIInstalled = a
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(370);
+  var o = n(375);
   t.CLIInstalled = o.CLIInstalled
 }, function (e, t, n) {
   'use strict';
@@ -32068,53 +32107,36 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(5),
-    i = n(8),
-    a = n(1),
-    s = n(14),
-    d = 'https://github.com/contact';
-  class l extends o.Component {
-    constructor() {
-      super(...arguments), this.dialogContainerRef = null, this.closeButtonRef = null, this.onDialogContainerRef = (e) => {
-        this.dialogContainerRef = e
-      }, this.onCloseButtonRef = (e) => {
-        this.closeButtonRef = e
-      }
-    }
-    componentDidMount() {
-      this.dialogContainerRef && (this.dialogContainerRef.scrollTop = 0), this.closeButtonRef && this.closeButtonRef.focus()
-    }
+    r = n(3),
+    i = n(14),
+    a = 'https://github.com/contact';
+  class s extends o.Component {
     render() {
       return o.createElement(r.Dialog, {
         id: 'terms-and-conditions',
         title: 'GitHub Open Source Applications Terms and Conditions',
         onSubmit: this.props.onDismissed,
         onDismissed: this.props.onDismissed
-      }, o.createElement(r.DialogContent, {
-        onRef: this.onDialogContainerRef
-      }, o.createElement('p', null, 'These GitHub Open Source Applications Terms and Conditions ("Application Terms") are a legal agreement between you (either as an individual or on behalf of an entity) and GitHub, Inc. regarding your use of GitHub\'s applications, such as GitHub Desktop\u2122 and associated documentation ("Software"). These Application Terms apply to the executable code version of the Software. Source code for the Software is available separately and free of charge under open source software license agreements. If you do not agree to all of the terms in these Application Terms, do not download, install, use, or copy the Software.'), o.createElement('h2', null, 'Connecting to GitHub'), o.createElement('p', null, 'If you configure the Software to work with one or more accounts on the GitHub.com website or with an instance of GitHub Enterprise Server, your use of the Software will also be governed your applicable GitHub.com website Terms of Service and/or the license agreement applicable to your instance of GitHub Enterprise Server ("GitHub Terms").'), o.createElement('p', null, 'Any use of the Software that violates your applicable GitHub Terms will also be a violation of these Application Terms.'), o.createElement('h2', null, 'Open Source Licenses and Notices'), o.createElement('p', null, 'The open source license for the Software is included in the "Open Source Notices" documentation that is included with the Software. That documentation also includes copies of all applicable open source licenses.'), o.createElement('p', null, 'To the extent the terms of the licenses applicable to open source components require GitHub to make an offer to provide source code in connection with the Software, such offer is hereby made, and you may exercise it by contacting GitHub:', ' ', o.createElement(s.LinkButton, {
-        uri: d
-      }, 'contact'), '.'), o.createElement('p', null, 'Unless otherwise agreed to in writing with GitHub, your agreement with GitHub will always include, at a minimum, these Application Terms. Open source software licenses for the Software\'s source code constitute separate written agreements. To the limited extent that the open source software licenses expressly supersede these Application Terms, the open source licenses govern your agreement with GitHub for the use of the Software or specific included components of the Software.'), o.createElement('h2', null, 'GitHub\'s Logos'), o.createElement('p', null, 'The license grant included with the Software is not for GitHub\'s trademarks, which include the Software logo designs. GitHub reserves all trademark and copyright rights in and to all GitHub trademarks. GitHub\'s logos include, for instance, the stylized designs that include "logo" in the file title in the "logos" folder.'), o.createElement('p', null, 'The names GitHub, GitHub Desktop, GitHub for Mac, GitHub for Windows, Atom, the Octocat, and related GitHub logos and/or stylized names are trademarks of GitHub. You agree not to display or use these trademarks in any manner without GitHub\'s prior, written permission, except as allowed by GitHub\'s Logos and Usage Policy:', ' ', o.createElement(s.LinkButton, {
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'These GitHub Open Source Applications Terms and Conditions ("Application Terms") are a legal agreement between you (either as an individual or on behalf of an entity) and GitHub, Inc. regarding your use of GitHub\'s applications, such as GitHub Desktop\u2122 and associated documentation ("Software"). These Application Terms apply to the executable code version of the Software. Source code for the Software is available separately and free of charge under open source software license agreements. If you do not agree to all of the terms in these Application Terms, do not download, install, use, or copy the Software.'), o.createElement('h2', null, 'Connecting to GitHub'), o.createElement('p', null, 'If you configure the Software to work with one or more accounts on the GitHub.com website or with an instance of GitHub Enterprise Server, your use of the Software will also be governed your applicable GitHub.com website Terms of Service and/or the license agreement applicable to your instance of GitHub Enterprise Server ("GitHub Terms").'), o.createElement('p', null, 'Any use of the Software that violates your applicable GitHub Terms will also be a violation of these Application Terms.'), o.createElement('h2', null, 'Open Source Licenses and Notices'), o.createElement('p', null, 'The open source license for the Software is included in the "Open Source Notices" documentation that is included with the Software. That documentation also includes copies of all applicable open source licenses.'), o.createElement('p', null, 'To the extent the terms of the licenses applicable to open source components require GitHub to make an offer to provide source code in connection with the Software, such offer is hereby made, and you may exercise it by contacting GitHub:', ' ', o.createElement(i.LinkButton, {
+        uri: a
+      }, 'contact'), '.'), o.createElement('p', null, 'Unless otherwise agreed to in writing with GitHub, your agreement with GitHub will always include, at a minimum, these Application Terms. Open source software licenses for the Software\'s source code constitute separate written agreements. To the limited extent that the open source software licenses expressly supersede these Application Terms, the open source licenses govern your agreement with GitHub for the use of the Software or specific included components of the Software.'), o.createElement('h2', null, 'GitHub\'s Logos'), o.createElement('p', null, 'The license grant included with the Software is not for GitHub\'s trademarks, which include the Software logo designs. GitHub reserves all trademark and copyright rights in and to all GitHub trademarks. GitHub\'s logos include, for instance, the stylized designs that include "logo" in the file title in the "logos" folder.'), o.createElement('p', null, 'The names GitHub, GitHub Desktop, GitHub for Mac, GitHub for Windows, Atom, the Octocat, and related GitHub logos and/or stylized names are trademarks of GitHub. You agree not to display or use these trademarks in any manner without GitHub\'s prior, written permission, except as allowed by GitHub\'s Logos and Usage Policy:', ' ', o.createElement(i.LinkButton, {
         uri: 'https://github.com/logos'
-      }, 'logos'), '.'), o.createElement('h2', null, 'Privacy'), o.createElement('p', null, 'The Software may collect personal information. You may control what information the Software collects in the settings panel. If the Software does collect personal information on GitHub\'s behalf, GitHub will process that information in accordance with the', o.createElement(s.LinkButton, {
+      }, 'logos'), '.'), o.createElement('h2', null, 'Privacy'), o.createElement('p', null, 'The Software may collect personal information. You may control what information the Software collects in the settings panel. If the Software does collect personal information on GitHub\'s behalf, GitHub will process that information in accordance with the', o.createElement(i.LinkButton, {
         uri: 'https://help.github.com/articles/github-privacy-statement/'
-      }, 'GitHub Privacy Statement'), '.'), o.createElement('h2', null, 'Additional Services'), o.createElement('h3', null, 'Auto-Update Services'), o.createElement('p', null, 'The Software may include an auto-update service ("Service"). If you choose to use the Service or you download Software that automatically enables the Service, GitHub will automatically update the Software when a new version is available.'), o.createElement('h3', null, 'Disclaimers and Limitations of Liability'), o.createElement('p', null, 'THE SERVICE IS PROVIDED ON AN "AS IS" BASIS, AND NO WARRANTY, EITHER EXPRESS OR IMPLIED, IS GIVEN. YOUR USE OF THE SERVICE IS AT YOUR SOLE RISK. GitHub does not warrant that (i) the Service will meet your specific requirements; (ii) the Service is fully compatible with any particular platform; (iii) your use of the Service will be uninterrupted, timely, secure, or error-free; (iv) the results that may be obtained from the use of the Service will be accurate or reliable; (v) the quality of any products, services, information, or other material purchased or obtained by you through the Service will meet your expectations; or (vi) any errors in the Service will be corrected.'), o.createElement('p', null, 'YOU EXPRESSLY UNDERSTAND AND AGREE THAT GITHUB SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES, INCLUDING BUT NOT LIMITED TO, DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA OR OTHER INTANGIBLE LOSSES (EVEN IF GITHUB HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES) RELATED TO THE SERVICE, including, for example: (i) the use or the inability to use the Service; (ii) the cost of procurement of substitute goods and services resulting from any goods, data, information or services purchased or obtained or messages received or transactions entered into through or from the Service; (iii) unauthorized access to or alteration of your transmissions or data; (iv) statements or conduct of any third-party on the Service; (v) or any other matter relating to the Service.'), o.createElement('p', null, 'GitHub reserves the right at any time and from time to time to modify or discontinue, temporarily or permanently, the Service (or any part thereof) with or without notice. GitHub shall not be liable to you or to any third-party for any price change, suspension or discontinuance of the Service.'), o.createElement('h2', null, 'Miscellanea'), o.createElement('ol', null, o.createElement('li', null, 'No Waiver. The failure of GitHub to exercise or enforce any right or provision of these Application Terms shall not constitute a waiver of such right or provision.'), o.createElement('li', null, 'Entire Agreement. These Application Terms, together with any applicable Privacy Notices, constitutes the entire agreement between you and GitHub and governs your use of the Software, superseding any prior agreements between you and GitHub (including, but not limited to, any prior versions of the Application Terms).'), o.createElement('li', null, 'Governing Law. You agree that these Application Terms and your use of the Software are governed under California law and any dispute related to the Software must be brought in a tribunal of competent jurisdiction located in or near San Francisco, California.'), o.createElement('li', null, 'Third-Party Packages. The Software supports third-party "Packages" which may modify, add, remove, or alter the functionality of the Software. These Packages are not covered by these Application Terms and may include their own license which governs your use of that particular package.'), o.createElement('li', null, 'No Modifications; Complete Agreement. These Application Terms may only be modified by a written amendment signed by an authorized representative of GitHub, or by the posting by GitHub of a revised version. These Application Terms, together with any applicable Open Source Licenses and Notices and GitHub\'s Privacy Statement, represent the complete and exclusive statement of the agreement between you and us. These Application Terms supersede any proposal or prior agreement oral or written, and any other communications between you and GitHub relating to the subject matter of these terms.'), o.createElement('li', null, 'License to GitHub Policies. These Application Terms are licensed under the', ' ', o.createElement(s.LinkButton, {
+      }, 'GitHub Privacy Statement'), '.'), o.createElement('h2', null, 'Additional Services'), o.createElement('h3', null, 'Auto-Update Services'), o.createElement('p', null, 'The Software may include an auto-update service ("Service"). If you choose to use the Service or you download Software that automatically enables the Service, GitHub will automatically update the Software when a new version is available.'), o.createElement('h3', null, 'Disclaimers and Limitations of Liability'), o.createElement('p', null, 'THE SERVICE IS PROVIDED ON AN "AS IS" BASIS, AND NO WARRANTY, EITHER EXPRESS OR IMPLIED, IS GIVEN. YOUR USE OF THE SERVICE IS AT YOUR SOLE RISK. GitHub does not warrant that (i) the Service will meet your specific requirements; (ii) the Service is fully compatible with any particular platform; (iii) your use of the Service will be uninterrupted, timely, secure, or error-free; (iv) the results that may be obtained from the use of the Service will be accurate or reliable; (v) the quality of any products, services, information, or other material purchased or obtained by you through the Service will meet your expectations; or (vi) any errors in the Service will be corrected.'), o.createElement('p', null, 'YOU EXPRESSLY UNDERSTAND AND AGREE THAT GITHUB SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES, INCLUDING BUT NOT LIMITED TO, DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA OR OTHER INTANGIBLE LOSSES (EVEN IF GITHUB HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES) RELATED TO THE SERVICE, including, for example: (i) the use or the inability to use the Service; (ii) the cost of procurement of substitute goods and services resulting from any goods, data, information or services purchased or obtained or messages received or transactions entered into through or from the Service; (iii) unauthorized access to or alteration of your transmissions or data; (iv) statements or conduct of any third-party on the Service; (v) or any other matter relating to the Service.'), o.createElement('p', null, 'GitHub reserves the right at any time and from time to time to modify or discontinue, temporarily or permanently, the Service (or any part thereof) with or without notice. GitHub shall not be liable to you or to any third-party for any price change, suspension or discontinuance of the Service.'), o.createElement('h2', null, 'Miscellanea'), o.createElement('ol', null, o.createElement('li', null, 'No Waiver. The failure of GitHub to exercise or enforce any right or provision of these Application Terms shall not constitute a waiver of such right or provision.'), o.createElement('li', null, 'Entire Agreement. These Application Terms, together with any applicable Privacy Notices, constitutes the entire agreement between you and GitHub and governs your use of the Software, superseding any prior agreements between you and GitHub (including, but not limited to, any prior versions of the Application Terms).'), o.createElement('li', null, 'Governing Law. You agree that these Application Terms and your use of the Software are governed under California law and any dispute related to the Software must be brought in a tribunal of competent jurisdiction located in or near San Francisco, California.'), o.createElement('li', null, 'Third-Party Packages. The Software supports third-party "Packages" which may modify, add, remove, or alter the functionality of the Software. These Packages are not covered by these Application Terms and may include their own license which governs your use of that particular package.'), o.createElement('li', null, 'No Modifications; Complete Agreement. These Application Terms may only be modified by a written amendment signed by an authorized representative of GitHub, or by the posting by GitHub of a revised version. These Application Terms, together with any applicable Open Source Licenses and Notices and GitHub\'s Privacy Statement, represent the complete and exclusive statement of the agreement between you and us. These Application Terms supersede any proposal or prior agreement oral or written, and any other communications between you and GitHub relating to the subject matter of these terms.'), o.createElement('li', null, 'License to GitHub Policies. These Application Terms are licensed under the', ' ', o.createElement(i.LinkButton, {
         uri: 'https://creativecommons.org/licenses/by/4.0/'
-      }, 'Creative Commons Attribution license'), '. You may use it freely under the terms of the Creative Commons license.'), o.createElement('li', null, 'Contact Us. Please send any questions about these Application Terms to ', o.createElement(s.LinkButton, {
-        uri: d
-      }, 'support@github.com'), '.'))), o.createElement(r.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(a.Button, {
-        type: 'submit',
-        onButtonRef: this.onCloseButtonRef
-      }, 'Close'))))
+      }, 'Creative Commons Attribution license'), '. You may use it freely under the terms of the Creative Commons license.'), o.createElement('li', null, 'Contact Us. Please send any questions about these Application Terms to ', o.createElement(i.LinkButton, {
+        uri: a
+      }, 'support@github.com'), '.'))), o.createElement(r.DefaultDialogFooter, null))
     }
   }
-  t.TermsAndConditions = l
+  t.TermsAndConditions = s
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(372);
+  var o = n(377);
   t.TermsAndConditions = o.TermsAndConditions
 }, function (e, t, n) {
   'use strict';
@@ -32122,17 +32144,14 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(8),
-    i = n(1),
-    a = n(35),
-    s = n(5),
-    d = n(24),
-    l = n(73);
-  class c extends o.Component {
+    r = n(35),
+    i = n(3),
+    a = n(24),
+    s = n(73),
+    d = n(9);
+  class l extends o.Component {
     constructor(e) {
-      super(e), this.cancel = () => {
-        this.props.onDismissed()
-      }, this.onConfirmed = () => {
+      super(e), this.onSubmit = () => {
         this.setState({
           isRemovingRepository: !0
         }), this.props.onConfirmation(this.props.repository, this.state.deleteRepoFromDisk), this.props.onDismissed()
@@ -32148,39 +32167,35 @@ module.exports = function (e) {
     }
     render() {
       const e = this.state.isRemovingRepository;
-      return o.createElement(s.Dialog, {
+      return o.createElement(i.Dialog, {
         id: 'confirm-remove-repository',
         key: 'remove-repository-confirmation',
         type: 'warning',
         title: 'Remove repository',
         dismissable: !e,
         loading: e,
-        onDismissed: this.cancel,
-        onSubmit: this.cancel
-      }, o.createElement(s.DialogContent, null, o.createElement('p', null, '是否确实要删除存储库 "', this.props.repository.name, '"?'), o.createElement('p', {
-        className: 'description'
-      }, '存储库将从GitHub桌面删除：', o.createElement('br', null), o.createElement(d.Ref, null, this.props.repository.path)), o.createElement('div', null, o.createElement(a.Checkbox, {
-        label: 'Also move this repository to ' + l.TrashNameLabel,
-        value: this.state.deleteRepoFromDisk ? a.CheckboxValue.On : a.CheckboxValue.Off,
-        onChange: this.onConfirmRepositoryDeletion
-      }))), o.createElement(s.DialogFooter, null, o.createElement(r.ButtonGroup, {
-        destructive: !0
-      }, o.createElement(i.Button, {
         disabled: e,
-        type: 'submit'
-      }, 'Cancel'), o.createElement(i.Button, {
-        onClick: this.onConfirmed,
-        disabled: e
-      }, 'Remove'))))
+        onDismissed: this.props.onDismissed,
+        onSubmit: this.onSubmit
+      }, o.createElement(i.DialogContent, null, o.createElement('p', null, '是否确实要删除存储库"', this.props.repository.name, '"?'), o.createElement('p', {
+        className: 'description'
+      }, '存储库将从GitHub桌面删除：', o.createElement('br', null), o.createElement(a.Ref, null, this.props.repository.path)), o.createElement('div', null, o.createElement(r.Checkbox, {
+        label: 'Also move this repository to ' + s.TrashNameLabel,
+        value: this.state.deleteRepoFromDisk ? r.CheckboxValue.On : r.CheckboxValue.Off,
+        onChange: this.onConfirmRepositoryDeletion
+      }))), o.createElement(i.DialogFooter, null, o.createElement(d.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: 'Remove'
+      })))
     }
   }
-  t.ConfirmRemoveRepository = c
+  t.ConfirmRemoveRepository = l
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(374);
+  var o = n(379);
   t.ConfirmRemoveRepository = o.ConfirmRemoveRepository
 }, function (e, t, n) {
   'use strict';
@@ -32189,12 +32204,12 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(88),
-    i = n(1),
+    i = n(13),
     a = n(4),
-    s = n(61),
+    s = n(60),
     d = n(48),
-    l = n(185),
-    c = n(3),
+    l = n(186),
+    c = n(2),
     p = n(23);
   var u;
   (function (e) {
@@ -32350,7 +32365,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(376);
+  var o = n(381);
   t.NoRepositoriesView = o.NoRepositoriesView
 }, function (e, t, n) {
   'use strict';
@@ -32359,38 +32374,34 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(47),
-    i = n(1),
-    a = n(8),
-    s = n(5);
-  class d extends o.Component {
+    i = n(3),
+    a = n(9);
+  class s extends o.Component {
     constructor() {
       super(...arguments), this.onContinue = () => {
         this.props.onContinue(this.props.certificate)
       }
     }
     render() {
-      const e = r.parse(this.props.url).hostname,
-        t = 'error',
-        n = o.createElement(a.ButtonGroup, null, o.createElement(i.Button, {
-          type: 'submit'
-        }, 'Close'), o.createElement(i.Button, {
-          onClick: this.onContinue
-        }, 'Add certificate'));
-      return o.createElement(s.Dialog, {
+      const e = r.parse(this.props.url).hostname;
+      return o.createElement(i.Dialog, {
         title: 'Untrusted server',
         onDismissed: this.props.onDismissed,
-        onSubmit: this.props.onDismissed,
-        type: t
-      }, o.createElement(s.DialogContent, null, o.createElement('p', null, 'GitHub Desktop cannot verify the identity of ', e, '. The certificate (', this.props.certificate.subjectName, ') is invalid or untrusted.', ' ', o.createElement('strong', null, 'This may indicate attackers are trying to steal your data.')), o.createElement('p', null, 'In some cases, this may be expected. For example:'), o.createElement('ul', null, o.createElement('li', null, 'If this is a GitHub Enterprise Server trial.'), o.createElement('li', null, 'If your GitHub Enterprise Server instance is run on an unusual top-level domain.')), o.createElement('p', null, 'If you are unsure of what to do, cancel and contact your system administrator.')), o.createElement(s.DialogFooter, null, n))
+        onSubmit: this.onContinue,
+        type: 'error'
+      }, o.createElement(i.DialogContent, null, o.createElement('p', null, 'GitHub Desktop cannot verify the identity of ', e, '. The certificate (', this.props.certificate.subjectName, ') is invalid or untrusted.', ' ', o.createElement('strong', null, 'This may indicate attackers are trying to steal your data.')), o.createElement('p', null, 'In some cases, this may be expected. For example:'), o.createElement('ul', null, o.createElement('li', null, 'If this is a GitHub Enterprise Server trial.'), o.createElement('li', null, 'If your GitHub Enterprise Server instance is run on an unusual top-level domain.')), o.createElement('p', null, 'If you are unsure of what to do, cancel and contact your system administrator.')), o.createElement(i.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: 'Add certificate'
+      })))
     }
   }
-  t.UntrustedCertificate = d
+  t.UntrustedCertificate = s
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(378);
+  var o = n(383);
   t.UntrustedCertificate = o.UntrustedCertificate
 }, function (e, t, n) {
   'use strict';
@@ -32402,20 +32413,16 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(2),
+  const r = n(1),
     i = n(32),
     a = n(0),
     s = n(83),
-    d = n(55),
-    l = n(1),
-    c = n(14),
-    p = n(8),
-    u = n(5);
-  class m extends a.Component {
+    d = n(61),
+    l = n(14),
+    c = n(3);
+  class p extends a.Component {
     constructor(e) {
-      super(e), this.dialogContainerRef = null, this.closeButtonRef = null, this.onCloseButtonRef = (e) => {
-        this.closeButtonRef = e
-      }, this.state = {
+      super(e), this.state = {
         licenses: null
       }
     }
@@ -32427,7 +32434,7 @@ module.exports = function (e) {
         return n ? void this.setState({
           licenses: n
         }) : void log.warn(`Couldn't parse licenses!`)
-      }), this.dialogContainerRef && (this.dialogContainerRef.scrollTop = 0), this.closeButtonRef && this.closeButtonRef.focus()
+      })
     }
     renderLicenses(e) {
       const t = [];
@@ -32438,18 +32445,18 @@ module.exports = function (e) {
         let d;
         if (s) {
           const e = o(s);
-          d = a.createElement(c.LinkButton, {
+          d = a.createElement(l.LinkButton, {
             uri: e
           }, r)
         } else d = r;
-        let l = i.sourceText ? i.sourceText : i.license ? `License: ${i.license}` : 'Unknown license';
+        let c = i.sourceText ? i.sourceText : i.license ? `License: ${i.license}` : 'Unknown license';
         const p = a.createElement('h2', {
             key: `${r}-header`
           }, d),
           u = a.createElement('p', {
             key: `${r}-text`,
             className: 'license-text'
-          }, l);
+          }, c);
         t.push(p, u)
       }
       return t
@@ -32464,28 +32471,25 @@ module.exports = function (e) {
           className: 'license-text'
         }, o.sourceText)
       }
-      return a.createElement(u.Dialog, {
+      return a.createElement(c.Dialog, {
         id: 'acknowledgements',
         title: 'License and Open Source Notices',
         onSubmit: this.props.onDismissed,
         onDismissed: this.props.onDismissed
-      }, a.createElement(u.DialogContent, null, a.createElement('p', null, a.createElement(c.LinkButton, {
+      }, a.createElement(c.DialogContent, null, a.createElement('p', null, a.createElement(l.LinkButton, {
         uri: 'https://desktop.github.com'
-      }, 'GitHub Desktop'), ' is an open source project published under the MIT License. You can view the source code and contribute to this project on', ' ', a.createElement(c.LinkButton, {
+      }, 'GitHub Desktop'), ' is an open source project published under the MIT License. You can view the source code and contribute to this project on', ' ', a.createElement(l.LinkButton, {
         uri: 'https://github.com/desktop/desktop'
-      }, 'GitHub'), '.'), t, a.createElement('p', null, 'GitHub Desktop also distributes these libraries:'), e ? this.renderLicenses(e) : a.createElement(d.Loading, null)), a.createElement(u.DialogFooter, null, a.createElement(p.ButtonGroup, null, a.createElement(l.Button, {
-        type: 'submit',
-        onButtonRef: this.onCloseButtonRef
-      }, 'Close'))))
+      }, 'GitHub'), '.'), t, a.createElement('p', null, 'GitHub Desktop also distributes these libraries:'), e ? this.renderLicenses(e) : a.createElement(d.Loading, null)), a.createElement(c.DefaultDialogFooter, null))
     }
   }
-  t.Acknowledgements = m
+  t.Acknowledgements = p
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(380);
+  var o = n(385);
   t.Acknowledgements = o.Acknowledgements
 }, function (e, t) {
   'use strict';
@@ -32502,14 +32506,14 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(13),
+    r = n(12),
     i = n(27),
     a = n(136),
-    s = n(5),
+    s = n(3),
     d = n(18),
     l = n(52),
     c = n(45),
-    p = n(186),
+    p = n(187),
     u = n(4);
   class m extends o.Component {
     constructor(e) {
@@ -32588,7 +32592,6 @@ module.exports = function (e) {
       return o.createElement(s.DialogContent, null, o.createElement(d.Row, null, o.createElement(i.TextBox, {
         label: 'Name',
         value: this.name,
-        autoFocus: !0,
         onValueChanged: this.onNameChange
       })), this.renderSanitizedName(), o.createElement(d.Row, null, o.createElement(i.TextBox, {
         label: 'Description',
@@ -32616,25 +32619,24 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(383),
-    i = n(8),
-    a = n(1),
-    s = n(5),
-    d = n(48),
-    l = n(13),
-    c = n(3),
-    p = n(104),
-    u = n(22),
-    m = n(382);
-  var h;
+    r = n(388),
+    i = n(3),
+    a = n(48),
+    s = n(12),
+    d = n(2),
+    l = n(105),
+    c = n(22),
+    p = n(387),
+    u = n(9);
+  var m;
   (function (e) {
     e[e.DotCom = 0] = 'DotCom', e[e.Enterprise = 1] = 'Enterprise'
-  })(h || (h = {}));
-  class f extends o.Component {
+  })(m || (m = {}));
+  class h extends o.Component {
     constructor(e) {
       super(e), this.onSettingsChanged = (e) => {
         let t;
-        t = e.kind === m.PublishSettingsType.enterprise ? {
+        t = e.kind === p.PublishSettingsType.enterprise ? {
           kind: 'enterprise',
           settings: e,
           error: this.state.enterpriseTabState.error
@@ -32654,7 +32656,7 @@ module.exports = function (e) {
         });
         const t = this.state.currentTab,
           n = this.getAccountForTab(t);
-        if (!n) return void c.fatalError(`Tried to publish with no user. That seems impossible!`);
+        if (!n) return void d.fatalError(`Tried to publish with no user. That seems impossible!`);
         const o = e.settings,
           {
             org: r
@@ -32671,14 +32673,14 @@ module.exports = function (e) {
         t && this.setState({
           currentTab: e
         })
-      }, this.getCurrentTabState = () => this.state.currentTab === h.DotCom ? this.state.dotcomTabState : this.state.enterpriseTabState, this.setTabState = (e) => {
+      }, this.getCurrentTabState = () => this.state.currentTab === m.DotCom ? this.state.dotcomTabState : this.state.enterpriseTabState, this.setTabState = (e) => {
         'enterprise' === e.kind ? this.setState({
           enterpriseTabState: e
         }) : this.setState({
           dotcomTabState: e
         })
       }, this.setCurrentTabSettings = (e) => {
-        if (e.kind === m.PublishSettingsType.enterprise) {
+        if (e.kind === p.PublishSettingsType.enterprise) {
           const t = Object.assign({}, this.state.enterpriseTabState, {
             settings: e
           });
@@ -32694,10 +32696,10 @@ module.exports = function (e) {
           error: e
         }))
       };
-      const t = this.getAccountForTab(h.DotCom),
-        n = this.getAccountForTab(h.Enterprise);
-      let o = h.DotCom;
-      !t && n && (o = h.Enterprise);
+      const t = this.getAccountForTab(m.DotCom),
+        n = this.getAccountForTab(m.Enterprise);
+      let o = m.DotCom;
+      !t && n && (o = m.Enterprise);
       const r = {
           name: e.repository.name,
           description: '',
@@ -32706,7 +32708,7 @@ module.exports = function (e) {
         i = {
           kind: 'dotcom',
           settings: Object.assign({}, r, {
-            kind: m.PublishSettingsType.dotcom,
+            kind: p.PublishSettingsType.dotcom,
             org: null
           }),
           error: null
@@ -32714,7 +32716,7 @@ module.exports = function (e) {
         a = {
           kind: 'enterprise',
           settings: Object.assign({}, r, {
-            kind: m.PublishSettingsType.enterprise,
+            kind: p.PublishSettingsType.enterprise,
             org: null
           }),
           error: null
@@ -32728,22 +32730,22 @@ module.exports = function (e) {
     }
     render() {
       const e = this.getCurrentTabState();
-      return o.createElement(s.Dialog, {
+      return o.createElement(i.Dialog, {
         id: 'publish-repository',
         title: 'Publish repository',
         onDismissed: this.props.onDismissed,
         onSubmit: this.publishRepository,
         disabled: this.state.publishing,
         loading: this.state.publishing
-      }, o.createElement(d.TabBar, {
+      }, o.createElement(a.TabBar, {
         onTabClicked: this.onTabClicked,
         selectedIndex: this.state.currentTab
-      }, o.createElement('span', null, 'GitHub.com'), o.createElement('span', null, 'GitHub Enterprise Server')), e.error ? o.createElement(s.DialogError, null, e.error.message) : null, this.renderContent(), this.renderFooter())
+      }, o.createElement('span', null, 'GitHub.com'), o.createElement('span', null, 'GitHub Enterprise Server')), e.error ? o.createElement(i.DialogError, null, e.error.message) : null, this.renderContent(), this.renderFooter())
     }
     async componentDidMount() {
       const e = this.getCurrentTabState();
       try {
-        const t = await u.getGitDescription(this.props.repository.path),
+        const t = await c.getGitDescription(this.props.repository.path),
           n = Object.assign({}, e.settings, {
             description: t
           });
@@ -32760,42 +32762,40 @@ module.exports = function (e) {
         account: n,
         settings: t.settings,
         onSettingsChanged: this.onSettingsChanged
-      }) : o.createElement(s.DialogContent, null, this.renderSignInTab(e))
+      }) : o.createElement(i.DialogContent, null, this.renderSignInTab(e))
     }
     getAccountForTab(e) {
       const t = this.props.accounts;
-      return e === h.DotCom ? t.find((e) => e.endpoint === l.getDotComAPIEndpoint()) || null : e === h.Enterprise ? t.find((e) => e.endpoint !== l.getDotComAPIEndpoint()) || null : c.assertNever(e, `Unknown tab: ${e}`)
+      return e === m.DotCom ? t.find((e) => e.endpoint === s.getDotComAPIEndpoint()) || null : e === m.Enterprise ? t.find((e) => e.endpoint !== s.getDotComAPIEndpoint()) || null : d.assertNever(e, `Unknown tab: ${e}`)
     }
     renderSignInTab(e) {
       const t = 'Sign in';
-      return e === h.DotCom ? o.createElement(p.CallToAction, {
+      return e === m.DotCom ? o.createElement(l.CallToAction, {
         actionTitle: t,
         onAction: this.signInDotCom
-      }, o.createElement('div', null, 'Sign in to your GitHub.com account to access your repositories.')) : e === h.Enterprise ? o.createElement(p.CallToAction, {
+      }, o.createElement('div', null, 'Sign in to your GitHub.com account to access your repositories.')) : e === m.Enterprise ? o.createElement(l.CallToAction, {
         actionTitle: t,
         onAction: this.signInEnterprise
-      }, o.createElement('div', null, '如果您有一个GitHub企业服务器帐户，请登录该帐户以访问您的存储库。')) : c.assertNever(e, `Unknown tab: ${e}`)
+      }, o.createElement('div', null, '如果您有一个GitHub企业服务器帐户，请登录该帐户以访问您的存储库。')) : d.assertNever(e, `Unknown tab: ${e}`)
     }
     renderFooter() {
       const e = this.getCurrentTabState(),
         t = !e.settings.name.length,
         n = this.state.currentTab,
         r = this.getAccountForTab(n);
-      return r ? o.createElement(s.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(a.Button, {
-        type: 'submit',
-        disabled: t
-      }, 'Publish repository'), o.createElement(a.Button, {
-        onClick: this.props.onDismissed
-      }, 'Cancel'))) : null
+      return r ? o.createElement(i.DialogFooter, null, o.createElement(u.OkCancelButtonGroup, {
+        okButtonText: 'Publish repository',
+        okButtonDisabled: t
+      })) : null
     }
   }
-  t.Publish = f
+  t.Publish = h
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(384);
+  var o = n(389);
   t.Publish = o.Publish
 }, function (e, t, n) {
   'use strict';
@@ -32804,35 +32804,32 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(18),
-    i = n(1),
-    a = n(8),
-    s = n(5),
-    d = n(14),
-    l = n(132),
-    c = n(55),
-    p = n(108),
-    u = n(3),
-    m = n(137),
-    h = n(33),
-    f = h.encodePathAsUrl(__dirname, 'static/logo-64x64@2x.png');
-  class g extends o.Component {
+    i = n(13),
+    a = n(3),
+    s = n(14),
+    d = n(132),
+    l = n(61),
+    c = n(109),
+    p = n(2),
+    u = n(137),
+    m = n(33),
+    h = m.encodePathAsUrl(__dirname, 'static/logo-64x64@2x.png');
+  class f extends o.Component {
     constructor(e) {
-      super(e), this.closeButton = null, this.updateStoreEventHandle = null, this.onCloseButtonRef = (e) => {
-        this.closeButton = e
-      }, this.onUpdateStateChanged = (e) => {
+      super(e), this.updateStoreEventHandle = null, this.onUpdateStateChanged = (e) => {
         this.setState({
           updateState: e
         })
       }, this.onQuitAndInstall = () => {
-        l.updateStore.quitAndInstallUpdate()
+        d.updateStore.quitAndInstallUpdate()
       }, this.state = {
-        updateState: l.updateStore.state
+        updateState: d.updateStore.state
       }
     }
     componentDidMount() {
-      this.updateStoreEventHandle = l.updateStore.onDidChange(this.onUpdateStateChanged), this.setState({
-        updateState: l.updateStore.state
-      }), this.closeButton && this.closeButton.focus()
+      this.updateStoreEventHandle = d.updateStore.onDidChange(this.onUpdateStateChanged), this.setState({
+        updateState: d.updateStore.state
+      })
     }
     componentWillUnmount() {
       this.updateStoreEventHandle && (this.updateStoreEventHandle.dispose(), this.updateStoreEventHandle = null)
@@ -32840,37 +32837,37 @@ module.exports = function (e) {
     renderUpdateButton() {
       const e = this.state.updateState.status;
       switch (e) {
-        case l.UpdateStatus.UpdateReady:
+        case d.UpdateStatus.UpdateReady:
           return o.createElement(r.Row, null, o.createElement(i.Button, {
             onClick: this.onQuitAndInstall
           }, '退出 并 安装更新'));
-        case l.UpdateStatus.UpdateNotAvailable:
-        case l.UpdateStatus.CheckingForUpdates:
-        case l.UpdateStatus.UpdateAvailable:
-          const t = e !== l.UpdateStatus.UpdateNotAvailable;
+        case d.UpdateStatus.UpdateNotAvailable:
+        case d.UpdateStatus.CheckingForUpdates:
+        case d.UpdateStatus.UpdateAvailable:
+          const t = e !== d.UpdateStatus.UpdateNotAvailable;
           return o.createElement(r.Row, null, o.createElement(i.Button, {
             disabled: t,
             onClick: this.props.onCheckForUpdates
           }, '检查更新'));
         default:
-          return u.assertNever(e, `Unknown update status ${e}`);
+          return p.assertNever(e, `Unknown update status ${e}`);
       }
     }
     renderCheckingForUpdate() {
       return o.createElement(r.Row, {
         className: 'update-status'
-      }, o.createElement(c.Loading, null), o.createElement('span', null, '正在检查更新\u2026'))
+      }, o.createElement(l.Loading, null), o.createElement('span', null, '正在检查更新\u2026'))
     }
     renderUpdateAvailable() {
       return o.createElement(r.Row, {
         className: 'update-status'
-      }, o.createElement(c.Loading, null), o.createElement('span', null, '正在下载更新\u2026'))
+      }, o.createElement(l.Loading, null), o.createElement('span', null, '正在下载更新\u2026'))
     }
     renderUpdateNotAvailable() {
       const e = this.state.updateState.lastSuccessfulCheck;
       return e ? o.createElement('p', {
         className: 'update-status'
-      }, '你有最新的版本 (上次检查', ' ', o.createElement(p.RelativeTime, {
+      }, '你有最新的版本(上次检查', ' ', o.createElement(c.RelativeTime, {
         date: e
       }), ')') : null
     }
@@ -32883,36 +32880,36 @@ module.exports = function (e) {
       !1, !1;
       const e = this.state.updateState;
       switch (e.status) {
-        case l.UpdateStatus.CheckingForUpdates:
+        case d.UpdateStatus.CheckingForUpdates:
           return this.renderCheckingForUpdate();
-        case l.UpdateStatus.UpdateAvailable:
+        case d.UpdateStatus.UpdateAvailable:
           return this.renderUpdateAvailable();
-        case l.UpdateStatus.UpdateNotAvailable:
+        case d.UpdateStatus.UpdateNotAvailable:
           return this.renderUpdateNotAvailable();
-        case l.UpdateStatus.UpdateReady:
+        case d.UpdateStatus.UpdateReady:
           return this.renderUpdateReady();
         default:
-          return u.assertNever(e.status, `Unknown update status ${e.status}`);
+          return p.assertNever(e.status, `Unknown update status ${e.status}`);
       }
     }
     renderUpdateErrors() {
-      return !1, !1, this.state.updateState.lastSuccessfulCheck ? null : o.createElement(s.DialogError, null, 'Couldn\'t determine the last time an update check was performed. You may be running an old version. Please try manually checking for updates and contact GitHub Support if the problem persists')
+      return !1, !1, this.state.updateState.lastSuccessfulCheck ? null : o.createElement(a.DialogError, null, 'Couldn\'t determine the last time an update check was performed. You may be running an old version. Please try manually checking for updates and contact GitHub Support if the problem persists')
     }
     render() {
       const e = this.props.applicationName,
         t = this.props.applicationVersion,
-        n = o.createElement(d.LinkButton, {
-          uri: m.ReleaseNotesUri
+        n = o.createElement(s.LinkButton, {
+          uri: u.ReleaseNotesUri
         }, 'release notes'),
-        l = `Version ${t}`;
-      return o.createElement(s.Dialog, {
+        i = `Version ${t}`;
+      return o.createElement(a.Dialog, {
         id: 'about',
         onSubmit: this.props.onDismissed,
         onDismissed: this.props.onDismissed
-      }, this.renderUpdateErrors(), o.createElement(s.DialogContent, null, o.createElement(r.Row, {
+      }, this.renderUpdateErrors(), o.createElement(a.DialogContent, null, o.createElement(r.Row, {
         className: 'logo'
       }, o.createElement('img', {
-        src: f,
+        src: h,
         alt: 'GitHub Desktop',
         width: '64',
         height: '64'
@@ -32920,19 +32917,16 @@ module.exports = function (e) {
         className: 'no-padding'
       }, o.createElement('span', {
         className: 'selectable-text'
-      }, l), ' (', n, ')'), o.createElement('p', {
+      }, i), ' (', n, ')'), o.createElement('p', {
         className: 'no-padding'
-      }, o.createElement(d.LinkButton, {
+      }, o.createElement(s.LinkButton, {
         onClick: this.props.onShowTermsAndConditions
-      }, '条款 和 条件')), o.createElement('p', null, o.createElement(d.LinkButton, {
+      }, '条款 和 条件')), o.createElement('p', null, o.createElement(s.LinkButton, {
         onClick: this.props.onShowAcknowledgements
-      }, '许可证 和 开源通知')), this.renderUpdateDetails(), this.renderUpdateButton()), o.createElement(s.DialogFooter, null, o.createElement(a.ButtonGroup, null, o.createElement(i.Button, {
-        ref: this.onCloseButtonRef,
-        onClick: this.props.onDismissed
-      }, 'Close'))))
+      }, '许可证 和 开源通知')), this.renderUpdateDetails(), this.renderUpdateButton()), o.createElement(a.DefaultDialogFooter, null))
     }
   }
-  t.About = g
+  t.About = f
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -32940,49 +32934,52 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(386))
+    }(n(391))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(5),
-    s = n(38);
-  class d extends o.Component {
+    r = n(3),
+    i = n(38);
+  class a extends o.Component {
     constructor(e) {
       super(e), this.onExternalLink = () => {
         const e = `https://atom.io/`;
-        s.shell.openExternal(e)
-      }, this.onShowPreferencesDialog = () => {
-        this.props.onDismissed(), this.props.showPreferencesDialog()
+        i.shell.openExternal(e)
+      }, this.onShowPreferencesDialog = (t) => {
+        t.preventDefault(), this.props.onDismissed(), this.props.showPreferencesDialog()
       }
+    }
+    renderFooter() {
+      const {
+        viewPreferences: e,
+        suggestAtom: t
+      } = this.props;
+      if (e) return o.createElement(r.DialogFooter, null, o.createElement(r.OkCancelButtonGroup, {
+        okButtonText: 'Close',
+        cancelButtonText: 'Open options',
+        onCancelButtonClick: this.onShowPreferencesDialog
+      }));
+      return t ? o.createElement(r.DialogFooter, null, o.createElement(r.OkCancelButtonGroup, {
+        okButtonText: 'Close',
+        cancelButtonText: 'Download Atom',
+        onCancelButtonClick: this.onExternalLink
+      })) : o.createElement(r.DefaultDialogFooter, null)
     }
     render() {
       const e = 'Unable to open external editor';
-      let t = null;
-      return this.props.viewPreferences ? t = o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit',
-        onClick: this.props.onDismissed
-      }, 'Close'), o.createElement(r.Button, {
-        onClick: this.onShowPreferencesDialog
-      }, 'Open options')) : this.props.suggestAtom && (t = o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit',
-        onClick: this.props.onDismissed
-      }, 'Close'), o.createElement(r.Button, {
-        onClick: this.onExternalLink
-      }, 'Download Atom'))), o.createElement(a.Dialog, {
+      return o.createElement(r.Dialog, {
         id: 'external-editor-error',
         type: 'error',
         title: e,
         onSubmit: this.props.onDismissed,
         onDismissed: this.props.onDismissed
-      }, o.createElement(a.DialogContent, null, o.createElement('p', null, this.props.message)), o.createElement(a.DialogFooter, null, t))
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, this.props.message)), this.renderFooter())
     }
   }
-  t.EditorError = d
+  t.EditorError = a
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -32990,42 +32987,40 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(388))
+    }(n(393))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(5),
-    s = n(38);
-  class d extends o.Component {
+    r = n(3),
+    i = n(38),
+    a = n(9);
+  class s extends o.Component {
     constructor(e) {
-      super(e), this.onContinue = () => {
-        this.props.onOpenShell(this.props.path)
+      super(e), this.onSubmit = () => {
+        this.props.onOpenShell(this.props.path), this.props.onDismissed()
       }, this.onExternalLink = () => {
         const e = `https://help.github.com/articles/set-up-git/#setting-up-git`;
-        s.shell.openExternal(e)
+        i.shell.openExternal(e)
       }
     }
     render() {
-      return o.createElement(a.Dialog, {
+      return o.createElement(r.Dialog, {
         id: 'install-git',
         type: 'warning',
         title: '无法定位 Git',
-        onSubmit: this.props.onDismissed,
+        onSubmit: this.onSubmit,
         onDismissed: this.props.onDismissed
-      }, o.createElement(a.DialogContent, null, o.createElement('p', null, '我们无法在您的系统上找到Git。 这意味着您将无法在', ' ', '命令提示符', '中执行任何Git命令。'), o.createElement('p', null, '为了帮助您为操作系统安装和配置Git，我们提供了一些外部资源。')), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit',
-        onClick: this.onContinue
-      }, '不使用Git打开'), o.createElement(r.Button, {
-        onClick: this.onExternalLink
-      }, '安装 Git'))))
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, '我们无法在您的系统上找到Git。. 这意味着您将无法在', ' ', '命令提示符', '中执行任何Git命令.'), o.createElement('p', null, '为了帮助您为操作系统安装和配置Git，我们提供了一些外部资源。')), o.createElement(r.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
+        okButtonText: '不使用Git打开',
+        cancelButtonText: '安装 Git',
+        onCancelButtonClick: this.onExternalLink
+      })))
     }
   }
-  t.InstallGit = d
+  t.InstallGit = s
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -33033,7 +33028,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(390))
+    }(n(395))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -33041,18 +33036,17 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(80),
-    i = n(3),
-    a = n(1),
-    s = n(14),
-    d = n(4),
-    l = n(18),
-    c = n(27),
-    p = n(8),
-    u = n(5),
-    m = n(173),
-    h = n(13),
-    f = 'Sign in using your browser';
-  class g extends o.Component {
+    i = n(2),
+    a = n(14),
+    s = n(4),
+    d = n(18),
+    l = n(27),
+    c = n(3),
+    p = n(174),
+    u = n(12),
+    m = n(9),
+    h = 'Sign in using your browser';
+  class f extends o.Component {
     constructor(e) {
       super(e), this.onSubmit = () => {
         const e = this.props.signInState;
@@ -33108,7 +33102,7 @@ module.exports = function (e) {
       if (!e || e.kind === r.SignInStep.Success) return null;
       let t = !1,
         n;
-      const s = e.kind;
+      const a = e.kind;
       switch (e.kind) {
         case r.SignInStep.EndpointEntry:
           t = 0 === this.state.endpoint.length, n = '继续';
@@ -33126,17 +33120,15 @@ module.exports = function (e) {
           }
           break;
         default:
-          return i.assertNever(e, `Unknown sign in step ${s}`);
+          return i.assertNever(e, `Unknown sign in step ${a}`);
       }
-      return o.createElement(u.DialogFooter, null, o.createElement(p.ButtonGroup, null, o.createElement(a.Button, {
-        disabled: t,
-        type: 'submit'
-      }, n), o.createElement(a.Button, {
-        onClick: this.props.onDismissed
-      }, '取消')))
+      return o.createElement(c.DialogFooter, null, o.createElement(m.OkCancelButtonGroup, {
+        okButtonText: n,
+        okButtonDisabled: t
+      }))
     }
     renderEndpointEntryStep() {
-      return o.createElement(u.DialogContent, null, o.createElement(l.Row, null, o.createElement(c.TextBox, {
+      return o.createElement(c.DialogContent, null, o.createElement(d.Row, null, o.createElement(l.TextBox, {
         label: '企业服务器地址',
         value: this.state.endpoint,
         onValueChanged: this.onEndpointChanged,
@@ -33144,37 +33136,37 @@ module.exports = function (e) {
       })))
     }
     renderAuthenticationStep(e) {
-      if (!e.supportsBasicAuth) return e.endpoint === h.getDotComAPIEndpoint() ? o.createElement(u.DialogContent, null, o.createElement('p', null, 'To improve the security of your account, GitHub now requires you to sign in through your browser.'), o.createElement('p', null, 'Your browser will redirect you back to GitHub Desktop once you\'ve signed in. If your browser asks for your permission to launch GitHub Desktop please allow it to.')) : o.createElement(u.DialogContent, null, o.createElement('p', null, 'Your GitHub Enterprise Server instance requires you to sign in with your browser.'));
+      if (!e.supportsBasicAuth) return e.endpoint === u.getDotComAPIEndpoint() ? o.createElement(c.DialogContent, null, o.createElement('p', null, 'To improve the security of your account, GitHub now requires you to sign in through your browser.'), o.createElement('p', null, 'Your browser will redirect you back to GitHub Desktop once you\'ve signed in. If your browser asks for your permission to launch GitHub Desktop please allow it to.')) : o.createElement(c.DialogContent, null, o.createElement('p', null, 'Your GitHub Enterprise Server instance requires you to sign in with your browser.'));
       const t = e.loading;
-      return o.createElement(u.DialogContent, null, o.createElement(l.Row, null, o.createElement(c.TextBox, {
+      return o.createElement(c.DialogContent, null, o.createElement(d.Row, null, o.createElement(l.TextBox, {
         label: '用户名 或 电子邮件地址',
         value: this.state.username,
         onValueChanged: this.onUsernameChanged
-      })), o.createElement(l.Row, null, o.createElement(c.TextBox, {
+      })), o.createElement(d.Row, null, o.createElement(l.TextBox, {
         label: '密 码',
         value: this.state.password,
         type: 'password',
         onValueChanged: this.onPasswordChanged
-      })), o.createElement(l.Row, null, o.createElement(s.LinkButton, {
+      })), o.createElement(d.Row, null, o.createElement(a.LinkButton, {
         className: 'forgot-password-link-sign-in',
         uri: e.forgotPasswordUrl
       }, '忘记密码?')), o.createElement('div', {
         className: 'horizontal-rule'
       }, o.createElement('span', {
         className: 'horizontal-rule-content'
-      }, 'or')), o.createElement(l.Row, {
+      }, 'or')), o.createElement(d.Row, {
         className: 'sign-in-with-browser'
-      }, o.createElement(s.LinkButton, {
+      }, o.createElement(a.LinkButton, {
         className: 'link-with-icon',
         onClick: this.onSignInWithBrowser,
         disabled: t
-      }, '使用浏览器登录', o.createElement(d.Octicon, {
-        symbol: d.OcticonSymbol.linkExternal
+      }, '使用浏览器登录', o.createElement(s.Octicon, {
+        symbol: s.OcticonSymbol.linkExternal
       }))))
     }
     renderTwoFactorAuthenticationStep(e) {
-      return o.createElement(u.DialogContent, null, o.createElement('p', null, m.getWelcomeMessage(e.type)), o.createElement(l.Row, null, o.createElement(c.TextBox, {
-        label: '认证码(Authentication code)',
+      return o.createElement(c.DialogContent, null, o.createElement('p', null, p.getWelcomeMessage(e.type)), o.createElement(d.Row, null, o.createElement(l.TextBox, {
+        label: '认证码 Authentication code',
         value: this.state.otpToken,
         onValueChanged: this.onOTPTokenChanged,
         labelLinkText: `这是什么?`,
@@ -33203,9 +33195,9 @@ module.exports = function (e) {
       const e = this.props.signInState;
       if (!e || e.kind === r.SignInStep.Success) return null;
       const t = e.loading,
-        n = e.error ? o.createElement(u.DialogError, null, e.error.message) : null,
-        i = this.props.signInState && this.props.signInState.kind === r.SignInStep.Authentication && !this.props.signInState.supportsBasicAuth ? f : 'Sign in';
-      return o.createElement(u.Dialog, {
+        n = e.error ? o.createElement(c.DialogError, null, e.error.message) : null,
+        i = this.props.signInState && this.props.signInState.kind === r.SignInStep.Authentication && !this.props.signInState.supportsBasicAuth ? h : 'Sign in';
+      return o.createElement(c.Dialog, {
         id: 'sign-in',
         title: i,
         disabled: t,
@@ -33215,7 +33207,7 @@ module.exports = function (e) {
       }, n, this.renderStep(), this.renderFooter())
     }
   }
-  t.SignIn = g
+  t.SignIn = f
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -33223,7 +33215,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(392))
+    }(n(397))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -33240,33 +33232,32 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(195),
+    r = n(196),
     i = n(50),
     a = n(27),
     s = n(18),
     d = n(24),
-    l = n(1),
-    c = n(14),
-    p = n(8),
-    u = n(5),
-    m = n(135),
-    h = n(29),
-    f = n(3),
-    g = n(194),
-    y = n(394),
-    S = n(109),
-    C = n(94);
-  var b;
+    l = n(14),
+    c = n(3),
+    p = n(135),
+    u = n(29),
+    m = n(2),
+    h = n(195),
+    f = n(399),
+    g = n(9),
+    y = n(110),
+    S = n(94);
+  var C;
   (function (e) {
     e[e.DefaultBranch = 0] = 'DefaultBranch', e[e.CurrentBranch = 1] = 'CurrentBranch'
-  })(b || (b = {}));
-  class v extends o.Component {
+  })(C || (C = {}));
+  class b extends o.Component {
     constructor(e) {
       super(e), this.onBaseBranchChanged = (e) => {
-        if (e === b.DefaultBranch) this.setState({
+        if (e === C.DefaultBranch) this.setState({
           startPoint: i.StartPoint.DefaultBranch
         });
-        else if (e === b.CurrentBranch) this.setState({
+        else if (e === C.CurrentBranch) this.setState({
           startPoint: i.StartPoint.CurrentBranch
         });
         else throw new Error(`Unknown branch selection: ${e}`)
@@ -33277,7 +33268,7 @@ module.exports = function (e) {
         let t = null;
         const {
           defaultBranch: n,
-          handleProtectedBranchWarning: o,
+          currentBranchProtected: o,
           repository: r
         } = this.props;
         if (this.state.startPoint === i.StartPoint.DefaultBranch) {
@@ -33288,20 +33279,20 @@ module.exports = function (e) {
         }
         if (0 < e.length) {
           const n = o ? {
-            kind: C.UncommittedChangesStrategyKind.MoveToNewBranch,
+            kind: S.UncommittedChangesStrategyKind.MoveToNewBranch,
             transientStashEntry: null
-          } : C.askToStash;
+          } : S.askToStash;
           this.setState({
             isCreatingBranch: !0
           });
-          const i = S.startTimer('create branch', r);
+          const i = y.startTimer('create branch', r);
           await this.props.dispatcher.createBranch(r, e, t, n), i.done()
         }
       }, this.state = {
         currentError: null,
         proposedName: e.initialName,
         sanitizedName: '',
-        startPoint: y.getStartPoint(e, i.StartPoint.DefaultBranch),
+        startPoint: f.getStartPoint(e, i.StartPoint.DefaultBranch),
         isCreatingBranch: !1,
         tipAtCreateStart: e.tip,
         defaultBranchAtCreateStart: e.defaultBranch
@@ -33312,7 +33303,7 @@ module.exports = function (e) {
     }
     componentWillReceiveProps(e) {
       this.setState({
-        startPoint: y.getStartPoint(e, this.state.startPoint)
+        startPoint: f.getStartPoint(e, this.state.startPoint)
       }), this.state.isCreatingBranch || this.setState({
         tipAtCreateStart: e.tip,
         defaultBranchAtCreateStart: e.defaultBranch
@@ -33321,16 +33312,16 @@ module.exports = function (e) {
     renderBranchSelection() {
       const e = this.state.isCreatingBranch ? this.state.tipAtCreateStart : this.props.tip,
         t = e.kind;
-      if (e.kind === h.TipState.Detached) return o.createElement('p', null, 'You do not currently have any branch checked out (your HEAD reference is detached). As such your new branch will be based on your currently checked out commit (', e.currentSha.substr(0, 7), ').');
-      if (e.kind === h.TipState.Unborn) return o.createElement('p', null, 'Your current branch is unborn (does not contain any commits). Creating a new branch will rename the current branch.');
-      if (e.kind === h.TipState.Valid) {
+      if (e.kind === u.TipState.Detached) return o.createElement('p', null, 'You do not currently have any branch checked out (your HEAD reference is detached). As such your new branch will be based on your currently checked out commit (', e.currentSha.substr(0, 7), ').');
+      if (e.kind === u.TipState.Unborn) return o.createElement('p', null, 'Your current branch is unborn (does not contain any commits). Creating a new branch will rename the current branch.');
+      if (e.kind === u.TipState.Valid) {
         const t = e.branch,
           n = this.state.isCreatingBranch ? this.props.defaultBranch : this.state.defaultBranchAtCreateStart;
         if (!n || n.name === t.name) {
-          const e = o.createElement(c.LinkButton, {
+          const e = o.createElement(l.LinkButton, {
             uri: 'https://help.github.com/articles/setting-the-default-branch/'
           }, 'default branch');
-          return o.createElement('p', null, '您的新分支将基于当前查看的分支 (', o.createElement(d.Ref, null, t.name), '). ', o.createElement(d.Ref, null, t.name), ' 是您存储库的 ', e, '.')
+          return o.createElement('p', null, '您的新分支将基于当前查看的分支 (', o.createElement(d.Ref, null, t.name), '). ', o.createElement(d.Ref, null, t.name), ' 是您存储库的', e, ' for your repository.')
         } else {
           const e = [{
               title: n.name,
@@ -33341,36 +33332,34 @@ module.exports = function (e) {
             }],
             r = this.state.startPoint,
             a = r === i.StartPoint.DefaultBranch ? 0 : 1;
-          return o.createElement(s.Row, null, o.createElement(m.VerticalSegmentedControl, {
+          return o.createElement(s.Row, null, o.createElement(p.VerticalSegmentedControl, {
             label: '创建分支基于\u2026',
             items: e,
             selectedIndex: a,
             onSelectionChanged: this.onBaseBranchChanged
           }))
         }
-      } else return f.assertNever(e, `Unknown tip kind ${t}`)
+      } else return m.assertNever(e, `Unknown tip kind ${t}`)
     }
     render() {
       const e = 0 >= this.state.proposedName.length || !!this.state.currentError || /^\s*$/.test(this.state.sanitizedName),
         t = this.state.currentError;
-      return o.createElement(u.Dialog, {
+      return o.createElement(c.Dialog, {
         id: 'create-branch',
         title: 'Create a branch',
         onSubmit: this.createBranch,
         onDismissed: this.props.onDismissed,
         loading: this.state.isCreatingBranch,
         disabled: this.state.isCreatingBranch
-      }, t ? o.createElement(u.DialogError, null, t.message) : null, o.createElement(u.DialogContent, null, o.createElement(s.Row, null, o.createElement(a.TextBox, {
+      }, t ? o.createElement(c.DialogError, null, t.message) : null, o.createElement(c.DialogContent, null, o.createElement(s.Row, null, o.createElement(a.TextBox, {
         label: 'Name',
         value: this.state.proposedName,
         autoFocus: !0,
         onValueChanged: this.onBranchNameChange
-      })), g.renderBranchNameWarning(this.state.proposedName, this.state.sanitizedName), g.renderBranchNameExistsOnRemoteWarning(this.state.sanitizedName, this.props.allBranches), this.renderBranchSelection()), o.createElement(u.DialogFooter, null, o.createElement(p.ButtonGroup, null, o.createElement(l.Button, {
-        type: 'submit',
-        disabled: e
-      }, 'Create branch'), o.createElement(l.Button, {
-        onClick: this.props.onDismissed
-      }, 'Cancel'))))
+      })), h.renderBranchNameWarning(this.state.proposedName, this.state.sanitizedName), h.renderBranchNameExistsOnRemoteWarning(this.state.sanitizedName, this.props.allBranches), this.renderBranchSelection()), o.createElement(c.DialogFooter, null, o.createElement(g.OkCancelButtonGroup, {
+        okButtonText: 'Create branch',
+        okButtonDisabled: e
+      })))
     }
     updateBranchName(e) {
       const t = r.sanitizedBranchName(e),
@@ -33383,13 +33372,13 @@ module.exports = function (e) {
       })
     }
   }
-  t.CreateBranch = v
+  t.CreateBranch = b
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(395);
+  var o = n(400);
   t.CreateBranch = o.CreateBranch
 }, function (e, t, n) {
   'use strict';
@@ -33440,11 +33429,11 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(5),
+    r = n(3),
     i = n(27),
     a = n(18),
-    s = n(1),
-    d = n(185);
+    s = n(13),
+    d = n(186);
   class l extends o.PureComponent {
     render() {
       return o.createElement(r.DialogContent, {
@@ -33479,9 +33468,9 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(27),
-    i = n(1),
+    i = n(13),
     a = n(18),
-    s = n(5),
+    s = n(3),
     d = n(24);
   class l extends o.Component {
     constructor() {
@@ -33514,25 +33503,24 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(2),
+  const o = n(1),
     r = n(0),
     i = n(21),
     a = n(19),
-    s = n(1),
-    d = n(8),
-    l = n(134),
-    c = n(126),
-    p = n(259),
-    u = n(13),
-    m = n(5),
-    h = n(48),
-    f = n(122),
-    g = n(399),
-    y = n(398),
-    S = n(3),
-    C = n(104),
-    b = n(52);
-  class v extends r.Component {
+    s = n(134),
+    d = n(127),
+    l = n(262),
+    c = n(12),
+    p = n(3),
+    u = n(48),
+    m = n(123),
+    h = n(404),
+    f = n(403),
+    g = n(2),
+    y = n(105),
+    S = n(52),
+    C = n(9);
+  class b extends r.Component {
     constructor(e) {
       super(e), this.checkIfCloningDisabled = () => {
         const e = this.getSelectedTabState(),
@@ -33557,11 +33545,11 @@ module.exports = function (e) {
       }, this.signInEnterprise = () => {
         this.props.dispatcher.showEnterpriseSignInDialog()
       }, this.onFilterTextChanged = (e) => {
-        this.props.selectedTab !== f.CloneRepositoryTab.Generic && this.setGitHubTabState({
+        this.props.selectedTab !== m.CloneRepositoryTab.Generic && this.setGitHubTabState({
           filterText: e
         }, this.props.selectedTab)
       }, this.onSelectionChanged = (e) => {
-        this.props.selectedTab !== f.CloneRepositoryTab.Generic && (this.setGitHubTabState({
+        this.props.selectedTab !== m.CloneRepositoryTab.Generic && (this.setGitHubTabState({
           selectedItem: e
         }, this.props.selectedTab), this.updateUrl(null === e ? '' : e.clone_url))
       }, this.validatePath = async () => {
@@ -33600,7 +33588,7 @@ module.exports = function (e) {
           }, this.validatePath), r
         }
       }, this.updateUrl = async (e) => {
-        const t = c.parseRepositoryIdentifier(e),
+        const t = d.parseRepositoryIdentifier(e),
           n = this.getSelectedTabState(),
           r = n.lastParsedIdentifier;
         let i;
@@ -33639,7 +33627,7 @@ module.exports = function (e) {
       }, this.onWindowFocus = () => {
         this.validatePath()
       };
-      const t = l.getDefaultDir(),
+      const t = s.getDefaultDir(),
         n = {
           error: null,
           lastParsedIdentifier: null,
@@ -33678,50 +33666,48 @@ module.exports = function (e) {
       const {
         error: e
       } = this.getSelectedTabState();
-      return r.createElement(m.Dialog, {
+      return r.createElement(p.Dialog, {
         className: 'clone-repository',
         title: 'Clone a repository',
         onSubmit: this.clone,
         onDismissed: this.props.onDismissed,
         loading: this.state.loading
-      }, r.createElement(h.TabBar, {
+      }, r.createElement(u.TabBar, {
         onTabClicked: this.onTabClicked,
         selectedIndex: this.props.selectedTab
-      }, r.createElement('span', null, 'GitHub.com'), r.createElement('span', null, 'GitHub Enterprise Server'), r.createElement('span', null, 'URL')), e ? r.createElement(m.DialogError, null, e.message) : null, this.renderActiveTab(), this.renderFooter())
+      }, r.createElement('span', null, 'GitHub.com'), r.createElement('span', null, 'GitHub Enterprise Server'), r.createElement('span', null, 'URL')), e ? r.createElement(p.DialogError, null, e.message) : null, this.renderActiveTab(), this.renderFooter())
     }
     renderFooter() {
       const e = this.props.selectedTab;
-      if (e !== f.CloneRepositoryTab.Generic && !this.getAccountForTab(e)) return null;
+      if (e !== m.CloneRepositoryTab.Generic && !this.getAccountForTab(e)) return null;
       const t = this.checkIfCloningDisabled();
-      return r.createElement(m.DialogFooter, null, r.createElement(d.ButtonGroup, null, r.createElement(s.Button, {
-        disabled: t,
-        type: 'submit'
-      }, 'Clone'), r.createElement(s.Button, {
-        onClick: this.props.onDismissed
-      }, 'Cancel')))
+      return r.createElement(p.DialogFooter, null, r.createElement(C.OkCancelButtonGroup, {
+        okButtonText: 'Clone',
+        okButtonDisabled: t
+      }))
     }
     renderActiveTab() {
       const e = this.props.selectedTab;
       switch (e) {
-        case f.CloneRepositoryTab.Generic:
+        case m.CloneRepositoryTab.Generic:
           const t = this.state.urlTabState;
-          return r.createElement(g.CloneGenericRepository, {
+          return r.createElement(h.CloneGenericRepository, {
             path: t.path,
             url: t.url,
             onPathChanged: this.onPathChanged,
             onUrlChanged: this.updateUrl,
             onChooseDirectory: this.onChooseDirectory
           });
-        case f.CloneRepositoryTab.DotCom:
-        case f.CloneRepositoryTab.Enterprise: {
+        case m.CloneRepositoryTab.DotCom:
+        case m.CloneRepositoryTab.Enterprise: {
           const t = this.getAccountForTab(e);
-          if (!t) return r.createElement(m.DialogContent, null, this.renderSignIn(e));
+          if (!t) return r.createElement(p.DialogContent, null, this.renderSignIn(e));
           else {
             const n = this.props.apiRepositories.get(t),
               o = n === void 0 ? null : n.repositories,
               i = n !== void 0 && n.loading,
               a = this.getGitHubTabState(e);
-            return r.createElement(y.CloneGithubRepository, {
+            return r.createElement(f.CloneGithubRepository, {
               path: a.path,
               account: t,
               selectedItem: a.selectedItem,
@@ -33738,16 +33724,16 @@ module.exports = function (e) {
           }
         }
       }
-      return S.assertNever(e, `Unknown tab: ${e}`)
+      return g.assertNever(e, `Unknown tab: ${e}`)
     }
     getAccountForTab(e) {
-      return e === f.CloneRepositoryTab.DotCom ? this.props.dotComAccount : e === f.CloneRepositoryTab.Enterprise ? this.props.enterpriseAccount : null
+      return e === m.CloneRepositoryTab.DotCom ? this.props.dotComAccount : e === m.CloneRepositoryTab.Enterprise ? this.props.enterpriseAccount : null
     }
     getGitHubTabState(e) {
-      return e === f.CloneRepositoryTab.DotCom ? this.state.dotComTabState : e === f.CloneRepositoryTab.Enterprise ? this.state.enterpriseTabState : S.assertNever(e, `Unknown tab: ${e}`)
+      return e === m.CloneRepositoryTab.DotCom ? this.state.dotComTabState : e === m.CloneRepositoryTab.Enterprise ? this.state.enterpriseTabState : g.assertNever(e, `Unknown tab: ${e}`)
     }
     getTabState(e) {
-      return e === f.CloneRepositoryTab.DotCom ? this.state.dotComTabState : e === f.CloneRepositoryTab.Enterprise ? this.state.enterpriseTabState : e === f.CloneRepositoryTab.Generic ? this.state.urlTabState : S.assertNever(e, `Unknown tab: ${e}`)
+      return e === m.CloneRepositoryTab.DotCom ? this.state.dotComTabState : e === m.CloneRepositoryTab.Enterprise ? this.state.enterpriseTabState : e === m.CloneRepositoryTab.Generic ? this.state.urlTabState : g.assertNever(e, `Unknown tab: ${e}`)
     }
     getSelectedTabState() {
       return this.getTabState(this.props.selectedTab)
@@ -33756,35 +33742,35 @@ module.exports = function (e) {
       this.setTabState(e, this.props.selectedTab, t)
     }
     setTabState(e, t, n) {
-      if (t === f.CloneRepositoryTab.DotCom) this.setState((t) => ({
+      if (t === m.CloneRepositoryTab.DotCom) this.setState((t) => ({
         dotComTabState: Object.assign({}, t.dotComTabState, e)
       }), n);
-      else if (t === f.CloneRepositoryTab.Enterprise) this.setState((t) => ({
+      else if (t === m.CloneRepositoryTab.Enterprise) this.setState((t) => ({
         enterpriseTabState: Object.assign({}, t.enterpriseTabState, e)
       }), n);
-      else if (t === f.CloneRepositoryTab.Generic) this.setState((t) => ({
+      else if (t === m.CloneRepositoryTab.Generic) this.setState((t) => ({
         urlTabState: Object.assign({}, t.urlTabState, e)
       }), n);
-      else return S.assertNever(t, `Unknown tab: ${t}`)
+      else return g.assertNever(t, `Unknown tab: ${t}`)
     }
     setGitHubTabState(e, t) {
-      if (t === f.CloneRepositoryTab.DotCom) this.setState((t) => ({
-        dotComTabState: b.merge(t.dotComTabState, e)
+      if (t === m.CloneRepositoryTab.DotCom) this.setState((t) => ({
+        dotComTabState: S.merge(t.dotComTabState, e)
       }));
-      else if (t === f.CloneRepositoryTab.Enterprise) this.setState((t) => ({
-        enterpriseTabState: b.merge(t.enterpriseTabState, e)
+      else if (t === m.CloneRepositoryTab.Enterprise) this.setState((t) => ({
+        enterpriseTabState: S.merge(t.enterpriseTabState, e)
       }));
-      else return S.assertNever(t, `Unknown tab: ${t}`)
+      else return g.assertNever(t, `Unknown tab: ${t}`)
     }
     renderSignIn(e) {
       const t = 'Sign in';
-      return e === f.CloneRepositoryTab.DotCom ? r.createElement(C.CallToAction, {
+      return e === m.CloneRepositoryTab.DotCom ? r.createElement(y.CallToAction, {
         actionTitle: t,
         onAction: this.signInDotCom
-      }, r.createElement('div', null, 'Sign in to your GitHub.com account to access your repositories.')) : e === f.CloneRepositoryTab.Enterprise ? r.createElement(C.CallToAction, {
+      }, r.createElement('div', null, 'Sign in to your GitHub.com account to access your repositories.')) : e === m.CloneRepositoryTab.Enterprise ? r.createElement(y.CallToAction, {
         actionTitle: t,
         onAction: this.signInEnterprise
-      }, r.createElement('div', null, '如果您有一个GitHub企业服务器帐户，请登录该帐户以访问您的存储库。')) : e === f.CloneRepositoryTab.Generic ? null : S.assertNever(e, `Unknown sign in tab: ${e}`)
+      }, r.createElement('div', null, '如果您有一个GitHub企业服务器帐户，请登录该帐户以访问您的存储库。')) : e === m.CloneRepositoryTab.Generic ? null : g.assertNever(e, `Unknown sign in tab: ${e}`)
     }
     async validateEmptyFolder(e) {
       try {
@@ -33801,22 +33787,22 @@ module.exports = function (e) {
       let n = e.url;
       const o = [];
       this.props.dotComAccount && o.push(this.props.dotComAccount), this.props.enterpriseAccount && o.push(this.props.enterpriseAccount);
-      const r = await p.findAccountForRemoteURL(n, o);
+      const r = await l.findAccountForRemoteURL(n, o);
       if (t && r) {
-        const e = u.API.fromAccount(r),
+        const e = c.API.fromAccount(r),
           o = await e.fetchRepository(t.owner, t.name);
         if (o) {
-          const e = c.parseRemote(n);
+          const e = d.parseRemote(n);
           n = e && 'ssh' === e.protocol ? o.ssh_url : o.clone_url
         }
       }
       return n
     }
     cloneImpl(e, t) {
-      this.props.dispatcher.clone(e, t), this.props.onDismissed(), l.setDefaultDir(o.resolve(t, '..'))
+      this.props.dispatcher.clone(e, t), this.props.onDismissed(), s.setDefaultDir(o.resolve(t, '..'))
     }
   }
-  t.CloneRepository = v
+  t.CloneRepository = b
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -33824,14 +33810,14 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(400))
+    }(n(405))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(19),
-    r = n(2);
+    r = n(1);
   t.writeGitAttributes = async function (e) {
     const t = r.join(e, '.gitattributes');
     await o.writeFile(t, '# Auto detect text files and perform LF normalization\n* text=auto\n')
@@ -33866,7 +33852,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = n(2),
+  const a = n(1),
     s = n(19);
   let d = null;
   t.getLicenses = o, t.writeLicense = async function (e, t, n) {
@@ -33895,7 +33881,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(2),
+  const i = n(1),
     a = n(19),
     s = '.gitignore',
     d = i.join(__dirname, 'static', 'gitignore');
@@ -33918,7 +33904,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(19),
-    i = n(2);
+    i = n(1);
   t.writeDefaultReadme = async function (e, t, n) {
     const a = i.join(e, 'README.md'),
       s = o(t, n);
@@ -33931,29 +33917,29 @@ module.exports = function (e) {
   });
   const o = n(21),
     r = n(0),
-    i = n(2),
+    i = n(1),
     a = n(19),
     s = n(22),
-    d = n(186),
+    d = n(187),
     l = n(27),
-    c = n(8),
-    p = n(1),
-    u = n(18),
-    m = n(35),
-    h = n(405),
-    f = n(136),
-    g = n(243),
-    y = n(404),
-    S = n(403),
-    C = n(402),
-    b = n(134),
-    v = n(5),
-    E = n(4),
-    w = n(14),
-    k = n(25),
-    _ = n(24),
-    R = n(23),
-    T = 'None',
+    c = n(13),
+    p = n(18),
+    u = n(35),
+    m = n(410),
+    h = n(136),
+    f = n(245),
+    g = n(409),
+    y = n(408),
+    S = n(407),
+    C = n(134),
+    b = n(3),
+    v = n(4),
+    E = n(14),
+    w = n(25),
+    k = n(24),
+    _ = n(23),
+    T = n(9),
+    R = 'None',
     x = {
       name: 'None',
       featured: !1,
@@ -34024,19 +34010,19 @@ module.exports = function (e) {
         if (1 > e.length) return;
         const n = e[0];
         if (this.state.createWithReadme) try {
-          await h.writeDefaultReadme(t, this.state.name, this.state.description)
+          await m.writeDefaultReadme(t, this.state.name, this.state.description)
         } catch (n) {
           log.error(`createRepository: unable to write README at ${t}`, n), this.props.dispatcher.postError(n)
         }
         const o = this.state.gitIgnore;
-        if (o !== T) try {
-          await y.writeGitIgnore(t, o)
+        if (o !== R) try {
+          await g.writeGitIgnore(t, o)
         } catch (n) {
           log.error(`createRepository: unable to write .gitignore file at ${t}`, n), this.props.dispatcher.postError(n)
         }
         const r = this.state.description;
         if (r) try {
-          await g.writeGitDescription(t, r)
+          await f.writeGitDescription(t, r)
         } catch (n) {
           log.error(`createRepository: unable to write .git/description file at ${t}`, n), this.props.dispatcher.postError(n)
         }
@@ -34044,7 +34030,7 @@ module.exports = function (e) {
           l = (this.state.licenses || []).find((e) => e.name === d);
         if (l) try {
           const e = await s.getAuthorIdentity(n);
-          await S.writeLicense(t, l, {
+          await y.writeLicense(t, l, {
             fullname: e ? e.name : '',
             email: e ? e.email : '',
             year: new Date().getFullYear().toString(),
@@ -34057,7 +34043,7 @@ module.exports = function (e) {
         try {
           const e = i.join(t, '.gitattributes'),
             n = await a.pathExists(e);
-          n || (await C.writeGitAttributes(t))
+          n || (await S.writeGitAttributes(t))
         } catch (n) {
           log.error(`createRepository: unable to write .gitattributes at ${t}`, n), this.props.dispatcher.postError(n)
         }
@@ -34074,7 +34060,7 @@ module.exports = function (e) {
           creating: !1
         }), this.updateDefaultDirectory(), this.props.dispatcher.selectRepository(n), this.props.dispatcher.recordCreateRepository(), this.props.onDismissed()
       }, this.updateDefaultDirectory = () => {
-        this.props.initialPath || b.setDefaultDir(this.state.path)
+        this.props.initialPath || C.setDefaultDir(this.state.path)
       }, this.onCreateWithReadmeChange = (e) => {
         this.setState({
           createWithReadme: e.currentTarget.checked
@@ -34090,12 +34076,12 @@ module.exports = function (e) {
           license: t
         })
       }, this.onAddRepositoryClicked = () => this.props.dispatcher.showPopup({
-        type: k.PopupType.AddRepository,
+        type: w.PopupType.AddRepository,
         path: this.state.path
       }), this.onWindowFocus = () => {
         this.updateReadMeExists(this.state.path, this.state.name)
       };
-      const t = this.props.initialPath ? this.props.initialPath : b.getDefaultDir(),
+      const t = this.props.initialPath ? this.props.initialPath : C.getDefaultDir(),
         n = this.props.initialPath ? d.sanitizedRepositoryName(i.basename(this.props.initialPath)) : '';
       this.state = {
         path: t,
@@ -34104,7 +34090,7 @@ module.exports = function (e) {
         createWithReadme: !1,
         creating: !1,
         gitIgnoreNames: null,
-        gitIgnore: T,
+        gitIgnore: R,
         licenses: null,
         license: x.name,
         isValidPath: null,
@@ -34114,11 +34100,11 @@ module.exports = function (e) {
     }
     async componentDidMount() {
       window.addEventListener('focus', this.onWindowFocus);
-      const e = await y.getGitIgnoreNames();
+      const e = await g.getGitIgnoreNames();
       this.setState({
         gitIgnoreNames: e
       });
-      const t = await S.getLicenses();
+      const t = await y.getLicenses();
       this.setState({
         licenses: t
       });
@@ -34131,7 +34117,7 @@ module.exports = function (e) {
       window.removeEventListener('focus', this.onWindowFocus)
     }
     async updateReadMeExists(e, t) {
-      if (!R.enableReadmeOverwriteWarning()) return;
+      if (!_.enableReadmeOverwriteWarning()) return;
       const n = i.join(e, d.sanitizedRepositoryName(t), 'README.md'),
         o = await a.pathExists(n);
       this.setState((t) => t.path === e ? {
@@ -34140,16 +34126,16 @@ module.exports = function (e) {
     }
     renderSanitizedName() {
       const e = d.sanitizedRepositoryName(this.state.name);
-      return this.state.name === e ? null : r.createElement(u.Row, {
+      return this.state.name === e ? null : r.createElement(p.Row, {
         className: 'warning-helper-text'
-      }, r.createElement(E.Octicon, {
-        symbol: E.OcticonSymbol.alert
+      }, r.createElement(v.Octicon, {
+        symbol: v.OcticonSymbol.alert
       }), 'Will be created as ', e)
     }
     renderGitIgnores() {
       const e = this.state.gitIgnoreNames || [],
-        t = [T, ...e];
-      return r.createElement(u.Row, null, r.createElement(f.Select, {
+        t = [R, ...e];
+      return r.createElement(p.Row, null, r.createElement(h.Select, {
         label: 'Git ignore',
         value: this.state.gitIgnore,
         onChange: this.onGitIgnoreChange
@@ -34162,7 +34148,7 @@ module.exports = function (e) {
       const e = this.state.licenses || [],
         t = [x, ...e.filter((e) => e.featured)],
         n = e.filter((e) => !e.featured);
-      return r.createElement(u.Row, null, r.createElement(f.Select, {
+      return r.createElement(p.Row, null, r.createElement(h.Select, {
         label: 'License',
         value: this.state.license,
         onChange: this.onLicenseChange
@@ -34178,69 +34164,66 @@ module.exports = function (e) {
     }
     renderInvalidPathError() {
       const e = this.state.isValidPath;
-      return !(null !== e) || e ? null : r.createElement(v.DialogError, null, 'Directory could not be created at this path. You may not have permissions to create a directory here.')
+      return !(null !== e) || e ? null : r.createElement(b.DialogError, null, 'Directory could not be created at this path. You may not have permissions to create a directory here.')
     }
     renderGitRepositoryWarning() {
       const e = this.state.isRepository;
-      return this.state.path && 0 !== this.state.path.length && e ? r.createElement(u.Row, {
+      return this.state.path && 0 !== this.state.path.length && e ? r.createElement(p.Row, {
         className: 'warning-helper-text'
-      }, r.createElement(E.Octicon, {
-        symbol: E.OcticonSymbol.alert
-      }), r.createElement('p', null, 'This directory appears to be a Git repository. Would you like to', ' ', r.createElement(w.LinkButton, {
+      }, r.createElement(v.Octicon, {
+        symbol: v.OcticonSymbol.alert
+      }), r.createElement('p', null, 'This directory appears to be a Git repository. Would you like to', ' ', r.createElement(E.LinkButton, {
         onClick: this.onAddRepositoryClicked
       }, 'add this repository'), ' ', 'instead?')) : null
     }
     renderReadmeOverwriteWarning() {
-      return R.enableReadmeOverwriteWarning() ? !1 === this.state.createWithReadme || !1 === this.state.readMeExists ? null : r.createElement(u.Row, {
+      return _.enableReadmeOverwriteWarning() ? !1 === this.state.createWithReadme || !1 === this.state.readMeExists ? null : r.createElement(p.Row, {
         className: 'warning-helper-text'
-      }, r.createElement(E.Octicon, {
-        symbol: E.OcticonSymbol.alert
-      }), r.createElement('p', null, 'This directory contains a ', r.createElement(_.Ref, null, 'README.md'), ' file already. Checking this box will result in the existing file being overwritten.')) : null
+      }, r.createElement(v.Octicon, {
+        symbol: v.OcticonSymbol.alert
+      }), r.createElement('p', null, 'This directory contains a ', r.createElement(k.Ref, null, 'README.md'), ' file already. Checking this box will result in the existing file being overwritten.')) : null
     }
     render() {
       const e = 0 === this.state.path.length || 0 === this.state.name.length || this.state.creating || this.state.isRepository,
         t = !!this.props.initialPath;
-      return r.createElement(v.Dialog, {
+      return r.createElement(b.Dialog, {
         id: 'create-repository',
         title: 'Create a new repository',
         loading: this.state.creating,
         onSubmit: this.createRepository,
         onDismissed: this.props.onDismissed
-      }, this.renderInvalidPathError(), r.createElement(v.DialogContent, null, r.createElement(u.Row, null, r.createElement(l.TextBox, {
+      }, this.renderInvalidPathError(), r.createElement(b.DialogContent, null, r.createElement(p.Row, null, r.createElement(l.TextBox, {
         value: this.state.name,
         label: 'Name',
         placeholder: '存储库名称',
-        onValueChanged: this.onNameChanged,
-        autoFocus: !0
-      })), this.renderSanitizedName(), r.createElement(u.Row, null, r.createElement(l.TextBox, {
+        onValueChanged: this.onNameChanged
+      })), this.renderSanitizedName(), r.createElement(p.Row, null, r.createElement(l.TextBox, {
         value: this.state.description,
         label: '说明',
         onValueChanged: this.onDescriptionChanged
-      })), r.createElement(u.Row, null, r.createElement(l.TextBox, {
+      })), r.createElement(p.Row, null, r.createElement(l.TextBox, {
         value: this.state.path,
         label: '本地路径',
         placeholder: 'repository path',
         onValueChanged: this.onPathChanged,
         disabled: t
-      }), r.createElement(p.Button, {
+      }), r.createElement(c.Button, {
         onClick: this.showFilePicker,
         disabled: t
-      }, 'Choose\u2026')), this.renderGitRepositoryWarning(), r.createElement(u.Row, null, r.createElement(m.Checkbox, {
+      }, 'Choose\u2026')), this.renderGitRepositoryWarning(), r.createElement(p.Row, null, r.createElement(u.Checkbox, {
         label: '使用README初始化此存储库',
-        value: this.state.createWithReadme ? m.CheckboxValue.On : m.CheckboxValue.Off,
+        value: this.state.createWithReadme ? u.CheckboxValue.On : u.CheckboxValue.Off,
         onChange: this.onCreateWithReadmeChange
-      })), this.renderReadmeOverwriteWarning(), this.renderGitIgnores(), this.renderLicenses()), r.createElement(v.DialogFooter, null, r.createElement(c.ButtonGroup, null, r.createElement(p.Button, {
-        type: 'submit',
-        disabled: e
-      }, 'Create repository'), r.createElement(p.Button, {
-        onClick: this.props.onDismissed
-      }, 'Cancel'))))
+      })), this.renderReadmeOverwriteWarning(), this.renderGitIgnores(), this.renderLicenses()), r.createElement(b.DialogFooter, null, r.createElement(T.OkCancelButtonGroup, {
+        okButtonText: 'Create repository',
+        okButtonDisabled: e
+      })))
     }
   }
   t.CreateRepository = P
 }, function (e, t, n) {
   'use strict';
-  const o = n(59),
+  const o = n(58),
     r = o.homedir();
   e.exports = (e) => {
     if ('string' != typeof e) throw new TypeError(`Expected a string, got ${typeof e}`);
@@ -34251,37 +34234,37 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(21),
-    r = n(0),
-    i = n(22),
+  const o = n(0),
+    r = n(1),
+    i = n(21),
     a = n(22),
-    s = n(1),
-    d = n(8),
+    s = n(22),
+    d = n(13),
     l = n(27),
     c = n(18),
-    p = n(5),
+    p = n(3),
     u = n(4),
     m = n(14),
     h = n(25),
-    f = n(2),
-    g = n(407);
-  class y extends r.Component {
+    f = n(9),
+    g = n(412);
+  class y extends o.Component {
     constructor(e) {
       super(e), this.onPathChanged = async (e) => {
-        const t = await i.isGitRepository(e);
+        const t = await a.isGitRepository(e);
         this.setState({
           path: e,
           isRepository: t
         })
       }, this.showFilePicker = async () => {
-        const e = o.remote.getCurrentWindow(),
-          t = o.remote.dialog.showOpenDialog(e, {
+        const e = i.remote.getCurrentWindow(),
+          t = i.remote.dialog.showOpenDialog(e, {
             properties: ['createDirectory', 'openDirectory']
           });
         if (void 0 !== t) {
           const e = t[0],
-            n = await i.isGitRepository(e),
-            o = await a.isBareRepository(e);
+            n = await a.isGitRepository(e),
+            o = await s.isBareRepository(e);
           this.setState({
             path: e,
             isRepository: n,
@@ -34315,9 +34298,9 @@ module.exports = function (e) {
     async componentDidMount() {
       const e = this.state.path;
       if (!(1 > e.length)) {
-        const t = await i.isGitRepository(e);
+        const t = await a.isGitRepository(e);
         if (this.state.path === e) {
-          const e = await a.isBareRepository(this.state.path);
+          const e = await s.isBareRepository(this.state.path);
           return !0 === e ? void this.setState({
             isRepositoryBare: !0
           }) : void(this.setState({
@@ -34330,42 +34313,39 @@ module.exports = function (e) {
       }
     }
     renderWarning() {
-      return this.state.path.length && this.state.showNonGitRepositoryWarning ? this.state.isRepositoryBare ? r.createElement(c.Row, {
+      return this.state.path.length && this.state.showNonGitRepositoryWarning ? this.state.isRepositoryBare ? o.createElement(c.Row, {
         className: 'warning-helper-text'
-      }, r.createElement(u.Octicon, {
+      }, o.createElement(u.Octicon, {
         symbol: u.OcticonSymbol.alert
-      }), r.createElement('p', null, 'This directory appears to be a bare repository. Bare repositories are not currently supported.')) : r.createElement(c.Row, {
+      }), o.createElement('p', null, 'This directory appears to be a bare repository. Bare repositories are not currently supported.')) : o.createElement(c.Row, {
         className: 'warning-helper-text'
-      }, r.createElement(u.Octicon, {
+      }, o.createElement(u.Octicon, {
         symbol: u.OcticonSymbol.alert
-      }), r.createElement('p', null, 'This directory does not appear to be a Git repository.', r.createElement('br', null), 'Would you like to', ' ', r.createElement(m.LinkButton, {
+      }), o.createElement('p', null, 'This directory does not appear to be a Git repository.', o.createElement('br', null), 'Would you like to', ' ', o.createElement(m.LinkButton, {
         onClick: this.onCreateRepositoryClicked
       }, 'create a repository'), ' ', 'here instead?')) : null
     }
     render() {
       const e = 0 === this.state.path.length || !this.state.isRepository || this.state.isRepositoryBare;
-      return r.createElement(p.Dialog, {
+      return o.createElement(p.Dialog, {
         id: 'add-existing-repository',
         title: 'Add local repository',
         onSubmit: this.addRepository,
         onDismissed: this.props.onDismissed
-      }, r.createElement(p.DialogContent, null, r.createElement(c.Row, null, r.createElement(l.TextBox, {
+      }, o.createElement(p.DialogContent, null, o.createElement(c.Row, null, o.createElement(l.TextBox, {
         value: this.state.path,
         label: 'Local path',
         placeholder: 'repository path',
-        onValueChanged: this.onPathChanged,
-        autoFocus: !0
-      }), r.createElement(s.Button, {
+        onValueChanged: this.onPathChanged
+      }), o.createElement(d.Button, {
         onClick: this.showFilePicker
-      }, 'Choose\u2026')), this.renderWarning()), r.createElement(p.DialogFooter, null, r.createElement(d.ButtonGroup, null, r.createElement(s.Button, {
-        disabled: e,
-        type: 'submit'
-      }, 'Add repository'), r.createElement(s.Button, {
-        onClick: this.props.onDismissed
-      }, 'Cancel'))))
+      }, 'Choose\u2026')), this.renderWarning()), o.createElement(p.DialogFooter, null, o.createElement(f.OkCancelButtonGroup, {
+        okButtonText: 'Add repository',
+        okButtonDisabled: e
+      })))
     }
     resolvedPath(e) {
-      return f.resolve('/', g(e))
+      return r.resolve('/', g(e))
     }
   }
   t.AddExistingRepository = y
@@ -34377,7 +34357,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(408)), o(n(406))
+  }), o(n(413)), o(n(411))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -34385,7 +34365,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(88),
-    i = n(1),
+    i = n(13),
     a = n(18),
     s = n(14);
   class d extends o.Component {
@@ -34446,15 +34426,14 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(5),
-    s = n(295),
-    d = n(11),
-    l = n(34),
-    c = n(25),
-    p = n(84);
-  class u extends o.Component {
+    r = n(3),
+    i = n(300),
+    a = n(10),
+    s = n(34),
+    d = n(25),
+    l = n(84),
+    c = n(9);
+  class p extends o.Component {
     constructor(e) {
       super(e), this.onDismissed = () => {
         const e = this.state.error;
@@ -34463,13 +34442,13 @@ module.exports = function (e) {
           disabled: !0
         }), window.setTimeout(() => {
           this.props.onClearError(e)
-        }, s.dialogTransitionLeaveTimeout))
+        }, i.dialogTransitionLeaveTimeout))
       }, this.showPreferencesDialog = () => {
         this.onDismissed(), window.setTimeout(() => {
           this.props.onShowPopup({
-            type: c.PopupType.Preferences
+            type: d.PopupType.Preferences
           })
-        }, s.dialogTransitionLeaveTimeout)
+        }, i.dialogTransitionLeaveTimeout)
       }, this.onCloseButtonClick = (t) => {
         t.preventDefault(), this.onDismissed()
       }, this.state = {
@@ -34486,19 +34465,18 @@ module.exports = function (e) {
     }
     renderGitErrorFooter(e) {
       const t = e.result.gitError;
-      return t === l.GitError.HTTPSAuthenticationFailed ? o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit',
-        onClick: this.onCloseButtonClick
-      }, 'Close'), o.createElement(r.Button, {
-        onClick: this.showPreferencesDialog
-      }, 'Open options')) : o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit',
-        onClick: this.onCloseButtonClick
-      }, 'Close'))
+      return t === s.GitError.HTTPSAuthenticationFailed ? o.createElement(r.DialogFooter, null, o.createElement(c.OkCancelButtonGroup, {
+        okButtonText: 'Close',
+        onOkButtonClick: this.onCloseButtonClick,
+        cancelButtonText: 'Open options',
+        onCancelButtonClick: this.showPreferencesDialog
+      })) : o.createElement(r.DefaultDialogFooter, {
+        onButtonClick: this.onCloseButtonClick
+      })
     }
     renderErrorMessage(e) {
       let t = !1;
-      e instanceof d.GitError && (e.message === e.result.stderr || e.message === e.result.stdout) && (t = !0);
+      e instanceof a.GitError && (e.message === e.result.stderr || e.message === e.result.stdout) && (t = !0);
       const n = t ? 'monospace' : void 0;
       return o.createElement('p', {
         className: n
@@ -34506,41 +34484,41 @@ module.exports = function (e) {
     }
     renderDialog() {
       const e = this.state.error;
-      return e ? o.createElement(a.Dialog, {
+      return e ? o.createElement(r.Dialog, {
         id: 'app-error',
         type: 'error',
         key: 'error',
         title: 'Error',
         dismissable: !1,
+        onSubmit: this.onDismissed,
         onDismissed: this.onDismissed,
         disabled: this.state.disabled
-      }, o.createElement(a.DialogContent, null, this.renderErrorMessage(e)), o.createElement(a.DialogFooter, null, this.renderFooter(e))) : null
+      }, o.createElement(r.DialogContent, null, this.renderErrorMessage(e)), this.renderFooter(e)) : null
     }
     renderFooter(e) {
-      return e instanceof d.GitError ? this.renderGitErrorFooter(e) : o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit',
-        onClick: this.onCloseButtonClick
-      }, 'Close'))
+      return e instanceof a.GitError ? this.renderGitErrorFooter(e) : o.createElement(r.DefaultDialogFooter, {
+        onButtonClick: this.onCloseButtonClick
+      })
     }
     render() {
-      return o.createElement(p.CSSTransitionGroup, {
+      return o.createElement(l.CSSTransitionGroup, {
         transitionName: 'modal',
         component: 'div',
-        transitionEnterTimeout: s.dialogTransitionEnterTimeout,
-        transitionLeaveTimeout: s.dialogTransitionLeaveTimeout
+        transitionEnterTimeout: i.dialogTransitionEnterTimeout,
+        transitionLeaveTimeout: i.dialogTransitionLeaveTimeout
       }, this.renderDialog())
     }
   }
-  t.AppError = u
+  t.AppError = p
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(5),
+    r = n(3),
     i = n(14),
-    a = n(104);
+    a = n(105);
   class s extends o.Component {
     render() {
       return o.createElement(r.DialogContent, null, o.createElement(a.CallToAction, {
@@ -34558,7 +34536,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6),
+    r = n(5),
     i = n(26);
   class a extends o.Component {
     constructor() {
@@ -34595,13 +34573,13 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(5),
-    i = n(413),
+    r = n(3),
+    i = n(418),
     a = n(14),
     s = n(24);
   class d extends o.Component {
     render() {
-      return o.createElement(r.DialogContent, null, o.createElement('p', null, '编辑', o.createElement(s.Ref, null, '.gitignore'), '. 此文件指定Git应忽略的故意未跟踪的文件。Git已经跟踪的文件不受影响。', ' ', o.createElement(a.LinkButton, {
+      return o.createElement(r.DialogContent, null, o.createElement('p', null, '编辑 ', o.createElement(s.Ref, null, '.gitignore'), '. 此文件指定Git应忽略的故意未跟踪的文件。Git已经跟踪的文件不受影响。', ' ', o.createElement(a.LinkButton, {
         onClick: this.props.onShowExamples
       }, '了解更多')), o.createElement(i.TextArea, {
         placeholder: '忽略文件Ignored files',
@@ -34619,7 +34597,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(27),
-    i = n(5);
+    i = n(3);
   class a extends o.Component {
     render() {
       const e = this.props.remote;
@@ -34638,20 +34616,19 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(48),
-    i = n(415),
-    a = n(414),
-    s = n(3),
+    i = n(420),
+    a = n(419),
+    s = n(2),
     d = n(25),
-    l = n(1),
-    c = n(8),
-    p = n(5),
-    u = n(412),
-    m = n(22);
-  var h;
+    l = n(3),
+    c = n(417),
+    p = n(22),
+    u = n(9);
+  var m;
   (function (e) {
     e[e.Remote = 0] = 'Remote', e[e.IgnoredFiles = 1] = 'IgnoredFiles'
-  })(h || (h = {}));
-  class f extends o.Component {
+  })(m || (m = {}));
+  class h extends o.Component {
     constructor(e) {
       super(e), this.onPublish = () => {
         this.props.dispatcher.showPopup({
@@ -34700,7 +34677,7 @@ module.exports = function (e) {
           selectedTab: e
         })
       }, this.state = {
-        selectedTab: h.Remote,
+        selectedTab: m.Remote,
         remote: e.remote,
         ignoreText: null,
         ignoreTextHasChanged: !1,
@@ -34709,7 +34686,7 @@ module.exports = function (e) {
     }
     async componentWillMount() {
       try {
-        const e = await m.readGitIgnoreAtRoot(this.props.repository);
+        const e = await p.readGitIgnoreAtRoot(this.props.repository);
         this.setState({
           ignoreText: e
         })
@@ -34723,13 +34700,13 @@ module.exports = function (e) {
       const e = this.state.errors;
       return e && e.length ? e.map((e, t) => {
         const n = `err-${t}`;
-        return o.createElement(p.DialogError, {
+        return o.createElement(l.DialogError, {
           key: n
         }, e)
       }) : null
     }
     render() {
-      return o.createElement(p.Dialog, {
+      return o.createElement(l.Dialog, {
         id: 'repository-settings',
         title: 'Repository settings',
         onDismissed: this.props.onDismissed,
@@ -34743,25 +34720,23 @@ module.exports = function (e) {
     renderFooter() {
       const e = this.state.selectedTab,
         t = this.state.remote;
-      return e !== h.Remote || t ? o.createElement(p.DialogFooter, null, o.createElement(c.ButtonGroup, null, o.createElement(l.Button, {
-        type: 'submit'
-      }, '保存Save'), o.createElement(l.Button, {
-        onClick: this.props.onDismissed
-      }, '取消Cancel'))) : null
+      return e !== m.Remote || t ? o.createElement(l.DialogFooter, null, o.createElement(u.OkCancelButtonGroup, {
+        okButtonText: '保存Save'
+      })) : null
     }
     renderActiveTab() {
       const e = this.state.selectedTab;
       switch (e) {
-        case h.Remote: {
+        case m.Remote: {
           const e = this.state.remote;
           return e ? o.createElement(i.Remote, {
             remote: e,
             onRemoteUrlChanged: this.onRemoteUrlChanged
-          }) : o.createElement(u.NoRemote, {
+          }) : o.createElement(c.NoRemote, {
             onPublish: this.onPublish
           })
         }
-        case h.IgnoredFiles:
+        case m.IgnoredFiles:
           return o.createElement(a.GitIgnore, {
             text: this.state.ignoreText,
             onIgnoreTextChanged: this.onIgnoreTextChanged,
@@ -34771,13 +34746,13 @@ module.exports = function (e) {
       return s.assertNever(e, `Unknown tab type: ${e}`)
     }
   }
-  t.RepositorySettings = f
+  t.RepositorySettings = h
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(416);
+  var o = n(421);
   t.RepositorySettings = o.RepositorySettings
 }, function (e, t, n) {
   'use strict';
@@ -34786,16 +34761,14 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(22),
-    i = n(1),
-    a = n(8),
-    s = n(5),
-    d = n(86),
-    l = n(22),
-    c = n(63),
-    p = n(139),
-    u = n(160),
-    m = n(187);
-  class h extends o.Component {
+    i = n(3),
+    a = n(86),
+    s = n(22),
+    d = n(63),
+    l = n(139),
+    c = n(160),
+    p = n(188);
+  class u extends o.Component {
     constructor(e) {
       super(e), this.onFilterTextChanged = (e) => {
         this.setState({
@@ -34809,7 +34782,7 @@ module.exports = function (e) {
         }) : (this.setState({
           selectedBranch: e
         }), await this.updateMergeStatus(e))
-      }, this.renderBranch = (e, t) => d.renderDefaultBranch(e, t, this.props.currentBranch), this.merge = () => {
+      }, this.renderBranch = (e, t) => a.renderDefaultBranch(e, t, this.props.currentBranch), this.merge = () => {
         const e = this.state.selectedBranch;
         e && (this.props.dispatcher.mergeBranch(this.props.repository, e.name, this.state.mergeStatus), this.props.dispatcher.closePopup())
       };
@@ -34835,7 +34808,7 @@ module.exports = function (e) {
       } = this.state;
       return null == n || null == e || null == t || e.name === t.name || null == r ? null : o.createElement('div', {
         className: 'merge-status-component'
-      }, o.createElement(p.ActionStatusIcon, {
+      }, o.createElement(l.ActionStatusIcon, {
         status: this.state.mergeStatus,
         classNamePrefix: 'merge-status'
       }), o.createElement('p', {
@@ -34843,7 +34816,7 @@ module.exports = function (e) {
       }, this.renderMergeStatusMessage(n, t, e, r)))
     }
     renderMergeStatusMessage(e, t, n, o) {
-      return e.kind === c.ComputedAction.Loading ? this.renderLoadingMergeMessage() : e.kind === c.ComputedAction.Clean ? this.renderCleanMergeMessage(t, n, o) : e.kind === c.ComputedAction.Invalid ? this.renderInvalidMergeMessage() : this.renderConflictedMergeMessage(t, n, e.conflictedFiles)
+      return e.kind === d.ComputedAction.Loading ? this.renderLoadingMergeMessage() : e.kind === d.ComputedAction.Clean ? this.renderCleanMergeMessage(t, n, o) : e.kind === d.ComputedAction.Invalid ? this.renderInvalidMergeMessage() : this.renderConflictedMergeMessage(t, n, e.conflictedFiles)
     }
     renderLoadingMergeMessage() {
       return o.createElement(o.Fragment, null, 'Checking for ability to merge automatically...')
@@ -34865,14 +34838,14 @@ module.exports = function (e) {
         t = this.props.currentBranch,
         n = null === e || null === t || t.name === e.name,
         r = n || 0 === this.state.commitCount,
-        l = null != this.state.mergeStatus && this.state.mergeStatus.kind === c.ComputedAction.Invalid,
-        p = m.truncateWithEllipsis(this.props.currentBranch.name, 40);
-      return o.createElement(s.Dialog, {
+        s = null != this.state.mergeStatus && this.state.mergeStatus.kind === d.ComputedAction.Invalid,
+        l = p.truncateWithEllipsis(this.props.currentBranch.name, 40);
+      return o.createElement(i.Dialog, {
         id: 'merge',
         onDismissed: this.props.onDismissed,
         onSubmit: this.merge,
-        title: o.createElement(o.Fragment, null, '合并进', o.createElement('strong', null, p))
-      }, o.createElement(s.DialogContent, null, o.createElement(d.BranchList, {
+        title: o.createElement(o.Fragment, null, '合并进', o.createElement('strong', null, l))
+      }, o.createElement(i.DialogContent, null, o.createElement(a.BranchList, {
         allBranches: this.props.allBranches,
         currentBranch: t,
         defaultBranch: this.props.defaultBranch,
@@ -34883,27 +34856,28 @@ module.exports = function (e) {
         onSelectionChanged: this.onSelectionChanged,
         canCreateNewBranch: !1,
         renderBranch: this.renderBranch
-      })), o.createElement(s.DialogFooter, null, this.renderMergeInfo(), o.createElement(a.ButtonGroup, null, o.createElement(i.Button, {
-        type: 'submit',
-        disabled: r || l
-      }, '合并 ', o.createElement('strong', null, e ? e.name : ''), ' ', '到 ', o.createElement('strong', null, t ? t.name : '')))))
+      })), o.createElement(i.DialogFooter, null, this.renderMergeInfo(), o.createElement(i.OkCancelButtonGroup, {
+        okButtonText: o.createElement(o.Fragment, null, '合并', ' ', o.createElement('strong', null, e ? e.name : ''), ' ', '到 ', o.createElement('strong', null, t ? t.name : '')),
+        okButtonDisabled: r || s,
+        cancelButtonVisible: !1
+      })))
     }
     async updateMergeStatus(e) {
       this.setState({
         mergeStatus: {
-          kind: c.ComputedAction.Loading
+          kind: d.ComputedAction.Loading
         }
       });
       const {
         currentBranch: t
       } = this.props;
       if (null != t) {
-        const n = await u.promiseWithMinimumTimeout(() => r.mergeTree(this.props.repository, t, e), 500);
+        const n = await c.promiseWithMinimumTimeout(() => r.mergeTree(this.props.repository, t, e), 500);
         this.setState({
           mergeStatus: n
         })
       }
-      const n = l.revSymmetricDifference('', e.name),
+      const n = s.revSymmetricDifference('', e.name),
         o = await r.getAheadBehind(this.props.repository, n),
         i = o ? o.behind : 0;
       this.state.selectedBranch === e ? this.setState({
@@ -34921,13 +34895,13 @@ module.exports = function (e) {
       return void 0 === n ? e === t ? null : t : n
     }
   }
-  t.Merge = h
+  t.Merge = u
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(418);
+  var o = n(423);
   t.Merge = o.Merge
 }, function (e, t, n) {
   'use strict';
@@ -34964,7 +34938,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(62),
-    i = n(420);
+    i = n(425);
   class a extends o.Component {
     constructor(e) {
       super(e), this.listRef = null, this.formRef = null, this.onItemClick = (e) => {
@@ -35045,13 +35019,13 @@ module.exports = function (e) {
     r = n(168),
     i = n(35),
     a = n(18),
-    s = n(5),
+    s = n(3),
     d = n(135),
     l = n(81),
-    c = n(3),
+    c = n(2),
     p = [{
       title: 'Light',
-      description: '默认主题 of GitHub Desktop'
+      description: '默认主题'
     }, {
       title: 'Dark (beta)',
       description: '黑夜主题的测试版。仍在开发中。请向我们的问题跟踪者报告您可能发现的任何问题。'
@@ -35085,24 +35059,14 @@ module.exports = function (e) {
     }
   }
   t.Appearance = u
-}, function (e, t, n) {
+}, function (e, t) {
   'use strict';
-
-  function o(e) {
-    if (1 !== e.length) return r.fatalError('`value` must be a single character');
-    const t = 0 <= ['.', ',', ':', ';', '<', '>', '"', '\\', '\'', ' '].indexOf(e),
-      n = 32 >= e.charCodeAt(0);
-    return t || n
-  }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(3);
-  t.disallowedCharacters = function (e) {
-    if (0 === e.length) return null;
-    for (const t of e)
-      if (!1 === o(t)) return null;
-    return e
+  const n = /^[\x00-\x20.,:;<>"\\']+$/;
+  t.gitAuthorNameIsValid = function (e) {
+    return !n.test(e)
   }
 }, function (e, t, n) {
   'use strict';
@@ -35112,14 +35076,13 @@ module.exports = function (e) {
   const o = n(0),
     r = n(27),
     i = n(18),
-    a = n(5);
+    a = n(3);
   class s extends o.Component {
     render() {
       return o.createElement(a.DialogContent, null, o.createElement(i.Row, null, o.createElement(r.TextBox, {
         label: 'Name',
         value: this.props.name,
-        onValueChanged: this.props.onNameChanged,
-        autoFocus: !0
+        onValueChanged: this.props.onNameChanged
       })), o.createElement(i.Row, null, o.createElement(r.TextBox, {
         label: 'Email',
         value: this.props.email,
@@ -35134,14 +35097,14 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(5),
+    r = n(3),
     i = n(35),
     a = n(14),
     s = n(18),
     d = n(82),
     l = n(136),
-    c = n(266),
-    p = n(116),
+    c = n(269),
+    p = n(117),
     u = n(27),
     m = n(23);
   class h extends o.Component {
@@ -35276,13 +35239,13 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(127),
-    i = n(3),
-    a = n(1),
+    r = n(128),
+    i = n(2),
+    a = n(13),
     s = n(18),
-    d = n(5),
+    d = n(3),
     l = n(143),
-    c = n(104);
+    c = n(105);
   var p;
   (function (e) {
     e[e.DotCom = 0] = 'DotCom', e[e.Enterprise = 1] = 'Enterprise'
@@ -35344,20 +35307,19 @@ module.exports = function (e) {
   const o = n(0),
     r = n(158),
     i = n(48),
-    a = n(426),
-    s = n(425),
-    d = n(424),
-    l = n(3),
-    c = n(1),
-    p = n(8),
-    u = n(5),
-    m = n(79),
-    h = n(127),
-    f = n(116),
-    g = n(265),
-    y = n(423),
-    S = n(422);
-  class C extends o.Component {
+    a = n(431),
+    s = n(430),
+    d = n(429),
+    l = n(2),
+    c = n(3),
+    p = n(79),
+    u = n(128),
+    m = n(117),
+    h = n(268),
+    f = n(428),
+    g = n(427),
+    y = n(9);
+  class S extends o.Component {
     constructor(e) {
       super(e), this.onDotComSignIn = () => {
         this.props.onDismissed(), this.props.dispatcher.showDotComSignInDialog()
@@ -35382,16 +35344,13 @@ module.exports = function (e) {
           confirmForcePush: e
         })
       }, this.onCommitterNameChanged = (e) => {
-        const t = this.disallowedCharacterErrorMessage(e, this.state.committerEmail);
         this.setState({
           committerName: e,
-          disallowedCharactersMessage: t
+          disallowedCharactersMessage: f.gitAuthorNameIsValid(e) ? null : 'Name is invalid, it consists only of disallowed characters.'
         })
       }, this.onCommitterEmailChanged = (e) => {
-        const t = this.disallowedCharacterErrorMessage(this.state.committerName, e);
         this.setState({
-          committerEmail: e,
-          disallowedCharactersMessage: t
+          committerEmail: e
         })
       }, this.onSelectedEditorChanged = (e) => {
         this.setState({
@@ -35406,9 +35365,9 @@ module.exports = function (e) {
       }, this.onAutomaticallySwitchThemeChanged = (e) => {
         this.props.dispatcher.onAutomaticallySwitchThemeChanged(e)
       }, this.onSave = async () => {
-        await m.setGlobalConfigValue('user.name', this.state.committerName), await m.setGlobalConfigValue('user.email', this.state.committerEmail), await this.props.dispatcher.setStatsOptOut(this.state.optOutOfUsageTracking, !1), await this.props.dispatcher.setConfirmRepoRemovalSetting(this.state.confirmRepositoryRemoval), await this.props.dispatcher.setConfirmForcePushSetting(this.state.confirmForcePush), this.state.selectedExternalEditor && (await this.props.dispatcher.setExternalEditor(this.state.selectedExternalEditor)), await this.props.dispatcher.setShell(this.state.selectedShell), await this.props.dispatcher.setConfirmDiscardChangesSetting(this.state.confirmDiscardChanges);
+        await p.setGlobalConfigValue('user.name', this.state.committerName), await p.setGlobalConfigValue('user.email', this.state.committerEmail), await this.props.dispatcher.setStatsOptOut(this.state.optOutOfUsageTracking, !1), await this.props.dispatcher.setConfirmRepoRemovalSetting(this.state.confirmRepositoryRemoval), await this.props.dispatcher.setConfirmForcePushSetting(this.state.confirmForcePush), this.state.selectedExternalEditor && (await this.props.dispatcher.setExternalEditor(this.state.selectedExternalEditor)), await this.props.dispatcher.setShell(this.state.selectedShell), await this.props.dispatcher.setConfirmDiscardChangesSetting(this.state.confirmDiscardChanges);
         const e = this.state.mergeTool;
-        e && e.name && (await m.setGlobalConfigValue('merge.tool', e.name), e.command && (await m.setGlobalConfigValue(`mergetool.${e.name}.cmd`, e.command))), this.props.onDismissed()
+        e && e.name && (await p.setGlobalConfigValue('merge.tool', e.name), e.command && (await p.setGlobalConfigValue(`mergetool.${e.name}.cmd`, e.command))), this.props.onDismissed()
       }, this.onTabClicked = (e) => {
         this.setState({
           selectedIndex: e
@@ -35447,17 +35406,17 @@ module.exports = function (e) {
       }
     }
     async componentWillMount() {
-      let e = await m.getGlobalConfigValue('user.name'),
-        t = await m.getGlobalConfigValue('user.email');
+      let e = await p.getGlobalConfigValue('user.name'),
+        t = await p.getGlobalConfigValue('user.email');
       if (!e || !t) {
         const n = this.props.dotComAccount || this.props.enterpriseAccount;
         if (n && (e || (e = n.login), !t)) {
-          const e = h.lookupPreferredEmail(n);
+          const e = u.lookupPreferredEmail(n);
           e && (t = e.email)
         }
       }
       e = e || '', t = t || '';
-      const [n, o, r] = await Promise.all([g.getAvailableEditors(), f.getAvailableShells(), m.getMergeTool()]), i = n.map((t) => t.editor), a = o.map((t) => t.shell);
+      const [n, o, r] = await Promise.all([h.getAvailableEditors(), m.getAvailableShells(), p.getMergeTool()]), i = n.map((t) => t.editor), a = o.map((t) => t.shell);
       this.setState({
         committerName: e,
         committerEmail: t,
@@ -35471,7 +35430,7 @@ module.exports = function (e) {
       })
     }
     render() {
-      return o.createElement(u.Dialog, {
+      return o.createElement(c.Dialog, {
         id: 'preferences',
         title: 'Options',
         onDismissed: this.props.onDismissed,
@@ -35481,15 +35440,9 @@ module.exports = function (e) {
         selectedIndex: this.state.selectedIndex
       }, o.createElement('span', null, '账户Accounts'), o.createElement('span', null, 'Git'), o.createElement('span', null, '外观Appearance'), o.createElement('span', null, '高级Advanced')), this.renderActiveTab(), this.renderFooter())
     }
-    disallowedCharacterErrorMessage(e, t) {
-      const n = y.disallowedCharacters(e);
-      if (null != n) return `Git name field cannot be a disallowed character "${n}"`;
-      const o = y.disallowedCharacters(t);
-      return null == o ? null : `Git email field cannot be a disallowed character "${o}"`
-    }
     renderDisallowedCharactersError() {
       const e = this.state.disallowedCharactersMessage;
-      return null == e ? null : o.createElement(u.DialogError, null, e)
+      return null == e ? null : o.createElement(c.DialogError, null, e)
     }
     renderActiveTab() {
       const e = this.state.selectedIndex;
@@ -35504,7 +35457,7 @@ module.exports = function (e) {
         email: this.state.committerEmail,
         onNameChanged: this.onCommitterNameChanged,
         onEmailChanged: this.onCommitterEmailChanged
-      }) : e === r.PreferencesTab.Appearance ? o.createElement(S.Appearance, {
+      }) : e === r.PreferencesTab.Appearance ? o.createElement(g.Appearance, {
         selectedTheme: this.props.selectedTheme,
         onSelectedThemeChanged: this.onSelectedThemeChanged,
         automaticallySwitchTheme: this.props.automaticallySwitchTheme,
@@ -35532,21 +35485,19 @@ module.exports = function (e) {
     renderFooter() {
       const e = null != this.state.disallowedCharactersMessage,
         t = this.state.selectedIndex;
-      return t === r.PreferencesTab.Accounts || t === r.PreferencesTab.Appearance ? null : t === r.PreferencesTab.Advanced || t === r.PreferencesTab.Git ? o.createElement(u.DialogFooter, null, o.createElement(p.ButtonGroup, null, o.createElement(c.Button, {
-        type: 'submit',
-        disabled: e
-      }, 'Save'), o.createElement(c.Button, {
-        onClick: this.props.onDismissed
-      }, 'Cancel'))) : l.assertNever(t, `Unknown tab index: ${t}`)
+      return t === r.PreferencesTab.Accounts || t === r.PreferencesTab.Appearance ? null : t === r.PreferencesTab.Advanced || t === r.PreferencesTab.Git ? o.createElement(c.DialogFooter, null, o.createElement(y.OkCancelButtonGroup, {
+        okButtonText: 'Save',
+        okButtonDisabled: e
+      })) : l.assertNever(t, `Unknown tab index: ${t}`)
     }
   }
-  t.Preferences = C
+  t.Preferences = S
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(427);
+  var o = n(432);
   t.Preferences = o.Preferences
 }, function (e, t, n) {
   'use strict';
@@ -35672,12 +35623,12 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(3),
+    r = n(2),
     i = n(95),
-    a = n(432),
-    s = n(431),
-    d = n(430),
-    l = n(429);
+    a = n(437),
+    s = n(436),
+    d = n(435),
+    l = n(434);
   t.renderBanner = function (e, t, n) {
     switch (e.type) {
       case i.BannerType.SuccessfulMerge:
@@ -35762,9 +35713,9 @@ module.exports = function (e) {
   });
   var o = n(68);
   t.Banner = o.Banner;
-  var r = n(434);
+  var r = n(439);
   t.UpdateAvailable = r.UpdateAvailable;
-  var i = n(433);
+  var i = n(438);
   t.renderBanner = i.renderBanner
 }, function (e, t, n) {
   'use strict';
@@ -35772,9 +35723,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(188),
-    i = n(190),
-    a = n(193);
+    r = n(189),
+    i = n(191),
+    a = n(194);
   class s extends o.Component {
     constructor() {
       super(...arguments), this.innerDropDown = null, this.onDropDownRef = (e) => {
@@ -35853,8 +35804,8 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(123),
-    a = n(436),
+    i = n(124),
+    a = n(441),
     s = n(28);
   class d extends r.Component {
     constructor(e) {
@@ -35990,7 +35941,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(6);
+    i = n(5);
   class a extends r.Component {
     shouldComponentUpdate(e) {
       return this.props.text !== e.text || this.props.highlight !== e.highlight
@@ -36032,18 +35983,18 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(190)), o(n(437)), o(n(189))
+  }), o(n(191)), o(n(442)), o(n(190))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(61),
+    r = n(60),
     i = n(14),
     a = n(35),
     s = n(85),
-    d = n(1),
+    d = n(13),
     l = n(18),
     c = n(82);
   class p extends o.Component {
@@ -36091,12 +36042,12 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(163),
-    i = n(127),
+    i = n(128),
     a = n(79),
-    s = n(202),
-    d = n(119),
+    s = n(204),
+    d = n(120),
     l = n(85),
-    c = n(1),
+    c = n(13),
     p = n(27),
     u = n(18);
   class m extends o.Component {
@@ -36208,9 +36159,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(61),
-    i = n(441),
-    a = n(1);
+    r = n(60),
+    i = n(446),
+    a = n(13);
   class s extends o.Component {
     constructor() {
       super(...arguments), this.cancel = () => {
@@ -36242,9 +36193,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(61),
-    i = n(1),
-    a = n(191);
+    r = n(60),
+    i = n(13),
+    a = n(192);
   class s extends o.Component {
     constructor() {
       super(...arguments), this.cancel = () => {
@@ -36272,10 +36223,10 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(55),
+    r = n(61),
     i = n(85),
     a = n(27),
-    s = n(1),
+    s = n(13),
     d = n(138);
   class l extends o.Component {
     constructor(e) {
@@ -36315,12 +36266,12 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(55),
-    i = n(1),
+    r = n(61),
+    i = n(13),
     a = n(27),
     s = n(85),
     d = n(138),
-    l = n(173);
+    l = n(174);
   class c extends o.Component {
     constructor(e) {
       super(e), this.onOTPChange = (e) => {
@@ -36364,12 +36315,12 @@ module.exports = function (e) {
   const o = n(0),
     r = n(14),
     i = n(4),
-    a = n(55),
+    a = n(61),
     s = n(85),
-    d = n(1),
+    d = n(13),
     l = n(27),
     c = n(138),
-    p = n(13);
+    p = n(12);
   class u extends o.Component {
     constructor(e) {
       super(e), this.onUsernameChange = (e) => {
@@ -36455,9 +36406,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(61),
-    i = n(191),
-    a = n(1);
+    r = n(60),
+    i = n(192),
+    a = n(13);
   class s extends o.Component {
     constructor() {
       super(...arguments), this.cancel = () => {
@@ -36488,7 +36439,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(61),
+    r = n(60),
     i = n(14);
   t.CreateAccountURL = 'https://github.com/join?source=github-desktop';
   class a extends o.Component {
@@ -36534,7 +36485,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(61);
+  var o = n(60);
   t.Welcome = o.Welcome
 }, function (e, t) {
   'use strict';
@@ -36549,15 +36500,14 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(5),
-    s = n(71),
-    d = n(69),
-    l = n(35),
-    c = n(73),
-    p = n(450);
-  class u extends o.Component {
+    r = n(3),
+    i = n(71),
+    a = n(69),
+    s = n(35),
+    d = n(73),
+    l = n(455),
+    c = n(9);
+  class p extends o.Component {
     constructor(e) {
       super(e), this.discard = async () => {
         this.setState({
@@ -36573,48 +36523,48 @@ module.exports = function (e) {
         confirmDiscardChanges: this.props.confirmDiscardChanges
       }
     }
+    getOkButtonLabel() {
+      return this.props.discardingAllChanges ? '放弃所有更改' : '确认放弃更改'
+    }
     render() {
       const e = this.props.discardingAllChanges,
         t = this.state.isDiscardingChanges;
-      return o.createElement(a.Dialog, {
+      return o.createElement(r.Dialog, {
         id: 'discard-changes',
-        title: e ? p.toPlatformCase('确认放弃所有更改') : p.toPlatformCase('确认放弃更改'),
+        title: e ? l.toPlatformCase('确认放弃所有更改') : l.toPlatformCase('确认放弃更改'),
         onDismissed: this.props.onDismissed,
+        onSubmit: this.discard,
         dismissable: !t,
         loading: t,
-        type: 'warning'
-      }, o.createElement(a.DialogContent, null, this.renderFileList(), o.createElement('p', null, '可以通过从', c.TrashNameLabel, '检索更改来恢复更改.'), this.renderConfirmDiscardChanges()), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, {
-        destructive: !0
-      }, o.createElement(r.Button, {
         disabled: t,
-        type: 'submit'
-      }, 'Cancel'), o.createElement(r.Button, {
-        onClick: this.discard,
-        disabled: t
-      }, e ? p.toPlatformCase('放弃所有更改') : p.toPlatformCase('放弃更改')))))
+        type: 'warning'
+      }, o.createElement(r.DialogContent, null, this.renderFileList(), o.createElement('p', null, '可以通过从', d.TrashNameLabel, '检索更改来恢复更改.'), this.renderConfirmDiscardChanges()), o.createElement(r.DialogFooter, null, o.createElement(c.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: this.getOkButtonLabel()
+      })))
     }
     renderConfirmDiscardChanges() {
-      return this.props.showDiscardChangesSetting ? o.createElement(l.Checkbox, {
+      return this.props.showDiscardChangesSetting ? o.createElement(s.Checkbox, {
         label: '不再显示此消息',
-        value: this.state.confirmDiscardChanges ? l.CheckboxValue.Off : l.CheckboxValue.On,
+        value: this.state.confirmDiscardChanges ? s.CheckboxValue.Off : s.CheckboxValue.On,
         onChange: this.onConfirmDiscardChangesChanged
       }) : null
     }
     renderFileList() {
       return this.props.files.length > 10 ? o.createElement('p', null, '是否确定要放弃所有', this.props.files.length, ' 更改的文件?') : o.createElement('div', null, o.createElement('p', null, '是否确实要放弃对以下各项的所有更改：'), o.createElement('ul', null, this.props.files.map((e) => o.createElement('li', {
         key: e.id
-      }, o.createElement(d.Monospaced, null, o.createElement(s.PathText, {
+      }, o.createElement(a.Monospaced, null, o.createElement(i.PathText, {
         path: e.path
       }))))))
     }
   }
-  t.DiscardChanges = u
+  t.DiscardChanges = p
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(451);
+  var o = n(456);
   t.DiscardChanges = o.DiscardChanges
 }, function (e, t, n) {
   'use strict';
@@ -36622,7 +36572,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(105),
+    r = n(106),
     i = n(4);
   class a extends o.Component {
     render() {
@@ -36649,22 +36599,23 @@ module.exports = function (e) {
   const o = n(0),
     r = n(4),
     i = n(29),
-    a = n(192),
+    a = n(193),
     s = n(28),
     d = n(86),
-    l = n(3),
-    c = n(6);
+    l = n(2),
+    c = n(5);
   class p extends o.Component {
     constructor() {
       super(...arguments), this.renderBranchFoldout = () => {
         const e = this.props.repositoryState,
           t = e.branchesState,
-          n = e.branchesState.tip,
-          r = n.kind === i.TipState.Valid ? n.branch : null;
+          n = e.changesState.currentBranchProtected,
+          r = e.branchesState.tip,
+          a = r.kind === i.TipState.Valid ? r.branch : null;
         return o.createElement(d.BranchesContainer, {
           allBranches: t.allBranches,
           recentBranches: t.recentBranches,
-          currentBranch: r,
+          currentBranch: a,
           defaultBranch: t.defaultBranch,
           dispatcher: this.props.dispatcher,
           repository: this.props.repository,
@@ -36672,7 +36623,7 @@ module.exports = function (e) {
           pullRequests: this.props.pullRequests,
           currentPullRequest: this.props.currentPullRequest,
           isLoadingPullRequests: this.props.isLoadingPullRequests,
-          handleProtectedBranchWarning: this.props.handleProtectedBranchWarning
+          currentBranchProtected: n
         })
       }, this.onDropDownStateChanged = (e) => {
         'open' === e && this.props.repositoryState.checkoutProgress || this.props.onDropDownStateChanged(e)
@@ -36867,11 +36818,11 @@ module.exports = function (e) {
   });
   const h = n(0),
     f = n(29),
-    g = n(121),
+    g = n(122),
     y = n(4),
-    S = n(108),
-    C = n(105),
-    b = n(6),
+    S = n(109),
+    C = n(106),
+    b = n(5),
     v = {
       className: 'push-pull-button',
       style: C.ToolbarButtonStyle.Subtitle
@@ -36973,12 +36924,11 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(35),
-    s = n(5),
-    d = n(24);
-  class l extends o.Component {
+    r = n(35),
+    i = n(3),
+    a = n(24),
+    s = n(9);
+  class d extends o.Component {
     constructor(e) {
       super(e), this.onIncludeRemoteChanged = (e) => {
         const t = e.currentTarget.checked;
@@ -37000,36 +36950,34 @@ module.exports = function (e) {
       }
     }
     render() {
-      return o.createElement(s.Dialog, {
+      return o.createElement(i.Dialog, {
         id: 'delete-branch',
         title: 'Delete branch',
         type: 'warning',
+        onSubmit: this.deleteBranch,
         onDismissed: this.props.onDismissed,
         disabled: this.state.isDeleting,
         loading: this.state.isDeleting
-      }, o.createElement(s.DialogContent, null, o.createElement('p', null, 'Delete branch ', o.createElement(d.Ref, null, this.props.branch.name), '?', o.createElement('br', null), 'This action cannot be undone.'), this.renderDeleteOnRemote()), o.createElement(s.DialogFooter, null, o.createElement(i.ButtonGroup, {
-        destructive: !0
-      }, o.createElement(r.Button, {
-        type: 'submit'
-      }, 'Cancel'), o.createElement(r.Button, {
-        onClick: this.deleteBranch
-      }, 'Delete'))))
+      }, o.createElement(i.DialogContent, null, o.createElement('p', null, 'Delete branch ', o.createElement(a.Ref, null, this.props.branch.name), '?', o.createElement('br', null), 'This action cannot be undone.'), this.renderDeleteOnRemote()), o.createElement(i.DialogFooter, null, o.createElement(s.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: 'Delete'
+      })))
     }
     renderDeleteOnRemote() {
-      return this.props.branch.remote && this.props.existsOnRemote ? o.createElement('div', null, o.createElement('p', null, o.createElement('strong', null, 'The branch also exists on the remote, do you wish to delete it there as well?')), o.createElement(a.Checkbox, {
+      return this.props.branch.remote && this.props.existsOnRemote ? o.createElement('div', null, o.createElement('p', null, o.createElement('strong', null, 'The branch also exists on the remote, do you wish to delete it there as well?')), o.createElement(r.Checkbox, {
         label: 'Yes, delete this branch on the remote',
-        value: this.state.includeRemoteBranch ? a.CheckboxValue.On : a.CheckboxValue.Off,
+        value: this.state.includeRemoteBranch ? r.CheckboxValue.On : r.CheckboxValue.Off,
         onChange: this.onIncludeRemoteChanged
       })) : null
     }
   }
-  t.DeleteBranch = l
+  t.DeleteBranch = d
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(459);
+  var o = n(464);
   t.DeleteBranch = o.DeleteBranch
 }, function (e, t, n) {
   'use strict';
@@ -37037,55 +36985,49 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(195),
+    r = n(196),
     i = n(27),
     a = n(18),
-    s = n(1),
-    d = n(8),
-    l = n(5),
-    c = n(194);
-  class p extends o.Component {
+    s = n(3),
+    d = n(195),
+    l = n(9);
+  class c extends o.Component {
     constructor(e) {
       super(e), this.onNameChange = (e) => {
         this.setState({
           newName: e
         })
-      }, this.cancel = () => {
-        this.props.dispatcher.closePopup()
       }, this.renameBranch = () => {
         const e = r.sanitizedBranchName(this.state.newName);
-        this.props.dispatcher.renameBranch(this.props.repository, this.props.branch, e), this.props.dispatcher.closePopup()
+        this.props.dispatcher.renameBranch(this.props.repository, this.props.branch, e), this.props.onDismissed()
       }, this.state = {
         newName: e.branch.name
       }
     }
     render() {
       const e = !this.state.newName.length || /^\s*$/.test(this.state.newName);
-      return o.createElement(l.Dialog, {
+      return o.createElement(s.Dialog, {
         id: 'rename-branch',
         title: 'Rename branch',
-        onDismissed: this.cancel,
+        onDismissed: this.props.onDismissed,
         onSubmit: this.renameBranch
-      }, o.createElement(l.DialogContent, null, o.createElement(a.Row, null, o.createElement(i.TextBox, {
+      }, o.createElement(s.DialogContent, null, o.createElement(a.Row, null, o.createElement(i.TextBox, {
         label: 'Name',
-        autoFocus: !0,
         value: this.state.newName,
         onValueChanged: this.onNameChange
-      })), c.renderBranchNameWarning(this.state.newName, r.sanitizedBranchName(this.state.newName)), c.renderBranchHasRemoteWarning(this.props.branch), c.renderStashWillBeLostWarning(this.props.stash)), o.createElement(l.DialogFooter, null, o.createElement(d.ButtonGroup, null, o.createElement(s.Button, {
-        type: 'submit',
-        disabled: e
-      }, 'Rename ', this.props.branch.name), o.createElement(s.Button, {
-        onClick: this.cancel
-      }, 'Cancel'))))
+      })), d.renderBranchNameWarning(this.state.newName, r.sanitizedBranchName(this.state.newName)), d.renderBranchHasRemoteWarning(this.props.branch), d.renderStashWillBeLostWarning(this.props.stash)), o.createElement(s.DialogFooter, null, o.createElement(l.OkCancelButtonGroup, {
+        okButtonText: `Rename ${this.props.branch.name}`,
+        okButtonDisabled: e
+      })))
     }
   }
-  t.RenameBranch = p
+  t.RenameBranch = c
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(461);
+  var o = n(466);
   t.RenameBranch = o.RenameBranch
 }, function (e, t, n) {
   'use strict';
@@ -37093,24 +37035,21 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(5);
-  class s extends o.Component {
+    r = n(3),
+    i = n(9);
+  class a extends o.Component {
     render() {
-      return o.createElement(a.Dialog, {
+      return o.createElement(r.Dialog, {
         title: 'Exit tutorial',
         onDismissed: this.props.onDismissed,
         onSubmit: this.props.onContinue,
         type: 'normal'
-      }, o.createElement(a.DialogContent, null, o.createElement('p', null, '你确定要离开教程吗？这会让你回到主屏幕。')), o.createElement(a.DialogFooter, null, o.createElement(i.ButtonGroup, null, o.createElement(r.Button, {
-        type: 'submit'
-      }, 'Exit tutorial'), o.createElement(r.Button, {
-        onClick: this.props.onDismissed
-      }, 'Cancel'))))
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, '你确定要离开教程吗？这会让你回到主屏幕。')), o.createElement(r.DialogFooter, null, o.createElement(i.OkCancelButtonGroup, {
+        okButtonText: 'Exit tutorial'
+      })))
     }
   }
-  t.ConfirmExitTutorial = s
+  t.ConfirmExitTutorial = a
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -37120,8 +37059,8 @@ module.exports = function (e) {
     r = n(33),
     i = n(25),
     a = n(4),
-    s = n(106),
-    d = n(106),
+    s = n(107),
+    d = n(107),
     l = r.encodePathAsUrl(__dirname, 'static/admin-mentoring.svg'),
     c = o.createElement(a.Octicon, {
       symbol: a.OcticonSymbol.telescope
@@ -37217,9 +37156,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(2),
+    r = n(1),
     i = n(14),
-    a = n(1),
+    a = n(13),
     s = n(69),
     d = n(4),
     l = n(93),
@@ -37409,11 +37348,10 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(8),
-    a = n(25),
-    s = n(4);
-  class d extends o.Component {
+    r = n(25),
+    i = n(4),
+    a = n(9);
+  class s extends o.Component {
     constructor(e) {
       super(e), this.onDiscardClick = () => {
         const {
@@ -37422,7 +37360,7 @@ module.exports = function (e) {
           stashEntry: n
         } = this.props;
         e.showPopup({
-          type: a.PopupType.ConfirmDiscardStash,
+          type: r.PopupType.ConfirmDiscardStash,
           stash: n,
           repository: t
         })
@@ -37444,21 +37382,21 @@ module.exports = function (e) {
     render() {
       const {
         isWorkingTreeClean: e
-      } = this.props;
+      } = this.props, {
+        isRestoring: t
+      } = this.state;
       return o.createElement('div', {
         className: 'header'
       }, o.createElement('h3', null, 'Stashed changes'), o.createElement('div', {
         className: 'row'
-      }, o.createElement(i.ButtonGroup, {
-        destructive: !1
-      }, o.createElement(r.Button, {
-        disabled: !e || this.state.isRestoring,
-        onClick: this.onRestoreClick,
-        type: 'submit'
-      }, 'Restore'), o.createElement(r.Button, {
-        disabled: this.state.isRestoring,
-        onClick: this.onDiscardClick
-      }, 'Discard')), this.renderExplanatoryText()))
+      }, o.createElement(a.OkCancelButtonGroup, {
+        okButtonText: 'Restore',
+        okButtonDisabled: t || !e,
+        onOkButtonClick: this.onRestoreClick,
+        cancelButtonText: 'Discard',
+        cancelButtonDisabled: t,
+        onCancelButtonClick: this.onDiscardClick
+      }), this.renderExplanatoryText()))
     }
     renderExplanatoryText() {
       const {
@@ -37470,14 +37408,14 @@ module.exports = function (e) {
         className: 'text'
       }, o.createElement('strong', null, 'Restore'), ' will move your stashed files to the Changes list.')) : o.createElement('div', {
         className: 'explanatory-text'
-      }, o.createElement(s.Octicon, {
-        symbol: s.OcticonSymbol.alert
+      }, o.createElement(i.Octicon, {
+        symbol: i.OcticonSymbol.alert
       }), o.createElement('span', {
         className: 'text'
       }, 'Unable to restore stash when changes are present on your branch.'))
     }
   }
-  t.StashDiffHeader = d
+  t.StashDiffHeader = s
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -37485,10 +37423,10 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(75),
-    i = n(203),
+    i = n(205),
     a = n(141),
     s = n(140),
-    d = n(467);
+    d = n(472);
   class l extends o.PureComponent {
     constructor() {
       super(...arguments), this.onSelectedFileChanged = (e) => this.props.dispatcher.selectStashedFile(this.props.repository, e), this.onResize = (e) => this.props.dispatcher.setStashedFilesWidth(e), this.onReset = () => this.props.dispatcher.resetStashedFilesWidth()
@@ -37541,7 +37479,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(468))
+    }(n(473))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -37549,7 +37487,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(28),
-    i = n(1),
+    i = n(13),
     a = n(139),
     s = n(63);
   class d extends o.Component {
@@ -37626,7 +37564,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(24),
     i = n(4),
-    a = n(1),
+    a = n(13),
     s = n(28),
     d = n(25);
   class l extends o.Component {
@@ -37691,7 +37629,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(4),
     i = n(27),
-    a = n(6);
+    a = n(5);
   class s extends o.Component {
     constructor(e) {
       super(e), this.onFocus = () => {
@@ -37783,7 +37721,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(199);
+    r = n(200);
   class i extends o.Component {
     render() {
       const e = `refs/pull/${this.props.number}/head`;
@@ -37859,7 +37797,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(3);
+  const i = n(2);
   t.getRefStatusSummary = function (e) {
     const t = e.statuses.length || 0;
     if (0 === t) return o(e.state);
@@ -37874,9 +37812,9 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(66),
-    i = n(6),
+    i = n(5),
     a = n(4),
-    s = n(199),
+    s = n(200),
     d = n(92);
   class l extends o.Component {
     getSubtitle() {
@@ -37956,9 +37894,9 @@ module.exports = function (e) {
   });
   const s = n(0),
     d = n(66),
-    l = n(114),
-    c = n(477),
-    p = n(475);
+    l = n(115),
+    c = n(482),
+    p = n(480);
   t.RowHeight = 47;
   class u extends s.Component {
     constructor(e) {
@@ -38026,18 +37964,18 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(44),
-    i = n(269),
+    i = n(271),
     a = n(25),
     s = n(28),
-    d = n(3),
+    d = n(2),
     l = n(48),
     c = n(18),
     p = n(4),
-    u = n(1),
-    m = n(201),
-    h = n(478),
-    f = n(198),
-    g = n(109),
+    u = n(13),
+    m = n(202),
+    h = n(483),
+    f = n(199),
+    g = n(110),
     y = n(94);
   class S extends o.Component {
     constructor(e) {
@@ -38070,7 +38008,7 @@ module.exports = function (e) {
         const {
           currentBranch: t,
           repository: n,
-          handleProtectedBranchWarning: o
+          currentBranchProtected: o
         } = this.props;
         if (null == t || t.name !== e.name) {
           const t = g.startTimer('checkout branch from list', n),
@@ -38091,12 +38029,12 @@ module.exports = function (e) {
       }, this.onCreateBranchWithName = (e) => {
         const {
           repository: t,
-          handleProtectedBranchWarning: n
+          currentBranchProtected: n
         } = this.props;
         this.props.dispatcher.closeFoldout(s.FoldoutType.Branch), this.props.dispatcher.showPopup({
           type: a.PopupType.CreateBranch,
           repository: t,
-          handleProtectedBranchWarning: n,
+          currentBranchProtected: n,
           initialName: e
         })
       }, this.onCreateBranch = () => {
@@ -38205,7 +38143,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(33),
-    i = n(1),
+    i = n(13),
     a = r.encodePathAsUrl(__dirname, 'static/empty-no-branches.svg');
   class s extends o.Component {
     render() {
@@ -38238,15 +38176,21 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(0);
-  class r extends o.Component {
+  const o = n(0),
+    r = n(9),
+    i = n(203);
+  class a extends o.Component {
     render() {
-      return o.createElement('div', {
-        className: 'dialog-footer'
-      }, this.props.children)
+      return o.createElement(i.DialogFooter, null, o.createElement(r.OkCancelButtonGroup, {
+        okButtonText: this.props.buttonText || 'Close',
+        okButtonTitle: this.props.buttonTitle,
+        onOkButtonClick: this.props.onButtonClick,
+        okButtonDisabled: this.props.disabled,
+        cancelButtonVisible: !1
+      }))
     }
   }
-  t.DialogFooter = r
+  t.DefaultDialogFooter = a
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -38309,8 +38253,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6),
-    i = n(483),
+    r = n(5),
+    i = n(488),
     a = n(62),
     s = 28;
   class d extends o.Component {
@@ -38325,16 +38269,10 @@ module.exports = function (e) {
         }, 500)
       }, this.onDialogCancel = (t) => {
         t.preventDefault(), this.onDismiss()
-      }, this.onDialogClick = (t) => {
-        if (!1 !== this.isDismissable() && t.target === this.dialogElement) {
-          const e = t.clientY <= s;
-          if (!e) {
-            if (this.disableClickDismissal) return this.disableClickDismissal = !1, void this.clearClickDismissalTimer();
-            const e = t.currentTarget.getBoundingClientRect(),
-              n = e.top <= t.clientY && t.clientY <= e.top + e.height && e.left <= t.clientX && t.clientX <= e.left + e.width;
-            this.props.disableClickDismissalAlways || n || (t.preventDefault(), this.onDismiss())
-          }
-        }
+      }, this.onDialogMouseDown = (t) => t.defaultPrevented || !1 === this.isDismissable() ? void 0 : t.target === this.dialogElement ? this.disableClickDismissal ? (this.disableClickDismissal = !1, void this.clearClickDismissalTimer()) : void(!this.props.disableClickDismissalAlways && !this.mouseEventIsInsideDialog(t) && document.addEventListener('mouseup', this.onDocumentMouseUp, {
+        once: !0
+      })) : void 0, this.onDocumentMouseUp = (t) => {
+        t.defaultPrevented || this.props.disableClickDismissalAlways || this.mouseEventIsInsideDialog(t) || (t.preventDefault(), this.onDismiss())
       }, this.onDialogRef = (t) => {
         t ? (t.addEventListener('cancel', this.onDialogCancel), t.addEventListener('keydown', this.onKeyDown)) : this.dialogElement && (this.dialogElement.removeEventListener('cancel', this.onDialogCancel), this.dialogElement.removeEventListener('keydown', this.onKeyDown)), this.dialogElement = t
       }, this.onKeyDown = (e) => {
@@ -38376,16 +38314,40 @@ module.exports = function (e) {
         cancelable: !1
       })), this.setState({
         isAppearing: !0
-      }), this.scheduleDismissGraceTimeout(), window.addEventListener('focus', this.onWindowFocus))
+      }), this.scheduleDismissGraceTimeout(), this.focusFirstSuitableChild(), window.addEventListener('focus', this.onWindowFocus))
+    }
+    focusFirstSuitableChild() {
+      const e = this.dialogElement;
+      if (null === e) return;
+      let t = [Infinity, null],
+        n = null,
+        o = null,
+        r = null;
+      const i = `input${[':not([type=button])',':not([type=submit])',':not([type=reset])',':not([type=hidden])',':not([type=checkbox])',':not([type=radio])'].join('')}, textarea`;
+      for (const a of e.querySelectorAll('input:not([type=hidden]):not(:disabled):not([tabindex="-1"]), textarea:not(:disabled):not([tabindex="-1"]), button:not(:disabled):not([tabindex="-1"]), [tabindex]:not(:disabled):not([tabindex="-1"])')) {
+        if (!(a instanceof HTMLElement)) continue;
+        const e = parseInt(a.getAttribute('tabindex') || '', 10);
+        0 < e && e < t[0] ? t = [e, a] : null === r && (0 === e || a.matches(i)) ? r = a : null === n && a.matches('input[type=submit], button[type=submit]') ? n = a : null === o && a.matches('input[type=button], input[type=submit] input[type=reset], button') && (o = a)
+      }
+      const a = t[1] || r || n || o;
+      null !== a && a.focus()
     }
     clearClickDismissalTimer() {
       this.disableClickDismissalTimeoutId && (window.clearTimeout(this.disableClickDismissalTimeoutId), this.disableClickDismissalTimeoutId = null)
     }
     componentWillUnmount() {
-      this.clearDismissGraceTimeout(), this.state.titleId && a.releaseUniqueId(this.state.titleId), window.removeEventListener('focus', this.onWindowFocus)
+      this.clearDismissGraceTimeout(), this.state.titleId && a.releaseUniqueId(this.state.titleId), window.removeEventListener('focus', this.onWindowFocus), document.removeEventListener('mouseup', this.onDocumentMouseUp)
     }
     componentDidUpdate() {
       !this.props.title && this.state.titleId && this.updateTitleId()
+    }
+    mouseEventIsInsideDialog(t) {
+      if (null === this.dialogElement) return !1;
+      const e = t.clientY <= s;
+      if (e) return !1;
+      const n = this.dialogElement.getBoundingClientRect(),
+        o = n.top <= t.clientY && t.clientY <= n.top + n.height && n.left <= t.clientX && t.clientX <= n.left + n.width;
+      return o
     }
     renderHeader() {
       return this.props.title ? o.createElement(i.DialogHeader, {
@@ -38404,11 +38366,12 @@ module.exports = function (e) {
       return o.createElement('dialog', {
         ref: this.onDialogRef,
         id: this.props.id,
-        onClick: this.onDialogClick,
+        onMouseDown: this.onDialogMouseDown,
         className: e,
         "aria-labelledby": this.state.titleId
       }, this.renderHeader(), o.createElement('form', {
-        onSubmit: this.onSubmit
+        onSubmit: this.onSubmit,
+        onReset: this.onDismiss
       }, o.createElement('fieldset', {
         disabled: this.props.disabled
       }, this.props.children)))
@@ -38421,7 +38384,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6);
+    r = n(5);
   class i extends o.Component {
     render() {
       const e = r('dialog-content', this.props.className);
@@ -38446,23 +38409,17 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(0),
-    a = n(8),
-    s = n(1),
-    d = n(5),
-    l = n(24);
-  class c extends i.Component {
+    a = n(3),
+    s = n(24),
+    d = n(9);
+  class l extends i.Component {
     constructor(e) {
-      super(e), this.dialogButtonRef = null, this.onDialogOpenRef = (e) => {
-        this.dialogButtonRef = e
-      }, this.cancel = () => {
-        this.props.onDismissed()
-      }, this.onCreateWithoutPushButtonClick = () => {
-        this.props.onConfirm(this.props.repository, this.props.branch), this.props.onDismissed()
-      }, this.onPushOrPublishButtonClick = async (t) => {
-        t.preventDefault();
+      super(e), this.onCreateWithoutPushButtonClick = (t) => {
+        t.preventDefault(), this.props.onConfirm(this.props.repository, this.props.branch), this.props.onDismissed()
+      }, this.onSubmit = async () => {
         const {
           repository: e,
-          branch: n
+          branch: t
         } = this.props;
         this.setState({
           isPushingOrPublishing: !0
@@ -38474,56 +38431,48 @@ module.exports = function (e) {
             isPushingOrPublishing: !1
           })
         }
-        this.props.onConfirm(e, n), this.props.onDismissed()
+        this.props.onConfirm(e, t), this.props.onDismissed()
       }, this.state = {
         isPushingOrPublishing: !1
       }
     }
-    componentDidMount() {
-      this.dialogButtonRef && this.dialogButtonRef.focus()
-    }
     render() {
-      return i.createElement(d.Dialog, {
+      return i.createElement(a.Dialog, {
         id: 'push-branch-commits',
         key: 'push-branch-commits',
         title: this.renderDialogTitle(),
-        onDismissed: this.cancel,
-        onSubmit: this.cancel,
+        onDismissed: this.props.onDismissed,
+        onSubmit: this.onSubmit,
         loading: this.state.isPushingOrPublishing,
         disabled: this.state.isPushingOrPublishing
-      }, this.renderDialogContent(), i.createElement(d.DialogFooter, null, this.renderButtonGroup()))
+      }, this.renderDialogContent(), i.createElement(a.DialogFooter, null, this.renderButtonGroup()))
     }
     renderDialogContent() {
-      if (r(this.props.unPushedCommits)) return i.createElement(d.DialogContent, null, i.createElement('p', null, 'Your branch must be published before opening a pull request.'), i.createElement('p', null, 'Would you like to publish ', i.createElement(l.Ref, null, this.props.branch.name), ' now and open a pull request?'));
+      if (r(this.props.unPushedCommits)) return i.createElement(a.DialogContent, null, i.createElement('p', null, 'Your branch must be published before opening a pull request.'), i.createElement('p', null, 'Would you like to publish ', i.createElement(s.Ref, null, this.props.branch.name), ' now and open a pull request?'));
       const e = o(this.props.unPushedCommits, 'local commit');
-      return i.createElement(d.DialogContent, null, i.createElement('p', null, 'You have ', e, ' that haven\'t been pushed to the remote yet.'), i.createElement('p', null, 'Would you like to push your changes to', ' ', i.createElement(l.Ref, null, this.props.branch.name), ' before creating your pull request?'))
+      return i.createElement(a.DialogContent, null, i.createElement('p', null, 'You have ', e, ' that haven\'t been pushed to the remote yet.'), i.createElement('p', null, 'Would you like to push your changes to', ' ', i.createElement(s.Ref, null, this.props.branch.name), ' before creating your pull request?'))
     }
     renderDialogTitle() {
       return r(this.props.unPushedCommits) ? 'Publish branch?' : `Push local changes?`
     }
     renderButtonGroup() {
-      return r(this.props.unPushedCommits) ? i.createElement(a.ButtonGroup, null, i.createElement(s.Button, {
-        type: 'submit',
-        onClick: this.onPushOrPublishButtonClick,
-        onButtonRef: this.onDialogOpenRef
-      }, 'Publish branch'), i.createElement(s.Button, {
-        onClick: this.cancel
-      }, 'Cancel')) : i.createElement(a.ButtonGroup, null, i.createElement(s.Button, {
-        type: 'submit',
-        onClick: this.onPushOrPublishButtonClick
-      }, 'Push commits'), i.createElement(s.Button, {
-        onClick: this.onCreateWithoutPushButtonClick
-      }, 'Create without pushing'))
+      return r(this.props.unPushedCommits) ? i.createElement(d.OkCancelButtonGroup, {
+        okButtonText: 'Publish branch'
+      }) : i.createElement(d.OkCancelButtonGroup, {
+        okButtonText: 'Push commits',
+        cancelButtonText: 'Create without pushing',
+        onCancelButtonClick: this.onCreateWithoutPushButtonClick
+      })
     }
   }
-  t.PushBranchCommits = c
+  t.PushBranchCommits = l
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(202),
+    r = n(204),
     i = n(72),
     a = 50;
   class s extends o.Component {
@@ -38598,16 +38547,16 @@ module.exports = function (e) {
   const i = n(0),
     a = n(84),
     s = n(28),
-    d = n(487),
+    d = n(492),
     l = n(144),
     c = n(86),
     p = n(48),
-    u = n(473),
-    m = n(472),
+    u = n(478),
+    m = n(477),
     h = n(4),
     f = n(24),
-    g = n(471),
-    y = n(470);
+    g = n(476),
+    y = n(475);
   class S extends i.Component {
     constructor(e) {
       super(e), this.textbox = null, this.loadChangedFilesScheduler = new l.ThrottledScheduler(200), this.branchList = null, this.loadingMoreCommitsPromise = null, this.resultCount = 0, this.onBranchesListRef = (e) => {
@@ -38914,12 +38863,12 @@ module.exports = function (e) {
     value: !0
   });
   const a = n(0),
-    s = n(6),
+    s = n(5),
     d = n(4),
     l = n(87),
-    c = n(207),
-    p = n(205),
-    u = n(204),
+    c = n(209),
+    p = n(207),
+    u = n(206),
     m = n(35),
     h = n(23),
     f = 72;
@@ -39119,17 +39068,17 @@ module.exports = function (e) {
   const r = n(0),
     i = n(21),
     a = n(19),
-    s = n(2),
+    s = n(1),
     d = n(33),
     l = n(38),
-    c = n(107),
+    c = n(108),
     p = n(73),
     u = n(144),
     m = n(141),
     h = n(140),
     f = n(26),
-    g = n(489),
-    y = n(203);
+    g = n(494),
+    y = n(205);
   class S extends r.Component {
     constructor(e) {
       super(e), this.loadChangedFilesScheduler = new u.ThrottledScheduler(200), this.historyRef = null, this.onFileSelected = (e) => {
@@ -39272,9 +39221,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(491);
+  var o = n(496);
   t.SelectedCommit = o.SelectedCommit;
-  var r = n(488);
+  var r = n(493);
   t.CompareSidebar = r.CompareSidebar
 }, function (e, t, n) {
   'use strict';
@@ -39370,23 +39319,23 @@ module.exports = function (e) {
         for (var o in n = arguments[t], n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
       return e
     },
-    c = n(291),
+    c = n(296),
     p = o(c),
-    u = n(290),
+    u = n(295),
     m = o(u),
-    h = n(177),
+    h = n(178),
     f = o(h),
-    g = n(289),
+    g = n(294),
     y = n(0),
     S = o(y),
     C = n(15),
     b = o(C),
     v = n(41),
-    E = n(208),
+    E = n(210),
     w = [],
     k, _;
   g.transitionEnd && w.push(g.transitionEnd), g.animationEnd && w.push(g.animationEnd);
-  var R = {
+  var T = {
       children: b.default.node,
       name: E.nameShape.isRequired,
       appear: b.default.bool,
@@ -39396,7 +39345,7 @@ module.exports = function (e) {
       enterTimeout: b.default.number,
       leaveTimeout: b.default.number
     },
-    T = (_ = k = function (e) {
+    R = (_ = k = function (e) {
       function t() {
         var n, o, r;
         i(this, t);
@@ -39449,7 +39398,7 @@ module.exports = function (e) {
         return delete e.name, delete e.appear, delete e.enter, delete e.leave, delete e.appearTimeout, delete e.enterTimeout, delete e.leaveTimeout, delete e.children, S.default.cloneElement(S.default.Children.only(this.props.children), e)
       }, t
     }(S.default.Component), k.displayName = 'CSSTransitionGroupChild', _);
-  t.default = T, e.exports = t['default']
+  t.default = R, e.exports = t['default']
 }, function (e, t, n) {
   'use strict';
 
@@ -39512,17 +39461,17 @@ module.exports = function (e) {
     m = n(41),
     h = n(15),
     f = o(h),
-    g = n(293),
+    g = n(298),
     y = o(g),
-    S = n(292),
+    S = n(297),
     C = o(S),
-    b = n(177),
+    b = n(178),
     v = o(b),
-    E = n(495),
+    E = n(500),
     w = o(E),
-    k = n(208),
+    k = n(210),
     _ = u.default.createFactory(w.default),
-    R = (x = T = function (e) {
+    T = (x = R = function (e) {
       function t(n, o) {
         a(this, t);
         var r = s(this, e.call(this, n, o));
@@ -39637,11 +39586,11 @@ module.exports = function (e) {
           k = i(l, ['overflowHidden', 'transitionName', 'component', 'childComponent', 'notifyLeaving', 'transitionAppear', 'transitionEnter', 'transitionLeave', 'changeWidth', 'transitionAppearTimeout', 'transitionEnterTimeout', 'transitionLeaveTimeout']),
           _ = this.shouldEnterCurrent || this.keysToLeave.length || Object.keys(this.transitioningKeys).length;
         if (k.style = c({}, k.style), _ && (k.style.position = 'relative', p && (k.style.overflow = 'hidden')), null !== a) {
-          var R = 'string' == typeof m ? m + '-height' : m && m.height || '';
-          k.className = (k.className || '') + ' ' + (R + ''), k.style.height = a
+          var T = 'string' == typeof m ? m + '-height' : m && m.height || '';
+          k.className = (k.className || '') + ' ' + (T + ''), k.style.height = a
         }
         null !== s && (k.style.width = s);
-        var T = {
+        var R = {
           position: 'absolute',
           top: 0,
           left: 0,
@@ -39653,7 +39602,7 @@ module.exports = function (e) {
           var n = r[t];
           d.push(u.default.createElement(f, {
             key: t,
-            style: T
+            style: R
           }, e.wrapChild(g && 'string' != typeof n.type ? u.default.cloneElement(n, {
             isLeaving: !0
           }) : n, {
@@ -39661,14 +39610,14 @@ module.exports = function (e) {
           })))
         }), o && d.push(u.default.createElement(f, {
           key: n,
-          style: this.transitioningKeys[n] ? T : _ ? {
+          style: this.transitioningKeys[n] ? R : _ ? {
             position: 'relative'
           } : null
         }, this.wrapChild(o, {
           ref: this.storeChildRef(o, n)
         }))), u.default.createElement(h, k, d)
       }, t
-    }(u.default.Component), T.displayName = 'ReactCSSTransitionReplace', T.defaultProps = {
+    }(u.default.Component), R.displayName = 'ReactCSSTransitionReplace', R.defaultProps = {
       transitionAppear: !1,
       transitionEnter: !0,
       transitionLeave: !0,
@@ -39678,15 +39627,15 @@ module.exports = function (e) {
       component: 'div',
       childComponent: 'span'
     }, x),
-    T, x;
-  t.default = R, e.exports = t['default']
+    R, x;
+  t.default = T, e.exports = t['default']
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(496);
+    r = n(501);
   t.SuggestedActionGroup = (e) => {
     const t = 'suggested-action-group ' + (e.type ? e.type : 'normal');
     if ('replace' === e.transitions) {
@@ -39713,7 +39662,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(209),
+    r = n(211),
     i = n(26);
   class a extends o.Component {
     constructor() {
@@ -39770,15 +39719,15 @@ module.exports = function (e) {
     d = n(33),
     l = n(14),
     c = n(23),
-    p = n(110),
-    u = n(210),
-    m = n(106),
+    p = n(111),
+    u = n(212),
+    m = n(107),
     h = n(26),
     f = n(29),
     g = n(24),
     y = n(76),
     S = n(75),
-    C = n(106),
+    C = n(107),
     b = d.encodePathAsUrl(__dirname, 'static/paper-stack.svg');
   class v extends s.Component {
     constructor(e) {
@@ -39875,8 +39824,8 @@ module.exports = function (e) {
       if (null === o) return null;
       if (o.files.kind !== S.StashedChangesLoadStates.Loaded) return null;
       const r = o.files.files.length,
-        i = s.createElement(s.Fragment, null, '您有 ', r, ' ', 1 === r ? '正在进行的更改' : '正在进行的更改', ' 尚未提交。'),
-        a = s.createElement(s.Fragment, null, '当有隐藏存在时, 在左侧“更改”选项卡的底部访问它。'),
+        i = s.createElement(s.Fragment, null, '您有', r, ' ', 1 === r ? '正在进行的更改' : '正在进行的更改', ' 尚未提交。'),
+        a = s.createElement(s.Fragment, null, '在左侧“更改”选项卡的底部访问它。'),
         d = 'toggle-stashed-changes',
         l = this.getMenuItemInfo(d);
       return void 0 === l ? (log.error(`找不到与${d}匹配的菜单项`), null) : s.createElement(m.MenuBackedSuggestedAction, {
@@ -40029,7 +39978,7 @@ module.exports = function (e) {
     i = n(20),
     a = n(30),
     s = n(4),
-    d = n(1),
+    d = n(13),
     l = n(23),
     c = n(40);
   class p extends o.Component {
@@ -40060,7 +40009,7 @@ module.exports = function (e) {
         onClick: this.onOpenMergeTool
       }, 'Open merge tool');
       if (t.kind === a.DiffType.Text && t.lineEndingsChange) {
-        const e = `Warning: line endings have changed from '${t.lineEndingsChange.from}' to '${t.lineEndingsChange.to}'.`;
+        const e = `Warning: line endings will be changed from '${t.lineEndingsChange.from}' to '${t.lineEndingsChange.to}'.`;
         return o.createElement(s.Octicon, {
           symbol: s.OcticonSymbol.alert,
           className: 'line-endings',
@@ -40163,14 +40112,14 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(2),
-    a = n(3),
-    s = n(252),
-    d = n(120),
-    l = n(502),
+  const i = n(1),
+    a = n(2),
+    s = n(254),
+    d = n(121),
+    l = n(507),
     c = n(20),
     p = n(30),
-    u = n(251),
+    u = n(253),
     m = 262144;
   t.getFileContents = async function (e, t, n) {
     const i = n.oldLineFilter.length ? o(e, t) : Promise.resolve(Buffer.alloc(0)),
@@ -40515,7 +40464,7 @@ module.exports = function (e) {
   })
 }, function (e, t, n) {
   (function (e) {
-    e(n(42), n(505), n(504))
+    e(n(42), n(510), n(509))
   })(function (e) {
     'use strict';
 
@@ -40814,22 +40763,22 @@ module.exports = function (e) {
       var k = u.innerWidth || o(l.body.offsetWidth, l.documentElement.offsetWidth),
         _ = u.innerHeight || o(l.body.offsetHeight, l.documentElement.offsetHeight);
       (n.options.container || l.body).appendChild(m);
-      var R = m.getBoundingClientRect(),
-        T = R.bottom - _,
+      var T = m.getBoundingClientRect(),
+        R = T.bottom - _,
         x = m.scrollHeight > m.clientHeight + 1,
         P = d.getScrollInfo();
-      if (0 < T) {
-        var M = R.bottom - R.top,
-          D = b.top - (b.bottom - R.top);
+      if (0 < R) {
+        var M = T.bottom - T.top,
+          D = b.top - (b.bottom - T.top);
         if (0 < D - M) m.style.top = (E = b.top - M) + 'px', w = !1;
         else if (M > _) {
-          m.style.height = _ - 5 + 'px', m.style.top = (E = b.bottom - R.top) + 'px';
+          m.style.height = _ - 5 + 'px', m.style.top = (E = b.bottom - T.top) + 'px';
           var A = d.getCursor();
-          t.from.ch != A.ch && (b = d.cursorCoords(A), m.style.left = (v = b.left) + 'px', R = m.getBoundingClientRect())
+          t.from.ch != A.ch && (b = d.cursorCoords(A), m.style.left = (v = b.left) + 'px', T = m.getBoundingClientRect())
         }
       }
-      var I = R.right - k;
-      if (0 < I && (R.right - R.left > k && (m.style.width = k - 5 + 'px', I -= R.right - R.left - k), m.style.left = (v = b.left - I) + 'px'), x)
+      var I = T.right - k;
+      if (0 < I && (T.right - T.left > k && (m.style.width = k - 5 + 'px', I -= T.right - T.left - k), m.style.left = (v = b.left - I) + 'px'), x)
         for (var L = m.firstChild; L; L = L.nextSibling) L.style.paddingRight = d.display.nativeBarWidth + 'px';
       if (d.addKeyMap(this.keyMap = a(n, {
           moveFocus: function (e, t) {
@@ -40850,13 +40799,13 @@ module.exports = function (e) {
           },
           data: t
         })), n.options.closeOnUnfocus) {
-        var B;
+        var F;
         d.on('blur', this.onBlur = function () {
-          B = setTimeout(function () {
+          F = setTimeout(function () {
             n.close()
           }, 100)
         }), d.on('focus', this.onFocus = function () {
-          clearTimeout(B)
+          clearTimeout(F)
         })
       }
       return d.on('scroll', this.onScroll = function () {
@@ -41118,7 +41067,7 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(42);
-  n(508), n(507), !1, n(506);
+  n(513), n(512), !1, n(511);
   class a extends r.Component {
     constructor(e) {
       super(e), this.wrapper = null, this.codeMirror = null, this.resizeDebounceId = null, this.lastKnownWidth = null, this.onSwapDoc = (e, t) => {
@@ -41309,17 +41258,17 @@ module.exports = function (e) {
 
       function u(e, t, n, o, r) {
         var i = e.cc;
-        for (Xe.state = e, Xe.stream = r, Xe.marked = null, Xe.cc = i, Xe.style = t, e.lexical.hasOwnProperty('align') || (e.lexical.align = !0);;) {
-          var a = i.length ? i.pop() : We ? P : T;
+        for (Qe.state = e, Qe.stream = r, Qe.marked = null, Qe.cc = i, Qe.style = t, e.lexical.hasOwnProperty('align') || (e.lexical.align = !0);;) {
+          var a = i.length ? i.pop() : We ? P : R;
           if (a(n, o)) {
             for (; i.length && i[i.length - 1].lex;) i.pop()();
-            return Xe.marked ? Xe.marked : 'variable' == n && p(e, o) ? 'variable-2' : t
+            return Qe.marked ? Qe.marked : 'variable' == n && p(e, o) ? 'variable-2' : t
           }
         }
       }
 
       function h() {
-        for (var e = arguments.length - 1; 0 <= e; e--) Xe.cc.push(arguments[e])
+        for (var e = arguments.length - 1; 0 <= e; e--) Qe.cc.push(arguments[e])
       }
 
       function f() {
@@ -41333,8 +41282,8 @@ module.exports = function (e) {
       }
 
       function g(e) {
-        var t = Xe.state;
-        if (Xe.marked = 'def', t.context)
+        var t = Qe.state;
+        if (Qe.marked = 'def', t.context)
           if ('var' == t.lexical.info && t.context && t.context.block) {
             var o = y(e, t.context);
             if (null != o) return void(t.context = o)
@@ -41364,31 +41313,31 @@ module.exports = function (e) {
       }
 
       function v() {
-        Xe.state.context = new C(Xe.state.context, Xe.state.localVars, !1), Xe.state.localVars = $e
+        Qe.state.context = new C(Qe.state.context, Qe.state.localVars, !1), Qe.state.localVars = $e
       }
 
       function E() {
-        Xe.state.context = new C(Xe.state.context, Xe.state.localVars, !0), Xe.state.localVars = null
+        Qe.state.context = new C(Qe.state.context, Qe.state.localVars, !0), Qe.state.localVars = null
       }
 
       function w() {
-        Xe.state.localVars = Xe.state.context.vars, Xe.state.context = Xe.state.context.prev
+        Qe.state.localVars = Qe.state.context.vars, Qe.state.context = Qe.state.context.prev
       }
 
       function k(e, t) {
         var n = function () {
-          var n = Xe.state,
+          var n = Qe.state,
             o = n.indented;
           if ('stat' == n.lexical.type) o = n.lexical.indented;
           else
             for (var r = n.lexical; r && ')' == r.type && r.align; r = r.prev) o = r.indented;
-          n.lexical = new c(o, Xe.stream.column(), e, null, n.lexical, t)
+          n.lexical = new c(o, Qe.stream.column(), e, null, n.lexical, t)
         };
         return n.lex = !0, n
       }
 
-      function R() {
-        var e = Xe.state;
+      function T() {
+        var e = Qe.state;
         e.lexical.prev && (')' == e.lexical.type && (e.indented = e.lexical.indented), e.lexical = e.lexical.prev)
       }
 
@@ -41399,8 +41348,8 @@ module.exports = function (e) {
         return t
       }
 
-      function T(e, t) {
-        return 'var' == e ? f(k('vardef', t), de, _(';'), R) : 'keyword a' == e ? f(k('form'), D, T, R) : 'keyword b' == e ? f(k('form'), T, R) : 'keyword d' == e ? Xe.stream.match(/^\s*$/, !1) ? f() : f(k('stat'), I, _(';'), R) : 'debugger' == e ? f(_(';')) : '{' == e ? f(k('}'), E, X, R, w) : ';' == e ? f() : 'if' == e ? ('else' == Xe.state.lexical.info && Xe.state.cc[Xe.state.cc.length - 1] == R && Xe.state.cc.pop()(), f(k('form'), D, T, R, he)) : 'function' == e ? f(Se) : 'for' == e ? f(k('form'), fe, T, R) : 'class' == e || Ve && 'interface' == t ? (Xe.marked = 'keyword', f(k('form', 'class' == e ? e : t), we, R)) : 'variable' == e ? Ve && 'declare' == t ? (Xe.marked = 'keyword', f(T)) : Ve && ('module' == t || 'enum' == t || 'type' == t) && Xe.stream.match(/^\s*\w/, !1) ? (Xe.marked = 'keyword', 'enum' == t ? f(Be) : 'type' == t ? f(be, _('operator'), ee, _(';')) : f(k('form'), le, _('{'), k('}'), X, R, R)) : Ve && 'namespace' == t ? (Xe.marked = 'keyword', f(k('form'), P, T, R)) : Ve && 'abstract' == t ? (Xe.marked = 'keyword', f(T)) : f(k('stat'), V) : 'switch' == e ? f(k('form'), D, _('{'), k('}', 'switch'), E, X, R, R, w) : 'case' == e ? f(P, _(':')) : 'default' == e ? f(_(':')) : 'catch' == e ? f(k('form'), v, x, T, R, w) : 'export' == e ? f(k('stat'), Te, R) : 'import' == e ? f(k('stat'), Pe, R) : 'async' == e ? f(T) : '@' == t ? f(P, T) : h(k('stat'), P, _(';'), R)
+      function R(e, t) {
+        return 'var' == e ? f(k('vardef', t), de, _(';'), T) : 'keyword a' == e ? f(k('form'), D, R, T) : 'keyword b' == e ? f(k('form'), R, T) : 'keyword d' == e ? Qe.stream.match(/^\s*$/, !1) ? f() : f(k('stat'), I, _(';'), T) : 'debugger' == e ? f(_(';')) : '{' == e ? f(k('}'), E, Q, T, w) : ';' == e ? f() : 'if' == e ? ('else' == Qe.state.lexical.info && Qe.state.cc[Qe.state.cc.length - 1] == T && Qe.state.cc.pop()(), f(k('form'), D, R, T, he)) : 'function' == e ? f(Se) : 'for' == e ? f(k('form'), fe, R, T) : 'class' == e || Ve && 'interface' == t ? (Qe.marked = 'keyword', f(k('form', 'class' == e ? e : t), we, T)) : 'variable' == e ? Ve && 'declare' == t ? (Qe.marked = 'keyword', f(R)) : Ve && ('module' == t || 'enum' == t || 'type' == t) && Qe.stream.match(/^\s*\w/, !1) ? (Qe.marked = 'keyword', 'enum' == t ? f(Fe) : 'type' == t ? f(be, _('operator'), ee, _(';')) : f(k('form'), le, _('{'), k('}'), Q, T, T)) : Ve && 'namespace' == t ? (Qe.marked = 'keyword', f(k('form'), P, R, T)) : Ve && 'abstract' == t ? (Qe.marked = 'keyword', f(R)) : f(k('stat'), V) : 'switch' == e ? f(k('form'), D, _('{'), k('}', 'switch'), E, Q, T, T, w) : 'case' == e ? f(P, _(':')) : 'default' == e ? f(_(':')) : 'catch' == e ? f(k('form'), v, x, R, T, w) : 'export' == e ? f(k('stat'), Re, T) : 'import' == e ? f(k('stat'), Pe, T) : 'async' == e ? f(R) : '@' == t ? f(P, R) : h(k('stat'), P, _(';'), T)
       }
 
       function x(e) {
@@ -41416,17 +41365,17 @@ module.exports = function (e) {
       }
 
       function D(e) {
-        return '(' == e ? f(k(')'), P, _(')'), R) : h()
+        return '(' == e ? f(k(')'), P, _(')'), T) : h()
       }
 
       function A(e, t, n) {
-        if (Xe.state.fatArrowAt == Xe.stream.start) {
+        if (Qe.state.fatArrowAt == Qe.stream.start) {
           var o = n ? H : O;
-          if ('(' == e) return f(v, k(')'), Y(ve, ')'), R, _('=>'), o, w);
+          if ('(' == e) return f(v, k(')'), Y(ve, ')'), T, _('=>'), o, w);
           if ('variable' == e) return h(v, le, _('=>'), o, w)
         }
-        var r = n ? B : L;
-        return Qe.hasOwnProperty(e) ? f(r) : 'function' == e ? f(Se, r) : 'class' == e || Ve && 'interface' == t ? (Xe.marked = 'keyword', f(k('form'), Ee, R)) : 'keyword c' == e || 'async' == e ? f(n ? M : P) : '(' == e ? f(k(')'), I, _(')'), R, r) : 'operator' == e || 'spread' == e ? f(n ? M : P) : '[' == e ? f(k(']'), Le, R, r) : '{' == e ? Q(K, '}', null, r) : 'quasi' == e ? h(F, r) : 'new' == e ? f(z(n)) : 'import' == e ? f(P) : f()
+        var r = n ? F : L;
+        return Xe.hasOwnProperty(e) ? f(r) : 'function' == e ? f(Se, r) : 'class' == e || Ve && 'interface' == t ? (Qe.marked = 'keyword', f(k('form'), Ee, T)) : 'keyword c' == e || 'async' == e ? f(n ? M : P) : '(' == e ? f(k(')'), I, _(')'), T, r) : 'operator' == e || 'spread' == e ? f(n ? M : P) : '[' == e ? f(k(']'), Le, T, r) : '{' == e ? X(K, '}', null, r) : 'quasi' == e ? h(B, r) : 'new' == e ? f(z(n)) : 'import' == e ? f(P) : f()
       }
 
       function I(e) {
@@ -41434,65 +41383,65 @@ module.exports = function (e) {
       }
 
       function L(e, t) {
-        return ',' == e ? f(P) : B(e, t, !1)
+        return ',' == e ? f(P) : F(e, t, !1)
       }
 
-      function B(e, t, n) {
-        var o = !1 == n ? L : B,
+      function F(e, t, n) {
+        var o = !1 == n ? L : F,
           r = !1 == n ? P : M;
-        return '=>' == e ? f(v, n ? H : O, w) : 'operator' == e ? /\+\+|--/.test(t) || Ve && '!' == t ? f(o) : Ve && '<' == t && Xe.stream.match(/^([^>]|<.*?>)*>\s*\(/, !1) ? f(k('>'), Y(ee, '>'), R, o) : '?' == t ? f(P, _(':'), r) : f(r) : 'quasi' == e ? h(F, o) : ';' == e ? void 0 : '(' == e ? Q(M, ')', 'call', o) : '.' == e ? f(G, o) : '[' == e ? f(k(']'), I, _(']'), R, o) : Ve && 'as' == t ? (Xe.marked = 'keyword', f(ee, o)) : 'regexp' == e ? (Xe.state.lastType = Xe.marked = 'operator', Xe.stream.backUp(Xe.stream.pos - Xe.stream.start - 1), f(r)) : void 0
+        return '=>' == e ? f(v, n ? H : O, w) : 'operator' == e ? /\+\+|--/.test(t) || Ve && '!' == t ? f(o) : Ve && '<' == t && Qe.stream.match(/^([^>]|<.*?>)*>\s*\(/, !1) ? f(k('>'), Y(ee, '>'), T, o) : '?' == t ? f(P, _(':'), r) : f(r) : 'quasi' == e ? h(B, o) : ';' == e ? void 0 : '(' == e ? X(M, ')', 'call', o) : '.' == e ? f(G, o) : '[' == e ? f(k(']'), I, _(']'), T, o) : Ve && 'as' == t ? (Qe.marked = 'keyword', f(ee, o)) : 'regexp' == e ? (Qe.state.lastType = Qe.marked = 'operator', Qe.stream.backUp(Qe.stream.pos - Qe.stream.start - 1), f(r)) : void 0
       }
 
-      function F(e, t) {
-        return 'quasi' == e ? '${' == t.slice(t.length - 2) ? f(P, N) : f(F) : h()
+      function B(e, t) {
+        return 'quasi' == e ? '${' == t.slice(t.length - 2) ? f(P, N) : f(B) : h()
       }
 
       function N(e) {
-        if ('}' == e) return Xe.marked = 'string-2', Xe.state.tokenize = d, f(F)
+        if ('}' == e) return Qe.marked = 'string-2', Qe.state.tokenize = d, f(B)
       }
 
       function O(e) {
-        return l(Xe.stream, Xe.state), h('{' == e ? T : P)
+        return l(Qe.stream, Qe.state), h('{' == e ? R : P)
       }
 
       function H(e) {
-        return l(Xe.stream, Xe.state), h('{' == e ? T : M)
+        return l(Qe.stream, Qe.state), h('{' == e ? R : M)
       }
 
       function z(e) {
         return function (t) {
-          return '.' == t ? f(e ? W : U) : 'variable' == t && Ve ? f(ie, e ? B : L) : h(e ? M : P)
+          return '.' == t ? f(e ? W : U) : 'variable' == t && Ve ? f(ie, e ? F : L) : h(e ? M : P)
         }
       }
 
       function U(e, t) {
-        if ('target' == t) return Xe.marked = 'keyword', f(L)
+        if ('target' == t) return Qe.marked = 'keyword', f(L)
       }
 
       function W(e, t) {
-        if ('target' == t) return Xe.marked = 'keyword', f(B)
+        if ('target' == t) return Qe.marked = 'keyword', f(F)
       }
 
       function V(e) {
-        return ':' == e ? f(R, T) : h(L, _(';'), R)
+        return ':' == e ? f(T, R) : h(L, _(';'), T)
       }
 
       function G(e) {
-        if ('variable' == e) return Xe.marked = 'property', f()
+        if ('variable' == e) return Qe.marked = 'property', f()
       }
 
       function K(e, t) {
-        if ('async' == e) return Xe.marked = 'property', f(K);
-        if ('variable' == e || 'keyword' == Xe.style) {
-          if (Xe.marked = 'property', 'get' == t || 'set' == t) return f(j);
+        if ('async' == e) return Qe.marked = 'property', f(K);
+        if ('variable' == e || 'keyword' == Qe.style) {
+          if (Qe.marked = 'property', 'get' == t || 'set' == t) return f(j);
           var n;
-          return Ve && Xe.state.fatArrowAt == Xe.stream.start && (n = Xe.stream.match(/^\s*:\s*/, !1)) && (Xe.state.fatArrowAt = Xe.stream.pos + n[0].length), f(q)
+          return Ve && Qe.state.fatArrowAt == Qe.stream.start && (n = Qe.stream.match(/^\s*:\s*/, !1)) && (Qe.state.fatArrowAt = Qe.stream.pos + n[0].length), f(q)
         }
-        return 'number' == e || 'string' == e ? (Xe.marked = Ue ? 'property' : Xe.style + ' property', f(q)) : 'jsonld-keyword' == e ? f(q) : Ve && S(t) ? (Xe.marked = 'keyword', f(K)) : '[' == e ? f(P, $, _(']'), q) : 'spread' == e ? f(M, q) : '*' == t ? (Xe.marked = 'keyword', f(K)) : ':' == e ? h(q) : void 0
+        return 'number' == e || 'string' == e ? (Qe.marked = Ue ? 'property' : Qe.style + ' property', f(q)) : 'jsonld-keyword' == e ? f(q) : Ve && S(t) ? (Qe.marked = 'keyword', f(K)) : '[' == e ? f(P, $, _(']'), q) : 'spread' == e ? f(M, q) : '*' == t ? (Qe.marked = 'keyword', f(K)) : ':' == e ? h(q) : void 0
       }
 
       function j(e) {
-        return 'variable' == e ? (Xe.marked = 'property', f(Se)) : h(q)
+        return 'variable' == e ? (Qe.marked = 'property', f(Se)) : h(q)
       }
 
       function q(e) {
@@ -41502,7 +41451,7 @@ module.exports = function (e) {
       function Y(e, t, n) {
         function o(r, i) {
           if (n ? -1 < n.indexOf(r) : ',' == r) {
-            var a = Xe.state.lexical;
+            var a = Qe.state.lexical;
             return 'call' == a.info && (a.pos = (a.pos || 0) + 1), f(function (n, o) {
               return n == t || o == t ? h() : h(e)
             }, o)
@@ -41514,13 +41463,13 @@ module.exports = function (e) {
         }
       }
 
-      function Q(e, t, n) {
-        for (var o = 3; o < arguments.length; o++) Xe.cc.push(arguments[o]);
-        return f(k(t, n), Y(e, t), R)
+      function X(e, t, n) {
+        for (var o = 3; o < arguments.length; o++) Qe.cc.push(arguments[o]);
+        return f(k(t, n), Y(e, t), T)
       }
 
-      function X(e) {
-        return '}' == e ? f() : h(T, X)
+      function Q(e) {
+        return '}' == e ? f() : h(R, Q)
       }
 
       function $(e, t) {
@@ -41531,15 +41480,15 @@ module.exports = function (e) {
       }
 
       function Z(e) {
-        if (Ve && ':' == e) return Xe.stream.match(/^\s*\w+\s+is\b/, !1) ? f(P, J, ee) : f(ee)
+        if (Ve && ':' == e) return Qe.stream.match(/^\s*\w+\s+is\b/, !1) ? f(P, J, ee) : f(ee)
       }
 
       function J(e, t) {
-        if ('is' == t) return Xe.marked = 'keyword', f()
+        if ('is' == t) return Qe.marked = 'keyword', f()
       }
 
       function ee(e, t) {
-        return 'keyof' == t || 'typeof' == t || 'infer' == t ? (Xe.marked = 'keyword', f('typeof' == t ? M : ee)) : 'variable' == e || 'void' == t ? (Xe.marked = 'type', f(re)) : '|' == t || '&' == t ? f(ee) : 'string' == e || 'number' == e || 'atom' == e ? f(re) : '[' == e ? f(k(']'), Y(ee, ']', ','), R, re) : '{' == e ? f(k('}'), Y(ne, '}', ',;'), R, re) : '(' == e ? f(Y(oe, ')'), te, re) : '<' == e ? f(Y(ee, '>'), ee) : void 0
+        return 'keyof' == t || 'typeof' == t || 'infer' == t ? (Qe.marked = 'keyword', f('typeof' == t ? M : ee)) : 'variable' == e || 'void' == t ? (Qe.marked = 'type', f(re)) : '|' == t || '&' == t ? f(ee) : 'string' == e || 'number' == e || 'atom' == e ? f(re) : '[' == e ? f(k(']'), Y(ee, ']', ','), T, re) : '{' == e ? f(k('}'), Y(ne, '}', ',;'), T, re) : '(' == e ? f(Y(oe, ')'), te, re) : '<' == e ? f(Y(ee, '>'), ee) : void 0
       }
 
       function te(e) {
@@ -41547,19 +41496,19 @@ module.exports = function (e) {
       }
 
       function ne(e, t) {
-        return 'variable' == e || 'keyword' == Xe.style ? (Xe.marked = 'property', f(ne)) : '?' == t || 'number' == e || 'string' == e ? f(ne) : ':' == e ? f(ee) : '[' == e ? f(_('variable'), $, _(']'), ne) : '(' == e ? h(Ce, ne) : void 0
+        return 'variable' == e || 'keyword' == Qe.style ? (Qe.marked = 'property', f(ne)) : '?' == t || 'number' == e || 'string' == e ? f(ne) : ':' == e ? f(ee) : '[' == e ? f(_('variable'), $, _(']'), ne) : '(' == e ? h(Ce, ne) : void 0
       }
 
       function oe(e, t) {
-        return 'variable' == e && Xe.stream.match(/^\s*[?:]/, !1) || '?' == t ? f(oe) : ':' == e ? f(ee) : 'spread' == e ? f(oe) : h(ee)
+        return 'variable' == e && Qe.stream.match(/^\s*[?:]/, !1) || '?' == t ? f(oe) : ':' == e ? f(ee) : 'spread' == e ? f(oe) : h(ee)
       }
 
       function re(e, t) {
-        return '<' == t ? f(k('>'), Y(ee, '>'), R, re) : '|' == t || '.' == e || '&' == t ? f(ee) : '[' == e ? f(ee, _(']'), re) : 'extends' == t || 'implements' == t ? (Xe.marked = 'keyword', f(ee)) : '?' == t ? f(ee, _(':'), ee) : void 0
+        return '<' == t ? f(k('>'), Y(ee, '>'), T, re) : '|' == t || '.' == e || '&' == t ? f(ee) : '[' == e ? f(ee, _(']'), re) : 'extends' == t || 'implements' == t ? (Qe.marked = 'keyword', f(ee)) : '?' == t ? f(ee, _(':'), ee) : void 0
       }
 
       function ie(e, t) {
-        if ('<' == t) return f(k('>'), Y(ee, '>'), R, re)
+        if ('<' == t) return f(k('>'), Y(ee, '>'), T, re)
       }
 
       function ae() {
@@ -41571,15 +41520,15 @@ module.exports = function (e) {
       }
 
       function de(e, t) {
-        return 'enum' == t ? (Xe.marked = 'keyword', f(Be)) : h(le, $, ue, me)
+        return 'enum' == t ? (Qe.marked = 'keyword', f(Fe)) : h(le, $, ue, me)
       }
 
       function le(e, t) {
-        return Ve && S(t) ? (Xe.marked = 'keyword', f(le)) : 'variable' == e ? (g(t), f()) : 'spread' == e ? f(le) : '[' == e ? Q(pe, ']') : '{' == e ? Q(ce, '}') : void 0
+        return Ve && S(t) ? (Qe.marked = 'keyword', f(le)) : 'variable' == e ? (g(t), f()) : 'spread' == e ? f(le) : '[' == e ? X(pe, ']') : '{' == e ? X(ce, '}') : void 0
       }
 
       function ce(e, t) {
-        return 'variable' != e || Xe.stream.match(/^\s*:/, !1) ? ('variable' == e && (Xe.marked = 'property'), 'spread' == e ? f(le) : '}' == e ? h() : '[' == e ? f(P, _(']'), _(':'), ce) : f(_(':'), le, ue)) : (g(t), f(ue))
+        return 'variable' != e || Qe.stream.match(/^\s*:/, !1) ? ('variable' == e && (Qe.marked = 'property'), 'spread' == e ? f(le) : '}' == e ? h() : '[' == e ? f(P, _(']'), _(':'), ce) : f(_(':'), le, ue)) : (g(t), f(ue))
       }
 
       function pe() {
@@ -41595,11 +41544,11 @@ module.exports = function (e) {
       }
 
       function he(e, t) {
-        if ('keyword b' == e && 'else' == t) return f(k('form', 'else'), T, R)
+        if ('keyword b' == e && 'else' == t) return f(k('form', 'else'), R, T)
       }
 
       function fe(e, t) {
-        return 'await' == t ? f(fe) : '(' == e ? f(k(')'), ge, R) : void 0
+        return 'await' == t ? f(fe) : '(' == e ? f(k(')'), ge, T) : void 0
       }
 
       function ge(e) {
@@ -41607,23 +41556,23 @@ module.exports = function (e) {
       }
 
       function ye(e, t) {
-        return ')' == e ? f() : ';' == e ? f(ye) : 'in' == t || 'of' == t ? (Xe.marked = 'keyword', f(P, ye)) : h(P, ye)
+        return ')' == e ? f() : ';' == e ? f(ye) : 'in' == t || 'of' == t ? (Qe.marked = 'keyword', f(P, ye)) : h(P, ye)
       }
 
       function Se(e, t) {
-        return '*' == t ? (Xe.marked = 'keyword', f(Se)) : 'variable' == e ? (g(t), f(Se)) : '(' == e ? f(v, k(')'), Y(ve, ')'), R, Z, T, w) : Ve && '<' == t ? f(k('>'), Y(ae, '>'), R, Se) : void 0
+        return '*' == t ? (Qe.marked = 'keyword', f(Se)) : 'variable' == e ? (g(t), f(Se)) : '(' == e ? f(v, k(')'), Y(ve, ')'), T, Z, R, w) : Ve && '<' == t ? f(k('>'), Y(ae, '>'), T, Se) : void 0
       }
 
       function Ce(e, t) {
-        return '*' == t ? (Xe.marked = 'keyword', f(Ce)) : 'variable' == e ? (g(t), f(Ce)) : '(' == e ? f(v, k(')'), Y(ve, ')'), R, Z, w) : Ve && '<' == t ? f(k('>'), Y(ae, '>'), R, Ce) : void 0
+        return '*' == t ? (Qe.marked = 'keyword', f(Ce)) : 'variable' == e ? (g(t), f(Ce)) : '(' == e ? f(v, k(')'), Y(ve, ')'), T, Z, w) : Ve && '<' == t ? f(k('>'), Y(ae, '>'), T, Ce) : void 0
       }
 
       function be(e, t) {
-        return 'keyword' == e || 'variable' == e ? (Xe.marked = 'type', f(be)) : '<' == t ? f(k('>'), Y(ae, '>'), R) : void 0
+        return 'keyword' == e || 'variable' == e ? (Qe.marked = 'type', f(be)) : '<' == t ? f(k('>'), Y(ae, '>'), T) : void 0
       }
 
       function ve(e, t) {
-        return '@' == t && f(P, ve), 'spread' == e ? f(ve) : Ve && S(t) ? (Xe.marked = 'keyword', f(ve)) : Ve && 'this' == e ? f($, ue) : h(le, $, ue)
+        return '@' == t && f(P, ve), 'spread' == e ? f(ve) : Ve && S(t) ? (Qe.marked = 'keyword', f(ve)) : Ve && 'this' == e ? f($, ue) : h(le, $, ue)
       }
 
       function Ee(e, t) {
@@ -41635,28 +41584,28 @@ module.exports = function (e) {
       }
 
       function ke(e, t) {
-        return '<' == t ? f(k('>'), Y(ae, '>'), R, ke) : 'extends' == t || 'implements' == t || Ve && ',' == e ? ('implements' == t && (Xe.marked = 'keyword'), f(Ve ? ee : P, ke)) : '{' == e ? f(k('}'), _e, R) : void 0
+        return '<' == t ? f(k('>'), Y(ae, '>'), T, ke) : 'extends' == t || 'implements' == t || Ve && ',' == e ? ('implements' == t && (Qe.marked = 'keyword'), f(Ve ? ee : P, ke)) : '{' == e ? f(k('}'), _e, T) : void 0
       }
 
       function _e(e, t) {
-        return 'async' == e || 'variable' == e && ('static' == t || 'get' == t || 'set' == t || Ve && S(t)) && Xe.stream.match(/^\s+[\w$\xa1-\uffff]/, !1) ? (Xe.marked = 'keyword', f(_e)) : 'variable' == e || 'keyword' == Xe.style ? (Xe.marked = 'property', f(Ve ? Re : Se, _e)) : 'number' == e || 'string' == e ? f(Ve ? Re : Se, _e) : '[' == e ? f(P, $, _(']'), Ve ? Re : Se, _e) : '*' == t ? (Xe.marked = 'keyword', f(_e)) : Ve && '(' == e ? h(Ce, _e) : ';' == e || ',' == e ? f(_e) : '}' == e ? f() : '@' == t ? f(P, _e) : void 0
+        return 'async' == e || 'variable' == e && ('static' == t || 'get' == t || 'set' == t || Ve && S(t)) && Qe.stream.match(/^\s+[\w$\xa1-\uffff]/, !1) ? (Qe.marked = 'keyword', f(_e)) : 'variable' == e || 'keyword' == Qe.style ? (Qe.marked = 'property', f(Ve ? Te : Se, _e)) : 'number' == e || 'string' == e ? f(Ve ? Te : Se, _e) : '[' == e ? f(P, $, _(']'), Ve ? Te : Se, _e) : '*' == t ? (Qe.marked = 'keyword', f(_e)) : Ve && '(' == e ? h(Ce, _e) : ';' == e || ',' == e ? f(_e) : '}' == e ? f() : '@' == t ? f(P, _e) : void 0
       }
 
-      function Re(e, t) {
-        if ('?' == t) return f(Re);
+      function Te(e, t) {
+        if ('?' == t) return f(Te);
         if (':' == e) return f(ee, ue);
         if ('=' == t) return f(M);
-        var n = Xe.state.lexical.prev,
+        var n = Qe.state.lexical.prev,
           o = n && 'interface' == n.info;
         return h(o ? Ce : Se)
       }
 
-      function Te(e, t) {
-        return '*' == t ? (Xe.marked = 'keyword', f(Ie, _(';'))) : 'default' == t ? (Xe.marked = 'keyword', f(P, _(';'))) : '{' == e ? f(Y(xe, '}'), Ie, _(';')) : h(T)
+      function Re(e, t) {
+        return '*' == t ? (Qe.marked = 'keyword', f(Ie, _(';'))) : 'default' == t ? (Qe.marked = 'keyword', f(P, _(';'))) : '{' == e ? f(Y(xe, '}'), Ie, _(';')) : h(R)
       }
 
       function xe(e, t) {
-        return 'as' == t ? (Xe.marked = 'keyword', f(_('variable'))) : 'variable' == e ? h(M, xe) : void 0
+        return 'as' == t ? (Qe.marked = 'keyword', f(_('variable'))) : 'variable' == e ? h(M, xe) : void 0
       }
 
       function Pe(e) {
@@ -41664,7 +41613,7 @@ module.exports = function (e) {
       }
 
       function Me(e, t) {
-        return '{' == e ? Q(Me, '}') : ('variable' == e && g(t), '*' == t && (Xe.marked = 'keyword'), f(Ae))
+        return '{' == e ? X(Me, '}') : ('variable' == e && g(t), '*' == t && (Qe.marked = 'keyword'), f(Ae))
       }
 
       function De(e) {
@@ -41672,22 +41621,22 @@ module.exports = function (e) {
       }
 
       function Ae(e, t) {
-        if ('as' == t) return Xe.marked = 'keyword', f(Me)
+        if ('as' == t) return Qe.marked = 'keyword', f(Me)
       }
 
       function Ie(e, t) {
-        if ('from' == t) return Xe.marked = 'keyword', f(P)
+        if ('from' == t) return Qe.marked = 'keyword', f(P)
       }
 
       function Le(e) {
         return ']' == e ? f() : h(Y(M, ']'))
       }
 
-      function Be() {
-        return h(k('form'), le, _('{'), k('}'), Y(Fe, '}'), R, R)
+      function Fe() {
+        return h(k('form'), le, _('{'), k('}'), Y(Be, '}'), T, T)
       }
 
-      function Fe() {
+      function Be() {
         return h(le, ue)
       }
 
@@ -41767,7 +41716,7 @@ module.exports = function (e) {
         je = /[+\-*&%=<>!?|~^@]/,
         qe = /^@(context|id|value|language|type|container|list|set|reverse|index|base|vocab|graph)"/,
         Ye = '([{}])',
-        Qe = {
+        Xe = {
           atom: !0,
           number: !0,
           variable: !0,
@@ -41776,7 +41725,7 @@ module.exports = function (e) {
           this: !0,
           "jsonld-keyword": !0
         },
-        Xe = {
+        Qe = {
           state: null,
           column: null,
           marked: null,
@@ -41784,7 +41733,7 @@ module.exports = function (e) {
         },
         $e = new b('this', new b('arguments', null)),
         Ze, Je;
-      return w.lex = !0, R.lex = !0, {
+      return w.lex = !0, T.lex = !0, {
         startState: function (e) {
           var t = {
             tokenize: a,
@@ -41810,10 +41759,10 @@ module.exports = function (e) {
             l;
           if (!/^\s*else\b/.test(o))
             for (var p = t.cc.length - 1, i; 0 <= p; --p)
-              if (i = t.cc[p], i == R) d = d.prev;
+              if (i = t.cc[p], i == T) d = d.prev;
               else if (i != he) break;
           for (;
-            ('stat' == d.type || 'form' == d.type) && ('}' == r || (l = t.cc[t.cc.length - 1]) && (l == L || l == B) && !/^[,\.=+\-*:?[\(]/.test(o));) d = d.prev;
+            ('stat' == d.type || 'form' == d.type) && ('}' == r || (l = t.cc[t.cc.length - 1]) && (l == L || l == F) && !/^[,\.=+\-*:?[\(]/.test(o));) d = d.prev;
           ze && ')' == d.type && 'stat' == d.prev.type && (d = d.prev);
           var c = d.type,
             u = r == c;
@@ -41866,8 +41815,8 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(42),
-    a = n(211);
-  n(510);
+    a = n(213);
+  n(515);
   const s = {
     "+": 'diff-add',
     "-": 'diff-delete',
@@ -41916,16 +41865,20 @@ module.exports = function (e) {
   }
 
   function r() {
-    const e = document.createElement('span');
-    e.title = 'No newline at end of file';
-    const {
-      w: t,
-      h: n,
-      d: o
-    } = T, r = 'http://www.w3.org/2000/svg', i = document.createElementNS(r, 'svg');
-    i.setAttribute('aria-hidden', 'true'), i.setAttribute('version', '1.1'), i.setAttribute('viewBox', `0 0 ${t} ${n}`), i.classList.add('no-newline');
-    const a = document.createElementNS(r, 'path');
-    return a.setAttribute('d', o), a.textContent = 'No newline at end of file', i.appendChild(a), e.appendChild(i), e
+    const e = document.createElement('span'),
+      t = T.uuid(),
+      {
+        w: n,
+        h: o,
+        d: r
+      } = x,
+      i = 'http://www.w3.org/2000/svg',
+      a = document.createElementNS(i, 'svg');
+    a.setAttribute('version', '1.1'), a.setAttribute('viewBox', `0 0 ${n} ${o}`), a.setAttribute('role', 'img'), a.setAttribute('aria-labelledby', t), a.classList.add('no-newline');
+    const s = document.createElementNS(i, 'title');
+    s.setAttribute('id', t), s.setAttribute('lang', 'en'), s.textContent = 'No newline at end of file', a.appendChild(s);
+    const d = document.createElementNS(i, 'path');
+    return d.setAttribute('role', 'presentation'), d.setAttribute('d', r), d.textContent = 'No newline at end of file', a.appendChild(d), e.appendChild(a), e
   }
 
   function i(e, t) {
@@ -41964,19 +41917,20 @@ module.exports = function (e) {
     h = n(30),
     f = n(20),
     g = n(4),
-    y = n(511),
-    S = n(509),
-    C = n(211),
-    b = n(503),
-    v = n(501),
-    E = n(110),
+    y = n(516),
+    S = n(514),
+    C = n(213),
+    b = n(508),
+    v = n(506),
+    E = n(111),
     w = n(74),
-    k = n(3),
-    _ = n(118),
+    k = n(2),
+    _ = n(119),
+    T = n(101),
     R = 4096,
-    T = new g.OcticonSymbol(16, 8, 'm 16,1 0,3 c 0,0.55 -0.45,1 -1,1 l -3,0 0,2 -3,-3 3,-3 0,2 2,0 0,-2 2,0 z M 8,4 C 8,6.2 6.2,8 4,8 1.8,8 0,6.2 0,4 0,1.8 1.8,0 4,0 6.2,0 8,1.8 8,4 Z M 1.5,5.66 5.66,1.5 C 5.18,1.19 4.61,1 4,1 2.34,1 1,2.34 1,4 1,4.61 1.19,5.17 1.5,5.66 Z M 7,4 C 7,3.39 6.81,2.83 6.5,2.34 L 2.34,6.5 C 2.82,6.81 3.39,7 4,7 5.66,7 7,5.66 7,4 Z'),
-    x = 'diff-gutter',
-    P = {
+    x = new g.OcticonSymbol(16, 8, 'm 16,1 0,3 c 0,0.55 -0.45,1 -1,1 l -3,0 0,2 -3,-3 3,-3 0,2 2,0 0,-2 2,0 z M 8,4 C 8,6.2 6.2,8 4,8 1.8,8 0,6.2 0,4 0,1.8 1.8,0 4,0 6.2,0 8,1.8 8,4 Z M 1.5,5.66 5.66,1.5 C 5.18,1.19 4.61,1 4,1 2.34,1 1,2.34 1,4 1,4.61 1.19,5.17 1.5,5.66 Z M 7,4 C 7,3.39 6.81,2.83 6.5,2.34 L 2.34,6.5 C 2.82,6.81 3.39,7 4,7 5.66,7 7,5.66 7,4 Z'),
+    P = 'diff-gutter',
+    M = {
       lineNumbers: !1,
       readOnly: !0,
       showCursorWhenSelecting: !1,
@@ -41998,16 +41952,16 @@ module.exports = function (e) {
       styleSelectedText: !0,
       lineSeparator: '\n',
       specialChars: /[\u0000-\u001f\u007f-\u009f\u00ad\u061c\u200b-\u200f\u2028\u2029\ufeff]/,
-      gutters: [x]
+      gutters: [P]
     };
-  class M extends p.Component {
+  class D extends p.Component {
     constructor() {
       super(...arguments), this.codeMirror = null, this.getCodeMirrorDocument = E.default((e, t) => {
         const {
           mode: n,
           firstLineNumber: o,
           lineSeparator: i
-        } = P; - 1 !== e.indexOf('\r') && (e = e.replace(/\r(?=\n|$)/g, ''));
+        } = M; - 1 !== e.indexOf('\r') && (e = e.replace(/\r(?=\n|$)/g, ''));
         const a = new m.Doc(e, n, o, i);
         for (const n of t) a.setBookmark({
           line: n,
@@ -42068,12 +42022,12 @@ module.exports = function (e) {
             const o = C.diffLineForIndex(this.props.hunks, n);
             if (null !== o) {
               const i = e.lineInfo(t);
-              if (i.gutterMarkers && x in i.gutterMarkers) {
-                const e = i.gutterMarkers[x];
+              if (i.gutterMarkers && P in i.gutterMarkers) {
+                const e = i.gutterMarkers[P];
                 e instanceof HTMLElement && this.updateGutterMarker(e, n, o)
               } else r.push(() => {
                 const r = this.createGutterMarker(n, o);
-                e.setGutterMarker(t, x, r)
+                e.setGutterMarker(t, P, r)
               })
             }
           }
@@ -42309,7 +42263,7 @@ module.exports = function (e) {
       return p.createElement(S.CodeMirrorHost, {
         className: 'diff-code-mirror',
         value: e,
-        options: P,
+        options: M,
         isSelectionEnabled: this.isSelectionEnabled,
         onSwapDoc: this.onSwapDoc,
         onAfterSwapDoc: this.onAfterSwapDoc,
@@ -42319,15 +42273,15 @@ module.exports = function (e) {
       })
     }
   }
-  t.TextDiff = M
+  t.TextDiff = D
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(2),
-    i = n(107),
+    r = n(1),
+    i = n(108),
     a = n(14);
   class s extends o.Component {
     constructor() {
@@ -42615,8 +42569,8 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(70),
-    i = n(520),
-    a = n(6);
+    i = n(525),
+    a = n(5);
   class s extends o.Component {
     render() {
       const e = {
@@ -42685,12 +42639,12 @@ module.exports = function (e) {
   const o = n(0),
     r = n(30),
     i = n(48),
-    a = n(521),
-    s = n(519),
-    d = n(518),
-    l = n(517),
-    c = n(3),
-    p = n(516);
+    a = n(526),
+    s = n(524),
+    d = n(523),
+    l = n(522),
+    c = n(2),
+    p = n(521);
   class u extends o.Component {
     constructor(e) {
       super(e), this.container = null, this.resizedTimeoutID = null, this.onPreviousImageLoad = (e) => {
@@ -42779,11 +42733,11 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(522);
+  var o = n(527);
   t.ModifiedImageDiff = o.ModifiedImageDiff;
-  var r = n(515);
+  var r = n(520);
   t.NewImageDiff = r.NewImageDiff;
-  var i = n(514);
+  var i = n(519);
   t.DeletedImageDiff = i.DeletedImageDiff
 }, function (e, t, n) {
   'use strict';
@@ -42792,7 +42746,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(141),
-    i = n(500);
+    i = n(505);
   class a extends o.Component {
     constructor() {
       super(...arguments), this.onDiffLineIncludeChanged = (e) => {
@@ -42835,7 +42789,7 @@ module.exports = function (e) {
   });
   const o = n(30),
     r = n(19),
-    i = n(2);
+    i = n(1);
   t.getLargeFilePaths = async function (e, t, n) {
     const a = [],
       s = t.files,
@@ -42857,7 +42811,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(13);
+  const o = n(12);
   var r;
   (function (e) {
     e[e.Text = 0] = 'Text', e[e.Emoji = 1] = 'Emoji', e[e.Link = 2] = 'Link'
@@ -42991,8 +42945,8 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(87),
-    i = n(108),
-    a = n(1);
+    i = n(109),
+    a = n(13);
   class s extends o.Component {
     render() {
       const e = this.props.isPushPullFetchInProgress || this.props.isCommitting,
@@ -43030,8 +42984,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(1),
-    i = n(55),
+    r = n(13),
+    i = n(61),
     a = n(40);
   class s extends o.Component {
     constructor() {
@@ -43120,37 +43074,21 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(4),
-    i = n(14),
-    a = n(28);
-  class s extends o.Component {
-    constructor() {
-      super(...arguments), this.onSwitchBranch = () => {
-        this.props.dispatcher.showFoldout({
-          type: a.FoldoutType.Branch,
-          handleProtectedBranchWarning: !0
-        })
-      }, this.ignoreContextMenu = (e) => {
-        e.preventDefault()
-      }
-    }
-    render() {
-      return o.createElement('div', {
-        id: 'protected-branch',
-        onContextMenu: this.ignoreContextMenu
-      }, o.createElement('div', {
-        className: 'protected-branch-icon-container'
-      }, o.createElement(r.Octicon, {
-        className: 'protected-branch-icon',
-        symbol: r.OcticonSymbol.alert
-      })), o.createElement('div', {
-        className: 'warning-message'
-      }, o.createElement('strong', null, this.props.currentBranch), ' is a protected branch. Want to', ' ', o.createElement(i.LinkButton, {
-        onClick: this.onSwitchBranch
-      }, 'switch branches'), '?'))
-    }
+    r = n(4);
+  t.PermissionsCommitWarning = (e) => o.createElement('div', {
+    id: 'permissions-commit-warning',
+    onContextMenu: i
+  }, o.createElement('div', {
+    className: 'warning-icon-container'
+  }, o.createElement(r.Octicon, {
+    className: 'warning-icon',
+    symbol: r.OcticonSymbol.alert
+  })), o.createElement('div', {
+    className: 'warning-message'
+  }, e.children));
+  const i = (e) => {
+    e.preventDefault()
   }
-  t.ProtectedBranchWarning = s
 }, function (e, t, n) {
   'use strict';
 
@@ -43204,7 +43142,7 @@ module.exports = function (e) {
   function p(e, t) {
     const n = e.find(),
       o = t.find();
-    return void 0 === n || void 0 === o ? R.compare(n, o) : R.compare(n.from, o.from)
+    return void 0 === n || void 0 === o ? T.compare(n, o) : T.compare(n.from, o.from)
   }
 
   function u(e, t, n) {
@@ -43287,10 +43225,10 @@ module.exports = function (e) {
   const v = n(0),
     E = n(42),
     w = n(47),
-    k = n(6),
-    _ = n(13),
-    R = n(45),
-    T = n(74),
+    k = n(5),
+    _ = n(12),
+    T = n(45),
+    R = n(74),
     x = n(4),
     P = n(26);
   class M extends v.Component {
@@ -43375,7 +43313,7 @@ module.exports = function (e) {
     }
     componentWillReceiveProps(e) {
       const t = this.editor;
-      t && (e.authors !== this.props.authors && !T.arrayEquals(this.authors, e.authors) && t.operation(() => {
+      t && (e.authors !== this.props.authors && !R.arrayEquals(this.authors, e.authors) && t.operation(() => {
         this.reset(t, e.authors)
       }), e.disabled !== this.props.disabled && t.setOption('readOnly', !!e.disabled && 'nocursor'))
     }
@@ -43484,7 +43422,7 @@ module.exports = function (e) {
         const e = this.markAuthorMap.get(o);
         e && n.push(e)
       }
-      T.arrayEquals(this.authors, n) || (this.authors = n, this.props.onAuthorsUpdated(n))
+      R.arrayEquals(this.authors, n) || (this.authors = n, this.props.onAuthorsUpdated(n))
     }
     reset(e, t) {
       const n = e.getDoc();
@@ -43734,9 +43672,9 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(72),
-    a = n(3),
-    s = n(6),
-    d = n(536),
+    a = n(2),
+    s = n(5),
+    d = n(541),
     l = n(26),
     c = 29,
     p = 20,
@@ -43972,7 +43910,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(537);
+  const o = n(542);
   class r extends o.AutocompletingTextInput {
     getElementTagName() {
       return 'textarea'
@@ -43997,21 +43935,23 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(6),
-    a = n(212),
-    s = n(1),
+    i = n(5),
+    a = n(214),
+    s = n(13),
     d = n(143),
-    l = n(55),
+    l = n(61),
     c = n(100),
-    p = n(531),
+    p = n(536),
     u = n(146),
     m = n(26),
     h = n(4),
-    f = n(109),
-    g = n(530),
+    f = n(110),
+    g = n(535),
     y = n(23),
-    S = new h.OcticonSymbol(12, 7, 'M9.875 2.125H12v1.75H9.875V6h-1.75V3.875H6v-1.75h2.125V0h1.75v2.125zM6 6.5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5V6c0-1.316 2-2 2-2s.114-.204 0-.5c-.42-.31-.472-.795-.5-2C1.587.293 2.434 0 3 0s1.413.293 1.5 1.5c-.028 1.205-.08 1.69-.5 2-.114.295 0 .5 0 .5s2 .684 2 2v.5z');
-  class C extends r.Component {
+    S = n(14),
+    C = n(28),
+    b = new h.OcticonSymbol(12, 7, 'M9.875 2.125H12v1.75H9.875V6h-1.75V3.875H6v-1.75h2.125V0h1.75v2.125zM6 6.5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5V6c0-1.316 2-2 2-2s.114-.204 0-.5c-.42-.31-.472-.795-.5-2C1.587.293 2.434 0 3 0s1.413.293 1.5 1.5c-.028 1.205-.08 1.69-.5 2-.114.295 0 .5 0 .5s2 .684 2 2v.5z');
+  class v extends r.Component {
     constructor(e) {
       super(e), this.descriptionComponent = null, this.summaryTextInput = null, this.descriptionTextArea = null, this.descriptionTextAreaScrollDebounceId = null, this.onSummaryChanged = (e) => {
         this.setState({
@@ -44069,16 +44009,20 @@ module.exports = function (e) {
         this.summaryTextInput = e
       }, this.onFocusContainerClick = () => {
         this.descriptionComponent && this.descriptionComponent.focus()
-      }, this.renderProtectedBranchWarning = (e) => {
+      }, this.renderPermissionsCommitWarning = (e) => {
         if (!y.enableBranchProtectionWarningFlow()) return null;
         const {
           currentBranchProtected: t,
-          dispatcher: n
+          hasWritePermissionForRepository: n,
+          repository: o
         } = this.props;
-        return t ? r.createElement(g.ProtectedBranchWarning, {
-          currentBranch: e,
-          dispatcher: n
-        }) : null
+        return n ? t ? r.createElement(g.PermissionsCommitWarning, null, r.createElement('strong', null, e), ' is a protected branch. Want to', ' ', r.createElement(S.LinkButton, {
+          onClick: this.onSwitchBranch
+        }, 'switch branches'), '?') : null : r.createElement(g.PermissionsCommitWarning, null, 'You do not have permission to push to', ' ', r.createElement('strong', null, o.name), '.')
+      }, this.onSwitchBranch = () => {
+        this.props.dispatcher.showFoldout({
+          type: C.FoldoutType.Branch
+        })
       };
       const {
         commitMessage: t
@@ -44196,7 +44140,7 @@ module.exports = function (e) {
         "aria-label": this.toggleCoAuthorsText,
         disabled: this.props.isCommitting
       }, r.createElement(h.Octicon, {
-        symbol: S
+        symbol: b
       }))
     }
     get isActionBarEnabled() {
@@ -44258,7 +44202,7 @@ module.exports = function (e) {
         onElementRef: this.onDescriptionTextAreaRef,
         onContextMenu: this.onAutocompletingInputContextMenu,
         disabled: this.props.isCommitting
-      }), this.renderActionBar()), this.renderCoAuthorInput(), this.renderProtectedBranchWarning(e), r.createElement(s.Button, {
+      }), this.renderActionBar()), this.renderCoAuthorInput(), this.renderPermissionsCommitWarning(e), r.createElement(s.Button, {
         type: 'submit',
         className: 'commit-button',
         onClick: this.onSubmit,
@@ -44268,7 +44212,7 @@ module.exports = function (e) {
       }, o ? 'Committing' : '提交', ' 至 ', r.createElement('strong', null, e))))
     }
   }
-  t.CommitMessage = C
+  t.CommitMessage = v
 }, function (e, t, n) {
   'use strict';
 
@@ -44298,26 +44242,27 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(0),
-    a = n(2),
+    a = n(1),
     s = n(38),
     d = n(20),
     l = n(30),
     c = n(72),
     p = n(35),
     u = n(73),
-    m = n(539),
-    h = n(529),
+    m = n(544),
+    h = n(534),
     f = n(26),
     g = n(74),
     y = n(21),
-    S = n(2),
-    C = n(528),
+    S = n(1),
+    C = n(533),
     b = n(23),
     v = n(4),
-    E = n(6),
-    w = new v.OcticonSymbol(16, 16, 'M3.002 15H15V4c.51 0 1 .525 1 .996V15c0 .471-.49 1-1 1H4.002c-.51 0-1-.529-1-1zm-2-2H13V2c.51 0 1 .525 1 .996V13c0 .471-.49 1-1 1H2.002c-.51 0-1-.529-1-1zm10.14-13A.86.86 0 0 1 12 .857v10.286a.86.86 0 0 1-.857.857H.857A.86.86 0 0 1 0 11.143V.857A.86.86 0 0 1 .857 0h10.286zM11 11V1H1v10h10zM3 6c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z'),
-    k = '.gitignore';
-  class _ extends i.Component {
+    E = n(5),
+    w = n(170),
+    k = new v.OcticonSymbol(16, 16, 'M3.002 15H15V4c.51 0 1 .525 1 .996V15c0 .471-.49 1-1 1H4.002c-.51 0-1-.529-1-1zm-2-2H13V2c.51 0 1 .525 1 .996V13c0 .471-.49 1-1 1H2.002c-.51 0-1-.529-1-1zm10.14-13A.86.86 0 0 1 12 .857v10.286a.86.86 0 0 1-.857.857H.857A.86.86 0 0 1 0 11.143V.857A.86.86 0 0 1 .857 0h10.286zM11 11V1H1v10h10zM3 6c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z'),
+    _ = '.gitignore';
+  class T extends i.Component {
     constructor(e) {
       super(e), this.onIncludeAllChanged = (e) => {
         const t = e.currentTarget.checked;
@@ -44426,7 +44371,8 @@ module.exports = function (e) {
           u = o(t, e),
           h = 0 < c && u !== p.CheckboxValue.Off,
           f = t.files.filter((e) => e.selection.getSelectionType() !== l.DiffSelectionType.None),
-          g = 1 === f.length && !n.isTutorialRepository;
+          g = 1 === f.length && !n.isTutorialRepository,
+          y = null === this.props.repository.gitHubRepository || w.hasWritePermission(this.props.repository.gitHubRepository);
         return i.createElement(m.CommitMessage, {
           onCreateCommit: this.props.onCreateCommit,
           branch: this.props.branch,
@@ -44445,6 +44391,7 @@ module.exports = function (e) {
           prepopulateCommitSummary: g,
           key: n.id,
           currentBranchProtected: s,
+          hasWritePermissionForRepository: y,
           shouldNudge: this.props.shouldNudgeToCommit
         })
       }, this.onStashEntryClicked = () => {
@@ -44488,13 +44435,13 @@ module.exports = function (e) {
       1 === p.length ? f.push({
         label: '忽略文件 (添加到.gitignore)',
         action: () => this.props.onIgnore(n),
-        enabled: a.basename(n) !== k
+        enabled: a.basename(n) !== _
       }) : 1 < p.length && f.push({
-        label: `忽略选定的 ${p.length} 文件 (添加到.gitignore)`,
+        label: `忽略选定的 ${p.length} 文件 (添加到gitignore)`,
         action: () => {
-          this.props.onIgnore(p.filter((e) => a.basename(e) !== k))
+          this.props.onIgnore(p.filter((e) => a.basename(e) !== _))
         },
-        enabled: p.some((e) => a.basename(e) !== k)
+        enabled: p.some((e) => a.basename(e) !== _)
       }), Array.from(m).slice(0, 5).forEach((e) => {
         f.push({
           label: `忽略所有 ${e} 文件 (添加到 .gitignore)`,
@@ -44550,7 +44497,7 @@ module.exports = function (e) {
         "aria-selected": this.props.isShowingStashEntry
       }, i.createElement(v.Octicon, {
         className: 'stack-icon',
-        symbol: w
+        symbol: k
       }), i.createElement('div', {
         className: 'text'
       }, 'Stashed Changes'), i.createElement(v.Octicon, {
@@ -44589,24 +44536,24 @@ module.exports = function (e) {
       }), this.renderStashedChanges(), this.renderCommitMessageForm())
     }
   }
-  t.ChangesList = _
+  t.ChangesList = T
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(2),
+  const o = n(1),
     r = n(0),
-    i = n(540),
+    i = n(545),
     a = n(30),
     s = n(28),
-    d = n(527),
-    l = n(212),
+    d = n(532),
+    l = n(214),
     c = n(84),
-    p = n(107),
+    p = n(108),
     u = n(25),
-    m = n(238),
-    h = n(525),
+    m = n(240),
+    h = n(530),
     g = n(40),
     f = 500;
   class y extends r.Component {
@@ -44765,9 +44712,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(541);
+  var o = n(546);
   t.ChangesSidebar = o.ChangesSidebar;
-  var r = n(524);
+  var r = n(529);
   t.Changes = r.Changes
 }, function (e, t, n) {
   'use strict';
@@ -44777,25 +44724,25 @@ module.exports = function (e) {
   const o = n(0),
     r = n(29),
     i = n(88),
-    a = n(542),
-    s = n(499),
-    d = n(494),
-    l = n(493),
-    c = n(492),
+    a = n(547),
+    s = n(504),
+    d = n(499),
+    l = n(498),
+    c = n(497),
     p = n(140),
     u = n(48),
     m = n(28),
-    h = n(3),
+    h = n(2),
     f = n(146),
     g = n(4),
-    y = n(469),
+    y = n(474),
     S = n(75),
-    C = n(196),
+    C = n(197),
     b = n(23),
     v = n(93);
   class E extends o.Component {
     constructor(e) {
-      super(e), this.onChangesListScrolled = (e) => {
+      super(e), this.previousSection = this.props.state.selectedSection, this.onChangesListScrolled = (e) => {
         this.setState({
           changesListScrollTop: e
         })
@@ -44857,8 +44804,9 @@ module.exports = function (e) {
         n = this.props.state.localCommitSHAs,
         i = 0 < n.length ? n[0] : null,
         s = (i ? this.props.state.commitLookup.get(i) : null) || null,
-        d = this.props.sidebarWidth - 1;
-      return o.createElement(a.ChangesSidebar, {
+        d = this.props.sidebarWidth - 1,
+        l = this.previousSection === m.RepositorySectionTab.History ? this.state.compareListScrollTop : void 0;
+      return this.previousSection = m.RepositorySectionTab.Changes, o.createElement(a.ChangesSidebar, {
         repository: this.props.repository,
         dispatcher: this.props.dispatcher,
         changes: this.props.state.changesState,
@@ -44878,14 +44826,15 @@ module.exports = function (e) {
         externalEditorLabel: this.props.externalEditorLabel,
         onOpenInExternalEditor: this.props.onOpenInExternalEditor,
         onChangesListScrolled: this.onChangesListScrolled,
-        changesListScrollTop: this.state.changesListScrollTop,
+        changesListScrollTop: l,
         shouldNudgeToCommit: this.props.currentTutorialStep === v.TutorialStep.MakeCommit
       })
     }
     renderCompareSidebar() {
       const e = this.props.state.branchesState.tip,
-        t = e.kind === r.TipState.Valid ? e.branch : null;
-      return o.createElement(c.CompareSidebar, {
+        t = e.kind === r.TipState.Valid ? e.branch : null,
+        n = this.previousSection === m.RepositorySectionTab.Changes ? this.state.compareListScrollTop : void 0;
+      return this.previousSection = m.RepositorySectionTab.History, o.createElement(c.CompareSidebar, {
         repository: this.props.repository,
         compareState: this.props.state.compareState,
         selectedCommitSha: this.props.state.commitSelection.sha,
@@ -44898,7 +44847,7 @@ module.exports = function (e) {
         onRevertCommit: this.onRevertCommit,
         onViewCommitOnGitHub: this.props.onViewCommitOnGitHub,
         onCompareListScrolled: this.onCompareListScrolled,
-        compareListScrollTop: this.state.compareListScrollTop
+        compareListScrollTop: n
       })
     }
     renderSidebarContents() {
@@ -45026,7 +44975,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   (function () {
     var e, o, r, a, i, s, d, l, c, p;
-    p = n(111), r = p.isMatch, a = p.isWordStart, c = p.scoreConsecutives, l = p.scoreCharacter, d = p.scoreAcronyms, t.match = i = function (t, n, i) {
+    p = n(112), r = p.isMatch, a = p.isWordStart, c = p.scoreConsecutives, l = p.scoreCharacter, d = p.scoreAcronyms, t.match = i = function (t, n, i) {
       var a, d, l, c, p, u;
       return (a = i.allowErrors, p = i.preparedQuery, c = i.pathSeparator, !(a || r(t, p.core_lw, p.core_up))) ? [] : (u = t.toLowerCase(), l = o(t, u, p), 0 === l.length) ? l : (-1 < t.indexOf(c) && (d = e(t, u, p, c), l = s(l, d)), l)
     }, t.wrap = function (e, t, n) {
@@ -45060,10 +45009,10 @@ module.exports = function (e) {
       for (; i < d;) n.push(t[i++]);
       return n
     }, o = function (e, t, o, r) {
-      var s, p, u, h, f, g, y, S, C, b, v, i, E, m, w, k, n, _, R, T, x, P, M, D, A, I;
-      for (null == r && (r = 0), _ = o.query, R = o.query_lw, E = e.length, k = _.length, f = d(e, t, _, R).score, P = Array(k), C = Array(k), u = 0, h = 1, p = 2, s = 3, I = Array(E * k), n = -1, i = -1; ++i < k;) P[i] = 0, C[i] = 0;
+      var s, p, u, h, f, g, y, S, C, b, v, i, E, m, w, k, n, _, T, R, x, P, M, D, A, I;
+      for (null == r && (r = 0), _ = o.query, T = o.query_lw, E = e.length, k = _.length, f = d(e, t, _, T).score, P = Array(k), C = Array(k), u = 0, h = 1, p = 2, s = 3, I = Array(E * k), n = -1, i = -1; ++i < k;) P[i] = 0, C[i] = 0;
       for (v = -1; ++v < E;)
-        for (T = 0, M = 0, S = 0, D = t[v], i = -1; ++i < k;) b = 0, g = 0, x = M, R[i] === D && (A = a(v, e, t), b = 0 < S ? S : c(e, t, _, R, v, i, A), g = x + l(v, i, A, f, b)), M = P[i], S = C[i], T > M ? w = p : (T = M, w = h), g > T ? (T = g, w = s) : b = 0, P[i] = T, C[i] = b, I[++n] = 0 < T ? w : u;
+        for (R = 0, M = 0, S = 0, D = t[v], i = -1; ++i < k;) b = 0, g = 0, x = M, T[i] === D && (A = a(v, e, t), b = 0 < S ? S : c(e, t, _, T, v, i, A), g = x + l(v, i, A, f, b)), M = P[i], S = C[i], R > M ? w = p : (R = M, w = h), g > R ? (R = g, w = s) : b = 0, P[i] = R, C[i] = b, I[++n] = 0 < R ? w : u;
       for (v = E - 1, i = k - 1, n = v * k + i, y = !0, m = []; y && 0 <= v && 0 <= i;) switch (I[n]) {
         case h:
           v--, n -= k;
@@ -45083,7 +45032,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   (function () {
     var t, o, r, i, a;
-    i = n(111), o = n(145), t = n(213), r = function (e) {
+    i = n(112), o = n(145), t = n(215), r = function (e) {
       return e.candidate
     }, a = function (e, t) {
       return t.score - e.score
@@ -45099,7 +45048,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   (function () {
     var t, o, r, i, a, s, d, l;
-    r = n(545), i = n(544), l = n(111), s = n(145), t = n(213), d = null, o = 'win32' === ('undefined' != typeof process && null !== process ? 'win32' : void 0) ? '\\' : '/', e.exports = {
+    r = n(550), i = n(549), l = n(112), s = n(145), t = n(215), d = null, o = 'win32' === ('undefined' != typeof process && null !== process ? 'win32' : void 0) ? '\\' : '/', e.exports = {
       filter: function (e, t, n) {
         return (null == n && (n = {}), !((null == t ? void 0 : t.length) && (null == e ? void 0 : e.length))) ? [] : (n = a(n, t), r(e, t, n))
       },
@@ -45133,7 +45082,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(546),
+  const r = n(551),
     i = n(45);
   t.match = function (e, t, n) {
     const a = o(e, e, 1),
@@ -45178,7 +45127,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6);
+    r = n(5);
   class i extends o.Component {
     constructor() {
       super(...arguments), this.onRowMouseOver = (t) => {
@@ -45221,40 +45170,40 @@ module.exports = function (e) {
   }
   t.ListRow = i
 }, function (e, t, n) {
-  var o = n(215),
-    r = n(57)('iterator'),
+  var o = n(217),
+    r = n(56)('iterator'),
     i = n(90);
   e.exports = n(43).getIteratorMethod = function (e) {
     if (e != void 0) return e[r] || e['@@iterator'] || i[o(e)]
   }
 }, function (e, t, n) {
   var o = n(147),
-    r = n(550);
+    r = n(555);
   e.exports = n(43).getIterator = function (e) {
     var t = r(e);
     if ('function' != typeof t) throw TypeError(e + ' is not iterable!');
     return o(t.call(e))
   }
 }, function (e, t, n) {
-  n(149), n(154), e.exports = n(551)
+  n(149), n(154), e.exports = n(556)
 }, function (e, t, n) {
   e.exports = {
-    default: n(552),
+    default: n(557),
     __esModule: !0
   }
 }, function (e, t, n) {
-  var o = n(215),
-    r = n(57)('iterator'),
+  var o = n(217),
+    r = n(56)('iterator'),
     i = n(90);
   e.exports = n(43).isIterable = function (e) {
     var t = Object(e);
     return t[r] !== void 0 || '@@iterator' in t || i.hasOwnProperty(o(t))
   }
 }, function (e, t, n) {
-  n(149), n(154), e.exports = n(554)
+  n(149), n(154), e.exports = n(559)
 }, function (e, t, n) {
   e.exports = {
-    default: n(555),
+    default: n(560),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -45285,7 +45234,7 @@ module.exports = function (e) {
   })
 }, function (e, t, n) {
   var o = n(36);
-  n(558), e.exports = function (e, t) {
+  n(563), e.exports = function (e, t) {
     return o.getDesc(e, t)
   }
 }, function (e, t, n) {
@@ -45296,12 +45245,12 @@ module.exports = function (e) {
     }
   })
 }, function (e, t, n) {
-  n(560), e.exports = n(43).Object.keys
+  n(565), e.exports = n(43).Object.keys
 }, function (e, t, n) {
   var o = n(36),
     r = n(157),
-    i = n(217);
-  e.exports = n(112)(function () {
+    i = n(219);
+  e.exports = n(113)(function () {
     var e = Object.assign,
       t = {},
       n = {},
@@ -45318,10 +45267,10 @@ module.exports = function (e) {
 }, function (e, t, n) {
   var o = n(91);
   o(o.S + o.F, 'Object', {
-    assign: n(562)
+    assign: n(567)
   })
 }, function (e, t, n) {
-  n(563), e.exports = n(43).Object.assign
+  n(568), e.exports = n(43).Object.assign
 }, function (e, t, n) {
   'use strict';
   n.r(t), n.d(t, 'bpfrpt_proptype_ScrollIndices', function () {
@@ -45337,12 +45286,12 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   e.exports = {
-    default: n(566),
+    default: n(571),
     __esModule: !0
   }
 }, function (e, t, n) {
   var o = n(36).getDesc,
-    r = n(216),
+    r = n(218),
     i = n(147),
     a = function (e, t) {
       if (i(e), !r(t) && null !== t) throw TypeError(t + ': can\'t set as prototype!')
@@ -45350,7 +45299,7 @@ module.exports = function (e) {
   e.exports = {
     set: Object.setPrototypeOf || ('__proto__' in {} ? function (e, t, r) {
       try {
-        r = n(226)(Function.call, o(Object.prototype, '__proto__').set, 2), r(e, []), t = !(e instanceof Array)
+        r = n(228)(Function.call, o(Object.prototype, '__proto__').set, 2), r(e, []), t = !(e instanceof Array)
       } catch (n) {
         t = !0
       }
@@ -45363,13 +45312,13 @@ module.exports = function (e) {
 }, function (e, t, n) {
   var o = n(91);
   o(o.S, 'Object', {
-    setPrototypeOf: n(568).set
+    setPrototypeOf: n(573).set
   })
 }, function (e, t, n) {
-  n(569), e.exports = n(43).Object.setPrototypeOf
+  n(574), e.exports = n(43).Object.setPrototypeOf
 }, function (e, t, n) {
   e.exports = {
-    default: n(570),
+    default: n(575),
     __esModule: !0
   }
 }, function () {}, function (e, t, n) {
@@ -45411,20 +45360,20 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   var o = n(36),
-    r = n(113),
+    r = n(114),
     a = n(151),
-    i = n(220),
+    i = n(222),
     s = n(91),
-    d = n(221),
-    l = n(112),
-    c = n(219),
+    d = n(223),
+    l = n(113),
+    c = n(221),
     p = n(150),
-    u = n(218),
-    m = n(57),
-    h = n(576),
-    f = n(575),
-    g = n(574),
-    y = n(573),
+    u = n(220),
+    m = n(56),
+    h = n(581),
+    f = n(580),
+    g = n(579),
+    y = n(578),
     S = n(147),
     C = n(89),
     b = n(152),
@@ -45433,8 +45382,8 @@ module.exports = function (e) {
     w = o.create,
     k = f.get,
     _ = r.Symbol,
-    R = r.JSON,
-    T = R && R.stringify,
+    T = r.JSON,
+    R = T && T.stringify,
     x = !1,
     P = m('_hidden'),
     M = o.isEnum,
@@ -45442,7 +45391,7 @@ module.exports = function (e) {
     A = c('symbols'),
     I = 'function' == typeof _,
     L = Object.prototype,
-    B = i && l(function () {
+    F = i && l(function () {
       return 7 != w(E({}, 'a', {
         get: function () {
           return E(this, 'a', {
@@ -45454,12 +45403,12 @@ module.exports = function (e) {
       var o = v(L, t);
       o && delete L[t], E(e, t, n), o && e !== L && E(L, t, o)
     } : E,
-    F = function (e) {
+    B = function (e) {
       var t = A[e] = w(_.prototype);
-      return t._k = e, i && x && B(L, e, {
+      return t._k = e, i && x && F(L, e, {
         configurable: !0,
         set: function (t) {
-          a(this, P) && a(this[P], e) && (this[P][e] = !1), B(this, e, b(1, t))
+          a(this, P) && a(this[P], e) && (this[P][e] = !1), F(this, e, b(1, t))
         }
       }), t
     },
@@ -45469,7 +45418,7 @@ module.exports = function (e) {
     O = function (e, t, n) {
       return n && a(A, t) ? (n.enumerable ? (a(e, P) && e[P][t] && (e[P][t] = !1), n = w(n, {
         enumerable: b(0, !1)
-      })) : (!a(e, P) && E(e, P, b(1, {})), e[P][t] = !0), B(e, t, n)) : E(e, t, n)
+      })) : (!a(e, P) && E(e, P, b(1, {})), e[P][t] = !0), F(e, t, n)) : E(e, t, n)
     },
     H = function (e, t) {
       S(e);
@@ -45500,23 +45449,23 @@ module.exports = function (e) {
         for (var t = [e], n = 1, o = arguments, r, i; o.length > n;) t.push(o[n++]);
         return r = t[1], 'function' == typeof r && (i = r), (i || !y(r)) && (r = function (e, t) {
           if (i && (t = i.call(this, e, t)), !N(t)) return t
-        }), t[1] = r, T.apply(R, t)
+        }), t[1] = r, R.apply(T, t)
       }
     },
     j = l(function () {
       var e = _();
-      return '[null]' != T([e]) || '{}' != T({
+      return '[null]' != R([e]) || '{}' != R({
         a: e
-      }) || '{}' != T(Object(e))
+      }) || '{}' != R(Object(e))
     });
   I || (_ = function () {
     if (N(this)) throw TypeError('Symbol is not a constructor');
-    return F(u(0 < arguments.length ? arguments[0] : void 0))
+    return B(u(0 < arguments.length ? arguments[0] : void 0))
   }, d(_.prototype, 'toString', function () {
     return this._k
   }), N = function (e) {
     return e instanceof _
-  }, o.create = z, o.isEnum = U, o.getDesc = W, o.setDesc = O, o.setDescs = H, o.getNames = f.get = V, o.getSymbols = G, i && !n(222) && d(L, 'propertyIsEnumerable', U, !0));
+  }, o.create = z, o.isEnum = U, o.getDesc = W, o.setDesc = O, o.setDescs = H, o.getNames = f.get = V, o.getSymbols = G, i && !n(224) && d(L, 'propertyIsEnumerable', U, !0));
   var q = {
     for: function (e) {
       return a(D, e += '') ? D[e] : D[e] = _(e)
@@ -45533,7 +45482,7 @@ module.exports = function (e) {
   };
   o.each.call('hasInstance,isConcatSpreadable,iterator,match,replace,search,species,split,toPrimitive,toStringTag,unscopables'.split(','), function (e) {
     var t = m(e);
-    q[e] = I ? t : F(t)
+    q[e] = I ? t : B(t)
   }), x = !0, s(s.G + s.W, {
     Symbol: _
   }), s(s.S, 'Symbol', q), s(s.S + s.F * !I, 'Object', {
@@ -45543,14 +45492,14 @@ module.exports = function (e) {
     getOwnPropertyDescriptor: W,
     getOwnPropertyNames: V,
     getOwnPropertySymbols: G
-  }), R && s(s.S + s.F * (!I || j), 'JSON', {
+  }), T && s(s.S + s.F * (!I || j), 'JSON', {
     stringify: K
   }), p(_, 'Symbol'), p(Math, 'Math', !0), p(r.JSON, 'JSON', !0)
 }, function (e, t, n) {
-  n(577), n(572), e.exports = n(43).Symbol
+  n(582), n(577), e.exports = n(43).Symbol
 }, function (e, t, n) {
   e.exports = {
-    default: n(578),
+    default: n(583),
     __esModule: !0
   }
 }, function (e) {
@@ -45564,11 +45513,11 @@ module.exports = function (e) {
   e.exports = function () {}
 }, function (e, t, n) {
   'use strict';
-  var o = n(581),
-    r = n(580),
+  var o = n(586),
+    r = n(585),
     i = n(90),
     a = n(89);
-  e.exports = n(223)(Array, 'Array', function (e, t) {
+  e.exports = n(225)(Array, 'Array', function (e, t) {
     this._t = a(e), this._i = 0, this._k = t
   }, function () {
     var e = this._t,
@@ -45582,7 +45531,7 @@ module.exports = function (e) {
     r = n(152),
     i = n(150),
     a = {};
-  n(153)(a, n(57)('iterator'), function () {
+  n(153)(a, n(56)('iterator'), function () {
     return this
   }), e.exports = function (e, t, n) {
     e.prototype = o.create(a, {
@@ -45596,7 +45545,7 @@ module.exports = function (e) {
     return isNaN(e = +e) ? 0 : (0 < e ? n : t)(e)
   }
 }, function (e, t, n) {
-  var o = n(584),
+  var o = n(589),
     r = n(156);
   e.exports = function (e) {
     return function (t, n) {
@@ -45608,10 +45557,10 @@ module.exports = function (e) {
     }
   }
 }, function (e, t, n) {
-  n(154), n(149), e.exports = n(57)('iterator')
+  n(154), n(149), e.exports = n(56)('iterator')
 }, function (e, t, n) {
   e.exports = {
-    default: n(586),
+    default: n(591),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -45632,7 +45581,7 @@ module.exports = function (e) {
     }
   })
 }, function (e, t, n) {
-  n(590), e.exports = n(43).Object.getPrototypeOf
+  n(595), e.exports = n(43).Object.getPrototypeOf
 }, function (e, t, n) {
   'use strict';
 
@@ -45645,13 +45594,13 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(41),
-    a = n(303),
+    a = n(308),
     s = n(74),
     d = n(146),
-    l = n(549),
-    c = n(214),
+    l = n(554),
+    c = n(216),
     p = n(62),
-    u = n(548);
+    u = n(553);
   class m extends r.Component {
     constructor(e) {
       super(e), this.focusItem = null, this.fakeScroll = null, this.scrollToRow = -1, this.focusRow = -1, this.gridStyle = {
@@ -45908,7 +45857,7 @@ module.exports = function (e) {
     }
     renderGrid(e, t) {
       let n = this.props.scrollToRow;
-      n === void 0 && (n = this.scrollToRow), this.scrollToRow = -1;
+      n === void 0 && (n = this.scrollToRow), this.scrollToRow = -1, this.props.setScrollTop !== void 0 && (n = -1);
       const o = 1 > this.props.selectedRows.length && 0 < this.props.rowCount ? 0 : -1;
       return r.createElement(d.FocusContainer, {
         className: 'list-focus-container',
@@ -46029,7 +45978,7 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(44),
-    r = n(13),
+    r = n(12),
     a = n(45),
     s = n(23);
   var d;
@@ -46201,15 +46150,15 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(594),
-    a = n(593),
-    s = n(114),
-    d = n(1),
+    i = n(599),
+    a = n(598),
+    s = n(115),
+    d = n(13),
     l = n(4),
     c = n(26),
     p = n(25),
     u = n(33),
-    m = n(110),
+    m = n(111),
     h = n(23),
     f = u.encodePathAsUrl(__dirname, 'static/empty-no-repo.svg');
   class g extends r.Component {
@@ -46326,7 +46275,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(595);
+  var o = n(600);
   t.RepositoriesList = o.RepositoriesList
 }, function (e, t, n) {
   'use strict';
@@ -46448,8 +46397,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(20),
-    r = n(227),
-    i = n(3);
+    r = n(229),
+    i = n(2);
   t.iconForStatus = function (e) {
     switch (e.kind) {
       case o.AppFileStatusKind.New:
@@ -46483,7 +46432,7 @@ module.exports = function (e) {
     if (e instanceof r.CloningRepository) return o.OcticonSymbol.desktopDownload;
     if (e.missing) return o.OcticonSymbol.alert;
     const t = e.gitHubRepository;
-    return t ? t.private ? o.OcticonSymbol.lock : t.fork ? o.OcticonSymbol.repoForked : o.OcticonSymbol.repo : o.OcticonSymbol.deviceDesktop
+    return t ? t.isPrivate ? o.OcticonSymbol.lock : t.fork ? o.OcticonSymbol.repoForked : o.OcticonSymbol.repo : o.OcticonSymbol.deviceDesktop
   }
 }, function (e, t, n) {
   'use strict';
@@ -46491,7 +46440,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(6),
+    r = n(5),
     i = n(62);
   class a extends o.Component {
     constructor() {
@@ -46530,8 +46479,8 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(21),
-    i = n(236),
-    a = n(6);
+    i = n(238),
+    a = n(5);
   class s extends o.Component {
     constructor() {
       super(...arguments), this.onWindowStateChanged = (e, t) => {
@@ -46600,7 +46549,7 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(21),
-    a = n(602),
+    a = n(607),
     s = n(4);
   class d extends r.Component {
     constructor(e) {
@@ -46641,18 +46590,18 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(603);
+  var o = n(608);
   t.TitleBar = o.TitleBar;
-  var r = n(598);
+  var r = n(603);
   t.ZoomInfo = r.ZoomInfo;
-  var i = n(597);
+  var i = n(602);
   t.FullScreenInfo = i.FullScreenInfo
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(60),
+  const o = n(59),
     r = 'has-seen-usage-stats-note';
   t.hasSeenUsageStatsNote = function () {
     return o.getBoolean(r, !1)
@@ -46688,14 +46637,14 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(283),
-    i = n(228),
-    a = n(13),
-    s = n(3),
-    d = n(606),
+  const r = n(285),
+    i = n(230),
+    a = n(12),
+    s = n(2),
+    d = n(611),
     l = n(74),
     c = n(53),
-    p = n(174);
+    p = n(175);
   t.PullRequestStore = class {
     constructor(e, t) {
       this.db = e, this.repositoryStore = t, this.emitter = new c.Emitter, this.currentRefreshOperations = new Map, this.lastRefreshForRepository = new Map
@@ -46875,12 +46824,12 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(3),
-    i = n(229),
-    a = n(609),
-    s = n(13),
-    d = n(608),
-    l = n(58),
+  const r = n(2),
+    i = n(231),
+    a = n(614),
+    s = n(12),
+    d = n(613),
+    l = n(57),
     c = `The GitHub Enterprise Server version does not support GitHub Desktop. Talk to your server's administrator about upgrading to the latest version of GitHub Enterprise Server.`;
   var p;
   (function (e) {
@@ -47134,16 +47083,20 @@ module.exports = function (e) {
   function r(e) {
     return `${e}-`
   }
+
+  function i(e) {
+    return e ? e.admin ? 'admin' : e.push ? 'write' : e.pull ? 'read' : null : null
+  }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(267),
-    a = n(268),
-    s = n(44),
-    d = n(3),
-    l = n(58),
-    c = n(23);
-  class p extends l.BaseStore {
+  const a = n(270),
+    s = n(170),
+    d = n(44),
+    l = n(2),
+    c = n(57),
+    p = n(23);
+  class u extends c.BaseStore {
     constructor(e) {
       super(), this.lastStashCheckCache = new Map, this.branchProtectionSettingsFoundCache = new Map, this.protectionEnabledForBranchCache = new Map, this.db = e
     }
@@ -47155,9 +47108,9 @@ module.exports = function (e) {
     }
     async buildGitHubRepository(e) {
       const t = await this.db.owners.get(e.ownerID);
-      if (null == t) throw new Error(`Couldn't find the owner for ${e.name}`);
+      if (null == t) throw new Error(`Couldn't find repository owner ${e.ownerID}`);
       let n = null;
-      return e.parentID && (n = await this.findGitHubRepositoryByID(e.parentID)), new a.GitHubRepository(e.name, new i.Owner(t.login, t.endpoint, t.id), e.id, e.private, e.htmlURL, e.defaultBranch, e.cloneURL, n)
+      return e.parentID && (n = await this.findGitHubRepositoryByID(e.parentID)), new s.GitHubRepository(e.name, new a.Owner(t.login, t.endpoint, t.id), e.id, e.private, e.htmlURL, e.defaultBranch, e.cloneURL, e.permissions, n)
     }
     async findGitHubRepositoryByID(e) {
       const t = await this.db.gitHubRepositories.get(e);
@@ -47170,7 +47123,7 @@ module.exports = function (e) {
         for (const n of t) {
           let t = null,
             o = null;
-          n.gitHubRepositoryID && (o = await this.findGitHubRepositoryByID(n.gitHubRepositoryID)), t = new s.Repository(n.path, n.id, o, n.missing, n.isTutorialRepository), e.push(t)
+          n.gitHubRepositoryID && (o = await this.findGitHubRepositoryByID(n.gitHubRepositoryID)), t = new d.Repository(n.path, n.id, o, n.missing, n.isTutorialRepository), e.push(t)
         }
         return e
       })
@@ -47202,7 +47155,7 @@ module.exports = function (e) {
           gitHubRepositoryID: null,
           missing: !1,
           lastStashCheckDate: null
-        }) : (r = n.id, null != n.gitHubRepositoryID && (o = await this.findGitHubRepositoryByID(n.gitHubRepositoryID))), new s.Repository(e, r, o, !1)
+        }) : (r = n.id, null != n.gitHubRepositoryID && (o = await this.findGitHubRepositoryByID(n.gitHubRepositoryID))), new d.Repository(e, r, o, !1)
       });
       return this.emitUpdate(), t
     }
@@ -47213,47 +47166,48 @@ module.exports = function (e) {
       const n = e.id;
       return n ? (await this.db.repositories.update(n, {
         missing: t
-      }), this.emitUpdate(), new s.Repository(e.path, e.id, e.gitHubRepository, t, e.isTutorialRepository)) : d.fatalError('`updateRepositoryMissing` can only update `missing` for a repository which has been added to the database.')
+      }), this.emitUpdate(), new d.Repository(e.path, e.id, e.gitHubRepository, t, e.isTutorialRepository)) : l.fatalError('`updateRepositoryMissing` can only update `missing` for a repository which has been added to the database.')
     }
     async updateRepositoryPath(e, t) {
       const n = e.id;
       return n ? (await this.db.repositories.update(n, {
         missing: !1,
         path: t
-      }), this.emitUpdate(), new s.Repository(t, e.id, e.gitHubRepository, !1, e.isTutorialRepository)) : d.fatalError('`updateRepositoryPath` can only update the path for a repository which has been added to the database.')
+      }), this.emitUpdate(), new d.Repository(t, e.id, e.gitHubRepository, !1, e.isTutorialRepository)) : l.fatalError('`updateRepositoryPath` can only update the path for a repository which has been added to the database.')
     }
     async updateLastStashCheckDate(e, t = Date.now()) {
       const n = e.id;
-      return 0 === n ? d.fatalError('`updateLastStashCheckDate` can only update the last stash check date for a repository which has been added to the database.') : void(await this.db.repositories.update(n, {
+      return 0 === n ? l.fatalError('`updateLastStashCheckDate` can only update the last stash check date for a repository which has been added to the database.') : void(await this.db.repositories.update(n, {
         lastStashCheckDate: t
       }), this.lastStashCheckCache.set(n, t), this.emitUpdate())
     }
     async getLastStashCheckDate(e) {
       const t = e.id;
-      if (!t) return d.fatalError('`getLastStashCheckDate` - can only retrieve the last stash check date for a repositories that have been stored in the database.');
+      if (!t) return l.fatalError('`getLastStashCheckDate` - can only retrieve the last stash check date for a repositories that have been stored in the database.');
       let n = this.lastStashCheckCache.get(t) || null;
       if (null !== n) return n;
       const o = await this.db.repositories.get(t);
-      return void 0 === o ? d.fatalError(`'getLastStashCheckDate' - unable to find repository with ID: ${t}`) : (n = o.lastStashCheckDate, null !== n && this.lastStashCheckCache.set(t, n), n)
+      return void 0 === o ? l.fatalError(`'getLastStashCheckDate' - unable to find repository with ID: ${t}`) : (n = o.lastStashCheckDate, null !== n && this.lastStashCheckCache.set(t, n), n)
     }
     async putOwner(e, t) {
       t = t.toLowerCase();
       const n = await this.db.owners.where('[endpoint+login]').equals([e, t]).first();
-      if (n) return new i.Owner(t, e, n.id);
+      if (n) return new a.Owner(t, e, n.id);
       const o = {
           login: t,
           endpoint: e
         },
         r = await this.db.owners.add(o);
-      return new i.Owner(t, e, r)
+      return new a.Owner(t, e, r)
     }
     async putGitHubRepository(e, t) {
       let n = null;
       t.parent && (n = await this.putGitHubRepository(e, t.parent));
       const o = t.owner.login.toLowerCase(),
         r = await this.putOwner(e, o),
-        i = await this.db.gitHubRepositories.where('[ownerID+name]').equals([r.id, t.name]).first();
-      let s = {
+        a = await this.db.gitHubRepositories.where('[ownerID+name]').equals([r.id, t.name]).first(),
+        d = i(t.permissions) || (a ? a.permissions : void 0);
+      let l = {
         ownerID: r.id,
         name: t.name,
         private: t.private,
@@ -47261,17 +47215,18 @@ module.exports = function (e) {
         defaultBranch: t.default_branch,
         cloneURL: t.clone_url,
         parentID: n ? n.dbID : null,
-        lastPruneDate: null
+        lastPruneDate: null,
+        permissions: d
       };
-      i && (s = Object.assign({}, s, {
-        id: i.id
+      a && (l = Object.assign({}, l, {
+        id: a.id
       }));
-      const d = await this.db.gitHubRepositories.put(s);
-      return new a.GitHubRepository(s.name, r, d, s.private, s.htmlURL, s.defaultBranch, s.cloneURL, n)
+      const c = await this.db.gitHubRepositories.put(l);
+      return new s.GitHubRepository(l.name, r, c, l.private, l.htmlURL, l.defaultBranch, l.cloneURL, l.permissions, n)
     }
     async updateGitHubRepository(e, t, n) {
       const o = e.id;
-      if (!o) return d.fatalError('`updateGitHubRepository` can only update a GitHub repository for a repository which has been added to the database.');
+      if (!o) return l.fatalError('`updateGitHubRepository` can only update a GitHub repository for a repository which has been added to the database.');
       const r = await this.db.transaction('rw', this.db.repositories, this.db.gitHubRepositories, this.db.owners, async () => {
         const e = await this.db.repositories.get(o),
           r = await this.putGitHubRepository(t, n);
@@ -47279,10 +47234,10 @@ module.exports = function (e) {
           gitHubRepositoryID: r.dbID
         }), r
       });
-      return this.emitUpdate(), new s.Repository(e.path, e.id, r, e.missing, e.isTutorialRepository)
+      return this.emitUpdate(), new d.Repository(e.path, e.id, r, e.missing, e.isTutorialRepository)
     }
     async updateBranchProtections(e, t) {
-      if (!c.enableBranchProtectionChecks()) return;
+      if (!p.enableBranchProtectionChecks()) return;
       const n = e.dbID;
       return n ? void(await this.db.transaction('rw', this.db.protectedBranches, async () => {
         const e = r(n);
@@ -47298,27 +47253,27 @@ module.exports = function (e) {
         await this.db.protectedBranches.where('repoId').equals(n).delete();
         const a = 0 < i.length;
         this.branchProtectionSettingsFoundCache.set(n, a), 0 < i.length && (await this.db.protectedBranches.bulkAdd(i))
-      }), this.emitUpdate()) : d.fatalError('`updateBranchProtections` can only update a GitHub repository for a repository which has been added to the database.')
+      }), this.emitUpdate()) : l.fatalError('`updateBranchProtections` can only update a GitHub repository for a repository which has been added to the database.')
     }
     async updateLastPruneDate(e, t) {
       const n = e.id;
-      if (0 === n) return d.fatalError('`updateLastPruneDate` can only update the last prune date for a repository which has been added to the database.');
+      if (0 === n) return l.fatalError('`updateLastPruneDate` can only update the last prune date for a repository which has been added to the database.');
       const o = e.gitHubRepository;
-      if (null === o) return d.fatalError(`'updateLastPruneDate' can only update GitHub repositories`);
+      if (null === o) return l.fatalError(`'updateLastPruneDate' can only update GitHub repositories`);
       const r = o.dbID;
-      return null === r ? d.fatalError(`'updateLastPruneDate' can only update GitHub repositories with a valid ID: received ID of ${r}`) : void(await this.db.gitHubRepositories.update(r, {
+      return null === r ? l.fatalError(`'updateLastPruneDate' can only update GitHub repositories with a valid ID: received ID of ${r}`) : void(await this.db.gitHubRepositories.update(r, {
         lastPruneDate: t
       }), this.emitUpdate())
     }
     async getLastPruneDate(e) {
       const t = e.id;
-      if (!t) return d.fatalError('`getLastPruneDate` - can only retrieve the last prune date for a repositories that have been stored in the database.');
+      if (!t) return l.fatalError('`getLastPruneDate` - can only retrieve the last prune date for a repositories that have been stored in the database.');
       const n = e.gitHubRepository;
-      if (null === n) return d.fatalError(`'getLastPruneDate' - can only retrieve the last prune date for GitHub repositories.`);
+      if (null === n) return l.fatalError(`'getLastPruneDate' - can only retrieve the last prune date for GitHub repositories.`);
       const o = n.dbID;
-      if (null === o) return d.fatalError(`'getLastPruneDate' - can only retrieve the last prune date for GitHub repositories that have been stored in the database.`);
+      if (null === o) return l.fatalError(`'getLastPruneDate' - can only retrieve the last prune date for GitHub repositories that have been stored in the database.`);
       const r = await this.db.gitHubRepositories.get(o);
-      return void 0 === r ? d.fatalError(`'getLastPruneDate' - unable to find GitHub repository with ID: ${o}`) : r.lastPruneDate
+      return void 0 === r ? l.fatalError(`'getLastPruneDate' - unable to find GitHub repository with ID: ${o}`) : r.lastPruneDate
     }
     async loadAndCacheBranchProtection(e) {
       const t = await this.db.protectedBranches.where('repoId').equals(e).toArray(),
@@ -47331,31 +47286,21 @@ module.exports = function (e) {
       return n
     }
     async hasBranchProtectionsConfigured(e) {
-      if (null === e.dbID) return d.fatalError('unable to get protected branches, GitHub repository has a null dbID');
+      if (null === e.dbID) return l.fatalError('unable to get protected branches, GitHub repository has a null dbID');
       const {
         dbID: t
       } = e, n = this.branchProtectionSettingsFoundCache.get(t);
       return void 0 === n ? this.loadAndCacheBranchProtection(t) : n
     }
-    async isBranchProtectedOnRemote(e, t) {
-      if (null === e.dbID) return d.fatalError('unable to get protected branches, GitHub repository has a null dbID');
-      const {
-        dbID: n
-      } = e, r = o(n, t), i = this.protectionEnabledForBranchCache.get(r);
-      if (!0 === i) return i;
-      const a = await this.db.protectedBranches.get([n, t]),
-        s = void 0 !== a;
-      return this.protectionEnabledForBranchCache.set(r, s), s
-    }
   }
-  t.RepositoriesStore = p
+  t.RepositoriesStore = u
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(13),
-    r = n(3),
+  const o = n(12),
+    r = n(2),
     i = 100;
   t.IssuesStore = class {
     constructor(e) {
@@ -47432,11 +47377,11 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(13),
+  const i = n(12),
     a = n(100),
-    s = n(3),
+    s = n(2),
     d = n(45),
-    l = n(58);
+    l = n(57);
   class c extends l.BaseStore {
     constructor(e) {
       super(), this.requestsInFlight = new Set, this.usersByEndpoint = new Map, this.failedRequests = new Set, this.mentionablesEtags = new Map, this.database = e
@@ -47611,10 +47556,10 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(99),
-    r = n(117),
+    r = n(118),
     i = n(22),
     a = n(131),
-    s = n(58);
+    s = n(57);
   class d extends s.BaseStore {
     constructor() {
       super(...arguments), this._repositories = [], this.stateByID = new Map
@@ -47660,6 +47605,18 @@ module.exports = function (e) {
     }
   }
   t.CloningRepositoriesStore = d
+}, function (e, t) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  }), t.isBranchPushable = function (e) {
+    const {
+      allow_actor: t,
+      required_status_checks: n,
+      required_approving_review_count: o
+    } = e, r = 0 === n.length && 0 === o;
+    return t && r
+  }
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -47667,7 +47624,7 @@ module.exports = function (e) {
   });
   const o = n(93),
     r = n(29),
-    i = n(60),
+    i = n(59),
     a = 'tutorial-install-editor-skipped',
     s = 'tutorial-pull-request-step-complete',
     d = 'tutorial-paused';
@@ -47812,8 +47769,8 @@ module.exports = function (e) {
     return typeof e == typeof t
   }
   var s = Array.prototype.slice,
-    d = n(619),
-    l = n(618),
+    d = n(625),
+    l = n(624),
     c = e.exports = function (e, t, n) {
       return n || (n = {}), e === t || (e instanceof Date && t instanceof Date ? e.getTime() === t.getTime() : e && t && ('object' == typeof e || 'object' == typeof t) ? i(e, t, n) : n.strict ? e === t : e == t)
     }
@@ -47833,7 +47790,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(22),
-    i = n(3),
+    i = n(2),
     a = n(66),
     s = ['HEAD', 'refs/heads/master', 'refs/heads/gh-pages', 'refs/heads/develop', 'refs/heads/dev', 'refs/heads/development', 'refs/heads/trunk', 'refs/heads/devel', 'refs/heads/release'],
     d = {
@@ -47978,7 +47935,7 @@ module.exports = function (e) {
     s = n(28),
     d = n(30),
     l = n(45),
-    c = n(3);
+    c = n(2);
   t.updateChangedFiles = function (e, t, n) {
     const o = new Map;
     e.workingDirectory.files.forEach((e) => o.set(e.id, e));
@@ -48056,7 +48013,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(233);
+  const o = n(235);
   t.GitStoreCache = class {
     constructor(e, t, n, o) {
       this.shell = e, this.onGitStoreUpdated = t, this.onDidLoadNewCommits = n, this.onDidError = o, this.gitStores = new Map
@@ -48071,7 +48028,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  const o = n(2);
+  const o = n(1);
   e.exports = (e, t) => {
     if ('string' != typeof e) throw new TypeError(`Expected a string, got ${typeof e}`);
     t = Object.assign({
@@ -48106,7 +48063,7 @@ module.exports = function (e) {
     value: !0
   });
   const a = n(32),
-    s = n(2),
+    s = n(1),
     d = n(33);
   t.readEmoji = function (e) {
     return new Promise((t, n) => {
@@ -48221,8 +48178,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(13),
-    i = n(3),
+  const r = n(12),
+    i = n(2),
     a = 3600000,
     s = 30000;
   t.BackgroundFetcher = class {
@@ -48310,8 +48267,8 @@ module.exports = function (e) {
   function a(e) {
     this.session++, this.running = !1, this.emit('end', e)
   }
-  var s = n(631),
-    d = n(235).EventEmitter;
+  var s = n(637),
+    d = n(237).EventEmitter;
   e.exports = o, s(o, d);
   ['pop', 'shift', 'indexOf', 'lastIndexOf'].forEach(function (e) {
     o.prototype[e] = function () {
@@ -48364,10 +48321,10 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(632),
+  const o = n(638),
     r = n(22),
     i = n(22),
-    a = n(234);
+    a = n(236);
   t.AheadBehindUpdater = class {
     constructor(e, t) {
       this.repository = e, this.onCacheUpdate = t, this.comparisonCache = new a.ComparisonCache, this.aheadBehindQueue = o({
@@ -48464,7 +48421,7 @@ module.exports = function (e) {
   });
   const d = n(46),
     l = n(19),
-    c = n(3);
+    c = n(2);
   var p;
   (function (e) {
     e.Gnome = 'GNOME Terminal', e.Mate = 'MATE Terminal', e.Tilix = 'Tilix', e.Terminator = 'Terminator', e.Urxvt = 'URxvt', e.Konsole = 'Konsole', e.Xterm = 'XTerm', e.Terminology = 'Terminology'
@@ -48648,10 +48605,10 @@ module.exports = function (e) {
     value: !0
   });
   const u = n(46),
-    m = n(2),
-    h = n(261),
+    m = n(1),
+    h = n(264),
     f = n(19),
-    g = n(3),
+    g = n(2),
     y = n(23);
   var S;
   (function (e) {
@@ -48710,8 +48667,8 @@ module.exports = function (e) {
     value: !0
   });
   const d = n(46),
-    l = n(3),
-    c = n(263);
+    l = n(2),
+    c = n(266);
   var p;
   (function (e) {
     e.Terminal = 'Terminal', e.Hyper = 'Hyper', e.iTerm2 = 'iTerm2', e.PowerShellCore = 'PowerShell Core', e.Kitty = 'Kitty'
@@ -48736,10 +48693,10 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(19),
-    a = n(636),
-    s = n(635),
-    d = n(634),
-    l = n(237);
+    a = n(642),
+    s = n(641),
+    d = n(640),
+    l = n(239);
   t.Default = function () {
     return s.Default
   }();
@@ -48906,8 +48863,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(254),
-    r = n(13),
+  const o = n(256),
+    r = n(12),
     i = n(65);
   t.inferLastPushForRepository = async function (e, t, n) {
     const a = o.getAccountForRepository(e, n);
@@ -48935,9 +48892,40 @@ module.exports = function (e) {
     return await t.updateLastFetched(), d
   }
 }, function (e, t, n) {
+  function o(e, t, o) {
+    var r = t && o || 0,
+      i = t || [];
+    e = e || {};
+    var p = void 0 === e.clockseq ? d : e.clockseq,
+      u = void 0 === e.msecs ? new Date().getTime() : e.msecs,
+      m = void 0 === e.nsecs ? c + 1 : e.nsecs,
+      h = u - l + (m - c) / 1e4;
+    if (0 > h && void 0 === e.clockseq && (p = 16383 & p + 1), (0 > h || u > l) && void 0 === e.nsecs && (m = 0), 1e4 <= m) throw new Error('uuid.v1(): Can\'t create more than 10M uuids/sec');
+    l = u, c = m, d = p, u += 122192928e5;
+    var f = (1e4 * (268435455 & u) + m) % 4294967296;
+    i[r++] = 255 & f >>> 24, i[r++] = 255 & f >>> 16, i[r++] = 255 & f >>> 8, i[r++] = 255 & f;
+    var g = 268435455 & 1e4 * (u / 4294967296);
+    i[r++] = 255 & g >>> 8, i[r++] = 255 & g, i[r++] = 16 | 15 & g >>> 24, i[r++] = 255 & g >>> 16, i[r++] = 128 | p >>> 8, i[r++] = 255 & p;
+    for (var y = e.node || s, S = 0; 6 > S; ++S) i[r + S] = y[S];
+    return t ? t : a(i)
+  }
+  var r = n(291),
+    a = n(290),
+    i = r(),
+    s = [1 | i[0], i[1], i[2], i[3], i[4], i[5]],
+    d = 16383 & (i[6] << 8 | i[7]),
+    l = 0,
+    c = 0;
+  e.exports = o
+}, function (e, t, n) {
+  var o = n(646),
+    r = n(292),
+    i = r;
+  i.v1 = o, i.v4 = r, e.exports = i
+}, function (e, t, n) {
   'use strict';
   async function o(e) {
-    const t = await p.git(['worktree', 'list', '--porcelain'], e.path, 'listWorkTrees'),
+    const t = await c.git(['worktree', 'list', '--porcelain'], e.path, 'listWorkTrees'),
       n = [],
       o = /worktree (.*)\nHEAD ([a-f0-9]*)\n(branch .*|detached)\n/gm;
     return u.getMatches(t.stdout, o).forEach((e) => {
@@ -48947,52 +48935,42 @@ module.exports = function (e) {
       }) : log.debug(`[listWorkTrees] match '${e[0]}' does not have the expected data or output. Skipping...`)
     }), n
   }
-  async function r(e, t, n) {
-    await p.git(['worktree', 'add', '-f', t, n], e.path, 'addWorkTree');
-    const r = await o(e),
-      i = l.basename(t),
-      a = r.find((e) => l.basename(e.path) === i);
-    if (null == a) throw new Error(`[addWorkTree] Unable to find created worktree at path ${t}`);
-    return a
-  }
-  async function i(e, t) {
-    return await p.git(['worktree', 'remove', '-f', t], e.path, 'removeWorkTree'), !0
+  async function r(e, t) {
+    return await c.git(['worktree', 'remove', '-f', t.path], e.path, 'removeWorkTree'), !0
   }
 
-  function a() {
-    return l.join(d.tmpdir(), m)
+  function i() {
+    return d.join(s.tmpdir(), `${m}${p.v4()}`)
   }
-  async function s(e) {
+  async function a(e) {
     const t = await o(e),
       n = t.slice(1);
     return n.filter((e) => {
-      const t = l.basename(e.path);
+      const t = d.basename(e.path);
       return t.startsWith(m)
     })
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const d = n(59),
-    l = n(2),
-    c = n(19),
-    p = n(11),
-    u = n(164);
-  t.listWorkTrees = o, t.removeWorkTree = i;
-  const m = 'github-desktop-worktree-';
-  t.findOrCreateTemporaryWorkTree = async function (e, t) {
-    const n = await s(e);
-    if (0 === n.length) {
-      const n = a(),
-        o = await c.mkdtemp(n),
-        i = await r(e, o, t);
-      return i
-    }
-    const o = n[0];
-    return await p.git(['checkout', t], o.path, 'checkoutWorkTree'), o
-  }, t.cleanupTemporaryWorkTrees = async function (e) {
-    const t = await s(e);
-    for (const n of t) await i(e, n.path)
+  const s = n(58),
+    d = n(1),
+    l = n(19),
+    c = n(10),
+    p = n(647),
+    u = n(164),
+    m = 'github-desktop-worktree-';
+  t.listWorkTrees = o, t.createTemporaryWorkTree = async function (e, t) {
+    const n = await l.mkdtemp(i());
+    await c.git(['worktree', 'add', '-f', n, t], e.path, 'addWorkTree');
+    const r = await o(e),
+      a = d.basename(n),
+      s = r.find((e) => d.basename(e.path) === a);
+    if (!s) throw new Error(`[addWorkTree] Unable to find created worktree "${a}"`);
+    return s
+  }, t.destroyWorkTree = r, t.cleanupTemporaryWorkTrees = async function (e) {
+    const t = await a(e);
+    for (const n of t) await r(e, n)
   }
 }, function (e, t, n) {
   'use strict';
@@ -49050,7 +49028,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = n(2),
+  const a = n(1),
     s = n(32),
     d = n(79);
   t.readGitIgnoreAtRoot = o, t.saveGitIgnore = r, t.appendIgnoreRule = async function (e, t) {
@@ -49075,10 +49053,10 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(2),
+  const o = n(1),
     r = n(19),
-    i = n(11),
-    a = n(643);
+    i = n(10),
+    a = n(651);
   t.listSubmodules = async function (e) {
     const [t, n] = await Promise.all([r.pathExists(o.join(e.path, '.gitmodules')), r.pathExists(o.join(e.path, '.git', 'modules'))]);
     if (!t && !n) return log.info('No submodules found. Skipping "git submodule status"'), [];
@@ -49105,7 +49083,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(11);
+  const o = n(10);
   t.openMergeTool = async function (e, t) {
     await o.git(['mergetool', t], e.path, 'openMergeTool')
   }
@@ -49114,7 +49092,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(11);
+  const o = n(10);
   t.unstageAllFiles = async function (e) {
     await o.git(['rm', '--cached', '-r', '-f', '.'], e.path, 'unstageAllFiles')
   }
@@ -49139,10 +49117,10 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(11),
+  const o = n(10),
     r = n(49),
-    i = n(247),
-    a = n(647);
+    i = n(249),
+    a = n(655);
   t.revertCommit = async function (e, t, n, s) {
     const d = await o.gitNetworkArguments(e, n),
       l = [...d, 'revert'];
@@ -49172,7 +49150,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(11);
+  const o = n(10);
   t.checkoutIndex = async function (e, t) {
     t.length && (await o.git(['checkout-index', '-f', '-u', '-q', '--stdin', '-z'], e.path, 'checkoutIndex', {
       stdin: t.join('\0')
@@ -49216,7 +49194,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(11);
+  const i = n(10);
   var a;
   (function (e) {
     e[e.Unknown = 0] = 'Unknown', e[e.Added = 1] = 'Added', e[e.Copied = 2] = 'Copied', e[e.Deleted = 3] = 'Deleted', e[e.Modified = 4] = 'Modified', e[e.Renamed = 5] = 'Renamed', e[e.TypeChanged = 6] = 'TypeChanged', e[e.Unmerged = 7] = 'Unmerged'
@@ -49241,8 +49219,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(11),
-    r = n(119);
+  const o = n(10),
+    r = n(120);
   t.getAuthorIdentity = async function (e) {
     const t = await o.git(['var', 'GIT_AUTHOR_IDENT'], e.path, 'getAuthorIdentity', {
       successExitCodes: new Set([0, 128])
@@ -49254,7 +49232,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(11);
+  const o = n(10);
   t.updateRef = async function (e, t, n, r, i) {
     await o.git(['update-ref', t, r, n, '-m', i], e.path, 'updateRef')
   }, t.deleteRef = async function (e, t, n) {
@@ -49299,26 +49277,27 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(63),
-    i = /^(merged|added in remote|removed in remote|changed in both|removed in local|added in both)$/,
-    a = /^\s{2}(result|our|their|base)\s+(\d{6})\s([0-9a-f]{40})\s(.+)$/;
+    a = /^(merged|added in remote|removed in remote|changed in both|removed in local|added in both)$/,
+    s = /^\s{2}(result|our|their|base)\s+(\d{6})\s([0-9a-f]{40})\s(.+)$/;
   t.parseMergeResult = function (e) {
     const t = [],
       n = e.split('\n');
-    let s, d;
-    for (const r of n) {
-      const e = i.exec(r);
-      if (null != e) {
-        s = e[1], null != d && (t.push(d), d = void 0);
+    let d, l;
+    for (let r = 0; r < n.length; r++) {
+      const e = n[r],
+        i = a.exec(e);
+      if (null != i) {
+        d = i[1], null != l && (t.push(l), l = void 0);
         continue
       }
-      const n = a.exec(r);
-      if (null != n) {
-        const e = n[1],
-          t = n[2],
-          i = n[3],
-          a = n[4];
-        if (null == s) {
-          log.warn(`An unknown header was set while trying to parse the blob ${r}`);
+      const c = s.exec(e);
+      if (null != c) {
+        const e = c[1],
+          t = c[2],
+          n = c[3],
+          i = c[4];
+        if (null == d) {
+          log.warn(`An unknown header was set while trying to parse the blob on line ${r}`);
           continue
         }
         switch (e) {
@@ -49326,11 +49305,11 @@ module.exports = function (e) {
           case 'result':
           case 'our':
           case 'their':
-            d = o(d, s, {
+            l = o(l, d, {
               type: e,
               mode: t,
-              sha: i,
-              path: a
+              sha: n,
+              path: i
             });
             break;
           default:
@@ -49338,23 +49317,23 @@ module.exports = function (e) {
         }
         continue
       }
-      if (null == d) throw new Error(`invalid state - trying to append the diff to a merge entry that isn't defined. line: '${r}'`);
+      if (null == l) throw new Error(`invalid state - trying to append the diff to a merge entry that isn't defined on line ${r}`);
       else {
-        const e = d.diff;
-        d = Object.assign({}, d, {
-          diff: e + r + '\n'
+        const t = l.diff;
+        l = Object.assign({}, l, {
+          diff: t + e + '\n'
         });
-        const t = r.startsWith('+<<<<<<<') || r.startsWith('+=======') || r.startsWith('+>>>>>>>');
-        t && (d = Object.assign({}, d, {
+        const n = e.startsWith('+<<<<<<<') || e.startsWith('+=======') || e.startsWith('+>>>>>>>');
+        n && (l = Object.assign({}, l, {
           hasConflicts: !0
         }))
       }
     }
-    null != d && (t.push(d), d = void 0);
-    const l = t.filter((t) => t.hasConflicts || !1);
-    return 0 < l.length ? {
+    null != l && (t.push(l), l = void 0);
+    const i = t.filter((t) => t.hasConflicts || !1);
+    return 0 < i.length ? {
       kind: r.ComputedAction.Conflicts,
-      conflictedFiles: l.length
+      conflictedFiles: i.length
     } : {
       kind: r.ComputedAction.Clean,
       entries: t
@@ -49489,7 +49468,7 @@ module.exports = function (e) {
 
   function o(e) {
     const t = l.exec(e);
-    if (!t) throw new Error(`Failed to parse status line for changed entry: ${e}`);
+    if (!t) throw log.debug(`parseChangedEntry parse error: ${e}`), new Error(`Failed to parse status line for changed entry`);
     return {
       kind: 'entry',
       statusCode: t[1],
@@ -49499,7 +49478,7 @@ module.exports = function (e) {
 
   function r(e, t) {
     const n = c.exec(e);
-    if (!n) throw new Error(`Failed to parse status line for renamed or copied entry: ${e}`);
+    if (!n) throw log.debug(`parsedRenamedOrCopiedEntry parse error: ${e}`), new Error(`Failed to parse status line for renamed or copied entry`);
     if (!t) throw new Error('Failed to parse renamed or copied entry, could not parse old path');
     return {
       kind: 'entry',
@@ -49511,7 +49490,7 @@ module.exports = function (e) {
 
   function i(e) {
     const t = p.exec(e);
-    if (!t) throw new Error(`Failed to parse status line for unmerged entry: ${e}`);
+    if (!t) throw log.debug(`parseUnmergedEntry parse error: ${e}`), new Error(`Failed to parse status line for unmerged entry`);
     return {
       kind: 'entry',
       statusCode: t[1],
@@ -49530,7 +49509,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const s = n(654),
+  const s = n(662),
     d = n(20);
   t.isStatusHeader = function (e) {
     return 'header' === e.kind
@@ -49700,8 +49679,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(2),
-    i = n(11),
+  const r = n(1),
+    i = n(10),
     a = n(34);
   t.getTopLevelWorkingDirectory = o, t.isBareRepository = async function (e) {
     try {
@@ -49719,7 +49698,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(11),
+  const o = n(10),
     r = n(34);
   t.getRemotes = async function (e) {
     const t = await o.git(['remote', '-v'], e.path, 'getRemotes', {
@@ -49751,7 +49730,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(11);
+  const o = n(10);
   t.getRecentBranches = async function (e, t) {
     const n = new RegExp(/.*? (renamed|checkout)(?:: moving from|\s*) (?:refs\/heads\/|\s*)(.*?) to (?:refs\/heads\/|\s*)(.*?)$/i),
       r = await o.git(['log', '-g', '--no-abbrev-commit', '--pretty=oneline', 'HEAD', '-n', '2500', '--'], e.path, 'getRecentBranches', {
@@ -49796,7 +49775,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(34),
-    r = n(11),
+    r = n(10),
     i = n(77),
     a = n(49);
   t.push = async function (e, t, n, s, d, l, c) {
@@ -49846,7 +49825,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(11),
+  const r = n(10),
     i = n(77),
     a = n(49),
     s = n(23);
@@ -49888,7 +49867,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(11);
+  const o = n(10);
   t.initGitRepository = async function (e) {
     await o.git(['init'], e, 'initGitRepository')
   }
@@ -49901,7 +49880,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(11),
+  const r = n(10),
     i = n(77),
     a = n(49),
     s = n(23);
@@ -49962,10 +49941,10 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(11),
+  const r = n(10),
     i = n(162),
-    a = n(246),
-    s = n(245);
+    a = n(248),
+    s = n(247);
   t.createCommit = async function (e, t, n) {
     await a.unstageAll(e), await i.stageFiles(e, n);
     try {
@@ -49995,7 +49974,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(11),
+  const o = n(10),
     r = n(77),
     i = n(49);
   t.clone = async function (e, t, n, a) {
@@ -50034,7 +50013,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(19),
-    r = n(120);
+    r = n(121);
   t.createLFSProgressFile = async function () {
     const e = await r.getTempFilePath('GitHubDesktop-lfs-progress');
     return await o.ensureFile(e), e
@@ -50196,7 +50175,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(11),
+  const r = n(10),
     i = n(50),
     a = n(77),
     s = n(49),
@@ -50261,11 +50240,11 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(11),
-    a = n(250),
+  const i = n(10),
+    a = n(252),
     s = n(50),
     d = n(49),
-    l = n(248);
+    l = n(250);
   t.createBranch = async function (e, t, n) {
     const o = null === n ? ['branch', t] : ['branch', t, n];
     await i.git(o, e.path, 'createBranch');
@@ -50343,7 +50322,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = n(3),
+  const a = n(2),
     s = n(20),
     d = n(30);
   t.formatPatch = function (e, t) {
@@ -50366,7 +50345,7 @@ module.exports = function (e) {
             n.noTrailingNewLine && (o += '\\ No newline at end of file\n')
           }
         }), c && (n += i(t.header.oldStartLine, r, t.header.newStartLine, l), n += o)
-      }), !n.length) throw new Error(`Could not generate a patch for file ${e.path}, patch empty`);
+      }), !n.length) throw log.debug(`formatPatch: empty path for ${e.path}`), new Error(`Could not generate a patch, no changes`);
     return n = r(e) + n, n
   }
 }, function (e, t, n) {
@@ -50375,7 +50354,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(30),
-    r = n(3),
+    r = n(2),
     i = /^@@ -(\d+)(?:,(\d+))? \+(\d+)(?:,(\d+))? @@/,
     a = '+',
     s = '-',
@@ -50428,7 +50407,7 @@ module.exports = function (e) {
     }
     parseHunkHeader(e) {
       const t = i.exec(e);
-      if (!t) throw new Error(`Invalid hunk header format: '${e}'`);
+      if (!t) throw new Error(`Invalid hunk header format`);
       const n = this.numberFromGroup(t, 1),
         r = this.numberFromGroup(t, 2, 1),
         a = this.numberFromGroup(t, 3),
@@ -50448,7 +50427,7 @@ module.exports = function (e) {
         const e = this.readLine();
         if (!e) throw new Error('Expected unified diff line but reached end of diff');
         if (u === l) {
-          if (12 > e.length) throw new Error(`Expected no newline at end of file marker but got ${e}`);
+          if (12 > e.length) throw new Error(`Expected "no newline at end of file" marker to be at least 12 bytes long`);
           const t = i.length - 1,
             n = i[t];
           i[t] = n.withNoTrailingNewLine(!0);
@@ -50532,7 +50511,7 @@ module.exports = function (e) {
       this.state = null, this.emitter.emit('error', e)
     }
     start() {
-      if (this.state) throw new Error(`Cannot start an already started Tailer for "${this.path}"!`);
+      if (this.state) throw new Error(`Tailer already running`);
       try {
         const e = o.watch(this.path, this.onWatchEvent);
         e.on('error', (e) => {
@@ -50559,7 +50538,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   (function (e) {
-    const t = n(2),
+    const t = n(1),
       o = t.join(__dirname, 'keytar.node');
     try {
       global.process.dlopen(e, o)
@@ -50580,7 +50559,7 @@ module.exports = function (e) {
     });
     throw new Error('Callback required')
   }
-  var i = n(679);
+  var i = n(687);
   e.exports = {
     getPassword: function (e, t) {
       return o(e, 'Service'), o(t, 'Account'), r((n) => i.getPassword(e, t, n))
@@ -50626,7 +50605,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const d = n(2);
+  const d = n(1);
   t.setupEnvironment = function (e) {
     const t = i();
     let n = process.env.PATH || '';
@@ -50645,7 +50624,7 @@ module.exports = function (e) {
   'use strict';
 
   function o(e) {
-    e.stdin.on('error', (t) => {
+    e.stdin && e.stdin.on('error', (t) => {
       const n = t.code;
       if ('EPIPE' !== n && 'EOF' !== n && 'ECONNRESET' !== n && 1 >= e.stdin.listeners('error').length) throw t
     })
@@ -50655,8 +50634,8 @@ module.exports = function (e) {
   });
   const r = n(32),
     i = n(46),
-    a = n(257),
-    s = n(681);
+    a = n(260),
+    s = n(689);
   class d {
     static pathExists(e) {
       try {
@@ -50746,7 +50725,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   (function (e) {
-    const t = n(2),
+    const t = n(1),
       o = t.join(__dirname, 'registry.node');
     try {
       global.process.dlopen(e, o)
@@ -50781,7 +50760,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const s = n(684);
+  const s = n(692);
   var d;
   (function (e) {
     e.REG_BINARY = 'REG_BINARY', e.REG_DWORD = 'REG_DWORD', e.REG_DWORD_LITTLE_ENDIAN = 'REG_DWORD_LITTLE_ENDIAN', e.REG_DWORD_BIG_ENDIAN = 'REG_DWORD_BIG_ENDIAN', e.REG_EXPAND_SZ = 'REG_EXPAND_SZ', e.REG_LINK = 'REG_LINK', e.REG_MULTI_SZ = 'REG_MULTI_SZ', e.REG_NONE = 'REG_NONE', e.REG_QWORD = 'REG_QWORD', e.REG_QWORD_LITTLE_ENDIAN = 'REG_QWORD_LITTLE_ENDIAN', e.REG_SZ = 'REG_SZ'
@@ -50878,7 +50857,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(3);
+  const r = n(2);
   var i;
   (function (e) {
     e.All = 'All', e.Partial = 'Partial', e.None = 'None'
@@ -50985,7 +50964,7 @@ module.exports = function (e) {
   'use strict';
   const o = n(37).fromCallback,
     r = n(31),
-    i = n(2),
+    i = n(1),
     a = n(39),
     s = n(51).pathExists;
   e.exports = {
@@ -51024,9 +51003,9 @@ module.exports = function (e) {
   }
   const s = n(37).fromCallback,
     d = n(31),
-    l = n(2),
-    c = n(270).copy,
-    p = n(124).remove,
+    l = n(1),
+    c = n(272).copy,
+    p = n(125).remove,
     u = n(39).mkdirp,
     m = n(51).pathExists;
   e.exports = {
@@ -51098,30 +51077,30 @@ module.exports = function (e) {
     }
   }
   const d = n(31),
-    l = n(2),
-    c = n(274).copySync,
-    p = n(124).removeSync,
+    l = n(1),
+    c = n(276).copySync,
+    p = n(125).removeSync,
     u = n(39).mkdirsSync,
-    m = n(271);
+    m = n(273);
   e.exports = {
     moveSync: o
   }
 }, function (e, t, n) {
   'use strict';
   const o = n(31),
-    r = n(2),
+    r = n(1),
     i = n(39),
-    a = n(170);
+    a = n(171);
   e.exports = function (e, t, n) {
     const s = r.dirname(e);
     o.existsSync(s) || i.mkdirsSync(s), a.writeJsonSync(e, t, n)
   }
 }, function (e, t, n) {
   'use strict';
-  const o = n(2),
+  const o = n(1),
     r = n(39),
     i = n(51).pathExists,
-    a = n(170);
+    a = n(171);
   e.exports = function (e, t, n, s) {
     'function' == typeof n && (s = n, n = {});
     const d = o.dirname(e);
@@ -51208,8 +51187,8 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(37).fromCallback,
-    r = n(170);
-  r.outputJson = o(n(698)), r.outputJsonSync = n(697), r.outputJSON = r.outputJson, r.outputJSONSync = r.outputJsonSync, r.writeJSON = r.writeJson, r.writeJSONSync = r.writeJsonSync, r.readJSON = r.readJson, r.readJSONSync = r.readJsonSync, e.exports = r
+    r = n(171);
+  r.outputJson = o(n(706)), r.outputJsonSync = n(705), r.outputJSON = r.outputJson, r.outputJSONSync = r.outputJsonSync, r.writeJSON = r.writeJson, r.writeJSONSync = r.writeJsonSync, r.readJSON = r.readJson, r.readJSONSync = r.readJsonSync, e.exports = r
 }, function (e, t, n) {
   'use strict';
   const o = n(31);
@@ -51230,7 +51209,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  const o = n(2),
+  const o = n(1),
     r = n(31),
     i = n(51).pathExists;
   e.exports = {
@@ -51277,15 +51256,15 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(37).fromCallback,
-    r = n(2),
+    r = n(1),
     i = n(31),
     a = n(39),
     s = a.mkdirs,
     d = a.mkdirsSync,
-    l = n(702),
+    l = n(710),
     c = l.symlinkPaths,
     p = l.symlinkPathsSync,
-    u = n(701),
+    u = n(709),
     m = u.symlinkType,
     h = u.symlinkTypeSync,
     f = n(51).pathExists;
@@ -51311,7 +51290,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(37).fromCallback,
-    r = n(2),
+    r = n(1),
     i = n(31),
     a = n(39),
     s = n(51).pathExists;
@@ -51343,7 +51322,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(37).fromCallback,
-    r = n(2),
+    r = n(1),
     i = n(31),
     a = n(39),
     s = n(51).pathExists;
@@ -51371,9 +51350,9 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  const o = n(705),
-    r = n(704),
-    i = n(703);
+  const o = n(713),
+    r = n(712),
+    i = n(711);
   e.exports = {
     createFile: o.createFile,
     createFileSync: o.createFileSync,
@@ -51511,8 +51490,8 @@ module.exports = function (e) {
     } while (!0)
   }
   const p = n(31),
-    h = n(2),
-    f = n(275),
+    h = n(1),
+    f = n(277),
     g = !0;
   e.exports = r, r.sync = c
 }, function (e, t, n) {
@@ -51531,9 +51510,9 @@ module.exports = function (e) {
   }
   const r = n(37).fromCallback,
     i = n(32),
-    a = n(2),
+    a = n(1),
     s = n(39),
-    d = n(124),
+    d = n(125),
     l = r(function (e, t) {
       t = t || function () {}, i.readdir(e, (n, o) => {
         function r() {
@@ -51560,8 +51539,8 @@ module.exports = function (e) {
   }
 
   function r(e, t, n, o, r) {
-    const a = R.dirname(n);
-    x(a, (s, d) => s ? r(s) : d ? i(e, t, n, o, r) : void T(a, (a) => a ? r(a) : i(e, t, n, o, r)))
+    const a = T.dirname(n);
+    x(a, (s, d) => s ? r(s) : d ? i(e, t, n, o, r) : void R(a, (a) => a ? r(a) : i(e, t, n, o, r)))
   }
 
   function i(e, t, n, o, r) {
@@ -51630,13 +51609,13 @@ module.exports = function (e) {
   }
 
   function S(e, t, n, o, r, a) {
-    const s = R.join(n, t),
-      d = R.join(o, t);
+    const s = T.join(n, t),
+      d = T.join(o, t);
     k(s, d, (t, l) => t ? a(t) : void i(l, s, d, r, (t) => t ? a(t) : y(e, n, o, r, a)))
   }
 
   function C(e, t, n, o, r) {
-    _.readlink(t, (t, i) => t ? r(t) : (o.dereference && (i = R.resolve(process.cwd(), i)), e === M || e === D) ? _.symlink(i, n, r) : (o.dereference && (e = R.resolve(process.cwd(), e)), w(i, e)) ? r() : void _.stat(n, (t, o) => t ? r(t) : o.isDirectory() && v(e, i) ? r(new Error(`Cannot overwrite '${e}' with '${i}'.`)) : b(i, n, r)))
+    _.readlink(t, (t, i) => t ? r(t) : (o.dereference && (i = T.resolve(process.cwd(), i)), e === M || e === D) ? _.symlink(i, n, r) : (o.dereference && (e = T.resolve(process.cwd(), e)), w(i, e)) ? r() : void _.stat(n, (t, o) => t ? r(t) : o.isDirectory() && v(e, i) ? r(new Error(`Cannot overwrite '${e}' with '${i}'.`)) : b(i, n, r)))
   }
 
   function b(e, t, n) {
@@ -51644,8 +51623,8 @@ module.exports = function (e) {
   }
 
   function v(e, t) {
-    const n = R.resolve(e).split(R.sep),
-      o = R.resolve(t).split(R.sep);
+    const n = T.resolve(e).split(T.sep),
+      o = T.resolve(t).split(T.sep);
     return n.reduce((e, t, n) => e && o[n] === t, !0)
   }
 
@@ -51654,8 +51633,8 @@ module.exports = function (e) {
   }
 
   function w(e, t) {
-    const n = R.resolve(e),
-      o = R.resolve(t);
+    const n = T.resolve(e),
+      o = T.resolve(t);
     return n.toLowerCase() === o.toLowerCase()
   }
 
@@ -51663,10 +51642,10 @@ module.exports = function (e) {
     E(t, (o, r) => o ? n(o) : r === M || r === D ? w(e, t) ? n(new Error('Source and destination must not be the same.')) : n(null, r) : w(e, r) ? n(new Error('Source and destination must not be the same.')) : n(null, r))
   }
   const _ = n(31),
-    R = n(2),
-    T = n(39).mkdirs,
+    T = n(1),
+    R = n(39).mkdirs,
     x = n(51).pathExists,
-    P = n(272).utimesMillis,
+    P = n(274).utimesMillis,
     M = Symbol('notExist'),
     D = Symbol('existsReg');
   e.exports = o
@@ -51703,8 +51682,8 @@ module.exports = function (e) {
     return n
   }
   const r = n(31),
-    i = n(2),
-    a = n(273).invalidWin32Path,
+    i = n(1),
+    a = n(275).invalidWin32Path,
     s = parseInt('0777', 8);
   e.exports = o
 }, function (e, t, n) {
@@ -51736,8 +51715,8 @@ module.exports = function (e) {
     })
   }
   const r = n(31),
-    i = n(2),
-    a = n(273).invalidWin32Path,
+    i = n(1),
+    a = n(275).invalidWin32Path,
     s = parseInt('0777', 8);
   e.exports = o
 }, function (e, t, n) {
@@ -51768,7 +51747,7 @@ module.exports = function (e) {
 
   function a(e, t, n, o, r) {
     if (t === _) return d(e, n, o, r);
-    return t === R ? s(e, n, o, r) : s(e, n, o, r)
+    return t === T ? s(e, n, o, r) : s(e, n, o, r)
   }
 
   function s(e, t, n, o) {
@@ -51782,7 +51761,7 @@ module.exports = function (e) {
 
   function l(e, t, o, r) {
     const i = 65536,
-      a = n(271)(i),
+      a = n(273)(i),
       s = v.openSync(t, 'r'),
       d = v.openSync(o, 'w', e.mode);
     for (let n = 0; n < e.size;) {
@@ -51797,7 +51776,7 @@ module.exports = function (e) {
       if (y(n, o)) throw new Error(`Cannot copy '${n}' to a subdirectory of itself, '${o}'.`);
       return u(e, n, o, r)
     }
-    if (t === R) {
+    if (t === T) {
       if (y(n, o)) throw new Error(`Cannot copy '${n}' to a subdirectory of itself, '${o}'.`);
       return p(n, o, r)
     }
@@ -51826,7 +51805,7 @@ module.exports = function (e) {
 
   function f(e, t, n, o) {
     let r = v.readlinkSync(t);
-    if (o.dereference && (r = E.resolve(process.cwd(), r)), e === _ || e === R) return v.symlinkSync(r, n);
+    if (o.dereference && (r = E.resolve(process.cwd(), r)), e === _ || e === T) return v.symlinkSync(r, n);
     if (o.dereference && (e = E.resolve(process.cwd(), e)), !C(r, e)) {
       if (v.statSync(n).isDirectory() && y(e, r)) throw new Error(`Cannot overwrite '${e}' with '${r}'.`);
       return g(r, n)
@@ -51849,7 +51828,7 @@ module.exports = function (e) {
       t = v.readlinkSync(e)
     } catch (e) {
       if ('ENOENT' === e.code) return _;
-      if ('EINVAL' === e.code || 'UNKNOWN' === e.code) return R;
+      if ('EINVAL' === e.code || 'UNKNOWN' === e.code) return T;
       throw e
     }
     return t
@@ -51863,7 +51842,7 @@ module.exports = function (e) {
 
   function b(e, t) {
     const n = S(t);
-    if (n === _ || n === R) {
+    if (n === _ || n === T) {
       if (C(e, t)) throw new Error('Source and destination must not be the same.');
       return n
     }
@@ -51871,14 +51850,14 @@ module.exports = function (e) {
     return n
   }
   const v = n(31),
-    E = n(2),
+    E = n(1),
     w = n(39).mkdirsSync,
-    k = n(272).utimesMillisSync,
+    k = n(274).utimesMillisSync,
     _ = Symbol('notExist'),
-    R = Symbol('existsReg');
+    T = Symbol('existsReg');
   e.exports = o
 }, function (e, t, n) {
-  var o = n(276).Stream;
+  var o = n(278).Stream;
   e.exports = function (e) {
     function t(n, r) {
       if (!(this instanceof t)) return new t(n, r);
@@ -52026,8 +52005,8 @@ module.exports = function (e) {
     var t = !process.getuid || 0 !== process.getuid();
     return !!(t && ('EINVAL' === e.code || 'EPERM' === e.code))
   }
-  var u = n(277),
-    m = n(714),
+  var u = n(279),
+    m = n(722),
     h = process.cwd,
     f = null,
     g = process.env.GRACEFUL_FS_PLATFORM || 'win32';
@@ -52121,98 +52100,99 @@ module.exports = function (e) {
   });
   const d = n(21),
     l = n(19),
-    c = n(693),
+    c = n(701),
     p = n(129),
-    u = n(123),
-    m = n(269),
-    h = n(122),
+    u = n(124),
+    m = n(271),
+    h = n(123),
     f = n(99),
     g = n(30),
-    y = n(121),
-    S = n(268),
-    C = n(267),
+    y = n(122),
+    S = n(170),
+    C = n(270),
     b = n(169),
     v = n(44),
     E = n(20),
     w = n(29),
     k = n(25),
-    _ = n(686),
-    R = n(83),
-    T = n(81),
+    _ = n(694),
+    T = n(83),
+    R = n(81),
     x = n(26),
-    P = n(13),
+    P = n(12),
     M = n(38),
     D = n(28),
-    A = n(266),
-    I = n(3),
-    L = n(259),
+    A = n(269),
+    I = n(2),
+    L = n(262),
+    F = n(261),
     B = n(258),
-    F = n(256),
-    N = n(254),
+    N = n(256),
     O = n(22),
-    H = n(238),
-    z = n(639),
-    U = n(638),
+    H = n(240),
+    z = n(645),
+    U = n(644),
     W = n(52),
     V = n(65),
     G = n(76),
-    K = n(117),
-    j = n(116),
+    K = n(118),
+    j = n(117),
     q = n(82),
-    Y = n(281),
-    Q = n(236),
-    X = n(58),
-    $ = n(633),
+    Y = n(283),
+    X = n(238),
+    Q = n(57),
+    $ = n(639),
     Z = n(160),
-    J = n(630),
-    ee = n(629),
-    te = n(628),
+    J = n(636),
+    ee = n(635),
+    te = n(634),
     ne = n(159),
-    oe = n(627),
-    re = n(625),
-    ie = n(60),
+    oe = n(633),
+    re = n(631),
+    ie = n(59),
     ae = n(98),
-    se = n(622),
-    de = n(621),
+    se = n(628),
+    de = n(627),
     le = n(23),
     ce = n(95),
     pe = n(66),
     ue = n(168),
     me = n(63),
-    he = n(230),
+    he = n(232),
     fe = n(94),
     ge = n(75),
     ye = n(74),
-    Se = n(617),
-    Ce = n(616),
+    Se = n(623),
+    Ce = n(622),
     be = n(93),
-    ve = n(615),
+    ve = n(621),
     Ee = n(40),
-    we = 'last-selected-repository-id',
-    ke = 'recently-selected-repositories',
-    _e = ',',
+    we = n(620),
+    ke = 'last-selected-repository-id',
+    _e = 'recently-selected-repositories',
+    Te = ',',
     Re = 250,
-    Te = 'sidebar-width',
-    xe = 250,
-    Pe = 'commit-summary-width',
-    Me = 250,
-    De = 'stashed-files-width',
-    Ae = !0,
+    xe = 'sidebar-width',
+    Pe = 250,
+    Me = 'commit-summary-width',
+    De = 250,
+    Ae = 'stashed-files-width',
     Ie = !0,
     Le = !0,
+    Fe = !0,
     Be = 'confirmRepoRemoval',
-    Fe = 'confirmDiscardChanges',
-    Ne = 'confirmForcePush',
-    Oe = 'externalEditor',
-    He = g.ImageDiffType.TwoUp,
-    ze = 'image-diff-type',
-    Ue = 'hide-whitespace-in-diff',
-    We = 'shell';
-  class Ve extends X.TypedBaseStore {
+    Ne = 'confirmDiscardChanges',
+    Oe = 'confirmForcePush',
+    He = 'externalEditor',
+    ze = g.ImageDiffType.TwoUp,
+    Ue = 'image-diff-type',
+    We = 'hide-whitespace-in-diff',
+    Ve = 'shell';
+  class Ge extends Q.TypedBaseStore {
     constructor(e, t, n, o, r, i, a, s, l, c) {
-      super(), this.gitHubUserStore = e, this.cloningRepositoriesStore = t, this.issuesStore = n, this.statsStore = o, this.signInStore = r, this.accountsStore = i, this.repositoriesStore = a, this.pullRequestStore = s, this.repositoryStateCache = l, this.apiRepositoriesStore = c, this.accounts = [], this.repositories = [], this.recentRepositories = [], this.selectedRepository = null, this.currentBackgroundFetcher = null, this.currentPullRequestUpdater = null, this.currentAheadBehindUpdater = null, this.currentBranchPruner = null, this.showWelcomeFlow = !1, this.focusCommitMessage = !1, this.currentPopup = null, this.currentFoldout = null, this.currentBanner = null, this.errors = [], this.emitQueued = !1, this.localRepositoryStateLookup = new Map, this.emoji = new Map, this.appMenu = null, this.highlightAccessKeys = !1, this.appIsFocused = !1, this.sidebarWidth = Re, this.commitSummaryWidth = xe, this.stashedFilesWidth = Me, this.windowZoomFactor = 1, this.isUpdateAvailableBannerVisible = !1, this.askForConfirmationOnRepositoryRemoval = Ae, this.confirmDiscardChanges = Ie, this.askForConfirmationOnForcePush = Le, this.imageDiffType = He, this.hideWhitespaceInDiff = !1, this.selectedExternalEditor = null, this.resolvedExternalEditor = null, this.selectedShell = j.Default, this.repositoryFilterText = '', this.currentMergeTreePromise = null, this.resolveOpenInDesktop = null, this.selectedCloneRepositoryTab = h.CloneRepositoryTab.DotCom, this.selectedBranchesTab = m.BranchesTab.Branches, this.selectedTheme = T.ApplicationTheme.Light, this.automaticallySwitchTheme = !1, this.hasUserViewedStash = !1, this.currentOnboardingTutorialStep = be.TutorialStep.NotApplicable, this.getResolvedExternalEditor = () => this.resolvedExternalEditor, this.showWelcomeFlow = !Y.hasShownWelcomeFlow(), this.gitStoreCache = new re.GitStoreCache(M.shell, (e, t) => this.onGitStoreUpdated(e, t), (e, t) => this.loadAndCacheUsers(e, this.accounts, t), (e) => this.emitError(e));
+      super(), this.gitHubUserStore = e, this.cloningRepositoriesStore = t, this.issuesStore = n, this.statsStore = o, this.signInStore = r, this.accountsStore = i, this.repositoriesStore = a, this.pullRequestStore = s, this.repositoryStateCache = l, this.apiRepositoriesStore = c, this.accounts = [], this.repositories = [], this.recentRepositories = [], this.selectedRepository = null, this.currentBackgroundFetcher = null, this.currentPullRequestUpdater = null, this.currentAheadBehindUpdater = null, this.currentBranchPruner = null, this.showWelcomeFlow = !1, this.focusCommitMessage = !1, this.currentPopup = null, this.currentFoldout = null, this.currentBanner = null, this.errors = [], this.emitQueued = !1, this.localRepositoryStateLookup = new Map, this.emoji = new Map, this.appMenu = null, this.highlightAccessKeys = !1, this.appIsFocused = !1, this.sidebarWidth = Re, this.commitSummaryWidth = Pe, this.stashedFilesWidth = De, this.windowZoomFactor = 1, this.isUpdateAvailableBannerVisible = !1, this.askForConfirmationOnRepositoryRemoval = Ie, this.confirmDiscardChanges = Le, this.askForConfirmationOnForcePush = Fe, this.imageDiffType = ze, this.hideWhitespaceInDiff = !1, this.selectedExternalEditor = null, this.resolvedExternalEditor = null, this.selectedShell = j.Default, this.repositoryFilterText = '', this.currentMergeTreePromise = null, this.resolveOpenInDesktop = null, this.selectedCloneRepositoryTab = h.CloneRepositoryTab.DotCom, this.selectedBranchesTab = m.BranchesTab.Branches, this.selectedTheme = R.ApplicationTheme.Light, this.automaticallySwitchTheme = !1, this.hasUserViewedStash = !1, this.currentOnboardingTutorialStep = be.TutorialStep.NotApplicable, this.getResolvedExternalEditor = () => this.resolvedExternalEditor, this.showWelcomeFlow = !Y.hasShownWelcomeFlow(), this.gitStoreCache = new re.GitStoreCache(M.shell, (e, t) => this.onGitStoreUpdated(e, t), (e, t) => this.loadAndCacheUsers(e, this.accounts, t), (e) => this.emitError(e));
       const p = d.remote.getCurrentWindow();
-      this.windowState = Q.getWindowState(p), this.onWindowZoomFactorChanged(p.webContents.getZoomFactor()), this.wireupIpcEventHandlers(p), this.wireupStoreEventHandlers(), x.getAppMenu(), this.tutorialAssessor = new ve.OnboardingTutorialAssessor(this.getResolvedExternalEditor)
+      this.windowState = X.getWindowState(p), this.onWindowZoomFactorChanged(p.webContents.getZoomFactor()), this.wireupIpcEventHandlers(p), this.wireupStoreEventHandlers(), x.getAppMenu(), this.tutorialAssessor = new ve.OnboardingTutorialAssessor(this.getResolvedExternalEditor)
     }
     async updateCurrentTutorialStep(e) {
       const t = await this.tutorialAssessor.getCurrentStep(e.isTutorialRepository, this.repositoryStateCache.get(e));
@@ -52257,7 +52237,7 @@ module.exports = function (e) {
       this.tutorialAssessor.markPullRequestTutorialStepAsComplete(), await this.updateCurrentTutorialStep(e)
     }
     wireupIpcEventHandlers() {
-      d.ipcRenderer.on(Q.windowStateChannelName, (e, t) => {
+      d.ipcRenderer.on(X.windowStateChannelName, (e, t) => {
         this.windowState = t, this.emitUpdate()
       }), d.ipcRenderer.on('zoom-factor-changed', (e, t) => {
         this.onWindowZoomFactorChanged(t)
@@ -52286,7 +52266,7 @@ module.exports = function (e) {
       }), this.apiRepositoriesStore.onDidUpdate(() => this.emitUpdate()), this.apiRepositoriesStore.onDidError((e) => this.emitError(e))
     }
     loadEmoji() {
-      const e = R.getAppPath();
+      const e = T.getAppPath();
       oe.readEmoji(e).then((e) => {
         this.emoji = e, this.emitUpdate()
       }).catch((e) => {
@@ -52421,12 +52401,20 @@ module.exports = function (e) {
       if (le.enableBranchProtectionWarningFlow()) {
         const t = this.gitStoreCache.get(e);
         if (t.tip.kind === w.TipState.Valid && null !== e.gitHubRepository) {
-          const n = Se.findRemoteBranchName(t.tip, t.currentRemote, e.gitHubRepository);
-          if (null !== n) {
-            const t = await this.repositoriesStore.isBranchProtectedOnRemote(e.gitHubRepository, n);
+          const n = e.gitHubRepository,
+            o = Se.findRemoteBranchName(t.tip, t.currentRemote, n);
+          if (null !== o) {
+            const t = P.getAccountForEndpoint(this.accounts, n.endpoint);
+            if (null === t) return;
+            const r = n.name,
+              i = n.owner.login,
+              a = P.API.fromAccount(t),
+              s = null === n || S.hasWritePermission(n),
+              d = await a.fetchPushControl(i, r, o),
+              l = s && !we.isBranchPushable(d);
             this.repositoryStateCache.updateChangesState(e, () => ({
-              currentBranchProtected: t
-            }))
+              currentBranchProtected: l
+            })), this.emitUpdate()
           }
         }
       }
@@ -52661,23 +52649,23 @@ module.exports = function (e) {
         n = this.currentOnboardingTutorialStep !== be.TutorialStep.NotApplicable;
       if (!n || e instanceof v.Repository && e.isTutorialRepository || (this.currentOnboardingTutorialStep = be.TutorialStep.NotApplicable), this.selectedRepository = e, this.emitUpdate(), this.stopBackgroundFetching(), this.stopPullRequestUpdater(), this._clearBanner(), this.stopBackgroundPruner(), null == e) return Promise.resolve(null);
       if (!(e instanceof v.Repository)) return Promise.resolve(null);
-      ie.setNumber(we, e.id);
+      ie.setNumber(ke, e.id);
       const o = t ? t.id : null;
       le.enableGroupRepositoriesByOwner() && this.updateRecentRepositories(o, e.id);
       const r = await this.recoverMissingRepository(e);
-      return r.missing ? (this.gitStoreCache.remove(e), Promise.resolve(null)) : this._selectRepositoryRefreshTasks(r, t)
+      return r.missing ? (this.gitStoreCache.remove(e), Promise.resolve(null)) : (this.updateBranchProtectionsFromAPI(e), this._selectRepositoryRefreshTasks(r, t))
     }
     updateRecentRepositories(e, t) {
       const n = this.getStoredRecentRepositories().filter((n) => n !== t && n !== e);
       null !== e && n.unshift(e);
       const o = n.slice(0, 3);
-      localStorage.setItem(ke, o.join(_e)), this.recentRepositories = o, this.emitUpdate()
+      localStorage.setItem(_e, o.join(Te)), this.recentRepositories = o, this.emitUpdate()
     }
     getStoredRecentRepositories() {
-      const e = localStorage.getItem(ke);
+      const e = localStorage.getItem(_e);
       let t = [];
       if (e) try {
-        t = e.split(_e).map((e) => parseInt(e, 10)).filter((e) => !isNaN(e))
+        t = e.split(Te).map((e) => parseInt(e, 10)).filter((e) => !isNaN(e))
       } catch (e) {
         t = []
       }
@@ -52768,11 +52756,11 @@ module.exports = function (e) {
         }));
         for (const t of e) this.gitHubUserStore.cacheUser(t)
       }
-      this.updateRepositorySelectionAfterRepositoriesChanged(), this.sidebarWidth = ie.getNumber(Te, Re), this.commitSummaryWidth = ie.getNumber(Pe, xe), this.stashedFilesWidth = ie.getNumber(De, Me), this.askForConfirmationOnRepositoryRemoval = ie.getBoolean(Be, Ae), this.confirmDiscardChanges = ie.getBoolean(Fe, Ie), this.askForConfirmationOnForcePush = ie.getBoolean(Ne, Le), this.updateSelectedExternalEditor((await this.lookupSelectedExternalEditor())).catch((t) => log.error('Failed resolving current editor at startup', t));
-      const n = localStorage.getItem(We);
+      this.updateRepositorySelectionAfterRepositoriesChanged(), this.sidebarWidth = ie.getNumber(xe, Re), this.commitSummaryWidth = ie.getNumber(Me, Pe), this.stashedFilesWidth = ie.getNumber(Ae, De), this.askForConfirmationOnRepositoryRemoval = ie.getBoolean(Be, Ie), this.confirmDiscardChanges = ie.getBoolean(Ne, Le), this.askForConfirmationOnForcePush = ie.getBoolean(Oe, Fe), this.updateSelectedExternalEditor((await this.lookupSelectedExternalEditor())).catch((t) => log.error('Failed resolving current editor at startup', t));
+      const n = localStorage.getItem(Ve);
       this.selectedShell = n ? j.parse(n) : j.Default, this.updateMenuLabelsForSelectedRepository();
-      const o = localStorage.getItem(ze);
-      this.imageDiffType = null === o ? He : parseInt(o), this.hideWhitespaceInDiff = ie.getBoolean(Ue, !1), this.automaticallySwitchTheme = T.getAutoSwitchPersistedTheme(), this.automaticallySwitchTheme ? (this.selectedTheme = ue.isDarkModeEnabled() ? T.ApplicationTheme.Dark : T.ApplicationTheme.Light, T.setPersistedTheme(this.selectedTheme)) : this.selectedTheme = T.getPersistedTheme(), _.themeChangeMonitor.onThemeChanged((e) => {
+      const o = localStorage.getItem(Ue);
+      this.imageDiffType = null === o ? ze : parseInt(o), this.hideWhitespaceInDiff = ie.getBoolean(We, !1), this.automaticallySwitchTheme = R.getAutoSwitchPersistedTheme(), this.automaticallySwitchTheme ? (this.selectedTheme = ue.isDarkModeEnabled() ? R.ApplicationTheme.Dark : R.ApplicationTheme.Light, R.setPersistedTheme(this.selectedTheme)) : this.selectedTheme = R.getPersistedTheme(), _.themeChangeMonitor.onThemeChanged((e) => {
         this.automaticallySwitchTheme && (this.selectedTheme = e, this.emitUpdate())
       }), this.emitUpdateNow(), this.accountsStore.refresh()
     }
@@ -52781,14 +52769,14 @@ module.exports = function (e) {
     }
     async lookupSelectedExternalEditor() {
       const e = (await A.getAvailableEditors()).map((e) => e.editor),
-        t = localStorage.getItem(Oe);
+        t = localStorage.getItem(He);
       if (t) {
         const n = A.parse(t);
         if (n && e.includes(n)) return n
       }
       if (e.length) {
         const t = e[0];
-        return localStorage.setItem(Oe, t), t
+        return localStorage.setItem(He, t), t
       }
       return null
     }
@@ -52834,7 +52822,7 @@ module.exports = function (e) {
         t = n
       }
       if (null === t && 0 < this.repositories.length) {
-        const e = ie.getNumber(we, 0);
+        const e = ie.getNumber(ke, 0);
         0 < e && (t = this.repositories.find((t) => t.id === e) || null), t || (t = this.repositories[0])
       }
       const n = e && t && e.hash !== t.hash || e && !t || !e && t;
@@ -53028,7 +53016,7 @@ module.exports = function (e) {
         r = o.filter((e) => e.selection.getSelectionType() !== g.DiffSelectionType.None),
         i = this.gitStoreCache.get(e),
         a = await this.isCommitting(e, () => i.performFailableOperation(async () => {
-          const n = await B.formatCommitMessage(e, t);
+          const n = await F.formatCommitMessage(e, t);
           return O.createCommit(e, n, r)
         }));
       if (a) {
@@ -53056,8 +53044,10 @@ module.exports = function (e) {
             t && this.statsStore.recordCommitToRepositoryWithBranchProtections();
             const n = Se.findRemoteBranchName(i.tip, i.currentRemote, e.gitHubRepository);
             if (null !== n) {
-              const t = await this.repositoriesStore.isBranchProtectedOnRemote(e.gitHubRepository, n);
-              t && this.statsStore.recordCommitToProtectedBranch()
+              const {
+                changesState: t
+              } = this.repositoryStateCache.get(e);
+              t.currentBranchProtected && this.statsStore.recordCommitToProtectedBranch()
             }
           }
         }
@@ -53120,7 +53110,7 @@ module.exports = function (e) {
         clearPartialState: !1
       });
       else return I.assertNever(i, `Unknown section: ${i}`);
-      await Promise.all([o.loadRemotes(), o.updateLastFetched(), o.loadStashEntries(), this.refreshAuthor(e), this.refreshBranchProtectionState(e), a]), this.updateStashEntryCountMetric(e, o.desktopStashEntryCount, o.stashEntryCount), this.updateCurrentPullRequest(e);
+      await Promise.all([o.loadRemotes(), o.updateLastFetched(), o.loadStashEntries(), this.refreshAuthor(e), a]), this.updateStashEntryCountMetric(e, o.desktopStashEntryCount, o.stashEntryCount), this.updateCurrentPullRequest(e);
       const s = this.repositoryStateCache.get(e);
       this.updateMenuItemLabels(s), this._initializeCompare(e), this.updateCurrentTutorialStep(e)
     }
@@ -53273,7 +53263,7 @@ module.exports = function (e) {
           title: 'Refreshing repository',
           value: 1,
           targetBranch: r.name
-        }), await this._refreshRepository(e)
+        }), await this._refreshRepository(e), await this.refreshBranchProtectionState(e)
       } finally {
         this.updateCheckoutProgress(e, null), this._initializeCompare(e, {
           kind: D.HistoryTabMode.History
@@ -53322,7 +53312,7 @@ module.exports = function (e) {
       if (!c) return t && n.endpoint === t.endpoint ? e : i;
       const p = n.endpoint,
         u = await this.repositoriesStore.updateGitHubRepository(e, p, c);
-      return await this.updateBranchProtectionsFromAPI(e), u
+      return await this.refreshBranchProtectionState(e), u
     }
     async updateBranchProtectionsFromAPI(e) {
       if (null !== e.gitHubRepository && null !== e.gitHubRepository.dbID) {
@@ -53338,8 +53328,9 @@ module.exports = function (e) {
       }
     }
     async matchGitHubRepository(e) {
-      const t = this.gitStoreCache.get(e),
-        n = t.defaultRemote;
+      const t = this.gitStoreCache.get(e);
+      t.defaultRemote || (await t.loadRemotes());
+      const n = t.defaultRemote;
       return null === n ? null : V.matchGitHubRepository(this.accounts, n.url)
     }
     _pushError(e) {
@@ -53425,7 +53416,7 @@ module.exports = function (e) {
               kind: 'generic',
               title: i,
               value: p
-            }), await this.updateBranchProtectionsFromAPI(e), await this._refreshRepository(e), this.updatePushPullFetchProgress(e, {
+            }), await this.refreshBranchProtectionState(e), await this._refreshRepository(e), this.updatePushPullFetchProgress(e, {
               kind: 'generic',
               title: i,
               description: 'Fast-forwarding branches',
@@ -53523,7 +53514,7 @@ module.exports = function (e) {
               kind: 'generic',
               title: u,
               value: p
-            }), r && (await n.reconcileHistory(r)), await this.updateBranchProtectionsFromAPI(e), await this._refreshRepository(e), this.updatePushPullFetchProgress(e, {
+            }), r && (await n.reconcileHistory(r)), await this.refreshBranchProtectionState(e), await this._refreshRepository(e), this.updatePushPullFetchProgress(e, {
               kind: 'generic',
               title: u,
               description: 'Fast-forwarding branches',
@@ -53568,8 +53559,8 @@ module.exports = function (e) {
           return log.info(`[AppStore.getAccountForRemoteURL] account found for remote: ${e} - ${n.login} (${t})`), n
         }
       }
-      const n = F.getGenericHostname(e),
-        o = F.getGenericUsername(n);
+      const n = B.getGenericHostname(e),
+        o = B.getGenericUsername(n);
       return null == o ? (log.info(`[AppStore.getAccountForRemoteURL] no generic credentials found for '${e}'`), null) : (log.info(`[AppStore.getAccountForRemoteURL] found generic credentials for '${n}' and '${o}'`), {
         login: o,
         endpoint: n
@@ -53632,7 +53623,7 @@ module.exports = function (e) {
             kind: 'generic',
             title: d,
             value: i
-          }), await this.updateBranchProtectionsFromAPI(e), await this._refreshRepository(e), this.updatePushPullFetchProgress(e, {
+          }), await this.refreshBranchProtectionState(e), await this._refreshRepository(e), this.updatePushPullFetchProgress(e, {
             kind: 'generic',
             title: d,
             description: 'Fast-forwarding branches',
@@ -53650,16 +53641,16 @@ module.exports = function (e) {
       this.focusCommitMessage !== e && (this.focusCommitMessage = e, this.emitUpdate())
     }
     _setSidebarWidth(e) {
-      return this.sidebarWidth = e, ie.setNumber(Te, e), this.emitUpdate(), Promise.resolve()
+      return this.sidebarWidth = e, ie.setNumber(xe, e), this.emitUpdate(), Promise.resolve()
     }
     _resetSidebarWidth() {
-      return this.sidebarWidth = Re, localStorage.removeItem(Te), this.emitUpdate(), Promise.resolve()
+      return this.sidebarWidth = Re, localStorage.removeItem(xe), this.emitUpdate(), Promise.resolve()
     }
     _setCommitSummaryWidth(e) {
-      return this.commitSummaryWidth = e, ie.setNumber(Pe, e), this.emitUpdate(), Promise.resolve()
+      return this.commitSummaryWidth = e, ie.setNumber(Me, e), this.emitUpdate(), Promise.resolve()
     }
     _resetCommitSummaryWidth() {
-      return this.commitSummaryWidth = xe, localStorage.removeItem(Pe), this.emitUpdate(), Promise.resolve()
+      return this.commitSummaryWidth = Pe, localStorage.removeItem(Me), this.emitUpdate(), Promise.resolve()
     }
     _setCommitMessage(e, t) {
       const n = this.gitStoreCache.get(e);
@@ -53809,23 +53800,23 @@ module.exports = function (e) {
       return this.askForConfirmationOnRepositoryRemoval = e, ie.setBoolean(Be, e), this.updateMenuLabelsForSelectedRepository(), this.emitUpdate(), Promise.resolve()
     }
     _setConfirmDiscardChangesSetting(e) {
-      return this.confirmDiscardChanges = e, ie.setBoolean(Fe, e), this.emitUpdate(), Promise.resolve()
+      return this.confirmDiscardChanges = e, ie.setBoolean(Ne, e), this.emitUpdate(), Promise.resolve()
     }
     _setConfirmForcePushSetting(e) {
-      return this.askForConfirmationOnForcePush = e, ie.setBoolean(Ne, e), this.updateMenuLabelsForSelectedRepository(), this.emitUpdate(), Promise.resolve()
+      return this.askForConfirmationOnForcePush = e, ie.setBoolean(Oe, e), this.updateMenuLabelsForSelectedRepository(), this.emitUpdate(), Promise.resolve()
     }
     _setExternalEditor(e) {
       const t = this.updateSelectedExternalEditor(e);
-      return localStorage.setItem(Oe, e), this.emitUpdate(), this.updateMenuLabelsForSelectedRepository(), t
+      return localStorage.setItem(He, e), this.emitUpdate(), this.updateMenuLabelsForSelectedRepository(), t
     }
     _setShell(e) {
-      return this.selectedShell = e, localStorage.setItem(We, e), this.emitUpdate(), this.updateMenuLabelsForSelectedRepository(), Promise.resolve()
+      return this.selectedShell = e, localStorage.setItem(Ve, e), this.emitUpdate(), this.updateMenuLabelsForSelectedRepository(), Promise.resolve()
     }
     _changeImageDiffType(e) {
-      return this.imageDiffType = e, localStorage.setItem(ze, JSON.stringify(this.imageDiffType)), this.emitUpdate(), Promise.resolve()
+      return this.imageDiffType = e, localStorage.setItem(Ue, JSON.stringify(this.imageDiffType)), this.emitUpdate(), Promise.resolve()
     }
     _setHideWhitespaceInDiff(e, t, n) {
-      return ie.setBoolean(Ue, e), this.hideWhitespaceInDiff = e, null === n ? this.updateChangesWorkingDirectoryDiff(t) : this._changeFileSelection(t, n)
+      return ie.setBoolean(We, e), this.hideWhitespaceInDiff = e, null === n ? this.updateChangesWorkingDirectoryDiff(t) : this._changeFileSelection(t, n)
     }
     _setUpdateBannerVisibility(e) {
       this.isUpdateAvailableBannerVisible = e, this.emitUpdate()
@@ -53983,8 +53974,8 @@ module.exports = function (e) {
         const t = this.gitStoreCache.get(e),
           n = t.currentRemote;
         if (n) {
-          const e = F.getGenericHostname(n.url),
-            t = F.getGenericUsername(e);
+          const e = B.getGenericHostname(n.url),
+            t = B.getGenericUsername(e);
           null != t && (o = {
             login: t,
             endpoint: e
@@ -54018,7 +54009,7 @@ module.exports = function (e) {
         if (!o) return;
         n = o.url
       } else n = e.url;
-      const o = F.getGenericHostname(n);
+      const o = B.getGenericHostname(n);
       return this._showPopup({
         type: k.PopupType.GenericGitAuthentication,
         hostname: o,
@@ -54197,10 +54188,10 @@ module.exports = function (e) {
       return this.gitStoreCache.get(e).setCoAuthors(t), Promise.resolve()
     }
     _setSelectedTheme(e) {
-      return T.setPersistedTheme(e), this.selectedTheme = e, this.emitUpdate(), Promise.resolve()
+      return R.setPersistedTheme(e), this.selectedTheme = e, this.emitUpdate(), Promise.resolve()
     }
     _setAutomaticallySwitchTheme(e) {
-      return T.setAutoSwitchPersistedTheme(e), this.automaticallySwitchTheme = e, this.emitUpdate(), Promise.resolve()
+      return R.setAutoSwitchPersistedTheme(e), this.automaticallySwitchTheme = e, this.emitUpdate(), Promise.resolve()
     }
     async _resolveCurrentEditor() {
       const e = await A.findEditorOrDefault(this.selectedExternalEditor),
@@ -54280,16 +54271,16 @@ module.exports = function (e) {
       }
     }
     _setStashedFilesWidth(e) {
-      return this.stashedFilesWidth = e, ie.setNumber(De, e), this.emitUpdate(), Promise.resolve()
+      return this.stashedFilesWidth = e, ie.setNumber(Ae, e), this.emitUpdate(), Promise.resolve()
     }
     _resetStashedFilesWidth() {
-      return this.stashedFilesWidth = Me, localStorage.removeItem(De), this.emitUpdate(), Promise.resolve()
+      return this.stashedFilesWidth = De, localStorage.removeItem(Ae), this.emitUpdate(), Promise.resolve()
     }
     async _testPruneBranches() {
       null === this.currentBranchPruner || (await this.currentBranchPruner.testPrune())
     }
   }
-  t.AppStore = Ve
+  t.AppStore = Ge
 }, function (e, t, n) {
   'use strict';
   async function o(e) {
@@ -54298,11 +54289,11 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(279),
+  const r = n(281),
     i = n(129),
-    a = n(13),
-    s = n(3),
-    d = n(58);
+    a = n(12),
+    s = n(2),
+    d = n(57);
   class l extends d.TypedBaseStore {
     constructor(e, t) {
       super(), this.accounts = [], this.dataStore = e, this.secureStore = t, this.loadingPromise = this.loadFromStore()
@@ -54942,10 +54933,10 @@ module.exports = function (e) {
       _ = function (e) {
         this[h] = e
       },
-      R = function (e, t, n) {
+      T = function (e, t, n) {
         this[u] = e, this[l] = t, this[p] = n
       },
-      T = k,
+      R = k,
       x = k,
       P = function (e, t) {
         if ('object' == typeof e && (t = e, e = void 0), !(this instanceof P)) return new P(e, t).getResult();
@@ -54953,8 +54944,8 @@ module.exports = function (e) {
           o = t ? b.extend(w, t) : w,
           i = new k,
           a = new _,
-          s = new R,
-          d = new T,
+          s = new T,
+          d = new R,
           l = new x;
         return this.getBrowser = function () {
           return v.rgx.call(i, n, o.browser), i.major = b.major(i.version), i
@@ -54978,7 +54969,7 @@ module.exports = function (e) {
         }, this.getUA = function () {
           return n
         }, this.setUA = function (e) {
-          return n = e, i = new k, a = new _, s = new R, d = new T, l = new x, this
+          return n = e, i = new k, a = new _, s = new T, d = new R, l = new x, this
         }, this
       };
     P.VERSION = '0.7.14', P.BROWSER = {
@@ -55003,7 +54994,7 @@ module.exports = function (e) {
     }, P.OS = {
       NAME: c,
       VERSION: m
-    }, typeof t == s ? n(718) ? (o = function () {
+    }, typeof t == s ? n(726) ? (o = function () {
       return P
     }.call(t, n, t, e), !(o !== void 0 && (e.exports = o))) : r && (r.UAParser = P) : (typeof e != s && e.exports && (t = e.exports = P), t.UAParser = P);
     var M = r && (r.jQuery || r.Zepto);
@@ -55054,16 +55045,16 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const d = n(13),
+  const d = n(12),
     l = n(83),
-    c = n(281),
-    p = n(125),
-    u = n(280),
+    c = n(283),
+    p = n(126),
+    u = n(282),
     m = n(52),
     h = n(81),
     f = n(80),
-    g = n(3),
-    y = n(60);
+    g = n(2),
+    y = n(59);
   t.SamplesURL = 'https://desktop.github.com/usage-data/';
   const S = 'last-daily-stats-report',
     C = 'stats-opt-out',
@@ -55073,8 +55064,8 @@ module.exports = function (e) {
     w = 'first-repository-added-at',
     k = 'first-repository-cloned-at',
     _ = 'first-repository-created-at',
-    R = 'first-commit-created-at',
-    T = 'first-push-to-github-at',
+    T = 'first-commit-created-at',
+    R = 'first-push-to-github-at',
     x = 'first-non-default-branch-checkout-at',
     P = 'welcome-wizard-sign-in-method',
     M = {
@@ -55225,8 +55216,8 @@ module.exports = function (e) {
         n = a(w),
         o = a(k),
         r = a(_),
-        d = a(R),
-        l = a(T),
+        d = a(T),
+        l = a(R),
         c = a(x),
         p = s();
       return {
@@ -55293,7 +55284,7 @@ module.exports = function (e) {
     async recordCommit() {
       await this.updateDailyMeasures((e) => ({
         commits: e.commits + 1
-      })), r(R)
+      })), r(T)
     }
     recordPartialCommit() {
       return this.updateDailyMeasures((e) => ({
@@ -55429,14 +55420,14 @@ module.exports = function (e) {
         dotcomForcePushCount: e.dotcomForcePushCount + 1
       }))), await this.updateDailyMeasures((e) => ({
         dotcomPushCount: e.dotcomPushCount + 1
-      })), r(T)
+      })), r(R)
     }
     async recordPushToGitHubEnterprise(e) {
       e && e.forceWithLease && (await this.updateDailyMeasures((e) => ({
         enterpriseForcePushCount: e.enterpriseForcePushCount + 1
       }))), await this.updateDailyMeasures((e) => ({
         enterprisePushCount: e.enterprisePushCount + 1
-      })), r(T)
+      })), r(R)
     }
     async recordPushToGenericRemote(e) {
       e && e.forceWithLease && (await this.updateDailyMeasures((e) => ({
@@ -55738,7 +55729,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(282);
+  const o = n(284);
   class r extends o.default {
     constructor(e) {
       super(e), this.version(1).stores({
@@ -55821,7 +55812,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = i(n(722));
+  const a = i(n(730));
   t.default = o, e.exports = o, e.exports.default = o
 }, function (e) {
   'use strict';
@@ -55850,8 +55841,8 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  var o = n(2),
-    r = n(284);
+  var o = n(1),
+    r = n(286);
   e.exports = function (e) {
     e = e || {};
     for (var t = o.resolve(e.cwd || '.'), n = [], i; i !== t;) n.push(o.join(t, 'node_modules/.bin')), i = t, t = o.resolve(t, '..');
@@ -55930,7 +55921,7 @@ module.exports = function (e) {
   }
   var i = n(32),
     a;
-  a = n(730), e.exports = o, o.sync = r
+  a = n(738), e.exports = o, o.sync = r
 }, function (e, t, n) {
   function o(e) {
     var t = new Error('not found: ' + e);
@@ -55999,14 +55990,14 @@ module.exports = function (e) {
     if (t.nothrow) return null;
     throw o(e)
   };
-  var a = n(2),
+  var a = n(1),
     s = ';',
-    d = n(731)
+    d = n(739)
 }, function (e, t, n) {
   'use strict';
-  var o = n(2),
-    r = n(732),
-    i = n(286),
+  var o = n(1),
+    r = n(740),
+    i = n(288),
     a = new i({
       max: 50,
       maxAge: 30000
@@ -56024,7 +56015,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  var o = n(285);
+  var o = n(287);
   o.prototype[Symbol.iterator] = function* () {
     for (let e = this.head; e; e = e.next) yield e.value
   }
@@ -56093,7 +56084,7 @@ module.exports = function (e) {
     throw new Error('iterators are not implemented in this version')
   }
 }, function (e, t, n) {
-  'pseudomap' === process.env.npm_package_name && 'test' === process.env.npm_lifecycle_script && (process.env.TEST_PSEUDOMAP = 'true'), e.exports = 'function' != typeof Map || process.env.TEST_PSEUDOMAP ? n(735) : Map
+  'pseudomap' === process.env.npm_package_name && 'test' === process.env.npm_lifecycle_script && (process.env.TEST_PSEUDOMAP = 'true'), e.exports = 'function' != typeof Map || process.env.TEST_PSEUDOMAP ? n(743) : Map
 }, function (e, t, n) {
   'use strict';
 
@@ -56115,8 +56106,8 @@ module.exports = function (e) {
     return /^[a-z0-9_-]+$/i.test(e) ? e : r(e, !0)
   }
   var a = n(32),
-    s = n(286),
-    d = n(733),
+    s = n(288),
+    d = n(741),
     l = new s({
       max: 50,
       maxAge: 30000
@@ -56141,8 +56132,8 @@ module.exports = function (e) {
     return o = i(e, t, n), s = r.spawn(o.command, o.args, o.options), a.hookChildProcess(s, o), s
   }
   var r = n(46),
-    i = n(737),
-    a = n(729);
+    i = n(745),
+    a = n(737);
   e.exports = o, e.exports.spawn = o, e.exports._parse = i, e.exports._enoent = a
 }, function (e, t, n) {
   'use strict';
@@ -56157,9 +56148,9 @@ module.exports = function (e) {
   }
 
   function i() {}
-  const a = n(59),
-    s = n(287),
-    d = n(283);
+  const a = n(58),
+    s = n(289),
+    d = n(285);
   e.exports = d(() => {
     if (a.userInfo) return Promise.resolve(a.userInfo().username);
     const e = o();
@@ -56172,30 +56163,6 @@ module.exports = function (e) {
       return r(s.sync('whoami').stdout)
     } catch (e) {}
   })
-}, function (e) {
-  function t(e, t) {
-    var o = t || 0,
-      r = n;
-    return r[e[o++]] + r[e[o++]] + r[e[o++]] + r[e[o++]] + '-' + r[e[o++]] + r[e[o++]] + '-' + r[e[o++]] + r[e[o++]] + '-' + r[e[o++]] + r[e[o++]] + '-' + r[e[o++]] + r[e[o++]] + r[e[o++]] + r[e[o++]] + r[e[o++]] + r[e[o++]]
-  }
-  for (var n = [], o = 0; 256 > o; ++o) n[o] = (o + 256).toString(16).substr(1);
-  e.exports = t
-}, function (e, t, n) {
-  var o = n(172).randomBytes;
-  e.exports = function () {
-    return o(16)
-  }
-}, function (e, t, n) {
-  var o = n(741),
-    r = n(740);
-  e.exports = function (e, t, n) {
-    var a = t && n || 0;
-    'string' == typeof e && (t = 'binary' == e ? Array(16) : null, e = null), e = e || {};
-    var i = e.random || (e.rng || o)();
-    if (i[6] = 64 | 15 & i[6], i[8] = 128 | 63 & i[8], t)
-      for (var s = 0; 16 > s; ++s) t[a + s] = i[s];
-    return t || r(i)
-  }
 }, function (e, t, n) {
   'use strict';
 
@@ -56205,7 +56172,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(60);
+  const r = n(59);
   t.shouldRenderApplicationMenu = function (e, t, n) {
     const r = () => o(e, t);
     if (n) {
@@ -56309,13 +56276,13 @@ module.exports = function (e) {
         this.disposed || this.disposables.clear()
       }, e
     }(), r = function (e) {
-      if (null == o && (o = n(175)), !o.isDisposable(e)) throw new TypeError('Arguments to CompositeDisposable.add must have a .dispose() method')
+      if (null == o && (o = n(176)), !o.isDisposable(e)) throw new TypeError('Arguments to CompositeDisposable.add must have a .dispose() method')
     }
   }).call(this)
 }, function (e, t, n) {
   (function () {
     var t, o;
-    t = n(175), e.exports = o = function () {
+    t = n(176), e.exports = o = function () {
       function e() {
         this.clear()
       }
@@ -56433,19 +56400,19 @@ module.exports = function (e) {
         for (var o in n = arguments[t], n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
       return e
     },
-    l = n(291),
+    l = n(296),
     c = o(l),
-    p = n(290),
+    p = n(295),
     u = o(p),
-    m = n(177),
+    m = n(178),
     h = o(m),
-    f = n(289),
+    f = n(294),
     g = n(0),
     y = o(g),
     S = n(15),
     C = o(S),
     b = n(41),
-    v = n(288),
+    v = n(293),
     E = [];
   f.transitionEnd && E.push(f.transitionEnd), f.animationEnd && E.push(f.animationEnd);
   var w = {
@@ -56544,9 +56511,9 @@ module.exports = function (e) {
   e.exports = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED'
 }, function (e, t, n) {
   'use strict';
-  var o = n(178),
-    r = n(179),
-    i = n(751);
+  var o = n(179),
+    r = n(180),
+    i = n(756);
   e.exports = function () {
     function e(e, t, n, o, a, s) {
       s === i || r(!1, 'Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types')
@@ -56616,11 +56583,11 @@ module.exports = function (e) {
     l = o(d),
     c = n(15),
     p = o(c),
-    u = n(294),
+    u = n(299),
     m = o(u),
-    h = n(749),
+    h = n(754),
     f = o(h),
-    g = n(288),
+    g = n(293),
     y = {
       transitionName: g.nameShape.isRequired,
       transitionAppear: p.default.bool,
@@ -56667,7 +56634,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  var o = n(754);
+  var o = n(759);
   e.exports = function (e) {
     return o(e) && 3 == e.nodeType
   }
@@ -56677,7 +56644,7 @@ module.exports = function (e) {
   function o(e, t) {
     return !!(e && t) && (e === t || !r(e) && (r(t) ? o(e, t.parentNode) : 'contains' in e ? e.contains(t) : !!e.compareDocumentPosition && !!(16 & e.compareDocumentPosition(t))))
   }
-  var r = n(755);
+  var r = n(760);
   e.exports = o
 }, function (e) {
   'use strict';
@@ -56743,9 +56710,9 @@ module.exports = function (e) {
   }
 
   function i() {
-    if (Xn._hasRethrowError) {
-      var e = Xn._rethrowError;
-      throw Xn._rethrowError = null, Xn._hasRethrowError = !1, e
+    if (Qn._hasRethrowError) {
+      var e = Qn._rethrowError;
+      throw Qn._rethrowError = null, Qn._hasRethrowError = !1, e
     }
   }
 
@@ -56790,7 +56757,7 @@ module.exports = function (e) {
   }
 
   function p(e, t, n, o) {
-    t = e.type || 'unknown-event', e.currentTarget = io(o), Xn.invokeGuardedCallbackAndCatchFirstError(t, n, void 0, e), e.currentTarget = null
+    t = e.type || 'unknown-event', e.currentTarget = io(o), Qn.invokeGuardedCallbackAndCatchFirstError(t, n, void 0, e), e.currentTarget = null
   }
 
   function u(e, t) {
@@ -56831,7 +56798,7 @@ module.exports = function (e) {
   }
 
   function S(e, t) {
-    null !== e && (ao = u(ao, e)), e = ao, ao = null, e && (t ? c(e, f) : c(e, g), ao ? o('95') : void 0, Xn.rethrowCaughtError())
+    null !== e && (ao = u(ao, e)), e = ao, ao = null, e && (t ? c(e, f) : c(e, g), ao ? o('95') : void 0, Qn.rethrowCaughtError())
   }
 
   function v(t, n, o, r) {
@@ -56860,24 +56827,24 @@ module.exports = function (e) {
     return e ? e : null
   }
 
-  function R(e, t, n) {
+  function T(e, t, n) {
     for (var o = []; e;) o.push(e), e = _(e);
     for (e = o.length; 0 < e--;) t(o[e], 'captured', n);
     for (e = 0; e < o.length; e++) t(o[e], 'bubbled', n)
   }
 
-  function T(e, t, n) {
+  function R(e, t, n) {
     (t = y(e, n.dispatchConfig.phasedRegistrationNames[t])) && (n._dispatchListeners = u(n._dispatchListeners, t), n._dispatchInstances = u(n._dispatchInstances, e))
   }
 
   function x(e) {
-    e && e.dispatchConfig.phasedRegistrationNames && R(e._targetInst, T, e)
+    e && e.dispatchConfig.phasedRegistrationNames && T(e._targetInst, R, e)
   }
 
   function P(e) {
     if (e && e.dispatchConfig.phasedRegistrationNames) {
       var t = e._targetInst;
-      t = t ? _(t) : null, R(t, T, e)
+      t = t ? _(t) : null, T(t, R, e)
     }
   }
 
@@ -56965,11 +56932,11 @@ module.exports = function (e) {
   }
 
   function $(e, t) {
-    return 'topCompositionEnd' === e ? Q(t) : 'topKeyPress' === e ? 32 === t.which ? (Ro = !0, ko) : null : 'topTextInput' === e ? (e = t.data, e === ko && Ro ? null : e) : null
+    return 'topCompositionEnd' === e ? Q(t) : 'topKeyPress' === e ? 32 === t.which ? (To = !0, ko) : null : 'topTextInput' === e ? (e = t.data, e === ko && To ? null : e) : null
   }
 
   function Z(e, t) {
-    if (To) return 'topCompositionEnd' === e || !bo && Y(e, t) ? (e = z(), fo._root = null, fo._startText = null, fo._fallbackText = null, To = !1, e) : null;
+    if (Ro) return 'topCompositionEnd' === e || !bo && Y(e, t) ? (e = z(), fo._root = null, fo._startText = null, fo._fallbackText = null, Ro = !1, e) : null;
     switch (e) {
       case 'topPaste':
         return null;
@@ -57137,7 +57104,7 @@ module.exports = function (e) {
   }
 
   function mt(e) {
-    return !!Qo.hasOwnProperty(e) || !Yo.hasOwnProperty(e) && (qo.test(e) ? Qo[e] = !0 : (Yo[e] = !0, !1))
+    return !!Xo.hasOwnProperty(e) || !Yo.hasOwnProperty(e) && (qo.test(e) ? Xo[e] = !0 : (Yo[e] = !0, !1))
   }
 
   function ht(e, t, n, o) {
@@ -57177,7 +57144,7 @@ module.exports = function (e) {
   }
 
   function yt(t, n, o, r) {
-    var i = Xo.hasOwnProperty(n) ? Xo[n] : null,
+    var i = Qo.hasOwnProperty(n) ? Qo[n] : null,
       e = null === i ? !r && !!(2 < n.length && ('o' === n[0] || 'O' === n[0]) && ('n' === n[1] || 'N' === n[1])) : 0 === i.type;
     e || (ft(n, o, i, r) && (o = null), r || null === i ? mt(n) && (null === o ? t.removeAttribute(n) : t.setAttribute(n, '' + o)) : i.mustUseProperty ? t[i.propertyName] = null === o ? 3 !== i.type && '' : o : (n = i.attributeName, r = i.attributeNamespace, null === o ? t.removeAttribute(n) : (i = i.type, o = 3 === i || 4 === i && !0 === o ? '' : '' + o, r ? t.setAttributeNS(r, n, o) : t.setAttribute(n, o))))
   }
@@ -57237,11 +57204,11 @@ module.exports = function (e) {
     return e = K.getPooled($o.change, e, t, n), e.type = 'change', ye(n), L(e), e
   }
 
-  function Rt(e) {
+  function Tt(e) {
     S(e, !1)
   }
 
-  function Tt(e) {
+  function Rt(e) {
     var t = k(e);
     if (lt(t)) return e
   }
@@ -57255,7 +57222,7 @@ module.exports = function (e) {
   }
 
   function Mt(e) {
-    'value' === e.propertyName && Tt(Jo) && (e = _t(Jo, e, rt(e)), nt(Rt, e))
+    'value' === e.propertyName && Rt(Jo) && (e = _t(Jo, e, rt(e)), nt(Tt, e))
   }
 
   function Dt(e, t, n) {
@@ -57263,24 +57230,24 @@ module.exports = function (e) {
   }
 
   function At(e) {
-    if ('topSelectionChange' === e || 'topKeyUp' === e || 'topKeyDown' === e) return Tt(Jo)
+    if ('topSelectionChange' === e || 'topKeyUp' === e || 'topKeyDown' === e) return Rt(Jo)
   }
 
   function It(e, t) {
-    if ('topClick' === e) return Tt(t)
+    if ('topClick' === e) return Rt(t)
   }
 
   function Lt(e, t) {
-    if ('topInput' === e || 'topChange' === e) return Tt(t)
+    if ('topInput' === e || 'topChange' === e) return Rt(t)
   }
 
-  function Bt(e) {
+  function Ft(e) {
     var t = this.nativeEvent;
     return t.getModifierState ? t.getModifierState(e) : !!(e = or[e]) && !!t[e]
   }
 
-  function Ft() {
-    return Bt
+  function Bt() {
+    return Ft
   }
 
   function Nt(e) {
@@ -57424,18 +57391,18 @@ module.exports = function (e) {
   }
 
   function qt(e, t, n) {
-    return n ? void(e = (Cr(e) ? Qt : Xt).bind(null, e), n.addEventListener(t, e, !1)) : null
+    return n ? void(e = (Cr(e) ? Xt : Qt).bind(null, e), n.addEventListener(t, e, !1)) : null
   }
 
   function Yt(e, t, n) {
-    return n ? void(e = (Cr(e) ? Qt : Xt).bind(null, e), n.addEventListener(t, e, !0)) : null
-  }
-
-  function Qt(e, t) {
-    et(Xt, e, t)
+    return n ? void(e = (Cr(e) ? Xt : Qt).bind(null, e), n.addEventListener(t, e, !0)) : null
   }
 
   function Xt(e, t) {
+    et(Qt, e, t)
+  }
+
+  function Qt(e, t) {
     if (vr) {
       var n = rt(t);
       if (n = w(n), null !== n && 'number' == typeof n.tag && 2 !== Nt(n) && (n = null), br.length) {
@@ -57638,14 +57605,14 @@ module.exports = function (e) {
   }
 
   function Le(e) {
-    Rr = Me = null;
+    Tr = Me = null;
     var t = e.alternate,
       n = e.updateQueue;
-    null === n && (n = e.updateQueue = Jt(null)), null === t ? e = null : (e = t.updateQueue, null === e && (e = t.updateQueue = Jt(null))), Rr = n, Me = e === n ? null : e
+    null === n && (n = e.updateQueue = Jt(null)), null === t ? e = null : (e = t.updateQueue, null === e && (e = t.updateQueue = Jt(null))), Tr = n, Me = e === n ? null : e
   }
 
   function Oe(e, t) {
-    Le(e), e = Rr;
+    Le(e), e = Tr;
     var n = Me;
     null === n ? Ke(e, t) : null === e.last || null === n.last ? (Ke(e, t), Ke(n, t)) : (Ke(e, t), n.last = t)
   }
@@ -57757,7 +57724,7 @@ module.exports = function (e) {
         var r = t.type,
           i = l(t),
           a = p(t),
-          e = a ? S(t, i) : Qn;
+          e = a ? S(t, i) : Xn;
         r = new r(o, e);
         var s = null !== r.state && void 0 !== r.state ? r.state : null;
         return u(t, r), t.memoizedState = s, o = g(t, r, o, s), null !== o && void 0 !== o && (t.memoizedState = m({}, t.memoizedState, o)), a && y(t, i, e), r
@@ -57768,7 +57735,7 @@ module.exports = function (e) {
           a = t.stateNode,
           e = t.pendingProps,
           s = l(t);
-        a.props = e, a.state = t.memoizedState, a.refs = Qn, a.context = S(t, s), 'function' == typeof r.getDerivedStateFromProps || 'function' == typeof a.getSnapshotBeforeUpdate || 'function' != typeof a.UNSAFE_componentWillMount && 'function' != typeof a.componentWillMount || (r = a.state, 'function' == typeof a.componentWillMount && a.componentWillMount(), 'function' == typeof a.UNSAFE_componentWillMount && a.UNSAFE_componentWillMount(), r !== a.state && C.enqueueReplaceState(a, a.state, null), r = t.updateQueue, null !== r && (a.state = Qe(i, t, r, a, e, o))), 'function' == typeof a.componentDidMount && (t.effectTag |= 4)
+        a.props = e, a.state = t.memoizedState, a.refs = Xn, a.context = S(t, s), 'function' == typeof r.getDerivedStateFromProps || 'function' == typeof a.getSnapshotBeforeUpdate || 'function' != typeof a.UNSAFE_componentWillMount && 'function' != typeof a.componentWillMount || (r = a.state, 'function' == typeof a.componentWillMount && a.componentWillMount(), 'function' == typeof a.UNSAFE_componentWillMount && a.UNSAFE_componentWillMount(), r !== a.state && C.enqueueReplaceState(a, a.state, null), r = t.updateQueue, null !== r && (a.state = Qe(i, t, r, a, e, o))), 'function' == typeof a.componentDidMount && (t.effectTag |= 4)
       },
       resumeMountClassInstance: function (o, a) {
         var p = o.type,
@@ -57815,7 +57782,7 @@ module.exports = function (e) {
         r && (2 === r.tag ? void 0 : o('110'), i = r.stateNode), i ? void 0 : o('147', t);
         var s = '' + t;
         return null !== n && null !== n.ref && n.ref._stringRef === s ? n.ref : (n = function (e) {
-          var t = i.refs === Qn ? i.refs = {} : i.refs;
+          var t = i.refs === Xn ? i.refs = {} : i.refs;
           null === e ? delete t[s] : t[s] = e
         }, n._stringRef = s, n)
       }
@@ -58032,7 +57999,7 @@ module.exports = function (e) {
 
     function v(n, o, r, i, a, s) {
       if (g(n, o), !r && !a) return i && t(o, !1), w(n, o);
-      r = o.stateNode, Bo.current = o;
+      r = o.stateNode, Fo.current = o;
       var d = a ? null : r.render();
       return o.effectTag |= 1, a && (h(n, o, null, s), o.child = null), h(n, o, d, s), o.memoizedState = r.state, o.memoizedProps = r.props, i && t(o, !0), o.child
     }
@@ -58134,8 +58101,8 @@ module.exports = function (e) {
     var A = i.adoptClassInstance,
       I = i.callGetDerivedStateFromProps,
       L = i.constructClassInstance,
-      B = i.mountClassInstance,
-      F = i.resumeMountClassInstance,
+      F = i.mountClassInstance,
+      B = i.resumeMountClassInstance,
       N = i.updateClassInstance;
     return {
       beginWork: function (i, a, s) {
@@ -58161,11 +58128,11 @@ module.exports = function (e) {
             var c = a.type,
               u = a.pendingProps,
               e = R(a);
-            return e = x(a, e), c = c(u, e), a.effectTag |= 1, 'object' == typeof c && null !== c && 'function' == typeof c.render && void 0 === c.$$typeof ? (e = a.type, a.tag = 2, a.memoizedState = null !== c.state && void 0 !== c.state ? c.state : null, 'function' == typeof e.getDerivedStateFromProps && (u = I(a, c, u, a.memoizedState), null !== u && void 0 !== u && (a.memoizedState = m({}, a.memoizedState, u))), u = P(a), A(a, c), B(a, s), i = v(i, a, !0, u, !1, s)) : (a.tag = 1, C(i, a, c), a.memoizedProps = u, i = a.child), i;
+            return e = x(a, e), c = c(u, e), a.effectTag |= 1, 'object' == typeof c && null !== c && 'function' == typeof c.render && void 0 === c.$$typeof ? (e = a.type, a.tag = 2, a.memoizedState = null !== c.state && void 0 !== c.state ? c.state : null, 'function' == typeof e.getDerivedStateFromProps && (u = I(a, c, u, a.memoizedState), null !== u && void 0 !== u && (a.memoizedState = m({}, a.memoizedState, u))), u = P(a), A(a, c), F(a, s), i = v(i, a, !0, u, !1, s)) : (a.tag = 1, C(i, a, c), a.memoizedProps = u, i = a.child), i;
           case 1:
             return u = a.type, s = a.pendingProps, S() || a.memoizedProps !== s ? (c = R(a), c = x(a, c), u = u(s, c), a.effectTag |= 1, C(i, a, u), a.memoizedProps = s, i = a.child) : i = w(i, a), i;
           case 2:
-            u = P(a), null === i ? null === a.stateNode ? (L(a, a.pendingProps), B(a, s), c = !0) : c = F(a, s) : c = N(i, a, s), e = !1;
+            u = P(a), null === i ? null === a.stateNode ? (L(a, a.pendingProps), F(a, s), c = !0) : c = B(a, s) : c = N(i, a, s), e = !1;
             var f = a.updateQueue;
             return null !== f && null !== f.capturedValues && (e = c = !0), v(i, a, c, u, e, s);
           case 3:
@@ -58840,9 +58807,9 @@ module.exports = function (e) {
     var a = t.createCursor,
       s = t.push,
       l = t.pop,
-      p = a(Qn),
+      p = a(Xn),
       u = a(!1),
-      h = Qn;
+      h = Xn;
     return {
       getUnmaskedContext: function (e) {
         return r(e) ? h : p.current
@@ -58850,7 +58817,7 @@ module.exports = function (e) {
       cacheContext: n,
       getMaskedContext: function (t, o) {
         var r = t.type.contextTypes;
-        if (!r) return Qn;
+        if (!r) return Xn;
         var i = t.stateNode;
         if (i && i.__reactInternalMemoizedUnmaskedChildContext === o) return i.__reactInternalMemoizedMaskedChildContext;
         var e = {},
@@ -58878,7 +58845,7 @@ module.exports = function (e) {
       pushContextProvider: function (e) {
         if (!r(e)) return !1;
         var t = e.stateNode;
-        return t = t && t.__reactInternalMemoizedMergedChildContext || Qn, h = p.current, s(p, t, e), s(u, u.current, e), !0
+        return t = t && t.__reactInternalMemoizedMergedChildContext || Xn, h = p.current, s(p, t, e), s(u, u.current, e), !0
       },
       invalidateContextProvider: function (t, n) {
         var r = t.stateNode;
@@ -58992,7 +58959,7 @@ module.exports = function (e) {
 
     function a(e) {
       var t = O(e.alternate, e, me);
-      return null === t && (t = c(e)), Bo.current = null, t
+      return null === t && (t = c(e)), Fo.current = null, t
     }
 
     function e(e, t, n) {
@@ -59063,7 +59030,7 @@ module.exports = function (e) {
     }
 
     function d(e) {
-      return e = 0 === ce ? pe ? w ? 1 : me : 1 & e.mode ? Re ? 10 * ((0 | (g() + 15) / 10) + 1) : 25 * ((0 | (g() + 500) / 25) + 1) : 1 : ce, Re && (0 === P || e > P) && (P = e), e
+      return e = 0 === ce ? pe ? w ? 1 : me : 1 & e.mode ? Te ? 10 * ((0 | (g() + 15) / 10) + 1) : 25 * ((0 | (g() + 500) / 25) + 1) : 1 : ce, Te && (0 === P || e > P) && (P = e), e
     }
 
     function h(e, t) {
@@ -59155,9 +59122,9 @@ module.exports = function (e) {
     }
 
     function x() {
-      if (Me = 0, null !== Te) {
-        var e = Te;
-        Te = null;
+      if (Me = 0, null !== Re) {
+        var e = Re;
+        Re = null;
         for (var t = 0, n; t < e.length; t++) {
           n = e[t];
           try {
@@ -59176,10 +59143,10 @@ module.exports = function (e) {
 
     function L(i, a, s) {
       var l = i.firstBatch;
-      if (null !== l && l._expirationTime <= s && (null == Te ? Te = [l] : Te.push(l), l._defer)) return i.finishedWork = a, void(i.remainingExpirationTime = 0);
+      if (null !== l && l._expirationTime <= s && (null == Re ? Re = [l] : Re.push(l), l._defer)) return i.finishedWork = a, void(i.remainingExpirationTime = 0);
       i.finishedWork = null, w = pe = !0, s = a.stateNode, s.current === a ? o('177') : void 0, l = s.pendingCommitExpirationTime, 0 === l ? o('261') : void 0, s.pendingCommitExpirationTime = 0;
       var d = g();
-      if (Bo.current = null, !(1 < a.effectTag)) e = a.firstEffect;
+      if (Fo.current = null, !(1 < a.effectTag)) e = a.firstEffect;
       else if (null !== a.lastEffect) {
         a.lastEffect.nextEffect = a;
         var e = a.firstEffect
@@ -59228,7 +59195,7 @@ module.exports = function (e) {
         try {
           for (e = s, c = d, u = l; null !== Z;) {
             var n = Z.effectTag;
-            36 & n && Q(e, Z.alternate, Z, c, u), 256 & n && X(Z, S), 128 & n && $(Z);
+            36 & n && X(e, Z.alternate, Z, c, u), 256 & n && Q(Z, S), 128 & n && $(Z);
             var r = Z.nextEffect;
             Z.nextEffect = null, Z = r
           }
@@ -59266,8 +59233,8 @@ module.exports = function (e) {
       j = u.commitPlacement,
       q = u.commitDeletion,
       Y = u.commitWork,
-      Q = u.commitLifeCycles,
-      X = u.commitErrorLogging,
+      X = u.commitLifeCycles,
+      Q = u.commitErrorLogging,
       $ = u.commitAttachRef,
       ee = u.commitDetachRef,
       te = i.now,
@@ -59302,8 +59269,8 @@ module.exports = function (e) {
       ke = null,
       _e = !1,
       J = !1,
-      Re = !1,
-      Te = null,
+      Te = !1,
+      Re = null,
       Pe = 1E3,
       Me = 0,
       De = 1;
@@ -59365,15 +59332,15 @@ module.exports = function (e) {
       },
       syncUpdates: E,
       interactiveUpdates: function (t, o, r) {
-        if (Re) return t(o, r);
+        if (Te) return t(o, r);
         _e || Ce || 0 === P || (n(P, !1, null), P = 0);
-        var i = Re,
+        var i = Te,
           a = _e;
-        _e = Re = !0;
+        _e = Te = !0;
         try {
           return t(o, r)
         } finally {
-          Re = i, (_e = a) || Ce || D()
+          Te = i, (_e = a) || Ce || D()
         }
       },
       flushInteractiveUpdates: function () {
@@ -59393,7 +59360,7 @@ module.exports = function (e) {
         o = o._reactInternalFiber;
         var c = a(o);
         o = d(o) ? u(o, c) : c
-      } else o = Qn;
+      } else o = Xn;
       return null === n.context ? n.context = o : n.pendingContext = o, n = s, Oe(r, {
         expirationTime: i,
         partialState: {
@@ -59579,7 +59546,7 @@ module.exports = function (e) {
   }
 
   function kn(e, t, n) {
-    t && (Qr[e] && (null != t.children || null != t.dangerouslySetInnerHTML ? o('137', e, n()) : void 0), null != t.dangerouslySetInnerHTML && (null == t.children ? void 0 : o('60'), 'object' == typeof t.dangerouslySetInnerHTML && '__html' in t.dangerouslySetInnerHTML ? void 0 : o('61')), null != t.style && 'object' != typeof t.style ? o('62', n()) : void 0)
+    t && (Xr[e] && (null != t.children || null != t.dangerouslySetInnerHTML ? o('137', e, n()) : void 0), null != t.dangerouslySetInnerHTML && (null == t.children ? void 0 : o('60'), 'object' == typeof t.dangerouslySetInnerHTML && '__html' in t.dangerouslySetInnerHTML ? void 0 : o('61')), null != t.style && 'object' != typeof t.style ? o('62', n()) : void 0)
   }
 
   function _n(e, t) {
@@ -59587,14 +59554,14 @@ module.exports = function (e) {
     return 'annotation-xml' !== e && 'color-profile' !== e && 'font-face' !== e && 'font-face-src' !== e && 'font-face-uri' !== e && 'font-face-format' !== e && 'font-face-name' !== e && 'missing-glyph' !== e
   }
 
-  function Rn(t, n) {
+  function Tn(t, n) {
     t = 9 === t.nodeType || 11 === t.nodeType ? t : t.ownerDocument;
     var o = ee(t);
     n = to[n];
     for (var r = 0, i; r < n.length; r++) i = n[r], o.hasOwnProperty(i) && o[i] || ('topScroll' === i ? Yt('topScroll', 'scroll', t) : 'topFocus' === i || 'topBlur' === i ? (Yt('topFocus', 'focus', t), Yt('topBlur', 'blur', t), o.topBlur = !0, o.topFocus = !0) : 'topCancel' === i ? (it('cancel', !0) && Yt('topCancel', 'cancel', t), o.topCancel = !0) : 'topClose' === i ? (it('close', !0) && Yt('topClose', 'close', t), o.topClose = !0) : de.hasOwnProperty(i) && qt(i, de[i], t), o[i] = !0)
   }
 
-  function Tn(e, t, n, o) {
+  function Rn(e, t, n, o) {
     return n = 9 === n.nodeType ? n : n.ownerDocument, o === Gr.html && (o = bn(e)), o === Gr.html ? 'script' === e ? (e = n.createElement('div'), e.innerHTML = '<script></script>', e = e.removeChild(e.firstChild)) : e = 'string' == typeof t.is ? n.createElement(e, {
       is: t.is
     }) : n.createElement(e) : e = n.createElementNS(o, e), e
@@ -59632,7 +59599,7 @@ module.exports = function (e) {
         qt('topToggle', 'toggle', t), e = o;
         break;
       case 'input':
-        Ct(t, o), e = St(t, o), qt('topInvalid', 'invalid', t), Rn(r, 'onChange');
+        Ct(t, o), e = St(t, o), qt('topInvalid', 'invalid', t), Tn(r, 'onChange');
         break;
       case 'option':
         e = mn(t, o);
@@ -59640,21 +59607,21 @@ module.exports = function (e) {
       case 'select':
         fn(t, o), e = m({}, o, {
           value: void 0
-        }), qt('topInvalid', 'invalid', t), Rn(r, 'onChange');
+        }), qt('topInvalid', 'invalid', t), Tn(r, 'onChange');
         break;
       case 'textarea':
-        yn(t, o), e = gn(t, o), qt('topInvalid', 'invalid', t), Rn(r, 'onChange');
+        yn(t, o), e = gn(t, o), qt('topInvalid', 'invalid', t), Tn(r, 'onChange');
         break;
       default:
         e = o;
     }
-    kn(n, e, Xr);
+    kn(n, e, Qr);
     var a = e,
       s;
     for (s in a)
       if (a.hasOwnProperty(s)) {
         var d = a[s];
-        'style' === s ? wn(t, d, Xr) : 'dangerouslySetInnerHTML' === s ? (d = d ? d.__html : void 0, null != d && jr(t, d)) : 'children' === s ? 'string' == typeof d ? ('textarea' !== n || '' !== d) && En(t, d) : 'number' == typeof d && En(t, '' + d) : 'suppressContentEditableWarning' !== s && 'suppressHydrationWarning' !== s && 'autoFocus' !== s && (eo.hasOwnProperty(s) ? null != d && Rn(r, s) : null != d && yt(t, s, d, i))
+        'style' === s ? wn(t, d, Qr) : 'dangerouslySetInnerHTML' === s ? (d = d ? d.__html : void 0, null != d && jr(t, d)) : 'children' === s ? 'string' == typeof d ? ('textarea' !== n || '' !== d) && En(t, d) : 'number' == typeof d && En(t, '' + d) : 'suppressContentEditableWarning' !== s && 'suppressHydrationWarning' !== s && 'autoFocus' !== s && (eo.hasOwnProperty(s) ? null != d && Tn(r, s) : null != d && yt(t, s, d, i))
       }
     'input' === n ? (dt(t), Et(t, o)) : 'textarea' === n ? (dt(t), Cn(t, o)) : 'option' === n ? null != o.value && t.setAttribute('value', o.value) : 'select' === n ? (t.multiple = !!o.multiple, n = o.value, null == n ? null != o.defaultValue && hn(t, !!o.multiple, o.defaultValue, !0) : hn(t, !!o.multiple, n, !1)) : 'function' == typeof e.onClick && (t.onclick = A)
   }
@@ -59665,7 +59632,7 @@ module.exports = function (e) {
       value: void 0
     }), r = m({}, r, {
       value: void 0
-    }), e = []) : 'textarea' === n ? (o = gn(t, o), r = gn(t, r), e = []) : 'function' != typeof o.onClick && 'function' == typeof r.onClick && (t.onclick = A), kn(n, r, Xr), n = t = void 0;
+    }), e = []) : 'textarea' === n ? (o = gn(t, o), r = gn(t, r), e = []) : 'function' != typeof o.onClick && 'function' == typeof r.onClick && (t.onclick = A), kn(n, r, Qr), n = t = void 0;
     var a = null;
     for (t in o)
       if (!r.hasOwnProperty(t) && o.hasOwnProperty(t) && null != o[t])
@@ -59676,7 +59643,7 @@ module.exports = function (e) {
     for (t in r) {
       var d = r[t];
       if (s = null == o ? void 0 : o[t], r.hasOwnProperty(t) && d !== s && (null != d || null != s))
-        if ('style' !== t) 'dangerouslySetInnerHTML' === t ? (d = d ? d.__html : void 0, s = s ? s.__html : void 0, null != d && s !== d && (e = e || []).push(t, '' + d)) : 'children' === t ? s === d || 'string' != typeof d && 'number' != typeof d || (e = e || []).push(t, '' + d) : 'suppressContentEditableWarning' !== t && 'suppressHydrationWarning' !== t && (eo.hasOwnProperty(t) ? (null != d && Rn(i, t), e || s === d || (e = [])) : (e = e || []).push(t, d));
+        if ('style' !== t) 'dangerouslySetInnerHTML' === t ? (d = d ? d.__html : void 0, s = s ? s.__html : void 0, null != d && s !== d && (e = e || []).push(t, '' + d)) : 'children' === t ? s === d || 'string' != typeof d && 'number' != typeof d || (e = e || []).push(t, '' + d) : 'suppressContentEditableWarning' !== t && 'suppressHydrationWarning' !== t && (eo.hasOwnProperty(t) ? (null != d && Tn(i, t), e || s === d || (e = [])) : (e = e || []).push(t, d));
         else if (s) {
         for (n in s) !s.hasOwnProperty(n) || d && d.hasOwnProperty(n) || (a || (a = {}), a[n] = '');
         for (n in d) d.hasOwnProperty(n) && s[n] !== d[n] && (a || (a = {}), a[n] = d[n])
@@ -59690,7 +59657,7 @@ module.exports = function (e) {
     for (var e = 0; e < n.length; e += 2) {
       var a = n[e],
         s = n[e + 1];
-      'style' === a ? wn(t, s, Xr) : 'dangerouslySetInnerHTML' === a ? jr(t, s) : 'children' === a ? En(t, s) : yt(t, a, s, r)
+      'style' === a ? wn(t, s, Qr) : 'dangerouslySetInnerHTML' === a ? jr(t, s) : 'children' === a ? En(t, s) : yt(t, a, s, r)
     }
     'input' === o ? vt(t, i) : 'textarea' === o ? Sn(t, i) : 'select' === o ? (t._wrapperState.initialValue = void 0, n = t._wrapperState.wasMultiple, t._wrapperState.wasMultiple = !!i.multiple, o = i.value, null == o ? n !== !!i.multiple && (null == i.defaultValue ? hn(t, !!i.multiple, i.multiple ? [] : '', !1) : hn(t, !!i.multiple, i.defaultValue, !0)) : hn(t, !!i.multiple, o, !1)) : void 0
   }
@@ -59720,15 +59687,15 @@ module.exports = function (e) {
         qt('topToggle', 'toggle', t);
         break;
       case 'input':
-        Ct(t, o), qt('topInvalid', 'invalid', t), Rn(i, 'onChange');
+        Ct(t, o), qt('topInvalid', 'invalid', t), Tn(i, 'onChange');
         break;
       case 'select':
-        fn(t, o), qt('topInvalid', 'invalid', t), Rn(i, 'onChange');
+        fn(t, o), qt('topInvalid', 'invalid', t), Tn(i, 'onChange');
         break;
       case 'textarea':
-        yn(t, o), qt('topInvalid', 'invalid', t), Rn(i, 'onChange');
+        yn(t, o), qt('topInvalid', 'invalid', t), Tn(i, 'onChange');
     }
-    for (var a in kn(n, o, Xr), r = null, o) o.hasOwnProperty(a) && (e = o[a], 'children' === a ? 'string' == typeof e ? t.textContent !== e && (r = ['children', e]) : 'number' == typeof e && t.textContent !== '' + e && (r = ['children', '' + e]) : eo.hasOwnProperty(a) && null != e && Rn(i, a));
+    for (var a in kn(n, o, Qr), r = null, o) o.hasOwnProperty(a) && (e = o[a], 'children' === a ? 'string' == typeof e ? t.textContent !== e && (r = ['children', e]) : 'number' == typeof e && t.textContent !== '' + e && (r = ['children', '' + e]) : eo.hasOwnProperty(a) && null != e && Tn(i, a));
     switch (n) {
       case 'input':
         dt(t), Et(t, o);
@@ -59753,11 +59720,11 @@ module.exports = function (e) {
     this._expirationTime = ei.computeUniqueAsyncExpiration(), this._root = e, this._callbacks = this._next = null, this._hasChildren = this._didComplete = !1, this._children = null, this._defer = !0
   }
 
-  function Bn() {
+  function Fn() {
     this._callbacks = null, this._didCommit = !1, this._onCommit = this._onCommit.bind(this)
   }
 
-  function Fn(e, t, n) {
+  function Bn(e, t, n) {
     this._internalRoot = ei.createContainer(e, t, n)
   }
 
@@ -59772,7 +59739,7 @@ module.exports = function (e) {
   function Hn(e, t) {
     if (t || (t = e ? 9 === e.nodeType ? e.documentElement : e.firstChild : null, t = t && 1 === t.nodeType && t.hasAttribute('data-reactroot')), !t)
       for (var n; n = e.lastChild;) e.removeChild(n);
-    return new Fn(e, !1, t)
+    return new Bn(e, !1, t)
   }
 
   function zn(t, n, r, i, a) {
@@ -59808,40 +59775,40 @@ module.exports = function (e) {
   }
   var Wn = String.fromCharCode,
     Vn = Math.min,
-    Gn = n(179),
+    Gn = n(180),
     Kn = n(0),
-    jn = n(759),
-    m = n(180),
-    A = n(178),
-    C = n(758),
-    qn = n(757),
-    Yn = n(756),
-    Qn = n(296);
+    jn = n(764),
+    m = n(181),
+    A = n(179),
+    C = n(763),
+    qn = n(762),
+    Yn = n(761),
+    Xn = n(301);
   Kn ? void 0 : o('227');
-  var Xn = {
+  var Qn = {
       _caughtError: null,
       _hasCaughtError: !1,
       _rethrowError: null,
       _hasRethrowError: !1,
       invokeGuardedCallback: function () {
-        r.apply(Xn, arguments)
+        r.apply(Qn, arguments)
       },
       invokeGuardedCallbackAndCatchFirstError: function () {
-        if (Xn.invokeGuardedCallback.apply(this, arguments), Xn.hasCaughtError()) {
-          var e = Xn.clearCaughtError();
-          Xn._hasRethrowError || (Xn._hasRethrowError = !0, Xn._rethrowError = e)
+        if (Qn.invokeGuardedCallback.apply(this, arguments), Qn.hasCaughtError()) {
+          var e = Qn.clearCaughtError();
+          Qn._hasRethrowError || (Qn._hasRethrowError = !0, Qn._rethrowError = e)
         }
       },
       rethrowCaughtError: function () {
-        return i.apply(Xn, arguments)
+        return i.apply(Qn, arguments)
       },
       hasCaughtError: function () {
-        return Xn._hasCaughtError
+        return Qn._hasCaughtError
       },
       clearCaughtError: function () {
-        if (Xn._hasCaughtError) {
-          var e = Xn._caughtError;
-          return Xn._caughtError = null, Xn._hasCaughtError = !1, e
+        if (Qn._hasCaughtError) {
+          var e = Qn._caughtError;
+          return Qn._caughtError = null, Qn._hasCaughtError = !1, e
         }
         o('198')
       }
@@ -59996,8 +59963,8 @@ module.exports = function (e) {
         dependencies: ['topBlur', 'topCompositionUpdate', 'topKeyDown', 'topKeyPress', 'topKeyUp', 'topMouseDown']
       }
     },
-    Ro = !1,
     To = !1,
+    Ro = !1,
     xo = null,
     Po = {
       injectFiberControlledHostComponent: function (e) {
@@ -60030,25 +59997,25 @@ module.exports = function (e) {
       url: !0,
       week: !0
     },
-    Bo = Kn.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,
-    Fo = 'function' == typeof Symbol && Symbol['for'],
-    O = Fo ? Symbol['for']('react.element') : 60103,
-    No = Fo ? Symbol['for']('react.call') : 60104,
-    Oo = Fo ? Symbol['for']('react.return') : 60105,
-    Ho = Fo ? Symbol['for']('react.portal') : 60106,
-    zo = Fo ? Symbol['for']('react.fragment') : 60107,
-    Uo = Fo ? Symbol['for']('react.strict_mode') : 60108,
-    Wo = Fo ? Symbol['for']('react.provider') : 60109,
-    Vo = Fo ? Symbol['for']('react.context') : 60110,
-    Go = Fo ? Symbol['for']('react.async_mode') : 60111,
-    Ko = Fo ? Symbol['for']('react.forward_ref') : 60112,
+    Fo = Kn.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,
+    Bo = 'function' == typeof Symbol && Symbol['for'],
+    O = Bo ? Symbol['for']('react.element') : 60103,
+    No = Bo ? Symbol['for']('react.call') : 60104,
+    Oo = Bo ? Symbol['for']('react.return') : 60105,
+    Ho = Bo ? Symbol['for']('react.portal') : 60106,
+    zo = Bo ? Symbol['for']('react.fragment') : 60107,
+    Uo = Bo ? Symbol['for']('react.strict_mode') : 60108,
+    Wo = Bo ? Symbol['for']('react.provider') : 60109,
+    Vo = Bo ? Symbol['for']('react.context') : 60110,
+    Go = Bo ? Symbol['for']('react.async_mode') : 60111,
+    Ko = Bo ? Symbol['for']('react.forward_ref') : 60112,
     jo = 'function' == typeof Symbol && Symbol.iterator,
     qo = /^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,
     Yo = {},
-    Qo = {},
-    Xo = {};
+    Xo = {},
+    Qo = {};
   ['children', 'dangerouslySetInnerHTML', 'defaultValue', 'defaultChecked', 'innerHTML', 'suppressContentEditableWarning', 'suppressHydrationWarning', 'style'].forEach(function (e) {
-    Xo[e] = new gt(e, 0, !1, e, null)
+    Qo[e] = new gt(e, 0, !1, e, null)
   }), [
     ['acceptCharset', 'accept-charset'],
     ['className', 'class'],
@@ -60056,33 +60023,33 @@ module.exports = function (e) {
     ['httpEquiv', 'http-equiv']
   ].forEach(function (e) {
     var t = e[0];
-    Xo[t] = new gt(t, 1, !1, e[1], null)
+    Qo[t] = new gt(t, 1, !1, e[1], null)
   }), ['contentEditable', 'draggable', 'spellCheck', 'value'].forEach(function (e) {
-    Xo[e] = new gt(e, 2, !1, e.toLowerCase(), null)
+    Qo[e] = new gt(e, 2, !1, e.toLowerCase(), null)
   }), ['autoReverse', 'externalResourcesRequired', 'preserveAlpha'].forEach(function (e) {
-    Xo[e] = new gt(e, 2, !1, e, null)
+    Qo[e] = new gt(e, 2, !1, e, null)
   }), ['allowFullScreen', 'async', 'autoFocus', 'autoPlay', 'controls', 'default', 'defer', 'disabled', 'formNoValidate', 'hidden', 'loop', 'noModule', 'noValidate', 'open', 'playsInline', 'readOnly', 'required', 'reversed', 'scoped', 'seamless', 'itemScope'].forEach(function (e) {
-    Xo[e] = new gt(e, 3, !1, e.toLowerCase(), null)
+    Qo[e] = new gt(e, 3, !1, e.toLowerCase(), null)
   }), ['checked', 'multiple', 'muted', 'selected'].forEach(function (e) {
-    Xo[e] = new gt(e, 3, !0, e.toLowerCase(), null)
+    Qo[e] = new gt(e, 3, !0, e.toLowerCase(), null)
   }), ['capture', 'download'].forEach(function (e) {
-    Xo[e] = new gt(e, 4, !1, e.toLowerCase(), null)
+    Qo[e] = new gt(e, 4, !1, e.toLowerCase(), null)
   }), ['cols', 'rows', 'size', 'span'].forEach(function (e) {
-    Xo[e] = new gt(e, 6, !1, e.toLowerCase(), null)
+    Qo[e] = new gt(e, 6, !1, e.toLowerCase(), null)
   }), ['rowSpan', 'start'].forEach(function (e) {
-    Xo[e] = new gt(e, 5, !1, e.toLowerCase(), null)
+    Qo[e] = new gt(e, 5, !1, e.toLowerCase(), null)
   });
   var V = /[\-:]([a-z])/g;
   ['accent-height', 'alignment-baseline', 'arabic-form', 'baseline-shift', 'cap-height', 'clip-path', 'clip-rule', 'color-interpolation', 'color-interpolation-filters', 'color-profile', 'color-rendering', 'dominant-baseline', 'enable-background', 'fill-opacity', 'fill-rule', 'flood-color', 'flood-opacity', 'font-family', 'font-size', 'font-size-adjust', 'font-stretch', 'font-style', 'font-variant', 'font-weight', 'glyph-name', 'glyph-orientation-horizontal', 'glyph-orientation-vertical', 'horiz-adv-x', 'horiz-origin-x', 'image-rendering', 'letter-spacing', 'lighting-color', 'marker-end', 'marker-mid', 'marker-start', 'overline-position', 'overline-thickness', 'paint-order', 'panose-1', 'pointer-events', 'rendering-intent', 'shape-rendering', 'stop-color', 'stop-opacity', 'strikethrough-position', 'strikethrough-thickness', 'stroke-dasharray', 'stroke-dashoffset', 'stroke-linecap', 'stroke-linejoin', 'stroke-miterlimit', 'stroke-opacity', 'stroke-width', 'text-anchor', 'text-decoration', 'text-rendering', 'underline-position', 'underline-thickness', 'unicode-bidi', 'unicode-range', 'units-per-em', 'v-alphabetic', 'v-hanging', 'v-ideographic', 'v-mathematical', 'vector-effect', 'vert-adv-y', 'vert-origin-x', 'vert-origin-y', 'word-spacing', 'writing-mode', 'xmlns:xlink', 'x-height'].forEach(function (e) {
     var t = e.replace(V, U);
-    Xo[t] = new gt(t, 1, !1, e, null)
+    Qo[t] = new gt(t, 1, !1, e, null)
   }), ['xlink:actuate', 'xlink:arcrole', 'xlink:href', 'xlink:role', 'xlink:show', 'xlink:title', 'xlink:type'].forEach(function (e) {
     var t = e.replace(V, U);
-    Xo[t] = new gt(t, 1, !1, e, 'http://www.w3.org/1999/xlink')
+    Qo[t] = new gt(t, 1, !1, e, 'http://www.w3.org/1999/xlink')
   }), ['xml:base', 'xml:lang', 'xml:space'].forEach(function (e) {
     var t = e.replace(V, U);
-    Xo[t] = new gt(t, 1, !1, e, 'http://www.w3.org/XML/1998/namespace')
-  }), Xo.tabIndex = new gt('tabIndex', 1, !1, 'tabindex', null);
+    Qo[t] = new gt(t, 1, !1, e, 'http://www.w3.org/XML/1998/namespace')
+  }), Qo.tabIndex = new gt('tabIndex', 1, !1, 'tabindex', null);
   var $o = {
       change: {
         phasedRegistrationNames: {
@@ -60127,7 +60094,7 @@ module.exports = function (e) {
       shiftKey: null,
       altKey: null,
       metaKey: null,
-      getModifierState: Ft,
+      getModifierState: Bt,
       button: null,
       buttons: null,
       relatedTarget: function (e) {
@@ -60224,7 +60191,7 @@ module.exports = function (e) {
       metaKey: null,
       repeat: null,
       locale: null,
-      getModifierState: Ft,
+      getModifierState: Bt,
       charCode: function (e) {
         return 'keypress' === e.type ? Vt(e) : 0
       },
@@ -60246,7 +60213,7 @@ module.exports = function (e) {
       metaKey: null,
       ctrlKey: null,
       shiftKey: null,
-      getModifierState: Ft
+      getModifierState: Bt
     }),
     hr = K.extend({
       propertyName: null,
@@ -60354,7 +60321,7 @@ module.exports = function (e) {
       },
       trapBubbledEvent: qt,
       trapCapturedEvent: Yt,
-      dispatchEvent: Xt
+      dispatchEvent: Qt
     }),
     wr = {
       animationend: $t('Animation', 'AnimationEnd'),
@@ -60516,24 +60483,24 @@ module.exports = function (e) {
         var i = void 0,
           e = void 0;
         if (bo) b: 'topCompositionStart' === t ? i = _o.compositionStart : 'topCompositionEnd' === t ? i = _o.compositionEnd : 'topCompositionUpdate' === t ? i = _o.compositionUpdate : void 0, i = void 0;
-        else To ? Y(t, o) && (i = _o.compositionEnd) : 'topKeyDown' === t && 229 === o.keyCode && (i = _o.compositionStart);
-        return i ? (wo && (To || i !== _o.compositionStart ? i === _o.compositionEnd && To && (e = z()) : (fo._root = r, fo._startText = G(), To = !0)), i = yo.getPooled(i, n, o, r), e ? i.data = e : (e = Q(o), null !== e && (i.data = e)), L(i), e = i) : e = null, (t = Eo ? $(t, o) : Z(t, o)) ? (n = So.getPooled(_o.beforeInput, n, o, r), n.data = t, L(n)) : n = null, null === e ? n : null === n ? e : [e, n]
+        else Ro ? Y(t, o) && (i = _o.compositionEnd) : 'topKeyDown' === t && 229 === o.keyCode && (i = _o.compositionStart);
+        return i ? (wo && (Ro || i !== _o.compositionStart ? i === _o.compositionEnd && Ro && (e = z()) : (fo._root = r, fo._startText = G(), Ro = !0)), i = yo.getPooled(i, n, o, r), e ? i.data = e : (e = Q(o), null !== e && (i.data = e)), L(i), e = i) : e = null, (t = Eo ? $(t, o) : Z(t, o)) ? (n = So.getPooled(_o.beforeInput, n, o, r), n.data = t, L(n)) : n = null, null === e ? n : null === n ? e : [e, n]
       }
     }
   });
   var te = null,
     _r = null;
   new Set;
-  var Rr = void 0,
+  var Tr = void 0,
     Me = void 0,
     Ne = Array.isArray,
     Ue = We(!0),
     Ye = We(!1),
     Ze = {},
-    Tr = Object.freeze({
+    Rr = Object.freeze({
       default: cn
     }),
-    xr = Tr && cn || Tr,
+    xr = Rr && cn || Rr,
     Pr = xr['default'] ? xr['default'] : xr,
     Mr = 'object' == typeof performance && 'function' == typeof performance.now,
     Dr = void 0;
@@ -60557,8 +60524,8 @@ module.exports = function (e) {
   };
   else if ('function' != typeof requestIdleCallback || 'function' != typeof cancelIdleCallback) {
     var Lr = null,
-      Br = !1,
-      Fr = -1,
+      Fr = !1,
+      Br = -1,
       Nr = !1,
       Or = 0,
       Hr = 33,
@@ -60580,21 +60547,21 @@ module.exports = function (e) {
     var Wr = '__reactIdleCallback$' + Math.random().toString(36).slice(2);
     window.addEventListener('message', function (e) {
       if (e.source === window && e.data === Wr) {
-        if (Br = !1, e = Dr(), !(0 >= Or - e)) Ur.didTimeout = !1;
-        else if (-1 != Fr && Fr <= e) Ur.didTimeout = !0;
+        if (Fr = !1, e = Dr(), !(0 >= Or - e)) Ur.didTimeout = !1;
+        else if (-1 != Br && Br <= e) Ur.didTimeout = !0;
         else return void(Nr || (Nr = !0, requestAnimationFrame(Vr)));
-        Fr = -1, e = Lr, Lr = null, null !== e && e(Ur)
+        Br = -1, e = Lr, Lr = null, null !== e && e(Ur)
       }
     }, !1);
     var Vr = function (e) {
       Nr = !1;
       var t = e - Or + zr;
-      t < zr && Hr < zr ? (8 > t && (t = 8), zr = t < Hr ? Hr : t) : Hr = t, Or = e + zr, Br || (Br = !0, window.postMessage(Wr, '*'))
+      t < zr && Hr < zr ? (8 > t && (t = 8), zr = t < Hr ? Hr : t) : Hr = t, Or = e + zr, Fr || (Fr = !0, window.postMessage(Wr, '*'))
     };
     Ar = function (e, t) {
-      return Lr = e, null != t && 'number' == typeof t.timeout && (Fr = Dr() + t.timeout), Nr || (Nr = !0, requestAnimationFrame(Vr)), 0
+      return Lr = e, null != t && 'number' == typeof t.timeout && (Br = Dr() + t.timeout), Nr || (Nr = !0, requestAnimationFrame(Vr)), 0
     }, Ir = function () {
-      Lr = null, Br = !1, Fr = -1
+      Lr = null, Fr = !1, Br = -1
     }
   } else Ar = window.requestIdleCallback, Ir = window.cancelIdleCallback;
   var Gr = {
@@ -60665,7 +60632,7 @@ module.exports = function (e) {
       t = t + e.charAt(0).toUpperCase() + e.substring(1), qr[t] = qr[e]
     })
   });
-  var Qr = m({
+  var Xr = m({
       menuitem: !0
     }, {
       area: !0,
@@ -60684,9 +60651,9 @@ module.exports = function (e) {
       track: !0,
       wbr: !0
     }),
-    Xr = A.thatReturns(''),
+    Qr = A.thatReturns(''),
     $r = Object.freeze({
-      createElement: Tn,
+      createElement: Rn,
       createTextNode: xn,
       setInitialProperties: Pn,
       diffProperties: Mn,
@@ -60727,7 +60694,7 @@ module.exports = function (e) {
     this._defer ? void 0 : o('250'), this._hasChildren = !0, this._children = e;
     var t = this._root._internalRoot,
       n = this._expirationTime,
-      r = new Bn;
+      r = new Fn;
     return ei.updateContainerAtExpirationTime(e, t, null, n, r._onCommit), r
   }, Ln.prototype.then = function (e) {
     if (this._didComplete) e();
@@ -60754,32 +60721,32 @@ module.exports = function (e) {
       if (null !== e)
         for (var t = 0; t < e.length; t++)(0, e[t])()
     }
-  }, Bn.prototype.then = function (e) {
+  }, Fn.prototype.then = function (e) {
     if (this._didCommit) e();
     else {
       var t = this._callbacks;
       null === t && (t = this._callbacks = []), t.push(e)
     }
-  }, Bn.prototype._onCommit = function () {
+  }, Fn.prototype._onCommit = function () {
     if (!this._didCommit) {
       this._didCommit = !0;
       var e = this._callbacks;
       if (null !== e)
         for (var t = 0, n; t < e.length; t++) n = e[t], 'function' == typeof n ? void 0 : o('191', n), n()
     }
-  }, Fn.prototype.render = function (e, t) {
+  }, Bn.prototype.render = function (e, t) {
     var n = this._internalRoot,
-      o = new Bn;
+      o = new Fn;
     return t = void 0 === t ? null : t, null !== t && o.then(t), ei.updateContainer(e, n, null, o._onCommit), o
-  }, Fn.prototype.unmount = function (e) {
+  }, Bn.prototype.unmount = function (e) {
     var t = this._internalRoot,
-      n = new Bn;
+      n = new Fn;
     return e = void 0 === e ? null : e, null !== e && n.then(e), ei.updateContainer(null, t, null, n._onCommit), n
-  }, Fn.prototype.legacy_renderSubtreeIntoContainer = function (t, n, o) {
+  }, Bn.prototype.legacy_renderSubtreeIntoContainer = function (t, n, o) {
     var r = this._internalRoot,
-      i = new Bn;
+      i = new Fn;
     return o = void 0 === o ? null : o, null !== o && i.then(o), ei.updateContainer(n, r, t, i._onCommit), i
-  }, Fn.prototype.createBatch = function () {
+  }, Bn.prototype.createBatch = function () {
     var e = new Ln(this),
       t = e._expirationTime,
       n = this._internalRoot,
@@ -60886,7 +60853,7 @@ module.exports = function (e) {
         Jr = null, jt(Zr), Zr = null
       },
       createInstance: function (t, n, o, r, i) {
-        return t = Tn(t, n, o, r), t[po] = i, t[F] = n, t
+        return t = Rn(t, n, o, r), t[po] = i, t[F] = n, t
       },
       appendInitialChild: function (e, t) {
         e.appendChild(t)
@@ -61011,7 +60978,7 @@ module.exports = function (e) {
       ReactDOMEventListener: Er
     },
     unstable_createRoot: function (e, t) {
-      return new Fn(e, !0, null != t && !0 === t.hydrate)
+      return new Bn(e, !0, null != t && !0 === t.hydrate)
     }
   };
   ei.injectIntoDevTools({
@@ -61161,10 +61128,10 @@ module.exports = function (e) {
     var i = '';
     null != o && (i = ('' + o).replace(K, '$&/') + '/'), n = C(n, i, e, r), null == t || _(t, '', S, n), k(n)
   }
-  var P = i(180),
-    F = i(179),
-    n = i(296),
-    p = i(178),
+  var P = i(181),
+    F = i(180),
+    n = i(301),
+    p = i(179),
     b = 'function' == typeof Symbol && Symbol['for'],
     r = b ? Symbol['for']('react.element') : 60103,
     U = b ? Symbol['for']('react.portal') : 60106,
@@ -61303,8 +61270,8 @@ module.exports = function (e) {
   function o(e, t, n, o, r) {
     this.children = [], this.sourceContents = {}, this.line = null == e ? null : e, this.column = null == t ? null : t, this.source = null == n ? null : n, this.name = null == r ? null : r, this[s] = !0, null != o && this.add(o)
   }
-  var r = n(299).SourceMapGenerator,
-    a = n(101),
+  var r = n(304).SourceMapGenerator,
+    a = n(102),
     i = /(\r?\n)/,
     s = '$$$isSourceNode$$$';
   o.fromStringWithSourceMap = function (e, t, n) {
@@ -61525,11 +61492,11 @@ module.exports = function (e) {
       }
     })
   }
-  var d = n(101),
-    s = n(765),
-    l = n(297).ArraySet,
-    c = n(298),
-    p = n(764).quickSort;
+  var d = n(102),
+    s = n(770),
+    l = n(302).ArraySet,
+    c = n(303),
+    p = n(769).quickSort;
   o.fromSourceMap = function (e) {
     return r.fromSourceMap(e)
   }, o.prototype._version = 3, o.prototype.__generatedMappings = null, Object.defineProperty(o.prototype, '_generatedMappings', {
@@ -61802,7 +61769,7 @@ module.exports = function (e) {
       generatedColumn: 0
     }
   }
-  var i = n(101);
+  var i = n(102);
   r.prototype.unsortedForEach = function (e, t) {
     this._array.forEach(e, t)
   }, r.prototype.add = function (e) {
@@ -61822,7 +61789,7 @@ module.exports = function (e) {
     return t <= e && e <= 90 ? e - t : n <= e && e <= 122 ? e - n + 26 : o <= e && e <= 57 ? e - o + 52 : e == 43 ? 62 : e == 47 ? 63 : -1
   }
 }, function (e, t, n) {
-  t.SourceMapGenerator = n(299).SourceMapGenerator, t.SourceMapConsumer = n(766).SourceMapConsumer, t.SourceNode = n(763).SourceNode
+  t.SourceMapGenerator = n(304).SourceMapGenerator, t.SourceMapConsumer = n(771).SourceMapConsumer, t.SourceNode = n(768).SourceNode
 }, function (e, t, n) {
   function o() {
     return !('browser' !== w) || 'node' !== w && 'undefined' != typeof window && 'function' == typeof XMLHttpRequest && !(window.require && window.module && window.process && 'renderer' === window.process.type)
@@ -62006,8 +61973,8 @@ module.exports = function (e) {
       return e.apply(this, arguments)
     }
   }
-  var y = n(769).SourceMapConsumer,
-    S = n(2),
+  var y = n(774).SourceMapConsumer,
+    S = n(1),
     C;
   try {
     C = n(32), C.existsSync && C.readFileSync || (C = null)
@@ -62018,11 +61985,11 @@ module.exports = function (e) {
     w = 'auto',
     k = {},
     _ = {},
-    R = /^data:application\/json[^,]+base64,/,
-    T = [],
+    T = /^data:application\/json[^,]+base64,/,
+    R = [],
     x = [],
-    P = i(T);
-  T.push(function (e) {
+    P = i(R);
+  R.push(function (e) {
     if (e = e.trim(), e in k) return k[e];
     var t = null;
     if (!C) {
@@ -62042,7 +62009,7 @@ module.exports = function (e) {
     var t = s(e);
     if (!t) return null;
     var n;
-    if (R.test(t)) {
+    if (T.test(t)) {
       var o = t.slice(t.indexOf(',') + 1);
       n = new Buffer(o, 'base64').toString(), t = e
     } else t = a(e, t), n = P(t);
@@ -62052,10 +62019,10 @@ module.exports = function (e) {
     } : null
   }), t.wrapCallSite = u, t.getErrorSource = h, t.mapSourcePosition = d, t.retrieveSourceMap = M, t.install = function (e) {
     if (e = e || {}, e.environment && (w = e.environment, -1 === ['node', 'browser', 'auto'].indexOf(w))) throw new Error('environment ' + w + ' was unknown. Available options are {auto, browser, node}');
-    if (e.retrieveFile && (e.overrideRetrieveFile && (T.length = 0), T.unshift(e.retrieveFile)), e.retrieveSourceMap && (e.overrideRetrieveSourceMap && (x.length = 0), x.unshift(e.retrieveSourceMap)), e.hookRequire && !o()) {
+    if (e.retrieveFile && (e.overrideRetrieveFile && (R.length = 0), R.unshift(e.retrieveFile)), e.retrieveSourceMap && (e.overrideRetrieveSourceMap && (x.length = 0), x.unshift(e.retrieveSourceMap)), e.hookRequire && !o()) {
       var t;
       try {
-        t = n(762)
+        t = n(767)
       } catch (e) {}
       var i = t.prototype._compile;
       i.__sourceMapSupport || (t.prototype._compile = function (e, t) {
@@ -62068,7 +62035,7 @@ module.exports = function (e) {
     }
   }
 }, function (e, t, n) {
-  var o = n(2).sep || '/';
+  var o = n(1).sep || '/';
   e.exports = function (e) {
     if ('string' != typeof e || 7 >= e.length || 'file://' != e.substring(0, 7)) throw new TypeError('must pass in a file:// URI to convert to a file path');
     var t = unescape(e.substring(7)),
@@ -62082,7 +62049,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(300);
+  const o = n(305);
   t.formatError = function (e, t) {
     return e = o.withSourceMappedStack(e), e.stack ? t ? `${t}\n${e.stack}` : e.stack.trim() : t ? `${t}\n${e.name}: ${e.message}` : `${e.name}: ${e.message}`
   }
@@ -62091,7 +62058,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(772);
+  const o = n(777);
   t.formatLogMessage = function (e, t) {
     return t ? o.formatError(t, e) : e
   }
@@ -62105,7 +62072,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(21),
-    i = n(773),
+    i = n(778),
     a = global;
   a.log = {
     error(e, t) {
@@ -62125,34 +62092,34 @@ module.exports = function (e) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), n(774);
+  }), n(779);
   const o = n(0),
     r = n(41),
-    i = n(2),
+    i = n(1),
     a = n(21),
-    s = n(295),
-    d = n(328),
+    s = n(300),
+    d = n(333),
     l = n(80),
-    c = n(181),
+    c = n(182),
     p = n(28),
     u = n(82),
-    m = n(181),
-    h = n(320),
-    f = n(319),
+    m = n(182),
+    h = n(325),
+    f = n(324),
     g = n(26),
-    y = n(125),
+    y = n(126),
     S = n(82),
-    C = n(300),
-    b = n(318),
-    v = n(317),
-    E = n(316),
-    w = n(315);
-  !1, h.shellNeedsPatching(process) && h.updateEnvironmentForProcess(), C.enableSourceMaps(), process.env.LOCAL_GIT_DIRECTORY = i.resolve(__dirname, 'git'), n(311);
+    C = n(305),
+    b = n(323),
+    v = n(322),
+    E = n(321),
+    w = n(320);
+  !1, h.shellNeedsPatching(process) && h.updateEnvironmentForProcess(), C.enableSourceMaps(), process.env.LOCAL_GIT_DIRECTORY = i.resolve(__dirname, 'git'), n(316);
   const k = performance.now();
-  n(310);
+  n(315);
   let _ = null,
-    R = null,
-    T = null;
+    T = null,
+    R = null;
   const x = (e, t = {}, n) => {
     e = C.withSourceMappedStack(e), console.error('Uncaught exception', e); {
       const o = Object.assign({
@@ -62160,7 +62127,7 @@ module.exports = function (e) {
         guid: S.getGUID()
       }, t);
       try {
-        _ && (null !== _.currentBanner && (o.currentBanner = _.currentBanner.type), null !== _.currentPopup && (o.currentPopup = `${_.currentPopup.type}`), null !== _.selectedState && (o.selectedState = `${_.selectedState.type}`, _.selectedState.type === p.SelectionType.Repository && (o.selectedRepositorySection = `${_.selectedState.state.selectedSection}`)), null !== _.currentFoldout && (o.currentFoldout = `${_.currentFoldout.type}`), _.showWelcomeFlow && (o.inWelcomeFlow = 'true'), 1 !== _.windowZoomFactor && (o.windowZoomFactor = `${_.windowZoomFactor}`), 0 < _.errors.length && (o.activeAppErrors = `${_.errors.length}`), null != R && null != T && (o.lastUnhandledRejection = R, o.lastUnhandledRejectionTime = T.toString()), o.repositoryCount = `${_.repositories.length}`, o.windowState = _.windowState, o.accounts = `${_.accounts.length}`, !1)
+        _ && (null !== _.currentBanner && (o.currentBanner = _.currentBanner.type), null !== _.currentPopup && (o.currentPopup = `${_.currentPopup.type}`), null !== _.selectedState && (o.selectedState = `${_.selectedState.type}`, _.selectedState.type === p.SelectionType.Repository && (o.selectedRepositorySection = `${_.selectedState.state.selectedSection}`)), null !== _.currentFoldout && (o.currentFoldout = `${_.currentFoldout.type}`), _.showWelcomeFlow && (o.inWelcomeFlow = 'true'), 1 !== _.windowZoomFactor && (o.windowZoomFactor = `${_.windowZoomFactor}`), 0 < _.errors.length && (o.activeAppErrors = `${_.errors.length}`), null != T && null != R && (o.lastUnhandledRejection = T, o.lastUnhandledRejectionTime = R.toString()), o.repositoryCount = `${_.repositories.length}`, o.windowState = _.windowState, o.accounts = `${_.accounts.length}`, !1)
       } catch (e) {}
       g.sendErrorReport(e, o, n)
     }
@@ -62171,7 +62138,7 @@ module.exports = function (e) {
     x(e, t, !0)
   }), window.addEventListener('unhandledrejection', (e) => {
     if (null !== e.reason && e.reason !== void 0) try {
-      R = `${e.reason}`, T = new Date
+      T = `${e.reason}`, R = new Date
     } catch (e) {}
   });
   const P = new l.GitHubUserStore(new c.GitHubUserDatabase('GitHubUserDatabase')),
@@ -62180,12 +62147,12 @@ module.exports = function (e) {
     A = new u.StatsStore(new u.StatsDatabase('StatsDatabase'), new b.UiActivityMonitor()),
     I = new l.SignInStore,
     L = new l.AccountsStore(localStorage, l.TokenStore),
-    B = new l.RepositoriesStore(new m.RepositoriesDatabase('Database')),
-    F = new l.PullRequestStore(new m.PullRequestDatabase('PullRequestDatabase'), B),
+    F = new l.RepositoriesStore(new m.RepositoriesDatabase('Database')),
+    B = new l.PullRequestStore(new m.PullRequestDatabase('PullRequestDatabase'), F),
     N = new v.RepositoryStateCache((e) => P.getUsersForRepository(e)),
     O = new E.ApiRepositoriesStore(L),
     H = new w.CommitStatusStore(L),
-    z = new l.AppStore(P, M, D, A, I, L, B, F, N, O);
+    z = new l.AppStore(P, M, D, A, I, L, F, B, N, O);
   z.onDidUpdate((e) => {
     _ = e
   });

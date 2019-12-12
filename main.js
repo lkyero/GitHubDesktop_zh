@@ -2132,7 +2132,7 @@ module.exports = function (e) {
   const r = t(4);
   n.reportError = async function (e, n, t) {
     const o = new Map;
-    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', '3e4755f1aaedc74e38a71dbb7a7f6b8d279c9aef'), o.set('version', r.app.getVersion()), n)
+    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', 'be951a190e44c8005d3628c2d73c6a11816a9538'), o.set('version', r.app.getVersion()), n)
       for (const e of Object.keys(n)) o.set(e, n[e]);
     const i = {
         method: 'POST',
@@ -2161,13 +2161,13 @@ module.exports = function (e) {
       const t = o.spawn(e, n);
       return new Promise((r, o) => {
         let i = '';
-        t.stdout.on('data', (e) => {
+        t.stdout && t.stdout.on('data', (e) => {
           i += e
         }), t.on('close', (t) => {
           0 === t ? r(i) : o(new Error(`Command "${e} ${n}" failed: "${i}"`))
         }), t.on('error', (e) => {
           o(e)
-        }), t.stdin.end()
+        }), t.stdin && t.stdin.end()
       })
     } catch (e) {
       return Promise.reject(e)
@@ -2373,7 +2373,7 @@ module.exports = function (e) {
         const d = [];
         t.on('error', (n) => {
           i = !0, r = n
-        }), t.stdout.on('data', (e) => {
+        }), t.stdout && t.stdout.on('data', (e) => {
           d.push(e)
         }), t.on('close', () => {
           i = !0, process.removeListener('exit', a), d.length && (o = Buffer.concat(d).toString('utf8')), n({
@@ -2456,10 +2456,6 @@ module.exports = function (e) {
   function r() {
     return t() || !1
   }
-
-  function o() {
-    return !0
-  }
   Object.defineProperty(n, '__esModule', {
     value: !0
   });
@@ -2479,12 +2475,14 @@ module.exports = function (e) {
     return !0
   }, n.enableStashing = function () {
     return !0
-  }, n.enableBranchProtectionChecks = o, n.enableWSLDetection = function () {
+  }, n.enableBranchProtectionChecks = function () {
+    return !0
+  }, n.enableWSLDetection = function () {
     return r()
   }, n.enableBranchProtectionWarningFlow = function () {
-    return o() && t()
+    return !0
   }, n.enableHideWhitespaceInDiffOption = function () {
-    return r()
+    return !0
   }, n.enableTutorial = function () {
     return !0
   }
@@ -2748,7 +2746,7 @@ module.exports = function (e) {
       }]
     }), !1;
     const I = {
-        label: '报告问题 Report issue\u2026',
+        label: '反馈问题\u2026',
         click() {
           c.shell.openExternal('https://github.com/desktop/desktop/issues/new/choose').catch((e) => log.error('Failed opening issue creation page', e))
         }
@@ -2760,18 +2758,18 @@ module.exports = function (e) {
         }
       },
       z = {
-        label: '显示用户指南Show User Guides',
+        label: '用户指南 User Guides',
         click() {
           c.shell.openExternal('https://help.github.com/desktop/guides/').catch((e) => log.error('Failed opening user guides page', e))
         }
       },
       j = {
-        label: '显示键盘快捷键 keyboard shortcuts',
+        label: '键盘快捷键 keyboard shortcuts',
         click() {
           c.shell.openExternal('https://help.github.com/en/desktop/getting-started-with-github-desktop/keyboard-shortcuts-in-github-desktop').catch((e) => log.error('Failed opening keyboard shortcuts page', e))
         }
       },
-      B = '在资源管理器中显示日志S&how logs',
+      B = '日志文件夹S&how logs in Explorer',
       U = {
         label: B,
         click() {
@@ -2845,7 +2843,7 @@ module.exports = function (e) {
     h = t(23),
     f = t(62),
     y = t(61),
-    _ = '在命令提示符下打开 Open in Command Prompt',
+    _ = '在命令提示符下打开 Command Prompt',
     b = '创建拉取请求 Create &pull request',
     S = '显示拉取请求 Show &pull request',
     w = '默认分支 default branch',
