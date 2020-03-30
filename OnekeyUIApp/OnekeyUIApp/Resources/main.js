@@ -34,26 +34,18 @@ module.exports = function (e) {
 }, function (e, n, t) {
   function r(e) {
     function n(n) {
-      return h.apply(e, n)
+      return m.apply(e, n)
     }
 
     function t() {
-      return this instanceof t ? (y.apply(this, arguments), this) : t.apply(Object.create(t.prototype), arguments)
+      return this instanceof t ? (f.apply(this, arguments), this) : t.apply(Object.create(t.prototype), arguments)
     }
 
     function a() {
-      return this instanceof a ? (_.apply(this, arguments), this) : a.apply(Object.create(a.prototype), arguments)
+      return this instanceof a ? (h.apply(this, arguments), this) : a.apply(Object.create(a.prototype), arguments)
     }
 
-    function l(e, n) {
-      return new t(e, n)
-    }
-
-    function c(e, n) {
-      return new a(e, n)
-    }
-
-    function p(e, n, t, r) {
+    function l(e, n, t, r) {
       function a(e, n, t, r) {
         return b(e, n, t, function (s) {
           s && ('EMFILE' === s.code || 'ENFILE' === s.code) ? o([a, [e, n, t, r]]) : ('function' == typeof r && r.apply(this, arguments), i())
@@ -61,35 +53,39 @@ module.exports = function (e) {
       }
       return 'function' == typeof t && (r = t, t = null), a(e, n, t, r)
     }
-    s(e), e.gracefulify = r, e.FileReadStream = t, e.FileWriteStream = a, e.createReadStream = l, e.createWriteStream = c;
-    var u = e.readFile;
+    s(e), e.gracefulify = r, e.createReadStream = function (n, t) {
+      return new e.ReadStream(n, t)
+    }, e.createWriteStream = function (n, t) {
+      return new e.WriteStream(n, t)
+    };
+    var c = e.readFile;
     e.readFile = function (e, n, t) {
       function r(e, n, t) {
-        return u(e, n, function (a) {
+        return c(e, n, function (a) {
           a && ('EMFILE' === a.code || 'ENFILE' === a.code) ? o([r, [e, n, t]]) : ('function' == typeof t && t.apply(this, arguments), i())
         })
       }
       return 'function' == typeof n && (t = n, n = null), r(e, n, t)
     };
-    var m = e.writeFile;
+    var p = e.writeFile;
     e.writeFile = function (e, n, t, r) {
       function a(e, n, t, r) {
-        return m(e, n, t, function (s) {
+        return p(e, n, t, function (s) {
           s && ('EMFILE' === s.code || 'ENFILE' === s.code) ? o([a, [e, n, t, r]]) : ('function' == typeof r && r.apply(this, arguments), i())
         })
       }
       return 'function' == typeof t && (r = t, t = null), a(e, n, t, r)
     };
-    var g = e.appendFile;
-    g && (e.appendFile = function (e, n, t, r) {
+    var u = e.appendFile;
+    u && (e.appendFile = function (e, n, t, r) {
       function a(e, n, t, r) {
-        return g(e, n, t, function (s) {
+        return u(e, n, t, function (s) {
           s && ('EMFILE' === s.code || 'ENFILE' === s.code) ? o([a, [e, n, t, r]]) : ('function' == typeof r && r.apply(this, arguments), i())
         })
       }
       return 'function' == typeof t && (r = t, t = null), a(e, n, t, r)
     });
-    var h = e.readdir;
+    var m = e.readdir;
     if (e.readdir = function (e, t, r) {
         function a(e, t) {
           t && t.sort && t.sort(), e && ('EMFILE' === e.code || 'ENFILE' === e.code) ? o([n, [s]]) : ('function' == typeof r && r.apply(this, arguments), i())
@@ -97,58 +93,113 @@ module.exports = function (e) {
         var s = [e];
         return 'function' == typeof t ? r = t : s.push(t), s.push(a), n(s)
       }, 'v0.8' === process.version.substr(0, 4)) {
-      var f = d(e);
-      t = f.ReadStream, a = f.WriteStream
+      var g = d(e);
+      t = g.ReadStream, a = g.WriteStream
     }
-    var y = e.ReadStream;
-    t.prototype = Object.create(y.prototype), t.prototype.open = function () {
+    var f = e.ReadStream;
+    f && (t.prototype = Object.create(f.prototype), t.prototype.open = function () {
       var e = this;
-      p(e.path, e.flags, e.mode, function (n, t) {
+      l(e.path, e.flags, e.mode, function (n, t) {
         n ? (e.autoClose && e.destroy(), e.emit('error', n)) : (e.fd = t, e.emit('open', t), e.read())
       })
-    };
-    var _ = e.WriteStream;
-    a.prototype = Object.create(_.prototype), a.prototype.open = function () {
+    });
+    var h = e.WriteStream;
+    h && (a.prototype = Object.create(h.prototype), a.prototype.open = function () {
       var e = this;
-      p(e.path, e.flags, e.mode, function (n, t) {
+      l(e.path, e.flags, e.mode, function (n, t) {
         n ? (e.destroy(), e.emit('error', n)) : (e.fd = t, e.emit('open', t))
       })
-    }, e.ReadStream = t, e.WriteStream = a;
+    }), Object.defineProperty(e, 'ReadStream', {
+      get: function () {
+        return t
+      },
+      set: function (e) {
+        t = e
+      },
+      enumerable: !0,
+      configurable: !0
+    }), Object.defineProperty(e, 'WriteStream', {
+      get: function () {
+        return a
+      },
+      set: function (e) {
+        a = e
+      },
+      enumerable: !0,
+      configurable: !0
+    });
+    var y = t;
+    Object.defineProperty(e, 'FileReadStream', {
+      get: function () {
+        return y
+      },
+      set: function (e) {
+        y = e
+      },
+      enumerable: !0,
+      configurable: !0
+    });
+    var _ = a;
+    Object.defineProperty(e, 'FileWriteStream', {
+      get: function () {
+        return _
+      },
+      set: function (e) {
+        _ = e
+      },
+      enumerable: !0,
+      configurable: !0
+    });
     var b = e.open;
-    return e.open = p, e
+    return e.open = l, e
   }
 
   function o(e) {
-    p('ENQUEUE', e[0].name, e[1]), l.push(e)
+    m('ENQUEUE', e[0].name, e[1]), global[p].push(e)
   }
 
   function i() {
-    var e = l.shift();
-    e && (p('RETRY', e[0].name, e[1]), e[0].apply(null, e[1]))
+    var e = global[p].shift();
+    e && (m('RETRY', e[0].name, e[1]), e[0].apply(null, e[1]))
   }
   var a = t(5),
     s = t(104),
     d = t(102),
-    l = [],
+    l = t(101),
     c = t(6),
-    p = function () {};
-  c.debuglog ? p = c.debuglog('gfs4') : /\bgfs4\b/i.test(process.env.NODE_DEBUG || '') && (p = function () {
-    var e = c.format.apply(c, arguments);
-    e = 'GFS4: ' + e.split(/\n/).join('\nGFS4: '), console.error(e)
-  }), /\bgfs4\b/i.test(process.env.NODE_DEBUG || '') && process.on('exit', function () {
-    p(l), t(42).equal(l.length, 0)
-  }), e.exports = r(t(43)), process.env.TEST_GRACEFUL_FS_GLOBAL_PATCH && (e.exports = r(a)), e.exports.close = a.close = function (e) {
-    return function (n, t) {
-      return e.call(a, n, function (e) {
-        e || i(), 'function' == typeof t && t.apply(this, arguments)
-      })
-    }
-  }(a.close), e.exports.closeSync = a.closeSync = function (e) {
-    return function () {
-      var n = e.apply(a, arguments);
-      return i(), n
-    }
-  }(a.closeSync)
+    p, u;
+  'function' == typeof Symbol && 'function' == typeof Symbol.for ? (p = Symbol.for('graceful-fs.queue'), u = Symbol.for('graceful-fs.previous')) : (p = '___graceful-fs.queue', u = '___graceful-fs.previous');
+  var m = function () {};
+  if (c.debuglog ? m = c.debuglog('gfs4') : /\bgfs4\b/i.test(process.env.NODE_DEBUG || '') && (m = function () {
+      var e = c.format.apply(c, arguments);
+      e = 'GFS4: ' + e.split(/\n/).join('\nGFS4: '), console.error(e)
+    }), !global[p]) {
+    var g = [];
+    Object.defineProperty(global, p, {
+      get: function () {
+        return g
+      }
+    }), a.close = function (e) {
+      function n(n, t) {
+        return e.call(a, n, function (e) {
+          e || i(), 'function' == typeof t && t.apply(this, arguments)
+        })
+      }
+      return Object.defineProperty(n, u, {
+        value: e
+      }), n
+    }(a.close), a.closeSync = function (e) {
+      function n() {
+        e.apply(a, arguments), i()
+      }
+      return Object.defineProperty(n, u, {
+        value: e
+      }), n
+    }(a.closeSync), /\bgfs4\b/i.test(process.env.NODE_DEBUG || '') && process.on('exit', function () {
+      m(global[p]), t(42).equal(global[p].length, 0)
+    })
+  }
+  e.exports = r(l(a)), process.env.TEST_GRACEFUL_FS_GLOBAL_PATCH && !a.__patched && (e.exports = r(a), a.__patched = !0)
 }, function (e, n) {
   'use strict';
   n.fromCallback = function (e) {
@@ -170,8 +221,8 @@ module.exports = function (e) {
 }, function (e, n, t) {
   'use strict';
   const r = t(2).fromCallback,
-    o = r(t(100)),
-    i = t(99);
+    o = r(t(99)),
+    i = t(98);
   e.exports = {
     mkdirs: o,
     mkdirsSync: i,
@@ -189,7 +240,7 @@ module.exports = function (e) {
 }, function (e, n, t) {
   'use strict';
   const r = t(2).fromPromise,
-    o = t(44);
+    o = t(43);
   e.exports = {
     pathExists: r(function (e) {
       return o.access(e).then(() => !0).catch(() => !1)
@@ -487,11 +538,11 @@ module.exports = function (e) {
     var t = n.split('');
     return t = t.map(e), t.join('')
   };
-  for (var h in s.trap = t(122), s.zalgo = t(121), s.maps = {}, s.maps.america = t(120), s.maps.zebra = t(119), s.maps.rainbow = t(118), s.maps.random = t(117), s.maps)(function (e) {
+  for (var f in s.trap = t(122), s.zalgo = t(121), s.maps = {}, s.maps.america = t(120), s.maps.zebra = t(119), s.maps.rainbow = t(118), s.maps.random = t(117), s.maps)(function (e) {
     s[e] = function (n) {
       return g(s.maps[e], n)
     }
-  })(h);
+  })(f);
   d(s, function () {
     var e = {};
     return Object.keys(u).forEach(function (n) {
@@ -508,7 +559,7 @@ module.exports = function (e) {
   var r = n;
   r.version = t(132).version, r.transports = t(131);
   var o = t(9);
-  r.hash = o.hash, r.clone = o.clone, r.longestElement = o.longestElement, r.exception = t(46), r.config = t(21), r.addColors = r.config.addColors, r.Container = t(106).Container, r.Logger = t(105).Logger, r.Transport = t(12).Transport, r.loggers = new r.Container;
+  r.hash = o.hash, r.clone = o.clone, r.longestElement = o.longestElement, r.exception = t(45), r.config = t(21), r.addColors = r.config.addColors, r.Container = t(106).Container, r.Logger = t(105).Logger, r.Transport = t(12).Transport, r.loggers = new r.Container;
   var i = new r.Logger({
     transports: [new r.transports.Console]
   });
@@ -549,7 +600,7 @@ module.exports = function (e) {
 }, function (e, n, t) {
   'use strict';
   const r = t(2).fromCallback,
-    o = t(96);
+    o = t(95);
   e.exports = {
     remove: r(o),
     removeSync: o.sync
@@ -582,7 +633,13 @@ module.exports = function (e) {
   }
 }, function (e, n, t) {
   'use strict';
-  e.exports = Object.assign({}, t(44), t(41), t(37), t(97), t(95), t(89), t(3), t(86), t(85), t(84), t(7), t(16))
+  e.exports = Object.assign({}, t(43), t(41), t(37), t(96), t(94), t(88), t(3), t(85), t(84), t(83), t(7), t(16));
+  const r = t(5);
+  Object.getOwnPropertyDescriptor(r, 'promises') && Object.defineProperty(e.exports, 'promises', {
+    get() {
+      return r.promises
+    }
+  })
 }, function (e, n, t) {
   function r(e) {
     var n = Array.prototype.slice.call(arguments, 1);
@@ -649,7 +706,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(n, '__esModule', {
     value: !0
-  }), r(t(64)), r(t(24)), r(t(60)), r(t(59))
+  }), r(t(63)), r(t(24)), r(t(59)), r(t(58))
 }, function (e, n) {
   'use strict';
   Object.defineProperty(n, '__esModule', {
@@ -690,7 +747,7 @@ module.exports = function (e) {
   }
 }, function (e, n, t) {
   (function () {
-    n.Emitter = t(70), n.Disposable = t(17), n.CompositeDisposable = t(69)
+    n.Emitter = t(69), n.Disposable = t(17), n.CompositeDisposable = t(68)
   }).call(this)
 }, function (e, n, t) {
   function r() {
@@ -737,7 +794,7 @@ module.exports = function (e) {
     var n = e >> 1;
     return 1 == (1 & e) ? -n : n
   }
-  var i = t(78),
+  var i = t(77),
     a = 5,
     s = 1 << a,
     d = s - 1,
@@ -767,7 +824,7 @@ module.exports = function (e) {
   var o = t(31),
     a = t(11),
     i = t(30).ArraySet,
-    s = t(77).MappingList;
+    s = t(76).MappingList;
   r.prototype._version = 3, r.fromSourceMap = function (e) {
     var n = e.sourceRoot,
       t = new r({
@@ -840,14 +897,14 @@ module.exports = function (e) {
       name: r
     }))
   }, r.prototype._serializeMappings = function () {
-    for (var e = 0, n = 1, t = 0, r = 0, s = 0, d = 0, l = '', c = this._mappings.toArray(), p = 0, i = c.length, u, m, g, h; p < i; p++) {
+    for (var e = 0, n = 1, t = 0, r = 0, s = 0, d = 0, l = '', c = this._mappings.toArray(), p = 0, i = c.length, u, m, g, f; p < i; p++) {
       if (m = c[p], u = '', m.generatedLine !== n)
         for (e = 0; m.generatedLine !== n;) u += ';', n++;
       else if (0 < p) {
         if (!a.compareByGeneratedPositionsInflated(m, c[p - 1])) continue;
         u += ','
       }
-      u += o.encode(m.generatedColumn - e), e = m.generatedColumn, null != m.source && (h = this._sources.indexOf(m.source), u += o.encode(h - d), d = h, u += o.encode(m.originalLine - 1 - r), r = m.originalLine - 1, u += o.encode(m.originalColumn - t), t = m.originalColumn, null != m.name && (g = this._names.indexOf(m.name), u += o.encode(g - s), s = g)), l += u
+      u += o.encode(m.generatedColumn - e), e = m.generatedColumn, null != m.source && (f = this._sources.indexOf(m.source), u += o.encode(f - d), d = f, u += o.encode(m.originalLine - 1 - r), r = m.originalLine - 1, u += o.encode(m.originalColumn - t), t = m.originalColumn, null != m.name && (g = this._names.indexOf(m.name), u += o.encode(g - s), s = g)), l += u
     }
     return l
   }, r.prototype._generateSourcesContent = function (e, n) {
@@ -897,8 +954,8 @@ module.exports = function (e) {
   });
   const a = t(0),
     s = t(5),
-    d = t(81),
-    l = t(80),
+    d = t(80),
+    l = t(79),
     c = ['renderer.js', 'main.js'],
     p = new WeakMap;
   let u;
@@ -1061,7 +1118,7 @@ module.exports = function (e) {
   'use strict';
   const r = t(2).fromCallback;
   e.exports = {
-    copy: r(t(98))
+    copy: r(t(97))
   }
 }, function (e) {
   'use strict';
@@ -1129,30 +1186,17 @@ module.exports = function (e) {
 }, function (e, n, t) {
   'use strict';
   e.exports = {
-    copySync: t(101)
+    copySync: t(100)
   }
 }, function (e) {
   e.exports = require('assert')
 }, function (e, n, t) {
   'use strict';
-  var r = t(5);
-  e.exports = function (e) {
-    if (null === e || 'object' != typeof e) return e;
-    if (e instanceof Object) var n = {
-      __proto__: e.__proto__
-    };
-    else var n = Object.create(null);
-    return Object.getOwnPropertyNames(e).forEach(function (t) {
-      Object.defineProperty(n, t, Object.getOwnPropertyDescriptor(e, t))
-    }), n
-  }(r)
-}, function (e, n, t) {
-  'use strict';
   const r = t(2).fromCallback,
     o = t(1),
-    i = ['access', 'appendFile', 'chmod', 'chown', 'close', 'copyFile', 'fchmod', 'fchown', 'fdatasync', 'fstat', 'fsync', 'ftruncate', 'futimes', 'lchown', 'link', 'lstat', 'mkdir', 'mkdtemp', 'open', 'readFile', 'readdir', 'readlink', 'realpath', 'rename', 'rmdir', 'stat', 'symlink', 'truncate', 'unlink', 'utimes', 'writeFile'].filter((e) => 'function' == typeof o[e]);
+    i = ['access', 'appendFile', 'chmod', 'chown', 'close', 'copyFile', 'fchmod', 'fchown', 'fdatasync', 'fstat', 'fsync', 'ftruncate', 'futimes', 'lchown', 'lchmod', 'link', 'lstat', 'mkdir', 'mkdtemp', 'open', 'readFile', 'readdir', 'readlink', 'realpath', 'rename', 'rmdir', 'stat', 'symlink', 'truncate', 'unlink', 'utimes', 'writeFile'].filter((e) => 'function' == typeof o[e]);
   Object.keys(o).forEach((e) => {
-    n[e] = o[e]
+    'promises' === e || (n[e] = o[e])
   }), i.forEach((e) => {
     n[e] = r(o[e])
   }), n.exists = function (e, n) {
@@ -1272,16 +1316,16 @@ module.exports = function (e) {
         }), t
       },
       g = function (e, n) {
-        p(h(e), function (t) {
+        p(f(e), function (t) {
           n(e[t], t)
         })
       },
-      h = Object.keys || function (e) {
+      f = Object.keys || function (e) {
         var n = [];
         for (var t in e) e.hasOwnProperty(t) && n.push(t);
         return n
       },
-      f = function (e, n) {
+      h = function (e, n) {
         n = n || 0;
         var t = -1,
           r = e.length;
@@ -1334,7 +1378,7 @@ module.exports = function (e) {
     };
     a.forEachOf = a.eachOf = function (e, n, t) {
       t = t || function () {};
-      var r = e.length || h(e).length,
+      var r = e.length || f(e).length,
         o = 0;
       return r ? void g(e, function (i, a) {
         n(e[a], a, function (e) {
@@ -1343,7 +1387,7 @@ module.exports = function (e) {
       }) : t()
     }, a.forEachOfSeries = a.eachOfSeries = function (e, n, t) {
       t = t || function () {};
-      var r = h(e),
+      var r = f(e),
         o = r.length;
       if (!o) return t();
       var i = 0,
@@ -1361,7 +1405,7 @@ module.exports = function (e) {
     var b = function (e) {
         return function (n, t, r) {
           r = r || function () {};
-          var o = h(n),
+          var o = f(n),
             i = o.length;
           if (!i || 0 >= e) return r();
           var a = 0,
@@ -1381,23 +1425,23 @@ module.exports = function (e) {
       },
       S = function (e) {
         return function () {
-          var n = f(arguments);
+          var n = h(arguments);
           return e.apply(null, [a.each].concat(n))
         }
       },
       w = function (e, n) {
         return function () {
-          var t = f(arguments);
+          var t = h(arguments);
           return n.apply(null, [_(e)].concat(t))
         }
       },
-      x = function (e) {
+      v = function (e) {
         return function () {
-          var n = f(arguments);
+          var n = h(arguments);
           return e.apply(null, [a.eachSeries].concat(n))
         }
       },
-      v = function (e, n, t, r) {
+      x = function (e, n, t, r) {
         if (n = u(n, function (e, n) {
             return {
               index: n,
@@ -1419,11 +1463,11 @@ module.exports = function (e) {
           })
         }
       };
-    a.map = S(v), a.mapSeries = x(v), a.mapLimit = function (e, n, t, r) {
+    a.map = S(x), a.mapSeries = v(x), a.mapLimit = function (e, n, t, r) {
       return E(n)(e, t, r)
     };
     var E = function (e) {
-      return w(e, v)
+      return w(e, x)
     };
     a.reduce = function (e, n, t, r) {
       a.eachSeries(e, function (e, r) {
@@ -1458,7 +1502,7 @@ module.exports = function (e) {
         }))
       })
     };
-    a.filter = S(C), a.filterSeries = x(C), a.select = a.filter, a.selectSeries = a.filterSeries;
+    a.filter = S(C), a.filterSeries = v(C), a.select = a.filter, a.selectSeries = a.filterSeries;
     var k = function (e, n, t, r) {
       var o = [];
       n = u(n, function (e, n) {
@@ -1478,7 +1522,7 @@ module.exports = function (e) {
         }))
       })
     };
-    a.reject = S(k), a.rejectSeries = x(k);
+    a.reject = S(k), a.rejectSeries = v(k);
     var M = function (e, n, t, r) {
       e(n, function (e, n) {
         t(e, function (t) {
@@ -1488,7 +1532,7 @@ module.exports = function (e) {
         r()
       })
     };
-    a.detect = S(M), a.detectSeries = x(M), a.some = function (e, n, t) {
+    a.detect = S(M), a.detectSeries = v(M), a.some = function (e, n, t) {
       a.each(e, function (e, r) {
         n(e, function (e) {
           e && (t(!0), t = i), r()
@@ -1524,7 +1568,7 @@ module.exports = function (e) {
       })
     }, a.auto = function (e, n) {
       n = n || i;
-      var t = h(e),
+      var t = f(e),
         r = t.length;
       if (!r) return n();
       var o = {},
@@ -1548,10 +1592,10 @@ module.exports = function (e) {
         }
       }), p(t, function (t) {
         for (var r = c(e[t]) ? e[t] : [e[t]], s = function (e) {
-            var r = f(arguments, 1);
+            var r = h(arguments, 1);
             if (1 >= r.length && (r = r[0]), e) {
               var s = {};
-              p(h(o), function (e) {
+              p(f(o), function (e) {
                 s[e] = o[e]
               }), s[t] = r, n(e, s), n = i
             } else o[t] = r, a.setImmediate(u)
@@ -1602,7 +1646,7 @@ module.exports = function (e) {
         return function (t) {
           if (t) n.apply(null, arguments), n = i;
           else {
-            var o = f(arguments, 1),
+            var o = h(arguments, 1),
               s = e.next();
             s ? o.push(r(s)) : o.push(n), a.setImmediate(function () {
               e.apply(null, o)
@@ -1615,15 +1659,15 @@ module.exports = function (e) {
     var L = function (e, n, t) {
       if (t = t || i, c(n)) e.map(n, function (e, n) {
         e && e(function (e) {
-          var t = f(arguments, 1);
+          var t = h(arguments, 1);
           1 >= t.length && (t = t[0]), n.call(null, e, t)
         })
       }, t);
       else {
         var r = {};
-        e.each(h(n), function (e, t) {
+        e.each(f(n), function (e, t) {
           n[e](function (n) {
-            var o = f(arguments, 1);
+            var o = h(arguments, 1);
             1 >= o.length && (o = o[0]), r[e] = o, t(n)
           })
         }, function (e) {
@@ -1644,15 +1688,15 @@ module.exports = function (e) {
     }, a.series = function (e, n) {
       if (n = n || i, c(e)) a.mapSeries(e, function (e, n) {
         e && e(function (e) {
-          var t = f(arguments, 1);
+          var t = h(arguments, 1);
           1 >= t.length && (t = t[0]), n.call(null, e, t)
         })
       }, n);
       else {
         var t = {};
-        a.eachSeries(h(e), function (n, r) {
+        a.eachSeries(f(e), function (n, r) {
           e[n](function (e) {
-            var o = f(arguments, 1);
+            var o = h(arguments, 1);
             1 >= o.length && (o = o[0]), t[n] = o, r(e)
           })
         }, function (e) {
@@ -1670,9 +1714,9 @@ module.exports = function (e) {
       };
       return n(0)
     }, a.apply = function (e) {
-      var n = f(arguments, 1);
+      var n = h(arguments, 1);
       return function () {
-        return e.apply(null, n.concat(f(arguments)))
+        return e.apply(null, n.concat(h(arguments)))
       }
     };
     var O = function (e, n, t, o) {
@@ -1685,14 +1729,14 @@ module.exports = function (e) {
         o(e, i)
       })
     };
-    a.concat = S(O), a.concatSeries = x(O), a.whilst = function (e, n, t) {
+    a.concat = S(O), a.concatSeries = v(O), a.whilst = function (e, n, t) {
       e() ? n(function (r) {
         return r ? t(r) : void a.whilst(e, n, t)
       }) : t()
     }, a.doWhilst = function (e, n, t) {
       e(function (r) {
         if (r) return t(r);
-        var o = f(arguments, 1);
+        var o = h(arguments, 1);
         n.apply(null, o) ? a.doWhilst(e, n, t) : t()
       })
     }, a.until = function (e, n, t) {
@@ -1702,7 +1746,7 @@ module.exports = function (e) {
     }, a.doUntil = function (e, n, t) {
       e(function (r) {
         if (r) return t(r);
-        var o = f(arguments, 1);
+        var o = h(arguments, 1);
         n.apply(null, o) ? t() : a.doUntil(e, n, t)
       })
     }, a.queue = function (e, n) {
@@ -1837,31 +1881,31 @@ module.exports = function (e) {
         };
       return o
     };
-    var T = function (e) {
+    var P = function (e) {
       return function (n) {
-        var t = f(arguments, 1);
+        var t = h(arguments, 1);
         n.apply(null, t.concat([function (n) {
-          var t = f(arguments, 1);
+          var t = h(arguments, 1);
           'undefined' != typeof console && (n ? console.error && console.error(n) : console[e] && p(t, function (n) {
             console[e](n)
           }))
         }]))
       }
     };
-    a.log = T('log'), a.dir = T('dir'), a.memoize = function (e, n) {
+    a.log = P('log'), a.dir = P('dir'), a.memoize = function (e, n) {
       var t = {},
         r = {};
       n = n || function (e) {
         return e
       };
       var o = function () {
-        var o = f(arguments),
+        var o = h(arguments),
           i = o.pop(),
           s = n.apply(null, o);
         s in t ? a.nextTick(function () {
           i.apply(null, t[s])
         }) : s in r ? r[s].push(i) : (r[s] = [i], e.apply(null, o.concat([function () {
-          t[s] = f(arguments);
+          t[s] = h(arguments);
           var e = r[s];
           delete r[s];
           for (var n = 0, o = e.length; n < o; n++) e[n].apply(null, arguments)
@@ -1882,12 +1926,12 @@ module.exports = function (e) {
       var e = arguments;
       return function () {
         var n = this,
-          t = f(arguments),
+          t = h(arguments),
           r = t.pop();
         a.reduce(e, t, function (e, t, r) {
           t.apply(n, e.concat([function () {
             var e = arguments[0],
-              n = f(arguments, 1);
+              n = h(arguments, 1);
             r(e, n)
           }]))
         }, function (e, t) {
@@ -1897,22 +1941,22 @@ module.exports = function (e) {
     }, a.compose = function () {
       return a.seq.apply(null, Array.prototype.reverse.call(arguments))
     };
-    var P = function (e, n) {
+    var T = function (e, n) {
       var t = function () {
         var t = this,
-          r = f(arguments),
+          r = h(arguments),
           o = r.pop();
         return e(n, function (e, n) {
           e.apply(t, r.concat([n]))
         }, o)
       };
       if (2 < arguments.length) {
-        var r = f(arguments, 2);
+        var r = h(arguments, 2);
         return t.apply(this, r)
       }
       return t
     };
-    a.applyEach = S(P), a.applyEachSeries = x(P), a.forever = function (e, n) {
+    a.applyEach = S(T), a.applyEachSeries = v(T), a.forever = function (e, n) {
       function t(r) {
         if (r) {
           if (n) return n(r);
@@ -1972,9 +2016,9 @@ module.exports = function (e) {
   });
   const a = t(0),
     s = t(15),
-    d = t(45),
+    d = t(44),
     l = t(20);
-  t(83);
+  t(82);
   const c = 14;
   let p = null;
   n.log = async function (e, n) {
@@ -2103,14 +2147,12 @@ module.exports = function (e) {
     const t = new s.CrashWindow(e ? 'launch' : 'generic', n);
     t.onDidLoad(() => {
       t.show()
-    }), t.onFailedToLoad(() => {
-      o.dialog.showMessageBox({
+    }), t.onFailedToLoad(async () => {
+      await o.dialog.showMessageBox({
         type: 'error',
         title: 'Unrecoverable error',
         message: `GitHub Desktop has encountered an unrecoverable error and will need to restart.\n\n` + `This has been reported to the team, but if you encounter this repeatedly please report ` + `this issue to the GitHub Desktop issue tracker.\n\n${n.stack||n.message}`
-      }, () => {
-        o.app.relaunch(), o.app.quit()
-      })
+      }), o.app.relaunch(), o.app.quit()
     }), t.onClose(() => {
       o.app.relaunch(), o.app.quit()
     }), t.load()
@@ -2121,7 +2163,7 @@ module.exports = function (e) {
   const o = t(4),
     i = t(25),
     a = t(34),
-    s = t(51);
+    s = t(50);
   let d = !1;
   n.showUncaughtException = r
 }, function (e, n, t) {
@@ -2132,7 +2174,7 @@ module.exports = function (e) {
   const r = t(4);
   n.reportError = async function (e, n, t) {
     const o = new Map;
-    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', 'be951a190e44c8005d3628c2d73c6a11816a9538'), o.set('version', r.app.getVersion()), n)
+    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', '568b41137c77acc744f62decc721ea0110461d15'), o.set('version', r.app.getVersion()), n)
       for (const e of Object.keys(n)) o.set(e, n[e]);
     const i = {
         method: 'POST',
@@ -2218,18 +2260,18 @@ module.exports = function (e) {
   }
 
   function a() {
-    return h.resolve(process.execPath, '../../bin')
+    return f.resolve(process.execPath, '../../bin')
   }
 
   function s(e, n) {
-    const t = h.resolve(process.execPath, '..');
-    return h.relative(e, h.join(t, n))
+    const t = f.resolve(process.execPath, '..');
+    return f.relative(e, f.join(t, n))
   }
 
   function d(e) {
     const n = s(e, 'resources/app/static/github.bat'),
       t = `@echo off\n"%~dp0\\${n}" %*`,
-      r = h.join(e, 'github.bat');
+      r = f.join(e, 'github.bat');
     return y.writeFile(r, t)
   }
 
@@ -2238,7 +2280,7 @@ module.exports = function (e) {
       t = `#!/usr/bin/env bash
   DIR="$( cd "$( dirname "\$\{BASH_SOURCE[0]\}" )" && pwd )"
   sh "$DIR/${n}" "$@"`,
-      r = h.join(e, 'github');
+      r = f.join(e, 'github');
     return y.writeFile(r, t, {
       encoding: 'utf8',
       mode: 755
@@ -2249,7 +2291,7 @@ module.exports = function (e) {
   }
 
   function p(e) {
-    return c(['--createShortcut', x, '-l', e.join(',')])
+    return c(['--createShortcut', v, '-l', e.join(',')])
   }
   async function u() {
     await m();
@@ -2260,12 +2302,12 @@ module.exports = function (e) {
   }
 
   function m() {
-    return c(['--removeShortcut', x])
+    return c(['--removeShortcut', v])
   }
   async function g() {
-    const e = f.homedir();
+    const e = h.homedir();
     if (e) {
-      const n = h.join(e, 'Desktop', 'GitHub Desktop.lnk'),
+      const n = f.join(e, 'Desktop', 'GitHub Desktop.lnk'),
         t = await y.pathExists(n),
         r = t ? ['StartMenu', 'Desktop'] : ['StartMenu'];
       return p(r)
@@ -2275,14 +2317,14 @@ module.exports = function (e) {
   Object.defineProperty(n, '__esModule', {
     value: !0
   });
-  const h = t(0),
-    f = t(10),
+  const f = t(0),
+    h = t(10),
     y = t(20),
-    _ = t(54),
-    b = h.resolve(process.execPath, '..'),
-    S = h.resolve(b, '..'),
-    w = h.resolve(h.join(S, 'Update.exe')),
-    x = h.basename(process.execPath);
+    _ = t(53),
+    b = f.resolve(process.execPath, '..'),
+    S = f.resolve(b, '..'),
+    w = f.resolve(f.join(S, 'Update.exe')),
+    v = f.basename(process.execPath);
   n.handleSquirrelEvent = function (e) {
     return '--squirrel-install' === e ? r() : '--squirrel-updated' === e ? o() : '--squirrel-uninstall' === e ? u() : '--squirrel-obsolete' === e ? Promise.resolve() : null
   }
@@ -2308,7 +2350,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = t(18),
-    i = t(56);
+    i = t(55);
   n.parseAppURL = function (e) {
     const n = o.parse(e, !0),
       t = n.hostname,
@@ -2459,9 +2501,7 @@ module.exports = function (e) {
   Object.defineProperty(n, '__esModule', {
     value: !0
   });
-  n.enableMergeTool = function () {
-    return t()
-  }, n.enableRecurseSubmodulesFlag = function () {
+  n.enableRecurseSubmodulesFlag = function () {
     return r()
   }, n.enableReadmeOverwriteWarning = function () {
     return r()
@@ -2484,6 +2524,18 @@ module.exports = function (e) {
   }, n.enableHideWhitespaceInDiffOption = function () {
     return !0
   }, n.enableTutorial = function () {
+    return !0
+  }, n.enableCreateForkFlow = function () {
+    return !0
+  }, n.enableSchannelCheckRevokeOptOut = function () {
+    return !0
+  }, n.enableAutomaticGitProxyConfiguration = function () {
+    return !0
+  }, n.enableCreateGitHubIssueFromMenu = function () {
+    return !0
+  }, n.enableUpdateRemoteUrl = function () {
+    return !0
+  }, n.enableForkyCreateBranchUI = function () {
     return !0
   }
 }, function (e, n) {
@@ -2513,11 +2565,11 @@ module.exports = function (e) {
     isStashedChangesVisible: k = !1
   }) {
     l = u.truncateWithEllipsis(l, 25);
-    const M = r ? x : v,
+    const M = r ? v : x,
       L = s ? S : b,
       O = null === n ? _ : `用${n}打开`,
-      T = null === e ? y.DefaultEditorLabel : `用${e}打开`,
-      P = [],
+      P = null === e ? y.DefaultEditorLabel : `用${e}打开`,
+      T = [],
       F = {
         type: 'separator'
       };
@@ -2552,7 +2604,7 @@ module.exports = function (e) {
         accelerator: 'Alt+F4'
       })
     }
-    P.push(N), P.push({
+    T.push(N), T.push({
       label: '编辑 &(Edit)',
       submenu: [{
         role: 'undo',
@@ -2579,7 +2631,7 @@ module.exports = function (e) {
         accelerator: 'CmdOrCtrl+F',
         click: a('find-text')
       }]
-    }), P.push({
+    }), T.push({
       label: '视图 &(View)',
       submenu: [{
         label: '更改 &Changes',
@@ -2611,7 +2663,7 @@ module.exports = function (e) {
         id: 'toggle-stashed-changes',
         accelerator: 'Ctrl+H',
         click: k ? a('hide-stashed-changes') : a('show-stashed-changes'),
-        visible: f.enableStashing()
+        visible: h.enableStashing()
       }, {
         label: '全屏切换 Toggle &full screen',
         role: 'togglefullscreen'
@@ -2646,7 +2698,7 @@ module.exports = function (e) {
     });
     const A = o(C, t),
       R = C ? 'force-push' : 'push';
-    P.push({
+    T.push({
       label: '存储库&(Repository)',
       id: 'repository',
       submenu: [{
@@ -2680,16 +2732,22 @@ module.exports = function (e) {
         accelerator: 'CmdOrCtrl+Shift+F',
         click: a('open-working-directory')
       }, {
-        label: T,
+        label: P,
         id: 'open-external-editor',
         accelerator: 'CmdOrCtrl+Shift+A',
         click: a('open-external-editor')
+      }, F, {
+        id: 'create-issue-in-repository-on-github',
+        label: '新建问题 Create &issue on GitHub',
+        accelerator: 'CmdOrCtrl+Shift+I',
+        click: a('create-issue-in-repository-on-github'),
+        visible: h.enableCreateGitHubIssueFromMenu()
       }, F, {
         label: '存储库设置 Repository &settings\u2026',
         id: 'show-repository-settings',
         click: a('show-repository-settings')
       }]
-    }), P.push({
+    }), T.push({
       label: '分支&(Branch)',
       id: 'branch',
       submenu: [{
@@ -2732,7 +2790,7 @@ module.exports = function (e) {
         id: 'rebase-branch',
         accelerator: 'CmdOrCtrl+Shift+E',
         click: a('rebase-branch'),
-        visible: f.enableRebaseDialog()
+        visible: h.enableRebaseDialog()
       }, F, {
         label: '前往GitHub比较 Compare',
         id: 'compare-on-github',
@@ -2775,20 +2833,20 @@ module.exports = function (e) {
         click() {
           const e = m.getLogDirectoryPath();
           g.ensureDir(e).then(() => {
-            h.openDirectorySafe(e)
+            f.openDirectorySafe(e)
           }).catch((e) => {
             log.error('Failed opening logs directory', e)
           })
         }
       };
-    return !1, P.push({
+    return !1, T.push({
       label: '&帮助(Help)',
       submenu: [...[I, D, z, j, U], F, {
         label: '关于Github桌面 &About GitHub Desktop',
         click: a('show-about'),
         id: 'about'
       }]
-    }), p.ensureItemIds(P), c.Menu.buildFromTemplate(P)
+    }), p.ensureItemIds(T), c.Menu.buildFromTemplate(T)
   }
 
   function o(e, n) {
@@ -2837,18 +2895,18 @@ module.exports = function (e) {
   });
   const c = t(4),
     p = t(24),
-    u = t(63),
-    m = t(45),
+    u = t(62),
+    m = t(44),
     g = t(20),
-    h = t(23),
-    f = t(62),
-    y = t(61),
+    f = t(23),
+    h = t(61),
+    y = t(60),
     _ = '在命令提示符下打开 Command Prompt',
     b = '创建拉取请求 Create &pull request',
     S = '显示拉取请求 Show &pull request',
     w = '默认分支 default branch',
-    x = '&删除 Remove\u2026',
-    v = '&删除 Remove';
+    v = '&删除 Remove\u2026',
+    x = '&删除 Remove';
   var E;
   (function (e) {
     e[e.Reset = 0] = 'Reset', e[e.In = 1] = 'In', e[e.Out = 2] = 'Out'
@@ -2911,28 +2969,28 @@ module.exports = function (e) {
     }
 
     function m() {
-      clearTimeout(x), x = setTimeout(p, v)
+      clearTimeout(v), v = setTimeout(p, x)
     }
 
     function g() {
       p()
     }
 
-    function h() {
+    function f() {
       y(), u()
     }
 
-    function f(e) {
-      E.maximize && S.isMaximized && e.maximize(), E.fullScreen && S.isFullScreen && e.setFullScreen(!0), e.on('resize', m), e.on('move', m), e.on('close', g), e.on('closed', h), w = e
+    function h(e) {
+      E.maximize && S.isMaximized && e.maximize(), E.fullScreen && S.isFullScreen && e.setFullScreen(!0), e.on('resize', m), e.on('move', m), e.on('close', g), e.on('closed', f), w = e
     }
 
     function y() {
-      w && (w.removeListener('resize', m), w.removeListener('move', m), clearTimeout(x), w.removeListener('close', g), w.removeListener('closed', h), w = null)
+      w && (w.removeListener('resize', m), w.removeListener('move', m), clearTimeout(v), w.removeListener('close', g), w.removeListener('closed', f), w = null)
     }
     const _ = o.app || o.remote.app,
       b = o.screen || o.remote.screen;
-    let S, w, x;
-    const v = 100,
+    let S, w, v;
+    const x = 100,
       E = Object.assign({
         file: 'window-state.json',
         path: _.getPath('userData'),
@@ -2970,7 +3028,7 @@ module.exports = function (e) {
       },
       saveState: u,
       unmanage: y,
-      manage: f,
+      manage: h,
       resetStateToDefault: s
     }
   }
@@ -3200,7 +3258,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = t(0),
-    o = t(67);
+    o = t(66);
   n.encodePathAsUrl = function (...e) {
     const n = r.resolve(...e);
     return o(n)
@@ -3307,12 +3365,12 @@ module.exports = function (e) {
   });
   const r = t(4),
     o = t(29),
-    i = t(68),
+    i = t(67),
     a = t(28),
-    s = t(66),
+    s = t(65),
     d = t(26),
     l = t(0),
-    c = t(65);
+    c = t(64);
   class p {
     constructor() {
       this.emitter = new o.Emitter, this._loadTime = null, this._rendererReadyTime = null, this.minWidth = 960, this.minHeight = 660;
@@ -3678,10 +3736,10 @@ module.exports = function (e) {
     })
   }
   var d = t(11),
-    s = t(75),
+    s = t(74),
     l = t(30).ArraySet,
     c = t(31),
-    p = t(74).quickSort;
+    p = t(73).quickSort;
   r.fromSourceMap = function (e) {
     return o.fromSourceMap(e)
   }, r.prototype._version = 3, r.prototype.__generatedMappings = null, Object.defineProperty(r.prototype, '_generatedMappings', {
@@ -3756,8 +3814,8 @@ module.exports = function (e) {
     n.sourceRoot = e._sourceRoot, n.sourcesContent = e._generateSourcesContent(n._sources.toArray(), n.sourceRoot), n.file = e._file;
     for (var s = e._mappings.toArray().slice(), c = n.__generatedMappings = [], u = n.__originalMappings = [], m = 0, i = s.length; m < i; m++) {
       var g = s[m],
-        h = new a;
-      h.generatedLine = g.generatedLine, h.generatedColumn = g.generatedColumn, g.source && (h.source = r.indexOf(g.source), h.originalLine = g.originalLine, h.originalColumn = g.originalColumn, g.name && (h.name = t.indexOf(g.name)), u.push(h)), c.push(h)
+        f = new a;
+      f.generatedLine = g.generatedLine, f.generatedColumn = g.generatedColumn, g.source && (f.source = r.indexOf(g.source), f.originalLine = g.originalLine, f.originalColumn = g.originalColumn, g.name && (f.name = t.indexOf(g.name)), u.push(f)), c.push(f)
     }
     return p(n.__originalMappings, d.compareByOriginalPositions), n
   }, o.prototype._version = 3, Object.defineProperty(o.prototype, 'sources', {
@@ -3767,7 +3825,7 @@ module.exports = function (e) {
       }, this)
     }
   }), o.prototype._parseMappings = function (e) {
-    for (var n = 1, t = 0, r = 0, o = 0, i = 0, s = 0, l = e.length, u = 0, m = {}, g = {}, h = [], f = [], y, _, b, S, w; u < l;)
+    for (var n = 1, t = 0, r = 0, o = 0, i = 0, s = 0, l = e.length, u = 0, m = {}, g = {}, f = [], h = [], y, _, b, S, w; u < l;)
       if (';' === e.charAt(u)) n++, u++, t = 0;
       else if (',' === e.charAt(u)) u++;
     else {
@@ -3779,9 +3837,9 @@ module.exports = function (e) {
         if (3 === b.length) throw new Error('Found a source and line, but no column');
         m[_] = b
       }
-      y.generatedColumn = t + b[0], t = y.generatedColumn, 1 < b.length && (y.source = i + b[1], i += b[1], y.originalLine = r + b[2], r = y.originalLine, y.originalLine += 1, y.originalColumn = o + b[3], o = y.originalColumn, 4 < b.length && (y.name = s + b[4], s += b[4])), f.push(y), 'number' == typeof y.originalLine && h.push(y)
+      y.generatedColumn = t + b[0], t = y.generatedColumn, 1 < b.length && (y.source = i + b[1], i += b[1], y.originalLine = r + b[2], r = y.originalLine, y.originalLine += 1, y.originalColumn = o + b[3], o = y.originalColumn, 4 < b.length && (y.name = s + b[4], s += b[4])), h.push(y), 'number' == typeof y.originalLine && f.push(y)
     }
-    p(f, d.compareByGeneratedPositionsDeflated), this.__generatedMappings = f, p(h, d.compareByOriginalPositions), this.__originalMappings = h
+    p(h, d.compareByGeneratedPositionsDeflated), this.__generatedMappings = h, p(f, d.compareByOriginalPositions), this.__originalMappings = f
   }, o.prototype._findMapping = function (e, n, t, r, o, i) {
     if (0 >= e[t]) throw new TypeError('Line must be greater than or equal to 1, got ' + e[t]);
     if (0 > e[r]) throw new TypeError('Column must be greater than or equal to 0, got ' + e[r]);
@@ -3974,10 +4032,10 @@ module.exports = function (e) {
     return n <= e && e <= 90 ? e - n : t <= e && e <= 122 ? e - t + 26 : r <= e && e <= 57 ? e - r + 52 : e == 43 ? 62 : e == 47 ? 63 : -1
   }
 }, function (e, n, t) {
-  n.SourceMapGenerator = t(32).SourceMapGenerator, n.SourceMapConsumer = t(76).SourceMapConsumer, n.SourceNode = t(73).SourceNode
+  n.SourceMapGenerator = t(32).SourceMapGenerator, n.SourceMapConsumer = t(75).SourceMapConsumer, n.SourceNode = t(72).SourceNode
 }, function (e, n, t) {
   function r() {
-    return !('browser' !== v) || 'node' !== v && 'undefined' != typeof window && 'function' == typeof XMLHttpRequest && !(window.require && window.module && window.process && 'renderer' === window.process.type)
+    return !('browser' !== x) || 'node' !== x && 'undefined' != typeof window && 'function' == typeof XMLHttpRequest && !(window.require && window.module && window.process && 'renderer' === window.process.type)
   }
 
   function o() {
@@ -4016,7 +4074,7 @@ module.exports = function (e) {
   function d(e) {
     var n = C[e.source];
     if (!n) {
-      var t = T(e.source);
+      var t = P(e.source);
       t ? (n = C[e.source] = {
         url: t.url,
         map: new y(t.map)
@@ -4117,7 +4175,7 @@ module.exports = function (e) {
   }
 
   function m(e, n) {
-    return x && (E = {}, C = {}), e + n.map(function (e) {
+    return v && (E = {}, C = {}), e + n.map(function (e) {
       return '\n    at ' + u(e)
     }).join('')
   }
@@ -4142,23 +4200,23 @@ module.exports = function (e) {
     return null
   }
 
-  function h(e) {
+  function f(e) {
     var n = g(e);
     n && (console.error(), console.error(n)), console.error(e.stack), process.exit(1)
   }
 
-  function f() {
+  function h() {
     var e = process.emit;
     process.emit = function (n) {
       if ('uncaughtException' === n) {
         var t = arguments[1] && arguments[1].stack,
           r = 0 < this.listeners(n).length;
-        if (t && !r) return h(arguments[1])
+        if (t && !r) return f(arguments[1])
       }
       return e.apply(this, arguments)
     }
   }
-  var y = t(79).SourceMapConsumer,
+  var y = t(78).SourceMapConsumer,
     _ = t(0),
     b;
   try {
@@ -4166,8 +4224,8 @@ module.exports = function (e) {
   } catch (e) {}
   var S = !1,
     w = !1,
-    x = !1,
-    v = 'auto',
+    v = !1,
+    x = 'auto',
     E = {},
     C = {},
     k = /^data:application\/json[^,]+base64,/,
@@ -4189,7 +4247,7 @@ module.exports = function (e) {
     }
     return E[e] = n
   });
-  var T = i(L);
+  var P = i(L);
   L.push(function (e) {
     var n = s(e);
     if (!n) return null;
@@ -4202,21 +4260,21 @@ module.exports = function (e) {
       url: n,
       map: t
     } : null
-  }), n.wrapCallSite = u, n.getErrorSource = g, n.mapSourcePosition = d, n.retrieveSourceMap = T, n.install = function (e) {
-    if (e = e || {}, e.environment && (v = e.environment, -1 === ['node', 'browser', 'auto'].indexOf(v))) throw new Error('environment ' + v + ' was unknown. Available options are {auto, browser, node}');
+  }), n.wrapCallSite = u, n.getErrorSource = g, n.mapSourcePosition = d, n.retrieveSourceMap = P, n.install = function (e) {
+    if (e = e || {}, e.environment && (x = e.environment, -1 === ['node', 'browser', 'auto'].indexOf(x))) throw new Error('environment ' + x + ' was unknown. Available options are {auto, browser, node}');
     if (e.retrieveFile && (e.overrideRetrieveFile && (M.length = 0), M.unshift(e.retrieveFile)), e.retrieveSourceMap && (e.overrideRetrieveSourceMap && (L.length = 0), L.unshift(e.retrieveSourceMap)), e.hookRequire && !r()) {
       var n;
       try {
-        n = t(72)
+        n = t(71)
       } catch (e) {}
       var i = n.prototype._compile;
       i.__sourceMapSupport || (n.prototype._compile = function (e, n) {
         return E[n] = e, C[n] = void 0, i.call(this, e, n)
       }, n.prototype._compile.__sourceMapSupport = !0)
     }
-    if (x || (x = !!('emptyCacheBetweenOperations' in e) && e.emptyCacheBetweenOperations), S || (S = !0, Error.prepareStackTrace = m), !w) {
+    if (v || (v = !!('emptyCacheBetweenOperations' in e) && e.emptyCacheBetweenOperations), S || (S = !0, Error.prepareStackTrace = m), !w) {
       var a = !('handleUncaughtExceptions' in e) || e.handleUncaughtExceptions;
-      a && o() && (w = !0, f())
+      a && o() && (w = !0, h())
     }
   }
 }, function (e, n, t) {
@@ -4249,7 +4307,7 @@ module.exports = function (e) {
     l = t(10),
     c = t(15),
     p = t(35),
-    u = t(47),
+    u = t(46),
     m = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     g = e.exports = function (e) {
       function n(n) {
@@ -4350,12 +4408,12 @@ module.exports = function (e) {
             var t = JSON.parse(e);
             u(t) && p(t)
           } catch (t) {
-            n || h.emit('error', t)
+            n || f.emit('error', t)
           }
         }
 
         function p(n) {
-          if (e.rows && a.length >= e.rows && 'desc' !== e.order) return void(h.readable && h.destroy());
+          if (e.rows && a.length >= e.rows && 'desc' !== e.order) return void(f.readable && f.destroy());
           if (e.fields) {
             var t = {};
             e.fields.forEach(function (e) {
@@ -4374,16 +4432,16 @@ module.exports = function (e) {
         if (l) {
           var m = o.join(t.dirname, l),
             g = '',
-            h = r.createReadStream(m, {
+            f = r.createReadStream(m, {
               encoding: 'utf8'
             });
-          h.on('error', function (e) {
-            return h.readable && h.destroy(), n ? 'ENOENT' === e.code ? n(null, a) : n(e) : void 0
-          }), h.on('data', function (n) {
+          f.on('error', function (e) {
+            return f.readable && f.destroy(), n ? 'ENOENT' === e.code ? n(null, a) : n(e) : void 0
+          }), f.on('data', function (n) {
             n = (g + n).split(/\n+/);
             for (var t = n.length - 1, r = 0; r < t; r++)(!e.start || s >= e.start) && c(n[r]), s++;
             g = n[t]
-          }), h.on('close', function () {
+          }), f.on('close', function () {
             g && c(g, !0), 'desc' === e.order && (a = a.reverse()), i.length ? d(i.shift()) : n && n(null, a)
           })
         }
@@ -4666,7 +4724,7 @@ module.exports = function (e) {
   'use strict';
   const r = t(2).fromCallback,
     o = t(19);
-  o.outputJson = r(t(88)), o.outputJsonSync = t(87), o.outputJSON = o.outputJson, o.outputJSONSync = o.outputJsonSync, o.writeJSON = o.writeJson, o.writeJSONSync = o.writeJsonSync, o.readJSON = o.readJson, o.readJSONSync = o.readJsonSync, e.exports = o
+  o.outputJson = r(t(87)), o.outputJsonSync = t(86), o.outputJSON = o.outputJson, o.outputJSONSync = o.outputJsonSync, o.writeJSON = o.writeJson, o.writeJSONSync = o.writeJsonSync, o.readJSON = o.readJson, o.readJSONSync = o.readJsonSync, e.exports = o
 }, function (e, n, t) {
   'use strict';
   const r = t(1);
@@ -4739,19 +4797,19 @@ module.exports = function (e) {
     a = t(3),
     s = a.mkdirs,
     d = a.mkdirsSync,
-    l = t(91),
+    l = t(90),
     c = l.symlinkPaths,
     p = l.symlinkPathsSync,
-    u = t(90),
+    u = t(89),
     m = u.symlinkType,
     g = u.symlinkTypeSync,
-    h = t(7).pathExists;
+    f = t(7).pathExists;
   e.exports = {
     createSymlink: r(function (e, n, t, r) {
-      r = 'function' == typeof t ? t : r, t = 'function' != typeof t && t, h(n, (a, d) => a ? r(a) : d ? r(null) : void c(e, n, (a, d) => a ? r(a) : void(e = d.toDst, m(d.toCwd, t, (t, a) => {
+      r = 'function' == typeof t ? t : r, t = 'function' != typeof t && t, f(n, (a, d) => a ? r(a) : d ? r(null) : void c(e, n, (a, d) => a ? r(a) : void(e = d.toDst, m(d.toCwd, t, (t, a) => {
         if (t) return r(t);
         const d = o.dirname(n);
-        h(d, (t, o) => t ? r(t) : o ? i.symlink(e, n, a, r) : void s(d, (t) => t ? r(t) : void i.symlink(e, n, a, r)))
+        f(d, (t, o) => t ? r(t) : o ? i.symlink(e, n, a, r) : void s(d, (t) => t ? r(t) : void i.symlink(e, n, a, r)))
       }))))
     }),
     createSymlinkSync: function (e, n, t) {
@@ -4828,9 +4886,9 @@ module.exports = function (e) {
   }
 }, function (e, n, t) {
   'use strict';
-  const r = t(94),
-    o = t(93),
-    i = t(92);
+  const r = t(93),
+    o = t(92),
+    i = t(91);
   e.exports = {
     createFile: r.createFile,
     createFileSync: r.createFileSync,
@@ -4856,7 +4914,7 @@ module.exports = function (e) {
 
   function o(e, n, t) {
     let o = 0;
-    'function' == typeof n && (t = n, n = {}), h(e, 'rimraf: missing path'), h.strictEqual(typeof e, 'string', 'rimraf: path should be a string'), h.strictEqual(typeof t, 'function', 'rimraf: callback function required'), h(n, 'rimraf: invalid options argument provided'), h.strictEqual(typeof n, 'object', 'rimraf: options should be object'), r(n), i(e, n, function r(a) {
+    'function' == typeof n && (t = n, n = {}), f(e, 'rimraf: missing path'), f.strictEqual(typeof e, 'string', 'rimraf: path should be a string'), f.strictEqual(typeof t, 'function', 'rimraf: callback function required'), f(n, 'rimraf: invalid options argument provided'), f.strictEqual(typeof n, 'object', 'rimraf: options should be object'), r(n), i(e, n, function r(a) {
       if (a) {
         if (('EBUSY' === a.code || 'ENOTEMPTY' === a.code || 'EPERM' === a.code) && o < n.maxBusyTries) {
           o++;
@@ -4870,7 +4928,7 @@ module.exports = function (e) {
   }
 
   function i(e, n, t) {
-    h(e), h(n), h('function' == typeof t), n.lstat(e, (r, o) => r && 'ENOENT' === r.code ? t(null) : r && 'EPERM' === r.code && f ? a(e, n, r, t) : o && o.isDirectory() ? d(e, n, r, t) : void n.unlink(e, (r) => {
+    f(e), f(n), f('function' == typeof t), n.lstat(e, (r, o) => r && 'ENOENT' === r.code ? t(null) : r && 'EPERM' === r.code && h ? a(e, n, r, t) : o && o.isDirectory() ? d(e, n, r, t) : void n.unlink(e, (r) => {
       if (r) {
         if ('ENOENT' === r.code) return t(null);
         if ('EPERM' === r.code) return a(e, n, r, t);
@@ -4881,7 +4939,7 @@ module.exports = function (e) {
   }
 
   function a(e, n, t, r) {
-    h(e), h(n), h('function' == typeof r), t && h(t instanceof Error), n.chmod(e, 438, (o) => {
+    f(e), f(n), f('function' == typeof r), t && f(t instanceof Error), n.chmod(e, 438, (o) => {
       o ? r('ENOENT' === o.code ? null : t) : n.stat(e, (o, i) => {
         o ? r('ENOENT' === o.code ? null : t) : i.isDirectory() ? d(e, n, t, r) : n.unlink(e, r)
       })
@@ -4890,7 +4948,7 @@ module.exports = function (e) {
 
   function s(e, n, t) {
     let r;
-    h(e), h(n), t && h(t instanceof Error);
+    f(e), f(n), t && f(t instanceof Error);
     try {
       n.chmodSync(e, 438)
     } catch (e) {
@@ -4907,13 +4965,13 @@ module.exports = function (e) {
   }
 
   function d(e, n, t, r) {
-    h(e), h(n), t && h(t instanceof Error), h('function' == typeof r), n.rmdir(e, (o) => {
+    f(e), f(n), t && f(t instanceof Error), f('function' == typeof r), n.rmdir(e, (o) => {
       o && ('ENOTEMPTY' === o.code || 'EEXIST' === o.code || 'EPERM' === o.code) ? l(e, n, r) : o && 'ENOTDIR' === o.code ? r(t) : r(o)
     })
   }
 
   function l(e, t, r) {
-    h(e), h(t), h('function' == typeof r), t.readdir(e, (i, a) => {
+    f(e), f(t), f('function' == typeof r), t.readdir(e, (i, a) => {
       if (i) return r(i);
       let s = a.length,
         n;
@@ -4925,12 +4983,12 @@ module.exports = function (e) {
 
   function c(e, n) {
     let t;
-    n = n || {}, r(n), h(e, 'rimraf: missing path'), h.strictEqual(typeof e, 'string', 'rimraf: path should be a string'), h(n, 'rimraf: missing options'), h.strictEqual(typeof n, 'object', 'rimraf: options should be object');
+    n = n || {}, r(n), f(e, 'rimraf: missing path'), f.strictEqual(typeof e, 'string', 'rimraf: path should be a string'), f(n, 'rimraf: missing options'), f.strictEqual(typeof n, 'object', 'rimraf: options should be object');
     try {
       t = n.lstatSync(e)
     } catch (t) {
       if ('ENOENT' === t.code) return;
-      'EPERM' === t.code && f && s(e, n, t)
+      'EPERM' === t.code && h && s(e, n, t)
     }
     try {
       t && t.isDirectory() ? u(e, n, null) : n.unlinkSync(e)
@@ -4943,7 +5001,7 @@ module.exports = function (e) {
   }
 
   function u(e, n, t) {
-    h(e), h(n), t && h(t instanceof Error);
+    f(e), f(n), t && f(t instanceof Error);
     try {
       n.rmdirSync(e)
     } catch (r) {
@@ -4954,23 +5012,19 @@ module.exports = function (e) {
   }
 
   function m(e, n) {
-    h(e), h(n), n.readdirSync(e).forEach((t) => c(g.join(e, t), n));
-    const t = 100;
-    let r = 0;
-    do {
-      let o = !0;
-      try {
+    f(e), f(n), n.readdirSync(e).forEach((t) => c(g.join(e, t), n)); {
+      const t = Date.now();
+      do try {
         const t = n.rmdirSync(e, n);
-        return o = !1, t
-      } finally {
-        if (++r < t && o) continue
-      }
-    } while (!0)
+        return t
+      } catch (e) {}
+      while (500 > Date.now() - t)
+    }
   }
   const p = t(1),
     g = t(0),
-    h = t(42),
-    f = !0;
+    f = t(42),
+    h = !0;
   e.exports = o, o.sync = c
 }, function (e, n, t) {
   'use strict';
@@ -5013,47 +5067,46 @@ module.exports = function (e) {
     'function' != typeof t || r ? 'function' == typeof t && (t = {
       filter: t
     }) : (r = t, t = {}), r = r || function () {}, t = t || {}, t.clobber = !('clobber' in t) || !!t.clobber, t.overwrite = 'overwrite' in t ? !!t.overwrite : t.clobber, t.preserveTimestamps && 'ia32' === process.arch && console.warn(`fs-extra: Using the preserveTimestamps option in 32-bit node is not recommended;\n
-    see https://github.com/jprichardson/node-fs-extra/issues/269`), E(e, n, (i, s) => i ? r(i) : t.filter ? a(o, s, e, n, t, r) : o(s, e, n, t, r))
+    see https://github.com/jprichardson/node-fs-extra/issues/269`), v(e, n, (a, s) => a ? r(a) : t.filter ? i(o, s, e, n, t, r) : o(s, e, n, t, r))
   }
 
   function o(e, n, t, r, o) {
-    const a = k.dirname(t);
-    L(a, (s, d) => s ? o(s) : d ? i(e, n, t, r, o) : void M(a, (a) => a ? o(a) : i(e, n, t, r, o)))
+    const i = E.dirname(t);
+    k(i, (s, d) => s ? o(s) : d ? a(e, n, t, r, o) : void C(i, (i) => i ? o(i) : a(e, n, t, r, o)))
   }
 
-  function i(e, n, t, r, o) {
-    return r.filter ? a(s, e, n, t, r, o) : s(e, n, t, r, o)
-  }
-
-  function a(e, n, t, r, o, i) {
+  function i(e, n, t, r, o, i) {
     Promise.resolve(o.filter(t, r)).then((a) => a ? n ? e(n, t, r, o, i) : e(t, r, o, i) : i(), (e) => i(e))
   }
 
+  function a(e, n, t, r, o) {
+    return r.filter ? i(s, e, n, t, r, o) : s(e, n, t, r, o)
+  }
+
   function s(e, n, t, r, o) {
-    const i = r.dereference ? C.stat : C.lstat;
+    const i = r.dereference ? x.stat : x.lstat;
     i(n, (i, a) => {
       if (i) return o(i);
-      return a.isDirectory() ? m(a, e, n, t, r, o) : a.isFile() || a.isCharacterDevice() || a.isBlockDevice() ? d(a, e, n, t, r, o) : a.isSymbolicLink() ? b(e, n, t, r, o) : void 0
+      return a.isDirectory() ? m(a, e, n, t, r, o) : a.isFile() || a.isCharacterDevice() || a.isBlockDevice() ? d(a, e, n, t, r, o) : a.isSymbolicLink() ? _(e, n, t, r, o) : void 0
     })
   }
 
   function d(e, n, t, r, o, i) {
-    if (n === T) return c(e, t, r, o, i);
-    return n === P ? l(e, t, r, o, i) : l(e, t, r, o, i)
+    return n === L ? c(e, t, r, o, i) : l(e, t, r, o, i)
   }
 
   function l(e, n, t, r, o) {
-    return r.overwrite ? void C.unlink(t, (i) => i ? o(i) : c(e, n, t, r, o)) : r.errorOnExist ? o(new Error(`'${t}' already exists`)) : o()
+    return r.overwrite ? void x.unlink(t, (i) => i ? o(i) : c(e, n, t, r, o)) : r.errorOnExist ? o(new Error(`'${t}' already exists`)) : o()
   }
 
   function c(e, n, t, r, o) {
-    return 'function' == typeof C.copyFile ? C.copyFile(n, t, (n) => n ? o(n) : u(e, t, r, o)) : p(e, n, t, r, o)
+    return 'function' == typeof x.copyFile ? x.copyFile(n, t, (n) => n ? o(n) : u(e, t, r, o)) : p(e, n, t, r, o)
   }
 
   function p(e, n, t, r, o) {
-    const i = C.createReadStream(n);
+    const i = x.createReadStream(n);
     i.on('error', (e) => o(e)).once('open', () => {
-      const n = C.createWriteStream(t, {
+      const n = x.createWriteStream(t, {
         mode: e.mode
       });
       n.on('error', (e) => o(e)).on('open', () => i.pipe(n)).once('close', () => u(e, t, r, o))
@@ -5061,71 +5114,72 @@ module.exports = function (e) {
   }
 
   function u(e, n, t, r) {
-    C.chmod(n, e.mode, (o) => o ? r(o) : t.preserveTimestamps ? O(n, e.atime, e.mtime, r) : r())
+    x.chmod(n, e.mode, (o) => o ? r(o) : t.preserveTimestamps ? M(n, e.atime, e.mtime, r) : r())
   }
 
   function m(e, n, t, r, o, i) {
-    if (n === T) return w(t, r) ? i(new Error(`Cannot copy '${t}' to a subdirectory of itself, '${r}'.`)) : h(e, t, r, o, i);
-    return n === P ? w(t, r) ? i(new Error(`Cannot copy '${t}' to a subdirectory of itself, '${r}'.`)) : g(t, r, o, i) : f(t, r, o, i)
+    return n === L ? g(e, t, r, o, i) : n && !n.isDirectory() ? i(new Error(`Cannot overwrite non-directory '${r}' with directory '${t}'.`)) : f(t, r, o, i)
   }
 
-  function g(e, n, t, r) {
-    C.stat(n, (o, i) => o ? r(o) : i.isDirectory() ? f(e, n, t, r) : r(new Error(`Cannot overwrite non-directory '${n}' with directory '${e}'.`)))
-  }
-
-  function h(e, n, t, r, o) {
-    C.mkdir(t, e.mode, (i) => i ? o(i) : void C.chmod(t, e.mode, (e) => e ? o(e) : f(n, t, r, o)))
+  function g(e, n, t, r, o) {
+    x.mkdir(t, (i) => i ? o(i) : void f(n, t, r, (n) => n ? o(n) : x.chmod(t, e.mode, o)))
   }
 
   function f(e, n, t, r) {
-    C.readdir(e, (o, i) => o ? r(o) : y(i, e, n, t, r))
+    x.readdir(e, (o, i) => o ? r(o) : h(i, e, n, t, r))
   }
 
-  function y(e, n, t, r, o) {
+  function h(e, n, t, r, o) {
     const i = e.pop();
-    return i ? _(e, i, n, t, r, o) : o()
+    return i ? y(e, i, n, t, r, o) : o()
   }
 
-  function _(e, n, t, r, o, a) {
-    const s = k.join(t, n),
-      d = k.join(r, n);
-    E(s, d, (n, l) => n ? a(n) : void i(l, s, d, o, (n) => n ? a(n) : y(e, t, r, o, a)))
+  function y(e, n, t, r, o, i) {
+    const s = E.join(t, n),
+      d = E.join(r, n);
+    v(s, d, (n, l) => n ? i(n) : void a(l, s, d, o, (n) => n ? i(n) : h(e, t, r, o, i)))
   }
 
-  function b(e, n, t, r, o) {
-    C.readlink(n, (n, i) => n ? o(n) : (r.dereference && (i = k.resolve(process.cwd(), i)), e === T || e === P) ? C.symlink(i, t, o) : (r.dereference && (e = k.resolve(process.cwd(), e)), v(i, e)) ? o() : void C.stat(t, (n, r) => n ? o(n) : r.isDirectory() && w(e, i) ? o(new Error(`Cannot overwrite '${e}' with '${i}'.`)) : S(i, t, o)))
+  function _(e, n, t, r, o) {
+    x.readlink(n, (n, i) => n ? o(n) : (r.dereference && (i = E.resolve(process.cwd(), i)), e === L ? x.symlink(i, t, o) : void x.readlink(t, (n, a) => n ? 'EINVAL' === n.code || 'UNKNOWN' === n.code ? x.symlink(i, t, o) : o(n) : (r.dereference && (a = E.resolve(process.cwd(), a)), S(i, a) ? o(new Error(`Cannot copy '${i}' to a subdirectory of itself, '${a}'.`)) : e.isDirectory() && S(a, i) ? o(new Error(`Cannot overwrite '${a}' with '${i}'.`)) : b(i, t, o)))))
   }
 
-  function S(e, n, t) {
-    C.unlink(n, (r) => r ? t(r) : C.symlink(e, n, t))
+  function b(e, n, t) {
+    x.unlink(n, (r) => r ? t(r) : x.symlink(e, n, t))
   }
 
-  function w(e, n) {
-    const t = k.resolve(e).split(k.sep),
-      r = k.resolve(n).split(k.sep);
+  function S(e, n) {
+    const t = E.resolve(e).split(E.sep),
+      r = E.resolve(n).split(E.sep);
     return t.reduce((e, n, t) => e && r[t] === n, !0)
   }
 
-  function x(e, n) {
-    C.readlink(e, (e, t) => e ? 'ENOENT' === e.code ? n(null, T) : 'EINVAL' === e.code || 'UNKNOWN' === e.code ? n(null, P) : n(e) : n(null, t))
+  function w(e, n, t) {
+    x.stat(e, (e, r) => e ? t(e) : void x.stat(n, (e, n) => e ? 'ENOENT' === e.code ? t(null, {
+      srcStat: r,
+      destStat: L
+    }) : t(e) : t(null, {
+      srcStat: r,
+      destStat: n
+    })))
   }
 
-  function v(e, n) {
-    const t = k.resolve(e),
-      r = k.resolve(n);
-    return t.toLowerCase() === r.toLowerCase()
+  function v(e, n, t) {
+    w(e, n, (r, o) => {
+      if (r) return t(r);
+      const {
+        srcStat: i,
+        destStat: a
+      } = o;
+      return a.ino && a.ino === i.ino ? t(new Error('Source and destination must not be the same.')) : i.isDirectory() && S(e, n) ? t(new Error(`Cannot copy '${e}' to a subdirectory of itself, '${n}'.`)) : t(null, a)
+    })
   }
-
-  function E(e, n, t) {
-    x(n, (r, o) => r ? t(r) : o === T || o === P ? v(e, n) ? t(new Error('Source and destination must not be the same.')) : t(null, o) : v(e, o) ? t(new Error('Source and destination must not be the same.')) : t(null, o))
-  }
-  const C = t(1),
-    k = t(0),
-    M = t(3).mkdirs,
-    L = t(7).pathExists,
-    O = t(39).utimesMillis,
-    T = Symbol('notExist'),
-    P = Symbol('existsReg');
+  const x = t(1),
+    E = t(0),
+    C = t(3).mkdirs,
+    k = t(7).pathExists,
+    M = t(39).utimesMillis,
+    L = Symbol('notExist');
   e.exports = r
 }, function (e, n, t) {
   'use strict';
@@ -5205,10 +5259,10 @@ module.exports = function (e) {
       filter: t
     }), t = t || {}, t.clobber = !('clobber' in t) || !!t.clobber, t.overwrite = 'overwrite' in t ? !!t.overwrite : t.clobber, t.preserveTimestamps && 'ia32' === process.arch && console.warn(`fs-extra: Using the preserveTimestamps option in 32-bit node is not recommended;\n
     see https://github.com/jprichardson/node-fs-extra/issues/269`);
-    const r = S(e, n);
+    const r = _(e, n);
     if (!t.filter || t.filter(e, n)) {
-      const i = x.dirname(n);
-      return w.existsSync(i) || v(i), o(r, e, n, t)
+      const i = S.dirname(n);
+      return b.existsSync(i) || w(i), o(r, e, n, t)
     }
   }
 
@@ -5217,123 +5271,130 @@ module.exports = function (e) {
   }
 
   function i(e, n, t, r) {
-    const o = r.dereference ? w.statSync : w.lstatSync,
+    const o = r.dereference ? b.statSync : b.lstatSync,
       i = o(n);
     if (i.isDirectory()) return c(i, e, n, t, r);
-    return i.isFile() || i.isCharacterDevice() || i.isBlockDevice() ? a(i, e, n, t, r) : i.isSymbolicLink() ? h(e, n, t, r) : void 0
+    return i.isFile() || i.isCharacterDevice() || i.isBlockDevice() ? a(i, e, n, t, r) : i.isSymbolicLink() ? g(e, n, t, r) : void 0
   }
 
   function a(e, n, t, r, o) {
-    if (n === C) return d(e, t, r, o);
-    return n === k ? s(e, t, r, o) : s(e, t, r, o)
+    return n === x ? d(e, t, r, o) : s(e, t, r, o)
   }
 
   function s(e, n, t, r) {
-    if (r.overwrite) return w.unlinkSync(t), d(e, n, t, r);
+    if (r.overwrite) return b.unlinkSync(t), d(e, n, t, r);
     if (r.errorOnExist) throw new Error(`'${t}' already exists`)
   }
 
   function d(e, n, t, r) {
-    return 'function' == typeof w.copyFileSync ? (w.copyFileSync(n, t), w.chmodSync(t, e.mode), r.preserveTimestamps ? E(t, e.atime, e.mtime) : void 0) : l(e, n, t, r)
+    return 'function' == typeof b.copyFileSync ? (b.copyFileSync(n, t), b.chmodSync(t, e.mode), r.preserveTimestamps ? v(t, e.atime, e.mtime) : void 0) : l(e, n, t, r)
   }
 
   function l(e, n, r, o) {
     const i = 65536,
       a = t(38)(i),
-      s = w.openSync(n, 'r'),
-      d = w.openSync(r, 'w', e.mode);
+      s = b.openSync(n, 'r'),
+      d = b.openSync(r, 'w', e.mode);
     for (let t = 0; t < e.size;) {
-      const e = w.readSync(s, a, 0, i, t);
-      w.writeSync(d, a, 0, e), t += e
+      const e = b.readSync(s, a, 0, i, t);
+      b.writeSync(d, a, 0, e), t += e
     }
-    o.preserveTimestamps && w.futimesSync(d, e.atime, e.mtime), w.closeSync(s), w.closeSync(d)
+    o.preserveTimestamps && b.futimesSync(d, e.atime, e.mtime), b.closeSync(s), b.closeSync(d)
   }
 
   function c(e, n, t, r, o) {
-    if (n === C) {
-      if (y(t, r)) throw new Error(`Cannot copy '${t}' to a subdirectory of itself, '${r}'.`);
-      return u(e, t, r, o)
-    }
-    if (n === k) {
-      if (y(t, r)) throw new Error(`Cannot copy '${t}' to a subdirectory of itself, '${r}'.`);
-      return p(t, r, o)
-    }
-    return m(t, r, o)
+    if (n === x) return p(e, t, r, o);
+    if (n && !n.isDirectory()) throw new Error(`Cannot overwrite non-directory '${r}' with directory '${t}'.`);
+    return u(t, r, o)
   }
 
-  function p(e, n, t) {
-    if (!w.statSync(n).isDirectory()) throw new Error(`Cannot overwrite non-directory '${n}' with directory '${e}'.`);
-    return m(e, n, t)
+  function p(e, n, t, r) {
+    return b.mkdirSync(t), u(n, t, r), b.chmodSync(t, e.mode)
   }
 
-  function u(e, n, t, r) {
-    return w.mkdirSync(t, e.mode), w.chmodSync(t, e.mode), m(n, t, r)
+  function u(e, n, t) {
+    b.readdirSync(e).forEach((r) => m(r, e, n, t))
   }
 
-  function m(e, n, t) {
-    w.readdirSync(e).forEach((r) => g(r, e, n, t))
-  }
-
-  function g(e, n, t, r) {
-    const i = x.join(n, e),
-      a = x.join(t, e),
-      s = S(i, a);
+  function m(e, n, t, r) {
+    const i = S.join(n, e),
+      a = S.join(t, e),
+      s = _(i, a);
     return o(s, i, a, r)
   }
 
-  function h(e, n, t, r) {
-    let o = w.readlinkSync(n);
-    if (r.dereference && (o = x.resolve(process.cwd(), o)), e === C || e === k) return w.symlinkSync(o, t);
-    if (r.dereference && (e = x.resolve(process.cwd(), e)), !b(o, e)) {
-      if (w.statSync(t).isDirectory() && y(e, o)) throw new Error(`Cannot overwrite '${e}' with '${o}'.`);
+  function g(e, n, t, r) {
+    let o = b.readlinkSync(n);
+    if (r.dereference && (o = S.resolve(process.cwd(), o)), e === x) return b.symlinkSync(o, t);
+    else {
+      let e;
+      try {
+        e = b.readlinkSync(t)
+      } catch (e) {
+        if ('EINVAL' === e.code || 'UNKNOWN' === e.code) return b.symlinkSync(o, t);
+        throw e
+      }
+      if (r.dereference && (e = S.resolve(process.cwd(), e)), h(o, e)) throw new Error(`Cannot copy '${o}' to a subdirectory of itself, '${e}'.`);
+      if (b.statSync(t).isDirectory() && h(e, o)) throw new Error(`Cannot overwrite '${e}' with '${o}'.`);
       return f(o, t)
     }
   }
 
   function f(e, n) {
-    return w.unlinkSync(n), w.symlinkSync(e, n)
+    return b.unlinkSync(n), b.symlinkSync(e, n)
   }
 
-  function y(e, n) {
-    const t = x.resolve(e).split(x.sep),
-      r = x.resolve(n).split(x.sep);
+  function h(e, n) {
+    const t = S.resolve(e).split(S.sep),
+      r = S.resolve(n).split(S.sep);
     return t.reduce((e, n, t) => e && r[t] === n, !0)
   }
 
-  function _(e) {
-    let n;
+  function y(e, n) {
+    const t = b.statSync(e);
+    let r;
     try {
-      n = w.readlinkSync(e)
+      r = b.statSync(n)
     } catch (e) {
-      if ('ENOENT' === e.code) return C;
-      if ('EINVAL' === e.code || 'UNKNOWN' === e.code) return k;
+      if ('ENOENT' === e.code) return {
+        srcStat: t,
+        destStat: x
+      };
       throw e
     }
-    return n
-  }
-
-  function b(e, n) {
-    const t = x.resolve(e),
-      r = x.resolve(n);
-    return t.toLowerCase() === r.toLowerCase()
-  }
-
-  function S(e, n) {
-    const t = _(n);
-    if (t === C || t === k) {
-      if (b(e, n)) throw new Error('Source and destination must not be the same.');
-      return t
+    return {
+      srcStat: t,
+      destStat: r
     }
-    if (b(e, t)) throw new Error('Source and destination must not be the same.');
-    return t
   }
-  const w = t(1),
-    x = t(0),
-    v = t(3).mkdirsSync,
-    E = t(39).utimesMillisSync,
-    C = Symbol('notExist'),
-    k = Symbol('existsReg');
+
+  function _(e, n) {
+    const {
+      srcStat: t,
+      destStat: r
+    } = y(e, n);
+    if (r.ino && r.ino === t.ino) throw new Error('Source and destination must not be the same.');
+    if (t.isDirectory() && h(e, n)) throw new Error(`Cannot copy '${e}' to a subdirectory of itself, '${n}'.`);
+    return r
+  }
+  const b = t(1),
+    S = t(0),
+    w = t(3).mkdirsSync,
+    v = t(39).utimesMillisSync,
+    x = Symbol('notExist');
   e.exports = r
+}, function (e) {
+  'use strict';
+  e.exports = function (e) {
+    if (null === e || 'object' != typeof e) return e;
+    if (e instanceof Object) var n = {
+      __proto__: e.__proto__
+    };
+    else var n = Object.create(null);
+    return Object.getOwnPropertyNames(e).forEach(function (t) {
+      Object.defineProperty(n, t, Object.getOwnPropertyDescriptor(e, t))
+    }), n
+  }
 }, function (e, n, t) {
   var r = t(8).Stream;
   e.exports = function (e) {
@@ -5376,133 +5437,129 @@ module.exports = function (e) {
 }, function (e) {
   e.exports = require('constants')
 }, function (e, n, t) {
-  function r(e) {
-    e.lchmod = function (n, t, r) {
-      e.open(n, m.O_WRONLY | m.O_SYMLINK, t, function (n, o) {
-        return n ? void(r && r(n)) : void e.fchmod(o, t, function (n) {
-          e.close(o, function (e) {
-            r && r(n || e)
-          })
-        })
-      })
-    }, e.lchmodSync = function (n, t) {
-      var r = e.openSync(n, m.O_WRONLY | m.O_SYMLINK, t),
-        o = !0,
-        i;
-      try {
-        i = e.fchmodSync(r, t), o = !1
-      } finally {
-        if (o) try {
-          e.closeSync(r)
-        } catch (e) {} else e.closeSync(r)
-      }
-      return i
-    }
-  }
-
-  function o(e) {
-    m.hasOwnProperty('O_SYMLINK') ? (e.lutimes = function (n, t, r, o) {
-      e.open(n, m.O_SYMLINK, function (n, i) {
-        return n ? void(o && o(n)) : void e.futimes(i, t, r, function (n) {
-          e.close(i, function (e) {
-            o && o(n || e)
-          })
-        })
-      })
-    }, e.lutimesSync = function (n, t, r) {
-      var o = e.openSync(n, m.O_SYMLINK),
-        i = !0,
-        a;
-      try {
-        a = e.futimesSync(o, t, r), i = !1
-      } finally {
-        if (i) try {
-          e.closeSync(o)
-        } catch (e) {} else e.closeSync(o)
-      }
-      return a
-    }) : (e.lutimes = function (e, n, t, r) {
-      r && process.nextTick(r)
-    }, e.lutimesSync = function () {})
-  }
-
-  function i(e) {
-    return e ? function (n, t, r) {
-      return e.call(u, n, t, function (e) {
-        p(e) && (e = null), r && r.apply(this, arguments)
-      })
-    } : e
-  }
-
-  function a(e) {
-    return e ? function (n, t) {
-      try {
-        return e.call(u, n, t)
-      } catch (e) {
-        if (!p(e)) throw e
-      }
-    } : e
-  }
-
-  function s(e) {
-    return e ? function (n, t, r, o) {
-      return e.call(u, n, t, r, function (e) {
-        p(e) && (e = null), o && o.apply(this, arguments)
-      })
-    } : e
-  }
-
-  function d(e) {
-    return e ? function (n, t, r) {
-      try {
-        return e.call(u, n, t, r)
-      } catch (e) {
-        if (!p(e)) throw e
-      }
-    } : e
-  }
-
-  function l(e) {
-    return e ? function (n, t) {
-      return e.call(u, n, function (e, n) {
-        return n ? void(0 > n.uid && (n.uid += 4294967296), 0 > n.gid && (n.gid += 4294967296), t && t.apply(this, arguments)) : t.apply(this, arguments)
-      })
-    } : e
-  }
-
-  function c(e) {
-    return e ? function (n) {
-      var t = e.call(u, n);
-      return 0 > t.uid && (t.uid += 4294967296), 0 > t.gid && (t.gid += 4294967296), t
-    } : e
-  }
-
-  function p(e) {
-    if (!e) return !0;
-    if ('ENOSYS' === e.code) return !0;
-    var n = !process.getuid || 0 !== process.getuid();
-    return !!(n && ('EINVAL' === e.code || 'EPERM' === e.code))
-  }
-  var u = t(43),
-    m = t(103),
-    g = process.cwd,
-    h = null,
-    f = process.env.GRACEFUL_FS_PLATFORM || 'win32';
+  var r = t(103),
+    o = process.cwd,
+    i = null,
+    a = process.env.GRACEFUL_FS_PLATFORM || 'win32';
   process.cwd = function () {
-    return h || (h = g.call(process)), h
+    return i || (i = o.call(process)), i
   };
   try {
     process.cwd()
   } catch (e) {}
-  var y = process.chdir;
+  var s = process.chdir;
   process.chdir = function (e) {
-    h = null, y.call(process, e)
+    i = null, s.call(process, e)
   }, e.exports = function (e) {
-    m.hasOwnProperty('O_SYMLINK') && process.version.match(/^v0\.6\.[0-2]|^v0\.5\./) && r(e), e.lutimes || o(e), e.chown = s(e.chown), e.fchown = s(e.fchown), e.lchown = s(e.lchown), e.chmod = i(e.chmod), e.fchmod = i(e.fchmod), e.lchmod = i(e.lchmod), e.chownSync = d(e.chownSync), e.fchownSync = d(e.fchownSync), e.lchownSync = d(e.lchownSync), e.chmodSync = a(e.chmodSync), e.fchmodSync = a(e.fchmodSync), e.lchmodSync = a(e.lchmodSync), e.stat = l(e.stat), e.fstat = l(e.fstat), e.lstat = l(e.lstat), e.statSync = c(e.statSync), e.fstatSync = c(e.fstatSync), e.lstatSync = c(e.lstatSync), e.lchmod || (e.lchmod = function (e, n, t) {
+    function n(n) {
+      return n ? function (t, r, o) {
+        return n.call(e, t, r, function (e) {
+          l(e) && (e = null), o && o.apply(this, arguments)
+        })
+      } : n
+    }
+
+    function t(n) {
+      return n ? function (t, r) {
+        try {
+          return n.call(e, t, r)
+        } catch (e) {
+          if (!l(e)) throw e
+        }
+      } : n
+    }
+
+    function o(n) {
+      return n ? function (t, r, o, i) {
+        return n.call(e, t, r, o, function (e) {
+          l(e) && (e = null), i && i.apply(this, arguments)
+        })
+      } : n
+    }
+
+    function i(n) {
+      return n ? function (t, r, o) {
+        try {
+          return n.call(e, t, r, o)
+        } catch (e) {
+          if (!l(e)) throw e
+        }
+      } : n
+    }
+
+    function s(n) {
+      return n ? function (t, r, o) {
+        function i(e, n) {
+          n && (0 > n.uid && (n.uid += 4294967296), 0 > n.gid && (n.gid += 4294967296)), o && o.apply(this, arguments)
+        }
+        return 'function' == typeof r && (o = r, r = null), r ? n.call(e, t, r, i) : n.call(e, t, i)
+      } : n
+    }
+
+    function d(n) {
+      return n ? function (t, r) {
+        var o = r ? n.call(e, t, r) : n.call(e, t);
+        return 0 > o.uid && (o.uid += 4294967296), 0 > o.gid && (o.gid += 4294967296), o
+      } : n
+    }
+
+    function l(e) {
+      if (!e) return !0;
+      if ('ENOSYS' === e.code) return !0;
+      var n = !process.getuid || 0 !== process.getuid();
+      return !!(n && ('EINVAL' === e.code || 'EPERM' === e.code))
+    }
+    r.hasOwnProperty('O_SYMLINK') && process.version.match(/^v0\.6\.[0-2]|^v0\.5\./) && function (e) {
+      e.lchmod = function (n, t, o) {
+        e.open(n, r.O_WRONLY | r.O_SYMLINK, t, function (n, r) {
+          return n ? void(o && o(n)) : void e.fchmod(r, t, function (n) {
+            e.close(r, function (e) {
+              o && o(n || e)
+            })
+          })
+        })
+      }, e.lchmodSync = function (n, t) {
+        var o = e.openSync(n, r.O_WRONLY | r.O_SYMLINK, t),
+          i = !0,
+          a;
+        try {
+          a = e.fchmodSync(o, t), i = !1
+        } finally {
+          if (i) try {
+            e.closeSync(o)
+          } catch (e) {} else e.closeSync(o)
+        }
+        return a
+      }
+    }(e), e.lutimes || function (e) {
+      r.hasOwnProperty('O_SYMLINK') ? (e.lutimes = function (n, t, o, i) {
+        e.open(n, r.O_SYMLINK, function (n, r) {
+          return n ? void(i && i(n)) : void e.futimes(r, t, o, function (n) {
+            e.close(r, function (e) {
+              i && i(n || e)
+            })
+          })
+        })
+      }, e.lutimesSync = function (n, t, o) {
+        var i = e.openSync(n, r.O_SYMLINK),
+          a = !0,
+          s;
+        try {
+          s = e.futimesSync(i, t, o), a = !1
+        } finally {
+          if (a) try {
+            e.closeSync(i)
+          } catch (e) {} else e.closeSync(i)
+        }
+        return s
+      }) : (e.lutimes = function (e, n, t, r) {
+        r && process.nextTick(r)
+      }, e.lutimesSync = function () {})
+    }(e), e.chown = o(e.chown), e.fchown = o(e.fchown), e.lchown = o(e.lchown), e.chmod = n(e.chmod), e.fchmod = n(e.fchmod), e.lchmod = n(e.lchmod), e.chownSync = i(e.chownSync), e.fchownSync = i(e.fchownSync), e.lchownSync = i(e.lchownSync), e.chmodSync = t(e.chmodSync), e.fchmodSync = t(e.fchmodSync), e.lchmodSync = t(e.lchmodSync), e.stat = s(e.stat), e.fstat = s(e.fstat), e.lstat = s(e.lstat), e.statSync = d(e.statSync), e.fstatSync = d(e.fstatSync), e.lstatSync = d(e.lstatSync), e.lchmod || (e.lchmod = function (e, n, t) {
       t && process.nextTick(t)
     }, e.lchmodSync = function () {}), e.lchown || (e.lchown = function (e, n, t, r) {
       r && process.nextTick(r)
-    }, e.lchownSync = function () {}), 'win32' === f && (e.rename = function (n) {
+    }, e.lchownSync = function () {}), 'win32' === a && (e.rename = function (n) {
       return function (t, r, o) {
         var i = Date.now(),
           a = 0;
@@ -5515,7 +5572,7 @@ module.exports = function (e) {
         })
       }
     }(e.rename)), e.read = function (n) {
-      return function (t, r, o, i, a, s) {
+      function t(t, r, o, i, a, s) {
         var d;
         if (s && 'function' == typeof s) {
           var l = 0;
@@ -5525,6 +5582,7 @@ module.exports = function (e) {
         }
         return n.call(e, t, r, o, i, a, d)
       }
+      return t.__proto__ = n, t
     }(e.read), e.readSync = function (n) {
       return function (t, r, o, i, a) {
         for (var s = 0;;) try {
@@ -5545,10 +5603,10 @@ module.exports = function (e) {
   }
   var o = t(14),
     i = t(6),
-    a = t(48),
+    a = t(47),
     s = t(21),
     d = t(9),
-    l = t(46),
+    l = t(45),
     c = t(8).Stream,
     p = /%[sdj%]/g,
     u = n.Logger = function (e) {
@@ -5569,15 +5627,15 @@ module.exports = function (e) {
     function t(n) {
       if (d) {
         if (n) return d(n);
-        d(null, e, f, c)
+        d(null, e, h, c)
       }
-      d = null, n || s.emit('logged', e, f, c)
+      d = null, n || s.emit('logged', e, h, c)
     }
 
     function r(n, r) {
       var o = s.transports[n];
-      o.log(e, f, c, function (n) {
-        return n ? (n.transport = o, t(n), r()) : void(s.emit('logging', o, e, f, c), r())
+      o.log(e, h, c, function (n) {
+        return n ? (n.transport = o, t(n), r()) : void(s.emit('logging', o, e, h, c), r())
       })
     }
     for (var o = Array.prototype.slice.call(arguments, 1), s = this; null === o[o.length - 1];) o.pop();
@@ -5593,23 +5651,23 @@ module.exports = function (e) {
       u = !1,
       m = o && o[0] && o[0].match && null !== o[0].match(p),
       g = m ? o[0].match(p) : [],
-      h = g.filter(function (e) {
+      f = g.filter(function (e) {
         return '%%' === e
       }),
-      f;
-    if (0 < o.length - 1 - (g.length - h.length) || 1 === o.length) {
+      h;
+    if (0 < o.length - 1 - (g.length - f.length) || 1 === o.length) {
       c = o[o.length - 1] || o;
       var y = Object.prototype.toString.call(c);
       u = '[object Object]' === y || '[object Error]' === y || '[object Array]' === y, c = u ? o.pop() : {}
     }
-    if (f = i.format.apply(null, o), this.padLevels && (f = Array(this.levelLength - e.length + 1).join(' ') + f), this.rewriters.forEach(function (n) {
-        c = n(e, f, c, s)
+    if (h = i.format.apply(null, o), this.padLevels && (h = Array(this.levelLength - e.length + 1).join(' ') + h), this.rewriters.forEach(function (n) {
+        c = n(e, h, c, s)
       }), this.filters.forEach(function (n) {
-        var t = n(e, f, c, s);
-        'string' == typeof t ? f = t : (f = t.msg, c = t.meta)
+        var t = n(e, h, c, s);
+        'string' == typeof t ? h = t : (h = t.msg, c = t.meta)
       }), this.stripColors) {
       var _ = /\u001b\[(\d+(;\d+)*)?m/g;
-      f = ('' + f).replace(_, '')
+      h = ('' + h).replace(_, '')
     }
     return a.forEach(l, r, t), this
   }, u.prototype.query = function (e, n) {
@@ -5988,8 +6046,8 @@ module.exports = function (e) {
     o = t(5),
     a = t(0),
     i = t(6),
-    s = t(48),
-    d = t(47),
+    s = t(47),
+    d = t(46),
     l = t(9),
     c = t(12).Transport,
     p = t(112).isWritable,
@@ -6577,8 +6635,8 @@ module.exports = function (e) {
   Object.defineProperty(n, '__esModule', {
     value: !0
   });
-  const r = t(49),
-    o = t(82),
+  const r = t(48),
+    o = t(81),
     i = global;
   i.log = {
     error(e, n) {
@@ -6646,18 +6704,18 @@ module.exports = function (e) {
       M = null, O || p.app.quit()
     }), e.onDidLoad(() => {
       e.show(), e.sendLaunchTimingStats({
-        mainReadyTime: T,
+        mainReadyTime: P,
         loadTime: e.loadTime,
         rendererReadyTime: e.rendererReadyTime
       });
-      const n = P;
-      P = null;
+      const n = T;
+      T = null;
       for (const t of n) t(e)
     }), e.load(), M = e
   }
 
   function c(e) {
-    P ? P.push(e) : M && e(M)
+    T ? T.push(e) : M && e(M)
   }
   Object.defineProperty(n, '__esModule', {
     value: !0
@@ -6665,29 +6723,29 @@ module.exports = function (e) {
   const p = t(4),
     u = t(5),
     m = t(18),
-    g = t(71),
-    h = t(25),
-    f = t(58),
-    y = t(57),
-    _ = t(55),
+    g = t(70),
+    f = t(25),
+    h = t(57),
+    y = t(56),
+    _ = t(54),
     b = t(27),
-    S = t(49),
+    S = t(48),
     w = t(23),
-    x = t(53),
-    v = t(33),
+    v = t(52),
+    x = t(33),
     E = t(26),
-    C = t(52),
-    k = t(50);
-  v.enableSourceMaps();
+    C = t(51),
+    k = t(49);
+  p.app.setAppLogsPath(), x.enableSourceMaps();
   let M = null;
   const L = E.now();
   let O = !1,
-    T = null,
-    P = [];
+    P = null,
+    T = [];
   const F = '--protocol-launcher',
     N = new Set(['x-github-client']);
   N.add('x-github-desktop-auth'), N.add('github-windows'), p.app.on('window-all-closed', () => {}), process.on('uncaughtException', (e) => {
-    e = v.withSourceMappedStack(e), x.reportError(e, i()), r(e)
+    e = x.withSourceMappedStack(e), v.reportError(e, i()), r(e)
   });
   let A = !1;
   if (1 < process.argv.length) {
@@ -6706,22 +6764,22 @@ module.exports = function (e) {
       M && (M.isMinimized() && M.restore(), !M.isVisible() && M.show(), M.focus()), s(n)
     }), R && p.app.quit()
   }
-  f.shellNeedsPatching(process) && f.updateEnvironmentForProcess(), p.app.on('will-finish-launching', () => {
+  h.shellNeedsPatching(process) && h.updateEnvironmentForProcess(), p.app.on('will-finish-launching', () => {
     p.app.on('open-url', (e, n) => {
       e.preventDefault(), a(n)
     })
   }), !1, process.env.GITHUB_DESKTOP_DISABLE_HARDWARE_ACCELERATION && (log.info(`GITHUB_DESKTOP_DISABLE_HARDWARE_ACCELERATION environment variable set, disabling hardware acceleration`), p.app.disableHardwareAcceleration()), p.app.on('ready', () => {
-    R || A || (T = E.now() - L, N.forEach((e) => d(e)), l(), p.Menu.setApplicationMenu(h.buildDefaultMenu({
+    R || A || (P = E.now() - L, N.forEach((e) => d(e)), l(), p.Menu.setApplicationMenu(f.buildDefaultMenu({
       selectedShell: null,
       selectedExternalEditor: null,
       askForConfirmationOnRepositoryRemoval: !1,
       askForConfirmationOnForcePush: !1
     })), p.ipcMain.on('update-preferred-app-menu-item-labels', (e, n) => {
-      const t = h.buildDefaultMenu(n),
+      const t = f.buildDefaultMenu(n),
         r = p.Menu.getApplicationMenu();
       if (null === r) return p.Menu.setApplicationMenu(t), void(null !== M && M.sendAppMenu());
       let o = !1;
-      for (const i of h.getAllMenuItems(t)) {
+      for (const i of f.getAllMenuItems(t)) {
         const e = i.id;
         if (!e) continue;
         const n = r.getMenuItemById(e);
@@ -6784,7 +6842,7 @@ module.exports = function (e) {
       extra: t,
       nonFatal: r
     }) => {
-      x.reportError(n, Object.assign({}, i(), t), r)
+      v.reportError(n, Object.assign({}, i(), t), r)
     }), p.ipcMain.on('open-external', async (e, {
       path: n
     }) => {
