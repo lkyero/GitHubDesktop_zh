@@ -8,6 +8,9 @@ GitHub桌面版 简体中文汉化
 
 汉化还在继续
 
+使用教程视频BV号：BV1dk4y1d7bt
+链接：https://www.bilibili.com/video/BV1dk4y1d7bt/
+
 下列操作二选一
 
 1.一键替换
