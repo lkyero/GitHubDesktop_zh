@@ -2485,7 +2485,7 @@ module.exports = function (e) {
     value: !0
   });
   const t = ['.cmd', '.exe', '.bat', '.sh'];
-  n.CopyFilePathLabel = 'Copy file path', n.DefaultEditorLabel = 'Open in external editor', n.RevealInFileManagerLabel = 'Show in Explorer', n.TrashNameLabel = 'Recycle Bin', n.OpenWithDefaultProgramLabel = 'Open with default program', n.isSafeFileExtension = function (e) {
+  n.CopyFilePathLabel = '复制文件路径', n.DefaultEditorLabel = '通过外部编辑器打开', n.RevealInFileManagerLabel = '通过文件管理器打开', n.TrashNameLabel = '回收站', n.OpenWithDefaultProgramLabel = '通过默认的程序打开', n.isSafeFileExtension = function (e) {
     return -1 === t.indexOf(e.toLowerCase())
   }
 }, function (e, n) {
@@ -2722,7 +2722,7 @@ module.exports = function (e) {
         accelerator: 'CmdOrCtrl+Shift+G',
         click: a('view-repository-on-github')
       }, {
-        label: O,
+        label: '在命令行中打开',
         id: 'open-in-shell',
         accelerator: 'Ctrl+`',
         click: a('open-in-shell')
@@ -2732,7 +2732,7 @@ module.exports = function (e) {
         accelerator: 'CmdOrCtrl+Shift+F',
         click: a('open-working-directory')
       }, {
-        label: P,
+        label: '通过外部编辑器打开',
         id: 'open-external-editor',
         accelerator: 'CmdOrCtrl+Shift+A',
         click: a('open-external-editor')
@@ -2797,7 +2797,7 @@ module.exports = function (e) {
         accelerator: 'CmdOrCtrl+Shift+C',
         click: a('compare-on-github')
       }, {
-        label: L,
+        label: '创建拉取请求',
         id: 'create-pull-request',
         accelerator: 'CmdOrCtrl+R',
         click: a('open-pull-request')
