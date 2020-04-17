@@ -40696,9 +40696,9 @@ module.exports = function (e) {
         r = this.getMenuItemInfo(o);
       if (void 0 === r) return log.error(`找不到与${o}匹配的菜单项`), null;
       const i = null !== this.props.repository.gitHubRepository,
-        a = s.createElement(s.Fragment, null, '你有', ' ', 1 === n.ahead ? 'one 本地 commit' : '本地 commits', ' 等待被推送至远程', i ? 'GitHub' : '', '.'),
+        a = s.createElement(s.Fragment, null, '你有', ' ', 1 === n.ahead ? '一个本地提交' : '个本地提交', ' 等待被推送至远端', i ? 'GitHub' : '', '.'),
         d = s.createElement(s.Fragment, null, '当有本地提交等待推送或', this.renderDiscoverabilityKeyboardShortcut(r)),
-        l = `推送 ${n.ahead} ${1===n.ahead?'commit':'commits'} 至远程 ${t.name} `,
+        l = `推送 ${n.ahead} ${1===n.ahead?'commit':'commits'} 至远端 ${t.name} `,
         c = `推送 ${t.name}`;
       return s.createElement(m.MenuBackedSuggestedAction, {
         key: 'push-branch-action',
@@ -40715,9 +40715,9 @@ module.exports = function (e) {
       const t = 'create-pull-request',
         n = this.getMenuItemInfo(t);
       if (void 0 === n) return log.error(`找不到与${t}匹配的菜单项`), null;
-      const o = s.createElement(s.Fragment, null, '当前分支(', s.createElement(g.Ref, null, e.branch.name), ')已发布到github。创建一个请求以提议和协作您的更改。'),
+      const o = s.createElement(s.Fragment, null, '当前分支(', s.createElement(g.Ref, null, e.branch.name), ')已发布到 Github。创建一个合并请求以同步你的更改。'),
         r = `从当前分支创建拉取请求`,
-        i = `Create Pull Request`;
+        i = `创建合并请求`;
       return s.createElement(m.MenuBackedSuggestedAction, {
         key: 'create-pr-action',
         title: r,
