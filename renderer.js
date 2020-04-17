@@ -32801,7 +32801,7 @@ module.exports = function (e) {
     render() {
       return o.createElement(r.UiView, {
         id: 'no-repositories'
-      }, o.createElement('header', null, o.createElement('h1', null, 'Let\'s get started!'), o.createElement('p', null, 'Add a repository to GitHub Desktop to start collaborating')), o.createElement('div', {
+      }, o.createElement('header', null, o.createElement('h1', null, '让我们开始吧🎉🎉🎉!'), o.createElement('p', null, '添加一个仓库到GitHub桌面，开始合作吧！加油💪💪💪')), o.createElement('div', {
         className: 'content'
       }, this.renderGetStartedActions(), this.renderRepositoryList()), o.createElement('img', {
         className: 'no-repositories-graphic-top',
@@ -32884,13 +32884,13 @@ module.exports = function (e) {
       return p.enableTutorial() ? null === this.props.dotComAccount && null === this.props.enterpriseAccount ? null : this.props.tutorialPaused ? this.renderButtonGroupButton(a.OcticonSymbol.mortarBoard, 'Return to in progress tutorial', this.props.onResumeTutorialRepository, 'submit') : this.renderButtonGroupButton(a.OcticonSymbol.mortarBoard, 'Create a tutorial repository\u2026', this.props.onCreateTutorialRepository, 'submit') : null
     }
     renderCloneButton() {
-      return this.renderButtonGroupButton(a.OcticonSymbol.repoClone, 'Clone a repository from the Internet\u2026', this.onShowClone)
+      return this.renderButtonGroupButton(a.OcticonSymbol.repoClone, '从互联网上把仓库克隆下来\u2026', this.onShowClone)
     }
     renderCreateRepositoryButton() {
-      return this.renderButtonGroupButton(a.OcticonSymbol.plus, 'Create a New Repository on your hard drive\u2026', this.props.onCreate)
+      return this.renderButtonGroupButton(a.OcticonSymbol.plus, '在你的硬盘上创建一个新仓库\u2026', this.props.onCreate)
     }
     renderAddExistingRepositoryButton() {
-      return this.renderButtonGroupButton(a.OcticonSymbol.fileDirectory, 'Add an Existing Repository from your hard drive\u2026', this.props.onAdd)
+      return this.renderButtonGroupButton(a.OcticonSymbol.fileDirectory, '从你的硬盘上添加一个已经存在的仓库\u2026', this.props.onAdd)
     }
     renderGetStartedActions() {
       return o.createElement('div', {
@@ -32901,7 +32901,7 @@ module.exports = function (e) {
         className: 'drag-drop-info'
       }, o.createElement(a.Octicon, {
         symbol: a.OcticonSymbol.lightBulb
-      }), o.createElement('div', null, o.createElement('strong', null, 'ProTip!'), ' You can drag & drop an existing repository folder here to add it to Desktop')))
+      }), o.createElement('div', null, o.createElement('strong', null, '专业提示!'), ' 您可以在直接拖放已有的仓库库文件夹到这里，将其添加到桌面上。')))
     }
   }
   t.NoRepositoriesView = m
@@ -38931,17 +38931,17 @@ module.exports = function (e) {
         className: 'blankslate-image'
       }), o.createElement('div', {
         className: 'title'
-      }, 'Sorry, I can\'t find that branch'), o.createElement('div', {
+      }, '对不起，我找不到那个分支了'), o.createElement('div', {
         className: 'subtitle'
-      }, 'Do you want to create a new branch instead?'), o.createElement(i.Button, {
+      }, '你想创建一个新的分支吗？?'), o.createElement(i.Button, {
         className: 'create-branch-button',
         onClick: this.props.onCreateNewBranch,
         type: 'submit'
-      }, 'Create new branch'), o.createElement('div', {
+      }, '创建新分支'), o.createElement('div', {
         className: 'protip'
-      }, 'ProTip! Press ', this.renderShortcut(), ' to quickly create a new branch from anywhere within the app')) : o.createElement('div', {
+      }, '专业提示! Press ', this.renderShortcut(), ' 在应用程序中的任何地方快速创建一个新的分支。')) : o.createElement('div', {
         className: 'no-branches'
-      }, 'Sorry, I can\'t find that branch')
+      }, '对不起，我找不到那个分支了')
     }
     renderShortcut() {
       return o.createElement('span', null, o.createElement('kbd', null, 'Ctrl'), ' + ', o.createElement('kbd', null, 'Shift'), ' + ', o.createElement('kbd', null, 'N'))
@@ -50086,7 +50086,7 @@ module.exports = function (e) {
       case 'X':
         return a.Unknown;
       default:
-        throw new Error(`Unknown index status: ${e}`);
+        throw new Error(`未知索引状态: ${e}`);
     }
   }
 
@@ -50095,7 +50095,7 @@ module.exports = function (e) {
     switch (t) {
       case a.Copied:
       case a.Renamed:
-        throw new Error(`Invalid index status for no-rename index status: ${t}`);
+        throw new Error(`无重命名的索引状态为无效的索引状态: ${t}`);
     }
     return t
   }
@@ -50209,11 +50209,11 @@ module.exports = function (e) {
             });
             break;
           default:
-            throw new Error(`invalid state - unexpected entry ${e} found when parsing rows`);
+            throw new Error(`无效状态--解析行时发现意外的条目${e}。`);
         }
         continue
       }
-      if (null == l) throw new Error(`invalid state - trying to append the diff to a merge entry that isn't defined on line ${r}`);
+      if (null == l) throw new Error(`无效状态 - 试图将diff附加到未定义的合并条目上 ${r}`);
       else {
         const t = l.diff;
         l = Object.assign({}, l, {
@@ -50364,7 +50364,7 @@ module.exports = function (e) {
 
   function o(e) {
     const t = l.exec(e);
-    if (!t) throw log.debug(`parseChangedEntry parse error: ${e}`), new Error(`Failed to parse status line for changed entry`);
+    if (!t) throw log.debug(`parseChangedEntry parse error: ${e}`), new Error(`未能解析已更改的条目的状态`);
     return {
       kind: 'entry',
       statusCode: t[1],
@@ -50374,8 +50374,8 @@ module.exports = function (e) {
 
   function r(e, t) {
     const n = c.exec(e);
-    if (!n) throw log.debug(`parsedRenamedOrCopiedEntry parse error: ${e}`), new Error(`Failed to parse status line for renamed or copied entry`);
-    if (!t) throw new Error('Failed to parse renamed or copied entry, could not parse old path');
+    if (!n) throw log.debug(`parsedRenamedOrCopiedEntry parse error: ${e}`), new Error(`重命名或复制条目的状态解析失败`);
+    if (!t) throw new Error('未能解析重命名或复制的条目，无法解析旧路径。');
     return {
       kind: 'entry',
       statusCode: n[1],
@@ -50386,7 +50386,7 @@ module.exports = function (e) {
 
   function i(e) {
     const t = p.exec(e);
-    if (!t) throw log.debug(`parseUnmergedEntry parse error: ${e}`), new Error(`Failed to parse status line for unmerged entry`);
+    if (!t) throw log.debug(`parseUnmergedEntry parse error: ${e}`), new Error(`解析未合并条目的状态行失败`);
     return {
       kind: 'entry',
       statusCode: t[1],
