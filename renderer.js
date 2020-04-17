@@ -50086,7 +50086,7 @@ module.exports = function (e) {
       case 'X':
         return a.Unknown;
       default:
-        throw new Error(`未知索引状态: ${e}`);
+        throw new Error(`Unknown index status: ${e}`);
     }
   }
 
@@ -50095,7 +50095,7 @@ module.exports = function (e) {
     switch (t) {
       case a.Copied:
       case a.Renamed:
-        throw new Error(`无重命名的索引状态为无效的索引状态: ${t}`);
+        throw new Error(`Invalid index status for no-rename index status: ${t}`);
     }
     return t
   }
@@ -50209,11 +50209,11 @@ module.exports = function (e) {
             });
             break;
           default:
-            throw new Error(`无效状态--解析行时发现意外的条目${e}。`);
+            throw new Error(`invalid state - unexpected entry ${e} found when parsing rows`);
         }
         continue
       }
-      if (null == l) throw new Error(`无效状态 - 试图将diff附加到未定义的合并条目上 ${r}`);
+      if (null == l) throw new Error(`invalid state - trying to append the diff to a merge entry that isn't defined on line ${r}`);
       else {
         const t = l.diff;
         l = Object.assign({}, l, {
@@ -50364,7 +50364,7 @@ module.exports = function (e) {
 
   function o(e) {
     const t = l.exec(e);
-    if (!t) throw log.debug(`parseChangedEntry parse error: ${e}`), new Error(`未能解析已更改的条目的状态`);
+    if (!t) throw log.debug(`parseChangedEntry parse error: ${e}`), new Error(`Failed to parse status line for changed entry`);
     return {
       kind: 'entry',
       statusCode: t[1],
@@ -50374,8 +50374,8 @@ module.exports = function (e) {
 
   function r(e, t) {
     const n = c.exec(e);
-    if (!n) throw log.debug(`parsedRenamedOrCopiedEntry parse error: ${e}`), new Error(`重命名或复制条目的状态解析失败`);
-    if (!t) throw new Error('未能解析重命名或复制的条目，无法解析旧路径。');
+    if (!n) throw log.debug(`parsedRenamedOrCopiedEntry parse error: ${e}`), new Error(`Failed to parse status line for renamed or copied entry`);
+    if (!t) throw new Error('Failed to parse renamed or copied entry, could not parse old path');
     return {
       kind: 'entry',
       statusCode: n[1],
@@ -50386,7 +50386,7 @@ module.exports = function (e) {
 
   function i(e) {
     const t = p.exec(e);
-    if (!t) throw log.debug(`parseUnmergedEntry parse error: ${e}`), new Error(`解析未合并条目的状态行失败`);
+    if (!t) throw log.debug(`parseUnmergedEntry parse error: ${e}`), new Error(`Failed to parse status line for unmerged entry`);
     return {
       kind: 'entry',
       statusCode: t[1],
@@ -51343,7 +51343,7 @@ module.exports = function (e) {
         const e = this.readLine();
         if (!e) throw new Error('Expected unified diff line but reached end of diff');
         if (u === l) {
-          if (12 > e.length) throw new Error(`预期 "文件末尾无换行 "标记至少为12个字节以上的长度`);
+          if (12 > e.length) throw new Error(`Expected "no newline at end of file" marker to be at least 12 bytes long`);
           const t = i.length - 1,
             n = i[t];
           i[t] = n.withNoTrailingNewLine(!0);
@@ -51501,7 +51501,7 @@ module.exports = function (e) {
       const e = d.sep;
       return d.resolve(__dirname, '..', '..', 'git').replace(/[\\\/]app.asar[\\\/]/, `${e}app.asar.unpacked${e}`)
     }
-    throw new Error('Git不支持平台：win32')
+    throw new Error('Git not supported on platform: win32')
   }
 
   function r() {
@@ -51594,7 +51594,7 @@ module.exports = function (e) {
           if ('string' == typeof i) {
             if ('ENOENT' === i) {
               let n = e.message;
-              !1 === d.pathExists(t) ? (n = '无法找到磁盘上的仓库库路径.', i = a.RepositoryDoesNotExistErrorCode) : (n = `在预期的路径中无法找到Git: '${u}'. 这可能是应用程序的安装包有问题，所以在安装时要确认这个文件夹没有被删除.`, i = a.GitNotFoundErrorCode);
+              !1 === d.pathExists(t) ? (n = 'Unable to find path to repository on disk.', i = a.RepositoryDoesNotExistErrorCode) : (n = `Git could not be found at the expected path: '${u}'. This might be a problem with how the application is packaged, so confirm this folder hasn't been removed when packaging.`, i = a.GitNotFoundErrorCode);
               const o = new Error(n);
               o.name = e.name, o.code = i, l(o)
             } else l(e);
@@ -51604,7 +51604,7 @@ module.exports = function (e) {
             stdout: n,
             stderr: o,
             exitCode: i
-          }) : void('stdout maxBuffer exceeded' === e.message ? l(new Error(`该命令的输出无法放入分配的stdout缓冲区。请将 options.maxBuffer 设为大于 ${m.maxBuffer} bytes`)) : l(e))
+          }) : void('stdout maxBuffer exceeded' === e.message ? l(new Error(`The output from the command could not fit into the allocated stdout buffer. Set options.maxBuffer to a larger value than ${m.maxBuffer} bytes`)) : l(e))
         });
         o(h), n && n.stdin !== void 0 && h.stdin.end(n.stdin, n.stdinEncoding), n && n.processCallback && n.processCallback(h)
       })
@@ -51631,7 +51631,7 @@ module.exports = function (e) {
       a = await r.pathExists(n);
     if (!a) {
       const e = 'Options';
-      throw new i.ExternalEditorError(`  在路径 '${t.path}' 下 找不到 '${t.editor}' 的可执行文件.  请打开 ${e} 并选择一个可用编辑器.`, {
+      throw new i.ExternalEditorError(`Could not find executable for '${t.editor}' at path '${t.path}'.  Please open ${e} and select an available editor.`, {
         openPreferences: !0
       })
     }
@@ -51781,7 +51781,7 @@ module.exports = function (e) {
       this.defaultSelectionType = e, this.divergingLines = t, this.selectableLines = n
     }
     static fromInitialSelection(e) {
-      return e !== i.All && e !== i.None ? r.assertNever(e, '只能以All或None作为初始选择的DiffSelection实例化。') : new a(e, null, null)
+      return e !== i.All && e !== i.None ? r.assertNever(e, 'Can only instantiate a DiffSelection with All or None as the initial selection') : new a(e, null, null)
     }
     getSelectionType() {
       const e = this.divergingLines,
@@ -52569,7 +52569,7 @@ module.exports = function (e) {
     let d = t.mode;
     const l = t.fs || r;
     if (a(e)) {
-      const t = new Error(e + ' 包含无效的WIN32路径字符。');
+      const t = new Error(e + ' contains invalid WIN32 path characters.');
       throw t.code = 'EINVAL', t
     }
     d === void 0 && (d = s & ~process.umask()), n || (n = null), e = i.resolve(e);
@@ -52603,7 +52603,7 @@ module.exports = function (e) {
     if ('function' == typeof t ? (n = t, t = {}) : (!t || 'object' != typeof t) && (t = {
         mode: t
       }), a(e)) {
-      const t = new Error(e + ' 包含无效的WIN32路径字符。');
+      const t = new Error(e + ' contains invalid WIN32 path characters.');
       return t.code = 'EINVAL', n(t)
     }
     let l = t.mode;
@@ -53367,7 +53367,7 @@ module.exports = function (e) {
       null == o && 0 < t.length && (this._changeCommitSelection(e, t[0]), this._loadChangedFilesForCurrentSelection(e))
     }
     startAheadBehindUpdater(e) {
-      if (null != this.currentAheadBehindUpdater) return void A.fatalError(`超前/落后的更新器已经激活，不能在下列情况下开始更新 ${e.name}`);
+      if (null != this.currentAheadBehindUpdater) return void A.fatalError(`An ahead/behind updater is already active and cannot start updating on ${e.name}`);
       const t = new Q.AheadBehindUpdater(e, (t) => {
         this.repositoryStateCache.updateCompareState(e, () => ({
           aheadBehindCache: t
@@ -53443,7 +53443,7 @@ module.exports = function (e) {
           showBranchList: !1
         })), this.updateOrSelectFirstCommit(e, l), this.emitUpdate()
       }
-      return t.kind === D.HistoryTabMode.Compare ? this.updateCompareToBranch(e, t) : A.assertNever(t, `未知动作: ${o}`)
+      return t.kind === D.HistoryTabMode.Compare ? this.updateCompareToBranch(e, t) : A.assertNever(t, `Unknown action: ${o}`)
     }
     async updateCompareToBranch(e, t) {
       const n = this.gitStoreCache.get(e),
@@ -53590,7 +53590,7 @@ module.exports = function (e) {
       null !== e && (e.stop(), this.currentBranchPruner = null)
     }
     startBackgroundPruner(e) {
-      if (null !== this.currentBranchPruner) return void A.fatalError(`一个分支修剪器已经处于活动状态，不能更新在 ${e.name}`);
+      if (null !== this.currentBranchPruner) return void A.fatalError(`A branch pruner is already active and cannot start updating on ${e.name}`);
       if (se.enableBranchPruning()) {
         const t = new ae.BranchPruner(e, this.gitStoreCache, this.repositoriesStore, this.repositoryStateCache, (e) => this._refreshRepository(e));
         this.currentBranchPruner = t, this.currentBranchPruner.start()
@@ -53649,7 +53649,7 @@ module.exports = function (e) {
       return null === t || !!(o < t) || (log.debug(`Skipping background fetch since nothing has been pushed to '${a}' since the last fetch at ${o}`), !1)
     }
     startBackgroundFetching(e, t) {
-      if (this.currentBackgroundFetcher) return void A.fatalError(`应用程序一次只能有一个后台拉取进程被激活，但我们正在尝试在${e.name}上开始拉取，而同时另一个后台进程还在激活的时候!`);
+      if (this.currentBackgroundFetcher) return void A.fatalError(`We should only have on background fetcher active at once, but we're trying to start background fetching on ${e.name} while another background fetcher is still active!`);
       const n = B.getAccountForRepository(this.accounts, e);
       if (n && e.gitHubRepository) {
         const o = new Z.BackgroundFetcher(e, n, (e) => this.performFetch(e, n, f.FetchType.BackgroundTask), (e) => this.shouldBackgroundFetch(e, null));
@@ -54270,7 +54270,7 @@ module.exports = function (e) {
         } = this.repositoryStateCache.get(e), {
           defaultBranch: i
         } = r;
-        if (null == i) throw new Error(`无法找到该仓库的默认分支，因此在删除当前分支之前，应用程序无法识别切换到哪个分支.`);
+        if (null == i) throw new Error(`A default branch cannot be found for this repository, so the app is unable to identify which branch to switch to before removing the current branch.`);
         const a = this.gitStoreCache.get(e);
         return await a.performFailableOperation(() => N.checkoutBranch(e, o, i)), await a.performFailableOperation(() => N.deleteBranch(e, t, o, n)), this._refreshRepository(e)
       })
@@ -54295,8 +54295,8 @@ module.exports = function (e) {
         const {
           tip: i
         } = o.branchesState;
-        if (i.kind === E.TipState.Unborn) throw new Error('目前的分支有文件未提交还在暂存区.');
-        if (i.kind === E.TipState.Detached) throw new Error('当前的存储库处于独立的head状态.');
+        if (i.kind === E.TipState.Unborn) throw new Error('The current branch is unborn.');
+        if (i.kind === E.TipState.Detached) throw new Error('The current repository is in a detached HEAD state.');
         if (i.kind === E.TipState.Valid) {
           const {
             branch: o
@@ -54321,7 +54321,7 @@ module.exports = function (e) {
               name: a,
               url: r.url
             };
-          m.name !== r.name && _e.sendNonFatalException('remoteNameMismatch', new Error('当前的远程名称与分支的远程名称不同'));
+          m.name !== r.name && _e.sendNonFatalException('remoteNameMismatch', new Error('The current remote name differs from the branch remote'));
           const h = this.gitStoreCache.get(e);
           await h.performFailableOperation(async () => {
             await N.push(e, t, m, o.name, o.upstreamWithoutRemote, n, (t) => {
@@ -54394,11 +54394,11 @@ module.exports = function (e) {
       return this.withPushPullFetch(e, async () => {
         const n = this.gitStoreCache.get(e),
           o = n.currentRemote;
-        if (!o) throw new Error('这个仓库没有任何一个远端（纯本地）.');
+        if (!o) throw new Error('The repository has no remotes.');
         const r = this.repositoryStateCache.get(e),
           i = r.branchesState.tip;
-        if (i.kind === E.TipState.Unborn) throw new Error('目前的分支有文件未提交还在暂存区.');
-        if (i.kind === E.TipState.Detached) throw new Error('当前的存储库处于独立的head状态.');
+        if (i.kind === E.TipState.Unborn) throw new Error('The current branch is unborn.');
+        if (i.kind === E.TipState.Detached) throw new Error('The current repository is in a detached HEAD state.');
         if (i.kind === E.TipState.Valid) {
           let r = null,
             a;
@@ -54703,7 +54703,7 @@ module.exports = function (e) {
       } = this.getState();
       try {
         const n = await M.findEditorOrDefault(t);
-        if (null === n) return void this.emitError(new re.ExternalEditorError('没有安装合适的编辑器，无法启动GitHub桌面。可以为你的平台安装Atom（编辑器），然后重新启动GitHub桌面再试.', {
+        if (null === n) return void this.emitError(new re.ExternalEditorError('No suitable editors installed for GitHub Desktop to launch. Install Atom for your platform and restart GitHub Desktop to try again.', {
           suggestAtom: !0
         }));
         await M.launchExternalEditor(e, n)
@@ -55071,7 +55071,7 @@ module.exports = function (e) {
       return n ? void 0 : t.addUpstreamRemoteIfNeeded()
     }
     async _checkoutPullRequest(e, t) {
-      const n = A.forceUnwrap(`如果版本库没有GitHub版本库，则无法检查PR。`, e.gitHubRepository),
+      const n = A.forceUnwrap(`Cannot checkout a PR if the repository doesn't have a GitHub repository`, e.gitHubRepository),
         o = t.head,
         r = o.gitHubRepository.cloneURL === n.cloneURL;
       if (r) {
@@ -55085,7 +55085,7 @@ module.exports = function (e) {
         const r = this.getLocalBranch(e, o.ref);
         null !== r && (await this._checkoutBranch(e, r))
       } else {
-        const n = A.forceUnwrap('这个拉取请求的克隆URL没有被填充，但应该是', o.gitHubRepository.cloneURL),
+        const n = A.forceUnwrap('This pull request\'s clone URL is not populated but should be', o.gitHubRepository.cloneURL),
           i = C.forkPullRequestRemoteName(o.gitHubRepository.owner.login),
           r = await N.getRemotes(e),
           a = r.find((e) => e.name === i) || (await N.addRemote(e, i, n));
@@ -57306,7 +57306,7 @@ module.exports = function (e) {
     o = /System\.Net\.WebException: The remote name could not be resolved: 'central\.github\.com'/,
     r = /A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond/;
   t.parseError = function (e) {
-    return n.test(e.message) ? new Error('该应用程序缺少了一个它需要检查和安装更新的依赖。这是非常，非常糟糕的.') : o.test(e.message) ? new Error('GitHub桌面无法联系到更新服务器。请确保你有网络连接，然后再试一次.') : r.test(e.message) ? new Error('由于超时，GitHub桌面无法检查更新。请确保你有网络连接，然后再试一次.') : null
+    return n.test(e.message) ? new Error('The application is missing a dependency it needs to check and install updates. This is very, very bad.') : o.test(e.message) ? new Error('GitHub Desktop was not able to contact the update server. Ensure you have internet connectivity and try again.') : r.test(e.message) ? new Error('GitHub Desktop was not able to check for updates due to a timeout. Ensure you have internet connectivity and try again.') : null
   }
 }, function (e, t, n) {
   (function () {
@@ -57332,7 +57332,7 @@ module.exports = function (e) {
         this.disposed || this.disposables.clear()
       }, e
     }(), r = function (e) {
-      if (null == o && (o = n(178)), !o.isDisposable(e)) throw new TypeError('CompositeDisposable.add的参数必须有一个.dispose()方法。')
+      if (null == o && (o = n(178)), !o.isDisposable(e)) throw new TypeError('Arguments to CompositeDisposable.add must have a .dispose() method')
     }
   }).call(this)
 }, function (e, t, n) {
@@ -57364,8 +57364,8 @@ module.exports = function (e) {
         return this.handlersByEventName = null, this.disposed = !0
       }, e.prototype.on = function (e, n, o) {
         var r;
-        if (null == o && (o = !1), this.disposed) throw new Error('发射器已经被处理掉了');
-        if ('function' != typeof n) throw new Error('处理程序必须是一个函数');
+        if (null == o && (o = !1), this.disposed) throw new Error('Emitter has been disposed');
+        if ('function' != typeof n) throw new Error('Handler must be a function');
         return this.handlersByEventName[e] = (r = this.handlersByEventName[e]) ? o ? [n].concat(r) : r.concat(n) : [n], new t(this.off.bind(this, e, n))
       }, e.prototype.once = function (e, t, n) {
         var o, r;
@@ -57420,16 +57420,16 @@ module.exports = function (e) {
   }
 
   function r(e, t) {
-    if (!(e instanceof t)) throw new TypeError('不能将类作为函数调用')
+    if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function')
   }
 
   function i(e, t) {
-    if (!e) throw new ReferenceError('这还没有被初始化 - super()还没有被调用过');
+    if (!e) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');
     return t && ('object' == typeof t || 'function' == typeof t) ? t : e
   }
 
   function a(e, t) {
-    if ('function' != typeof t && null !== t) throw new TypeError('超级表达式必须是null或者是函数，而不是 ' + typeof t);
+    if ('function' != typeof t && null !== t) throw new TypeError('Super expression must either be null or a function, not ' + typeof t);
     e.prototype = Object.create(t && t.prototype, {
       constructor: {
         value: e,
@@ -57572,7 +57572,7 @@ module.exports = function (e) {
     i = n(770);
   e.exports = function () {
     function e(e, t, n, o, a, s) {
-      s === i || r(!1, '`prop-types`包不支持直接调用PropTypes验证器。使用 PropTypes.checkPropTypes.checkPropTypes() 来调用它们。阅读更多 http://fb.me/use-check-prop-types')
+      s === i || r(!1, 'Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types')
     }
 
     function t() {
@@ -57610,16 +57610,16 @@ module.exports = function (e) {
   }
 
   function r(e, t) {
-    if (!(e instanceof t)) throw new TypeError('不能将类作为函数调用')
+    if (!(e instanceof t)) throw new TypeError('Cannot call a class as a function')
   }
 
   function i(e, t) {
-    if (!e) throw new ReferenceError('这还没有被初始化 - super() 还没有被调用);
+    if (!e) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');
     return t && ('object' == typeof t || 'function' == typeof t) ? t : e
   }
 
   function a(e, t) {
-    if ('function' != typeof t && null !== t) throw new TypeError('超级表达式必须是null或者是函数，而不是 ' + typeof t);
+    if ('function' != typeof t && null !== t) throw new TypeError('Super expression must either be null or a function, not ' + typeof t);
     e.prototype = Object.create(t && t.prototype, {
       constructor: {
         value: e,
@@ -62374,13 +62374,13 @@ module.exports = function (e) {
       this.add(e)
     }, this);
     else if (e[s] || 'string' == typeof e) e && this.children.push(e);
-    else throw new TypeError('期待一个SourceNode、字符串或SourceNode和字符串的数组。得到 ' + e);
+    else throw new TypeError('Expected a SourceNode, string, or an array of SourceNodes and strings. Got ' + e);
     return this
   }, o.prototype.prepend = function (e) {
     if (Array.isArray(e))
       for (var t = e.length - 1; 0 <= t; t--) this.prepend(e[t]);
     else if (e[s] || 'string' == typeof e) this.children.unshift(e);
-    else throw new TypeError('期待一个SourceNode、字符串或SourceNode和字符串的数组。得到 ' + e);
+    else throw new TypeError('Expected a SourceNode, string, or an array of SourceNodes and strings. Got ' + e);
     return this
   }, o.prototype.walk = function (e) {
     for (var t = 0, n = this.children.length, o; t < n; t++) o = this.children[t], o[s] ? o.walk(e) : '' !== o && e(o, {
