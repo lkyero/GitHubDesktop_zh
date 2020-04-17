@@ -145,7 +145,7 @@ module.exports = function (e) {
         disabled: this.props.cancelButtonDisabled,
         tooltip: this.props.cancelButtonTitle,
         type: !0 === this.props.destructive ? 'submit' : 'reset'
-      }, this.props.cancelButtonText || 'Cancel')
+      }, this.props.cancelButtonText || '取消')
     }
     renderButtons() {
       return o.createElement(o.Fragment, null, this.renderOkButton(), this.renderCancelButton())
@@ -9866,48 +9866,48 @@ module.exports = function (e) {
         An = J('Hours', !0),
         In = {
           calendar: {
-            sameDay: '[Today at] LT',
-            nextDay: '[Tomorrow at] LT',
+            sameDay: '[今天] LT',
+            nextDay: '[明天] LT',
             nextWeek: 'dddd [at] LT',
-            lastDay: '[Yesterday at] LT',
-            lastWeek: '[Last] dddd [at] LT',
+            lastDay: '[昨天] LT',
+            lastWeek: '[上周] dddd LT',
             sameElse: 'L'
           },
           longDateFormat: {
             LTS: 'h:mm:ss A',
             LT: 'h:mm A',
-            L: 'MM/DD/YYYY',
-            LL: 'MMMM D, YYYY',
-            LLL: 'MMMM D, YYYY h:mm A',
-            LLLL: 'dddd, MMMM D, YYYY h:mm A'
+            L: 'YYYY/MM/DD',
+            LL: 'YYYY年 MMMM D',
+            LLL: 'YYYY年 MMMM D h:mm A',
+            LLLL: 'YYYY年 MMMM D, dddd h:mm A'
           },
-          invalidDate: 'Invalid date',
+          invalidDate: '无效日期',
           ordinal: '%d',
           dayOfMonthOrdinalParse: Gt,
           relativeTime: {
-            future: 'in %s',
-            past: '%s ago',
-            s: 'a few seconds',
-            ss: '%d seconds',
-            m: 'a minute',
-            mm: '%d minutes',
-            h: 'an hour',
-            hh: '%d hours',
-            d: 'a day',
-            dd: '%d days',
-            M: 'a month',
-            MM: '%d months',
-            y: 'a year',
-            yy: '%d years'
+            future: '%s后',
+            past: '%s前',
+            s: '几秒',
+            ss: '%d 秒',
+            m: '一分钟',
+            mm: '%d 分钟',
+            h: '一小时',
+            hh: '%d 小时',
+            d: '一天',
+            dd: '%d 天',
+            M: '一月',
+            MM: '%d 月',
+            y: '一年',
+            yy: '%d 年'
           },
-          months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          months: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
           monthsShort: Pn,
           week: {
             dow: 0,
             doy: 6
           },
-          weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-          weekdaysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+          weekdays: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
+          weekdaysMin: ['日', '一', '二', '三', '四', '五', '六'],
           weekdaysShort: Dn,
           meridiemParse: Mn
         },
@@ -11788,7 +11788,7 @@ module.exports = function (e) {
         o = t.diff(n),
         d = Math.abs(o),
         l = t.format('LLLL');
-      0 < o && d > i ? this.updateAndSchedule(l, t.format('lll'), d) : d < i ? this.updateAndSchedule(l, 'just now', i - d) : d < a ? this.updateAndSchedule(l, t.from(n), i) : d < s ? this.updateAndSchedule(l, t.from(n), a) : d < 7 * s ? this.updateAndSchedule(l, t.from(n), 6 * a) : this.setState({
+      0 < o && d > i ? this.updateAndSchedule(l, t.format('lll'), d) : d < i ? this.updateAndSchedule(l, '现在', i - d) : d < a ? this.updateAndSchedule(l, t.from(n), i) : d < s ? this.updateAndSchedule(l, t.from(n), a) : d < 7 * s ? this.updateAndSchedule(l, t.from(n), 6 * a) : this.setState({
         absoluteText: l,
         relativeText: t.format('ll')
       })
@@ -12132,7 +12132,7 @@ module.exports = function (e) {
         ref: this.onTextBoxRef,
         type: 'search',
         autoFocus: !0,
-        placeholder: this.props.placeholderText || '筛选 Filter',
+        placeholder: this.props.placeholderText || '筛选',
         className: 'filter-list-filter-field',
         onValueChanged: this.onFilterValueChanged,
         onKeyDown: this.onKeyDown,
@@ -13895,11 +13895,11 @@ module.exports = function (e) {
   }
 
   function s(e) {
-    return `Open in ${e||'editor'}`
+    return `打开于 ${e||'editor'}`
   }
 
   function d(e) {
-    return null === e ? `No editor configured in Options > Advanced` : void 0
+    return null === e ? `未配置编辑器，见 选项 > 高级` : void 0
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
@@ -14047,7 +14047,7 @@ module.exports = function (e) {
     r = n(4),
     i = n(11);
   t.renderUnmergedFilesSummary = function (e) {
-    const t = 1 === e ? `1 conflicted file` : `${e} conflicted files`;
+    const t = 1 === e ? `1 个冲突文件` : `${e} 个冲突文件`;
     return o.createElement('h3', {
       className: 'summary'
     }, t)
@@ -14064,7 +14064,7 @@ module.exports = function (e) {
   }, t.renderShellLink = function (e) {
     return o.createElement('div', null, o.createElement(i.LinkButton, {
       onClick: e
-    }, 'Open in command line,'), ' ', 'your tool of choice, or close to resolve manually.')
+    }, '在命令行中打开,'), ' ', '你选择的工具，或者手动修复.')
   }
 }, function (e, t, n) {
   'use strict';
@@ -14078,20 +14078,20 @@ module.exports = function (e) {
 
   function r(e) {
     return e ? new Promise((e, n) => {
-      c.unlink(t.InstalledCLIPath, (o) => null === o ? void e() : void n(new Error(`Failed to remove file at ${t.InstalledCLIPath}. Authorization of GitHub Desktop Helper is required.`)))
+      c.unlink(t.InstalledCLIPath, (o) => null === o ? void e() : void n(new Error(`无法删除文件 ${t.InstalledCLIPath}. 需要 GitHub Desktop Helper 的授权。`)))
     }) : d.unlink(t.InstalledCLIPath)
   }
 
   function i(e) {
     const n = l.dirname(t.InstalledCLIPath);
     return e ? new Promise((e, o) => {
-      c.makeTree(n, (n) => null === n ? void e() : void o(new Error(`Failed to create intermediate directories to ${t.InstalledCLIPath}`)))
+      c.makeTree(n, (n) => null === n ? void e() : void o(new Error(`无法创建中间文件夹到 ${t.InstalledCLIPath}`)))
     }) : d.mkdirp(n)
   }
 
   function a(e) {
     return e ? new Promise((e, n) => {
-      c.symlink(p, t.InstalledCLIPath, (o) => null === o ? void e() : void n(new Error(`Failed to symlink ${p} to ${t.InstalledCLIPath}`)))
+      c.symlink(p, t.InstalledCLIPath, (o) => null === o ? void e() : void n(new Error(`无法软链接 ${p} 到 ${t.InstalledCLIPath}`)))
     }) : d.symlink(p, t.InstalledCLIPath)
   }
   async function s(e) {
@@ -15020,7 +15020,7 @@ module.exports = function (e) {
       }), this.onRenderNewButton = () => this.props.canCreateNewBranch ? r.createElement(s.Button, {
         className: 'new-branch-button',
         onClick: this.onCreateNewBranch
-      }, '新分支 New branch') : null, this.onItemClick = (e) => {
+      }, '新分支') : null, this.onItemClick = (e) => {
         this.props.onItemClick && this.props.onItemClick(e.branch)
       }, this.onSelectionChanged = (e, t) => {
         this.props.onSelectionChanged && this.props.onSelectionChanged(e ? e.branch : null, t)
@@ -15059,7 +15059,7 @@ module.exports = function (e) {
       return 'default' === e || 'recent' === e || 'other' === e ? e : null
     }
     getGroupLabel(e) {
-      return 'default' === e ? '默认分支 Default branch' : 'recent' === e ? '最近分支 Recent branches' : 'other' === e ? '其他分支 Other branches' : i.assertNever(e, `Unknown identifier: ${e}`)
+      return 'default' === e ? '默认分支' : 'recent' === e ? '最近分支' : 'other' === e ? '其他分支' : i.assertNever(e, `Unknown identifier: ${e}`)
     }
   }
   t.BranchList = c
@@ -15103,7 +15103,7 @@ module.exports = function (e) {
         const n = this.props.gitHubRepository;
         n && n.endpoint !== s.getDotComAPIEndpoint() && (t = 'View on GitHub Enterprise');
         const o = [{
-          label: '还原此commit',
+          label: '还原此次提交',
           action: () => {
             this.props.onRevertCommit && this.props.onRevertCommit(this.props.commit)
           },
@@ -15111,7 +15111,7 @@ module.exports = function (e) {
         }, {
           type: 'separator'
         }, {
-          label: 'Copy SHA',
+          label: '复制 SHA',
           action: this.onCopySHA
         }, {
           label: t,
@@ -15228,7 +15228,7 @@ module.exports = function (e) {
       }, this.renderAuthorInline(e[0]));
       if (2 === e.length && !t) return o.createElement('span', {
         className: 'authors'
-      }, this.renderAuthorInline(e[0]), ' and ', this.renderAuthorInline(e[1]));
+      }, this.renderAuthorInline(e[0]), ' 和 ', this.renderAuthorInline(e[1]));
       else {
         const t = e.map((e) => e.name).join(', ');
         return o.createElement('span', {
@@ -15240,7 +15240,7 @@ module.exports = function (e) {
     renderCommitter(e) {
       return o.createElement('span', {
         className: 'committer'
-      }, ' and ', this.renderAuthorInline(e), ' committed')
+      }, ' 和 ', this.renderAuthorInline(e), ' 提交')
     }
     render() {
       const e = this.props.commit,
@@ -15253,7 +15253,7 @@ module.exports = function (e) {
         s = !e.authoredByCommitter && !(null !== this.props.gitHubRepository && r.isWebFlowCommitter(e, this.props.gitHubRepository));
       return o.createElement('span', {
         className: 'commit-attribution-component'
-      }, this.renderAuthors(a, s), s ? ' authored' : ' committed', s ? this.renderCommitter(n) : null)
+      }, this.renderAuthors(a, s), s ? ' authored' : ' 提交于', s ? this.renderCommitter(n) : null)
     }
   }
   t.CommitAttribution = i
@@ -16575,7 +16575,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(53);
-  t.UpstreamRemoteName = 'upstream', t.findUpstreamRemote = function (e, n) {
+  t.UpstreamRemoteName = '上游', t.findUpstreamRemote = function (e, n) {
     const r = n.find((e) => e.name === t.UpstreamRemoteName);
     return r ? o.repositoryMatchesRemote(e, r) ? r : null : null
   }
@@ -16586,7 +16586,7 @@ module.exports = function (e) {
   });
   class n extends Error {
     constructor(e, t) {
-      super(`The remote '${t.name}' already exists`), this.repository = e, this.existingRemote = t
+      super(`远端 '${t.name}' 已存在`), this.repository = e, this.existingRemote = t
     }
   }
   t.UpstreamAlreadyExistsError = n
@@ -31172,13 +31172,13 @@ module.exports = function (e) {
       } = this.state;
       return o.createElement(r.Dialog, {
         id: 'stash-changes',
-        title: 'Switch branch',
+        title: '切换分支',
         onSubmit: this.onSubmit,
         onDismissed: this.props.onDismissed,
         loading: e,
         disabled: e
       }, o.createElement(r.DialogContent, null, this.renderStashActions(), this.renderStashOverwriteWarning()), o.createElement(r.DialogFooter, null, o.createElement(p.OkCancelButtonGroup, {
-        okButtonText: 'Switch branch'
+        okButtonText: '切换分支'
       })))
     }
     renderStashOverwriteWarning() {
@@ -31191,13 +31191,13 @@ module.exports = function (e) {
         branchToCheckout: e
       } = this.props, t = [{
         title: `在${this.state.currentBranchName}上保留我的更改`,
-        description: '你正在进行的工作将被保存在这个分支上，供你稍后返回'
+        description: '你的改动被保存在这个分支上，供你后续返回时使用'
       }, {
         title: `把我的更改带到${e.name}`,
-        description: '你正在进行的工作会跟着你到新的分支'
+        description: '你的改动会一起带入新的分支'
       }];
       return o.createElement(a.Row, null, o.createElement(i.VerticalSegmentedControl, {
-        label: '您对这个分支有更改。你想用它们做什么?',
+        label: '你在这个分支有所改动。你想怎么处理？',
         items: t,
         selectedIndex: this.state.selectedStashAction,
         onSelectionChanged: this.onSelectionChanged
@@ -32067,7 +32067,7 @@ module.exports = function (e) {
         type: 'warning'
       }, o.createElement(r.DialogContent, null, o.createElement('p', null, '如果选择提交，则会将以下冲突文件提交到存储库中：'), this.renderFiles(this.props.files), o.createElement('p', null, '是否确实要提交这些冲突文件?')), o.createElement(r.DialogFooter, null, o.createElement(d.OkCancelButtonGroup, {
         destructive: !0,
-        okButtonText: 'Yes, commit files'
+        okButtonText: '是的，提交文件'
       })))
     }
   }
@@ -32281,14 +32281,14 @@ module.exports = function (e) {
         className: 'container'
       }, o.createElement('div', {
         className: 'column'
-      }, this.renderList(e.bugfixes, 'Bugfixes'), this.renderList(e.enhancements, 'Enhancements'), this.renderList(e.other, 'Other')))
+      }, this.renderList(e.bugfixes, 'Bugfixes'), this.renderList(e.enhancements, 'Enhancements'), this.renderList(e.other, '其他')))
     }
     drawTwoColumnLayout(e) {
       return o.createElement('div', {
         className: 'container'
       }, o.createElement('div', {
         className: 'column'
-      }, this.renderList(e.enhancements, 'Enhancements'), this.renderList(e.other, 'Other')), o.createElement('div', {
+      }, this.renderList(e.enhancements, 'Enhancements'), this.renderList(e.other, '其他')), o.createElement('div', {
         className: 'column'
       }, this.renderList(e.bugfixes, 'Bugfixes')))
     }
@@ -32320,7 +32320,7 @@ module.exports = function (e) {
       }, 'View all release notes'), o.createElement(m.OkCancelButtonGroup, {
         destructive: !0,
         okButtonText: '安装并重启GitHub',
-        cancelButtonText: 'Close'
+        cancelButtonText: '关闭'
       })))
     }
   }
@@ -32353,20 +32353,20 @@ module.exports = function (e) {
     }
     render() {
       const e = this.props.repository.name,
-        t = a.forceUnwrap('A repository must have a GitHub repository to add an upstream remote', this.props.repository.gitHubRepository),
-        n = a.forceUnwrap('A repository must have a parent repository to add an upstream remote', t.parent),
+        t = a.forceUnwrap('存储库必须在 GitHub 上有对应库才能添加上游远端', this.props.repository.gitHubRepository),
+        n = a.forceUnwrap('存储库必须在 GitHub 上有对应库才能添加上游远端', t.parent),
         l = n.fullName,
         c = this.props.existingRemote.url,
         p = n.cloneURL;
       return o.createElement(r.Dialog, {
-        title: 'Upstream already exists',
+        title: '上游已存在',
         onDismissed: this.props.onDismissed,
         onSubmit: this.onUpdate,
         type: 'warning'
-      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'The repository ', o.createElement(i.Ref, null, e), ' is a fork of', ' ', o.createElement(i.Ref, null, l), ', but its ', o.createElement(i.Ref, null, s.UpstreamRemoteName), ' ', 'remote points elsewhere.'), o.createElement('ul', null, o.createElement('li', null, 'Current: ', o.createElement(i.Ref, null, c)), o.createElement('li', null, 'Expected: ', o.createElement(i.Ref, null, p))), o.createElement('p', null, 'Would you like to update the remote to use the expected URL?')), o.createElement(r.DialogFooter, null, o.createElement(d.OkCancelButtonGroup, {
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, '存储库 ', o.createElement(i.Ref, null, e), ' 分叉自', ' ', o.createElement(i.Ref, null, l), ', 但其 ', o.createElement(i.Ref, null, s.UpstreamRemoteName), ' ', '远端指向了其他出处。'), o.createElement('ul', null, o.createElement('li', null, '当前值: ', o.createElement(i.Ref, null, c)), o.createElement('li', null, '期望值: ', o.createElement(i.Ref, null, p))), o.createElement('p', null, '你要更新远端配置为期望值吗？')), o.createElement(r.DialogFooter, null, o.createElement(d.OkCancelButtonGroup, {
         destructive: !0,
-        okButtonText: 'Update',
-        cancelButtonText: 'Ignore',
+        okButtonText: '更新',
+        cancelButtonText: '忽略',
         onCancelButtonClick: this.onIgnore
       })))
     }
@@ -32406,12 +32406,12 @@ module.exports = function (e) {
           globalGitConfigPath: e
         })
       } catch (e) {
-        log.warn(`Couldn't get the global git config path`, e)
+        log.warn(`无法获取全局 Git 配置路径`, e)
       }
     }
     renderGlobalGitConfigLink() {
       const e = this.state.globalGitConfigPath,
-        t = 'your global git config';
+        t = '你的全局 Git 配置';
       return e ? o.createElement(i.LinkButton, {
         onClick: this.showGlobalGitConfig
       }, t) : t
@@ -32419,12 +32419,12 @@ module.exports = function (e) {
     render() {
       return o.createElement(r.Dialog, {
         id: 'lfs-attribute-mismatch',
-        title: 'Update existing Git LFS filters?',
+        title: '更新已存在的 Git LFS 过滤器？',
         onDismissed: this.props.onDismissed,
         onSubmit: this.props.onUpdateExistingFilters
-      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'Git LFS filters are already configured in', ' ', this.renderGlobalGitConfigLink(), ' but are not the values it expects. Would you like to update them now?')), o.createElement(r.DialogFooter, null, o.createElement(d.OkCancelButtonGroup, {
-        okButtonText: 'Update existing filters',
-        cancelButtonText: 'Not now'
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'Git LFS 已在', ' ', this.renderGlobalGitConfigLink(), ' 中配置，但是内容有所不同。你想要更新它们吗？')), o.createElement(r.DialogFooter, null, o.createElement(d.OkCancelButtonGroup, {
+        okButtonText: '更新已存在的过滤器',
+        cancelButtonText: '稍后再说'
       })))
     }
   }
@@ -32500,7 +32500,7 @@ module.exports = function (e) {
       }
     }
     render() {
-      const e = 'Unable to open shell';
+      const e = '无法打开 shell';
       return o.createElement(r.Dialog, {
         id: 'shell-error',
         type: 'error',
@@ -32508,8 +32508,8 @@ module.exports = function (e) {
         onSubmit: this.props.onDismissed,
         onDismissed: this.props.onDismissed
       }, o.createElement(r.DialogContent, null, o.createElement('p', null, this.props.message)), o.createElement(r.DialogFooter, null, o.createElement(r.OkCancelButtonGroup, {
-        okButtonText: 'Close',
-        cancelButtonText: 'Open options',
+        okButtonText: '关闭',
+        cancelButtonText: '打开选项',
         onCancelButtonClick: this.onShowPreferencesDialog
       })))
     }
@@ -32862,7 +32862,7 @@ module.exports = function (e) {
         type: 'submit',
         className: 'clone-selected-repository',
         onClick: this.onCloneSelectedRepository
-      }, 'Clone', ' ', o.createElement('strong', null, e.owner.login, '/', e.name))
+      }, '克隆', ' ', o.createElement('strong', null, e.owner.login, '/', e.name))
     }
     renderAccountsTabBar() {
       if (null === this.props.dotComAccount || null === this.props.enterpriseAccount) return null;
@@ -32870,7 +32870,7 @@ module.exports = function (e) {
       return o.createElement(d.TabBar, {
         selectedIndex: e,
         onTabClicked: this.onTabClicked
-      }, o.createElement('span', null, 'GitHub.com'), o.createElement('span', null, 'GitHub Enterprise Server'))
+      }, o.createElement('span', null, 'GitHub.com'), o.createElement('span', null, 'GitHub 企业版服务器'))
     }
     renderButtonGroupButton(e, t, n, r) {
       return o.createElement('li', null, o.createElement(i.Button, {
@@ -33314,11 +33314,11 @@ module.exports = function (e) {
       return e === m.DotCom ? t.find((e) => e.endpoint === s.getDotComAPIEndpoint()) || null : e === m.Enterprise ? t.find((e) => e.endpoint !== s.getDotComAPIEndpoint()) || null : d.assertNever(e, `Unknown tab: ${e}`)
     }
     renderSignInTab(e) {
-      const t = 'Sign in';
+      const t = '登录';
       return e === m.DotCom ? o.createElement(l.CallToAction, {
         actionTitle: t,
         onAction: this.signInDotCom
-      }, o.createElement('div', null, 'Sign in to your GitHub.com account to access your repositories.')) : e === m.Enterprise ? o.createElement(l.CallToAction, {
+      }, o.createElement('div', null, '登录 GitHub.com 账户以访问你的存储库。')) : e === m.Enterprise ? o.createElement(l.CallToAction, {
         actionTitle: t,
         onAction: this.signInEnterprise
       }, o.createElement('div', null, '如果您有一个GitHub企业服务器帐户，请登录该帐户以访问您的存储库。')) : d.assertNever(e, `Unknown tab: ${e}`)
@@ -33329,7 +33329,7 @@ module.exports = function (e) {
         n = this.state.currentTab,
         r = this.getAccountForTab(n);
       return r ? o.createElement(i.DialogFooter, null, o.createElement(u.OkCancelButtonGroup, {
-        okButtonText: 'Publish repository',
+        okButtonText: '发布存储库',
         okButtonDisabled: t
       })) : null
     }
@@ -33385,7 +33385,7 @@ module.exports = function (e) {
         case d.UpdateStatus.UpdateReady:
           return o.createElement(r.Row, null, o.createElement(i.Button, {
             onClick: this.onQuitAndInstall
-          }, '退出 并 安装更新'));
+          }, '退出并安装更新'));
         case d.UpdateStatus.UpdateNotAvailable:
         case d.UpdateStatus.CheckingForUpdates:
         case d.UpdateStatus.UpdateAvailable:
@@ -33412,7 +33412,7 @@ module.exports = function (e) {
       const e = this.state.updateState.lastSuccessfulCheck;
       return e ? o.createElement('p', {
         className: 'update-status'
-      }, '你有最新的版本(上次检查', ' ', o.createElement(c.RelativeTime, {
+      }, '已经是最新的版本 (最后检查于', ' ', o.createElement(c.RelativeTime, {
         date: e
       }), ')') : null
     }
@@ -33445,8 +33445,8 @@ module.exports = function (e) {
         t = this.props.applicationVersion,
         n = o.createElement(s.LinkButton, {
           uri: u.ReleaseNotesUri
-        }, 'release notes'),
-        i = `Version ${t}`;
+        }, '发布说明'),
+        i = `版本 ${t}`;
       return o.createElement(a.Dialog, {
         id: 'about',
         onSubmit: this.props.onDismissed,
@@ -33466,9 +33466,9 @@ module.exports = function (e) {
         className: 'no-padding'
       }, o.createElement(s.LinkButton, {
         onClick: this.props.onShowTermsAndConditions
-      }, '条款 和 条件')), o.createElement('p', null, o.createElement(s.LinkButton, {
+      }, '条款和条件')), o.createElement('p', null, o.createElement(s.LinkButton, {
         onClick: this.props.onShowAcknowledgements
-      }, '可证 和 开源通知')), this.renderUpdateDetails(), this.renderUpdateButton()), o.createElement(a.DefaultDialogFooter, null))
+      }, '许可证和开源通知')), this.renderUpdateDetails(), this.renderUpdateButton()), o.createElement(a.DefaultDialogFooter, null))
     }
   }
   t.About = f
@@ -33503,18 +33503,18 @@ module.exports = function (e) {
         suggestAtom: t
       } = this.props;
       if (e) return o.createElement(r.DialogFooter, null, o.createElement(r.OkCancelButtonGroup, {
-        okButtonText: 'Close',
-        cancelButtonText: 'Open options',
+        okButtonText: '关闭',
+        cancelButtonText: '打开选项',
         onCancelButtonClick: this.onShowPreferencesDialog
       }));
       return t ? o.createElement(r.DialogFooter, null, o.createElement(r.OkCancelButtonGroup, {
-        okButtonText: 'Close',
-        cancelButtonText: 'Download Atom',
+        okButtonText: '关闭',
+        cancelButtonText: '下载 Atom',
         onCancelButtonClick: this.onExternalLink
       })) : o.createElement(r.DefaultDialogFooter, null)
     }
     render() {
-      const e = 'Unable to open external editor';
+      const e = '无法打开外部编辑器';
       return o.createElement(r.Dialog, {
         id: 'external-editor-error',
         type: 'error',
@@ -33590,7 +33590,7 @@ module.exports = function (e) {
     p = n(176),
     u = n(10),
     m = n(8),
-    h = 'Sign in using your browser';
+    h = '使用浏览器登录';
   class f extends o.Component {
     constructor(e) {
       super(e), this.onSubmit = () => {
@@ -33654,14 +33654,14 @@ module.exports = function (e) {
           break;
         case r.SignInStep.TwoFactorAuthentication:
           const o = /\S+/.test(this.state.otpToken);
-          t = !o, n = 'Sign in';
+          t = !o, n = '登录';
           break;
         case r.SignInStep.Authentication:
-          if (!e.supportsBasicAuth) n = 'Continue with browser';
+          if (!e.supportsBasicAuth) n = '使用浏览器继续';
           else {
             const e = 0 < this.state.username.length,
               o = 0 < this.state.password.length;
-            t = !e || !o, n = '登 陆'
+            t = !e || !o, n = '登陆'
           }
           break;
         default:
@@ -33741,7 +33741,7 @@ module.exports = function (e) {
       if (!e || e.kind === r.SignInStep.Success) return null;
       const t = e.loading,
         n = e.error ? o.createElement(c.DialogError, null, e.error.message) : null,
-        i = this.props.signInState && this.props.signInState.kind === r.SignInStep.Authentication && !this.props.signInState.supportsBasicAuth ? h : 'Sign in';
+        i = this.props.signInState && this.props.signInState.kind === r.SignInStep.Authentication && !this.props.signInState.supportsBasicAuth ? h : '登录';
       return o.createElement(c.Dialog, {
         id: 'sign-in',
         title: i,
@@ -34029,12 +34029,12 @@ module.exports = function (e) {
         className: 'local-path-field'
       }, o.createElement(i.TextBox, {
         value: this.props.path,
-        label: 'Local path',
-        placeholder: 'repository path',
+        label: '本地路径',
+        placeholder: '存储库路径',
         onValueChanged: this.props.onPathChanged
       }), o.createElement(s.Button, {
         onClick: this.props.onChooseDirectory
-      }, 'Choose\u2026')))
+      }, '选择\u2026')))
     }
   }
   t.CloneGithubRepository = l
@@ -34059,19 +34059,19 @@ module.exports = function (e) {
       return o.createElement(s.DialogContent, {
         className: 'clone-generic-repository-content'
       }, o.createElement(a.Row, null, o.createElement(r.TextBox, {
-        placeholder: 'URL or username/repository',
+        placeholder: 'URL地址 或 用户名/存储库',
         value: this.props.url,
         onValueChanged: this.onUrlChanged,
         autoFocus: !0,
-        label: o.createElement('span', null, '存储库URL 或 GitHub用户名+存储库', o.createElement('br', null), '(', o.createElement(d.Ref, null, 'hubot/cool-repo'), ')')
+        label: o.createElement('span', null, '存储库URL地址 或 GitHub用户名+存储库', o.createElement('br', null), '(', o.createElement(d.Ref, null, 'hubot/cool-repo'), ')')
       })), o.createElement(a.Row, null, o.createElement(r.TextBox, {
         value: this.props.path,
-        label: 'Local path',
-        placeholder: 'repository path',
+        label: '本地路径',
+        placeholder: '存储库路径',
         onValueChanged: this.props.onPathChanged
       }), o.createElement(i.Button, {
         onClick: this.props.onChooseDirectory
-      }, 'Choose\u2026')))
+      }, '选择\u2026')))
     }
   }
   t.CloneGenericRepository = l
@@ -34247,21 +34247,21 @@ module.exports = function (e) {
       } = this.getSelectedTabState();
       return r.createElement(p.Dialog, {
         className: 'clone-repository',
-        title: 'Clone a repository',
+        title: '克隆存储库',
         onSubmit: this.clone,
         onDismissed: this.props.onDismissed,
         loading: this.state.loading
       }, r.createElement(u.TabBar, {
         onTabClicked: this.onTabClicked,
         selectedIndex: this.props.selectedTab
-      }, r.createElement('span', null, 'GitHub.com'), r.createElement('span', null, 'GitHub Enterprise Server'), r.createElement('span', null, 'URL')), e ? r.createElement(p.DialogError, null, e.message) : null, this.renderActiveTab(), this.renderFooter())
+      }, r.createElement('span', null, 'GitHub.com'), r.createElement('span', null, 'GitHub 企业版服务器'), r.createElement('span', null, 'URL 地址')), e ? r.createElement(p.DialogError, null, e.message) : null, this.renderActiveTab(), this.renderFooter())
     }
     renderFooter() {
       const e = this.props.selectedTab;
       if (e !== m.CloneRepositoryTab.Generic && !this.getAccountForTab(e)) return null;
       const t = this.checkIfCloningDisabled();
       return r.createElement(p.DialogFooter, null, r.createElement(C.OkCancelButtonGroup, {
-        okButtonText: 'Clone',
+        okButtonText: '克隆',
         okButtonDisabled: t
       }))
     }
@@ -34342,14 +34342,14 @@ module.exports = function (e) {
       else return g.assertNever(t, `Unknown tab: ${t}`)
     }
     renderSignIn(e) {
-      const t = 'Sign in';
+      const t = '登录';
       return e === m.CloneRepositoryTab.DotCom ? r.createElement(y.CallToAction, {
         actionTitle: t,
         onAction: this.signInDotCom
-      }, r.createElement('div', null, 'Sign in to your GitHub.com account to access your repositories.')) : e === m.CloneRepositoryTab.Enterprise ? r.createElement(y.CallToAction, {
+      }, r.createElement('div', null, '登录到 GitHub.com 账户以访问你的存储库。')) : e === m.CloneRepositoryTab.Enterprise ? r.createElement(y.CallToAction, {
         actionTitle: t,
         onAction: this.signInEnterprise
-      }, r.createElement('div', null, '如果您有一个GitHub企业服务器帐户，请登录该帐户以访问您的存储库。')) : e === m.CloneRepositoryTab.Generic ? null : g.assertNever(e, `Unknown sign in tab: ${e}`)
+      }, r.createElement('div', null, '如果您有 GitHub 企业服务器帐户，请登录该帐户以访问您的存储库。')) : e === m.CloneRepositoryTab.Generic ? null : g.assertNever(e, `Unknown sign in tab: ${e}`)
     }
     async validateEmptyFolder(e) {
       try {
@@ -34717,7 +34717,7 @@ module.exports = function (e) {
       const e = this.state.gitIgnoreNames || [],
         t = [T, ...e];
       return r.createElement(p.Row, null, r.createElement(h.Select, {
-        label: 'Git ignore',
+        label: 'Git 忽略类型',
         value: this.state.gitIgnore,
         onChange: this.onGitIgnoreChange
       }, t.map((e) => r.createElement('option', {
@@ -34730,7 +34730,7 @@ module.exports = function (e) {
         t = [x, ...e.filter((e) => e.featured)],
         n = e.filter((e) => !e.featured);
       return r.createElement(p.Row, null, r.createElement(h.Select, {
-        label: 'License',
+        label: '许可证',
         value: this.state.license,
         onChange: this.onLicenseChange
       }, t.map((e) => r.createElement('option', {
@@ -34769,13 +34769,13 @@ module.exports = function (e) {
         t = !!this.props.initialPath;
       return r.createElement(b.Dialog, {
         id: 'create-repository',
-        title: 'Create a new repository',
+        title: '新建存储库',
         loading: this.state.creating,
         onSubmit: this.createRepository,
         onDismissed: this.props.onDismissed
       }, this.renderInvalidPathError(), r.createElement(b.DialogContent, null, r.createElement(p.Row, null, r.createElement(l.TextBox, {
         value: this.state.name,
-        label: 'Name',
+        label: '名称',
         placeholder: '存储库名称',
         onValueChanged: this.onNameChanged
       })), this.renderSanitizedName(), r.createElement(p.Row, null, r.createElement(l.TextBox, {
@@ -34785,18 +34785,18 @@ module.exports = function (e) {
       })), r.createElement(p.Row, null, r.createElement(l.TextBox, {
         value: this.state.path,
         label: '本地路径',
-        placeholder: 'repository path',
+        placeholder: '存储库的路径',
         onValueChanged: this.onPathChanged,
         disabled: t
       }), r.createElement(c.Button, {
         onClick: this.showFilePicker,
         disabled: t
-      }, 'Choose\u2026')), this.renderGitRepositoryWarning(), r.createElement(p.Row, null, r.createElement(u.Checkbox, {
-        label: '使用README初始化此存储库',
+      }, '选择\u2026')), this.renderGitRepositoryWarning(), r.createElement(p.Row, null, r.createElement(u.Checkbox, {
+        label: '使用 README 文件初始化此存储库',
         value: this.state.createWithReadme ? u.CheckboxValue.On : u.CheckboxValue.Off,
         onChange: this.onCreateWithReadmeChange
       })), this.renderReadmeOverwriteWarning(), this.renderGitIgnores(), this.renderLicenses()), r.createElement(b.DialogFooter, null, r.createElement(_.OkCancelButtonGroup, {
-        okButtonText: 'Create repository',
+        okButtonText: '创建存储库',
         okButtonDisabled: e
       })))
     }
@@ -34807,7 +34807,7 @@ module.exports = function (e) {
   const o = n(60),
     r = o.homedir();
   e.exports = (e) => {
-    if ('string' != typeof e) throw new TypeError(`Expected a string, got ${typeof e}`);
+    if ('string' != typeof e) throw new TypeError(`需要填写字符串, 但获取到 ${typeof e}`);
     return r ? e.replace(/^~($|\/|\\)/, `${r}$1`) : e
   }
 }, function (e, t, n) {
@@ -34900,30 +34900,30 @@ module.exports = function (e) {
         className: 'warning-helper-text'
       }, o.createElement(u.Octicon, {
         symbol: u.OcticonSymbol.alert
-      }), o.createElement('p', null, 'This directory appears to be a bare repository. Bare repositories are not currently supported.')) : o.createElement(c.Row, {
+      }), o.createElement('p', null, '该文件夹似乎是空存储库。目前不支持空存储库。')) : o.createElement(c.Row, {
         className: 'warning-helper-text'
       }, o.createElement(u.Octicon, {
         symbol: u.OcticonSymbol.alert
-      }), o.createElement('p', null, 'This directory does not appear to be a Git repository.', o.createElement('br', null), 'Would you like to', ' ', o.createElement(m.LinkButton, {
+      }), o.createElement('p', null, '该文件夹似乎不是 Git 存储库。', o.createElement('br', null), '你想要', ' ', o.createElement(m.LinkButton, {
         onClick: this.onCreateRepositoryClicked
-      }, 'create a repository'), ' ', 'here instead?')) : null
+      }, '创建一个存储库'), ' ', '作为替代吗？')) : null
     }
     render() {
       const e = 0 === this.state.path.length || !this.state.isRepository || this.state.isRepositoryBare;
       return o.createElement(p.Dialog, {
         id: 'add-existing-repository',
-        title: 'Add local repository',
+        title: '添加本地存储库',
         onSubmit: this.addRepository,
         onDismissed: this.props.onDismissed
       }, o.createElement(p.DialogContent, null, o.createElement(c.Row, null, o.createElement(l.TextBox, {
         value: this.state.path,
-        label: 'Local path',
-        placeholder: 'repository path',
+        label: '本地路径',
+        placeholder: '存储库路径',
         onValueChanged: this.onPathChanged
       }), o.createElement(d.Button, {
         onClick: this.showFilePicker
-      }, 'Choose\u2026')), this.renderWarning()), o.createElement(p.DialogFooter, null, o.createElement(f.OkCancelButtonGroup, {
-        okButtonText: 'Add repository',
+      }, '选择\u2026')), this.renderWarning()), o.createElement(p.DialogFooter, null, o.createElement(f.OkCancelButtonGroup, {
+        okButtonText: '添加存储库',
         okButtonDisabled: e
       })))
     }
@@ -34977,25 +34977,25 @@ module.exports = function (e) {
         key: 'locate',
         onClick: this.locate,
         type: 'submit'
-      }, 'Locate\u2026')), this.canCloneAgain() && e.push(o.createElement(i.Button, {
+      }, '定位\u2026')), this.canCloneAgain() && e.push(o.createElement(i.Button, {
         key: 'clone-again',
         onClick: this.cloneAgain
-      }, 'Clone Again')), e.push(o.createElement(i.Button, {
+      }, '再次克隆')), e.push(o.createElement(i.Button, {
         key: 'remove',
         onClick: this.remove
-      }, 'Remove')), o.createElement(r.UiView, {
+      }, '移除')), o.createElement(r.UiView, {
         id: 'missing-repository-view'
       }, o.createElement('div', {
         className: 'title-container'
       }, o.createElement('div', {
         className: 'title'
-      }, 'Can\'t find "', this.props.repository.name, '"'), o.createElement('div', {
+      }, '无法找到 "', this.props.repository.name, '"'), o.createElement('div', {
         className: 'details'
-      }, 'It was last seen at', ' ', o.createElement('span', {
+      }, '其最后访问时间为', ' ', o.createElement('span', {
         className: 'path'
       }, this.props.repository.path), '.', ' ', o.createElement(s.LinkButton, {
         onClick: this.checkAgain
-      }, 'Check\xA0again.'))), o.createElement(a.Row, null, e))
+      }, '再次\xA0检查.'))), o.createElement(a.Row, null, e))
     }
     canCloneAgain() {
       const e = this.props.repository.gitHubRepository;
@@ -35052,9 +35052,9 @@ module.exports = function (e) {
     renderGitErrorFooter(e) {
       const t = e.result.gitError;
       return t === s.GitError.HTTPSAuthenticationFailed ? o.createElement(r.DialogFooter, null, o.createElement(c.OkCancelButtonGroup, {
-        okButtonText: 'Close',
+        okButtonText: '关闭',
         onOkButtonClick: this.onCloseButtonClick,
-        cancelButtonText: 'Open options',
+        cancelButtonText: '打开选项',
         onCancelButtonClick: this.showPreferencesDialog
       })) : o.createElement(r.DefaultDialogFooter, {
         onButtonClick: this.onCloseButtonClick
@@ -35075,7 +35075,7 @@ module.exports = function (e) {
         id: 'app-error',
         type: 'error',
         key: 'error',
-        title: 'Error',
+        title: '错误',
         dismissable: !1,
         onSubmit: this.onDismissed,
         onDismissed: this.onDismissed,
@@ -35126,9 +35126,9 @@ module.exports = function (e) {
       return o.createElement(r.DialogContent, null, o.createElement(a.CallToAction, {
         actionTitle: 'Publish',
         onAction: this.props.onPublish
-      }, o.createElement('div', null, 'Publish your repository to GitHub. Need help?', ' ', o.createElement(i.LinkButton, {
+      }, o.createElement('div', null, '推送你的存储库到 GitHub 上。需要帮助吗？', ' ', o.createElement(i.LinkButton, {
         uri: 'https://help.github.com/articles/about-remote-repositories/'
-      }, 'Learn more'), ' about remote repositories.')))
+      }, '了解更多'), ' 关于远端存储库的内容。')))
     }
   }
   t.NoRemote = s
@@ -35181,7 +35181,7 @@ module.exports = function (e) {
     s = n(24);
   class d extends o.Component {
     render() {
-      return o.createElement(r.DialogContent, null, o.createElement('p', null, '编辑', o.createElement(s.Ref, null, '.gitignore'), '. 此文件指定Git应忽略的故意未跟踪的文件。Git已经跟踪的文件不受影响。', ' ', o.createElement(a.LinkButton, {
+      return o.createElement(r.DialogContent, null, o.createElement('p', null, '编辑', o.createElement(s.Ref, null, '.gitignore'), '. 此文件指定 Git 应忽略的文件。Git 已经跟踪的文件不受影响。', ' ', o.createElement(a.LinkButton, {
         onClick: this.props.onShowExamples
       }, '了解更多')), o.createElement(i.TextArea, {
         placeholder: '忽略文件Ignored files',
@@ -35204,7 +35204,7 @@ module.exports = function (e) {
     render() {
       const e = this.props.remote;
       return o.createElement(i.DialogContent, null, o.createElement('div', null, '主要远程存储库Primary remote repository (', e.name, ')'), o.createElement(r.TextBox, {
-        placeholder: 'Remote URL',
+        placeholder: '远端 URL 地址',
         value: e.url,
         onValueChanged: this.props.onRemoteUrlChanged
       }))
@@ -35317,13 +35317,13 @@ module.exports = function (e) {
       }, this.renderErrors(), o.createElement(r.TabBar, {
         onTabClicked: this.onTabClicked,
         selectedIndex: this.state.selectedTab
-      }, o.createElement('span', null, '远程Remote'), o.createElement('span', null, '忽略文件Ignored files')), this.renderActiveTab(), this.renderFooter())
+      }, o.createElement('span', null, '远端'), o.createElement('span', null, '忽略文件')), this.renderActiveTab(), this.renderFooter())
     }
     renderFooter() {
       const e = this.state.selectedTab,
         t = this.state.remote;
       return e !== m.Remote || t ? o.createElement(l.DialogFooter, null, o.createElement(u.OkCancelButtonGroup, {
-        okButtonText: '保存Save'
+        okButtonText: '保存'
       })) : null
     }
     renderActiveTab() {
@@ -35421,15 +35421,15 @@ module.exports = function (e) {
       return e.kind === d.ComputedAction.Loading ? this.renderLoadingMergeMessage() : e.kind === d.ComputedAction.Clean ? this.renderCleanMergeMessage(t, n, o) : e.kind === d.ComputedAction.Invalid ? this.renderInvalidMergeMessage() : this.renderConflictedMergeMessage(t, n, e.conflictedFiles)
     }
     renderLoadingMergeMessage() {
-      return o.createElement(o.Fragment, null, 'Checking for ability to merge automatically...')
+      return o.createElement(o.Fragment, null, '检查自动合并能力...')
     }
     renderCleanMergeMessage(e, t, n) {
-      if (0 === n) return o.createElement(o.Fragment, null, `This branch is up to date with `, o.createElement('strong', null, e.name));
+      if (0 === n) return o.createElement(o.Fragment, null, `该分支已同步到 `, o.createElement('strong', null, e.name));
       const r = 1 === n ? 'commit' : 'commits';
-      return o.createElement(o.Fragment, null, 'This will merge', o.createElement('strong', null, ` ${n} ${r}`), ` from `, o.createElement('strong', null, e.name), ` into `, o.createElement('strong', null, t.name))
+      return o.createElement(o.Fragment, null, '这将会合并 ', o.createElement('strong', null, ` ${n} ${r}`), ` 自 `, o.createElement('strong', null, e.name), ` 到 `, o.createElement('strong', null, t.name))
     }
     renderInvalidMergeMessage() {
-      return o.createElement(o.Fragment, null, 'Unable to merge unrelated histories in this repository')
+      return o.createElement(o.Fragment, null, '无法合并无关历史记录到该存储库')
     }
     renderConflictedMergeMessage(e, t, n) {
       const r = 1 === n ? '文件' : '文件';
@@ -35553,10 +35553,10 @@ module.exports = function (e) {
     renderExternalEditor() {
       const e = this.props.availableEditors,
         t = this.state.selectedExternalEditor,
-        n = 'External editor';
+        n = '外部编辑器';
       return 0 === e.length ? o.createElement('div', {
         className: 'select-component no-options-found'
-      }, o.createElement('label', null, n), o.createElement('span', null, 'No editors found.', ' ', o.createElement(i.LinkButton, {
+      }, o.createElement('label', null, n), o.createElement('span', null, '找不到编辑器。', ' ', o.createElement(i.LinkButton, {
         uri: 'https://atom.io/'
       }, 'Install Atom?'))) : o.createElement(s.Select, {
         label: n,
@@ -35579,7 +35579,7 @@ module.exports = function (e) {
       }, e)))
     }
     render() {
-      return o.createElement(r.DialogContent, null, o.createElement('h2', null, 'Applications'), o.createElement(a.Row, null, this.renderExternalEditor()), o.createElement(a.Row, null, this.renderSelectedShell()))
+      return o.createElement(r.DialogContent, null, o.createElement('h2', null, '应用'), o.createElement(a.Row, null, this.renderExternalEditor()), o.createElement(a.Row, null, this.renderSelectedShell()))
     }
   }
   t.Integrations = c
@@ -35732,7 +35732,7 @@ module.exports = function (e) {
     }
     renderAutoSwitcherOption() {
       return r.supportsDarkMode() ? o.createElement(a.Row, null, o.createElement(i.Checkbox, {
-        label: 'Automatically switch theme to match system theme.',
+        label: '自动切换主题以匹配系统主题。',
         value: this.props.automaticallySwitchTheme ? i.CheckboxValue.On : i.CheckboxValue.Off,
         onChange: this.onAutomaticallySwitchThemeChanged
       })) : null
@@ -35760,11 +35760,11 @@ module.exports = function (e) {
   class s extends o.Component {
     render() {
       return o.createElement(a.DialogContent, null, o.createElement(i.Row, null, o.createElement(r.TextBox, {
-        label: 'Name',
+        label: '用户名',
         value: this.props.name,
         onValueChanged: this.props.onNameChanged
       })), o.createElement(i.Row, null, o.createElement(r.TextBox, {
-        label: 'Email',
+        label: '电子邮箱',
         value: this.props.email,
         onValueChanged: this.props.onEmailChanged
       })))
@@ -35822,14 +35822,14 @@ module.exports = function (e) {
       }
     }
     reportDesktopUsageLabel() {
-      return o.createElement('span', null, '帮助GitHub Desktop改进，通过提交', ' ', o.createElement(a.LinkButton, {
+      return o.createElement('span', null, '帮助 GitHub Desktop 改进，提交', ' ', o.createElement(a.LinkButton, {
         uri: s.SamplesURL
       }, '使用情况统计'))
     }
     render() {
       return o.createElement(r.DialogContent, null, o.createElement('div', {
         className: 'advanced-section'
-      }, o.createElement('h2', null, 'If I have changes and I switch branches...'), o.createElement('div', {
+      }, o.createElement('h2', null, '如果我已经改动了文件，又要切换分支...'), o.createElement('div', {
         className: 'radio-component'
       }, o.createElement('input', {
         type: 'radio',
@@ -35839,7 +35839,7 @@ module.exports = function (e) {
         onChange: this.onUncommittedChangesStrategyKindChanged
       }), o.createElement('label', {
         htmlFor: d.UncommittedChangesStrategyKind.AskForConfirmation
-      }, 'Ask me where I want the changes to go')), o.createElement('div', {
+      }, '询问我想要如何保留改动')), o.createElement('div', {
         className: 'radio-component'
       }, o.createElement('input', {
         type: 'radio',
@@ -35849,7 +35849,7 @@ module.exports = function (e) {
         onChange: this.onUncommittedChangesStrategyKindChanged
       }), o.createElement('label', {
         htmlFor: d.UncommittedChangesStrategyKind.MoveToNewBranch
-      }, 'Always bring my changes to my new branch')), o.createElement('div', {
+      }, '总是把我的改动代入新分支')), o.createElement('div', {
         className: 'radio-component'
       }, o.createElement('input', {
         type: 'radio',
@@ -35859,23 +35859,23 @@ module.exports = function (e) {
         onChange: this.onUncommittedChangesStrategyKindChanged
       }), o.createElement('label', {
         htmlFor: d.UncommittedChangesStrategyKind.StashOnCurrentBranch
-      }, 'Always stash and leave my changes on the current branch'))), o.createElement('div', {
+      }, '总是贮藏并保留改动到当前分支'))), o.createElement('div', {
         className: 'advanced-section'
-      }, o.createElement('h2', null, 'Show a confirmation dialog before...'), o.createElement(i.Checkbox, {
-        label: 'Removing repositories',
+      }, o.createElement('h2', null, '显示确认对话框于...'), o.createElement(i.Checkbox, {
+        label: '删除存储库之前',
         value: this.state.confirmRepositoryRemoval ? i.CheckboxValue.On : i.CheckboxValue.Off,
         onChange: this.onConfirmRepositoryRemovalChanged
       }), o.createElement(i.Checkbox, {
-        label: '放弃更改之前显示确认对话框',
+        label: '放弃更改之前',
         value: this.state.confirmDiscardChanges ? i.CheckboxValue.On : i.CheckboxValue.Off,
         onChange: this.onConfirmDiscardChangesChanged
       }), o.createElement(i.Checkbox, {
-        label: '强制推送之前显示确认对话框',
+        label: '强制推送之前',
         value: this.state.confirmForcePush ? i.CheckboxValue.On : i.CheckboxValue.Off,
         onChange: this.onConfirmForcePushChanged
       })), o.createElement('div', {
         className: 'advanced-section'
-      }, o.createElement('h2', null, 'Usage'), o.createElement(i.Checkbox, {
+      }, o.createElement('h2', null, '用途'), o.createElement(i.Checkbox, {
         label: this.reportDesktopUsageLabel(),
         value: this.state.optOutOfUsageTracking ? i.CheckboxValue.Off : i.CheckboxValue.On,
         onChange: this.onReportingOptOutChanged
@@ -35885,7 +35885,7 @@ module.exports = function (e) {
       return !1, l.enableSchannelCheckRevokeOptOut() ? null === this.props.schannelCheckRevoke ? void 0 : o.createElement('div', {
         className: 'git-advanced-section'
       }, o.createElement('h2', null, 'Git'), o.createElement(i.Checkbox, {
-        label: 'Disable certificate revocation checks',
+        label: '禁用证书撤销检查',
         value: this.props.schannelCheckRevoke ? i.CheckboxValue.Off : i.CheckboxValue.On,
         onChange: this.onSchannelCheckRevokeChanged
       })) : void 0
@@ -35922,7 +35922,7 @@ module.exports = function (e) {
     render() {
       return o.createElement(d.DialogContent, {
         className: 'accounts-tab'
-      }, o.createElement('h2', null, 'GitHub.com'), this.props.dotComAccount ? this.renderAccount(this.props.dotComAccount) : this.renderSignIn(p.DotCom), o.createElement('h2', null, 'GitHub Enterprise Server'), this.props.enterpriseAccount ? this.renderAccount(this.props.enterpriseAccount) : this.renderSignIn(p.Enterprise))
+      }, o.createElement('h2', null, 'GitHub.com'), this.props.dotComAccount ? this.renderAccount(this.props.dotComAccount) : this.renderSignIn(p.DotCom), o.createElement('h2', null, 'GitHub 企业服务器'), this.props.enterpriseAccount ? this.renderAccount(this.props.enterpriseAccount) : this.renderSignIn(p.Enterprise))
     }
     renderAccount(e) {
       const t = r.lookupPreferredEmail(e),
@@ -35944,17 +35944,17 @@ module.exports = function (e) {
         className: 'login'
       }, '@', e.login)), o.createElement(a.Button, {
         onClick: this.logout(e)
-      }, 'Sign out'))
+      }, '登出'))
     }
     renderSignIn(e) {
-      const t = 'Sign in';
+      const t = '登录';
       return e === p.DotCom ? o.createElement(c.CallToAction, {
         actionTitle: t,
         onAction: this.onDotComSignIn
-      }, o.createElement('div', null, '登录github.com帐户以访问存储库')) : e === p.Enterprise ? o.createElement(c.CallToAction, {
+      }, o.createElement('div', null, '登录 github.com 帐户以访问存储库')) : e === p.Enterprise ? o.createElement(c.CallToAction, {
         actionTitle: t,
         onAction: this.onEnterpriseSignIn
-      }, o.createElement('div', null, '如果您有一个github企业服务器帐户，请登录该帐户以访问您的存储库')) : i.assertNever(e, `Unknown sign in type: ${e}`)
+      }, o.createElement('div', null, '如果您有一个 Github 企业服务器帐户，请登录该帐户以访问您的存储库')) : i.assertNever(e, `Unknown sign in type: ${e}`)
     }
   }
   t.Accounts = u
@@ -36020,7 +36020,7 @@ module.exports = function (e) {
       }, this.onCommitterNameChanged = (e) => {
         this.setState({
           committerName: e,
-          disallowedCharactersMessage: f.gitAuthorNameIsValid(e) ? null : 'Name is invalid, it consists only of disallowed characters.'
+          disallowedCharactersMessage: f.gitAuthorNameIsValid(e) ? null : '用户名无效，含有非法字符。'
         })
       }, this.onCommitterEmailChanged = (e) => {
         this.setState({
@@ -36115,7 +36115,7 @@ module.exports = function (e) {
     render() {
       return o.createElement(c.Dialog, {
         id: 'preferences',
-        title: '设置Options',
+        title: '设置',
         onDismissed: this.props.onDismissed,
         onSubmit: this.onSave
       }, o.createElement('div', {
@@ -36127,19 +36127,19 @@ module.exports = function (e) {
       }, o.createElement('span', null, o.createElement(b.Octicon, {
         className: 'icon',
         symbol: b.OcticonSymbol.home
-      }), '账户Accounts'), o.createElement('span', null, o.createElement(b.Octicon, {
+      }), '账户'), o.createElement('span', null, o.createElement(b.Octicon, {
         className: 'icon',
         symbol: b.OcticonSymbol.person
-      }), 'Integrations'), o.createElement('span', null, o.createElement(b.Octicon, {
+      }), '集成'), o.createElement('span', null, o.createElement(b.Octicon, {
         className: 'icon',
         symbol: b.OcticonSymbol.gitCommit
       }), 'Git'), o.createElement('span', null, o.createElement(b.Octicon, {
         className: 'icon',
         symbol: b.OcticonSymbol.paintcan
-      }), '外观Appearance'), o.createElement('span', null, o.createElement(b.Octicon, {
+      }), '外观'), o.createElement('span', null, o.createElement(b.Octicon, {
         className: 'icon',
         symbol: b.OcticonSymbol.settings
-      }), '高级Advanced')), this.renderActiveTab()), this.renderFooter())
+      }), '高级')), this.renderActiveTab()), this.renderFooter())
     }
     renderDisallowedCharactersError() {
       const e = this.state.disallowedCharactersMessage;
@@ -36247,7 +36247,7 @@ module.exports = function (e) {
     targetBranch: t,
     onDismissed: n
   }) {
-    const a = e === void 0 ? o.createElement('span', null, 'Successfully rebased ', o.createElement('strong', null, t)) : o.createElement('span', null, 'Successfully rebased ', o.createElement('strong', null, t), ' onto ', o.createElement('strong', null, e));
+    const a = e === void 0 ? o.createElement('span', null, '成功改变 ', o.createElement('strong', null, t)) : o.createElement('span', null, '成功改变 ', o.createElement('strong', null, t), ' 的基干到 ', o.createElement('strong', null, e));
     return o.createElement(i.Banner, {
       id: 'successful-rebase',
       timeout: 5e3,
@@ -36288,7 +36288,7 @@ module.exports = function (e) {
         symbol: r.OcticonSymbol.alert
       }), o.createElement('div', {
         className: 'banner-message'
-      }, o.createElement('span', null, 'Resolve conflicts to continue rebasing', ' ', o.createElement('strong', null, this.props.targetBranch), '.'), o.createElement(a.LinkButton, {
+      }, o.createElement('span', null, '修复冲突以继续改变基干', ' ', o.createElement('strong', null, this.props.targetBranch), '.'), o.createElement(a.LinkButton, {
         onClick: this.openDialog
       }, 'View conflicts')))
     }
@@ -36307,7 +36307,7 @@ module.exports = function (e) {
     theirBranch: t,
     onDismissed: n
   }) {
-    const a = t === void 0 ? o.createElement('span', null, 'Successfully merged into ', o.createElement('strong', null, e)) : o.createElement('span', null, 'Successfully merged ', o.createElement('strong', null, t), ' into ', o.createElement('strong', null, e));
+    const a = t === void 0 ? o.createElement('span', null, '成功合并到 ', o.createElement('strong', null, e)) : o.createElement('span', null, '成功合并 ', o.createElement('strong', null, t), ' 到 ', o.createElement('strong', null, e));
     return o.createElement(i.Banner, {
       id: 'successful-merge',
       timeout: 5e3,
@@ -36752,21 +36752,21 @@ module.exports = function (e) {
         className: 'usage-opt-out'
       }, o.createElement('h1', {
         className: 'welcome-title'
-      }, 'Make GitHub Desktop\xA0better!'), o.createElement('p', null, 'Would you like to help us improve GitHub Desktop by periodically submitting ', o.createElement(i.LinkButton, {
+      }, '帮助 GitHub Desktop\xA0做得更好！'), o.createElement('p', null, '你能帮助 GitHub Desktop 持续改进吗？只需要每隔一段时间自动上传 ', o.createElement(i.LinkButton, {
         uri: c.SamplesURL
-      }, 'usage stats'), '?'), o.createElement(s.Form, {
+      }, '使用统计数据？'), '?'), o.createElement(s.Form, {
         onSubmit: this.finish
       }, o.createElement(l.Row, null, o.createElement(a.Checkbox, {
-        label: 'Yes, submit periodic usage stats',
+        label: '同意，允许自动提交统计数据',
         value: this.state.newOptOutValue ? a.CheckboxValue.Off : a.CheckboxValue.On,
         onChange: this.onChange
       })), o.createElement(l.Row, {
         className: 'actions'
       }, o.createElement(d.Button, {
         type: 'submit'
-      }, 'Finish'), o.createElement(d.Button, {
+      }, '完成'), o.createElement(d.Button, {
         onClick: this.cancel
-      }, 'Cancel'))))
+      }, '取消'))))
     }
   }
   t.UsageOptOut = p
@@ -36935,15 +36935,15 @@ module.exports = function (e) {
         id: 'configure-git'
       }, o.createElement('h1', {
         className: 'welcome-title'
-      }, 'Configure Git'), o.createElement('p', {
+      }, '配置 Git'), o.createElement('p', {
         className: 'welcome-text'
-      }, 'This is used to identify the commits you create. Anyone will be able to see this information if you publish commits.'), o.createElement(i.ConfigureGitUser, {
+      }, '这里用于标记你创建的提交记录。如果你发布了提交记录，任何人都可以看到这些信息。'), o.createElement(i.ConfigureGitUser, {
         accounts: this.props.accounts,
         onSave: this.continue,
-        saveLabel: 'Continue'
+        saveLabel: '继续'
       }, o.createElement(a.Button, {
         onClick: this.cancel
-      }, 'Cancel')))
+      }, '取消')))
     }
   }
   t.ConfigureGit = s
@@ -36968,12 +36968,12 @@ module.exports = function (e) {
         id: 'sign-in-enterprise'
       }, o.createElement('h1', {
         className: 'welcome-title'
-      }, 'Sign in to your GitHub Enterprise Server'), o.createElement(a.SignIn, {
+      }, '登录到 GitHub 企业版服务器'), o.createElement(a.SignIn, {
         signInState: e,
         dispatcher: this.props.dispatcher
       }, o.createElement(i.Button, {
         onClick: this.cancel
-      }, 'Cancel'))) : null
+      }, '取消'))) : null
     }
   }
   t.SignInEnterprise = s
@@ -37115,7 +37115,7 @@ module.exports = function (e) {
         autoFocus: !0,
         onValueChanged: this.onUsernameChange
       }), o.createElement(l.TextBox, {
-        label: '密 码',
+        label: '密码',
         type: 'password',
         disabled: e,
         onValueChanged: this.onPasswordChange
@@ -37128,7 +37128,7 @@ module.exports = function (e) {
       }, this.props.supportsBasicAuth ? o.createElement(d.Button, {
         type: 'submit',
         disabled: e
-      }, this.props.loading ? o.createElement(a.Loading, null) : null, ' Sign in') : null, this.props.additionalButtons, this.props.supportsBasicAuth ? o.createElement(r.LinkButton, {
+      }, this.props.loading ? o.createElement(a.Loading, null) : null, ' 登录') : null, this.props.additionalButtons, this.props.supportsBasicAuth ? o.createElement(r.LinkButton, {
         className: 'forgot-password-link',
         uri: this.props.forgotPasswordUrl
       }, '忘记密码?') : null)
@@ -37228,10 +37228,10 @@ module.exports = function (e) {
       }), o.createElement('div', null, o.createElement(i.LinkButton, {
         className: 'welcome-button',
         onClick: this.signInToDotCom
-      }, 'Sign in to GitHub.com')), o.createElement('div', null, o.createElement(i.LinkButton, {
+      }, '登录到 to GitHub.com')), o.createElement('div', null, o.createElement(i.LinkButton, {
         className: 'welcome-button',
         onClick: this.signInToEnterprise
-      }, 'Sign in to GitHub Enterprise Server')), o.createElement('div', {
+      }, '登录到 GitHub 企业版服务器')), o.createElement('div', {
         className: 'skip-action-container'
       }, o.createElement(i.LinkButton, {
         className: 'skip-button',
@@ -37476,9 +37476,9 @@ module.exports = function (e) {
   }
 
   function r(e) {
-    return e ? h.createElement('span', null, '上次提取', h.createElement(S.RelativeTime, {
+    return e ? h.createElement('span', null, '上次拉取于 ', h.createElement(S.RelativeTime, {
       date: e
-    })) : '从未取回Never fetched'
+    })) : '从未取回过'
   }
 
   function i(e, t) {
@@ -37495,8 +37495,8 @@ module.exports = function (e) {
 
   function a(e) {
     return h.createElement(C.ToolbarButton, Object.assign({}, v, {
-      title: '发布存储库 Publish repository',
-      description: 'Publish this repository to GitHub',
+      title: '发布存储库',
+      description: '推送该存储库到 GitHub',
       className: 'push-pull-button',
       icon: y.OcticonSymbol.cloudUpload,
       style: C.ToolbarButtonStyle.Subtitle,
@@ -37506,17 +37506,17 @@ module.exports = function (e) {
 
   function s() {
     return h.createElement(C.ToolbarButton, Object.assign({}, v, {
-      title: '发布分支 Publish branch',
-      description: 'Cannot publish unborn HEAD',
+      title: '发布分支',
+      description: '无法推送已脱离的未指定的 HEAD',
       icon: y.OcticonSymbol.cloudUpload,
       disabled: !0
     }))
   }
 
   function d(e) {
-    const t = e ? '正在重新定位Rebase in progress' : 'Cannot publish detached HEAD';
+    const t = e ? '正在重新定位' : '无法推送已脱离的 HEAD';
     return h.createElement(C.ToolbarButton, Object.assign({}, v, {
-      title: '发布分支 Publish branch',
+      title: '发布分支',
       description: t,
       icon: y.OcticonSymbol.cloudUpload,
       disabled: !0
@@ -37524,12 +37524,12 @@ module.exports = function (e) {
   }
 
   function l(e, t, n) {
-    const o = e ? '将分支发布到GiHub' : 'Publish this branch to the remote',
+    const o = e ? '将分支发布到GiHub' : '将分支发布到远端',
       r = b(v.className, 'nudge-arrow', {
         "nudge-arrow-up": n
       });
     return h.createElement(C.ToolbarButton, Object.assign({}, v, {
-      title: '发布分支 Publish branch',
+      title: '发布分支',
       description: o,
       icon: y.OcticonSymbol.cloudUpload,
       onClick: t,
@@ -37538,7 +37538,7 @@ module.exports = function (e) {
   }
 
   function c(e, t, n, i) {
-    const a = `取回 Fetch ${e}`;
+    const a = `拉取 ${e} 的更新`;
     return h.createElement(C.ToolbarButton, Object.assign({}, v, {
       title: a,
       description: r(n),
@@ -37548,7 +37548,7 @@ module.exports = function (e) {
   }
 
   function p(e, t, n, i, a) {
-    const s = i ? `Pull ${e} with rebase` : `拉取 Pull ${e}`;
+    const s = i ? `拉取 ${e} 的更新并重新定基` : `拉取 ${e} 的更新`;
     return h.createElement(C.ToolbarButton, Object.assign({}, v, {
       title: s,
       description: r(n),
@@ -37559,7 +37559,7 @@ module.exports = function (e) {
 
   function u(e, t, n, i) {
     return h.createElement(C.ToolbarButton, Object.assign({}, v, {
-      title: `推送 Push ${e}`,
+      title: `推送 ${e}`,
       description: r(n),
       icon: y.OcticonSymbol.arrowUp,
       onClick: i
@@ -37568,7 +37568,7 @@ module.exports = function (e) {
 
   function m(e, t, n, i) {
     return h.createElement(C.ToolbarButton, Object.assign({}, v, {
-      title: `Force push ${e}`,
+      title: `强制推送 ${e}`,
       description: r(n),
       icon: E,
       onClick: i
@@ -37855,27 +37855,27 @@ module.exports = function (e) {
         className: 'header'
       }, o.createElement('div', {
         className: 'text'
-      }, o.createElement('h1', null, 'You\'re done!'), o.createElement('p', null, 'You\u2019ve learned the basics on how to use GitHub Desktop. Here are some suggestions for what to do next.')), o.createElement('img', {
+      }, o.createElement('h1', null, '完成！'), o.createElement('p', null, '你已经学会了 GitHub Desktop 的基础用法。下面是一些后续建议。')), o.createElement('img', {
         src: l,
         className: 'image'
       })), o.createElement(d.SuggestedActionGroup, null, o.createElement(s.SuggestedAction, {
-        title: 'Explore projects on GitHub',
-        description: 'Contribute to a project that interests you',
-        buttonText: 'Open in browser',
+        title: '在 GitHub 中探索项目',
+        description: '参与你感兴趣的项目',
+        buttonText: '浏览器中打开',
         onClick: this.openDotcomExplore,
         type: 'normal',
         image: c
       }), o.createElement(s.SuggestedAction, {
-        title: 'Create a new repository',
-        description: 'Get started on a brand new project',
-        buttonText: 'Create repository',
+        title: '新建存储库',
+        description: '开始一个全新项目',
+        buttonText: '创建存储库',
         onClick: this.onCreateNewRepository,
         type: 'normal',
         image: p
       }), o.createElement(s.SuggestedAction, {
-        title: 'Add a local repository',
-        description: 'Work on an existing project in GitHub Desktop',
-        buttonText: 'Add repository',
+        title: '添加本地存储库',
+        description: '将已存在的项目纳入 GitHub Desktop 中',
+        buttonText: '添加存储库',
         onClick: this.onAddExistingRepository,
         type: 'normal',
         image: u
@@ -38520,30 +38520,30 @@ module.exports = function (e) {
     renderTitle() {
       return this.props.isSearch ? o.createElement('div', {
         className: 'title'
-      }, '对不起，我找不到 pull request!') : this.props.isLoadingPullRequests ? o.createElement('div', {
+      }, '对不起，我找不到合并请求！') : this.props.isLoadingPullRequests ? o.createElement('div', {
         className: 'title'
-      }, 'Hang tight') : o.createElement('div', null, o.createElement('div', {
+      }, '团队协作') : o.createElement('div', null, o.createElement('div', {
         className: 'title'
-      }, '你都准备好了！You\'re all set!'), o.createElement('div', {
+      }, '你已准备就绪！'), o.createElement('div', {
         className: 'no-prs'
-      }, '没能 open pull requests 在 ', o.createElement(i.Ref, null, this.props.repositoryName)))
+      }, '无法打开合并请求于 ', o.createElement(i.Ref, null, this.props.repositoryName)))
     }
     renderCallToAction() {
       return this.props.isLoadingPullRequests ? o.createElement('div', {
         className: 'call-to-action'
-      }, '尽我所能地Loading pull requests!') : null !== this.props.selectedPullRequest && null !== this.props.upstreamRepositoryName && null !== this.props.upstreamPullRequestsUrl ? o.createElement('div', {
+      }, '尽我所能地加载合并请求！') : null !== this.props.selectedPullRequest && null !== this.props.upstreamRepositoryName && null !== this.props.upstreamPullRequestsUrl ? o.createElement('div', {
         className: 'call-to-action'
       }, o.createElement(a.LinkButton, {
         uri: this.props.upstreamPullRequestsUrl
-      }, 'View pull requests'), ' for ', o.createElement('strong', null, this.props.upstreamRepositoryName), ' on GitHub') : this.props.isOnDefaultBranch ? o.createElement('div', {
+      }, '查看合并请求'), ' for ', o.createElement('strong', null, this.props.upstreamRepositoryName), ' on GitHub') : this.props.isOnDefaultBranch ? o.createElement('div', {
         className: 'call-to-action'
       }, '您想', ' ', o.createElement(a.LinkButton, {
         onClick: this.props.onCreateBranch
-      }, 'create a new branch'), ' ', '并继续进行下一个项目吗?') : o.createElement('div', {
+      }, '新建一个分支'), ' ', '并继续进行下一个项目吗?') : o.createElement('div', {
         className: 'call-to-action'
       }, '你想要从当前分支', ' ', o.createElement(a.LinkButton, {
         onClick: this.props.onCreatePullRequest
-      }, 'create a pull request'), ' ', '吗?')
+      }, '创建合并请求'), ' ', '吗?')
     }
   }
   t.NoPullRequests = d
@@ -38869,9 +38869,9 @@ module.exports = function (e) {
       return this.props.repository.gitHubRepository ? r.createElement(c.TabBar, {
         onTabClicked: this.onTabClicked,
         selectedIndex: this.props.selectedTab
-      }, r.createElement('span', null, '分支 Branches'), r.createElement('span', {
+      }, r.createElement('span', null, '分支'), r.createElement('span', {
         className: 'pull-request-tab'
-      }, '拉取请求 Pull requests', this.renderOpenPullRequestsBubble())) : null
+      }, '拉取请求', this.renderOpenPullRequestsBubble())) : null
     }
     renderSelectedTab() {
       let e = this.props.selectedTab;
@@ -38961,7 +38961,7 @@ module.exports = function (e) {
   class a extends o.Component {
     render() {
       return o.createElement(i.DialogFooter, null, o.createElement(r.OkCancelButtonGroup, {
-        okButtonText: this.props.buttonText || 'Close',
+        okButtonText: this.props.buttonText || '关闭',
         okButtonTitle: this.props.buttonTitle,
         onOkButtonClick: this.props.onButtonClick,
         okButtonDisabled: this.props.disabled,
@@ -39704,7 +39704,7 @@ module.exports = function (e) {
         className: 'expander'
       }, a.createElement(d.Octicon, {
         symbol: n
-      }), e ? 'Collapse' : 'Expand')
+      }), e ? '折叠' : '扩展')
     }
     updateOverflow() {
       const e = this.descriptionScrollViewRef;
@@ -39741,8 +39741,8 @@ module.exports = function (e) {
     }
     render() {
       const e = this.props.files.length,
-        t = 1 === e ? 'file' : 'files',
-        n = `${e} changed ${t}`,
+        t = 1 === e ? '文件' : '文件',
+        n = `${e} 个${t}有改动`,
         o = this.props.commit.shortSha,
         r = s({
           expanded: this.props.isExpanded,
@@ -39787,7 +39787,7 @@ module.exports = function (e) {
       }, a.createElement(d.Octicon, {
         symbol: d.OcticonSymbol.diff
       })), n), h.enableHideWhitespaceInDiffOption() && a.createElement(m.Checkbox, {
-        label: 'Hide Whitespace',
+        label: '隐藏空格',
         value: this.props.hideWhitespaceInDiff ? m.CheckboxValue.On : m.CheckboxValue.Off,
         onChange: this.onHideWhitespaceInDiffChanged
       }))), this.renderDescription())
@@ -40536,11 +40536,11 @@ module.exports = function (e) {
       return this.getMenuInfoMap(this.props.appMenu).get(e)
     }
     getPlatformFileManagerName() {
-      return 'Explorer'
+      return '资源管理器'
     }
     renderDiscoverabilityElements(e) {
       const t = r(e);
-      return s.createElement(s.Fragment, null, t, ' menu or', ' ', this.renderDiscoverabilityKeyboardShortcut(e))
+      return s.createElement(s.Fragment, null, t, ' 菜单或', ' ', this.renderDiscoverabilityKeyboardShortcut(e))
     }
     renderDiscoverabilityKeyboardShortcut(e) {
       return e.acceleratorKeys.map((e, t) => s.createElement('kbd', {
@@ -40575,9 +40575,9 @@ module.exports = function (e) {
       const n = this.getMenuItemInfo('preferences');
       if (void 0 === n) return log.error(`找不到与${e}匹配的菜单项`), null;
       const o = `在外部编辑器中打开存储库`,
-        r = s.createElement(s.Fragment, null, '选择编辑器在', ' ', s.createElement(l.LinkButton, {
+        r = s.createElement(s.Fragment, null, '选择编辑器于', ' ', s.createElement(l.LinkButton, {
           onClick: this.openPreferences
-        }, 'Options'));
+        }, '选项'));
       return this.renderMenuBackedAction(e, o, r, this.onOpenInExternalEditorClicked)
     }
     renderRemoteAction() {
@@ -42704,7 +42704,7 @@ module.exports = function (e) {
         e.classList.add('CodeMirror-search-dialog');
         const t = e.querySelector('.CodeMirror-search-label'),
           n = e.querySelector('.CodeMirror-search-field');
-        t instanceof HTMLElement && n instanceof HTMLInputElement && (t.style.display = 'none', n.placeholder = '查找Search', n.style.width = null)
+        t instanceof HTMLElement && n instanceof HTMLInputElement && (t.style.display = 'none', n.placeholder = '查找', n.style.width = null)
       }
     }
   }
@@ -43765,17 +43765,17 @@ module.exports = function (e) {
   class s extends o.Component {
     render() {
       const e = this.props.isPushPullFetchInProgress || this.props.isCommitting,
-        t = e ? 'Undo is disabled while the repository is being updated' : void 0,
+        t = e ? '存储库更新时无法撤销' : void 0,
         n = this.props.commit.author.date;
       return o.createElement('div', {
         id: 'undo-commit',
         role: 'group',
-        "aria-label": 'Undo commit'
+        "aria-label": '撤销提交'
       }, o.createElement('div', {
         className: 'commit-info'
       }, o.createElement('div', {
         className: 'ago'
-      }, 'Committed ', o.createElement(i.RelativeTime, {
+      }, '提交于 ', o.createElement(i.RelativeTime, {
         date: n
       })), o.createElement(r.RichText, {
         emoji: this.props.emoji,
@@ -43789,7 +43789,7 @@ module.exports = function (e) {
         size: 'small',
         disabled: e,
         onClick: this.props.onUndo
-      }, 'Undo')))
+      }, '撤销')))
     }
   }
   t.UndoCommit = s
@@ -45014,7 +45014,7 @@ module.exports = function (e) {
         onClick: this.onFocusContainerClick
       }, r.createElement(a.AutocompletingTextArea, {
         className: l,
-        placeholder: '说明 Description',
+        placeholder: '说明',
         value: this.state.description || '',
         onValueChanged: this.onDescriptionChanged,
         autocompletionProviders: this.props.autocompletionProviders,
@@ -45029,7 +45029,7 @@ module.exports = function (e) {
         disabled: !n
       }, o, r.createElement('span', {
         title: `Commit to ${e}`
-      }, o ? 'Committing' : '提交', ' 至 ', r.createElement('strong', null, e))))
+      }, o ? '提交中' : '提交', '至 ', r.createElement('strong', null, e))))
     }
   }
   t.CommitMessage = E
@@ -45150,7 +45150,7 @@ module.exports = function (e) {
         const {
           externalEditorLabel: n,
           repository: o
-        } = this.props, r = n ? `Open in ${n}` : u.DefaultEditorLabel;
+        } = this.props, r = n ? `打开于 ${n}` : u.DefaultEditorLabel;
         return {
           label: r,
           action: () => {
@@ -45299,11 +45299,11 @@ module.exports = function (e) {
       switch (n.status.kind) {
         case d.AppFileStatusKind.New:
         case d.AppFileStatusKind.Untracked:
-          return `Create ${o}`;
+          return `创建 ${o}`;
         case d.AppFileStatusKind.Deleted:
-          return `Delete ${o}`;
+          return `删除 ${o}`;
         default:
-          return `Update ${o}`;
+          return `更新 ${o}`;
       }
     }
     renderStashedChanges() {
@@ -45326,8 +45326,8 @@ module.exports = function (e) {
     }
     render() {
       const e = this.props.workingDirectory.files.length,
-        t = 1 === e ? 'file' : 'files',
-        n = `${e} changed ${t}`,
+        t = 1 === e ? '文件' : '文件',
+        n = `${e} 个${t}有改动`,
         r = o(this.props.workingDirectory, this.props.rebaseConflictState),
         a = 0 === e || this.props.isCommitting || null !== this.props.rebaseConflictState;
       return i.createElement('div', {
@@ -45611,9 +45611,9 @@ module.exports = function (e) {
         onTabClicked: this.onTabClicked
       }, o.createElement('span', {
         className: 'with-indicator'
-      }, o.createElement('span', null, '更改Changes'), this.renderChangesBadge()), o.createElement('div', {
+      }, o.createElement('span', null, '改动内容'), this.renderChangesBadge()), o.createElement('div', {
         className: 'with-indicator'
-      }, o.createElement('span', null, '历史History'), this.props.state.compareState.isDivergingBranchBannerVisible ? o.createElement(g.Octicon, {
+      }, o.createElement('span', null, '历史记录'), this.props.state.compareState.isDivergingBranchBannerVisible ? o.createElement(g.Octicon, {
         className: 'indicator',
         symbol: g.OcticonSymbol.primitiveDot
       }) : null))
@@ -46858,9 +46858,9 @@ module.exports = function (e) {
         e.preventDefault();
         const t = this.props.repository,
           n = t instanceof r.Repository && t.missing,
-          o = this.props.externalEditorLabel ? `Open in ${this.props.externalEditorLabel}` : d.DefaultEditorLabel,
+          o = this.props.externalEditorLabel ? `打开于 ${this.props.externalEditorLabel}` : d.DefaultEditorLabel,
           i = [{
-            label: `Open in ${this.props.shellLabel}`,
+            label: `打开于 ${this.props.shellLabel}`,
             action: this.openInShell,
             enabled: !n
           }, {
@@ -46874,7 +46874,7 @@ module.exports = function (e) {
           }, {
             type: 'separator'
           }, {
-            label: this.props.askForConfirmationOnRemoveRepository ? 'Remove\u2026' : 'Remove',
+            label: this.props.askForConfirmationOnRemoveRepository ? '移除\u2026' : '移除',
             action: this.removeRepository
           }];
         a.showContextualMenu(i)
@@ -47014,7 +47014,7 @@ module.exports = function (e) {
       }, this.renderPostFilter = () => r.createElement(d.Button, {
         className: 'new-repository-button',
         onClick: this.onNewRepositoryButtonClick
-      }, '添加Add', r.createElement(l.Octicon, {
+      }, '添加', r.createElement(l.Octicon, {
         symbol: l.OcticonSymbol.triangleDown
       })), this.renderNoItems = () => r.createElement('div', {
         className: 'no-items no-results-found'
@@ -47023,9 +47023,9 @@ module.exports = function (e) {
         className: 'blankslate-image'
       }), r.createElement('div', {
         className: 'title'
-      }, 'Sorry, I can\'t find that repository'), r.createElement('div', {
+      }, '抱歉，我没找到对应的存储库'), r.createElement('div', {
         className: 'protip'
-      }, 'ProTip! Press ', this.renderAddLocalShortcut(), ' to quickly add a local repository, and ', this.renderCloneRepositoryShortcut(), ' to clone from anywhere within the app')), this.onNewRepositoryButtonClick = () => {
+      }, '提示！ 按下 ', this.renderAddLocalShortcut(), ' 键以快速添加本地存储库，以及 ', this.renderCloneRepositoryShortcut(), ' 键以在应用里任意复制')), this.onNewRepositoryButtonClick = () => {
         const e = [{
           label: '克隆存储库\u2026',
           action: this.onCloneRepository
@@ -47053,7 +47053,7 @@ module.exports = function (e) {
       }
     }
     getGroupLabel(e) {
-      return e === a.KnownRepositoryGroup.Enterprise ? 'Enterprise' : e === a.KnownRepositoryGroup.NonGitHub ? 'Other' : e
+      return e === a.KnownRepositoryGroup.Enterprise ? '企业' : e === a.KnownRepositoryGroup.NonGitHub ? '其他' : e
     }
     render() {
       const e = this.getRepositoryGroups(this.props.repositories, this.props.localRepositoryStateLookup),
@@ -47137,7 +47137,7 @@ module.exports = function (e) {
       return o.createElement('div', {
         key: 'notification',
         className: 'toast-notification'
-      }, 'Press ', o.createElement('kbd', null, e), ' to exit fullscreen')
+      }, '按下 ', o.createElement('kbd', null, e), ' 以退出全屏模式')
     }
     render() {
       return this.state.renderTransitionGroup ? o.createElement(r.CSSTransitionGroup, {
@@ -50798,11 +50798,11 @@ module.exports = function (e) {
   function o(t) {
     if (t instanceof r.GitError) {
       const e = t.result.stderr.trim(),
-        n = 0 < e.length ? `, with output: '${e}'` : '',
+        n = 0 < e.length ? `, 错误信息: '${e}'` : '',
         {
           exitCode: o
         } = t.result,
-        r = new Error(`Commit failed - exit code ${o} received${n}`);
+        r = new Error(`提交失败 - 收到返回码 ${o} ${n}`);
       throw r.name = 'commit-failed', r
     } else throw t
   }
@@ -54180,7 +54180,7 @@ module.exports = function (e) {
       try {
         this.updateCheckoutProgress(e, {
           kind: 'checkout',
-          title: 'Refreshing repository',
+          title: '刷新存储库',
           value: 1,
           targetBranch: t.name
         }), await this._refreshRepository(e)
@@ -54336,7 +54336,7 @@ module.exports = function (e) {
                 value: d + t.value * l
               }))
             });
-            const r = 'Refreshing repository',
+            const r = '刷新存储库',
               i = d + l;
             this.updatePushPullFetchProgress(e, {
               kind: 'generic',
@@ -54435,7 +54435,7 @@ module.exports = function (e) {
               retryAction: c
             });
             const p = i + s,
-              u = 'Refreshing repository';
+              u = '刷新存储库';
             this.updatePushPullFetchProgress(e, {
               kind: 'generic',
               title: u,
@@ -54544,7 +54544,7 @@ module.exports = function (e) {
               }))
             };
           o === void 0 ? await r.fetch(t, a, s) : await r.fetchRemotes(t, o, a, s);
-          const d = 'Refreshing repository';
+          const d = '刷新存储库';
           this.updatePushPullFetchProgress(e, {
             kind: 'generic',
             title: d,

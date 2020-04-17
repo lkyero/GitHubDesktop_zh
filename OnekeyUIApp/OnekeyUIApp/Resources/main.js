@@ -87,12 +87,12 @@ module.exports = function (e) {
     });
     var m = e.readdir;
     if (e.readdir = function (e, t, r) {
-        function a(e, t) {
-          t && t.sort && t.sort(), e && ('EMFILE' === e.code || 'ENFILE' === e.code) ? o([n, [s]]) : ('function' == typeof r && r.apply(this, arguments), i())
-        }
-        var s = [e];
-        return 'function' == typeof t ? r = t : s.push(t), s.push(a), n(s)
-      }, 'v0.8' === process.version.substr(0, 4)) {
+      function a(e, t) {
+        t && t.sort && t.sort(), e && ('EMFILE' === e.code || 'ENFILE' === e.code) ? o([n, [s]]) : ('function' == typeof r && r.apply(this, arguments), i())
+      }
+      var s = [e];
+      return 'function' == typeof t ? r = t : s.push(t), s.push(a), n(s)
+    }, 'v0.8' === process.version.substr(0, 4)) {
       var g = d(e);
       t = g.ReadStream, a = g.WriteStream
     }
@@ -169,11 +169,11 @@ module.exports = function (e) {
     c = t(6),
     p, u;
   'function' == typeof Symbol && 'function' == typeof Symbol.for ? (p = Symbol.for('graceful-fs.queue'), u = Symbol.for('graceful-fs.previous')) : (p = '___graceful-fs.queue', u = '___graceful-fs.previous');
-  var m = function () {};
+  var m = function () { };
   if (c.debuglog ? m = c.debuglog('gfs4') : /\bgfs4\b/i.test(process.env.NODE_DEBUG || '') && (m = function () {
-      var e = c.format.apply(c, arguments);
-      e = 'GFS4: ' + e.split(/\n/).join('\nGFS4: '), console.error(e)
-    }), !global[p]) {
+    var e = c.format.apply(c, arguments);
+    e = 'GFS4: ' + e.split(/\n/).join('\nGFS4: '), console.error(e)
+  }), !global[p]) {
     var g = [];
     Object.defineProperty(global, p, {
       get: function () {
@@ -262,7 +262,7 @@ module.exports = function (e) {
     return t && Object.keys(t).forEach(function (n) {
       delete e[n]
     }), e.levels = r || l.npm.levels, e.padLevels && (e.levelLength = n.longestElement(Object.keys(e.levels))), Object.keys(e.levels).forEach(function (n) {
-      return 'log' === n ? void console.warn('Log level named "log" will clash with the method "log". Consider using a different name.') : void(e[n] = function () {
+      return 'log' === n ? void console.warn('Log level named "log" will clash with the method "log". Consider using a different name.') : void (e[n] = function () {
         var t = [n].concat(Array.prototype.slice.call(arguments));
         e.log.apply(e, t)
       })
@@ -293,8 +293,8 @@ module.exports = function (e) {
     }), d = n.clone(s) || {}, d.level = e.level, d.message = e.message.stripColors ? e.message.stripColors : e.message, JSON.stringify(d);
     if (e.json || !0 === e.logstash) {
       if ('object' != typeof s && null != s && (s = {
-          meta: s
-        }), d = n.clone(s) || {}, d.level = e.level, d.message = d.message || '', e.label && (d.label = e.label), e.message && (d.message = e.message), o && (d.timestamp = o), !0 === e.logstash) {
+        meta: s
+      }), d = n.clone(s) || {}, d.level = e.level, d.message = d.message || '', e.label && (d.label = e.label), e.message && (d.message = e.message), o && (d.timestamp = o), !0 === e.logstash) {
         var c = {};
         void 0 !== d.message && (c['@message'] = d.message, delete d.message), void 0 !== d.timestamp && (c['@timestamp'] = d.timestamp, delete d.timestamp), c['@fields'] = n.clone(d), d = c
       }
@@ -306,12 +306,12 @@ module.exports = function (e) {
     if (d = o ? o + ' - ' : '', a && (d += 'all' === e.colorize || 'level' === e.colorize || !0 === e.colorize ? l.colorize(e.level) : e.level), d += e.align ? '\t' : '', d += o || a ? ': ' : '', d += e.label ? '[' + e.label + '] ' : '', d += 'all' === e.colorize || 'message' === e.colorize ? l.colorize(e.level, e.message) : e.message, null !== s && void 0 !== s)
       if (s && s instanceof Error && s.stack && (s = s.stack), 'object' != typeof s) d += ' ' + s;
       else if (0 < Object.keys(s).length)
-      if ('function' == typeof e.prettyPrint) d += ' ' + e.prettyPrint(s);
-      else if (e.prettyPrint) d += ' \n' + r.inspect(s, !1, e.depth || null, e.colorize);
-    else if (e.humanReadableUnhandledException && 5 === Object.keys(s).length && s.hasOwnProperty('date') && s.hasOwnProperty('process') && s.hasOwnProperty('os') && s.hasOwnProperty('trace') && s.hasOwnProperty('stack')) {
-      var p = s.stack;
-      delete s.stack, delete s.trace, d += ' ' + n.serialize(s), p && (d += '\n' + p.join('\n'))
-    } else d += ' ' + n.serialize(s);
+        if ('function' == typeof e.prettyPrint) d += ' ' + e.prettyPrint(s);
+        else if (e.prettyPrint) d += ' \n' + r.inspect(s, !1, e.depth || null, e.colorize);
+        else if (e.humanReadableUnhandledException && 5 === Object.keys(s).length && s.hasOwnProperty('date') && s.hasOwnProperty('process') && s.hasOwnProperty('os') && s.hasOwnProperty('trace') && s.hasOwnProperty('stack')) {
+          var p = s.stack;
+          delete s.stack, delete s.trace, d += ' ' + n.serialize(s), p && (d += '\n' + p.join('\n'))
+        } else d += ' ' + n.serialize(s);
     return d
   }, n.capitalize = function (e) {
     return e && e[0].toUpperCase() + e.slice(1)
@@ -344,16 +344,16 @@ module.exports = function (e) {
       o.destroyed = !0, o.emit('end'), o.emit('close')
     }, a.open(e.file, 'a+', '0644', function (i, s) {
       return i ? (n ? n(i) : o.emit('error', i), void o.destroy()) : void
-      function d() {
-        return o.destroyed ? void a.close(s) : a.read(s, t, 0, t.length, p, function (a, s) {
-          if (a) return n ? n(a) : o.emit('error', a), void o.destroy();
-          if (!s) return c && ((null == e.start || u > e.start) && (n ? n(null, c) : o.emit('line', c)), u++, c = ''), setTimeout(d, 1e3);
-          var m = r.write(t.slice(0, s));
-          n || o.emit('data', m);
-          for (var m = (c + m).split(/\n+/), g = m.length - 1, l = 0; l < g; l++)(null == e.start || u > e.start) && (n ? n(null, m[l]) : o.emit('line', m[l])), u++;
-          return c = m[g], p += s, d()
-        })
-      }()
+        function d() {
+          return o.destroyed ? void a.close(s) : a.read(s, t, 0, t.length, p, function (a, s) {
+            if (a) return n ? n(a) : o.emit('error', a), void o.destroy();
+            if (!s) return c && ((null == e.start || u > e.start) && (n ? n(null, c) : o.emit('line', c)), u++, c = ''), setTimeout(d, 1e3);
+            var m = r.write(t.slice(0, s));
+            n || o.emit('data', m);
+            for (var m = (c + m).split(/\n+/), g = m.length - 1, l = 0; l < g; l++)(null == e.start || u > e.start) && (n ? n(null, m[l]) : o.emit('line', m[l])), u++;
+            return c = m[g], p += s, d()
+          })
+        }()
     }), n ? o.destroy : o
   }, n.stringArrayToSet = function (e, n) {
     return 'undefined' == typeof n && (n = 'Cannot make set from Array with non-string elements'), e.reduce(function (e, t) {
@@ -473,7 +473,7 @@ module.exports = function (e) {
     }
     var o = this,
       i;
-    return this.silent ? t() : void(this.once('logged', r), this.once('error', r), this.log(o.exceptionsLevel, e, n, function () {}))
+    return this.silent ? t() : void (this.once('logged', r), this.once('error', r), this.log(o.exceptionsLevel, e, n, function () { }))
   }
 }, function (e, n, t) {
   function r(e) {
@@ -495,7 +495,7 @@ module.exports = function (e) {
   }
 
   function i(e) {
-    for (var n in e)(function (n) {
+    for (var n in e) (function (n) {
       s[n] = function (t) {
         return s[e[n]](t)
       }
@@ -509,8 +509,8 @@ module.exports = function (e) {
     return ('' + e).replace(/\x1B\[\d+m/g, '')
   };
   var l = s.stylize = function (e, n) {
-      return a[n].open + e + a[n].close
-    },
+    return a[n].open + e + a[n].close
+  },
     c = /[|\\{}()[\]^$+*?.]/g,
     p = function (e) {
       if ('string' != typeof e) throw new TypeError('Expected a string');
@@ -526,7 +526,7 @@ module.exports = function (e) {
         }
       }), e
     }(),
-    m = d(function () {}, u);
+    m = d(function () { }, u);
   s.setTheme = function (e) {
     if ('string' == typeof e) try {
       return s.themes[e] = t(123)(e), i(s.themes[e]), s.themes[e]
@@ -538,7 +538,7 @@ module.exports = function (e) {
     var t = n.split('');
     return t = t.map(e), t.join('')
   };
-  for (var f in s.trap = t(122), s.zalgo = t(121), s.maps = {}, s.maps.america = t(120), s.maps.zebra = t(119), s.maps.rainbow = t(118), s.maps.random = t(117), s.maps)(function (e) {
+  for (var f in s.trap = t(122), s.zalgo = t(121), s.maps = {}, s.maps.america = t(120), s.maps.zebra = t(119), s.maps.rainbow = t(118), s.maps.random = t(117), s.maps) (function (e) {
     s[e] = function (n) {
       return g(s.maps[e], n)
     }
@@ -688,7 +688,7 @@ module.exports = function (e) {
       let e = 0,
         a = i.id;
       if (!a)
-        do a = `${n}.${t(i)}${e++||''}`; while (o.has(a));
+        do a = `${n}.${t(i)}${e++ || ''}`; while (o.has(a));
       if (i.id = a, o.add(a), i.submenu) {
         const e = i.submenu;
         r(e, i.id, o)
@@ -938,7 +938,7 @@ module.exports = function (e) {
         url: a.basename(n),
         map: e
       }
-    } catch (e) {}
+    } catch (e) { }
   }
 
   function o(e, n) {
@@ -991,7 +991,7 @@ module.exports = function (e) {
     var d = n.mode,
       l = n.fs || i;
     d === void 0 && (d = a & ~process.umask()), s || (s = null);
-    var c = t || function () {};
+    var c = t || function () { };
     e = o.resolve(e), l.mkdir(e, d, function (t) {
       if (!t) return s = s || e, c(null, s);
       switch (t.code) {
@@ -1087,7 +1087,7 @@ module.exports = function (e) {
     try {
       a = i(n, t)
     } catch (e) {
-      return void(r && r(e, null))
+      return void (r && r(e, null))
     }
     o.writeFile(e, a, t, r)
   }
@@ -1294,7 +1294,7 @@ module.exports = function (e) {
       }
     }
     var a = {},
-      i = function () {},
+      i = function () { },
       s, d;
     s = 'object' == typeof window && this === window ? window : 'object' == typeof global && this === global ? global : this, null != s && (d = s.async), a.noConflict = function () {
       return s.async = d, a
@@ -1377,16 +1377,16 @@ module.exports = function (e) {
       }
     };
     a.forEachOf = a.eachOf = function (e, n, t) {
-      t = t || function () {};
+      t = t || function () { };
       var r = e.length || f(e).length,
         o = 0;
       return r ? void g(e, function (i, a) {
         n(e[a], a, function (e) {
-          e ? (t(e), t = function () {}) : (o += 1, o === r && t(null))
+          e ? (t(e), t = function () { }) : (o += 1, o === r && t(null))
         })
       }) : t()
     }, a.forEachOfSeries = a.eachOfSeries = function (e, n, t) {
-      t = t || function () {};
+      t = t || function () { };
       var r = f(e),
         o = r.length;
       if (!o) return t();
@@ -1395,7 +1395,7 @@ module.exports = function (e) {
           var d = !0,
             l = r[i];
           n(e[l], l, function (e) {
-            e ? (t(e), t = function () {}) : (i += 1, i >= o ? t(null) : d ? a.nextTick(s) : s())
+            e ? (t(e), t = function () { }) : (i += 1, i >= o ? t(null) : d ? a.nextTick(s) : s())
           }), d = !1
         };
       s()
@@ -1403,26 +1403,26 @@ module.exports = function (e) {
       b(n)(e, t, r)
     };
     var b = function (e) {
-        return function (n, t, r) {
-          r = r || function () {};
-          var o = f(n),
-            i = o.length;
-          if (!i || 0 >= e) return r();
-          var a = 0,
-            s = 0,
-            d = 0;
-          (function l() {
-            if (a >= i) return r();
-            for (; d < e && s < i;) {
-              s += 1, d += 1;
-              var c = o[s - 1];
-              t(n[c], c, function (e) {
-                e ? (r(e), r = function () {}) : (a += 1, d -= 1, a >= i ? r() : l())
-              })
-            }
-          })()
-        }
-      },
+      return function (n, t, r) {
+        r = r || function () { };
+        var o = f(n),
+          i = o.length;
+        if (!i || 0 >= e) return r();
+        var a = 0,
+          s = 0,
+          d = 0;
+        (function l() {
+          if (a >= i) return r();
+          for (; d < e && s < i;) {
+            s += 1, d += 1;
+            var c = o[s - 1];
+            t(n[c], c, function (e) {
+              e ? (r(e), r = function () { }) : (a += 1, d -= 1, a >= i ? r() : l())
+            })
+          }
+        })()
+      }
+    },
       S = function (e) {
         return function () {
           var n = h(arguments);
@@ -1443,11 +1443,11 @@ module.exports = function (e) {
       },
       x = function (e, n, t, r) {
         if (n = u(n, function (e, n) {
-            return {
-              index: n,
-              value: e
-            }
-          }), !r) e(n, function (e, n) {
+          return {
+            index: n,
+            value: e
+          }
+        }), !r) e(n, function (e, n) {
           t(e.value, function (e) {
             n(e)
           })
@@ -1592,14 +1592,14 @@ module.exports = function (e) {
         }
       }), p(t, function (t) {
         for (var r = c(e[t]) ? e[t] : [e[t]], s = function (e) {
-            var r = h(arguments, 1);
-            if (1 >= r.length && (r = r[0]), e) {
-              var s = {};
-              p(f(o), function (e) {
-                s[e] = o[e]
-              }), s[t] = r, n(e, s), n = i
-            } else o[t] = r, a.setImmediate(u)
-          }, g = r.slice(0, Math.abs(r.length - 1)) || [], y = g.length, _; y--;) {
+          var r = h(arguments, 1);
+          if (1 >= r.length && (r = r[0]), e) {
+            var s = {};
+            p(f(o), function (e) {
+              s[e] = o[e]
+            }), s[t] = r, n(e, s), n = i
+          } else o[t] = r, a.setImmediate(u)
+        }, g = r.slice(0, Math.abs(r.length - 1)) || [], y = g.length, _; y--;) {
           if (!(_ = e[g[y]])) throw new Error('Has inexistant dependency');
           if (c(_) && !!~_.indexOf(t)) throw new Error('Has cyclic dependencies')
         }
@@ -1622,15 +1622,15 @@ module.exports = function (e) {
       'function' == typeof e && (t = n, n = e, e = r), e = parseInt(e, 10) || r;
       var i = function (r, i) {
         for (var s = function (e, n) {
-            return function (t) {
-              e(function (e, r) {
-                t(!e || n, {
-                  err: e,
-                  result: r
-                })
-              }, i)
-            }
-          }; e;) o.push(s(n, !(e -= 1)));
+          return function (t) {
+            e(function (e, r) {
+              t(!e || n, {
+                err: e,
+                result: r
+              })
+            }, i)
+          }
+        }; e;) o.push(s(n, !(e -= 1)));
         a.series(o, function (e, n) {
           n = n[n.length - 1], (r || t)(n.err, n.result)
         })
@@ -1786,8 +1786,8 @@ module.exports = function (e) {
               var n = i.tasks.shift();
               i.empty && 0 === i.tasks.length && i.empty(), r += 1;
               var t = function () {
-                  r -= 1, n.callback && n.callback.apply(n, arguments), i.drain && 0 === i.tasks.length + r && i.drain(), i.process()
-                },
+                r -= 1, n.callback && n.callback.apply(n, arguments), i.drain && 0 === i.tasks.length + r && i.drain(), i.process()
+              },
                 a = o(t);
               e(n.data, a)
             }
@@ -1858,7 +1858,7 @@ module.exports = function (e) {
           },
           process: function i() {
             if (!t) {
-              if (0 === r.length) return o.drain && !o.drained && o.drain(), void(o.drained = !0);
+              if (0 === r.length) return o.drain && !o.drained && o.drain(), void (o.drained = !0);
               var a = 'number' == typeof n ? r.splice(0, n) : r.splice(0, r.length),
                 s = u(a, function (e) {
                   return e.data
@@ -1987,7 +1987,7 @@ module.exports = function (e) {
       level: 'info',
       maxFiles: c
     });
-    n.on('error', () => {});
+    n.on('error', () => { });
     const t = new s.transports.Console({
       level: 'error'
     });
@@ -2029,7 +2029,7 @@ module.exports = function (e) {
           e ? o(e) : r()
         })
       })
-    } catch (e) {}
+    } catch (e) { }
   }
 }, function (e, n, t) {
   'use strict';
@@ -2040,8 +2040,8 @@ module.exports = function (e) {
 
   function o() {
     const e = i.Menu.buildFromTemplate([{
-        role: 'editMenu'
-      }]).items[0],
+      role: 'editMenu'
+    }]).items[0],
       n = e && e.submenu ? e.submenu.items : [];
     return n.filter((e) => !r(e.role, 'pasteandmatchstyle'))
   }
@@ -2124,10 +2124,10 @@ module.exports = function (e) {
     }
     sendError() {
       const e = {
-          stack: this.error.stack,
-          message: this.error.message,
-          name: this.error.name
-        },
+        stack: this.error.stack,
+        message: this.error.message,
+        name: this.error.name
+      },
         n = {
           type: this.errorType,
           error: e
@@ -2151,7 +2151,7 @@ module.exports = function (e) {
       await o.dialog.showMessageBox({
         type: 'error',
         title: 'Unrecoverable error',
-        message: `GitHub Desktop has encountered an unrecoverable error and will need to restart.\n\n` + `This has been reported to the team, but if you encounter this repeatedly please report ` + `this issue to the GitHub Desktop issue tracker.\n\n${n.stack||n.message}`
+        message: `GitHub Desktop has encountered an unrecoverable error and will need to restart.\n\n` + `This has been reported to the team, but if you encounter this repeatedly please report ` + `this issue to the GitHub Desktop issue tracker.\n\n${n.stack || n.message}`
       }), o.app.relaunch(), o.app.quit()
     }), t.onClose(() => {
       o.app.relaunch(), o.app.quit()
@@ -2177,12 +2177,12 @@ module.exports = function (e) {
     if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', '568b41137c77acc744f62decc721ea0110461d15'), o.set('version', r.app.getVersion()), n)
       for (const e of Object.keys(n)) o.set(e, n[e]);
     const i = {
-        method: 'POST',
-        url: t ? 'https://central.github.com/api/desktop-non-fatal/exception' : 'https://central.github.com/api/desktop/exception',
-        headers: {
-          "Content-Type": 'application/x-www-form-urlencoded'
-        }
-      },
+      method: 'POST',
+      url: t ? 'https://central.github.com/api/desktop-non-fatal/exception' : 'https://central.github.com/api/desktop/exception',
+      headers: {
+        "Content-Type": 'application/x-www-form-urlencoded'
+      }
+    },
       a = [...o.entries()].map(([e, n]) => `${encodeURIComponent(e)}=${encodeURIComponent(n)}`).join('&');
     try {
       await new Promise((e, n) => {
@@ -2434,7 +2434,7 @@ module.exports = function (e) {
   function o() {
     return process.env.SHELL ? process.env.SHELL : '/bin/bash'
   }
-  async function i(e) {}
+  async function i(e) { }
 
   function a(e) {
     for (const n in e) l.has(n) || (process.env[n] = e[n])
@@ -2485,7 +2485,7 @@ module.exports = function (e) {
     value: !0
   });
   const t = ['.cmd', '.exe', '.bat', '.sh'];
-  n.CopyFilePathLabel = 'Copy file path', n.DefaultEditorLabel = 'Open in external editor', n.RevealInFileManagerLabel = 'Show in Explorer', n.TrashNameLabel = 'Recycle Bin', n.OpenWithDefaultProgramLabel = 'Open with default program', n.isSafeFileExtension = function (e) {
+  n.CopyFilePathLabel = '复制文件路径', n.DefaultEditorLabel = '用外部编辑器打开', n.RevealInFileManagerLabel = '在资源管理器中显示', n.TrashNameLabel = '回收站', n.OpenWithDefaultProgramLabel = '用默认程序打开', n.isSafeFileExtension = function (e) {
     return -1 === t.indexOf(e.toLowerCase())
   }
 }, function (e, n) {
@@ -2574,19 +2574,19 @@ module.exports = function (e) {
         type: 'separator'
       };
     const N = {
-      label: '&文件(File)',
+      label: '文件(&F)',
       submenu: [{
-        label: '新建 存储库 &New\u2026',
+        label: '新建 存储库\u2026',
         id: 'new-repository',
         click: a('create-repository'),
         accelerator: 'CmdOrCtrl+N'
       }, F, {
-        label: '添加 &本地存储库 Add\u2026',
+        label: '添加 本地存储库\u2026',
         id: 'add-local-repository',
         accelerator: 'CmdOrCtrl+O',
         click: a('add-local-repository')
       }, {
-        label: '克隆& 存储库 Clone\u2026',
+        label: '克隆 存储库\u2026',
         id: 'clone-repository',
         accelerator: 'CmdOrCtrl+Shift+O',
         click: a('clone-repository')
@@ -2594,67 +2594,67 @@ module.exports = function (e) {
     }; {
       const e = N.submenu;
       e.push(F, {
-        label: '&选项 Options\u2026',
+        label: '选项\u2026',
         id: 'preferences',
         accelerator: 'CmdOrCtrl+,',
         click: a('show-preferences')
       }, F, {
         role: 'quit',
-        label: '退出 E&xit',
+        label: '退出',
         accelerator: 'Alt+F4'
       })
     }
     T.push(N), T.push({
-      label: '编辑 &(Edit)',
+      label: '编辑(&E)',
       submenu: [{
         role: 'undo',
-        label: '撤消 &Undo'
+        label: '撤消'
       }, {
         role: 'redo',
-        label: '恢复 &Redo'
+        label: '恢复'
       }, F, {
         role: 'cut',
-        label: '剪切 Cu&t'
+        label: '剪切'
       }, {
         role: 'copy',
-        label: '复制 &Copy'
+        label: '复制'
       }, {
         role: 'paste',
-        label: '粘贴 &Paste'
+        label: '粘贴'
       }, {
-        label: '全选 Select &all',
+        label: '全选',
         accelerator: 'CmdOrCtrl+A',
         click: a('select-all')
       }, F, {
         id: 'find',
-        label: '查找 &Find',
+        label: '查找',
         accelerator: 'CmdOrCtrl+F',
         click: a('find-text')
       }]
     }), T.push({
-      label: '视图 &(View)',
+      label: '视图(&V)',
       submenu: [{
-        label: '更改 &Changes',
+        label: '更改',
         id: 'show-changes',
         accelerator: 'CmdOrCtrl+1',
         click: a('show-changes')
       }, {
-        label: '历史 &History',
+        label: '历史',
         id: 'show-history',
         accelerator: 'CmdOrCtrl+2',
         click: a('show-history')
       }, {
-        label: '存储库列表 Repository &list',
+        label: '存储库列表',
         id: 'show-repository-list',
         accelerator: 'CmdOrCtrl+T',
         click: a('choose-repository')
       }, {
-        label: '分支列表 &Branches list',
+        label: '分支列表',
         id: 'show-branches-list',
         accelerator: 'CmdOrCtrl+B',
         click: a('show-branches')
       }, F, {
-        label: '转到摘要 Go to &Summary',
+        label: '转到摘要',
         id: 'go-to-commit-message',
         accelerator: 'CmdOrCtrl+G',
         click: a('go-to-commit-message')
@@ -2665,22 +2665,22 @@ module.exports = function (e) {
         click: k ? a('hide-stashed-changes') : a('show-stashed-changes'),
         visible: h.enableStashing()
       }, {
-        label: '全屏切换 Toggle &full screen',
+        label: '全屏切换',
         role: 'togglefullscreen'
       }, F, {
-        label: '重置缩放 Reset zoom',
+        label: '重置缩放',
         accelerator: 'CmdOrCtrl+0',
         click: d(E.Reset)
       }, {
-        label: '放大 Zoom in',
+        label: '放大',
         accelerator: 'CmdOrCtrl+=',
         click: d(E.In)
       }, {
-        label: '缩小 Zoom out',
+        label: '缩小',
         accelerator: 'CmdOrCtrl+-',
         click: d(E.Out)
       }, F, {
-        label: '重载 &Reload',
+        label: '重载',
         id: 'reload-window',
         accelerator: 'CmdOrCtrl+Alt+R',
         click(e, n) {
@@ -2689,7 +2689,7 @@ module.exports = function (e) {
         visible: !1
       }, {
         id: 'show-devtools',
-        label: '开发工具 &Developer tools',
+        label: '开发工具',
         accelerator: (() => 'Ctrl+Shift+I')(),
         click(e, n) {
           n && n.webContents.toggleDevTools()
@@ -2699,7 +2699,7 @@ module.exports = function (e) {
     const A = o(C, t),
       R = C ? 'force-push' : 'push';
     T.push({
-      label: '存储库&(Repository)',
+      label: '存储库(&R)',
       id: 'repository',
       submenu: [{
         id: 'push',
@@ -2708,7 +2708,7 @@ module.exports = function (e) {
         click: a(R)
       }, {
         id: 'pull',
-        label: '拉取 Pu&ll',
+        label: '拉取',
         accelerator: 'CmdOrCtrl+Shift+P',
         click: a('pull')
       }, {
@@ -2718,7 +2718,7 @@ module.exports = function (e) {
         click: a('remove-repository')
       }, F, {
         id: 'view-repository-on-github',
-        label: '在Github查看',
+        label: '在Github上查看',
         accelerator: 'CmdOrCtrl+Shift+G',
         click: a('view-repository-on-github')
       }, {
@@ -2738,61 +2738,61 @@ module.exports = function (e) {
         click: a('open-external-editor')
       }, F, {
         id: 'create-issue-in-repository-on-github',
-        label: '新建问题 Create &issue on GitHub',
+        label: '在 GitHub 上新建问题',
         accelerator: 'CmdOrCtrl+Shift+I',
         click: a('create-issue-in-repository-on-github'),
         visible: h.enableCreateGitHubIssueFromMenu()
       }, F, {
-        label: '存储库设置 Repository &settings\u2026',
+        label: '存储库设置\u2026',
         id: 'show-repository-settings',
         click: a('show-repository-settings')
       }]
     }), T.push({
-      label: '分支&(Branch)',
+      label: '分支(&B)',
       id: 'branch',
       submenu: [{
-        label: '新建分支 New &branch\u2026',
+        label: '新建分支\u2026',
         id: 'create-branch',
         accelerator: 'CmdOrCtrl+Shift+N',
         click: a('create-branch')
       }, {
-        label: '重命名 &Rename\u2026',
+        label: '重命名\u2026',
         id: 'rename-branch',
         accelerator: 'CmdOrCtrl+Shift+R',
         click: a('rename-branch')
       }, {
-        label: '删除 &Delete\u2026',
+        label: '删除\u2026',
         id: 'delete-branch',
         accelerator: 'CmdOrCtrl+Shift+D',
         click: a('delete-branch')
       }, F, {
-        label: '放弃所有更改 Discard\u2026',
+        label: '放弃所有更改\u2026',
         id: 'discard-all-changes',
         accelerator: 'CmdOrCtrl+Shift+Backspace',
         click: a('discard-all-changes')
       }, F, {
-        label: `&更新自${l}`,
+        label: `更新自${l}`,
         id: 'update-branch',
         accelerator: 'CmdOrCtrl+Shift+U',
         click: a('update-branch')
       }, {
-        label: '&与分支比较 Compare',
+        label: '与分支比较',
         id: 'compare-to-branch',
         accelerator: 'CmdOrCtrl+Shift+B',
         click: a('compare-to-branch')
       }, {
-        label: '&合并到当前分支 Merge\u2026',
+        label: '合并到当前分支\u2026',
         id: 'merge-branch',
         accelerator: 'CmdOrCtrl+Shift+M',
         click: a('merge-branch')
       }, {
-        label: '恢复当前分支 R&ebase\u2026',
+        label: '恢复当前分支\u2026',
         id: 'rebase-branch',
         accelerator: 'CmdOrCtrl+Shift+E',
         click: a('rebase-branch'),
         visible: h.enableRebaseDialog()
       }, F, {
-        label: '前往GitHub比较 Compare',
+        label: '前往GitHub比较',
         id: 'compare-on-github',
         accelerator: 'CmdOrCtrl+Shift+C',
         click: a('compare-on-github')
@@ -2804,30 +2804,30 @@ module.exports = function (e) {
       }]
     }), !1;
     const I = {
-        label: '反馈问题\u2026',
-        click() {
-          c.shell.openExternal('https://github.com/desktop/desktop/issues/new/choose').catch((e) => log.error('Failed opening issue creation page', e))
-        }
-      },
+      label: '反馈问题\u2026',
+      click() {
+        c.shell.openExternal('https://github.com/desktop/desktop/issues/new/choose').catch((e) => log.error('Failed opening issue creation page', e))
+      }
+    },
       D = {
-        label: '&联系Github支持\u2026',
+        label: '联系Github支持\u2026',
         click() {
           c.shell.openExternal(`https://github.com/contact?from_desktop_app=1&app_version=${c.app.getVersion()}`).catch((e) => log.error('Failed opening contact support page', e))
         }
       },
       z = {
-        label: '用户指南 User Guides',
+        label: '用户指南',
         click() {
           c.shell.openExternal('https://help.github.com/desktop/guides/').catch((e) => log.error('Failed opening user guides page', e))
         }
       },
       j = {
-        label: '键盘快捷键 keyboard shortcuts',
+        label: '键盘快捷键',
         click() {
           c.shell.openExternal('https://help.github.com/en/desktop/getting-started-with-github-desktop/keyboard-shortcuts-in-github-desktop').catch((e) => log.error('Failed opening keyboard shortcuts page', e))
         }
       },
-      B = '日志文件夹S&how logs in Explorer',
+      B = '打开日志文件夹',
       U = {
         label: B,
         click() {
@@ -2840,9 +2840,9 @@ module.exports = function (e) {
         }
       };
     return !1, T.push({
-      label: '&帮助(Help)',
+      label: '帮助(&H)',
       submenu: [...[I, D, z, j, U], F, {
-        label: '关于Github桌面 &About GitHub Desktop',
+        label: '关于 Github 桌面',
         click: a('show-about'),
         id: 'about'
       }]
@@ -2850,11 +2850,11 @@ module.exports = function (e) {
   }
 
   function o(e, n) {
-    return e ? n ? 'Force P&ush\u2026' : '强制推送Force P&ush' : '推送 P&ush'
+    return e ? n ? '强制推送\u2026' : '强制推送' : '推送'
   }
 
   function i(e) {
-    return e ? 'H&ide stashed changes' : 'Sho&w stashed changes'
+    return e ? '隐藏贮藏的变更' : '显示贮藏的变更'
   }
 
   function a(e) {
@@ -2901,12 +2901,12 @@ module.exports = function (e) {
     f = t(23),
     h = t(61),
     y = t(60),
-    _ = '在命令提示符下打开 Command Prompt',
-    b = '创建拉取请求 Create &pull request',
-    S = '显示拉取请求 Show &pull request',
-    w = '默认分支 default branch',
-    v = '&删除 Remove\u2026',
-    x = '&删除 Remove';
+    _ = '在命令提示符下打开',
+    b = '创建拉取请求',
+    S = '显示拉取请求',
+    w = '默认分支',
+    v = '删除\u2026',
+    x = '删除';
   var E;
   (function (e) {
     e[e.Reset = 0] = 'Reset', e[e.In = 1] = 'In', e[e.Out = 2] = 'Out'
@@ -2951,21 +2951,21 @@ module.exports = function (e) {
 
     function c() {
       const e = S && (t() || S.isMaximized || S.isFullScreen);
-      return e ? void(t() && S.displayBounds && l()) : void(S = null)
+      return e ? void (t() && S.displayBounds && l()) : void (S = null)
     }
 
     function p(e) {
       if (e = e || w, !!e) try {
         const t = e.getBounds();
         n(e) && (S.x = t.x, S.y = t.y, S.width = t.width, S.height = t.height), S.isMaximized = e.isMaximized(), S.isFullScreen = e.isFullScreen(), S.displayBounds = b.getDisplayMatching(t).bounds
-      } catch (e) {}
+      } catch (e) { }
     }
 
     function u(e) {
       e && p(e);
       try {
         a.sync(r.dirname(C)), i.writeFileSync(C, S)
-      } catch (e) {}
+      } catch (e) { }
     }
 
     function m() {
@@ -3000,7 +3000,7 @@ module.exports = function (e) {
       C = r.join(E.path, E.file);
     try {
       S = i.readFileSync(C)
-    } catch (e) {}
+    } catch (e) { }
     return c(), S = Object.assign({
       width: E.defaultWidth || 800,
       height: E.defaultHeight || 600
@@ -3345,7 +3345,7 @@ module.exports = function (e) {
           var e, o, i;
           for (i = [], e = 0, o = r.length; e < o; e++) t = r[e], i.push(this.constructor.dispatch(t, n));
           return i
-        }.call(this), Promise.all(o).then(function () {})) : Promise.resolve()
+        }.call(this), Promise.all(o).then(function () { })) : Promise.resolve()
       }, e.prototype.getEventNames = function () {
         return Object.keys(this.handlersByEventName)
       }, e.prototype.listenerCountForEventName = function (e) {
@@ -3375,9 +3375,9 @@ module.exports = function (e) {
     constructor() {
       this.emitter = new o.Emitter, this._loadTime = null, this._rendererReadyTime = null, this.minWidth = 960, this.minHeight = 660;
       const e = c({
-          defaultWidth: this.minWidth,
-          defaultHeight: this.minHeight
-        }),
+        defaultWidth: this.minWidth,
+        defaultHeight: this.minHeight
+      }),
         n = {
           x: e.x,
           y: e.y,
@@ -3486,7 +3486,7 @@ module.exports = function (e) {
       t.showCertificateTrustDialog(this.window, {
         certificate: e,
         message: n
-      }, () => {})
+      }, () => { })
     }
     sendException(e) {
       const n = {
@@ -3545,7 +3545,7 @@ module.exports = function (e) {
         else {
           var n = d[l],
             t = n.substr(0, e.generatedColumn - u);
-          return d[l] = n.substr(e.generatedColumn - u), u = e.generatedColumn, o(m, t), void(m = e)
+          return d[l] = n.substr(e.generatedColumn - u), u = e.generatedColumn, o(m, t), void (m = e)
         } for (; p < e.generatedLine;) s.add(c()), p++;
       if (u < e.generatedColumn) {
         var n = d[l];
@@ -3599,10 +3599,10 @@ module.exports = function (e) {
     }), e
   }, r.prototype.toStringWithSourceMap = function (e) {
     var n = {
-        code: '',
-        line: 1,
-        column: 0
-      },
+      code: '',
+      line: 1,
+      column: 0
+    },
       t = new o(e),
       r = !1,
       i = null,
@@ -3828,17 +3828,17 @@ module.exports = function (e) {
     for (var n = 1, t = 0, r = 0, o = 0, i = 0, s = 0, l = e.length, u = 0, m = {}, g = {}, f = [], h = [], y, _, b, S, w; u < l;)
       if (';' === e.charAt(u)) n++, u++, t = 0;
       else if (',' === e.charAt(u)) u++;
-    else {
-      for (y = new a, y.generatedLine = n, S = u; S < l && !this._charIsMappingSeparator(e, S); S++);
-      if (_ = e.slice(u, S), b = m[_], b) u += _.length;
       else {
-        for (b = []; u < S;) c.decode(e, u, g), w = g.value, u = g.rest, b.push(w);
-        if (2 === b.length) throw new Error('Found a source, but no line and column');
-        if (3 === b.length) throw new Error('Found a source and line, but no column');
-        m[_] = b
+        for (y = new a, y.generatedLine = n, S = u; S < l && !this._charIsMappingSeparator(e, S); S++);
+        if (_ = e.slice(u, S), b = m[_], b) u += _.length;
+        else {
+          for (b = []; u < S;) c.decode(e, u, g), w = g.value, u = g.rest, b.push(w);
+          if (2 === b.length) throw new Error('Found a source, but no line and column');
+          if (3 === b.length) throw new Error('Found a source and line, but no column');
+          m[_] = b
+        }
+        y.generatedColumn = t + b[0], t = y.generatedColumn, 1 < b.length && (y.source = i + b[1], i += b[1], y.originalLine = r + b[2], r = y.originalLine, y.originalLine += 1, y.originalColumn = o + b[3], o = y.originalColumn, 4 < b.length && (y.name = s + b[4], s += b[4])), h.push(y), 'number' == typeof y.originalLine && f.push(y)
       }
-      y.generatedColumn = t + b[0], t = y.generatedColumn, 1 < b.length && (y.source = i + b[1], i += b[1], y.originalLine = r + b[2], r = y.originalLine, y.originalLine += 1, y.originalColumn = o + b[3], o = y.originalColumn, 4 < b.length && (y.name = s + b[4], s += b[4])), h.push(y), 'number' == typeof y.originalLine && f.push(y)
-    }
     p(h, d.compareByGeneratedPositionsDeflated), this.__generatedMappings = h, p(f, d.compareByOriginalPositions), this.__originalMappings = f
   }, o.prototype._findMapping = function (e, n, t, r, o, i) {
     if (0 >= e[t]) throw new TypeError('Line must be greater than or equal to 1, got ' + e[t]);
@@ -3857,9 +3857,9 @@ module.exports = function (e) {
     }
   }, o.prototype.originalPositionFor = function (e) {
     var n = {
-        generatedLine: d.getArg(e, 'line'),
-        generatedColumn: d.getArg(e, 'column')
-      },
+      generatedLine: d.getArg(e, 'line'),
+      generatedColumn: d.getArg(e, 'column')
+    },
       t = this._findMapping(n, this._generatedMappings, 'generatedLine', 'generatedColumn', d.compareByGeneratedPositionsDeflated, d.getArg(e, 'bias', r.GREATEST_LOWER_BOUND));
     if (0 <= t) {
       var o = this._generatedMappings[t];
@@ -3905,10 +3905,10 @@ module.exports = function (e) {
     };
     n = this._sources.indexOf(n);
     var t = {
-        source: n,
-        originalLine: d.getArg(e, 'line'),
-        originalColumn: d.getArg(e, 'column')
-      },
+      source: n,
+      originalLine: d.getArg(e, 'line'),
+      originalColumn: d.getArg(e, 'column')
+    },
       o = this._findMapping(t, this._originalMappings, 'originalLine', 'originalColumn', d.compareByOriginalPositions, d.getArg(e, 'bias', r.GREATEST_LOWER_BOUND));
     if (0 <= o) {
       var i = this._originalMappings[o];
@@ -3931,9 +3931,9 @@ module.exports = function (e) {
     }
   }), i.prototype.originalPositionFor = function (e) {
     var n = {
-        generatedLine: d.getArg(e, 'line'),
-        generatedColumn: d.getArg(e, 'column')
-      },
+      generatedLine: d.getArg(e, 'line'),
+      generatedColumn: d.getArg(e, 'column')
+    },
       t = s.search(n, this._sections, function (e, n) {
         var t = e.generatedLine - n.generatedOffset.generatedLine;
         return t ? t : e.generatedColumn - n.generatedOffset.generatedColumn
@@ -3944,11 +3944,11 @@ module.exports = function (e) {
       column: n.generatedColumn - (r.generatedOffset.generatedLine === n.generatedLine ? r.generatedOffset.generatedColumn - 1 : 0),
       bias: e.bias
     }) : {
-      source: null,
-      line: null,
-      column: null,
-      name: null
-    }
+        source: null,
+        line: null,
+        column: null,
+        name: null
+      }
   }, i.prototype.hasContentsOfAllSources = function () {
     return this._sections.every(function (e) {
       return e.consumer.hasContentsOfAllSources()
@@ -3973,9 +3973,9 @@ module.exports = function (e) {
           return o
         }
       } return {
-      line: null,
-      column: null
-    }
+        line: null,
+        column: null
+      }
   }, i.prototype._parseMappings = function () {
     this.__generatedMappings = [], this.__originalMappings = [];
     for (var e = 0; e < this._sections.length; e++)
@@ -4065,7 +4065,7 @@ module.exports = function (e) {
       t.open('GET', e, !1), t.send(null), n = 4 === t.readyState ? t.responseText : null;
       var o = t.getResponseHeader('SourceMap') || t.getResponseHeader('X-SourceMap');
       if (o) return o
-    } catch (n) {}
+    } catch (n) { }
     n = O(e);
     for (var i = /(?:\/\/[@#][ \t]+sourceMappingURL=([^\s'"]+?)[ \t]*$)|(?:\/\*[@#][ \t]+sourceMappingURL=([^\*]+?)[ \t]*(?:\*\/)[ \t]*$)/mg, a, s; s = i.exec(n);) a = s;
     return a ? a[1] : null
@@ -4221,7 +4221,7 @@ module.exports = function (e) {
     b;
   try {
     b = t(5), b.existsSync && b.readFileSync || (b = null)
-  } catch (e) {}
+  } catch (e) { }
   var S = !1,
     w = !1,
     v = !1,
@@ -4266,7 +4266,7 @@ module.exports = function (e) {
       var n;
       try {
         n = t(71)
-      } catch (e) {}
+      } catch (e) { }
       var i = n.prototype._compile;
       i.__sourceMapSupport || (n.prototype._compile = function (e, n) {
         return E[n] = e, C[n] = void 0, i.call(this, e, n)
@@ -4339,7 +4339,7 @@ module.exports = function (e) {
           }).map(function (e) {
             return e.name
           })
-        } catch (n) {}
+        } catch (n) { }
         return []
       }.bind(this)(), this._year = this._getTime('year'), this._month = this._getTime('month'), this._date = this._getTime('date'), this._hour = this._getTime('hour'), this._minute = this._getTime('minute'), this._weekday = m[this._getTime('day')];
       var i = /d{1,4}|m{1,4}|yy(?:yy)?|([HhM])\1?/g,
@@ -4388,7 +4388,7 @@ module.exports = function (e) {
         humanReadableUnhandledException: this.humanReadableUnhandledException
       }) + this.eol;
     this._size += i.length, this.filename ? this.open(function (e) {
-      return e ? o._buffer.push([i, r]) : void(o._write(i, r), o._lazyDrain())
+      return e ? o._buffer.push([i, r]) : void (o._write(i, r), o._lazyDrain())
     }) : (this._write(i, r), this._lazyDrain())
   }, g.prototype._write = function (e, n) {
     var t = this._stream.write(e);
@@ -4413,7 +4413,7 @@ module.exports = function (e) {
         }
 
         function p(n) {
-          if (e.rows && a.length >= e.rows && 'desc' !== e.order) return void(f.readable && f.destroy());
+          if (e.rows && a.length >= e.rows && 'desc' !== e.order) return void (f.readable && f.destroy());
           if (e.fields) {
             var t = {};
             e.fields.forEach(function (e) {
@@ -4514,15 +4514,15 @@ module.exports = function (e) {
       if (this.maxFiles && this._created >= this.maxFiles - 1)
         if (t = this._created - (this.maxFiles - 1), 0 === t) try {
           r.unlinkSync(o.join(this.dirname, n))
-        } catch (n) {} else try {
+        } catch (n) { } else try {
           r.unlinkSync(o.join(this.dirname, n + '.' + t))
-        } catch (n) {}
+        } catch (n) { }
       this._created += 1
     } else if (!this.maxsize)
       for (-1 === this._currentFiles.indexOf(n) && this._currentFiles.push(n); this.maxFiles && this._currentFiles.length > this.maxFiles;) {
         try {
           r.unlinkSync(o.join(this.dirname, this._currentFiles[0]))
-        } catch (n) {}
+        } catch (n) { }
         this._currentFiles = this._currentFiles.slice(1)
       }
     return this._created ? n + '.' + this._created : n
@@ -4589,7 +4589,7 @@ module.exports = function (e) {
     }),
     outputFileSync: function (e, ...n) {
       const t = i.dirname(e);
-      return o.existsSync(t) ? o.writeFileSync(e, ...n) : void(a.mkdirsSync(t), o.writeFileSync(e, ...n))
+      return o.existsSync(t) ? o.writeFileSync(e, ...n) : void (a.mkdirsSync(t), o.writeFileSync(e, ...n))
     }
   }
 }, function (e, n, t) {
@@ -4730,7 +4730,7 @@ module.exports = function (e) {
   const r = t(1);
   e.exports = {
     symlinkType: function (e, n, t) {
-      return t = 'function' == typeof n ? n : t, n = 'function' != typeof n && n, n ? t(null, n) : void r.lstat(e, (e, r) => e ? t(null, 'file') : void(n = r && r.isDirectory() ? 'dir' : 'file', t(null, n)))
+      return t = 'function' == typeof n ? n : t, n = 'function' != typeof n && n, n ? t(null, n) : void r.lstat(e, (e, r) => e ? t(null, 'file') : void (n = r && r.isDirectory() ? 'dir' : 'file', t(null, n)))
     },
     symlinkTypeSync: function (e, n) {
       let t;
@@ -4806,7 +4806,7 @@ module.exports = function (e) {
     f = t(7).pathExists;
   e.exports = {
     createSymlink: r(function (e, n, t, r) {
-      r = 'function' == typeof t ? t : r, t = 'function' != typeof t && t, f(n, (a, d) => a ? r(a) : d ? r(null) : void c(e, n, (a, d) => a ? r(a) : void(e = d.toDst, m(d.toCwd, t, (t, a) => {
+      r = 'function' == typeof t ? t : r, t = 'function' != typeof t && t, f(n, (a, d) => a ? r(a) : d ? r(null) : void c(e, n, (a, d) => a ? r(a) : void (e = d.toDst, m(d.toCwd, t, (t, a) => {
         if (t) return r(t);
         const d = o.dirname(n);
         f(d, (t, o) => t ? r(t) : o ? i.symlink(e, n, a, r) : void s(d, (t) => t ? r(t) : void i.symlink(e, n, a, r)))
@@ -4877,7 +4877,7 @@ module.exports = function (e) {
       let n;
       try {
         n = i.statSync(e)
-      } catch (n) {}
+      } catch (n) { }
       if (!(n && n.isFile())) {
         const n = o.dirname(e);
         i.existsSync(n) || a.mkdirsSync(n), i.writeFileSync(e, '')
@@ -4976,7 +4976,7 @@ module.exports = function (e) {
       let s = a.length,
         n;
       return 0 === s ? t.rmdir(e, r) : void a.forEach((i) => {
-        o(g.join(e, i), t, (o) => n ? void 0 : o ? r(n = o) : void(0 == --s && t.rmdir(e, r)))
+        o(g.join(e, i), t, (o) => n ? void 0 : o ? r(n = o) : void (0 == --s && t.rmdir(e, r)))
       })
     })
   }
@@ -5017,7 +5017,7 @@ module.exports = function (e) {
       do try {
         const t = n.rmdirSync(e, n);
         return t
-      } catch (e) {}
+      } catch (e) { }
       while (500 > Date.now() - t)
     }
   }
@@ -5046,12 +5046,12 @@ module.exports = function (e) {
     s = t(3),
     d = t(16),
     l = o(function (e, n) {
-      n = n || function () {}, i.readdir(e, (t, r) => {
+      n = n || function () { }, i.readdir(e, (t, r) => {
         function o() {
           const e = r.pop();
           return e ? void d.remove(e, (e) => e ? n(e) : void o()) : n()
         }
-        return t ? s.mkdirs(e, n) : void(r = r.map((n) => a.join(e, n)), o())
+        return t ? s.mkdirs(e, n) : void (r = r.map((n) => a.join(e, n)), o())
       })
     });
   e.exports = {
@@ -5066,7 +5066,7 @@ module.exports = function (e) {
   function r(e, n, t, r) {
     'function' != typeof t || r ? 'function' == typeof t && (t = {
       filter: t
-    }) : (r = t, t = {}), r = r || function () {}, t = t || {}, t.clobber = !('clobber' in t) || !!t.clobber, t.overwrite = 'overwrite' in t ? !!t.overwrite : t.clobber, t.preserveTimestamps && 'ia32' === process.arch && console.warn(`fs-extra: Using the preserveTimestamps option in 32-bit node is not recommended;\n
+    }) : (r = t, t = {}), r = r || function () { }, t = t || {}, t.clobber = !('clobber' in t) || !!t.clobber, t.overwrite = 'overwrite' in t ? !!t.overwrite : t.clobber, t.preserveTimestamps && 'ia32' === process.arch && console.warn(`fs-extra: Using the preserveTimestamps option in 32-bit node is not recommended;\n
     see https://github.com/jprichardson/node-fs-extra/issues/269`), v(e, n, (a, s) => a ? r(a) : t.filter ? i(o, s, e, n, t, r) : o(s, e, n, t, r))
   }
 
@@ -5223,14 +5223,14 @@ module.exports = function (e) {
 
   function r(e, n, t, d) {
     if ('function' == typeof n ? (t = n, n = {}) : (!n || 'object' != typeof n) && (n = {
-        mode: n
-      }), a(e)) {
+      mode: n
+    }), a(e)) {
       const n = new Error(e + ' contains invalid WIN32 path characters.');
       return n.code = 'EINVAL', t(n)
     }
     let l = n.mode;
     const c = n.fs || o;
-    void 0 === l && (l = s & ~process.umask()), d || (d = null), t = t || function () {}, e = i.resolve(e), c.mkdir(e, l, (o) => {
+    void 0 === l && (l = s & ~process.umask()), d || (d = null), t = t || function () { }, e = i.resolve(e), c.mkdir(e, l, (o) => {
       if (!o) return d = d || e, t(null, d);
       switch (o.code) {
         case 'ENOENT':
@@ -5412,7 +5412,7 @@ module.exports = function (e) {
         this.pos = this.start
       }
       return null === this.fd ? void e.open(this.path, this.flags, this.mode, function (e, n) {
-        return e ? (i.emit('error', e), void(i.readable = !1)) : void(i.fd = n, i.emit('open', n), i._read())
+        return e ? (i.emit('error', e), void (i.readable = !1)) : void (i.fd = n, i.emit('open', n), i._read())
       }) : void process.nextTick(function () {
         i._read()
       })
@@ -5446,7 +5446,7 @@ module.exports = function (e) {
   };
   try {
     process.cwd()
-  } catch (e) {}
+  } catch (e) { }
   var s = process.chdir;
   process.chdir = function (e) {
     i = null, s.call(process, e)
@@ -5512,7 +5512,7 @@ module.exports = function (e) {
     r.hasOwnProperty('O_SYMLINK') && process.version.match(/^v0\.6\.[0-2]|^v0\.5\./) && function (e) {
       e.lchmod = function (n, t, o) {
         e.open(n, r.O_WRONLY | r.O_SYMLINK, t, function (n, r) {
-          return n ? void(o && o(n)) : void e.fchmod(r, t, function (n) {
+          return n ? void (o && o(n)) : void e.fchmod(r, t, function (n) {
             e.close(r, function (e) {
               o && o(n || e)
             })
@@ -5527,14 +5527,14 @@ module.exports = function (e) {
         } finally {
           if (i) try {
             e.closeSync(o)
-          } catch (e) {} else e.closeSync(o)
+          } catch (e) { } else e.closeSync(o)
         }
         return a
       }
     }(e), e.lutimes || function (e) {
       r.hasOwnProperty('O_SYMLINK') ? (e.lutimes = function (n, t, o, i) {
         e.open(n, r.O_SYMLINK, function (n, r) {
-          return n ? void(i && i(n)) : void e.futimes(r, t, o, function (n) {
+          return n ? void (i && i(n)) : void e.futimes(r, t, o, function (n) {
             e.close(r, function (e) {
               i && i(n || e)
             })
@@ -5549,17 +5549,17 @@ module.exports = function (e) {
         } finally {
           if (a) try {
             e.closeSync(i)
-          } catch (e) {} else e.closeSync(i)
+          } catch (e) { } else e.closeSync(i)
         }
         return s
       }) : (e.lutimes = function (e, n, t, r) {
         r && process.nextTick(r)
-      }, e.lutimesSync = function () {})
+      }, e.lutimesSync = function () { })
     }(e), e.chown = o(e.chown), e.fchown = o(e.fchown), e.lchown = o(e.lchown), e.chmod = n(e.chmod), e.fchmod = n(e.fchmod), e.lchmod = n(e.lchmod), e.chownSync = i(e.chownSync), e.fchownSync = i(e.fchownSync), e.lchownSync = i(e.lchownSync), e.chmodSync = t(e.chmodSync), e.fchmodSync = t(e.fchmodSync), e.lchmodSync = t(e.lchmodSync), e.stat = s(e.stat), e.fstat = s(e.fstat), e.lstat = s(e.lstat), e.statSync = d(e.statSync), e.fstatSync = d(e.fstatSync), e.lstatSync = d(e.lstatSync), e.lchmod || (e.lchmod = function (e, n, t) {
       t && process.nextTick(t)
-    }, e.lchmodSync = function () {}), e.lchown || (e.lchown = function (e, n, t, r) {
+    }, e.lchmodSync = function () { }), e.lchown || (e.lchown = function (e, n, t, r) {
       r && process.nextTick(r)
-    }, e.lchownSync = function () {}), 'win32' === a && (e.rename = function (n) {
+    }, e.lchownSync = function () { }), 'win32' === a && (e.rename = function (n) {
       return function (t, r, o) {
         var i = Date.now(),
           a = 0;
@@ -5568,7 +5568,7 @@ module.exports = function (e) {
             e.stat(r, function (e) {
               e && 'ENOENT' === e.code ? n(t, r, s) : o(d)
             })
-          }, a), void(100 > a && (a += 10))) : void(o && o(d))
+          }, a), void (100 > a && (a += 10))) : void (o && o(d))
         })
       }
     }(e.rename)), e.read = function (n) {
@@ -5585,7 +5585,7 @@ module.exports = function (e) {
       return t.__proto__ = n, t
     }(e.read), e.readSync = function (n) {
       return function (t, r, o, i, a) {
-        for (var s = 0;;) try {
+        for (var s = 0; ;) try {
           return n.call(e, t, r, o, i, a)
         } catch (e) {
           if ('EAGAIN' === e.code && 10 > s) {
@@ -5635,7 +5635,7 @@ module.exports = function (e) {
     function r(n, r) {
       var o = s.transports[n];
       o.log(e, h, c, function (n) {
-        return n ? (n.transport = o, t(n), r()) : void(s.emit('logging', o, e, h, c), r())
+        return n ? (n.transport = o, t(n), r()) : void (s.emit('logging', o, e, h, c), r())
       })
     }
     for (var o = Array.prototype.slice.call(arguments, 1), s = this; null === o[o.length - 1];) o.pop();
@@ -5646,7 +5646,7 @@ module.exports = function (e) {
       var t = s.transports[n];
       return t.level && s.levels[t.level] >= s.levels[e] || !t.level && s.levels[s.level] >= s.levels[e]
     });
-    if (!l.length) return void(d && d());
+    if (!l.length) return void (d && d());
     var c = {},
       u = !1,
       m = o && o[0] && o[0].match && null !== o[0].match(p),
@@ -5661,11 +5661,11 @@ module.exports = function (e) {
       u = '[object Object]' === y || '[object Error]' === y || '[object Array]' === y, c = u ? o.pop() : {}
     }
     if (h = i.format.apply(null, o), this.padLevels && (h = Array(this.levelLength - e.length + 1).join(' ') + h), this.rewriters.forEach(function (n) {
-        c = n(e, h, c, s)
-      }), this.filters.forEach(function (n) {
-        var t = n(e, h, c, s);
-        'string' == typeof t ? h = t : (h = t.msg, c = t.meta)
-      }), this.stripColors) {
+      c = n(e, h, c, s)
+    }), this.filters.forEach(function (n) {
+      var t = n(e, h, c, s);
+      'string' == typeof t ? h = t : (h = t.msg, c = t.meta)
+    }), this.stripColors) {
       var _ = /\u001b\[(\d+(;\d+)*)?m/g;
       h = ('' + h).replace(_, '')
     }
@@ -5682,7 +5682,7 @@ module.exports = function (e) {
       o = {},
       i = d.clone(e.query) || {},
       s;
-    return e.transport ? (e.transport = e.transport.toLowerCase(), t(this.transports[e.transport], n)) : void(s = this._names.map(function (e) {
+    return e.transport ? (e.transport = e.transport.toLowerCase(), t(this.transports[e.transport], n)) : void (s = this._names.map(function (e) {
       return r.transports[e]
     }).filter(function (e) {
       return !!e.query
@@ -5776,7 +5776,7 @@ module.exports = function (e) {
       o = l.getAllInfo(e),
       i = this._getExceptionHandlers(),
       s, d;
-    return d = 'function' == typeof this.exitOnError ? this.exitOnError(e) : this.exitOnError, i && 0 !== i.length ? void(a.forEach(i, function (n, t) {
+    return d = 'function' == typeof this.exitOnError ? this.exitOnError(e) : this.exitOnError, i && 0 !== i.length ? void (a.forEach(i, function (n, t) {
       n.logException('uncaughtException: ' + (e.message || e), o, t, e)
     }, n), d && (s = setTimeout(n, 3e3))) : n()
   }, u.prototype._getExceptionHandlers = function () {
@@ -5986,7 +5986,7 @@ module.exports = function (e) {
       }
     };
     t && (t.path && (i.path = t.path, delete t.path), t.auth && (i.auth = t.auth, delete t.auth)), this._request(i, function (e, n) {
-      return n && 200 !== n.statusCode && (e = new Error('HTTP Status Code: ' + n.statusCode)), e ? r(e) : void(o.emit('logged'), r && r(null, !0))
+      return n && 200 !== n.statusCode && (e = new Error('HTTP Status Code: ' + n.statusCode)), e ? r(e) : void (o.emit('logged'), r && r(null, !0))
     })
   }, l.prototype.query = function (e, n) {
     'function' == typeof e && (n = e, e = {});
@@ -6091,7 +6091,7 @@ module.exports = function (e) {
       humanReadableUnhandledException: this.humanReadableUnhandledException
     });
     'string' == typeof i && (i += this.eol), this.filename ? this.open(function (e) {
-      return e ? o._buffer.push([i, r]) : void(o._write(i, r), o._size += i.length, o._lazyDrain())
+      return e ? o._buffer.push([i, r]) : void (o._write(i, r), o._size += i.length, o._lazyDrain())
     }) : (this._write(i, r), this._size += i.length, this._lazyDrain())
   }, g.prototype._write = function (e, n) {
     if (this._isStreams2) return this._stream.write(e), n && process.nextTick(function () {
@@ -6114,7 +6114,7 @@ module.exports = function (e) {
     }
 
     function r(n) {
-      if (e.rows && l.length >= e.rows && 'desc' != e.order) return void(p.readable && p.destroy());
+      if (e.rows && l.length >= e.rows && 'desc' != e.order) return void (p.readable && p.destroy());
       if (e.fields) {
         var t = {};
         e.fields.forEach(function (e) {
@@ -6165,7 +6165,7 @@ module.exports = function (e) {
     }), t
   }, g.prototype.open = function (e) {
     if (this.opening) return e(!0);
-    return !this._stream || this.maxsize && this._size >= this.maxsize ? (e(!0), this._createStream()) : void(this._archive = this.zippedArchive ? this._stream.path : null, e())
+    return !this._stream || this.maxsize && this._size >= this.maxsize ? (e(!0), this._createStream()) : void (this._archive = this.zippedArchive ? this._stream.path : null, e())
   }, g.prototype.close = function () {
     var e = this;
     this._stream && (this._stream.end(), this._stream.destroySoon(), this._stream.once('finish', function () {
@@ -6173,7 +6173,7 @@ module.exports = function (e) {
     }))
   }, g.prototype.flush = function () {
     var e = this;
-    return this._buffer.length ? void(this._buffer.forEach(function (n) {
+    return this._buffer.length ? void (this._buffer.forEach(function (n) {
       var t = n[0],
         r = n[1];
       process.nextTick(function () {
@@ -6220,7 +6220,7 @@ module.exports = function (e) {
   }, g.prototype._checkMaxFilesIncrementing = function (e, n, t) {
     var r = this,
       i, s;
-    return r.zippedArchive && (r._archive = a.join(r.dirname, n + (1 === r._created ? '' : r._created - 1) + e)), !r.maxFiles || r._created < r.maxFiles ? t() : void(i = r._created - r.maxFiles, s = a.join(r.dirname, n + (0 === i ? '' : i) + e + (r.zippedArchive ? '.gz' : '')), o.unlink(s, t))
+    return r.zippedArchive && (r._archive = a.join(r.dirname, n + (1 === r._created ? '' : r._created - 1) + e)), !r.maxFiles || r._created < r.maxFiles ? t() : void (i = r._created - r.maxFiles, s = a.join(r.dirname, n + (0 === i ? '' : i) + e + (r.zippedArchive ? '.gz' : '')), o.unlink(s, t))
   }, g.prototype._checkMaxFilesTailable = function (e, n, t) {
     var r = [],
       d = this;
@@ -6382,10 +6382,10 @@ module.exports = function (e) {
     }
     e = e || '   he is here   ';
     var o = {
-        up: ['\u030D', '\u030E', '\u0304', '\u0305', '\u033F', '\u0311', '\u0306', '\u0310', '\u0352', '\u0357', '\u0351', '\u0307', '\u0308', '\u030A', '\u0342', '\u0313', '\u0308', '\u034A', '\u034B', '\u034C', '\u0303', '\u0302', '\u030C', '\u0350', '\u0300', '\u0301', '\u030B', '\u030F', '\u0312', '\u0313', '\u0314', '\u033D', '\u0309', '\u0363', '\u0364', '\u0365', '\u0366', '\u0367', '\u0368', '\u0369', '\u036A', '\u036B', '\u036C', '\u036D', '\u036E', '\u036F', '\u033E', '\u035B', '\u0346', '\u031A'],
-        down: ['\u0316', '\u0317', '\u0318', '\u0319', '\u031C', '\u031D', '\u031E', '\u031F', '\u0320', '\u0324', '\u0325', '\u0326', '\u0329', '\u032A', '\u032B', '\u032C', '\u032D', '\u032E', '\u032F', '\u0330', '\u0331', '\u0332', '\u0333', '\u0339', '\u033A', '\u033B', '\u033C', '\u0345', '\u0347', '\u0348', '\u0349', '\u034D', '\u034E', '\u0353', '\u0354', '\u0355', '\u0356', '\u0359', '\u035A', '\u0323'],
-        mid: ['\u0315', '\u031B', '\u0300', '\u0301', '\u0358', '\u0321', '\u0322', '\u0327', '\u0328', '\u0334', '\u0335', '\u0336', '\u035C', '\u035D', '\u035E', '\u035F', '\u0360', '\u0362', '\u0338', '\u0337', '\u0361', ' \u0489']
-      },
+      up: ['\u030D', '\u030E', '\u0304', '\u0305', '\u033F', '\u0311', '\u0306', '\u0310', '\u0352', '\u0357', '\u0351', '\u0307', '\u0308', '\u030A', '\u0342', '\u0313', '\u0308', '\u034A', '\u034B', '\u034C', '\u0303', '\u0302', '\u030C', '\u0350', '\u0300', '\u0301', '\u030B', '\u030F', '\u0312', '\u0313', '\u0314', '\u033D', '\u0309', '\u0363', '\u0364', '\u0365', '\u0366', '\u0367', '\u0368', '\u0369', '\u036A', '\u036B', '\u036C', '\u036D', '\u036E', '\u036F', '\u033E', '\u035B', '\u0346', '\u031A'],
+      down: ['\u0316', '\u0317', '\u0318', '\u0319', '\u031C', '\u031D', '\u031E', '\u031F', '\u0320', '\u0324', '\u0325', '\u0326', '\u0329', '\u032A', '\u032B', '\u032C', '\u032D', '\u032E', '\u032F', '\u0330', '\u0331', '\u0332', '\u0333', '\u0339', '\u033A', '\u033B', '\u033C', '\u0345', '\u0347', '\u0348', '\u0349', '\u034D', '\u034E', '\u0353', '\u0354', '\u0355', '\u0356', '\u0359', '\u035A', '\u0323'],
+      mid: ['\u0315', '\u031B', '\u0300', '\u0301', '\u0358', '\u0321', '\u0322', '\u0327', '\u0328', '\u0334', '\u0335', '\u0336', '\u035C', '\u035D', '\u035E', '\u035F', '\u0360', '\u0362', '\u0338', '\u0337', '\u0361', ' \u0489']
+    },
       i = [].concat(o.up, o.down, o.mid),
       a = {};
     return r(e)
@@ -6744,7 +6744,7 @@ module.exports = function (e) {
     T = [];
   const F = '--protocol-launcher',
     N = new Set(['x-github-client']);
-  N.add('x-github-desktop-auth'), N.add('github-windows'), p.app.on('window-all-closed', () => {}), process.on('uncaughtException', (e) => {
+  N.add('x-github-desktop-auth'), N.add('github-windows'), p.app.on('window-all-closed', () => { }), process.on('uncaughtException', (e) => {
     e = x.withSourceMappedStack(e), v.reportError(e, i()), r(e)
   });
   let A = !1;
@@ -6777,7 +6777,7 @@ module.exports = function (e) {
     })), p.ipcMain.on('update-preferred-app-menu-item-labels', (e, n) => {
       const t = f.buildDefaultMenu(n),
         r = p.Menu.getApplicationMenu();
-      if (null === r) return p.Menu.setApplicationMenu(t), void(null !== M && M.sendAppMenu());
+      if (null === r) return p.Menu.setApplicationMenu(t), void (null !== M && M.sendAppMenu());
       let o = !1;
       for (const i of f.getAllMenuItems(t)) {
         const e = i.id;
@@ -6800,7 +6800,7 @@ module.exports = function (e) {
         if (r) {
           const n = p.BrowserWindow.fromWebContents(e.sender),
             t = {
-              preventDefault: () => {},
+              preventDefault: () => { },
               sender: e.sender
             };
           r.click(t, n, e.sender)
@@ -6860,7 +6860,7 @@ module.exports = function (e) {
     }), p.ipcMain.on('show-item-in-folder', (e, {
       path: n
     }) => {
-      u.stat(n, (e, t) => e ? void log.error(`Unable to find file at '${n}'`, e) : void(t.isDirectory() ? w.openDirectorySafe(n) : p.shell.showItemInFolder(n)))
+      u.stat(n, (e, t) => e ? void log.error(`Unable to find file at '${n}'`, e) : void (t.isDirectory() ? w.openDirectorySafe(n) : p.shell.showItemInFolder(n)))
     }))
   }), p.app.on('activate', () => {
     c((e) => {
