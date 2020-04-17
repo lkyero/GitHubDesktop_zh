@@ -15253,7 +15253,7 @@ module.exports = function (e) {
         s = !e.authoredByCommitter && !(null !== this.props.gitHubRepository && r.isWebFlowCommitter(e, this.props.gitHubRepository));
       return o.createElement('span', {
         className: 'commit-attribution-component'
-      }, this.renderAuthors(a, s), s ? ' authored' : ' 提交于', s ? this.renderCommitter(n) : null)
+      }, this.renderAuthors(a, s), s ? ' 创建于' : ' 提交于', s ? this.renderCommitter(n) : null)
     }
   }
   t.CommitAttribution = i
@@ -40053,7 +40053,7 @@ module.exports = function (e) {
       }, o.createElement('img', {
         src: i,
         className: 'blankslate-image'
-      }), o.createElement('div', null, this.props.count, ' files selected'))
+      }), o.createElement('div', null, '选中了 ', this.props.count, ' 个文件'))
     }
   }
   t.MultipleSelection = a
