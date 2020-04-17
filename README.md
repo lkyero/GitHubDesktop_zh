@@ -30,5 +30,6 @@ https://github.com/lkyero/GitHubDesktop_zh/releases 下载
 
 完成后界面
 ---------
+![JVoU5q.png](https://s1.ax1x.com/2020/04/17/JVoU5q.png)
 
 ![](https://github.com/lkyero/GitHubDesktop_zh/wiki/Image.PNG)
