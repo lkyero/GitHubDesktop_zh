@@ -48451,14 +48451,14 @@ module.exports = function (e) {
   async function o(e, t) {
     const n = new s.API(e.endpoint, e.token);
     try {
-      return await n.createRepository(null, t, 'GitHub Desktop tutorial repository', !0)
+      return await n.createRepository(null, t, 'GitHub Desktop 教学存储库', !0)
     } catch (n) {
       if (n instanceof d.APIError && 422 === n.responseStatus && null !== n.apiError && 'Repository creation failed.' === n.apiError.message && n.apiError.errors && n.apiError.errors.some((e) => 'name already exists on this account' === e.message)) throw new Error('You already have a repository named ' + `"${t}" on your account at ${p.friendlyEndpointName(e)}.\n\n` + 'Please delete the repository and try again.');
       throw n
     }
   }
   async function r(e, t, n, o) {
-    const r = `Pushing repository to ${p.friendlyEndpointName(t)}`;
+    const r = `推送存储库到 ${p.friendlyEndpointName(t)}`;
     o(r, 0);
     const i = await l.executionOptionsWithProgress({
         env: await u.envForRemoteOperation(t, n.url)
@@ -50657,7 +50657,7 @@ module.exports = function (e) {
     };
     if (p) {
       m.push('--progress');
-      const e = `Pushing to ${n.name}`;
+      const e = `推送至 ${n.name}`;
       f = await i.executionOptionsWithProgress(Object.assign({}, f, {
         trackLFSProgress: !0
       }), new i.PushProgressParser, (t) => {
@@ -50703,7 +50703,7 @@ module.exports = function (e) {
       expectedErrors: a.AuthenticationErrors
     };
     if (s) {
-      const e = `Pulling ${n.name}`,
+      const e = `拉取 ${n.name}`,
         t = 'pull';
       l = await i.executionOptionsWithProgress(Object.assign({}, l, {
         trackLFSProgress: !0
@@ -50854,7 +50854,7 @@ module.exports = function (e) {
     };
     if (a) {
       l.push('--progress');
-      const e = `Cloning into ${t}`,
+      const e = `克隆到 ${t}`,
         n = 'clone';
       c = await r.executionOptionsWithProgress(Object.assign({}, c, {
         trackLFSProgress: !0
@@ -50891,7 +50891,7 @@ module.exports = function (e) {
     parse(e) {
       const t = {
           kind: 'context',
-          text: 'Downloading Git LFS file\u2026',
+          text: '正在下载 Git LFS 文件\u2026',
           percent: 0
         },
         n = e.match(i);
@@ -50920,7 +50920,7 @@ module.exports = function (e) {
       }
     }
     directionToHumanFacingVerb(e) {
-      return 'download' === e ? 'Downloading' : 'upload' === e ? 'Uploading' : 'checkout' === e ? 'Checking out' : 'Downloading'
+      return 'download' === e ? '下载中' : 'upload' === e ? '上传中' : 'checkout' === e ? '检出中' : '下载中'
     }
   }
 }, function (e, t, n) {
@@ -50930,16 +50930,16 @@ module.exports = function (e) {
   });
   const o = n(66),
     r = [{
-      title: 'remote: Compressing objects',
+      title: '远端: 压缩对象中',
       weight: .1
     }, {
-      title: 'Receiving objects',
+      title: '接收对象中',
       weight: .7
     }, {
-      title: 'Resolving deltas',
+      title: '处理差异中',
       weight: .15
     }, {
-      title: 'Checking out files',
+      title: '检出文件中',
       weight: .15
     }];
   class i extends o.GitProgressParser {
@@ -50955,13 +50955,13 @@ module.exports = function (e) {
   });
   const o = n(66),
     r = [{
-      title: 'remote: Compressing objects',
+      title: '远端: 压缩对象中',
       weight: .1
     }, {
-      title: 'Receiving objects',
+      title: '接收对象中',
       weight: .7
     }, {
-      title: 'Resolving deltas',
+      title: '处理差异中',
       weight: .2
     }];
   class i extends o.GitProgressParser {
@@ -50977,13 +50977,13 @@ module.exports = function (e) {
   });
   const o = n(66),
     r = [{
-      title: '压缩对象',
+      title: '压缩对象中',
       weight: .2
     }, {
-      title: '写入对象',
+      title: '写入对象中',
       weight: .7
     }, {
-      title: 'remote: Resolving deltas',
+      title: '远端：处理差异中',
       weight: .1
     }];
   class i extends o.GitProgressParser {
@@ -50999,16 +50999,16 @@ module.exports = function (e) {
   });
   const o = n(66),
     r = [{
-      title: 'remote: Compressing objects',
+      title: '远端: 压缩对象中',
       weight: .1
     }, {
-      title: 'Receiving objects',
+      title: '接收对象中',
       weight: .6
     }, {
-      title: 'Resolving deltas',
+      title: '处理差异中',
       weight: .1
     }, {
-      title: 'Checking out files',
+      title: '检出文件中',
       weight: .2
     }];
   class i extends o.GitProgressParser {
@@ -51024,7 +51024,7 @@ module.exports = function (e) {
   });
   const o = n(66),
     r = [{
-      title: 'Checking out files',
+      title: '检出文件中',
       weight: 1
     }];
   class i extends o.GitProgressParser {
@@ -51055,7 +51055,7 @@ module.exports = function (e) {
       expectedErrors: s.AuthenticationErrors
     };
     if (i) {
-      const e = `Checking out branch ${n.name}`,
+      const e = `检出分支 ${n.name}`,
         t = 'checkout',
         o = n.name;
       d = await a.executionOptionsWithProgress(Object.assign({}, d, {
@@ -54302,7 +54302,7 @@ module.exports = function (e) {
         if (i.kind === E.TipState.Valid) {
           const {
             branch: o
-          } = i, a = o.remote || r.name, s = `Pushing to ${a}`;
+          } = i, a = o.remote || r.name, s = `推送至 ${a}`;
           this.updatePushPullFetchProgress(e, {
             kind: 'push',
             title: s,
@@ -54323,7 +54323,7 @@ module.exports = function (e) {
               name: a,
               url: r.url
             };
-          m.name !== r.name && _e.sendNonFatalException('remoteNameMismatch', new Error('The current remote name differs from the branch remote'));
+          m.name !== r.name && _e.sendNonFatalException('remoteNameMismatch', new Error('当前远端的名称和远端分支的不同'));
           const h = this.gitStoreCache.get(e);
           await h.performFailableOperation(async () => {
             await N.push(e, t, m, o.name, o.upstreamWithoutRemote, n, (t) => {
@@ -54345,7 +54345,7 @@ module.exports = function (e) {
             }), await this.refreshBranchProtectionState(e), await this._refreshRepository(e), this.updatePushPullFetchProgress(e, {
               kind: 'generic',
               title: r,
-              description: 'Fast-forwarding branches',
+              description: '快进分支',
               value: i + .5 * c
             }), await this.fastForwardBranches(e)
           }, {
