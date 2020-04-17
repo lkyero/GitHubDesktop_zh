@@ -9874,12 +9874,12 @@ module.exports = function (e) {
             sameElse: 'L'
           },
           longDateFormat: {
-            LTS: 'h:mm:ss A',
-            LT: 'h:mm A',
+            LTS: 'hh:mm:ss A',
+            LT: 'hh:mm A',
             L: 'YYYY/MM/DD',
-            LL: 'YYYY年 MMMM D',
-            LLL: 'YYYY年 MMMM D h:mm A',
-            LLLL: 'YYYY年 MMMM D, dddd h:mm A'
+            LL: 'YYYY年 MMMM D日',
+            LLL: 'YYYY年 MMMM D日 hh:mm A',
+            LLLL: 'YYYY年 MMMM D日, dddd hh:mm A'
           },
           invalidDate: '无效日期',
           ordinal: '%d',
@@ -37409,18 +37409,18 @@ module.exports = function (e) {
         y = !1,
         S, C, b;
       if (this.props.currentPullRequest && (h = r.OcticonSymbol.gitPullRequest), p.kind === i.TipState.Unknown) return null;
-      if (p.kind === i.TipState.Unborn) C = p.ref, b = `Current branch is ${p.ref}`, g = 0 < t.allBranches.length;
-      else if (p.kind === i.TipState.Detached) C = `On ${p.currentSha.substr(0,7)}`, b = 'Currently on a detached HEAD', h = r.OcticonSymbol.gitCommit, f = 'Detached HEAD';
-      else if (p.kind === i.TipState.Valid) C = p.branch.name, b = `Current branch is ${C}`;
+      if (p.kind === i.TipState.Unborn) C = p.ref, b = `当前分支为 ${p.ref}`, g = 0 < t.allBranches.length;
+      else if (p.kind === i.TipState.Detached) C = `On ${p.currentSha.substr(0,7)}`, b = '当前位于已脱离的 HEAD', h = r.OcticonSymbol.gitCommit, f = '已脱离的 HEAD';
+      else if (p.kind === i.TipState.Valid) C = p.branch.name, b = `当前分支为 ${C}`;
       else return l.assertNever(p, `Unknown tip state: ${m}`);
       let v;
       if (n) {
-        if (C = n.targetBranch, f = 'Switching to branch', 0 < n.value) {
+        if (C = n.targetBranch, f = '切换到分支', 0 < n.value) {
           const e = Math.round(100 * n.value);
           f = `${f} (${e} %)`
         }
         v = n.value, h = r.OcticonSymbol.sync, S = 'spin', g = !1
-      } else null !== u && s.isRebaseConflictState(u) && (C = u.targetBranch, f = 'Rebasing branch', h = r.OcticonSymbol.gitBranch, g = !1, y = !0);
+      } else null !== u && s.isRebaseConflictState(u) && (C = u.targetBranch, f = '重新定基分支', h = r.OcticonSymbol.gitBranch, g = !1, y = !0);
       const E = this.props.isOpen,
         w = E && g ? 'open' : 'closed',
         k = c('nudge-arrow', {
