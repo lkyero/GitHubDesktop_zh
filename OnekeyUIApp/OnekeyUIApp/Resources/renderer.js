@@ -40698,7 +40698,7 @@ module.exports = function (e) {
       const i = null !== this.props.repository.gitHubRepository,
         a = s.createElement(s.Fragment, null, '你有', ' ', 1 === n.ahead ? '一个本地提交' : '个本地提交', ' 等待被推送至远端', i ? 'GitHub' : '', '.'),
         d = s.createElement(s.Fragment, null, '当有本地提交等待推送或', this.renderDiscoverabilityKeyboardShortcut(r)),
-        l = `推送 ${n.ahead} ${1===n.ahead?'commit':'commits'} 至远端 ${t.name} `,
+        l = `推送 ${n.ahead} 次${1===n.ahead?'提交':'提交'} 至远端 ${t.name} `,
         c = `推送 ${t.name}`;
       return s.createElement(m.MenuBackedSuggestedAction, {
         key: 'push-branch-action',
