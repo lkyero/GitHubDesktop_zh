@@ -2174,7 +2174,7 @@ module.exports = function (e) {
   const r = t(4);
   n.reportError = async function (e, n, t) {
     const o = new Map;
-    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', '568b41137c77acc744f62decc721ea0110461d15'), o.set('version', r.app.getVersion()), n)
+    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', 'aae6e805988e533e82922f077d4ac1ddb2aff5cd'), o.set('version', r.app.getVersion()), n)
       for (const e of Object.keys(n)) o.set(e, n[e]);
     const i = {
         method: 'POST',
@@ -2501,7 +2501,9 @@ module.exports = function (e) {
   Object.defineProperty(n, '__esModule', {
     value: !0
   });
-  n.enableRecurseSubmodulesFlag = function () {
+  n.enableProgressBarOnIcon = function () {
+    return r()
+  }, n.enableRecurseSubmodulesFlag = function () {
     return r()
   }, n.enableReadmeOverwriteWarning = function () {
     return r()
@@ -2537,6 +2539,10 @@ module.exports = function (e) {
     return !0
   }, n.enableForkyCreateBranchUI = function () {
     return !0
+  }, n.enableNDDBBanner = function () {
+    return r()
+  }, n.enableGitTagsDisplay = function () {
+    return t()  
   }
 }, function (e, n) {
   'use strict';
@@ -2740,6 +2746,7 @@ module.exports = function (e) {
         id: 'create-issue-in-repository-on-github',
         label: '在 GitHub 上新建问题',
         accelerator: 'CmdOrCtrl+Shift+I',
+        accelerator: 'CmdOrCtrl+I',
         click: a('create-issue-in-repository-on-github'),
         visible: h.enableCreateGitHubIssueFromMenu()
       }, F, {
