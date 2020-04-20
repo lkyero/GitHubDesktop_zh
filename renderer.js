@@ -33954,7 +33954,7 @@ module.exports = function (e) {
         autoFocus: !0,
         onValueChanged: this.onBranchNameChange
       })), f.renderBranchNameWarning(this.state.proposedName, this.state.sanitizedName), f.renderBranchNameExistsOnRemoteWarning(this.state.sanitizedName, this.props.allBranches), this.renderBranchSelection()), r.createElement(p.DialogFooter, null, r.createElement(y.OkCancelButtonGroup, {
-        okButtonText: 'Create branch',
+        okButtonText: '创建分支',
         okButtonDisabled: e
       })))
     }
