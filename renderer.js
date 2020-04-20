@@ -12887,16 +12887,16 @@ module.exports = function (e) {
       }, o.createElement('img', {
         src: u,
         className: 'blankslate-image'
-      }), o.createElement('p', null, 'The diff is too large to be displayed by default.', o.createElement('br', null), 'You can try to show it anyway, but performance may be negatively impacted.'), o.createElement(d.Button, {
+      }), o.createElement('p', null, '代码前后差异太大以至于，默认不显示.', o.createElement('br', null), '你依然可以让差异显示出来.但性能可能非常差'), o.createElement(d.Button, {
         onClick: this.showLargeDiff
-      }, 'Show diff'))
+      }, '显示差异'))
     }
     renderUnrenderableDiff() {
       return o.createElement('div', {
         className: 'panel empty large-diff'
       }, o.createElement('img', {
         src: u
-      }), o.createElement('p', null, 'The diff is too large to be displayed.'))
+      }), o.createElement('p', null, '代码前后差异·太大以至于，默认不显示.'))
     }
     renderLargeText(e) {
       const t = {
@@ -12910,15 +12910,15 @@ module.exports = function (e) {
     renderText(e) {
       return 0 === e.hunks.length ? this.props.file.status.kind === a.AppFileStatusKind.New || this.props.file.status.kind === a.AppFileStatusKind.Untracked ? o.createElement('div', {
         className: 'panel empty'
-      }, 'The file is empty') : this.props.file.status.kind === a.AppFileStatusKind.Renamed ? o.createElement('div', {
+      }, '这个文件是空的') : this.props.file.status.kind === a.AppFileStatusKind.Renamed ? o.createElement('div', {
         className: 'panel renamed'
-      }, 'The file was renamed but not changed') : a.isConflictedFileStatus(this.props.file.status) && a.isManualConflict(this.props.file.status) ? o.createElement('div', {
+      }, '这个文件被重命名了但是没有改任何内容') : a.isConflictedFileStatus(this.props.file.status) && a.isManualConflict(this.props.file.status) ? o.createElement('div', {
         className: 'panel empty'
-      }, 'The file is in conflict and must be resolved via the command line.') : this.props.hideWhitespaceInDiff ? o.createElement('div', {
+      }, '这个文件存在争议且必须通过命令行解决.') : this.props.hideWhitespaceInDiff ? o.createElement('div', {
         className: 'panel empty'
-      }, 'Only whitespace changes found') : o.createElement('div', {
+      }, '只有空白改变被发现') : o.createElement('div', {
         className: 'panel empty'
-      }, 'No content changes found') : this.renderTextDiff(e)
+      }, '没发现任何改变') : this.renderTextDiff(e)
     }
     renderBinaryFile() {
       return o.createElement(c.BinaryFile, {
