@@ -30,8 +30,8 @@ https://github.com/lkyero/GitHubDesktop_zh/releases 下载
 
 完成后界面
 ---------
-![](https://cdn.jsdelivr.net/gh/lkyero/GitHubDesktop_zh/img/1.PNG)
+![](https://cdn.jsdelivr.net/gh/lkyero/GitHubDesktop_zh@ced0d74/img/1.PNG)
 
-![](https://cdn.jsdelivr.net/gh/lkyero/GitHubDesktop_zh/img/2.PNG)
+![](https://cdn.jsdelivr.net/gh/lkyero/GitHubDesktop_zh@ced0d74/img/2.PNG)
 
-![](https://cdn.jsdelivr.net/gh/lkyero/GitHubDesktop_zh/img/3.PNG)
+![](https://cdn.jsdelivr.net/gh/lkyero/GitHubDesktop_zh@ced0d74/img/3.PNG)
