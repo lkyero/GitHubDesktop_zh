@@ -21,7 +21,7 @@ https://github.com/lkyero/GitHubDesktop_zh/releases 下载
 
 2.手动替换文件
 ---------
-将main.js和renderer.js替换至：
+将项目根目录的main.js和renderer.js替换至：
 
       C:\Users\【用户名】\AppData\Local\GitHubDesktop\【最新版本文件夹 例：app-2.4.1】\resources\app
       【请记得做好备份:) 】
