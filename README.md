@@ -23,13 +23,15 @@ https://github.com/lkyero/GitHubDesktop_zh/releases 下载
 ---------
 将main.js和renderer.js替换至：
 
-      C:\Users\【用户名】\AppData\Local\GitHubDesktop\【最新版本文件夹 例：app-2.2.3】\resources\app
+      C:\Users\【用户名】\AppData\Local\GitHubDesktop\【最新版本文件夹 例：app-2.4.1】\resources\app
       【请记得做好备份:) 】
       
 重新打开GitHub Desketop 
 
 完成后界面
 ---------
-![JVoU5q.png](https://s1.ax1x.com/2020/04/17/JVoU5q.png)
+![](https://cdn.jsdelivr.net/gh/lkyero/GitHubDesktop_zh/img/1.PNG)
 
-![](https://github.com/lkyero/GitHubDesktop_zh/wiki/Image.PNG)
+![](https://cdn.jsdelivr.net/gh/lkyero/GitHubDesktop_zh/img/2.PNG)
+
+![](https://cdn.jsdelivr.net/gh/lkyero/GitHubDesktop_zh/img/3.PNG)
