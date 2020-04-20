@@ -35917,11 +35917,11 @@ module.exports = function (e) {
         value: this.state.confirmRepositoryRemoval ? i.CheckboxValue.On : i.CheckboxValue.Off,
         onChange: this.onConfirmRepositoryRemovalChanged
       }), o.createElement(i.Checkbox, {
-        label: '放弃更改之前显示确认对话框',
+        label: '放弃更改之前',
         value: this.state.confirmDiscardChanges ? i.CheckboxValue.On : i.CheckboxValue.Off,
         onChange: this.onConfirmDiscardChangesChanged
       }), o.createElement(i.Checkbox, {
-        label: '强制推送之前显示确认对话框',
+        label: '强制推送之前',
         value: this.state.confirmForcePush ? i.CheckboxValue.On : i.CheckboxValue.Off,
         onChange: this.onConfirmForcePushChanged
       })), o.createElement('div', {
