@@ -31829,15 +31829,15 @@ module.exports = function (e) {
     }
     render() {
       return o.createElement(r.Dialog, {
-        title: 'Newer commits on remote',
+        title: '远端有新的提交',
         dismissable: !this.state.isLoading,
         disabled: this.state.isLoading,
         onDismissed: this.props.onDismissed,
         onSubmit: this.onFetch,
         loading: this.state.isLoading,
         type: 'warning'
-      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'Desktop is unable to push commits to this branch because there are commits on the remote that are not present on your local branch. Fetch these new commits before pushing in order to reconcile them with your local commits.')), o.createElement(r.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
-        okButtonText: 'Fetch',
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, '提交推送失败，原因是远端上已有新的提交记录。在推送之前，需要先获取这些新的提交内容，好协调本地提交记录。')), o.createElement(r.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
+        okButtonText: '拉取',
         okButtonDisabled: this.state.isLoading
       })))
     }
@@ -54443,7 +54443,7 @@ module.exports = function (e) {
             }), r && (await n.reconcileHistory(r)), await this.refreshBranchProtectionState(e), await this._refreshRepository(e), this.updatePushPullFetchProgress(e, {
               kind: 'generic',
               title: u,
-              description: 'Fast-forwarding branches',
+              description: '正在快进分支',
               value: p + .5 * d
             }), await this.fastForwardBranches(e)
           } finally {
@@ -54552,7 +54552,7 @@ module.exports = function (e) {
           }), await this.refreshBranchProtectionState(e), await this._refreshRepository(e), this.updatePushPullFetchProgress(e, {
             kind: 'generic',
             title: d,
-            description: 'Fast-forwarding branches',
+            description: '正在快进分支',
             value: i + .5 * .1
           }), await this.fastForwardBranches(e)
         } finally {
