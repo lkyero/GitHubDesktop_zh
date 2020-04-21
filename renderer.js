@@ -31880,15 +31880,15 @@ module.exports = function (e) {
     }
     render() {
       return o.createElement(r.Dialog, {
-        title: 'Newer commits on remote',
+        title: '远端有新的提交',
         dismissable: !this.state.isLoading,
         disabled: this.state.isLoading,
         onDismissed: this.props.onDismissed,
         onSubmit: this.onFetch,
         loading: this.state.isLoading,
         type: 'warning'
-      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'Desktop is unable to push commits to this branch because there are commits on the remote that are not present on your local branch. Fetch these new commits before pushing in order to reconcile them with your local commits.')), o.createElement(r.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
-        okButtonText: 'Fetch',
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, '提交推送失败，原因是远端上已有新的提交记录。在推送之前，需要先获取这些新的提交内容，好协调本地提交记录。')), o.createElement(r.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
+        okButtonText: '拉取',
         okButtonDisabled: this.state.isLoading
       })))
     }
@@ -31929,20 +31929,20 @@ module.exports = function (e) {
     render() {
       return o.createElement(r.Dialog, {
         id: 'usage-reporting',
-        title: 'Usage reporting changes',
+        title: '使用情况报告',
         dismissable: !1,
         onDismissed: this.onDismissed,
         onSubmit: this.onDismissed,
         type: 'normal'
-      }, o.createElement(r.DialogContent, null, o.createElement(i.Row, null, 'GitHub Desktop has introduced a change around how it reports usage stats, to help us better understand how our GitHub users get value from Desktop:'), o.createElement(i.Row, null, o.createElement('ul', null, o.createElement('li', null, o.createElement('span', null, o.createElement('strong', null, 'If you are signed into a GitHub account'), ', your GitHub.com account ID will be included in the periodic usage stats.')), o.createElement('li', null, o.createElement('span', null, o.createElement('strong', null, 'If you are only signed into a GitHub Enterprise Server account, or only using Desktop with non-GitHub remotes'), ', nothing is going to change.')))), o.createElement(i.Row, {
+      }, o.createElement(r.DialogContent, null, o.createElement(i.Row, null, '为了帮助我们更好地了解GitHub桌面用户如何从桌面上获得价值，GitHub桌面推出了一项关于使用情况统计报告的改变:'), o.createElement(i.Row, null, o.createElement('ul', null, o.createElement('li', null, o.createElement('span', null, o.createElement('strong', null, '如果你已经注册了GitHub账户'), ', 您的GitHub.com账户ID将包含在定期使用情况统计中。')), o.createElement('li', null, o.createElement('span', null, o.createElement('strong', null, '如果你只登录了GitHub企业服务器账户，或者只使使用本地git而没有GitHub远端'), ', 没啥会改变.')))), o.createElement(i.Row, {
         className: 'selection'
       }, o.createElement(a.Checkbox, {
-        label: 'Help GitHub Desktop improve by submitting usage stats',
+        label: '通过提交使用情况统计来帮助GitHub桌面改进。',
         value: this.state.optOutOfUsageTracking ? a.CheckboxValue.Off : a.CheckboxValue.On,
         onChange: this.onReportingOptOutChanged
       }))), o.createElement(r.DialogFooter, null, o.createElement(s.OkCancelButtonGroup, {
-        okButtonText: 'Continue',
-        cancelButtonText: 'More info',
+        okButtonText: '继续',
+        cancelButtonText: '更多信息',
         onCancelButtonClick: this.viewMoreInfo
       })))
     }
@@ -31976,7 +31976,7 @@ module.exports = function (e) {
     render() {
       return o.createElement(r.Dialog, {
         id: 'oversized-files',
-        title: 'Files too large',
+        title: '文件太大',
         onSubmit: this.onSubmit,
         onDismissed: this.props.onDismissed,
         type: 'warning'
@@ -31986,7 +31986,7 @@ module.exports = function (e) {
         uri: 'https://help.github.com/articles/versioning-large-files/'
       }, 'Git LFS'), '在GiHub上存储大文件。')), o.createElement(r.DialogFooter, null, o.createElement(l.OkCancelButtonGroup, {
         destructive: !0,
-        okButtonText: 'Commit anyway'
+        okButtonText: '什么也不管，就是要提交'
       })))
     }
     renderFileList() {
@@ -32031,13 +32031,13 @@ module.exports = function (e) {
     render() {
       return o.createElement(r.Dialog, {
         id: 'abort-merge-warning',
-        title: '确认中止merge',
+        title: '确认中止',
         onDismissed: this.onCancel,
         onSubmit: this.onSubmit,
         type: 'warning'
       }, o.createElement(r.DialogContent, null, this.renderTextContent(this.props.ourBranch, this.props.theirBranch)), o.createElement(r.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
         destructive: !0,
-        okButtonText: 'Abort merge'
+        okButtonText: '放弃合并'
       })))
     }
   }
@@ -54654,7 +54654,7 @@ module.exports = function (e) {
           }), await this.refreshBranchProtectionState(e), await this._refreshRepository(e), this.updatePushPullFetchProgress(e, {
             kind: 'generic',
             title: d,
-            description: 'Fast-forwarding branches',
+            description: '正在快进分支',
             value: i + .5 * .1
           }), await this.fastForwardBranches(e)
         } finally {
