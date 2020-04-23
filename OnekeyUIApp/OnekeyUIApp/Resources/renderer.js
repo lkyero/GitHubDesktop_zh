@@ -10748,7 +10748,7 @@ module.exports = function (e) {
     value: !0
   });
   const n = ['.cmd', '.exe', '.bat', '.sh'];
-  t.CopyFilePathLabel = '复制文件路径', t.DefaultEditorLabel = '在外部编辑器中打开', t.RevealInFileManagerLabel = '在资源管理器中显示', t.TrashNameLabel = 'Recycle Bin', t.OpenWithDefaultProgramLabel = '用默认程序打开', t.isSafeFileExtension = function (e) {
+  t.CopyFilePathLabel = '复制文件路径', t.DefaultEditorLabel = '在外部编辑器中打开', t.RevealInFileManagerLabel = '在资源管理器中显示', t.TrashNameLabel = '回收站', t.OpenWithDefaultProgramLabel = '用默认程序打开', t.isSafeFileExtension = function (e) {
     return -1 === n.indexOf(e.toLowerCase())
   }
 }, function (e, t, n) {
@@ -18108,58 +18108,58 @@ module.exports = function (e) {
   (function (e) {
     e[e.SSHKeyAuditUnverified = 0] = 'SSHKeyAuditUnverified', e[e.SSHAuthenticationFailed = 1] = 'SSHAuthenticationFailed', e[e.SSHPermissionDenied = 2] = 'SSHPermissionDenied', e[e.HTTPSAuthenticationFailed = 3] = 'HTTPSAuthenticationFailed', e[e.RemoteDisconnection = 4] = 'RemoteDisconnection', e[e.HostDown = 5] = 'HostDown', e[e.RebaseConflicts = 6] = 'RebaseConflicts', e[e.MergeConflicts = 7] = 'MergeConflicts', e[e.HTTPSRepositoryNotFound = 8] = 'HTTPSRepositoryNotFound', e[e.SSHRepositoryNotFound = 9] = 'SSHRepositoryNotFound', e[e.PushNotFastForward = 10] = 'PushNotFastForward', e[e.BranchDeletionFailed = 11] = 'BranchDeletionFailed', e[e.DefaultBranchDeletionFailed = 12] = 'DefaultBranchDeletionFailed', e[e.RevertConflicts = 13] = 'RevertConflicts', e[e.EmptyRebasePatch = 14] = 'EmptyRebasePatch', e[e.NoMatchingRemoteBranch = 15] = 'NoMatchingRemoteBranch', e[e.NoExistingRemoteBranch = 16] = 'NoExistingRemoteBranch', e[e.NothingToCommit = 17] = 'NothingToCommit', e[e.NoSubmoduleMapping = 18] = 'NoSubmoduleMapping', e[e.SubmoduleRepositoryDoesNotExist = 19] = 'SubmoduleRepositoryDoesNotExist', e[e.InvalidSubmoduleSHA = 20] = 'InvalidSubmoduleSHA', e[e.LocalPermissionDenied = 21] = 'LocalPermissionDenied', e[e.InvalidMerge = 22] = 'InvalidMerge', e[e.InvalidRebase = 23] = 'InvalidRebase', e[e.NonFastForwardMergeIntoEmptyHead = 24] = 'NonFastForwardMergeIntoEmptyHead', e[e.PatchDoesNotApply = 25] = 'PatchDoesNotApply', e[e.BranchAlreadyExists = 26] = 'BranchAlreadyExists', e[e.BadRevision = 27] = 'BadRevision', e[e.NotAGitRepository = 28] = 'NotAGitRepository', e[e.CannotMergeUnrelatedHistories = 29] = 'CannotMergeUnrelatedHistories', e[e.LFSAttributeDoesNotMatch = 30] = 'LFSAttributeDoesNotMatch', e[e.BranchRenameFailed = 31] = 'BranchRenameFailed', e[e.PathDoesNotExist = 32] = 'PathDoesNotExist', e[e.InvalidObjectName = 33] = 'InvalidObjectName', e[e.OutsideRepository = 34] = 'OutsideRepository', e[e.LockFileAlreadyExists = 35] = 'LockFileAlreadyExists', e[e.NoMergeToAbort = 36] = 'NoMergeToAbort', e[e.LocalChangesOverwritten = 37] = 'LocalChangesOverwritten', e[e.UnresolvedConflicts = 38] = 'UnresolvedConflicts', e[e.PushWithFileSizeExceedingLimit = 39] = 'PushWithFileSizeExceedingLimit', e[e.HexBranchNameRejected = 40] = 'HexBranchNameRejected', e[e.ForcePushRejected = 41] = 'ForcePushRejected', e[e.InvalidRefLength = 42] = 'InvalidRefLength', e[e.ProtectedBranchRequiresReview = 43] = 'ProtectedBranchRequiresReview', e[e.ProtectedBranchForcePush = 44] = 'ProtectedBranchForcePush', e[e.ProtectedBranchDeleteRejected = 45] = 'ProtectedBranchDeleteRejected', e[e.ProtectedBranchRequiredStatus = 46] = 'ProtectedBranchRequiredStatus', e[e.PushWithPrivateEmail = 47] = 'PushWithPrivateEmail', e[e.ConfigLockFileAlreadyExists = 48] = 'ConfigLockFileAlreadyExists', e[e.RemoteAlreadyExists = 49] = 'RemoteAlreadyExists'
   })(n = t.GitError || (t.GitError = {})), t.GitErrorRegexes = {
-    "ERROR: ([\\s\\S]+?)\\n+\\[EPOLICYKEYAGE\\]\\n+fatal: Could not read from remote repository.": n.SSHKeyAuditUnverified,
-    "fatal: Authentication failed for 'https://": n.HTTPSAuthenticationFailed,
-    "fatal: Authentication failed": n.SSHAuthenticationFailed,
-    "fatal: Could not read from remote repository.": n.SSHPermissionDenied,
+    "错误: ([\\s\\S]+?)\\n+\\[EPOLICYKEYAGE\\]\\n+致命: Could not read from remote repository.": n.SSHKeyAuditUnverified,
+    "致命: Authentication failed for 'https://": n.HTTPSAuthenticationFailed,
+    "致命: Authentication failed": n.SSHAuthenticationFailed,
+    "致命: Could not read from remote repository.": n.SSHPermissionDenied,
     "The requested URL returned error: 403": n.HTTPSAuthenticationFailed,
-    "fatal: The remote end hung up unexpectedly": n.RemoteDisconnection,
-    "fatal: unable to access '(.+)': Failed to connect to (.+): Host is down": n.HostDown,
+    "致命: The remote end hung up unexpectedly": n.RemoteDisconnection,
+    "致命: unable to access '(.+)': Failed to connect to (.+): Host is down": n.HostDown,
     "Cloning into '(.+)'...\nfatal: unable to access '(.+)': Could not resolve host: (.+)": n.HostDown,
     "Failed to merge in the changes.": n.RebaseConflicts,
     "(Merge conflict|Automatic merge failed; fix conflicts and then commit the result)": n.MergeConflicts,
-    "fatal: repository '(.+)' not found": n.HTTPSRepositoryNotFound,
-    "ERROR: Repository not found": n.SSHRepositoryNotFound,
+    "致命: repository '(.+)' not found": n.HTTPSRepositoryNotFound,
+    "错误: Repository not found": n.SSHRepositoryNotFound,
     "\\((non-fast-forward|fetch first)\\)\nerror: failed to push some refs to '.*'": n.PushNotFastForward,
-    "error: unable to delete '(.+)': remote ref does not exist": n.BranchDeletionFailed,
+    "错误: unable to delete '(.+)': remote ref does not exist": n.BranchDeletionFailed,
     "\\[remote rejected\\] (.+) \\(deletion of the current branch prohibited\\)": n.DefaultBranchDeletionFailed,
-    "error: could not revert .*\nhint: after resolving the conflicts, mark the corrected paths\nhint: with 'git add <paths>' or 'git rm <paths>'\nhint: and commit the result with 'git commit'": n.RevertConflicts,
+    "错误: could not revert .*\nhint: after resolving the conflicts, mark the corrected paths\nhint: with 'git add <paths>' or 'git rm <paths>'\nhint: and commit the result with 'git commit'": n.RevertConflicts,
     "Applying: .*\nNo changes - did you forget to use 'git add'\\?\nIf there is nothing left to stage, chances are that something else\n.*": n.EmptyRebasePatch,
     "There are no candidates for (rebasing|merging) among the refs that you just fetched.\nGenerally this means that you provided a wildcard refspec which had no\nmatches on the remote end.": n.NoMatchingRemoteBranch,
     "Your configuration specifies to merge with the ref '(.+)'\nfrom the remote, but no such ref was fetched.": n.NoExistingRemoteBranch,
     "nothing to commit": n.NothingToCommit,
     "No submodule mapping found in .gitmodules for path '(.+)'": n.NoSubmoduleMapping,
-    "fatal: repository '(.+)' does not exist\nfatal: clone of '.+' into submodule path '(.+)' failed": n.SubmoduleRepositoryDoesNotExist,
+    "致命: repository '(.+)' does not exist\nfatal: clone of '.+' into submodule path '(.+)' failed": n.SubmoduleRepositoryDoesNotExist,
     "Fetched in submodule path '(.+)', but it did not contain (.+). Direct fetching of that commit failed.": n.InvalidSubmoduleSHA,
-    "fatal: could not create work tree dir '(.+)'.*: Permission denied": n.LocalPermissionDenied,
+    "致命: could not create work tree dir '(.+)'.*: Permission denied": n.LocalPermissionDenied,
     "merge: (.+) - not something we can merge": n.InvalidMerge,
     "invalid upstream (.+)": n.InvalidRebase,
-    "fatal: Non-fast-forward commit does not make sense into an empty head": n.NonFastForwardMergeIntoEmptyHead,
-    "error: (.+): (patch does not apply|already exists in working directory)": n.PatchDoesNotApply,
-    "fatal: A branch named '(.+)' already exists.": n.BranchAlreadyExists,
-    "fatal: bad revision '(.*)'": n.BadRevision,
-    "fatal: [Nn]ot a git repository \\(or any of the parent directories\\): (.*)": n.NotAGitRepository,
-    "fatal: refusing to merge unrelated histories": n.CannotMergeUnrelatedHistories,
+    "致命: Non-fast-forward commit does not make sense into an empty head": n.NonFastForwardMergeIntoEmptyHead,
+    "错误: (.+): (patch does not apply|already exists in working directory)": n.PatchDoesNotApply,
+    "致命: A branch named '(.+)' already exists.": n.BranchAlreadyExists,
+    "致命: bad revision '(.*)'": n.BadRevision,
+    "致命: [Nn]ot a git repository \\(or any of the parent directories\\): (.*)": n.NotAGitRepository,
+    "致命: refusing to merge unrelated histories": n.CannotMergeUnrelatedHistories,
     "The .+ attribute should be .+ but is .+": n.LFSAttributeDoesNotMatch,
-    "fatal: Branch rename failed": n.BranchRenameFailed,
-    "fatal: Path '(.+)' does not exist .+": n.PathDoesNotExist,
-    "fatal: Invalid object name '(.+)'.": n.InvalidObjectName,
-    "fatal: .+: '(.+)' is outside repository": n.OutsideRepository,
+    "致命: Branch rename failed": n.BranchRenameFailed,
+    "致命: Path '(.+)' does not exist .+": n.PathDoesNotExist,
+    "致命: Invalid object name '(.+)'.": n.InvalidObjectName,
+    "致命: .+: '(.+)' is outside repository": n.OutsideRepository,
     "Another git process seems to be running in this repository, e.g.": n.LockFileAlreadyExists,
-    "fatal: There is no merge to abort": n.NoMergeToAbort,
-    "error: (?:Your local changes to the following|The following untracked working tree) files would be overwritten by checkout:": n.LocalChangesOverwritten,
-    "You must edit all merge conflicts and then\nmark them as resolved using git add": n.UnresolvedConflicts,
-    "error: GH001: ": n.PushWithFileSizeExceedingLimit,
-    "error: GH002: ": n.HexBranchNameRejected,
-    "error: GH003: Sorry, force-pushing to (.+) is not allowed.": n.ForcePushRejected,
-    "error: GH005: Sorry, refs longer than (.+) bytes are not allowed": n.InvalidRefLength,
-    "error: GH006: Protected branch update failed for (.+)\nremote: error: At least one approved review is required": n.ProtectedBranchRequiresReview,
-    "error: GH006: Protected branch update failed for (.+)\nremote: error: Cannot force-push to a protected branch": n.ProtectedBranchForcePush,
-    "error: GH006: Protected branch update failed for (.+)\nremote: error: Cannot delete a protected branch": n.ProtectedBranchDeleteRejected,
-    'error: GH006: Protected branch update failed for (.+).\nremote: error: Required status check "(.+)" is expected': n.ProtectedBranchRequiredStatus,
-    "error: GH007: Your push would publish a private email address.": n.PushWithPrivateEmail,
-    "error: could not lock config file (.+): File exists": n.ConfigLockFileAlreadyExists,
-    "fatal: remote (.+) already exists.": n.RemoteAlreadyExists
+    "致命: There is no merge to abort": n.NoMergeToAbort,
+    "错误: (?:你在本地改动的以下|以下未跟踪的工作树) 文件会在检出时被覆盖:": n.LocalChangesOverwritten,
+    "你需要修改好所有合并冲突，\n并使用 git add 标记它们为以解决": n.UnresolvedConflicts,
+    "错误: GH001: ": n.PushWithFileSizeExceedingLimit,
+    "错误: GH002: ": n.HexBranchNameRejected,
+    "错误: GH003: Sorry, force-pushing to (.+) is not allowed.": n.ForcePushRejected,
+    "错误: GH005: Sorry, refs longer than (.+) bytes are not allowed": n.InvalidRefLength,
+    "错误: GH006: Protected branch update failed for (.+)\nremote: 错误: At least one approved review is required": n.ProtectedBranchRequiresReview,
+    "错误: GH006: Protected branch update failed for (.+)\nremote: 错误: Cannot force-push to a protected branch": n.ProtectedBranchForcePush,
+    "错误: GH006: Protected branch update failed for (.+)\nremote: 错误: Cannot delete a protected branch": n.ProtectedBranchDeleteRejected,
+    '错误: GH006: Protected branch update failed for (.+).\nremote: 错误: Required status check "(.+)" is expected': n.ProtectedBranchRequiredStatus,
+    "错误: GH007: Your push would publish a private email address.": n.PushWithPrivateEmail,
+    "错误: could not lock config file (.+): File exists": n.ConfigLockFileAlreadyExists,
+    "致命: remote (.+) already exists.": n.RemoteAlreadyExists
   }, t.GitNotFoundErrorCode = 'git-not-found-error', t.RepositoryDoesNotExistErrorCode = 'repository-does-not-exist-error'
 }, function (e, t, n) {
   'use strict';
@@ -40625,11 +40625,11 @@ module.exports = function (e) {
         l = this.getMenuItemInfo(d);
       return void 0 === l ? (log.error(`找不到与${d}匹配的菜单项`), null) : s.createElement(m.MenuBackedSuggestedAction, {
         key: 'view-stash-action',
-        title: '查看隐藏的更改 View your stashed changes',
+        title: '查看隐藏的更改',
         menuItemId: d,
         description: i,
         discoverabilityContent: a,
-        buttonText: 'View stash',
+        buttonText: '查看贮藏',
         type: 'primary',
         disabled: null !== l && !l.enabled,
         onClick: this.onViewStashClicked
@@ -40645,7 +40645,7 @@ module.exports = function (e) {
         title: '将存储库发布到GitHub',
         description: '此存储库当前仅在本地计算机上可用。通过在github上发布它，您可以共享它，并与其他人协作。',
         discoverabilityContent: n,
-        buttonText: '发布存储库 Publish repository',
+        buttonText: '发布存储库',
         menuItemId: e,
         type: 'primary',
         disabled: !t.enabled,
@@ -40657,15 +40657,15 @@ module.exports = function (e) {
         n = this.getMenuItemInfo(t);
       if (void 0 === n) return log.error(`找不到与${t}匹配的菜单项`), null;
       const o = null !== this.props.repository.gitHubRepository,
-        r = s.createElement(s.Fragment, null, '当前分支(', s.createElement(g.Ref, null, e.branch.name), ')尚未发布到远程。通过发布它', o ? '至Github' : '', '你可以分享它, ', o ? '打开 pull request, ' : '', '与他人合作。'),
+        r = s.createElement(s.Fragment, null, '当前分支(', s.createElement(g.Ref, null, e.branch.name), ')尚未发布到远程。通过发布', o ? '至Github' : '', '你可以分享它, ', o ? '打开合并请求, ' : '', '与他人合作。'),
         i = s.createElement(s.Fragment, null, '在工具栏中可访问或快捷键', ' ', this.renderDiscoverabilityKeyboardShortcut(n));
       return s.createElement(m.MenuBackedSuggestedAction, {
         key: 'publish-branch-action',
-        title: '发布你的分支 Publish your branch',
+        title: '发布你的分支',
         menuItemId: t,
         description: r,
         discoverabilityContent: i,
-        buttonText: '发布分支 Publish branch',
+        buttonText: '发布分支',
         type: 'primary',
         disabled: !n.enabled,
         onClick: this.onPublishBranchClicked
@@ -40676,10 +40676,10 @@ module.exports = function (e) {
         r = this.getMenuItemInfo(o);
       if (void 0 === r) return log.error(`找不到与${o}匹配的菜单项`), null;
       const i = null !== this.props.repository.gitHubRepository,
-        a = s.createElement(s.Fragment, null, '当前分支(', s.createElement(g.Ref, null, e.branch.name), ') 有', ' ', 1 === n.behind ? 'a commit' : 'commits', ' 至远程', ' ', i ? 'GitHub' : '但', ' ', ' ', 1 === n.behind ? '不' : '不', ' 存在与你的机器'),
-        d = s.createElement(s.Fragment, null, '当有远程更改时可在工具栏中访问或快捷键', ' ', this.renderDiscoverabilityKeyboardShortcut(r)),
-        l = `Pull ${n.behind} ${1===n.behind?'commit':'commits'} from the ${t.name} remote`,
-        c = `Pull ${t.name}`;
+        a = s.createElement(s.Fragment, null, '当前分支 ( ', s.createElement(g.Ref, null, e.branch.name), ') 在远端有', ' ', 1 === n.behind ? '1 个新提交' : '新个提交', '尚', '', i ? 'GitHub' : '', '', '', 1 === n.behind ? '未' : '未', '更新到本地'),
+        d = s.createElement(s.Fragment, null, '当远端有更新时可通过工具栏中访问，或使用快捷键', ' ', this.renderDiscoverabilityKeyboardShortcut(r)),
+        l = `从远端 ${t.name} 拉取 ${n.behind} 次${1===n.behind?'提交':'提交'}`,
+        c = `拉取 ${t.name}`;
       return s.createElement(m.MenuBackedSuggestedAction, {
         key: 'pull-branch-action',
         title: l,
@@ -40756,7 +40756,7 @@ module.exports = function (e) {
         className: 'header'
       }, s.createElement('div', {
         className: 'text'
-      }, s.createElement('h1', null, '无本地更改'), s.createElement('p', null, '此存储库中没有未提交的更改。下面是一些友好的建议。')), s.createElement('img', {
+      }, s.createElement('h1', null, '无本地更改'), s.createElement('p', null, '此存储库中没有未提交的更改。下面是一些使用建议。')), s.createElement('img', {
         src: b,
         className: 'blankslate-image'
       })), this.renderActions()))
