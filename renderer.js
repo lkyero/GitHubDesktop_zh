@@ -16576,7 +16576,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(53);
-  t.UpstreamRemoteName = '上游', t.findUpstreamRemote = function (e, n) {
+  t.UpstreamRemoteName = 'upstream', t.findUpstreamRemote = function (e, n) {
     const r = n.find((e) => e.name === t.UpstreamRemoteName);
     return r ? o.repositoryMatchesRemote(e, r) ? r : null : null
   }
