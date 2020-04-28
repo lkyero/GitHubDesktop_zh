@@ -2174,7 +2174,7 @@ module.exports = function (e) {
   const r = t(4);
   n.reportError = async function (e, n, t) {
     const o = new Map;
-    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', 'aae6e805988e533e82922f077d4ac1ddb2aff5cd'), o.set('version', r.app.getVersion()), n)
+    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', 'aee5caae5dd9ad3ea5891bef59c293fe244aa6dc'), o.set('version', r.app.getVersion()), n)
       for (const e of Object.keys(n)) o.set(e, n[e]);
     const i = {
         method: 'POST',
@@ -2334,7 +2334,7 @@ module.exports = function (e) {
     value: !0
   });
   const t = /[\x00-\x20\x7F~^:?*\[\\|""<>]+|@{|\.\.+|^\.|\.$|\.lock$|\/$/g;
-  n.sanitizedBranchName = function (e) {
+  n.sanitizedRefName = function (e) {
     return e.replace(t, '-').replace(/^[-\+]*/g, '')
   }, n.testForInvalidChars = function (e) {
     return t.test(e)
@@ -2543,6 +2543,8 @@ module.exports = function (e) {
     return r()
   }, n.enableGitTagsDisplay = function () {
     return t()  
+  }, n.enableGitTagsCreation = function () {
+    return t()
   }
 }, function (e, n) {
   'use strict';
