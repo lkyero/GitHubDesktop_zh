@@ -423,10 +423,10 @@ module.exports = function (e) {
         return await h.parsedResponse(i)
       } catch (n) {
         if (n instanceof h.APIError) {
-          if (null !== t) throw new Error(`Unable to create repository for organization '${t.login}'. Verify that it exists, that it's a paid organization, and that you have permission to create a repository there.`);
+          if (null !== t) throw new Error(`无法为组织 '${t.login}' 创建存储库。请检查该组织是否存在，是否要付费，以及你是否有对应权限。`);
           throw n
         }
-        throw log.error(`createRepository: failed with endpoint ${this.endpoint}`, n), new Error(`Unable to publish repository. Please check if you have an internet connection and try again.`)
+        throw log.error(`createRepository: failed with endpoint ${this.endpoint}`, n), new Error(`无法发布存储库。请检查网络连接是否正常。`)
       }
     }
     async forkRepository(t, n) {
@@ -14780,30 +14780,30 @@ module.exports = function (e) {
       className: 'warning-helper-text'
     }, o.createElement(a.Octicon, {
       symbol: a.OcticonSymbol.alert
-    }), o.createElement('p', null, o.createElement(s.Ref, null, e), ' is not a valid branch name.')) : e === t ? null : o.createElement(i.Row, {
+    }), o.createElement('p', null, o.createElement(s.Ref, null, e), ' 不是有效的分支名称。')) : e === t ? null : o.createElement(i.Row, {
       className: 'warning-helper-text'
     }, o.createElement(a.Octicon, {
       symbol: a.OcticonSymbol.alert
-    }), o.createElement('p', null, 'Will be created as ', o.createElement(s.Ref, null, t), '.'))
+    }), o.createElement('p', null, '将会创建为 ', o.createElement(s.Ref, null, t), '.'))
   }, t.renderBranchHasRemoteWarning = function (e) {
     return null == e.upstream ? null : o.createElement(i.Row, {
       className: 'warning-helper-text'
     }, o.createElement(a.Octicon, {
       symbol: a.OcticonSymbol.alert
-    }), o.createElement('p', null, 'This branch is tracking ', o.createElement(s.Ref, null, e.upstream), ' and renaming this branch will not change the branch name on the remote.'))
+    }), o.createElement('p', null, '该分支正在追踪 ', o.createElement(s.Ref, null, e.upstream), ' ，保留该分支将不会影响到远端分支的名称。'))
   }, t.renderBranchNameExistsOnRemoteWarning = function (e, t) {
     const n = -1 < t.findIndex((t) => t.nameWithoutRemote === e && t.type === r.BranchType.Remote);
     return !1 == n ? null : o.createElement(i.Row, {
       className: 'warning-helper-text'
     }, o.createElement(a.Octicon, {
       symbol: a.OcticonSymbol.alert
-    }), o.createElement('p', null, 'A branch named ', o.createElement(s.Ref, null, e), ' already exists on the remote.'))
+    }), o.createElement('p', null, '分支 ', o.createElement(s.Ref, null, e), ' 在远端已存在。'))
   }, t.renderStashWillBeLostWarning = function (e) {
     return null === e ? null : o.createElement(i.Row, {
       className: 'warning-helper-text'
     }, o.createElement(a.Octicon, {
       symbol: a.OcticonSymbol.alert
-    }), o.createElement('p', null, 'Your current stashed changes on this branch will no longer be visible in GitHub Desktop if the branch is renamed.'))
+    }), o.createElement('p', null, '如果分支名称变更，你当前贮藏的变更将不再可见。'))
   }
 }, function (e, t) {
   'use strict';
@@ -33120,7 +33120,7 @@ module.exports = function (e) {
       e.push(o.createElement('option', {
         value: -1,
         key: -1
-      }, 'None'));
+      }, '无'));
       let t = -1;
       const n = this.props.settings.org;
       for (const [r, i] of this.state.orgs.entries()) n && n.id === i.id && (t = r), e.push(o.createElement('option', {
@@ -33135,18 +33135,18 @@ module.exports = function (e) {
     }
     render() {
       return o.createElement(s.DialogContent, null, o.createElement(d.Row, null, o.createElement(i.TextBox, {
-        label: 'Name',
+        label: '名称',
         value: this.name,
         onValueChanged: this.onNameChange
       })), this.renderSanitizedName(), o.createElement(d.Row, null, o.createElement(i.TextBox, {
-        label: 'Description',
+        label: '描述',
         value: this.props.settings.description,
         onValueChanged: this.onDescriptionChange
       })), o.createElement(d.Row, null, o.createElement('label', null, o.createElement('input', {
         type: 'checkbox',
         checked: this.props.settings.private,
         onChange: this.onPrivateChange
-      }), 'Keep this code private')), this.renderOrgs())
+      }), '这是私有代码库')), this.renderOrgs())
     }
     renderSanitizedName() {
       const e = this.props.settings.name;
@@ -33154,7 +33154,7 @@ module.exports = function (e) {
         className: 'warning-helper-text'
       }, o.createElement(u.Octicon, {
         symbol: u.OcticonSymbol.alert
-      }), 'Will be created as ', e)
+      }), '将会创建为 ', e)
     }
   }
   t.PublishRepository = m
@@ -33277,7 +33277,7 @@ module.exports = function (e) {
       const e = this.getCurrentTabState();
       return o.createElement(i.Dialog, {
         id: 'publish-repository',
-        title: 'Publish repository',
+        title: '发布存储库',
         onDismissed: this.props.onDismissed,
         onSubmit: this.publishRepository,
         disabled: this.state.publishing,
@@ -33285,7 +33285,7 @@ module.exports = function (e) {
       }, o.createElement(a.TabBar, {
         onTabClicked: this.onTabClicked,
         selectedIndex: this.state.currentTab
-      }, o.createElement('span', null, 'GitHub.com'), o.createElement('span', null, 'GitHub Enterprise Server')), e.error ? o.createElement(i.DialogError, null, e.error.message) : null, this.renderContent(), this.renderFooter())
+      }, o.createElement('span', null, 'GitHub.com'), o.createElement('span', null, 'GitHub 企业版服务器')), e.error ? o.createElement(i.DialogError, null, e.error.message) : null, this.renderContent(), this.renderFooter())
     }
     async componentDidMount() {
       const e = this.getCurrentTabState();
@@ -34711,7 +34711,7 @@ module.exports = function (e) {
         className: 'warning-helper-text'
       }, r.createElement(v.Octicon, {
         symbol: v.OcticonSymbol.alert
-      }), 'Will be created as ', e)
+      }), '将会创建为 ', e)
     }
     renderGitIgnores() {
       const e = this.state.gitIgnoreNames || [],
