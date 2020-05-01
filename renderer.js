@@ -55,7 +55,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(502)), o(n(501)), o(n(499)), o(n(205)), o(n(7)), o(n(498))
+  }), o(n(502)), o(n(501)), o(n(499)), o(n(206)), o(n(7)), o(n(498))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -63,7 +63,7 @@ module.exports = function (e) {
   });
   var o = n(619);
   t.Octicon = o.Octicon;
-  var r = n(231);
+  var r = n(232);
   t.OcticonSymbol = r.OcticonSymbol;
   var i = n(618);
   t.iconForRepository = i.iconForRepository;
@@ -163,7 +163,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(229),
+  var o = n(230),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -322,10 +322,10 @@ module.exports = function (e) {
   const p = n(60),
     u = n(42),
     m = n(133),
-    h = n(177),
-    f = n(176),
-    g = n(105),
-    y = n(104),
+    h = n(178),
+    f = n(177),
+    g = n(106),
+    y = n(105),
     S = n(132),
     C = process.env.DESKTOP_GITHUB_DOTCOM_API_ENDPOINT,
     b = n(765),
@@ -674,7 +674,7 @@ module.exports = function (e) {
   const a = n(34),
     s = n(2),
     d = n(10),
-    l = n(170),
+    l = n(171),
     c = n(1),
     p = n(82),
     u = n(266);
@@ -766,7 +766,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(228),
+  var o = n(229),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -831,7 +831,7 @@ module.exports = function (e) {
     i = o(r),
     a = n(585),
     s = o(a),
-    d = n(228),
+    d = n(229),
     l = o(d);
   t.default = function (e, t) {
     if ('function' != typeof t && null !== t) throw new TypeError('Super expression must either be null or a function, not ' + ('undefined' == typeof t ? 'undefined' : (0, l.default)(t)));
@@ -940,7 +940,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(262)), o(n(698)), o(n(694)), o(n(687)), o(n(686)), o(n(82)), o(n(11)), o(n(251)), o(n(169)), o(n(685)), o(n(259)), o(n(21)), o(n(684)), o(n(250)), o(n(683)), o(n(682)), o(n(681)), o(n(258)), o(n(256)), o(n(254)), o(n(166)), o(n(680)), o(n(247)), o(n(257)), o(n(675)), o(n(246)), o(n(674)), o(n(673)), o(n(672)), o(n(670)), o(n(669)), o(n(126)), o(n(667)), o(n(245)), o(n(666)), o(n(665)), o(n(662))
+  }), o(n(262)), o(n(698)), o(n(694)), o(n(687)), o(n(686)), o(n(82)), o(n(11)), o(n(251)), o(n(170)), o(n(685)), o(n(259)), o(n(21)), o(n(684)), o(n(250)), o(n(683)), o(n(682)), o(n(681)), o(n(258)), o(n(256)), o(n(254)), o(n(166)), o(n(680)), o(n(248)), o(n(257)), o(n(675)), o(n(247)), o(n(674)), o(n(673)), o(n(672)), o(n(670)), o(n(669)), o(n(126)), o(n(667)), o(n(246)), o(n(666)), o(n(665)), o(n(662))
 }, function (e) {
   e.exports = require('electron')
 }, function (e, t, n) {
@@ -1415,7 +1415,7 @@ module.exports = function (e) {
     s = n(740),
     d = n(738),
     l = n(737),
-    c = n(174),
+    c = n(175),
     p, u;
   'function' == typeof Symbol && 'function' == typeof Symbol.for ? (p = Symbol.for('graceful-fs.queue'), u = Symbol.for('graceful-fs.previous')) : (p = '___graceful-fs.queue', u = '___graceful-fs.previous');
   var m = function () {};
@@ -1490,7 +1490,7 @@ module.exports = function (e) {
     value: !0
   });
   const a = n(1),
-    s = n(101),
+    s = n(102),
     d = n(18);
   class l {
     constructor(e, t, n, r, i) {
@@ -8180,7 +8180,7 @@ module.exports = function (e) {
   e.exports = require('child_process')
 }, function (e, t, n) {
   (function () {
-    t.Emitter = n(770), t.Disposable = n(178), t.CompositeDisposable = n(769)
+    t.Emitter = n(770), t.Disposable = n(179), t.CompositeDisposable = n(769)
   }).call(this)
 }, function (e, t, n) {
   'use strict';
@@ -8321,7 +8321,7 @@ module.exports = function (e) {
   const a = n(42),
     s = n(1),
     d = n(10),
-    l = n(103),
+    l = n(104),
     c = n(47);
   t.matchGitHubRepository = function (e, t) {
     for (const n of e) {
@@ -8405,8 +8405,8 @@ module.exports = function (e) {
     w = null,
     k = null
 }, function (e, t, n) {
-  var o = n(223)('wks'),
-    r = n(222),
+  var o = n(224)('wks'),
+    r = n(223),
     i = n(118).Symbol;
   e.exports = function (e) {
     return o[e] || (o[e] = i && i[e] || (i || r)('Symbol.' + e))
@@ -8457,7 +8457,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(99),
+  const r = n(100),
     i = n(18),
     a = n(696),
     s = n(10);
@@ -10242,7 +10242,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(5),
     i = n(33),
-    a = n(68),
+    a = n(69),
     s = n(2),
     d = n(465),
     l = n(464),
@@ -10361,7 +10361,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(105),
+  const r = n(106),
     a = new Set;
   t.createUniqueId = function (e) {
     const t = o(`${'__'}${e}`);
@@ -10372,6 +10372,34 @@ module.exports = function (e) {
     return !1, r.uuid()
   }, t.releaseUniqueId = function (e) {
     a.delete(e)
+  }
+}, function (e, t, n) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(643);
+  t.structuralEquals = function (e, t) {
+    return o(e, t, {
+      strict: !0
+    })
+  }, t.shallowEquals = function (e, t) {
+    if (Object.is(e, t)) return !0;
+    if (null === e || null === t || 'object' != typeof e || 'object' != typeof t) return !1;
+    const n = Object.keys(e),
+      o = Object.keys(t);
+    if (n.length !== o.length) return !1;
+    for (let o = 0; o < n.length; o++) {
+      const r = n[o];
+      if (!Object.prototype.hasOwnProperty.call(t, r) || !Object.is(e[r], t[r])) return !1
+    }
+    return !0
+  }, t.arrayEquals = function (e, t) {
+    if (e === t) return !0;
+    if (e.length !== t.length) return !1;
+    for (let n = 0; n < e.length; n++)
+      if (e[n] !== t[n]) return !1;
+    return !0
   }
 }, function (e, t) {
   'use strict';
@@ -10461,8 +10489,8 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(742)), o(n(741)), o(n(633)), o(n(239)), o(n(632)), o(n(631)), o(n(630)), o(n(629)), o(n(264)), o(n(626)), o(n(232));
-  var r = n(237);
+  }), o(n(742)), o(n(741)), o(n(633)), o(n(240)), o(n(632)), o(n(631)), o(n(630)), o(n(629)), o(n(264)), o(n(626)), o(n(233));
+  var r = n(238);
   t.UpstreamRemoteName = r.UpstreamRemoteName
 }, function (e, t, n) {
   e.exports = {
@@ -10780,7 +10808,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(610)), o(n(218))
+  }), o(n(610)), o(n(219))
 }, function (e, t) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -10789,34 +10817,6 @@ module.exports = function (e) {
   const n = ['.cmd', '.exe', '.bat', '.sh'];
   t.CopyFilePathLabel = '复制文件路径', t.DefaultEditorLabel = '在外部编辑器中打开', t.RevealInFileManagerLabel = '在资源管理器中显示', t.TrashNameLabel = 'Recycle Bin', t.OpenWithDefaultProgramLabel = '用默认程序打开', t.isSafeFileExtension = function (e) {
     return -1 === n.indexOf(e.toLowerCase())
-  }
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(643);
-  t.structuralEquals = function (e, t) {
-    return o(e, t, {
-      strict: !0
-    })
-  }, t.shallowEquals = function (e, t) {
-    if (Object.is(e, t)) return !0;
-    if (null === e || null === t || 'object' != typeof e || 'object' != typeof t) return !1;
-    const n = Object.keys(e),
-      o = Object.keys(t);
-    if (n.length !== o.length) return !1;
-    for (let o = 0; o < n.length; o++) {
-      const r = n[o];
-      if (!Object.prototype.hasOwnProperty.call(t, r) || !Object.is(e[r], t[r])) return !1
-    }
-    return !0
-  }, t.arrayEquals = function (e, t) {
-    if (e === t) return !0;
-    if (e.length !== t.length) return !1;
-    for (let n = 0; n < e.length; n++)
-      if (e[n] !== t[n]) return !1;
-    return !0
   }
 }, function (e, t) {
   'use strict';
@@ -10887,14 +10887,14 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(693)), o(n(692)), o(n(691)), o(n(690)), o(n(67)), o(n(689)), o(n(255))
+  }), o(n(693)), o(n(692)), o(n(691)), o(n(690)), o(n(68)), o(n(689)), o(n(255))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(34),
-    r = n(170),
+    r = n(171),
     i = n(266);
   t.spawnAndComplete = function (e, t, n, a, s) {
     const d = `${n}: git ${e.join(' ')}`;
@@ -11101,17 +11101,17 @@ module.exports = function (e) {
   });
   var o = n(503);
   t.PushBranchCommits = o.PushBranchCommits;
-  var r = n(204);
+  var r = n(205);
   t.BranchList = r.BranchList;
   var i = n(496);
   t.BranchesContainer = i.BranchesContainer;
   var a = n(491);
   t.PullRequestBadge = a.PullRequestBadge;
-  var s = n(203);
+  var s = n(204);
   t.groupBranches = s.groupBranches;
-  var d = n(200);
+  var d = n(201);
   t.BranchListItem = d.BranchListItem;
-  var l = n(201);
+  var l = n(202);
   t.renderDefaultBranch = l.renderDefaultBranch
 }, function (e, t, n) {
   'use strict';
@@ -11177,7 +11177,27 @@ module.exports = function (e) {
   }
   t.UiView = i
 }, function (e, t, n) {
-  var o = n(221),
+  'use strict';
+  n.r(t);
+  var o = function (e, t) {
+    return e === t
+  };
+  t['default'] = function (e, t) {
+    void 0 === t && (t = o);
+    var n = [],
+      r = !1,
+      i = function (e, o) {
+        return t(e, n[o])
+      },
+      a = function () {
+        for (var t = arguments.length, o = Array(t), a = 0; a < t; a++) o[a] = arguments[a];
+        return r && s === this && o.length === n.length && o.every(i) ? d : (d = e.apply(this, o), r = !0, s = this, n = o, d)
+      },
+      s, d;
+    return a
+  }
+}, function (e, t, n) {
+  var o = n(222),
     r = n(159);
   e.exports = function (e) {
     return o(r(e))
@@ -11187,7 +11207,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   var o = n(118),
     r = n(45),
-    i = n(230),
+    i = n(231),
     a = 'prototype',
     s = function (e, t, n) {
       var d = e & s.F,
@@ -11436,7 +11456,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(175),
+  const r = n(176),
     i = n(10);
   t.generateGravatarUrl = o, t.getAvatarWithEnterpriseFallback = function (e, t, n) {
     return n === i.getDotComAPIEndpoint() || null === t || 0 === t.length ? e : o(t)
@@ -11454,7 +11474,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(175),
+  const r = n(176),
     i = n(298);
   t.uuid = function () {
     return i({
@@ -11575,7 +11595,7 @@ module.exports = function (e) {
     }
     return i
   };
-  var o = n(179),
+  var o = n(180),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -11586,7 +11606,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(229),
+  var o = n(230),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -11706,7 +11726,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(213)), o(n(515)), o(n(514))
+  }), o(n(214)), o(n(515)), o(n(514))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -11786,26 +11806,6 @@ module.exports = function (e) {
     }
   }
   t.RelativeTime = l
-}, function (e, t, n) {
-  'use strict';
-  n.r(t);
-  var o = function (e, t) {
-    return e === t
-    };
-  t['default'] = function (e, t) {
-    void 0 === t && (t = o);
-    var n = [],
-      r = !1,
-      i = function (e, o) {
-        return t(e, n[o])
-      },
-      a = function () {
-        for (var t = arguments.length, o = Array(t), a = 0; a < t; a++) o[a] = arguments[a];
-        return r && s === this && o.length === n.length && o.every(i) ? d : (d = e.apply(this, o), r = !0, s = this, n = o, d)
-      },
-      s, d;
-    return a
-    }
 }, function (e, t) {
   var o = Math.max,
     r = Math.ceil;
@@ -11972,7 +11972,7 @@ module.exports = function (e) {
   });
   const s = n(0),
     d = n(5),
-    l = n(75),
+    l = n(76),
     c = n(28),
     p = n(19),
     u = n(565);
@@ -12175,7 +12175,7 @@ module.exports = function (e) {
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
     }(n(659));
-  var o = n(243);
+  var o = n(244);
   t.ShellError = o.ShellError
 }, function (e, t) {
   'use strict';
@@ -12234,7 +12234,7 @@ module.exports = function (e) {
     i = n(1),
     a = n(49),
     s = n(702),
-    d = n(168);
+    d = n(169);
   t.getTempFilePath = async function (e) {
     const t = i.join(r.tmpdir(), `${e}-`),
       n = await o.mkdtemp(t);
@@ -12648,7 +12648,7 @@ module.exports = function (e) {
     i = 'last-successful-update-check',
     a = n(49),
     s = n(26),
-    d = n(106),
+    d = n(107),
     l = n(768),
     c = n(767),
     p = n(61);
@@ -12708,7 +12708,7 @@ module.exports = function (e) {
         this.userInitiatedUpdate = !e;
         try {
           r.setFeedURL({
-            url: 'https://central.github.com/api/deployments/desktop/desktop/latest?version=2.4.2&env=production'
+            url: 'https://central.github.com/api/deployments/desktop/desktop/latest?version=2.4.3&env=production'
           }), r.checkForUpdates()
         } catch (t) {
           this.emitError(t)
@@ -12813,7 +12813,7 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(5),
-    a = n(66),
+    a = n(67),
     s = n(2),
     d = n(4);
   class l extends r.Component {
@@ -12965,7 +12965,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(23),
     i = n(4),
-    a = n(73);
+    a = n(74);
   class s extends o.Component {
     render() {
       const e = {
@@ -13151,7 +13151,7 @@ module.exports = function (e) {
   }
   t.FocusContainer = i
 }, function (e, t, n) {
-  var o = n(220);
+  var o = n(221);
   e.exports = function (e) {
     if (!o(e)) throw TypeError(e + ' is not an object!');
     return e
@@ -13163,7 +13163,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   n(600);
-  var o = n(92);
+  var o = n(93);
   o.NodeList = o.HTMLCollection = o.Array
 }, function (e, t, n) {
   var o = n(37).setDesc,
@@ -13192,7 +13192,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   var o = n(37),
     r = n(155);
-  e.exports = n(224) ? function (e, t, n) {
+  e.exports = n(225) ? function (e, t, n) {
     return o.setDesc(e, t, r(1, n))
   } : function (e, t, n) {
     return e[t] = n, e
@@ -13200,7 +13200,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   var o = n(603)(!0);
-  n(227)(String, 'String', function (e) {
+  n(228)(String, 'String', function (e) {
     this._t = e + '', this._i = 0
   }, function () {
     var e = this._t,
@@ -13215,7 +13215,7 @@ module.exports = function (e) {
     })
   })
 }, function (e, t, n) {
-  var o = n(93),
+  var o = n(94),
     r = n(45),
     i = n(117);
   e.exports = function (e, t) {
@@ -13368,6 +13368,27 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
+
+  function o(e) {
+    const t = [];
+    for (const n of e)
+      if (r.isCoAuthoredByTrailer(n)) {
+        const e = i.GitAuthor.parse(n.value);
+        e && t.push(e)
+      } return t
+  }
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const r = n(126),
+    i = n(249);
+  t.Commit = class {
+    constructor(e, t, n, r, i, a, s, d, l) {
+      this.sha = e, this.shortSha = t, this.summary = n, this.body = r, this.author = i, this.committer = a, this.parentSHAs = s, this.trailers = d, this.tags = l, this.coAuthors = o(d), this.authoredByCommitter = this.author.name === this.committer.name && this.author.email === this.committer.email
+    }
+  }
+}, function (e, t, n) {
+  'use strict';
   async function o(e, t, n = {}) {
     if (t.length) {
       const o = ['update-index'];
@@ -13412,7 +13433,7 @@ module.exports = function (e) {
     })
   }
   var i = n(285),
-    a = n(174),
+    a = n(175),
     s = n(701);
   e.exports = function (t, n) {
     return e.exports.createStream(t, n)
@@ -13773,7 +13794,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var r = n(179),
+  var r = n(180),
     i = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -13877,7 +13898,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(334)), o(n(333)), o(n(332)), o(n(233))
+  }), o(n(334)), o(n(333)), o(n(332)), o(n(234))
 }, function (e, t, n) {
   'use strict';
 
@@ -13918,10 +13939,10 @@ module.exports = function (e) {
     p = n(1),
     u = n(26),
     m = n(4),
-    h = n(73),
+    h = n(74),
     f = n(252),
-    g = n(76),
-    y = n(113),
+    g = n(77),
+    y = n(114),
     S = n(22),
     C = n(14),
     b = n(12),
@@ -14143,10 +14164,10 @@ module.exports = function (e) {
     a = n(119),
     s = n(10),
     d = n(413),
-    l = n(115),
+    l = n(91),
     c = n(14),
     p = n(4),
-    u = n(94),
+    u = n(95),
     m = n(12),
     h = n(24);
   class f extends i.PureComponent {
@@ -14269,7 +14290,7 @@ module.exports = function (e) {
     i = n(5),
     a = n(4),
     s = n(455),
-    d = n(214);
+    d = n(215);
   t.friendlyAcceleratorText = o;
   class l extends r.Component {
     getIcon(e) {
@@ -14345,9 +14366,9 @@ module.exports = function (e) {
   });
   const s = n(0),
     d = n(5),
-    l = n(75),
+    l = n(76),
     c = n(129),
-    p = n(191),
+    p = n(192),
     u = 30,
     m = 10;
   t.getListHeight = r, t.getRowHeight = i;
@@ -14445,7 +14466,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(192),
+    i = n(193),
     a = 300;
   class s extends r.Component {
     constructor(e) {
@@ -14578,7 +14599,7 @@ module.exports = function (e) {
     i = n(2),
     a = n(462),
     s = n(461),
-    d = n(68);
+    d = n(69);
   class l extends o.Component {
     constructor() {
       super(...arguments), this.onEndpointEntered = (e) => {
@@ -14648,7 +14669,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(4),
     i = n(2),
-    a = n(111),
+    a = n(112),
     s = n(473),
     d = n(5);
   class l extends o.Component {
@@ -14771,7 +14792,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(474)), o(n(111)), o(n(196)), o(n(472)), o(n(471));
+  }), o(n(474)), o(n(112)), o(n(197)), o(n(472)), o(n(471));
   var r = n(470);
   t.RevertProgress = r.RevertProgress
 }, function (e, t, n) {
@@ -14835,7 +14856,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(62),
     i = n(4),
-    a = n(94);
+    a = n(95);
   class s extends o.Component {
     render() {
       const e = this.props.lastCommitDate,
@@ -14868,7 +14889,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(200);
+    r = n(201);
   t.renderDefaultBranch = function (e, t, n) {
     const i = e.branch,
       a = i.tip,
@@ -15001,7 +15022,7 @@ module.exports = function (e) {
     i = n(2),
     a = n(119),
     s = n(14),
-    d = n(203),
+    d = n(204),
     l = n(497);
   class c extends r.Component {
     constructor(e) {
@@ -15079,29 +15100,43 @@ module.exports = function (e) {
   'use strict';
 
   function o(e) {
-    return r.createElement(r.Fragment, null, ` • `, r.createElement(s.RelativeTime, {
+    return i.createElement(i.Fragment, null, ` • `, i.createElement(d.RelativeTime, {
       date: e,
       abbreviate: !0
+    }))
+  }
+
+  function r(e) {
+    if (0 === e.length) return null;
+    const [t] = e;
+    return i.createElement('span', {
+      className: 'tag-indicator'
+    }, i.createElement('span', {
+      className: 'tag-name',
+      key: t
+    }, t), 1 < e.length && i.createElement('span', {
+      key: e.length,
+      className: 'tag-indicator-more'
     }))
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(0),
-    i = n(211),
-    a = n(89),
-    s = n(114),
-    d = n(10),
-    l = n(22),
-    c = n(26),
-    p = n(208),
+  const i = n(0),
+    a = n(212),
+    s = n(89),
+    d = n(115),
+    l = n(10),
+    c = n(22),
+    p = n(26),
     u = n(209),
-    m = n(4),
-    h = n(18);
-  class f extends r.Component {
+    m = n(210),
+    h = n(4),
+    f = n(18);
+  class g extends i.Component {
     constructor(e) {
       super(e), this.onCopySHA = () => {
-        l.clipboard.writeText(this.props.commit.sha)
+        c.clipboard.writeText(this.props.commit.sha)
       }, this.onViewOnGitHub = () => {
         this.props.onViewCommitOnGitHub && this.props.onViewCommitOnGitHub(this.props.commit.sha)
       }, this.onCreateTag = () => {
@@ -15110,7 +15145,7 @@ module.exports = function (e) {
         e.preventDefault();
         let t = '在GitHub上查看';
         const n = this.props.gitHubRepository;
-        n && n.endpoint !== d.getDotComAPIEndpoint() && (t = 'View on GitHub Enterprise');
+        n && n.endpoint !== l.getDotComAPIEndpoint() && (t = 'View on GitHub Enterprise');
         const o = [{
           label: '还原此次提交',
           action: () => {
@@ -15118,7 +15153,7 @@ module.exports = function (e) {
           },
           enabled: this.props.onRevertCommit !== void 0
         }];
-        h.enableGitTagsCreation() && o.push({
+        f.enableGitTagsCreation() && o.push({
           label: 'Create Tag\u2026',
           action: this.onCreateTag,
           enabled: this.props.onCreateTag !== void 0
@@ -15131,14 +15166,14 @@ module.exports = function (e) {
           label: t,
           action: this.onViewOnGitHub,
           enabled: !this.props.isLocal && !!n
-        }), c.showContextualMenu(o)
+        }), p.showContextualMenu(o)
       }, this.state = {
-        avatarUsers: i.getAvatarUsersForCommit(e.gitHubRepository, e.gitHubUsers, e.commit)
+        avatarUsers: a.getAvatarUsersForCommit(e.gitHubRepository, e.gitHubUsers, e.commit)
       }
     }
     componentWillReceiveProps(e) {
       e.commit !== this.props.commit && this.setState({
-        avatarUsers: i.getAvatarUsersForCommit(e.gitHubRepository, e.gitHubUsers, e.commit)
+        avatarUsers: a.getAvatarUsersForCommit(e.gitHubRepository, e.gitHubUsers, e.commit)
       })
     }
     render() {
@@ -15148,42 +15183,42 @@ module.exports = function (e) {
             date: t
           }
         } = e;
-      return r.createElement('div', {
+      return i.createElement('div', {
         className: 'commit',
         onContextMenu: this.onContextMenu
-      }, r.createElement('div', {
+      }, i.createElement('div', {
         className: 'info'
-      }, r.createElement(a.RichText, {
+      }, i.createElement(s.RichText, {
         className: 'summary',
         emoji: this.props.emoji,
         text: e.summary,
         renderUrlsAsLinks: !1
-      }), r.createElement('div', {
+      }), i.createElement('div', {
         className: 'description'
-      }, r.createElement(u.AvatarStack, {
+      }, i.createElement(m.AvatarStack, {
         users: this.state.avatarUsers
-      }), r.createElement('div', {
+      }), i.createElement('div', {
         className: 'byline'
-      }, r.createElement(p.CommitAttribution, {
+      }, i.createElement(u.CommitAttribution, {
         gitHubRepository: this.props.gitHubRepository,
         commit: e
-      }), o(t)))), this.renderUnpushedIndicator())
+      }), o(t)))), i.createElement('div', {
+        className: 'commit-indicators'
+      }, f.enableGitTagsDisplay() && r(this.props.commit.tags), this.renderUnpushedIndicator()))
     }
     shouldComponentUpdate(e) {
       return this.props.commit.sha !== e.commit.sha || this.props.showUnpushedIndicator !== e.showUnpushedIndicator
     }
     renderUnpushedIndicator() {
-      return this.props.showUnpushedIndicator ? r.createElement('div', {
-        className: 'unpushed-indicator-container'
-      }, r.createElement('div', {
+      return this.props.showUnpushedIndicator ? i.createElement('div', {
         className: 'unpushed-indicator',
         title: 'This commit hasn\'t been pushed to the remote repository yet'
-      }, r.createElement(m.Octicon, {
-        symbol: m.OcticonSymbol.arrowUp
-      }))) : null
+      }, i.createElement(h.Octicon, {
+        symbol: h.OcticonSymbol.arrowUp
+      })) : null
   }
   }
-  t.CommitListItem = f
+  t.CommitListItem = g
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -15191,7 +15226,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(145),
-    i = n(75),
+    i = n(76),
     a = n(4),
     s = n(41);
   class d extends o.Component {
@@ -15240,7 +15275,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(210);
+    r = n(211);
   class i extends o.Component {
     renderAuthorInline(e) {
       return o.createElement('span', {
@@ -15356,9 +15391,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(104),
+  const i = n(105),
     a = n(10),
-    s = n(210);
+    s = n(211);
   t.getAvatarUsersForCommit = function (e, t, n) {
     const o = [r(e, t, n.author), ...n.coAuthors.map((n) => r(e, t, n))],
       i = n.coAuthors.some((e) => e.name === n.committer.name && e.email === n.committer.email),
@@ -15608,12 +15643,12 @@ module.exports = function (e) {
   e.exports = !0
 }, function (e, t, n) {
   'use strict';
-  var o = n(226),
-    r = n(93),
-    i = n(225),
+  var o = n(227),
+    r = n(94),
+    i = n(226),
     a = n(156),
     s = n(154),
-    d = n(92),
+    d = n(93),
     l = n(601),
     c = n(153),
     p = n(37).getProto,
@@ -16438,7 +16473,7 @@ module.exports = function (e) {
   const a = n(39),
     s = n(2),
     d = n(10),
-    l = n(105);
+    l = n(106);
   let c = null;
   t.askUserToOAuth = function (e) {
     return new Promise((t, n) => {
@@ -16530,7 +16565,7 @@ module.exports = function (e) {
     c = n(11),
     p = n(78),
     u = n(250),
-    m = n(167);
+    m = n(168);
   t.DesktopStashEntryMarker = '!!GitHub_Desktop';
   const h = /!!GitHub_Desktop<(.+)>$/;
   t.getStashes = o, t.getLastDesktopStashEntryForBranch = async function (e, t) {
@@ -16601,33 +16636,34 @@ module.exports = function (e) {
     i = n(23),
     a = n(46),
     s = n(29),
-    d = n(172),
-    l = n(97),
-    c = n(27),
-    p = n(106),
-    u = n(47),
-    m = n(647),
-    h = n(21),
+    d = n(167),
+    l = n(173),
+    c = n(98),
+    p = n(27),
+    u = n(107),
+    m = n(47),
+    h = n(647),
     f = n(21),
-    g = n(34),
-    y = n(98),
-    S = n(238),
-    C = n(2),
-    b = n(237),
-    v = n(646),
-    E = n(268),
-    w = n(248),
-    k = n(59),
-    R = n(18),
-    _ = n(236),
-    T = n(78),
-    x = 100,
-    P = 'history';
-  class D extends k.BaseStore {
+    g = n(21),
+    y = n(34),
+    S = n(99),
+    C = n(239),
+    b = n(2),
+    v = n(238),
+    E = n(646),
+    w = n(268),
+    k = n(249),
+    R = n(59),
+    _ = n(18),
+    T = n(237),
+    x = n(78),
+    P = 100,
+    D = 'history';
+  class M extends R.BaseStore {
     constructor(e, t) {
       super(), this.commitLookup = new Map, this._history = [], this.requestsInFight = new Set, this._tip = {
         kind: s.TipState.Unknown
-      }, this._defaultBranch = null, this._allBranches = [], this._recentBranches = [], this._localCommitSHAs = [], this._commitMessage = l.DefaultCommitMessage, this._showCoAuthoredBy = !1, this._coAuthors = [], this._aheadBehind = null, this._defaultRemote = null, this._currentRemote = null, this._upstreamRemote = null, this._lastFetched = null, this._desktopStashEntries = new Map, this._stashEntryCount = 0, this.repository = e, this.shell = t
+      }, this._defaultBranch = null, this._allBranches = [], this._recentBranches = [], this._localCommitSHAs = [], this._commitMessage = c.DefaultCommitMessage, this._showCoAuthoredBy = !1, this._coAuthors = [], this._aheadBehind = null, this._defaultRemote = null, this._currentRemote = null, this._upstreamRemote = null, this._lastFetched = null, this._desktopStashEntries = new Map, this._stashEntryCount = 0, this.repository = e, this.shell = t
     }
     emitNewCommitsLoaded(e) {
       this.emitter.emit('did-load-new-commits', e)
@@ -16637,10 +16673,10 @@ module.exports = function (e) {
     }
     async reconcileHistory(e) {
       if (0 === this._history.length) return;
-      if (this.requestsInFight.has(P)) return;
-      this.requestsInFight.add(P);
-      const t = h.revRange('HEAD', e),
-        n = await this.performFailableOperation(() => h.getCommits(this.repository, t, x));
+      if (this.requestsInFight.has(D)) return;
+      this.requestsInFight.add(D);
+      const t = f.revRange('HEAD', e),
+        n = await this.performFailableOperation(() => f.getCommits(this.repository, t, P));
       if (null != n) {
         const t = this._history,
           o = t.findIndex((t) => t === e);
@@ -16649,40 +16685,40 @@ module.exports = function (e) {
           const r = t.slice(o);
           this._history = [...n.map((e) => e.sha), ...r]
         }
-        this.storeCommits(n, !0), this.requestsInFight.delete(P), this.emitUpdate()
+        this.storeCommits(n, !0), this.requestsInFight.delete(D), this.emitUpdate()
       }
     }
     async loadNextHistoryBatch() {
-      if (this.requestsInFight.has(P)) return;
+      if (this.requestsInFight.has(D)) return;
       if (!this.history.length) return;
       const e = this.history[this.history.length - 1],
         t = `history/${e}`;
       if (!this.requestsInFight.has(t)) {
         this.requestsInFight.add(t);
-        const n = await this.performFailableOperation(() => h.getCommits(this.repository, `${e}^`, x));
+        const n = await this.performFailableOperation(() => f.getCommits(this.repository, `${e}^`, P));
         n && (this._history = this._history.concat(n.map((e) => e.sha)), this.storeCommits(n, !0), this.requestsInFight.delete(t), this.emitUpdate())
       }
     }
     async loadCommitBatch(e) {
-      if (this.requestsInFight.has(P)) return null;
+      if (this.requestsInFight.has(D)) return null;
       const t = `history/compare/${e}`;
       if (this.requestsInFight.has(t)) return null;
       this.requestsInFight.add(t);
-      const n = await this.performFailableOperation(() => h.getCommits(this.repository, e, x));
+      const n = await this.performFailableOperation(() => f.getCommits(this.repository, e, P));
       return (this.requestsInFight.delete(t), !n) ? null : (this.storeCommits(n, !1), n.map((e) => e.sha))
     }
     async getAllTags() {
-      return h.getAllTags(this.repository)
+      return f.getAllTags(this.repository)
     }
     async createTag(e, t) {
-      const n = await this.performFailableOperation(async () => (await h.createTag(this.repository, e, t), h.getCommit(this.repository, t)));
-      null != n && (this.commitLookup.set(t, n), this.emitNewCommitsLoaded([n]))
+      const n = await this.performFailableOperation(async () => (await f.createTag(this.repository, e, t), f.getCommit(this.repository, t)));
+      n instanceof d.Commit && this.storeCommits([n], !0)
     }
     get history() {
       return this._history
     }
     async loadBranches() {
-      const [e, t] = await Promise.all([this.performFailableOperation(() => h.getBranches(this.repository)) || [], this.performFailableOperation(() => h.getRecentBranches(this.repository, 5))]);
+      const [e, t] = await Promise.all([this.performFailableOperation(() => f.getBranches(this.repository)) || [], this.performFailableOperation(() => f.getRecentBranches(this.repository, 5))]);
       e && (this._allBranches = this.mergeRemoteAndLocalBranches(e), this.refreshDefaultBranch(), this.refreshRecentBranches(t), this.checkPullWithRebase(), this.emitUpdate())
       }
     mergeRemoteAndLocalBranches(e) {
@@ -16696,12 +16732,12 @@ module.exports = function (e) {
       return r
     }
     async checkPullWithRebase() {
-      const e = await h.getConfigValue(this.repository, 'pull.rebase');
+      const e = await f.getConfigValue(this.repository, 'pull.rebase');
       null === e || '' === e ? this.pullWithRebase = void 0 : 'true' === e ? this.pullWithRebase = !0 : 'false' === e ? this.pullWithRebase = !1 : (log.warn(`Unexpected value found for pull.rebase in config: '${e}'`), this.pullWithRebase = void 0)
     }
     async refreshDefaultBranch() {
       const e = await this.resolveDefaultBranch();
-      this._defaultBranch = this._allBranches.filter((t) => t.name === e).sort((e, t) => u.compare(e.type, t.type)).shift() || null
+      this._defaultBranch = this._allBranches.filter((t) => t.name === e).sort((e, t) => m.compare(e.type, t.type)).shift() || null
     }
     async resolveDefaultBranch() {
       const {
@@ -16710,7 +16746,7 @@ module.exports = function (e) {
       if (e && null != e.defaultBranch) return e.defaultBranch;
       if (null !== this.currentRemote) {
         const e = `refs/remotes/${this.currentRemote.name}/`,
-          t = await h.getSymbolicRef(this.repository, `${e}HEAD`);
+          t = await f.getSymbolicRef(this.repository, `${e}HEAD`);
         if (null != t && t.length > e.length && t.startsWith(e)) return t.substr(e.length)
       }
       return 'master'
@@ -16741,9 +16777,9 @@ module.exports = function (e) {
       if (null === e) return void(this._localCommitSHAs = []);
       let t;
       if (e.upstream) {
-        const n = h.revRange(e.upstream, e.name);
-        t = await this.performFailableOperation(() => h.getCommits(this.repository, n, x))
-      } else t = await this.performFailableOperation(() => h.getCommits(this.repository, 'HEAD', x, ['--not', '--remotes']));
+        const n = f.revRange(e.upstream, e.name);
+        t = await this.performFailableOperation(() => f.getCommits(this.repository, n, P))
+      } else t = await this.performFailableOperation(() => f.getCommits(this.repository, 'HEAD', P, ['--not', '--remotes']));
       t && (this.storeCommits(t), this._localCommitSHAs = t.map((e) => e.sha), this.emitUpdate())
     }
     get localCommitSHAs() {
@@ -16754,15 +16790,15 @@ module.exports = function (e) {
       t && this.emitNewCommitsLoaded(e)
     }
     async undoFirstCommit(e) {
-      const t = await this.performFailableOperation(() => h.getStatus(this.repository));
+      const t = await this.performFailableOperation(() => f.getStatus(this.repository));
       if (null == t) throw new Error(`Unable to undo commit because there are too many files in your repository's working directory.`);
       const n = t.workingDirectory.files,
         o = n.filter((e) => e.status.kind === i.AppFileStatusKind.Deleted),
         r = o.map((e) => e.path);
-      return await h.checkoutPaths(e, r), await h.deleteRef(e, 'HEAD', 'Reverting first commit'), await h.unstageAllFiles(e), !0
+      return await f.checkoutPaths(e, r), await f.deleteRef(e, 'HEAD', 'Reverting first commit'), await f.unstageAllFiles(e), !0
     }
     async undoCommit(e) {
-      const t = await this.performFailableOperation(() => 0 === e.parentSHAs.length ? this.undoFirstCommit(this.repository) : h.reset(this.repository, 2, e.parentSHAs[0]));
+      const t = await this.performFailableOperation(() => 0 === e.parentSHAs.length ? this.undoFirstCommit(this.repository) : f.reset(this.repository, 2, e.parentSHAs[0]));
       if (void 0 !== t) {
         if (this.repository.gitHubRepository) try {
           return await this.loadCommitAndCoAuthors(e), void this.emitUpdate()
@@ -16777,26 +16813,26 @@ module.exports = function (e) {
     }
     async loadCommitAndCoAuthors(e) {
       const t = this.repository,
-        n = await E.formatCommitMessage(t, {
+        n = await w.formatCommitMessage(t, {
           summary: e.summary,
           description: e.body
         }),
-        o = await h.parseTrailers(t, n),
-        r = o.filter(h.isCoAuthoredByTrailer);
+        o = await f.parseTrailers(t, n),
+        r = o.filter(f.isCoAuthoredByTrailer);
       if (0 === r.length) return void(this._commitMessage = {
         summary: e.summary,
         description: e.body
       });
-      const i = await h.mergeTrailers(t, n, [], !0),
+      const i = await f.mergeTrailers(t, n, [], !0),
         a = i.split('\n'),
-        s = await h.getTrailerSeparatorCharacters(this.repository),
+        s = await f.getTrailerSeparatorCharacters(this.repository),
         d = /^co-authored-by(.)\s(.*)/i,
         l = [];
       for (let t = a.length - 1; 0 <= t; t--) {
         const e = a[t],
           n = d.exec(e);
         if (!n || -1 === s.indexOf(n[1])) continue;
-        const o = h.parseSingleUnfoldedTrailer(e, n[1]);
+        const o = f.parseSingleUnfoldedTrailer(e, n[1]);
         if (!o) continue;
         const i = r.findIndex((e) => e.value === o.value); - 1 !== i && (l.unshift(r[i]), r.splice(i, 1), a.splice(t, 1))
       }
@@ -16806,7 +16842,7 @@ module.exports = function (e) {
         summary: e.summary,
         description: c
       };
-      const p = l.map((e) => w.GitAuthor.parse(e.value)),
+      const p = l.map((e) => k.GitAuthor.parse(e.value)),
         u = [];
       for (let t = 0; t < p.length; t++) {
         const e = p[t];
@@ -16828,7 +16864,7 @@ module.exports = function (e) {
         const t = await e();
         return t
       } catch (n) {
-        return n = new p.ErrorWithMetadata(n, Object.assign({
+        return n = new u.ErrorWithMetadata(n, Object.assign({
           repository: this.repository
         }, t)), void this.emitError(n)
       }
@@ -16847,8 +16883,8 @@ module.exports = function (e) {
       if (null !== this.currentRemote && o.set(this.currentRemote.name, this.currentRemote), null !== this.defaultRemote && o.set(this.defaultRemote.name, this.defaultRemote), null !== this.upstreamRemote && o.set(this.upstreamRemote.name, this.upstreamRemote), 0 < o.size && (await this.fetchRemotes(e, [...o.values()], t, n)), this.tip.kind === s.TipState.Valid) {
         const e = this.tip.branch;
         if (null !== e.remote && null !== e.upstream) {
-          const t = h.revSymmetricDifference(e.name, e.upstream);
-          this._aheadBehind = await h.getAheadBehind(this.repository, t), this.emitUpdate()
+          const t = f.revSymmetricDifference(e.name, e.upstream);
+          this._aheadBehind = await f.getAheadBehind(this.repository, t), this.emitUpdate()
         }
       }
     }
@@ -16867,20 +16903,20 @@ module.exports = function (e) {
     }
     async fetchRemote(e, t, n, o) {
       const r = {
-        type: y.RetryActionType.Fetch,
+        type: S.RetryActionType.Fetch,
         repository: this.repository
       };
-      await this.performFailableOperation(() => h.fetch(this.repository, e, t, o), {
+      await this.performFailableOperation(() => f.fetch(this.repository, e, t, o), {
         backgroundTask: n,
         retryAction: r
       })
     }
     async fetchRefspec(e, t) {
-      const n = await h.getRemotes(this.repository);
-      for (const o of n) await this.performFailableOperation(() => h.fetchRefspec(this.repository, e, o, t))
+      const n = await f.getRemotes(this.repository);
+      for (const o of n) await this.performFailableOperation(() => f.fetchRefspec(this.repository, e, o, t))
     }
     async loadStatus() {
-      const e = await this.performFailableOperation(() => h.getStatus(this.repository));
+      const e = await this.performFailableOperation(() => f.getStatus(this.repository));
       if (!e) return null;
       this._aheadBehind = e.branchAheadBehind || null;
       const {
@@ -16909,14 +16945,14 @@ module.exports = function (e) {
     async lookupCommit(e) {
       const t = this.commitLookup.get(e);
       if (null != t) return Promise.resolve(t);
-      const n = await this.performFailableOperation(() => h.getCommit(this.repository, e));
+      const n = await this.performFailableOperation(() => f.getCommit(this.repository, e));
       if (null != n) return this.commitLookup.set(e, n), n;
       throw new Error(`Could not load commit: '${e}'`)
     }
     async loadStashEntries() {
-      if (R.enableStashing()) {
+      if (_.enableStashing()) {
         const e = new Map,
-          t = await _.getStashes(this.repository);
+          t = await T.getStashes(this.repository);
         for (const n of t.desktopEntries)
           if (!e.has(n.branchName)) {
             const t = this._desktopStashEntries.get(n.branchName);
@@ -16936,22 +16972,22 @@ module.exports = function (e) {
       return this._desktopStashEntries.size
     }
     async loadFilesForCurrentStashEntry() {
-      if (R.enableStashing()) {
+      if (_.enableStashing()) {
         const e = this.currentBranchStashEntry;
-        if (e && e.files.kind === T.StashedChangesLoadStates.NotLoaded) {
+        if (e && e.files.kind === x.StashedChangesLoadStates.NotLoaded) {
           const {
             branchName: t
           } = e;
           this._desktopStashEntries.set(t, Object.assign({}, e, {
             files: {
-              kind: T.StashedChangesLoadStates.Loading
+              kind: x.StashedChangesLoadStates.Loading
             }
           })), this.emitUpdate();
-          const n = await _.getStashedFiles(this.repository, e.stashSha),
+          const n = await T.getStashedFiles(this.repository, e.stashSha),
             o = this._desktopStashEntries.get(t);
           o && o.stashSha === e.stashSha && (this._desktopStashEntries.set(t, Object.assign({}, o, {
             files: {
-              kind: T.StashedChangesLoadStates.Loaded,
+              kind: x.StashedChangesLoadStates.Loaded,
               files: n
             }
           })), this.emitUpdate())
@@ -16959,36 +16995,36 @@ module.exports = function (e) {
       }
     }
     async loadRemotes() {
-      const e = await h.getRemotes(this.repository);
-      this._defaultRemote = v.findDefaultRemote(e);
+      const e = await f.getRemotes(this.repository);
+      this._defaultRemote = E.findDefaultRemote(e);
       const t = this.tip.kind === s.TipState.Valid && null !== this.tip.branch.remote ? this.tip.branch.remote : null;
       this._currentRemote = null === t ? this._defaultRemote : e.find((e) => e.name === t) || this._defaultRemote;
       const n = this.repository.gitHubRepository && this.repository.gitHubRepository.parent;
-      this._upstreamRemote = n ? b.findUpstreamRemote(n, e) : null, this.emitUpdate()
+      this._upstreamRemote = n ? v.findUpstreamRemote(n, e) : null, this.emitUpdate()
     }
     async addUpstreamRemoteIfNeeded() {
       const e = this.repository.gitHubRepository && this.repository.gitHubRepository.parent;
       if (!e) return;
-      const t = await h.getRemotes(this.repository),
-        n = b.findUpstreamRemote(e, t);
+      const t = await f.getRemotes(this.repository),
+        n = v.findUpstreamRemote(e, t);
       if (n) return;
-      const o = t.find((e) => e.name === b.UpstreamRemoteName);
+      const o = t.find((e) => e.name === v.UpstreamRemoteName);
       if (o) {
-        const e = new S.UpstreamAlreadyExistsError(this.repository, o);
+        const e = new C.UpstreamAlreadyExistsError(this.repository, o);
         return void this.emitError(e)
       }
-      const r = C.forceUnwrap('Parent repositories are fully loaded', e.cloneURL);
-      await this.performFailableOperation(() => h.addRemote(this.repository, b.UpstreamRemoteName, r)), this._upstreamRemote = {
-        name: b.UpstreamRemoteName,
+      const r = b.forceUnwrap('Parent repositories are fully loaded', e.cloneURL);
+      await this.performFailableOperation(() => f.addRemote(this.repository, v.UpstreamRemoteName, r)), this._upstreamRemote = {
+        name: v.UpstreamRemoteName,
         url: r
       }
     }
     async ensureUpstreamRemoteURL(t) {
       await this.performFailableOperation(async () => {
         try {
-          await h.addRemote(this.repository, b.UpstreamRemoteName, t)
+          await f.addRemote(this.repository, v.UpstreamRemoteName, t)
         } catch (n) {
-          if (n instanceof f.GitError && n.result.gitError === g.GitError.RemoteAlreadyExists) await h.setRemoteURL(this.repository, b.UpstreamRemoteName, t);
+          if (n instanceof g.GitError && n.result.gitError === y.GitError.RemoteAlreadyExists) await f.setRemoteURL(this.repository, v.UpstreamRemoteName, t);
           else throw n
         }
       })
@@ -17028,7 +17064,7 @@ module.exports = function (e) {
     merge(e) {
       if (this.tip.kind !== s.TipState.Valid) throw new Error(`unable to merge as tip state is '${this.tip.kind}' and the application expects the repository to be on a branch currently`);
       const t = this.tip.branch.name;
-      return this.performFailableOperation(() => h.merge(this.repository, e), {
+      return this.performFailableOperation(() => f.merge(this.repository, e), {
         gitContext: {
           kind: 'merge',
           currentBranch: t,
@@ -17037,42 +17073,42 @@ module.exports = function (e) {
       })
     }
     async setRemoteURL(e, t) {
-      const n = !0 === (await this.performFailableOperation(() => h.setRemoteURL(this.repository, e, t)));
+      const n = !0 === (await this.performFailableOperation(() => f.setRemoteURL(this.repository, e, t)));
       return await this.loadRemotes(), this.emitUpdate(), n
     }
     async discardChanges(e) {
       const t = [],
         n = [],
-        o = await h.listSubmodules(this.repository);
-      await m.queueWorkHigh(e, async (e) => {
+        o = await f.listSubmodules(this.repository);
+      await h.queueWorkHigh(e, async (e) => {
         const a = o.some((t) => t.path === e.path);
         e.status.kind === i.AppFileStatusKind.Deleted || a || this.shell.moveItemToTrash(r.resolve(this.repository.path, e.path)), e.status.kind === i.AppFileStatusKind.Copied || e.status.kind === i.AppFileStatusKind.Renamed ? (n.push(e.path), t.push(e.status.oldPath), n.push(e.status.oldPath)) : (t.push(e.path), n.push(e.path))
       });
-      const a = await h.getIndexChanges(this.repository),
+      const a = await f.getIndexChanges(this.repository),
         s = n.filter((e) => a.has(e)),
         d = t.filter((e) => o.find((t) => t.path === e)),
-        l = t.filter((e) => -1 === d.indexOf(e) || a.get(e) !== h.IndexStatus.Added);
+        l = t.filter((e) => -1 === d.indexOf(e) || a.get(e) !== f.IndexStatus.Added);
       await this.performFailableOperation(async () => {
-        await h.resetSubmodulePaths(this.repository, d), await h.resetPaths(this.repository, 2, 'HEAD', s), await h.checkoutIndex(this.repository, l)
+        await f.resetSubmodulePaths(this.repository, d), await f.resetPaths(this.repository, 2, 'HEAD', s), await f.checkoutIndex(this.repository, l)
       })
     }
     async revertCommit(e, t, n, o) {
-      await this.performFailableOperation(() => h.revertCommit(e, t, n, o)), this.emitUpdate()
+      await this.performFailableOperation(() => f.revertCommit(e, t, n, o)), this.emitUpdate()
     }
     async updateExistingUpstreamRemote() {
-      const e = C.forceUnwrap('To update an upstream remote, the repository must be a GitHub repository', this.repository.gitHubRepository),
-        t = C.forceUnwrap('To update an upstream remote, the repository must have a parent', e.parent),
-        n = C.forceUnwrap('Parent repositories are always fully loaded', t.cloneURL);
-      await this.performFailableOperation(() => h.setRemoteURL(this.repository, b.UpstreamRemoteName, n))
+      const e = b.forceUnwrap('To update an upstream remote, the repository must be a GitHub repository', this.repository.gitHubRepository),
+        t = b.forceUnwrap('To update an upstream remote, the repository must have a parent', e.parent),
+        n = b.forceUnwrap('Parent repositories are always fully loaded', t.cloneURL);
+      await this.performFailableOperation(() => f.setRemoteURL(this.repository, v.UpstreamRemoteName, n))
     }
     async getCompareCommits(e, t) {
       if (this.tip.kind !== s.TipState.Valid) return null;
       const n = this.tip.branch,
-        o = await h.getAheadBehind(this.repository, h.revSymmetricDifference(n.name, e.name));
+        o = await f.getAheadBehind(this.repository, f.revSymmetricDifference(n.name, e.name));
       if (null == o) return null;
-      const r = t === c.ComparisonMode.Ahead ? h.revRange(e.name, n.name) : h.revRange(n.name, e.name),
-        i = t === c.ComparisonMode.Ahead ? o.ahead : o.behind,
-        a = await h.getCommits(this.repository, r, i);
+      const r = t === p.ComparisonMode.Ahead ? f.revRange(e.name, n.name) : f.revRange(n.name, e.name),
+        i = t === p.ComparisonMode.Ahead ? o.ahead : o.behind,
+        a = await f.getCommits(this.repository, r, i);
       return 0 < a.length && this.storeCommits(a, !0), {
         commits: a,
         ahead: o.ahead,
@@ -17080,13 +17116,13 @@ module.exports = function (e) {
       }
     }
     async pruneForkedRemotes(e) {
-      const t = await h.getRemotes(this.repository),
+      const t = await f.getRemotes(this.repository),
         n = new Set;
       for (const t of e) null !== t.head.gitHubRepository.cloneURL && n.add(t.head.gitHubRepository.cloneURL);
-      for (const o of t) o.name.startsWith(d.ForkedRemotePrefix) && !n.has(o.url) && (await h.removeRemote(this.repository, o.name))
+      for (const o of t) o.name.startsWith(l.ForkedRemotePrefix) && !n.has(o.url) && (await f.removeRemote(this.repository, o.name))
     }
   }
-  t.GitStore = D
+  t.GitStore = M
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -17315,14 +17351,14 @@ module.exports = function (e) {
   const c = n(1),
     p = n(20),
     u = n(34),
-    m = n(168),
+    m = n(169),
     h = n(23),
     f = n(52),
     g = n(79),
     y = n(11),
     S = n(253),
-    C = n(167),
-    b = n(247),
+    C = n(168),
+    b = n(248),
     v = n(166);
   var E;
   (function (e) {
@@ -17382,7 +17418,7 @@ module.exports = function (e) {
     i = n(1),
     a = n(11),
     s = n(34),
-    d = n(66),
+    d = n(67),
     l = n(676),
     c = n(81);
   t.merge = async function (e, t) {
@@ -17567,9 +17603,9 @@ module.exports = function (e) {
     h = n(678),
     f = n(30),
     g = n(2),
-    y = n(246),
-    S = n(169),
-    C = n(245),
+    y = n(247),
+    S = n(170),
+    C = n(246),
     b = 2e7,
     v = ['DD', 'AU', 'UD', 'UA', 'DU', 'AA', 'UU'];
   t.getStatus = async function (e) {
@@ -17627,27 +17663,6 @@ module.exports = function (e) {
     }
   }
   t.GitAuthor = n
-}, function (e, t, n) {
-  'use strict';
-
-  function o(e) {
-    const t = [];
-    for (const n of e)
-      if (r.isCoAuthoredByTrailer(n)) {
-        const e = i.GitAuthor.parse(n.value);
-        e && t.push(e)
-      } return t
-  }
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const r = n(126),
-    i = n(248);
-  t.Commit = class {
-    constructor(e, t, n, r, i, a, s, d, l) {
-      this.sha = e, this.shortSha = t, this.summary = n, this.body = r, this.author = i, this.committer = a, this.parentSHAs = s, this.trailers = d, this.tags = l, this.coAuthors = o(d), this.authoredByCommitter = this.author.name === this.committer.name && this.author.email === this.committer.email
-    }
-  }
 }, function (e, t, n) {
   'use strict';
 
@@ -17729,7 +17744,7 @@ module.exports = function (e) {
   });
   const a = n(11),
     s = n(23),
-    d = n(249),
+    d = n(167),
     l = n(123),
     c = n(126),
     p = n(124);
@@ -17863,7 +17878,7 @@ module.exports = function (e) {
   });
   const r = n(32),
     i = n(1),
-    a = n(168),
+    a = n(169),
     s = n(52),
     d = n(688),
     l = n(125);
@@ -17956,7 +17971,7 @@ module.exports = function (e) {
     r = n(34),
     i = n(46),
     a = n(123),
-    s = n(172),
+    s = n(173),
     d = `refs/remotes/${s.ForkedRemotePrefix}`;
   t.getBranches = async function (e, ...t) {
     const n = String.fromCharCode(parseInt('1F', 16));
@@ -18034,7 +18049,7 @@ module.exports = function (e) {
     r = n(11),
     i = n(23),
     a = n(30),
-    s = n(169),
+    s = n(170),
     d = n(699);
   t.applyPatchToIndex = async function (e, t) {
     if (t.status.kind === i.AppFileStatusKind.Renamed) {
@@ -18095,7 +18110,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(42),
-    i = n(103),
+    i = n(104),
     a = n(287),
     s = n(264);
   t.getGenericHostname = function (e) {
@@ -18209,7 +18224,7 @@ module.exports = function (e) {
   });
   const r = n(42),
     i = n(10),
-    a = n(103),
+    a = n(104),
     s = n(133);
   t.findAccountForRemoteURL = async function (e, t, n = o) {
     const d = [...t, s.Account.anonymous()],
@@ -18801,7 +18816,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(100),
+  const r = n(101),
     i = n(274),
     a = n(272),
     s = n(270);
@@ -18831,7 +18846,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   }), o(n(275)), o(n(707));
-  var r = n(100);
+  var r = n(101);
   t.parse = r.parse
 }, function (e, t) {
   'use strict';
@@ -18985,7 +19000,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(105),
+  const r = n(106),
     i = 'stats-guid';
   let a = null;
   t.getGUID = o
@@ -22073,7 +22088,7 @@ module.exports = function (e) {
   }
   e.exports = r;
   var p = n(762),
-    u = n(174),
+    u = n(175),
     m = n(293),
     h = 'function' == typeof Symbol,
     f;
@@ -22269,7 +22284,7 @@ module.exports = function (e) {
   var s = n(48),
     d = n(764),
     l = n(754),
-    c = n(183),
+    c = n(184),
     p = n(753),
     u = n(752),
     m = n(292)(),
@@ -22317,7 +22332,7 @@ module.exports = function (e) {
   for (var n = [], o = 0; 256 > o; ++o) n[o] = (o + 256).toString(16).substr(1);
   e.exports = t
 }, function (e, t, n) {
-  var o = n(175).randomBytes;
+  var o = n(176).randomBytes;
   e.exports = function () {
     return o(16)
   }
@@ -22396,7 +22411,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   }), t.animationEnd = t.animationDelay = t.animationTiming = t.animationDuration = t.animationName = t.transitionEnd = t.transitionDuration = t.transitionDelay = t.transitionTiming = t.transitionProperty = t.transform = void 0;
-  var r = n(179),
+  var r = n(180),
     i = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -22625,14 +22640,14 @@ module.exports = function (e) {
     b = n(129),
     v = n(29),
     E = n(128),
-    w = n(102),
+    w = n(103),
     k = n(622),
     R = n(614),
     _ = n(561),
     T = n(479),
     x = n(477),
     P = n(475),
-    D = n(197),
+    D = n(198),
     M = n(4),
     A = n(26),
     I = n(469),
@@ -22676,14 +22691,14 @@ module.exports = function (e) {
     ye = n(360),
     Se = n(358),
     Ce = n(79),
-    be = n(96),
+    be = n(97),
     ve = n(350),
     Ee = n(349),
     we = n(348),
     ke = n(347),
     Re = n(18),
-    _e = n(199),
-    Te = n(95),
+    _e = n(200),
+    Te = n(96),
     xe = n(346),
     Pe = n(57),
     De = n(345),
@@ -23974,7 +23989,7 @@ module.exports = function (e) {
   function o() {
     this._array = [], this._set = a ? new Map : Object.create(null)
   }
-  var r = n(107),
+  var r = n(108),
     i = Object.prototype.hasOwnProperty,
     a = 'undefined' != typeof Map;
   o.fromArray = function (e, t) {
@@ -24043,7 +24058,7 @@ module.exports = function (e) {
     e || (e = {}), this._file = a.getArg(e, 'file', null), this._sourceRoot = a.getArg(e, 'sourceRoot', null), this._skipValidation = a.getArg(e, 'skipValidation', !1), this._sources = new i, this._names = new i, this._mappings = new s, this._sourcesContents = null
   }
   var r = n(309),
-    a = n(107),
+    a = n(108),
     i = n(308).ArraySet,
     s = n(790).MappingList;
   o.prototype._version = 3, o.fromSourceMap = function (e) {
@@ -25378,9 +25393,9 @@ module.exports = function (e) {
     Le = n.n(Ie),
     Fe = n(5),
     Be = n.n(Fe),
-    Ne = n(69),
+    Ne = n(70),
     Oe = n.n(Ne),
-    He = n(108),
+    He = n(109),
     ze = n.n(He),
     Ue = {
       OBSERVED: 'observed',
@@ -27281,7 +27296,7 @@ module.exports = function (e) {
     scrollToIndex: -1,
     style: {}
   }, vt.propTypes = null;
-  var Et = n(109),
+  var Et = n(110),
     wt = n.n(Et),
     kt = n(312),
     Rt = n.n(kt),
@@ -29408,9 +29423,9 @@ module.exports = function (e) {
   const r = n(23),
     i = n(29),
     a = n(27),
-    s = n(240),
+    s = n(241),
     d = n(52),
-    l = n(97);
+    l = n(98);
   t.RepositoryStateCache = class {
     constructor(e) {
       this.getUsersForRepository = e, this.repositoryState = new Map
@@ -29530,7 +29545,7 @@ module.exports = function (e) {
     value: !0
   }), t.installDevGlobals = function () {
     const e = global;
-    e.GitPerf = n(170)
+    e.GitPerf = n(171)
   }
 }, function (e, t, n) {
   'use strict';
@@ -29696,18 +29711,18 @@ module.exports = function (e) {
     value: !0
   });
   const l = n(34),
-    c = n(100),
-    p = n(106),
-    u = n(99),
+    c = n(101),
+    p = n(107),
+    u = n(100),
     m = n(11),
     h = n(121),
-    f = n(238),
+    f = n(239),
     g = n(25),
     y = n(35),
     S = n(10),
-    C = n(101),
+    C = n(102),
     b = n(18),
-    v = n(98),
+    v = n(99),
     E = n(163);
   t.defaultErrorHandler = async function (t, n) {
     const o = i(t) || t;
@@ -29967,7 +29982,7 @@ module.exports = function (e) {
     l = n(265),
     c = n(21),
     p = n(337),
-    u = n(234),
+    u = n(235),
     m = n(53),
     h = n(164),
     f = n(336),
@@ -29976,10 +29991,10 @@ module.exports = function (e) {
     S = n(127),
     C = n(25),
     b = n(35),
-    v = n(98),
+    v = n(99),
     E = n(29),
-    w = n(96),
-    k = n(187),
+    w = n(97),
+    k = n(188),
     R = n(26);
   t.Dispatcher = class {
     constructor(e, t, n, o) {
@@ -30892,7 +30907,7 @@ module.exports = function (e) {
     a = n(19),
     s = n(3),
     d = n(7),
-    l = n(74),
+    l = n(75),
     c = n(4),
     p = n(24),
     u = 245;
@@ -30984,7 +30999,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(46),
-    r = n(68);
+    r = n(69);
   t.findUpstreamRemoteBranch = function (e, t) {
     return t.find((t) => t.type === o.BranchType.Remote && `${r.UpstreamRemoteName}/${e}` === t.name)
   }
@@ -31165,7 +31180,7 @@ module.exports = function (e) {
     a = n(24),
     s = n(12),
     d = n(7),
-    l = n(235);
+    l = n(236);
   class c extends o.Component {
     constructor() {
       super(...arguments), this.onSubmit = () => this.props.onCreateTutorialRepository(this.props.account)
@@ -31318,7 +31333,7 @@ module.exports = function (e) {
     s = n(57),
     d = n(4),
     l = n(25),
-    c = n(74),
+    c = n(75),
     p = n(7);
   var u;
   (function (e) {
@@ -31602,8 +31617,8 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(41),
-    i = n(186),
-    a = n(185),
+    i = n(187),
+    a = n(186),
     s = n(3);
   class d extends o.Component {
     constructor(e) {
@@ -31697,8 +31712,8 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(66),
-    a = n(190),
+    i = n(67),
+    a = n(191),
     s = n(21),
     d = n(142),
     l = n(3),
@@ -32113,9 +32128,9 @@ module.exports = function (e) {
   const o = n(0),
     r = n(3),
     i = n(12),
-    a = n(71),
-    s = n(73),
-    d = n(97),
+    a = n(72),
+    s = n(74),
+    d = n(98),
     l = n(7);
   class c extends o.Component {
     constructor(e) {
@@ -32238,9 +32253,9 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(3),
-    i = n(73),
-    a = n(71),
-    s = n(97),
+    i = n(74),
+    a = n(72),
+    s = n(98),
     d = n(7);
   class l extends o.Component {
     constructor() {
@@ -32281,7 +32296,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(186)), o(n(185))
+  }), o(n(187)), o(n(186))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -32292,9 +32307,9 @@ module.exports = function (e) {
     i = n(25),
     a = n(27),
     s = n(41),
-    d = n(97),
+    d = n(98),
     l = n(368),
-    c = n(96),
+    c = n(97),
     p = n(7);
   class u extends o.Component {
     constructor() {
@@ -32542,7 +32557,7 @@ module.exports = function (e) {
     r = n(3),
     i = n(24),
     a = n(2),
-    s = n(68),
+    s = n(69),
     d = n(7);
   class l extends o.Component {
     constructor() {
@@ -32637,8 +32652,8 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(3),
-    i = n(71),
-    a = n(73),
+    i = n(72),
+    a = n(74),
     s = n(12),
     d = n(7),
     l = 'https://git-lfs.github.com/';
@@ -32732,7 +32747,7 @@ module.exports = function (e) {
     r = n(28),
     i = n(19),
     a = n(3),
-    s = n(71),
+    s = n(72),
     d = n(7);
   class l extends o.Component {
     constructor(e) {
@@ -32803,7 +32818,7 @@ module.exports = function (e) {
       spawn: i,
       spawnSync: a
     } = n(48),
-    s = n(241),
+    s = n(242),
     d = n(384),
     l = e.exports;
   Object.assign(l, {
@@ -32827,7 +32842,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(3),
-    i = n(187);
+    i = n(188);
   class a extends o.Component {
     render() {
       return o.createElement(r.Dialog, {
@@ -32893,7 +32908,7 @@ module.exports = function (e) {
     r = n(36),
     i = n(3),
     a = n(24),
-    s = n(76),
+    s = n(77),
     d = n(7);
   class l extends o.Component {
     constructor(e) {
@@ -32954,7 +32969,7 @@ module.exports = function (e) {
     a = n(4),
     s = n(63),
     d = n(50),
-    l = n(188),
+    l = n(189),
     c = n(2),
     p = n(18);
   var u;
@@ -33259,7 +33274,7 @@ module.exports = function (e) {
     d = n(19),
     l = n(52),
     c = n(47),
-    p = n(189),
+    p = n(190),
     u = n(4);
   class m extends o.Component {
     constructor(e) {
@@ -33370,7 +33385,7 @@ module.exports = function (e) {
     a = n(50),
     s = n(10),
     d = n(2),
-    l = n(110),
+    l = n(111),
     c = n(21),
     p = n(398),
     u = n(7);
@@ -33555,7 +33570,7 @@ module.exports = function (e) {
     s = n(12),
     d = n(135),
     l = n(64),
-    c = n(114),
+    c = n(115),
     p = n(2),
     u = n(139),
     m = n(33),
@@ -33781,14 +33796,14 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(68),
+    r = n(69),
     i = n(2),
     a = n(12),
     s = n(4),
     d = n(19),
     l = n(28),
     c = n(3),
-    p = n(176),
+    p = n(177),
     u = n(10),
     m = n(7),
     h = '使用浏览器登录';
@@ -33992,10 +34007,10 @@ module.exports = function (e) {
     u = n(138),
     m = n(29),
     h = n(2),
-    f = n(198),
+    f = n(199),
     g = n(410),
     y = n(7),
-    S = n(74),
+    S = n(75),
     C = n(57);
   var b;
   (function (e) {
@@ -34211,7 +34226,7 @@ module.exports = function (e) {
     i = n(28),
     a = n(19),
     s = n(14),
-    d = n(188);
+    d = n(189);
   class l extends o.PureComponent {
     render() {
       return o.createElement(r.DialogContent, {
@@ -34286,7 +34301,7 @@ module.exports = function (e) {
     i = n(22),
     a = n(20),
     s = n(162),
-    d = n(103),
+    d = n(104),
     l = n(269),
     c = n(10),
     p = n(3),
@@ -34295,7 +34310,7 @@ module.exports = function (e) {
     h = n(415),
     f = n(414),
     g = n(2),
-    y = n(110),
+    y = n(111),
     S = n(52),
     C = n(7);
   class b extends r.Component {
@@ -34700,7 +34715,7 @@ module.exports = function (e) {
     i = n(1),
     a = n(20),
     s = n(21),
-    d = n(189),
+    d = n(190),
     l = n(28),
     c = n(14),
     p = n(19),
@@ -35217,7 +35232,7 @@ module.exports = function (e) {
     d = n(25),
     l = n(86),
     c = n(7),
-    p = n(106);
+    p = n(107);
   class u extends o.Component {
     constructor(e) {
       super(e), this.dialogContent = null, this.onDismissed = () => {
@@ -35321,7 +35336,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(3),
     i = n(12),
-    a = n(110);
+    a = n(111);
   class s extends o.Component {
     render() {
       return o.createElement(r.DialogContent, null, o.createElement(a.CallToAction, {
@@ -35567,10 +35582,10 @@ module.exports = function (e) {
     i = n(3),
     a = n(88),
     s = n(21),
-    d = n(66),
+    d = n(67),
     l = n(142),
     c = n(165),
-    p = n(190);
+    p = n(191);
   class u extends o.Component {
     constructor(e) {
       super(e), this.onFilterTextChanged = (e) => {
@@ -35897,7 +35912,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(171),
+    r = n(172),
     i = n(36),
     a = n(19),
     s = n(3),
@@ -36105,7 +36120,7 @@ module.exports = function (e) {
     s = n(19),
     d = n(3),
     l = n(146),
-    c = n(110);
+    c = n(111);
   var p;
   (function (e) {
     e[e.DotCom = 0] = 'DotCom', e[e.Enterprise = 1] = 'Enterprise'
@@ -36183,7 +36198,7 @@ module.exports = function (e) {
     C = n(57),
     b = n(4),
     v = n(21),
-    E = n(194);
+    E = n(195);
   class w extends o.Component {
     constructor(e) {
       super(e), this.onDotComSignIn = () => {
@@ -36442,7 +36457,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(70);
+    i = n(71);
   t.SuccessfulRebase = function ({
     baseBranch: e,
     targetBranch: t,
@@ -36469,7 +36484,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(70),
+    i = n(71),
     a = n(12);
   class s extends o.Component {
     constructor() {
@@ -36502,7 +36517,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(70);
+    i = n(71);
   t.SuccessfulMerge = function ({
     ourBranch: e,
     theirBranch: t,
@@ -36529,7 +36544,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(70),
+    i = n(71),
     a = n(12);
   class s extends o.Component {
     constructor() {
@@ -36560,7 +36575,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(2),
-    i = n(96),
+    i = n(97),
     a = n(449),
     s = n(448),
     d = n(447),
@@ -36612,7 +36627,7 @@ module.exports = function (e) {
     a = n(4),
     s = n(25),
     d = n(39),
-    l = n(70),
+    l = n(71),
     c = n(139);
   class p extends o.Component {
     constructor() {
@@ -36647,7 +36662,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(70);
+  var o = n(71);
   t.Banner = o.Banner;
   var r = n(451);
   t.UpdateAvailable = r.UpdateAvailable;
@@ -36659,9 +36674,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(191),
-    i = n(193),
-    a = n(197);
+    r = n(192),
+    i = n(194),
+    a = n(198);
   class s extends o.Component {
     constructor() {
       super(...arguments), this.innerDropDown = null, this.onDropDownRef = (e) => {
@@ -36919,7 +36934,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(193)), o(n(454)), o(n(192))
+  }), o(n(194)), o(n(454)), o(n(193))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -36977,17 +36992,17 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(249),
+    r = n(167),
     i = n(132),
     a = n(82),
-    s = n(206),
+    s = n(207),
     d = n(123),
     l = n(87),
     c = n(14),
     p = n(28),
     u = n(19),
     m = n(21),
-    h = n(194);
+    h = n(195);
   class f extends o.Component {
     constructor(e) {
       super(e), this.globalUsernamePromise = a.getGlobalConfigValue('user.name'), this.globalEmailPromise = a.getGlobalConfigValue('user.email'), this.onLockFileDeleted = () => {
@@ -37157,7 +37172,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(63),
     i = n(14),
-    a = n(195);
+    a = n(196);
   class s extends o.Component {
     constructor() {
       super(...arguments), this.cancel = () => {
@@ -37233,7 +37248,7 @@ module.exports = function (e) {
     a = n(28),
     s = n(87),
     d = n(140),
-    l = n(176);
+    l = n(177);
   class c extends o.Component {
     constructor(e) {
       super(e), this.onOTPChange = (e) => {
@@ -37369,7 +37384,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(63),
-    i = n(195),
+    i = n(196),
     a = n(14);
   class s extends o.Component {
     constructor() {
@@ -37463,10 +37478,10 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(3),
-    i = n(73),
-    a = n(71),
+    i = n(74),
+    a = n(72),
     s = n(36),
-    d = n(76),
+    d = n(77),
     l = n(467),
     c = n(7);
   class p extends o.Component {
@@ -37534,7 +37549,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(111),
+    r = n(112),
     i = n(4);
   class a extends o.Component {
     render() {
@@ -37561,7 +37576,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(4),
     i = n(29),
-    a = n(196),
+    a = n(197),
     s = n(27),
     d = n(88),
     l = n(2),
@@ -37783,8 +37798,8 @@ module.exports = function (e) {
     f = n(29),
     g = n(127),
     y = n(4),
-    S = n(114),
-    C = n(111),
+    S = n(115),
+    C = n(112),
     b = n(5),
     v = {
       className: 'push-pull-button',
@@ -37952,7 +37967,7 @@ module.exports = function (e) {
     i = n(28),
     a = n(19),
     s = n(3),
-    d = n(198),
+    d = n(199),
     l = n(7);
   class c extends o.Component {
     constructor(e) {
@@ -38022,8 +38037,8 @@ module.exports = function (e) {
     r = n(33),
     i = n(25),
     a = n(4),
-    s = n(112),
-    d = n(112),
+    s = n(113),
+    d = n(113),
     l = r.encodePathAsUrl(__dirname, 'static/admin-mentoring.svg'),
     c = o.createElement(a.Octicon, {
       symbol: a.OcticonSymbol.telescope
@@ -38122,9 +38137,9 @@ module.exports = function (e) {
     r = n(1),
     i = n(12),
     a = n(14),
-    s = n(71),
+    s = n(72),
     d = n(4),
-    l = n(95),
+    l = n(96),
     c = n(33),
     p = n(25),
     u = n(161),
@@ -38384,7 +38399,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(78),
-    i = n(207),
+    i = n(208),
     a = n(144),
     s = n(143),
     d = n(484);
@@ -38450,7 +38465,7 @@ module.exports = function (e) {
     r = n(27),
     i = n(14),
     a = n(142),
-    s = n(66);
+    s = n(67);
   class d extends o.Component {
     constructor() {
       super(...arguments), this.onMergeClicked = async () => {
@@ -38645,7 +38660,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(94);
+    i = n(95);
   class a extends o.Component {
     render() {
       const e = this.props.isCurrentBranch,
@@ -38686,7 +38701,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(202);
+    r = n(203);
   class i extends o.Component {
     render() {
       const e = `refs/pull/${this.props.number}/head`;
@@ -38779,8 +38794,8 @@ module.exports = function (e) {
     r = n(62),
     i = n(5),
     a = n(4),
-    s = n(202),
-    d = n(94);
+    s = n(203),
+    d = n(95);
   class l extends o.Component {
     getSubtitle() {
       if (!0 !== this.props.loading) {
@@ -38866,7 +38881,7 @@ module.exports = function (e) {
     m = n(14),
     h = n(4),
     f = n(27),
-    g = n(74);
+    g = n(75);
   t.RowHeight = 47;
   class y extends s.Component {
     constructor(e) {
@@ -38967,10 +38982,10 @@ module.exports = function (e) {
     c = n(19),
     p = n(4),
     u = n(14),
-    m = n(204),
+    m = n(205),
     h = n(495),
-    f = n(201),
-    g = n(74),
+    f = n(202),
+    g = n(75),
     y = n(57);
   class S extends o.Component {
     constructor(e) {
@@ -39150,7 +39165,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(7),
-    i = n(205);
+    i = n(206);
   class a extends o.Component {
     render() {
       return o.createElement(i.DialogFooter, null, o.createElement(r.OkCancelButtonGroup, {
@@ -39456,25 +39471,35 @@ module.exports = function (e) {
   t.PushBranchCommits = l
 }, function (e, t, n) {
   'use strict';
+
+  function o(e) {
+    return `${e.sha} ${e.tags}`
+  }
+
+  function r(e) {
+    return e.map(o).join(' ')
+  }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(0),
-    r = n(206),
-    i = n(75),
-    a = 50;
-  class s extends o.Component {
+  const i = n(0),
+    a = n(91),
+    s = n(207),
+    d = n(76),
+    l = n(66),
+    c = 50;
+  class p extends i.Component {
     constructor() {
-      super(...arguments), this.renderCommit = (e) => {
+      super(...arguments), this.commitsHash = a.default(r, l.arrayEquals), this.renderCommit = (e) => {
         const t = this.props.commitSHAs[e],
           n = this.props.commitLookup.get(t);
         if (null == n) return !1, null;
-        const i = this.props.localCommitSHAs.includes(n.sha),
-          a = i && !this.props.isLocalRepository;
-        return o.createElement(r.CommitListItem, {
-          key: n.sha,
+        const r = this.props.localCommitSHAs.includes(n.sha),
+          a = r && !this.props.isLocalRepository;
+        return i.createElement(s.CommitListItem, {
+          key: o(n),
           gitHubRepository: this.props.gitHubRepository,
-          isLocal: i,
+          isLocal: r,
           showUnpushedIndicator: a,
           commit: n,
           gitHubUsers: this.props.gitHubUsers,
@@ -39488,23 +39513,31 @@ module.exports = function (e) {
           n = this.props.commitLookup.get(t);
         n && this.props.onCommitSelected(n)
       }, this.onScroll = (e, t) => {
-        const n = Math.ceil(t / a),
-          o = Math.floor(e / a);
+        const n = Math.ceil(t / c),
+          o = Math.floor(e / c);
         this.props.onScroll(o, o + n), null != this.props.onCompareListScrolled && this.props.onCompareListScrolled(e)
       }
+    }
+    getVisibleCommits() {
+      const e = [];
+      for (const t of this.props.commitSHAs) {
+        const n = this.props.commitLookup.get(t);
+        n !== void 0 && e.push(n)
+      }
+      return e
     }
     rowForSHA(e) {
       const t = e;
       return t ? this.props.commitSHAs.findIndex((e) => e === t) : -1
     }
     render() {
-      return 0 === this.props.commitSHAs.length ? o.createElement('div', {
+      return 0 === this.props.commitSHAs.length ? i.createElement('div', {
         className: 'panel blankslate'
-      }, this.props.emptyListMessage) : o.createElement('div', {
+      }, this.props.emptyListMessage) : i.createElement('div', {
         id: 'commit-list'
-      }, o.createElement(i.List, {
+      }, i.createElement(d.List, {
         rowCount: this.props.commitSHAs.length,
-        rowHeight: a,
+        rowHeight: c,
         selectedRows: [this.rowForSHA(this.props.selectedSHA)],
         rowRenderer: this.renderCommit,
         onSelectedRowChanged: this.onSelectedRowChanged,
@@ -39512,13 +39545,14 @@ module.exports = function (e) {
         invalidationProps: {
           commits: this.props.commitSHAs,
           gitHubUsers: this.props.gitHubUsers,
-          localCommitSHAs: this.props.localCommitSHAs
+          localCommitSHAs: this.props.localCommitSHAs,
+          commitLookupHash: this.commitsHash(this.getVisibleCommits())
         },
         setScrollTop: this.props.compareListScrollTop
       }))
     }
   }
-  t.CommitList = s
+  t.CommitList = p
 }, function (e, t, n) {
   'use strict';
 
@@ -39868,9 +39902,9 @@ module.exports = function (e) {
     s = n(5),
     d = n(4),
     l = n(89),
-    c = n(211),
-    p = n(209),
-    u = n(208),
+    c = n(212),
+    p = n(210),
+    u = n(209),
     m = n(36),
     h = n(18),
     f = 72;
@@ -40090,14 +40124,14 @@ module.exports = function (e) {
     s = n(1),
     d = n(33),
     l = n(39),
-    c = n(113),
-    p = n(76),
+    c = n(114),
+    p = n(77),
     u = n(147),
     m = n(144),
     h = n(143),
     f = n(26),
     g = n(506),
-    y = n(207);
+    y = n(208);
   class S extends r.Component {
     constructor(e) {
       super(e), this.loadChangedFilesScheduler = new u.ThrottledScheduler(200), this.historyRef = null, this.onFileSelected = (e) => {
@@ -40342,7 +40376,7 @@ module.exports = function (e) {
     p = o(c),
     u = n(301),
     m = o(u),
-    h = n(180),
+    h = n(181),
     f = o(h),
     g = n(300),
     y = n(0),
@@ -40350,7 +40384,7 @@ module.exports = function (e) {
     C = n(15),
     b = o(C),
     v = n(43),
-    E = n(212),
+    E = n(213),
     w = [],
     k, R;
   g.transitionEnd && w.push(g.transitionEnd), g.animationEnd && w.push(g.animationEnd);
@@ -40484,11 +40518,11 @@ module.exports = function (e) {
     y = o(g),
     S = n(303),
     C = o(S),
-    b = n(180),
+    b = n(181),
     v = o(b),
     E = n(512),
     w = o(E),
-    k = n(212),
+    k = n(213),
     R = u.default.createFactory(w.default),
     _ = (x = T = function (e) {
       function t(n, o) {
@@ -40681,7 +40715,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(213),
+    r = n(214),
     i = n(26);
   class a extends o.Component {
     constructor() {
@@ -40738,15 +40772,15 @@ module.exports = function (e) {
     d = n(33),
     l = n(12),
     c = n(18),
-    p = n(115),
-    u = n(214),
-    m = n(112),
+    p = n(91),
+    u = n(215),
+    m = n(113),
     h = n(26),
     f = n(29),
     g = n(24),
     y = n(79),
     S = n(78),
-    C = n(112),
+    C = n(113),
     b = d.encodePathAsUrl(__dirname, 'static/paper-stack.svg');
   class v extends s.Component {
     constructor(e) {
@@ -42841,7 +42875,7 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(44),
-    a = n(215);
+    a = n(216);
   n(527);
   const s = {
     "+": 'diff-add',
@@ -42957,14 +42991,14 @@ module.exports = function (e) {
     y = n(4),
     S = n(528),
     C = n(526),
-    b = n(215),
+    b = n(216),
     v = n(520),
     E = n(518),
-    w = n(115),
-    k = n(77),
+    w = n(91),
+    k = n(66),
     R = n(2),
     _ = n(122),
-    T = n(105),
+    T = n(106),
     x = 4096,
     P = new y.OcticonSymbol(16, 8, 'm 16,1 0,3 c 0,0.55 -0.45,1 -1,1 l -3,0 0,2 -3,-3 3,-3 0,2 2,0 0,-2 2,0 z M 8,4 C 8,6.2 6.2,8 4,8 1.8,8 0,6.2 0,4 0,1.8 1.8,0 4,0 6.2,0 8,1.8 8,4 Z M 1.5,5.66 5.66,1.5 C 5.18,1.19 4.61,1 4,1 2.34,1 1,2.34 1,4 1,4.61 1.19,5.17 1.5,5.66 Z M 7,4 C 7,3.39 6.81,2.83 6.5,2.34 L 2.34,6.5 C 2.82,6.81 3.39,7 4,7 5.66,7 7,5.66 7,4 Z'),
     D = 'diff-gutter',
@@ -43323,7 +43357,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(1),
-    i = n(113),
+    i = n(114),
     a = n(12);
   class s extends o.Component {
     constructor() {
@@ -43352,7 +43386,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(72);
+    r = n(73);
   class i extends o.Component {
     render() {
       return o.createElement('div', {
@@ -43374,7 +43408,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(72);
+    r = n(73);
   class i extends o.Component {
     render() {
       return o.createElement('div', {
@@ -43421,7 +43455,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(72);
+    r = n(73);
   class i extends o.Component {
     constructor(e) {
       super(e), this.onValueChange = (t) => {
@@ -43491,7 +43525,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(72);
+    r = n(73);
   class i extends o.Component {
     constructor(e) {
       super(e), this.onValueChange = (t) => {
@@ -43556,7 +43590,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(72);
+    r = n(73);
   class i extends o.Component {
     render() {
       const e = {
@@ -43610,7 +43644,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(72),
+    r = n(73),
     i = n(537),
     a = n(5);
   class s extends o.Component {
@@ -44685,7 +44719,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(89),
-    i = n(114),
+    i = n(115),
     a = n(14);
   class s extends o.Component {
     render() {
@@ -44968,7 +45002,7 @@ module.exports = function (e) {
     k = n(5),
     R = n(10),
     _ = n(47),
-    T = n(77),
+    T = n(66),
     x = n(4),
     P = n(26);
   class D extends v.Component {
@@ -45228,7 +45262,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(104),
+  const i = n(105),
     a = new Map,
     s = new Headers,
     d = {
@@ -45411,7 +45445,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(75),
+    i = n(76),
     a = n(2),
     s = n(5),
     d = n(554),
@@ -45676,17 +45710,17 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(5),
-    a = n(216),
+    a = n(217),
     s = n(35),
     d = n(14),
     l = n(146),
     c = n(64),
-    p = n(104),
+    p = n(105),
     u = n(549),
     m = n(149),
     h = n(26),
     f = n(4),
-    g = n(74),
+    g = n(75),
     y = n(548),
     S = n(18),
     C = n(12),
@@ -45991,20 +46025,20 @@ module.exports = function (e) {
     s = n(39),
     d = n(23),
     l = n(30),
-    c = n(75),
+    c = n(76),
     p = n(36),
-    u = n(76),
+    u = n(77),
     m = n(557),
     h = n(547),
     f = n(26),
-    g = n(77),
+    g = n(66),
     y = n(22),
     S = n(1),
     C = n(546),
     b = n(18),
     v = n(4),
     E = n(5),
-    w = n(101),
+    w = n(102),
     k = new v.OcticonSymbol(16, 16, 'M3.002 15H15V4c.51 0 1 .525 1 .996V15c0 .471-.49 1-1 1H4.002c-.51 0-1-.529-1-1zm-2-2H13V2c.51 0 1 .525 1 .996V13c0 .471-.49 1-1 1H2.002c-.51 0-1-.529-1-1zm10.14-13A.86.86 0 0 1 12 .857v10.286a.86.86 0 0 1-.857.857H.857A.86.86 0 0 1 0 11.143V.857A.86.86 0 0 1 .857 0h10.286zM11 11V1H1v10h10zM3 6c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z'),
     R = '.gitignore';
   class _ extends i.Component {
@@ -46293,11 +46327,11 @@ module.exports = function (e) {
     a = n(30),
     s = n(27),
     d = n(545),
-    l = n(216),
+    l = n(217),
     c = n(86),
-    p = n(113),
+    p = n(114),
     u = n(25),
-    m = n(244),
+    m = n(245),
     h = n(542),
     g = n(41),
     f = 500;
@@ -46482,9 +46516,9 @@ module.exports = function (e) {
     g = n(4),
     y = n(486),
     S = n(78),
-    C = n(199),
+    C = n(200),
     b = n(18),
-    v = n(95);
+    v = n(96);
   class E extends o.Component {
     constructor(e) {
       super(e), this.previousSection = this.props.state.selectedSection, this.onChangesListScrolled = (e) => {
@@ -46778,7 +46812,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   (function () {
     var t, o, r, i, a;
-    i = n(116), o = n(148), t = n(217), r = function (e) {
+    i = n(116), o = n(148), t = n(218), r = function (e) {
       return e.candidate
     }, a = function (e, t) {
       return t.score - e.score
@@ -46794,7 +46828,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   (function () {
     var t, o, r, i, a, s, d, l;
-    r = n(563), i = n(562), l = n(116), s = n(148), t = n(217), d = null, o = 'win32' === ('undefined' != typeof process && null !== process ? 'win32' : void 0) ? '\\' : '/', e.exports = {
+    r = n(563), i = n(562), l = n(116), s = n(148), t = n(218), d = null, o = 'win32' === ('undefined' != typeof process && null !== process ? 'win32' : void 0) ? '\\' : '/', e.exports = {
       filter: function (e, t, n) {
         return (null == n && (n = {}), !((null == t ? void 0 : t.length) && (null == e ? void 0 : e.length))) ? [] : (n = a(n, t), r(e, t, n))
       },
@@ -46916,9 +46950,9 @@ module.exports = function (e) {
   }
   t.ListRow = i
 }, function (e, t, n) {
-  var o = n(219),
+  var o = n(220),
     r = n(56)('iterator'),
-    i = n(92);
+    i = n(93);
   e.exports = n(45).getIteratorMethod = function (e) {
     if (e != void 0) return e[r] || e['@@iterator'] || i[o(e)]
   }
@@ -46938,9 +46972,9 @@ module.exports = function (e) {
     __esModule: !0
   }
 }, function (e, t, n) {
-  var o = n(219),
+  var o = n(220),
     r = n(56)('iterator'),
-    i = n(92);
+    i = n(93);
   e.exports = n(45).isIterable = function (e) {
     var t = Object(e);
     return t[r] !== void 0 || '@@iterator' in t || i.hasOwnProperty(o(t))
@@ -46972,7 +47006,7 @@ module.exports = function (e) {
     l = null,
     c = null
 }, function (e, t, n) {
-  var o = n(91);
+  var o = n(92);
   n(158)('getOwnPropertyDescriptor', function (e) {
     return function (t, n) {
       return e(o(t), n)
@@ -46995,7 +47029,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   var o = n(37),
     r = n(160),
-    i = n(221);
+    i = n(222);
   e.exports = n(117)(function () {
     var e = Object.assign,
       t = {},
@@ -47011,7 +47045,7 @@ module.exports = function (e) {
     return t
   } : Object.assign
 }, function (e, t, n) {
-  var o = n(93);
+  var o = n(94);
   o(o.S + o.F, 'Object', {
     assign: n(580)
   })
@@ -47037,7 +47071,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   var o = n(37).getDesc,
-    r = n(220),
+    r = n(221),
     i = n(150),
     a = function (e, t) {
       if (i(e), !r(t) && null !== t) throw TypeError(t + ': can\'t set as prototype!')
@@ -47045,7 +47079,7 @@ module.exports = function (e) {
   e.exports = {
     set: Object.setPrototypeOf || ('__proto__' in {} ? function (e, t, r) {
       try {
-        r = n(230)(Function.call, o(Object.prototype, '__proto__').set, 2), r(e, []), t = !(e instanceof Array)
+        r = n(231)(Function.call, o(Object.prototype, '__proto__').set, 2), r(e, []), t = !(e instanceof Array)
       } catch (n) {
         t = !0
       }
@@ -47056,7 +47090,7 @@ module.exports = function (e) {
     check: a
   }
 }, function (e, t, n) {
-  var o = n(93);
+  var o = n(94);
   o(o.S, 'Object', {
     setPrototypeOf: n(586).set
   })
@@ -47082,7 +47116,7 @@ module.exports = function (e) {
     return t
   }
 }, function (e, t, n) {
-  var o = n(91),
+  var o = n(92),
     r = n(37).getNames,
     i = {}.toString,
     a = 'object' == typeof window && Object.getOwnPropertyNames ? Object.getOwnPropertyNames(window) : [],
@@ -47098,7 +47132,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   var o = n(37),
-    r = n(91);
+    r = n(92);
   e.exports = function (e, t) {
     for (var n = r(e), i = o.getKeys(n), a = i.length, s = 0, d; a > s;)
       if (n[d = i[s++]] === t) return d
@@ -47108,20 +47142,20 @@ module.exports = function (e) {
   var o = n(37),
     r = n(118),
     a = n(154),
-    i = n(224),
-    s = n(93),
-    d = n(225),
+    i = n(225),
+    s = n(94),
+    d = n(226),
     l = n(117),
-    c = n(223),
+    c = n(224),
     p = n(153),
-    u = n(222),
+    u = n(223),
     m = n(56),
     h = n(594),
     f = n(593),
     g = n(592),
     y = n(591),
     S = n(150),
-    C = n(91),
+    C = n(92),
     b = n(155),
     v = o.getDesc,
     E = o.setDesc,
@@ -47211,7 +47245,7 @@ module.exports = function (e) {
     return this._k
   }), N = function (e) {
     return e instanceof R
-  }, o.create = z, o.isEnum = U, o.getDesc = W, o.setDesc = O, o.setDescs = H, o.getNames = f.get = V, o.getSymbols = G, i && !n(226) && d(L, 'propertyIsEnumerable', U, !0));
+  }, o.create = z, o.isEnum = U, o.getDesc = W, o.setDesc = O, o.setDescs = H, o.getNames = f.get = V, o.getSymbols = G, i && !n(227) && d(L, 'propertyIsEnumerable', U, !0));
   var q = {
     for: function (e) {
       return a(M, e += '') ? M[e] : M[e] = R(e)
@@ -47261,9 +47295,9 @@ module.exports = function (e) {
   'use strict';
   var o = n(599),
     r = n(598),
-    i = n(92),
-    a = n(91);
-  e.exports = n(227)(Array, 'Array', function (e, t) {
+    i = n(93),
+    a = n(92);
+  e.exports = n(228)(Array, 'Array', function (e, t) {
     this._t = a(e), this._i = 0, this._k = t
   }, function () {
     var e = this._t,
@@ -47341,10 +47375,10 @@ module.exports = function (e) {
   const r = n(0),
     i = n(43),
     a = n(314),
-    s = n(77),
+    s = n(66),
     d = n(149),
     l = n(567),
-    c = n(218),
+    c = n(219),
     p = n(65),
     u = n(566);
   class m extends r.Component {
@@ -47775,8 +47809,8 @@ module.exports = function (e) {
     r = n(35),
     i = n(4),
     a = n(26),
-    s = n(94),
-    d = n(76),
+    s = n(95),
+    d = n(77),
     l = n(18);
   class c extends o.Component {
     constructor() {
@@ -47904,7 +47938,7 @@ module.exports = function (e) {
     c = n(26),
     p = n(25),
     u = n(33),
-    m = n(115),
+    m = n(91),
     h = n(18),
     f = u.encodePathAsUrl(__dirname, 'static/empty-no-repo.svg');
   class g extends r.Component {
@@ -48143,7 +48177,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(23),
-    r = n(231),
+    r = n(232),
     i = n(2);
   t.iconForStatus = function (e) {
     switch (e.kind) {
@@ -48173,7 +48207,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(4),
-    r = n(102);
+    r = n(103);
   t.iconForRepository = function (e) {
     if (e instanceof r.CloningRepository) return o.OcticonSymbol.desktopDownload;
     if (e.missing) return o.OcticonSymbol.alert;
@@ -48225,7 +48259,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(22),
-    i = n(242),
+    i = n(243),
     a = n(5);
   class s extends o.Component {
     constructor() {
@@ -48415,13 +48449,13 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(291),
-    i = n(233),
+    i = n(234),
     a = n(10),
     s = n(2),
     d = n(625),
-    l = n(77),
+    l = n(66),
     c = n(49),
-    p = n(177);
+    p = n(178);
   t.PullRequestStore = class {
     constructor(e, t) {
       this.db = e, this.repositoryStore = t, this.emitter = new c.Emitter, this.currentRefreshOperations = new Map, this.lastRefreshForRepository = new Map
@@ -48587,7 +48621,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(2),
-    i = n(234),
+    i = n(235),
     a = n(628),
     s = n(10),
     d = n(627),
@@ -48853,7 +48887,7 @@ module.exports = function (e) {
     value: !0
   });
   const a = n(277),
-    s = n(101),
+    s = n(102),
     d = n(35),
     l = n(2),
     c = n(59),
@@ -49145,7 +49179,7 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(10),
-    a = n(104),
+    a = n(105),
     s = n(2),
     d = n(47),
     l = n(59);
@@ -49322,10 +49356,10 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(102),
-    r = n(98),
+  const o = n(103),
+    r = n(99),
     i = n(21),
-    a = n(106),
+    a = n(107),
     s = n(59);
   class d extends s.BaseStore {
     constructor() {
@@ -49400,10 +49434,10 @@ module.exports = function (e) {
   const i = n(1),
     a = n(20),
     s = n(10),
-    d = n(177),
+    d = n(178),
     l = n(80),
     c = n(21),
-    p = n(235),
+    p = n(236),
     u = n(58),
     m = '\r\n',
     h = `# Welcome to GitHub Desktop!${m}${m}` + `This is your README. READMEs are where you can communicate ` + `what your project is and how to use it.${m}${m}` + `Write your name on line 6, save it, and then head ` + `back to GitHub Desktop.${m}`;
@@ -49450,7 +49484,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(95),
+  const o = n(96),
     r = n(29),
     i = n(61),
     a = 'tutorial-install-editor-skipped',
@@ -49864,7 +49898,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(239);
+  const o = n(240);
   t.GitStoreCache = class {
     constructor(e, t, n, o) {
       this.shell = e, this.onGitStoreUpdated = t, this.onDidLoadNewCommits = n, this.onDidError = o, this.gitStores = new Map
@@ -50090,7 +50124,7 @@ module.exports = function (e) {
     this.session++, this.running = !1, this.emit('end', e)
   }
   var s = n(653),
-    d = n(241).EventEmitter;
+    d = n(242).EventEmitter;
   e.exports = o, s(o, d);
   ['pop', 'shift', 'indexOf', 'lastIndexOf'].forEach(function (e) {
     o.prototype[e] = function () {
@@ -50146,7 +50180,7 @@ module.exports = function (e) {
   const o = n(654),
     r = n(21),
     i = n(21),
-    a = n(240);
+    a = n(241);
   t.AheadBehindUpdater = class {
     constructor(e, t) {
       this.repository = e, this.onCacheUpdate = t, this.comparisonCache = new a.ComparisonCache, this.aheadBehindQueue = o({
@@ -50540,7 +50574,7 @@ module.exports = function (e) {
     a = n(658),
     s = n(657),
     d = n(656),
-    l = n(243);
+    l = n(244);
   t.Default = function () {
     return s.Default
   }();
@@ -50662,7 +50696,7 @@ module.exports = function (e) {
   const u = n(52),
     m = n(27),
     h = n(35),
-    f = n(102),
+    f = n(103),
     g = n(29),
     y = n(26);
   class S {
@@ -50958,7 +50992,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(67),
+  const o = n(68),
     r = [{
       title: '',
       weight: 0
@@ -51121,7 +51155,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(66),
+  const r = n(67),
     a = /^(merged|added in remote|removed in remote|changed in both|removed in local|added in both)$/,
     s = /^\s{2}(result|our|their|base)\s+(\d{6})\s([0-9a-f]{40})\s(.+)$/;
   t.parseMergeResult = function (e) {
@@ -51590,7 +51624,7 @@ module.exports = function (e) {
   const o = n(34),
     r = n(11),
     i = n(80),
-    a = n(99),
+    a = n(100),
     s = n(58),
     d = n(18);
   t.push = async function (e, t, n, l, c, p = {
@@ -51644,7 +51678,7 @@ module.exports = function (e) {
   });
   const r = n(11),
     i = n(80),
-    a = n(99),
+    a = n(100),
     s = n(18),
     d = n(58);
   t.pull = async function (e, t, n, s) {
@@ -51760,7 +51794,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(11),
-    i = n(167),
+    i = n(168),
     a = n(254),
     s = n(253);
   t.createCommit = async function (e, t, n) {
@@ -51878,7 +51912,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(67),
+  const o = n(68),
     r = [{
       title: '远端: 压缩对象中',
       weight: .1
@@ -51903,7 +51937,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(67),
+  const o = n(68),
     r = [{
       title: '远端: 压缩对象中',
       weight: .1
@@ -51925,7 +51959,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(67),
+  const o = n(68),
     r = [{
       title: '压缩对象中',
       weight: .2
@@ -51947,7 +51981,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(67),
+  const o = n(68),
     r = [{
       title: '远端: 压缩对象中',
       weight: .1
@@ -51972,7 +52006,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(67),
+  const o = n(68),
     r = [{
       title: '检出文件中',
       weight: 1
@@ -51996,7 +52030,7 @@ module.exports = function (e) {
   const r = n(11),
     i = n(46),
     a = n(80),
-    s = n(99),
+    s = n(100),
     d = n(18),
     l = n(58);
   t.checkoutBranch = async function (e, t, n, i) {
@@ -52577,7 +52611,7 @@ module.exports = function (e) {
   });
   const o = n(48),
     r = n(20),
-    i = n(100);
+    i = n(101);
   t.launchExternalEditor = async function (e, t) {
     const n = t.path,
       a = await r.pathExists(n);
@@ -52657,7 +52691,7 @@ module.exports = function (e) {
   const o = n(22),
     r = n(83),
     i = n(49),
-    a = n(171);
+    a = n(172);
   t.themeChangeMonitor = new class {
     constructor() {
       this.emitter = new i.Emitter, this.subscribe = () => {
@@ -52956,7 +52990,7 @@ module.exports = function (e) {
   const o = n(31),
     r = n(1),
     i = n(40),
-    a = n(173);
+    a = n(174);
   e.exports = function (e, t, n) {
     const s = r.dirname(e);
     o.existsSync(s) || i.mkdirsSync(s), a.writeJsonSync(e, t, n)
@@ -52966,7 +53000,7 @@ module.exports = function (e) {
   const o = n(1),
     r = n(40),
     i = n(51).pathExists,
-    a = n(173);
+    a = n(174);
   e.exports = function (e, t, n, s) {
     'function' == typeof n && (s = n, n = {});
     const d = o.dirname(e);
@@ -53053,7 +53087,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(38).fromCallback,
-    r = n(173);
+    r = n(174);
   r.outputJson = o(n(722)), r.outputJsonSync = n(721), r.outputJSON = r.outputJson, r.outputJSONSync = r.outputJsonSync, r.writeJSON = r.writeJson, r.writeJSONSync = r.writeJsonSync, r.readJSON = r.readJson, r.readJSONSync = r.readJsonSync, e.exports = r
 }, function (e, t, n) {
   'use strict';
@@ -53963,12 +53997,12 @@ module.exports = function (e) {
     p = n(129),
     u = n(278),
     m = n(128),
-    h = n(102),
+    h = n(103),
     g = n(30),
     f = n(127),
-    y = n(101),
+    y = n(102),
     S = n(277),
-    C = n(172),
+    C = n(173),
     b = n(35),
     v = n(23),
     E = n(29),
@@ -53987,17 +54021,17 @@ module.exports = function (e) {
     F = n(265),
     B = n(263),
     N = n(21),
-    O = n(244),
+    O = n(245),
     H = n(661),
     z = n(660),
     U = n(52),
     W = n(53),
     V = n(79),
-    G = n(98),
+    G = n(99),
     K = n(121),
     j = n(84),
     q = n(289),
-    Y = n(242),
+    Y = n(243),
     X = n(59),
     Q = n(655),
     $ = n(165),
@@ -54007,28 +54041,28 @@ module.exports = function (e) {
     te = n(650),
     ne = n(648),
     oe = n(61),
-    re = n(100),
+    re = n(101),
     ie = n(645),
     ae = n(644),
     se = n(18),
-    de = n(96),
+    de = n(97),
     le = n(62),
-    ce = n(171),
-    pe = n(66),
-    ue = n(236),
+    ce = n(172),
+    pe = n(67),
+    ue = n(237),
     me = n(57),
     he = n(78),
-    fe = n(77),
+    fe = n(66),
     ge = n(640),
     ye = n(639),
     Se = n(638),
-    Ce = n(95),
+    Ce = n(96),
     be = n(637),
     ve = n(41),
     Ee = n(18),
     we = n(636),
     ke = n(635),
-    Re = n(103),
+    Re = n(104),
     _e = n(634),
     Te = n(163),
     xe = n(162),
@@ -57055,7 +57089,7 @@ module.exports = function (e) {
     u = n(288),
     m = n(52),
     h = n(83),
-    f = n(68),
+    f = n(69),
     g = n(2),
     y = n(61);
   t.SamplesURL = 'https://desktop.github.com/usage-data/';
@@ -58305,13 +58339,13 @@ module.exports = function (e) {
         this.disposed || this.disposables.clear()
       }, e
     }(), r = function (e) {
-      if (null == o && (o = n(178)), !o.isDisposable(e)) throw new TypeError('Arguments to CompositeDisposable.add must have a .dispose() method')
+      if (null == o && (o = n(179)), !o.isDisposable(e)) throw new TypeError('Arguments to CompositeDisposable.add must have a .dispose() method')
     }
   }).call(this)
 }, function (e, t, n) {
   (function () {
     var t, o;
-    t = n(178), e.exports = o = function () {
+    t = n(179), e.exports = o = function () {
       function e() {
         this.clear()
       }
@@ -58433,7 +58467,7 @@ module.exports = function (e) {
     c = o(l),
     p = n(301),
     u = o(p),
-    m = n(180),
+    m = n(181),
     h = o(m),
     f = n(300),
     g = n(0),
@@ -58540,8 +58574,8 @@ module.exports = function (e) {
   e.exports = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED'
 }, function (e, t, n) {
   'use strict';
-  var o = n(181),
-    r = n(182),
+  var o = n(182),
+    r = n(183),
     i = n(774);
   e.exports = function () {
     function e(e, t, n, o, a, s) {
@@ -61804,11 +61838,11 @@ module.exports = function (e) {
   }
   var Wn = String.fromCharCode,
     Vn = Math.min,
-    Gn = n(182),
+    Gn = n(183),
     Kn = n(0),
     jn = n(782),
-    m = n(183),
-    A = n(181),
+    m = n(184),
+    A = n(182),
     C = n(781),
     qn = n(780),
     Yn = n(779),
@@ -63157,10 +63191,10 @@ module.exports = function (e) {
     var i = '';
     null != o && (i = ('' + o).replace(K, '$&/') + '/'), n = C(n, i, e, r), null == t || _(t, '', S, n), k(n)
   }
-  var P = i(183),
-    F = i(182),
+  var P = i(184),
+    F = i(183),
     n = i(307),
-    p = i(181),
+    p = i(182),
     b = 'function' == typeof Symbol && Symbol['for'],
     r = b ? Symbol['for']('react.element') : 60103,
     U = b ? Symbol['for']('react.portal') : 60106,
@@ -63300,7 +63334,7 @@ module.exports = function (e) {
     this.children = [], this.sourceContents = {}, this.line = null == e ? null : e, this.column = null == t ? null : t, this.source = null == n ? null : n, this.name = null == r ? null : r, this[s] = !0, null != o && this.add(o)
   }
   var r = n(310).SourceMapGenerator,
-    a = n(107),
+    a = n(108),
     i = /(\r?\n)/,
     s = '$$$isSourceNode$$$';
   o.fromStringWithSourceMap = function (e, t, n) {
@@ -63521,7 +63555,7 @@ module.exports = function (e) {
       }
     })
   }
-  var d = n(107),
+  var d = n(108),
     s = n(788),
     l = n(308).ArraySet,
     c = n(309),
@@ -63798,7 +63832,7 @@ module.exports = function (e) {
       generatedColumn: 0
     }
   }
-  var i = n(107);
+  var i = n(108);
   r.prototype.unsortedForEach = function (e, t) {
     this._array.forEach(e, t)
   }, r.prototype.add = function (e) {
@@ -64128,11 +64162,11 @@ module.exports = function (e) {
     a = n(22),
     s = n(306),
     d = n(339),
-    l = n(68),
-    c = n(184),
+    l = n(69),
+    c = n(185),
     p = n(27),
     u = n(84),
-    m = n(184),
+    m = n(185),
     h = n(331),
     f = n(330),
     g = n(26),
@@ -64143,7 +64177,7 @@ module.exports = function (e) {
     v = n(328),
     E = n(327),
     w = n(326),
-    k = n(232);
+    k = n(233);
   !1, h.shellNeedsPatching(process) && h.updateEnvironmentForProcess(), C.enableSourceMaps(), process.env.LOCAL_GIT_DIRECTORY = i.resolve(__dirname, 'git'), n(322);
   const R = performance.now();
   n(321);
