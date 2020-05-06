@@ -9877,9 +9877,9 @@ module.exports = function (e) {
             LTS: 'hh:mm:ss A',
             LT: 'hh:mm A',
             L: 'YYYY/MM/DD',
-            LL: 'YYYY年 MMMM D日',
-            LLL: 'YYYY年 MMMM D日 hh:mm A',
-            LLLL: 'YYYY年 MMMM D日, dddd hh:mm A'
+            LL: 'YYYY年MM月D日',
+            LLL: 'YYYY年MM月D日 hh:mm A',
+            LLLL: 'YYYY年MM月D日, dddd hh:mm A'
           },
           invalidDate: '无效日期',
           ordinal: '%d',
