@@ -2174,7 +2174,7 @@ module.exports = function (e) {
   const r = t(4);
   n.reportError = async function (e, n, t) {
     const o = new Map;
-    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', 'aee5caae5dd9ad3ea5891bef59c293fe244aa6dc'), o.set('version', r.app.getVersion()), n)
+    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', '539849ed767a2f1edc6809e347ee4f639c8dfa6f'), o.set('version', r.app.getVersion()), n)
       for (const e of Object.keys(n)) o.set(e, n[e]);
     const i = {
         method: 'POST',
