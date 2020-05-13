@@ -44241,7 +44241,7 @@ module.exports = function (e) {
     }
     reset(e, t) {
       const n = e.getDoc();
-      e.setValue(''), n.clearHistory(), this.authors = [], this.authorMarkMap.clear(), this.markAuthorMap.clear(), this.label = c(e, 'Co-Authors ', {
+      e.setValue(''), n.clearHistory(), this.authors = [], this.authorMarkMap.clear(), this.markAuthorMap.clear(), this.label = c(e, '共著者 ', {
         atomic: !0,
         inclusiveLeft: !0,
         className: 'label',
@@ -44943,7 +44943,7 @@ module.exports = function (e) {
       }) : null
     }
     get toggleCoAuthorsText() {
-      return this.props.showCoAuthoredBy ? 'Remove co-authors' : 'Add co-authors'
+      return this.props.showCoAuthoredBy ? '移除共著者' : '添加共著者'
     }
     getAddRemoveCoAuthorsMenuItem() {
       return {
