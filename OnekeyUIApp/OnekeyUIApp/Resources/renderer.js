@@ -41015,7 +41015,7 @@ module.exports = function (e) {
         className: 'header'
       }, s.createElement('div', {
         className: 'text'
-      }, s.createElement('h1', null, '无本地更改'), s.createElement('p', null, '此存储库中没有未提交的更改。下面是一些友好的建议。')), s.createElement('img', {
+      }, s.createElement('h1', null, '无本地更改'), s.createElement('p', null, '此存储库中没有未提交的更改。下面是一些建议。')), s.createElement('img', {
         src: b,
         className: 'blankslate-image'
       })), this.renderActions()))
