@@ -1669,23 +1669,23 @@ module.exports = function (e) {
     switch (e.kind) {
       case i.AppFileStatusKind.New:
       case i.AppFileStatusKind.Untracked:
-        return 'New';
+        return '新增';
       case i.AppFileStatusKind.Modified:
-        return 'Modified';
+        return '有更改';
       case i.AppFileStatusKind.Deleted:
-        return 'Deleted';
+        return '删除';
       case i.AppFileStatusKind.Renamed:
-        return 'Renamed';
+        return '重命名';
       case i.AppFileStatusKind.Conflicted:
         if (i.isConflictWithMarkers(e)) {
           const t = e.conflictMarkerCount;
-          return 0 < t ? 'Conflicted' : 'Resolved'
+          return 0 < t ? '冲突' : '已解决'
         }
-        return 'Conflicted';
+        return '冲突';
       case i.AppFileStatusKind.Copied:
-        return 'Copied';
+        return '复制';
     }
-    return a.assertNever(e, `Unknown file status ${e}`)
+    return a.assertNever(e, `未知文件状态 ${e}`)
   }, t.isConflictedFile = o, t.hasConflictedFiles = function (e) {
     return e.files.some((e) => o(e.status))
   }, t.hasUnresolvedConflicts = r, t.getUnmergedStatusEntryDescription = function (e, t) {
@@ -14187,7 +14187,7 @@ module.exports = function (e) {
         null === e || null === this.props.repositories ? this.props.onSelectionChanged(null) : this.props.onSelectionChanged(r(this.props.repositories, e))
       }, this.renderGroupHeader = (e) => {
         let t = e;
-        return e === d.YourRepositoriesIdentifier && (t = '您的存储库'), i.createElement('div', {
+        return e === d.YourRepositoriesIdentifier && (t = '你的存储库'), i.createElement('div', {
           className: 'clone-repository-list-content clone-repository-list-group-header'
         }, t)
       }, this.renderItem = (e, t) => i.createElement('div', {
@@ -14204,7 +14204,7 @@ module.exports = function (e) {
       }))), this.renderPostFilter = () => i.createElement(c.Button, {
         disabled: this.props.loading,
         onClick: this.refreshRepositories,
-        tooltip: 'Refresh the list of repositories'
+        tooltip: '刷新存储库列表'
       }, i.createElement(p.Octicon, {
         symbol: p.OcticonSymbol.sync,
         className: this.props.loading ? 'spin' : void 0
@@ -14215,13 +14215,13 @@ module.exports = function (e) {
         } = this.props, n = this.props.account.endpoint === s.getDotComAPIEndpoint() ? 'GitHub.com' : s.getHTMLURL(this.props.account.endpoint);
         return e && (null === t || 0 === t.length) ? i.createElement('div', {
           className: 'no-items loading'
-        }, `Loading repositories from ${n}…`) : 0 === this.props.filterText.length ? i.createElement('div', {
+        }, `正在从 ${n} 加载存储库…`) : 0 === this.props.filterText.length ? i.createElement('div', {
           className: 'no-items empty-repository-list'
-        }, i.createElement('div', null, 'Looks like there are no repositories for', ' ', i.createElement(h.Ref, null, this.props.account.login), ' on ', n, '.', ' ', i.createElement(m.LinkButton, {
+        }, i.createElement('div', null, '看上去没有存储库可用于', ' ', i.createElement(h.Ref, null, this.props.account.login), ' on ', n, '.', ' ', i.createElement(m.LinkButton, {
           onClick: this.refreshRepositories
-        }, 'Refresh this list'), ' ', 'if you\'ve created a repository recently.')) : i.createElement('div', {
+        }, '刷新列表'), ' ', '如果你最近有创建过存储库的话。')) : i.createElement('div', {
           className: 'no-items no-results-found'
-        }, i.createElement('div', null, 'Sorry, I can\'t find any repository matching', ' ', i.createElement(h.Ref, null, this.props.filterText)))
+        }, i.createElement('div', null, '抱歉，找不到任何匹配的存储库', ' ', i.createElement(h.Ref, null, this.props.filterText)))
       }
     }
     componentDidMount() {
@@ -31315,7 +31315,7 @@ module.exports = function (e) {
         disabled: this.state.isCheckingOutBranch,
         onSubmit: this.onSubmit,
         onDismissed: this.props.onDismissed
-      }, o.createElement(r.DialogContent, null, o.createElement(i.Row, null, '确定要继续吗？这将覆盖您现有的隐藏与您当前的变化。')), o.createElement(r.DialogFooter, null, o.createElement(s.OkCancelButtonGroup, {
+      }, o.createElement(r.DialogContent, null, o.createElement(i.Row, null, '确定要继续吗？这将覆盖你现有的隐藏与你当前的变化。')), o.createElement(r.DialogFooter, null, o.createElement(s.OkCancelButtonGroup, {
         destructive: !0,
         okButtonText: 'Overwrite'
       })))
@@ -31400,7 +31400,7 @@ module.exports = function (e) {
     renderStashOverwriteWarning() {
       return this.props.hasAssociatedStash && this.state.selectedStashAction === u.StashOnCurrentBranch ? o.createElement(a.Row, null, o.createElement(d.Octicon, {
         symbol: d.OcticonSymbol.alert
-      }), '创建一个新的存储将覆盖您当前的存储') : null
+      }), '创建一个新的存储将覆盖你当前的存储') : null
     }
     renderStashActions() {
       const {
@@ -31505,7 +31505,7 @@ module.exports = function (e) {
         onSubmit: this.onBeginRebase,
         dismissable: !1,
         type: 'warning'
-      }, o.createElement(i.DialogContent, null, o.createElement('p', null, '是否确定要将', o.createElement(a.Ref, null, t.name), ' 改为', ' ', o.createElement(a.Ref, null, e.name), '?'), o.createElement('p', null, '在rebase流的末尾，github桌面将允许您强制推送分支以更新上游分支。强制推送将更改远程上的历史记录，并可能会给在此分支上协作的其他人带来问题。'), o.createElement('div', null, o.createElement(r.Checkbox, {
+      }, o.createElement(i.DialogContent, null, o.createElement('p', null, '是否确定要将', o.createElement(a.Ref, null, t.name), ' 改为', ' ', o.createElement(a.Ref, null, e.name), '?'), o.createElement('p', null, '在rebase流的末尾，github桌面将允许你强制推送分支以更新上游分支。强制推送将更改远程上的历史记录，并可能会给在此分支上协作的其他人带来问题。'), o.createElement('div', null, o.createElement(r.Checkbox, {
         label: '不再显示此消息',
         value: this.state.askForConfirmationOnForcePush ? r.CheckboxValue.Off : r.CheckboxValue.On,
         onChange: this.onAskForConfirmationOnForcePushChanged
@@ -31543,7 +31543,7 @@ module.exports = function (e) {
       let n;
       return n = void 0 === t ? o.createElement('p', null, '是否确实要中止重新调整', o.createElement(i.Ref, null, e), '?') : o.createElement('p', null, '是否确实要中止 rebasing ', o.createElement(i.Ref, null, t), ' onto ', o.createElement(i.Ref, null, e), '?'), o.createElement('div', {
         className: 'column-left'
-      }, n, o.createElement('p', null, '中止此rebase将使您返回到原始分支状态，并且已解决的冲突将被丢弃。'))
+      }, n, o.createElement('p', null, '中止此rebase将使你返回到原始分支状态，并且已解决的冲突将被丢弃。'))
     }
     render() {
       const {
@@ -32100,7 +32100,7 @@ module.exports = function (e) {
         onDismissed: this.onDismissed,
         onSubmit: this.onDismissed,
         type: 'normal'
-      }, o.createElement(r.DialogContent, null, o.createElement(i.Row, null, '为了帮助我们更好地了解GitHub桌面用户如何从桌面上获得价值，GitHub桌面推出了一项关于使用情况统计报告的改变:'), o.createElement(i.Row, null, o.createElement('ul', null, o.createElement('li', null, o.createElement('span', null, o.createElement('strong', null, '如果你已经注册了GitHub账户'), ', 您的GitHub.com账户ID将包含在定期使用情况统计中。')), o.createElement('li', null, o.createElement('span', null, o.createElement('strong', null, '如果你只登录了GitHub企业服务器账户，或者只使使用本地git而没有GitHub远端'), ', 没啥会改变.')))), o.createElement(i.Row, {
+      }, o.createElement(r.DialogContent, null, o.createElement(i.Row, null, '为了帮助我们更好地了解GitHub桌面用户如何从桌面上获得价值，GitHub桌面推出了一项关于使用情况统计报告的改变:'), o.createElement(i.Row, null, o.createElement('ul', null, o.createElement('li', null, o.createElement('span', null, o.createElement('strong', null, '如果你已经注册了GitHub账户'), ', 你的GitHub.com账户ID将包含在定期使用情况统计中。')), o.createElement('li', null, o.createElement('span', null, o.createElement('strong', null, '如果你只登录了GitHub企业服务器账户，或者只使使用本地git而没有GitHub远端'), ', 没啥会改变.')))), o.createElement(i.Row, {
         className: 'selection'
       }, o.createElement(a.Checkbox, {
         label: '通过提交使用情况统计来帮助GitHub桌面改进。',
@@ -32146,9 +32146,9 @@ module.exports = function (e) {
         onSubmit: this.onSubmit,
         onDismissed: this.props.onDismissed,
         type: 'warning'
-      }, o.createElement(r.DialogContent, null, o.createElement('p', null, '以下文件超过100MB。', ' ', o.createElement('strong', null, '如果提交这些文件，您将无法再将此存储库推送到GitHub')), this.renderFileList(), o.createElement('p', {
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, '以下文件超过100MB。', ' ', o.createElement('strong', null, '如果提交这些文件，你将无法再将此存储库推送到GitHub')), this.renderFileList(), o.createElement('p', {
         className: 'recommendation'
-      }, '我们建议您避免提交这些文件，或者使用', ' ', o.createElement(i.LinkButton, {
+      }, '我们建议你避免提交这些文件，或者使用', ' ', o.createElement(i.LinkButton, {
         uri: 'https://help.github.com/articles/versioning-large-files/'
       }, 'Git LFS'), '在GiHub上存储大文件。')), o.createElement(r.DialogFooter, null, o.createElement(l.OkCancelButtonGroup, {
         destructive: !0,
@@ -32192,7 +32192,7 @@ module.exports = function (e) {
       let n;
       return n = void 0 === t ? o.createElement('p', null, '是否确实要中止合并到', o.createElement('strong', null, e), '?') : o.createElement('p', null, '确实要中止合并', o.createElement('strong', null, t), ' 到 ', o.createElement('strong', null, e), '?'), o.createElement('div', {
         className: 'column-left'
-      }, n, o.createElement('p', null, '中止此合并将使您返回到合并前状态，并且已解决的冲突仍将存在。'))
+      }, n, o.createElement('p', null, '中止此合并将使你返回到合并前状态，并且已解决的冲突仍将存在。'))
     }
     render() {
       return o.createElement(r.Dialog, {
@@ -33118,7 +33118,7 @@ module.exports = function (e) {
         className: 'drag-drop-info'
       }, o.createElement(a.Octicon, {
         symbol: a.OcticonSymbol.lightBulb
-      }), o.createElement('div', null, o.createElement('strong', null, '专业提示!'), ' 您可以在直接拖放已有的仓库库文件夹到这里，将其添加到桌面上。')))
+      }), o.createElement('div', null, o.createElement('strong', null, '专业提示!'), ' 你可以在直接拖放已有的仓库库文件夹到这里，将其添加到桌面上。')))
     }
   }
   t.NoRepositoriesView = m
@@ -33538,7 +33538,7 @@ module.exports = function (e) {
       }, o.createElement('div', null, '登录 GitHub.com 账户以访问你的存储库。')) : e === m.Enterprise ? o.createElement(l.CallToAction, {
         actionTitle: t,
         onAction: this.signInEnterprise
-      }, o.createElement('div', null, '如果您有一个GitHub企业服务器帐户，请登录该帐户以访问您的存储库。')) : d.assertNever(e, `Unknown tab: ${e}`)
+      }, o.createElement('div', null, '如果你有一个GitHub企业服务器帐户，请登录该帐户以访问你的存储库。')) : d.assertNever(e, `Unknown tab: ${e}`)
     }
     renderFooter() {
       const e = this.getCurrentTabState(),
@@ -33775,7 +33775,7 @@ module.exports = function (e) {
         title: '无法定位 Git',
         onSubmit: this.onSubmit,
         onDismissed: this.props.onDismissed
-      }, o.createElement(r.DialogContent, null, o.createElement('p', null, '我们无法在您的系统上找到Git.这意味着您将无法在', ' ', '命令提示符', '中执行任何Git命令.'), o.createElement('p', null, '为了帮助您为操作系统安装和配置Git，我们提供了一些外部资源。')), o.createElement(r.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, '我们无法在你的系统上找到Git.这意味着你将无法在', ' ', '命令提示符', '中执行任何Git命令.'), o.createElement('p', null, '为了帮助你为操作系统安装和配置Git，我们提供了一些外部资源。')), o.createElement(r.DialogFooter, null, o.createElement(a.OkCancelButtonGroup, {
         okButtonText: '不使用Git打开',
         cancelButtonText: '安装 Git',
         onCancelButtonClick: this.onExternalLink
@@ -34095,8 +34095,8 @@ module.exports = function (e) {
     renderBranchSelection() {
       const e = this.state.isCreatingBranch ? this.state.tipAtCreateStart : this.props.tip,
         t = e.kind;
-      if (e.kind === m.TipState.Detached) return r.createElement('p', null, '你目前没有任何分支被签出（你的head引用被分离了）。因此，您的新分支将基于您当前已签出的提交. (', e.currentSha.substr(0, 7), ').');
-      if (e.kind === m.TipState.Unborn) return r.createElement('p', null, '您当前的分支是unborn（不包含任何提交）。创建一个新的分支将重命名为当前的分支.');
+      if (e.kind === m.TipState.Detached) return r.createElement('p', null, '你目前没有任何分支被签出（你的head引用被分离了）。因此，你的新分支将基于你当前已签出的提交. (', e.currentSha.substr(0, 7), ').');
+      if (e.kind === m.TipState.Unborn) return r.createElement('p', null, '你当前的分支是unborn（不包含任何提交）。创建一个新的分支将重命名为当前的分支.');
       if (e.kind === m.TipState.Valid) {
         if (null !== this.props.upstreamGitHubRepository && null !== this.props.upstreamDefaultBranch) return this.renderForkBranchSelection(e.branch.name, this.props.upstreamDefaultBranch, this.props.upstreamGitHubRepository.fullName);
         const t = this.state.isCreatingBranch ? this.props.defaultBranch : this.state.defaultBranchAtCreateStart;
@@ -34404,7 +34404,7 @@ module.exports = function (e) {
             path: t
           } = this.getSelectedTabState();
         if (!e) {
-          const e = new Error(`我们找不到那个存储库。请检查您是否已登录，网络是否可以访问，URL或资源库别名的拼写是否正确。`);
+          const e = new Error(`我们找不到那个存储库。请检查你是否已登录，网络是否可以访问，URL或资源库别名的拼写是否正确。`);
           return this.setState({
             loading: !1
           }), void this.setSelectedTabState({
@@ -34566,7 +34566,7 @@ module.exports = function (e) {
       }, r.createElement('div', null, '登录到 GitHub.com 账户以访问你的存储库。')) : e === m.CloneRepositoryTab.Enterprise ? r.createElement(y.CallToAction, {
         actionTitle: t,
         onAction: this.signInEnterprise
-      }, r.createElement('div', null, '如果您有 GitHub 企业服务器帐户，请登录该帐户以访问您的存储库。')) : e === m.CloneRepositoryTab.Generic ? null : g.assertNever(e, `Unknown sign in tab: ${e}`)
+      }, r.createElement('div', null, '如果你有 GitHub 企业服务器帐户，请登录该帐户以访问你的存储库。')) : e === m.CloneRepositoryTab.Generic ? null : g.assertNever(e, `Unknown sign in tab: ${e}`)
     }
     async validateEmptyFolder(e) {
       try {
@@ -34970,7 +34970,7 @@ module.exports = function (e) {
         className: 'warning-helper-text'
       }, r.createElement(v.Octicon, {
         symbol: v.OcticonSymbol.alert
-      }), r.createElement('p', null, '这个目录似乎是一个 Git 仓库。您是否想', ' ', r.createElement(E.LinkButton, {
+      }), r.createElement('p', null, '这个目录似乎是一个 Git 仓库。你是否想', ' ', r.createElement(E.LinkButton, {
         onClick: this.onAddRepositoryClicked
       }, '添加这个仓库'), ' ', '替代?')) : null
     }
@@ -36171,7 +36171,7 @@ module.exports = function (e) {
       }, o.createElement('div', null, '登录 Github.com 帐户以访问存储库')) : e === p.Enterprise ? o.createElement(c.CallToAction, {
         actionTitle: t,
         onAction: this.onEnterpriseSignIn
-      }, o.createElement('div', null, '如果您有一个 Github 企业服务器帐户，请登录该帐户以访问您的存储库')) : i.assertNever(e, `Unknown sign in type: ${e}`)
+      }, o.createElement('div', null, '如果你有一个 Github 企业服务器帐户，请登录该帐户以访问你的存储库')) : i.assertNever(e, `Unknown sign in type: ${e}`)
     }
   }
   t.Accounts = u
@@ -37370,7 +37370,7 @@ module.exports = function (e) {
       }, e ? t : n, e ? null : this.renderActions()))
     }
     renderEndpointRequiresWebFlow() {
-      return this.props.endpoint === p.getDotComAPIEndpoint() ? o.createElement(o.Fragment, null, o.createElement('p', null, '为了提高账户的安全性，GitHub现在要求你通过浏览器登录.'), o.createElement('p', null, '登录后，您的浏览器将重新定向到GitHub桌面。如果你的浏览器要求你启动GitHub桌面，请允许它启动GitHub桌面.')) : o.createElement('p', null, '你的GitHub企业服务器实例需要你用浏览器登录.')
+      return this.props.endpoint === p.getDotComAPIEndpoint() ? o.createElement(o.Fragment, null, o.createElement('p', null, '为了提高账户的安全性，GitHub现在要求你通过浏览器登录.'), o.createElement('p', null, '登录后，你的浏览器将重新定向到GitHub桌面。如果你的浏览器要求你启动GitHub桌面，请允许它启动GitHub桌面.')) : o.createElement('p', null, '你的GitHub企业服务器实例需要你用浏览器登录.')
     }
     renderError() {
       const e = this.props.error;
@@ -38123,9 +38123,9 @@ module.exports = function (e) {
         src: i
       }), o.createElement('p', null, o.createElement('strong', null, 'Git'), ' 是版本控制系统.')), o.createElement('li', null, o.createElement('img', {
         src: a
-      }), o.createElement('p', null, o.createElement('strong', null, 'GitHub'), ' 是您存储代码并与他人合作的地方.')), o.createElement('li', null, o.createElement('img', {
+      }), o.createElement('p', null, o.createElement('strong', null, 'GitHub'), ' 是你存储代码并与他人合作的地方.')), o.createElement('li', null, o.createElement('img', {
         src: s
-      }), o.createElement('p', null, o.createElement('strong', null, 'GitHub 桌面'), ' 帮助您在本地使用GitHub工作.'))))
+      }), o.createElement('p', null, o.createElement('strong', null, 'GitHub 桌面'), ' 帮助你在本地使用GitHub工作.'))))
     }
   }
   t.TutorialWelcome = d
@@ -40878,7 +40878,7 @@ module.exports = function (e) {
       if (null === o) return null;
       if (o.files.kind !== S.StashedChangesLoadStates.Loaded) return null;
       const r = o.files.files.length,
-        i = s.createElement(s.Fragment, null, '您有', r, ' ', 1 === r ? '正在进行的更改' : '正在进行的更改', ' 尚未提交。'),
+        i = s.createElement(s.Fragment, null, '你有', r, ' ', 1 === r ? '正在进行的更改' : '正在进行的更改', ' 尚未提交。'),
         a = s.createElement(s.Fragment, null, '在左侧“更改”选项卡的底部访问它。'),
         d = 'toggle-stashed-changes',
         l = this.getMenuItemInfo(d);
@@ -40902,7 +40902,7 @@ module.exports = function (e) {
       return s.createElement(m.MenuBackedSuggestedAction, {
         key: 'publish-repository-action',
         title: '将存储库发布到GitHub',
-        description: '此存储库当前仅在本地计算机上可用。通过在github上发布它，您可以共享它，并与其他人协作。',
+        description: '此存储库当前仅在本地计算机上可用。通过在github上发布它，你可以共享它，并与其他人协作。',
         discoverabilityContent: n,
         buttonText: '发布存储库',
         menuItemId: e,
@@ -41015,7 +41015,7 @@ module.exports = function (e) {
         className: 'header'
       }, s.createElement('div', {
         className: 'text'
-      }, s.createElement('h1', null, '无本地更改'), s.createElement('p', null, '此存储库中没有未提交的更改。下面是一些建议。')), s.createElement('img', {
+      }, s.createElement('h1', null, '无本地更改'), s.createElement('p', null, '此存储库中没有未提交的更改。下面是一些操作建议。')), s.createElement('img', {
         src: b,
         className: 'blankslate-image'
       })), this.renderActions()))
@@ -45208,7 +45208,7 @@ module.exports = function (e) {
         readOnly: !0
       });
       for (const n of t) this.appendAuthor(e, n);
-      this.authors = this.props.authors, this.placeholder = c(e, '@username', {
+      this.authors = this.props.authors, this.placeholder = c(e, '@用户名', {
         atomic: !0,
         inclusiveRight: !0,
         className: 'placeholder',
