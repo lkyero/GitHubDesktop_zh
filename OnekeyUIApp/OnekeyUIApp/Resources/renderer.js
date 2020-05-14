@@ -15212,7 +15212,7 @@ module.exports = function (e) {
     renderUnpushedIndicator() {
       return this.props.showUnpushedIndicator ? i.createElement('div', {
         className: 'unpushed-indicator',
-        title: 'This commit hasn\'t been pushed to the remote repository yet'
+        title: '该提交还未推送到远端存储库里'
       }, i.createElement(h.Octicon, {
         symbol: h.OcticonSymbol.arrowUp
       })) : null
@@ -48337,7 +48337,7 @@ module.exports = function (e) {
       super(e), this.onTitlebarDoubleClickDarwin = () => {
         const e = i.remote.systemPreferences.getUserDefault('AppleActionOnDoubleClick', 'string'),
           t = i.remote.getCurrentWindow();
-        'Maximize' === e ? t.isMaximized() ? t.unmaximize() : t.maximize() : 'Minimize' === e ? t.minimize() : void 0
+        '最大化' === e ? t.isMaximized() ? t.unmaximize() : t.maximize() : '最小化' === e ? t.minimize() : void 0
       }, this.state = o(e)
     }
     componentWillReceiveProps() {}
