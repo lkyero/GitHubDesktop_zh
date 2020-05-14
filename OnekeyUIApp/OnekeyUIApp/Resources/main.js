@@ -2778,7 +2778,7 @@ module.exports = function (e) {
         accelerator: 'CmdOrCtrl+Shift+Backspace',
         click: a('discard-all-changes')
       }, F, {
-        label: `更新自${l}`,
+        label: `从 ${l} 拉取更新`,
         id: 'update-branch',
         accelerator: 'CmdOrCtrl+Shift+U',
         click: a('update-branch')
