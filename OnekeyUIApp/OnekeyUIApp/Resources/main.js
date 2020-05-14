@@ -2150,8 +2150,8 @@ module.exports = function (e) {
     }), t.onFailedToLoad(async () => {
       await o.dialog.showMessageBox({
         type: 'error',
-        title: 'Unrecoverable error',
-        message: `GitHub Desktop has encountered an unrecoverable error and will need to restart.\n\n` + `This has been reported to the team, but if you encounter this repeatedly please report ` + `this issue to the GitHub Desktop issue tracker.\n\n${n.stack || n.message}`
+        title: '无法恢复的错误',
+        message: `GitHub Desktop遇到了一个无法恢复的错误，需要重新启动。${n.stack||n.message}`
       }), o.app.relaunch(), o.app.quit()
     }), t.onClose(() => {
       o.app.relaunch(), o.app.quit()
@@ -2537,6 +2537,12 @@ module.exports = function (e) {
     return !0
   }, n.enableForkyCreateBranchUI = function () {
     return !0
+  }, n.enableNDDBBanner = function () {
+    return r()
+  }, n.enableGitTagsDisplay = function () {
+    return t()  
+  }, n.enableGitTagsCreation = function () {
+    return t()
   }
 }, function (e, n) {
   'use strict';
@@ -2740,6 +2746,7 @@ module.exports = function (e) {
         id: 'create-issue-in-repository-on-github',
         label: '在 GitHub 上新建问题',
         accelerator: 'CmdOrCtrl+Shift+I',
+        accelerator: 'CmdOrCtrl+I',
         click: a('create-issue-in-repository-on-github'),
         visible: h.enableCreateGitHubIssueFromMenu()
       }, F, {
@@ -2804,11 +2811,11 @@ module.exports = function (e) {
       }]
     }), !1;
     const I = {
-      label: '反馈问题\u2026',
-      click() {
-        c.shell.openExternal('https://github.com/desktop/desktop/issues/new/choose').catch((e) => log.error('Failed opening issue creation page', e))
-      }
-    },
+        label: '反馈问题\u2026',
+        click() {
+          c.shell.openExternal('https://github.com/desktop/desktop/issues/new/choose').catch((e) => log.error('Failed opening issue creation page', e))
+        }
+      },
       D = {
         label: '联系Github支持\u2026',
         click() {
