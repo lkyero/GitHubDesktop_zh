@@ -967,7 +967,7 @@ module.exports = function (e) {
   })(a = t.GitStatusEntry || (t.GitStatusEntry = {}));
   var s;
   (function (e) {
-    e.New = 'New', e.Modified = 'Modified', e.Deleted = 'Deleted', e.Copied = 'Copied', e.Renamed = 'Renamed', e.Conflicted = 'Conflicted', e.Untracked = 'Untracked'
+    e.New = '新增', e.Modified = '变更', e.Deleted = '删除', e.Copied = '复制', e.Renamed = '重命名', e.Conflicted = '冲突', e.Untracked = '未跟踪'
   })(s = t.AppFileStatusKind || (t.AppFileStatusKind = {})), t.isConflictedFileStatus = o, t.isConflictWithMarkers = function (e) {
     return e.hasOwnProperty('conflictMarkerCount')
   }, t.isManualConflict = function (e) {
@@ -1669,21 +1669,21 @@ module.exports = function (e) {
     switch (e.kind) {
       case i.AppFileStatusKind.New:
       case i.AppFileStatusKind.Untracked:
-        return '新增';
+        return 'New';
       case i.AppFileStatusKind.Modified:
-        return '有更改';
+        return 'Modified';
       case i.AppFileStatusKind.Deleted:
-        return '删除';
+        return 'Deleted';
       case i.AppFileStatusKind.Renamed:
-        return '重命名';
+        return 'Renamed';
       case i.AppFileStatusKind.Conflicted:
         if (i.isConflictWithMarkers(e)) {
           const t = e.conflictMarkerCount;
-          return 0 < t ? '冲突' : '已解决'
+          return 0 < t ? 'Conflicted' : 'Resolved'
         }
-        return '冲突';
+        return 'Conflicted';
       case i.AppFileStatusKind.Copied:
-        return '复制';
+        return 'Copied';
     }
     return a.assertNever(e, `未知文件状态 ${e}`)
   }, t.isConflictedFile = o, t.hasConflictedFiles = function (e) {
@@ -51089,7 +51089,7 @@ module.exports = function (e) {
   const i = n(11);
   var a;
   (function (e) {
-    e[e.Unknown = 0] = 'Unknown', e[e.Added = 1] = 'Added', e[e.Copied = 2] = 'Copied', e[e.Deleted = 3] = 'Deleted', e[e.Modified = 4] = 'Modified', e[e.Renamed = 5] = 'Renamed', e[e.TypeChanged = 6] = 'TypeChanged', e[e.Unmerged = 7] = 'Unmerged'
+    e[e.Unknown = 0] = '未知', e[e.Added = 1] = '新增', e[e.Copied = 2] = '复制', e[e.Deleted = 3] = '删除', e[e.Modified = 4] = '变更', e[e.Renamed = 5] = 'Rename重命名d', e[e.TypeChanged = 6] = '类型改变', e[e.Unmerged = 7] = '未合入'
   })(a = t.IndexStatus || (t.IndexStatus = {}));
   t.getIndexChanges = async function (e) {
     const t = ['diff-index', '--cached', '--name-status', '--no-renames', '-z'];
