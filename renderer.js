@@ -28,10 +28,10 @@ module.exports = function (e) {
     return t.d(n, 'a', n), n
   }, t.o = function (e, t) {
     return Object.prototype.hasOwnProperty.call(e, t)
-  }, t.p = '', t(t.s = 798)
+  }, t.p = '', t(t.s = 793)
 }([function (e, t, n) {
   'use strict';
-  e.exports = n(784)
+  e.exports = n(779)
 }, function (e) {
   e.exports = require('path')
 }, function (e, t) {
@@ -55,19 +55,19 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(502)), o(n(501)), o(n(499)), o(n(206)), o(n(7)), o(n(498))
+  }), o(n(501)), o(n(500)), o(n(498)), o(n(204)), o(n(7)), o(n(497))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(619);
+  var o = n(618);
   t.Octicon = o.Octicon;
-  var r = n(232);
+  var r = n(230);
   t.OcticonSymbol = r.OcticonSymbol;
-  var i = n(618);
+  var i = n(617);
   t.iconForRepository = i.iconForRepository;
-  var a = n(617);
+  var a = n(616);
   t.iconForStatus = a.iconForStatus
 }, function (e, t) {
   var n, o;
@@ -115,7 +115,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(5),
-    i = n(14);
+    i = n(12);
   class a extends o.Component {
     constructor() {
       super(...arguments), this.onOkButtonClick = (e) => {
@@ -163,7 +163,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(230),
+  var o = n(228),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -227,7 +227,7 @@ module.exports = function (e) {
         client_id: v,
         client_secret: E,
         note: d,
-        note_url: _,
+        note_url: R,
         fingerprint: g.uuid()
       }, Object.assign({
         Authorization: i
@@ -319,28 +319,28 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const p = n(60),
+  const p = n(62),
     u = n(42),
     m = n(133),
-    h = n(178),
-    f = n(177),
+    h = n(177),
+    f = n(176),
     g = n(106),
     y = n(105),
     S = n(132),
     C = process.env.DESKTOP_GITHUB_DOTCOM_API_ENDPOINT,
-    b = n(765),
+    b = n(762),
     v = 'de0e3c7e9973e1c4dd77',
     E = '1273305a5fc2737c2ca2911948ba24a9d961e2a3';
   v.length && E && E.length || log.warn(`DESKTOP_OAUTH_CLIENT_ID and/or DESKTOP_OAUTH_CLIENT_SECRET is undefined. You won't be able to authenticate new users.`);
   const w = ['repo', 'user', 'workflow'],
     k = ['repo', 'user'];
-  var R;
+  var T;
   (function (e) {
     e[e.NotModified = 304] = 'NotModified', e[e.NotFound = 404] = 'NotFound'
-  })(R || (R = {}));
-  const _ = 'https://desktop.github.com/';
-  class T extends Error {}
-  t.MaxResultsError = T, t.getNextPagePathWithIncreasingPageSize = r;
+  })(T || (T = {}));
+  const R = 'https://desktop.github.com/';
+  class _ extends Error {}
+  t.MaxResultsError = _, t.getNextPagePathWithIncreasingPageSize = r;
   class x {
     static fromAccount(e) {
       return new x(e.endpoint, e.token)
@@ -351,7 +351,7 @@ module.exports = function (e) {
     async fetchRepository(t, n) {
       try {
         const e = await this.request('GET', `repos/${t}/${n}`);
-        return e.status === R.NotFound ? (log.warn(`fetchRepository: '${t}/${n}' returned a 404`), null) : await h.parsedResponse(e)
+        return e.status === T.NotFound ? (log.warn(`fetchRepository: '${t}/${n}' returned a 404`), null) : await h.parsedResponse(e)
       } catch (o) {
         return log.warn(`fetchRepository: an error occurred for '${t}/${n}'`, o), null
       }
@@ -385,7 +385,7 @@ module.exports = function (e) {
       try {
         const e = `repos/${t}/${n}/commits/${o}`,
           r = await this.request('GET', e);
-        return r.status === R.NotFound ? (log.warn(`fetchCommit: '${e}' returned a 404`), null) : await h.parsedResponse(r)
+        return r.status === T.NotFound ? (log.warn(`fetchCommit: '${e}' returned a 404`), null) : await h.parsedResponse(r)
       } catch (r) {
         return log.warn(`fetchCommit: returned an error '${t}/${n}@${o}'`, r), null
       }
@@ -423,7 +423,7 @@ module.exports = function (e) {
         return await h.parsedResponse(i)
       } catch (n) {
         if (n instanceof h.APIError) {
-          if (null !== t) throw new Error(`Unable to create repository for organization '${t.login}'. Verify that it exists, that it's a paid organization, and that you have permission to create a repository there.`);
+          if (null !== t) throw new Error(`Unable to create repository for organization '${t.login}'. Verify that the repository does not already exist and that you have permission to create a repository there.`);
           throw n
         }
         throw log.error(`createRepository: failed with endpoint ${this.endpoint}`, n), new Error(`Unable to publish repository. Please check if you have an internet connection and try again.`)
@@ -473,7 +473,7 @@ module.exports = function (e) {
           perPage: 10,
           getNextPagePath: r,
           continue (e) {
-            if (e.length >= o) throw new T('got max pull requests, aborting');
+            if (e.length >= o) throw new _('got max pull requests, aborting');
             const t = e[e.length - 1];
             return t !== void 0 && Date.parse(t.updated_at) > i
           },
@@ -569,8 +569,8 @@ module.exports = function (e) {
       try {
         const e = `repos/${t}/${n}/mentionables/users`,
           r = await this.request('GET', e, void 0, o);
-        if (r.status === R.NotFound) return log.warn(`fetchMentionables: '${e}' returned a 404`), null;
-        if (r.status === R.NotModified) return null;
+        if (r.status === T.NotFound) return log.warn(`fetchMentionables: '${e}' returned a 404`), null;
+        if (r.status === T.NotModified) return null;
         const i = await h.parsedResponse(r),
           a = r.headers.get('etag');
         return {
@@ -674,7 +674,7 @@ module.exports = function (e) {
   const a = n(34),
     s = n(2),
     d = n(10),
-    l = n(171),
+    l = n(170),
     c = n(1),
     p = n(82),
     u = n(266);
@@ -737,51 +737,6 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(39),
-    i = n(5);
-  class a extends o.Component {
-    constructor() {
-      super(...arguments), this.onClick = (e) => {
-        if (e.preventDefault(), !this.props.disabled) {
-          const e = this.props.uri;
-          e && r.shell.openExternal(e);
-          const t = this.props.onClick;
-          t && t()
-        }
-      }
-    }
-    render() {
-      const e = this.props.uri || '',
-        t = i('link-button-component', this.props.className);
-      return o.createElement('a', {
-        className: t,
-        href: e,
-        onClick: this.onClick,
-        title: this.props.title,
-        tabIndex: this.props.tabIndex
-      }, this.props.children)
-    }
-  }
-  t.LinkButton = a
-}, function (e, t, n) {
-  'use strict';
-  t.__esModule = !0;
-  var o = n(229),
-    r = function (e) {
-      return e && e.__esModule ? e : {
-        default: e
-      }
-    }(o);
-  t.default = function (e, t) {
-    if (!e) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');
-    return t && ('object' === ('undefined' == typeof t ? 'undefined' : (0, r.default)(t)) || 'function' == typeof t) ? t : e
-  }
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(0),
     r = n(5);
   class i extends o.Component {
     constructor() {
@@ -817,7 +772,52 @@ module.exports = function (e) {
   }
   t.Button = i
 }, function (e, t, n) {
-  e.exports = n(775)()
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0),
+    r = n(39),
+    i = n(5);
+  class a extends o.Component {
+    constructor() {
+      super(...arguments), this.onClick = (e) => {
+        if (e.preventDefault(), !this.props.disabled) {
+          const e = this.props.uri;
+          e && r.shell.openExternal(e);
+          const t = this.props.onClick;
+          t && t()
+        }
+      }
+    }
+    render() {
+      const e = this.props.uri || '',
+        t = i('link-button-component', this.props.className);
+      return o.createElement('a', {
+        className: t,
+        href: e,
+        onClick: this.onClick,
+        title: this.props.title,
+        tabIndex: this.props.tabIndex
+      }, this.props.children)
+    }
+  }
+  t.LinkButton = a
+}, function (e, t, n) {
+  'use strict';
+  t.__esModule = !0;
+  var o = n(227),
+    r = function (e) {
+      return e && e.__esModule ? e : {
+        default: e
+      }
+    }(o);
+  t.default = function (e, t) {
+    if (!e) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');
+    return t && ('object' === ('undefined' == typeof t ? 'undefined' : (0, r.default)(t)) || 'function' == typeof t) ? t : e
+  }
+}, function (e, t, n) {
+  e.exports = n(774)()
 }, function (e, t, n) {
   'use strict';
 
@@ -827,11 +827,11 @@ module.exports = function (e) {
     }
   }
   t.__esModule = !0;
-  var r = n(589),
+  var r = n(588),
     i = o(r),
-    a = n(585),
+    a = n(584),
     s = o(a),
-    d = n(229),
+    d = n(227),
     l = o(d);
   t.default = function (e, t) {
     if ('function' != typeof t && null !== t) throw new TypeError('Super expression must either be null or a function, not ' + ('undefined' == typeof t ? 'undefined' : (0, l.default)(t)));
@@ -846,7 +846,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   e.exports = {
-    default: n(609),
+    default: n(608),
     __esModule: !0
   }
 }, function (e, t) {
@@ -903,9 +903,9 @@ module.exports = function (e) {
   }, t.enableNDDBBanner = function () {
     return o()
   }, t.enableGitTagsDisplay = function () {
-    return n()
+    return !0
   }, t.enableGitTagsCreation = function () {
-    return n()
+    return !0
   }
 }, function (e, t, n) {
   'use strict';
@@ -925,24 +925,38 @@ module.exports = function (e) {
   t.Row = i
 }, function (e, t, n) {
   'use strict';
-  e.exports = Object.assign({}, n(286), n(283), n(279), n(732), n(730), n(724), n(40), n(720), n(719), n(718), n(51), n(130));
-  const o = n(32);
-  Object.getOwnPropertyDescriptor(o, 'promises') && Object.defineProperty(e.exports, 'promises', {
-    get() {
-      return o.promises
-    }
-  })
-}, function (e, t, n) {
-  'use strict';
 
   function o(e) {
     for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(262)), o(n(698)), o(n(694)), o(n(687)), o(n(686)), o(n(82)), o(n(11)), o(n(251)), o(n(170)), o(n(685)), o(n(259)), o(n(21)), o(n(684)), o(n(250)), o(n(683)), o(n(682)), o(n(681)), o(n(258)), o(n(256)), o(n(254)), o(n(166)), o(n(680)), o(n(248)), o(n(257)), o(n(675)), o(n(247)), o(n(674)), o(n(673)), o(n(672)), o(n(670)), o(n(669)), o(n(126)), o(n(667)), o(n(246)), o(n(666)), o(n(665)), o(n(662))
+  }), o(n(262)), o(n(697)), o(n(693)), o(n(686)), o(n(685)), o(n(82)), o(n(11)), o(n(251)), o(n(169)), o(n(684)), o(n(259)), o(n(20)), o(n(683)), o(n(250)), o(n(682)), o(n(681)), o(n(680)), o(n(258)), o(n(256)), o(n(254)), o(n(166)), o(n(679)), o(n(247)), o(n(257)), o(n(674)), o(n(246)), o(n(673)), o(n(672)), o(n(671)), o(n(669)), o(n(668)), o(n(126)), o(n(666)), o(n(245)), o(n(665)), o(n(664)), o(n(661))
+}, function (e, t, n) {
+  'use strict';
+  e.exports = Object.assign({}, n(287), n(283), n(279), n(731), n(729), n(723), n(40), n(719), n(718), n(717), n(52), n(130));
+  const o = n(32);
+  Object.getOwnPropertyDescriptor(o, 'promises') && Object.defineProperty(e.exports, 'promises', {
+    get() {
+      return o.promises
+    }
+  })
 }, function (e) {
   e.exports = require('electron')
+}, function (e, t, n) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0);
+  class r extends o.Component {
+    render() {
+      return o.createElement('em', {
+        className: 'ref-component'
+      }, this.props.children)
+    }
+  }
+  t.Ref = r
 }, function (e, t, n) {
   'use strict';
 
@@ -1024,29 +1038,6 @@ module.exports = function (e) {
   t.WorkingDirectoryStatus = p
 }, function (e, t, n) {
   'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(0);
-  class r extends o.Component {
-    render() {
-      return o.createElement('em', {
-        className: 'ref-component'
-      }, this.props.children)
-    }
-  }
-  t.Ref = r
-}, function (e, t) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  var n;
-  (function (e) {
-    e[e.RenameBranch = 1] = 'RenameBranch', e[e.DeleteBranch = 2] = 'DeleteBranch', e[e.ConfirmDiscardChanges = 3] = 'ConfirmDiscardChanges', e[e.Preferences = 4] = 'Preferences', e[e.MergeBranch = 5] = 'MergeBranch', e[e.RepositorySettings = 6] = 'RepositorySettings', e[e.AddRepository = 7] = 'AddRepository', e[e.CreateRepository = 8] = 'CreateRepository', e[e.CloneRepository = 9] = 'CloneRepository', e[e.CreateBranch = 10] = 'CreateBranch', e[e.SignIn = 11] = 'SignIn', e[e.About = 12] = 'About', e[e.InstallGit = 13] = 'InstallGit', e[e.PublishRepository = 14] = 'PublishRepository', e[e.Acknowledgements = 15] = 'Acknowledgements', e[e.UntrustedCertificate = 16] = 'UntrustedCertificate', e[e.RemoveRepository = 17] = 'RemoveRepository', e[e.TermsAndConditions = 18] = 'TermsAndConditions', e[e.PushBranchCommits = 19] = 'PushBranchCommits', e[e.CLIInstalled = 20] = 'CLIInstalled', e[e.GenericGitAuthentication = 21] = 'GenericGitAuthentication', e[e.ExternalEditorFailed = 22] = 'ExternalEditorFailed', e[e.OpenShellFailed = 23] = 'OpenShellFailed', e[e.InitializeLFS = 24] = 'InitializeLFS', e[e.LFSAttributeMismatch = 25] = 'LFSAttributeMismatch', e[e.UpstreamAlreadyExists = 26] = 'UpstreamAlreadyExists', e[e.ReleaseNotes = 27] = 'ReleaseNotes', e[e.DeletePullRequest = 28] = 'DeletePullRequest', e[e.MergeConflicts = 29] = 'MergeConflicts', e[e.AbortMerge = 30] = 'AbortMerge', e[e.OversizedFiles = 31] = 'OversizedFiles', e[e.UsageReportingChanges = 32] = 'UsageReportingChanges', e[e.CommitConflictsWarning = 33] = 'CommitConflictsWarning', e[e.PushNeedsPull = 34] = 'PushNeedsPull', e[e.RebaseFlow = 35] = 'RebaseFlow', e[e.ConfirmForcePush = 36] = 'ConfirmForcePush', e[e.StashAndSwitchBranch = 37] = 'StashAndSwitchBranch', e[e.ConfirmOverwriteStash = 38] = 'ConfirmOverwriteStash', e[e.ConfirmDiscardStash = 39] = 'ConfirmDiscardStash', e[e.CreateTutorialRepository = 40] = 'CreateTutorialRepository', e[e.ConfirmExitTutorial = 41] = 'ConfirmExitTutorial', e[e.PushRejectedDueToMissingWorkflowScope = 42] = 'PushRejectedDueToMissingWorkflowScope', e[e.SAMLReauthRequired = 43] = 'SAMLReauthRequired', e[e.CreateFork = 44] = 'CreateFork', e[e.SChannelNoRevocationCheck = 45] = 'SChannelNoRevocationCheck', e[e.CreateTag = 46] = 'CreateTag'
-  })(n = t.PopupType || (t.PopupType = {}))
-}, function (e, t, n) {
-  'use strict';
 
   function o(e) {
     return {
@@ -1110,6 +1101,15 @@ module.exports = function (e) {
   });
   var n;
   (function (e) {
+    e[e.RenameBranch = 1] = 'RenameBranch', e[e.DeleteBranch = 2] = 'DeleteBranch', e[e.ConfirmDiscardChanges = 3] = 'ConfirmDiscardChanges', e[e.Preferences = 4] = 'Preferences', e[e.MergeBranch = 5] = 'MergeBranch', e[e.RepositorySettings = 6] = 'RepositorySettings', e[e.AddRepository = 7] = 'AddRepository', e[e.CreateRepository = 8] = 'CreateRepository', e[e.CloneRepository = 9] = 'CloneRepository', e[e.CreateBranch = 10] = 'CreateBranch', e[e.SignIn = 11] = 'SignIn', e[e.About = 12] = 'About', e[e.InstallGit = 13] = 'InstallGit', e[e.PublishRepository = 14] = 'PublishRepository', e[e.Acknowledgements = 15] = 'Acknowledgements', e[e.UntrustedCertificate = 16] = 'UntrustedCertificate', e[e.RemoveRepository = 17] = 'RemoveRepository', e[e.TermsAndConditions = 18] = 'TermsAndConditions', e[e.PushBranchCommits = 19] = 'PushBranchCommits', e[e.CLIInstalled = 20] = 'CLIInstalled', e[e.GenericGitAuthentication = 21] = 'GenericGitAuthentication', e[e.ExternalEditorFailed = 22] = 'ExternalEditorFailed', e[e.OpenShellFailed = 23] = 'OpenShellFailed', e[e.InitializeLFS = 24] = 'InitializeLFS', e[e.LFSAttributeMismatch = 25] = 'LFSAttributeMismatch', e[e.UpstreamAlreadyExists = 26] = 'UpstreamAlreadyExists', e[e.ReleaseNotes = 27] = 'ReleaseNotes', e[e.DeletePullRequest = 28] = 'DeletePullRequest', e[e.MergeConflicts = 29] = 'MergeConflicts', e[e.AbortMerge = 30] = 'AbortMerge', e[e.OversizedFiles = 31] = 'OversizedFiles', e[e.UsageReportingChanges = 32] = 'UsageReportingChanges', e[e.CommitConflictsWarning = 33] = 'CommitConflictsWarning', e[e.PushNeedsPull = 34] = 'PushNeedsPull', e[e.RebaseFlow = 35] = 'RebaseFlow', e[e.ConfirmForcePush = 36] = 'ConfirmForcePush', e[e.StashAndSwitchBranch = 37] = 'StashAndSwitchBranch', e[e.ConfirmOverwriteStash = 38] = 'ConfirmOverwriteStash', e[e.ConfirmDiscardStash = 39] = 'ConfirmDiscardStash', e[e.CreateTutorialRepository = 40] = 'CreateTutorialRepository', e[e.ConfirmExitTutorial = 41] = 'ConfirmExitTutorial', e[e.PushRejectedDueToMissingWorkflowScope = 42] = 'PushRejectedDueToMissingWorkflowScope', e[e.SAMLReauthRequired = 43] = 'SAMLReauthRequired', e[e.CreateFork = 44] = 'CreateFork', e[e.SChannelNoRevocationCheck = 45] = 'SChannelNoRevocationCheck', e[e.CreateTag = 46] = 'CreateTag', e[e.LocalChangesOverwritten = 47] = 'LocalChangesOverwritten', e[e.RebaseConflicts = 48] = 'RebaseConflicts', e[e.RetryClone = 49] = 'RetryClone'
+  })(n = t.PopupType || (t.PopupType = {}))
+}, function (e, t) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  var n;
+  (function (e) {
     e[e.Repository = 0] = 'Repository', e[e.CloningRepository = 1] = 'CloningRepository', e[e.MissingRepository = 2] = 'MissingRepository'
   })(n = t.SelectionType || (t.SelectionType = {}));
   var o;
@@ -1143,9 +1143,9 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(5),
-    i = n(65),
-    a = n(12),
-    s = n(26);
+    i = n(66),
+    a = n(13),
+    s = n(25);
   class d extends o.Component {
     constructor() {
       super(...arguments), this.inputElement = null, this.onChange = (e) => {
@@ -1279,7 +1279,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(716)), o(n(715)), o(n(714)), o(n(713)), o(n(712)), o(n(711))
+  }), o(n(715)), o(n(714)), o(n(713)), o(n(712)), o(n(711)), o(n(710))
 }, function (e, t, n) {
   function o(e) {
     function t(t) {
@@ -1412,10 +1412,10 @@ module.exports = function (e) {
     e && (m('RETRY', e[0].name, e[1]), e[0].apply(null, e[1]))
   }
   var a = n(32),
-    s = n(740),
-    d = n(738),
-    l = n(737),
-    c = n(175),
+    s = n(739),
+    d = n(737),
+    l = n(736),
+    c = n(285),
     p, u;
   'function' == typeof Symbol && 'function' == typeof Symbol.for ? (p = Symbol.for('graceful-fs.queue'), u = Symbol.for('graceful-fs.previous')) : (p = '___graceful-fs.queue', u = '___graceful-fs.previous');
   var m = function () {};
@@ -1457,7 +1457,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(1),
-    r = n(649);
+    r = n(648);
   t.encodePathAsUrl = function (...e) {
     const t = o.resolve(...e);
     return r(t)
@@ -1467,7 +1467,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(706);
+  var o = n(705);
   t.GitProcess = o.GitProcess;
   var r = n(267);
   t.GitError = r.GitError, t.RepositoryDoesNotExistErrorCode = r.RepositoryDoesNotExistErrorCode, t.GitNotFoundErrorCode = r.GitNotFoundErrorCode
@@ -1522,7 +1522,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(65);
+    r = n(66);
   var i;
   (function (e) {
     e[e.On = 0] = 'On', e[e.Off = 1] = 'Off', e[e.Mixed = 2] = 'Mixed'
@@ -1640,8 +1640,8 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(38).fromCallback,
-    r = o(n(735)),
-    i = n(734);
+    r = o(n(734)),
+    i = n(733);
   e.exports = {
     mkdirs: r,
     mkdirsSync: i,
@@ -1658,12 +1658,12 @@ module.exports = function (e) {
   }
 
   function r(e, t) {
-    return i.isConflictWithMarkers(e) ? 0 < e.conflictMarkerCount : t === void 0
+    return !(void 0 !== t) && (!i.isConflictWithMarkers(e) || 0 < e.conflictMarkerCount)
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(23),
+  const i = n(24),
     a = n(2);
   t.mapStatus = function (e) {
     switch (e.kind) {
@@ -1717,7 +1717,7 @@ module.exports = function (e) {
       }
     }
   }
-  o(), e.exports = n(783)
+  o(), e.exports = n(778)
 }, function (e) {
   var t = String.fromCharCode,
     n = Math.round,
@@ -1833,16 +1833,16 @@ module.exports = function (e) {
       return n
     }
 
-    function R(e, t, n) {
+    function T(e, t, n) {
       for (var o = 0, r = n(t); o < e.length && n(e[o]) <= r;) o++;
       e.splice(o, 0, t)
     }
 
-    function _() {}
+    function R() {}
 
-    function T(e, t) {
+    function _(e, t) {
       var n;
-      return Object.create ? n = Object.create(e) : (_.prototype = e, n = new _), t && S(t, n), n
+      return Object.create ? n = Object.create(e) : (R.prototype = e, n = new R), t && S(t, n), n
     }
 
     function x(e) {
@@ -1977,7 +1977,7 @@ module.exports = function (e) {
     function Q(e) {
       if (null == fs) {
         var t = p('span', '\u200B');
-        c(e, p('span', [t, document.createTextNode('x')])), 0 != e.firstChild.offsetHeight && (fs = 1 >= t.offsetWidth && 2 < t.offsetHeight && !(Ta && 8 > xa))
+        c(e, p('span', [t, document.createTextNode('x')])), 0 != e.firstChild.offsetHeight && (fs = 1 >= t.offsetWidth && 2 < t.offsetHeight && !(_a && 8 > xa))
       }
       var n = fs ? p('span', '\u200B') : p('span', '\xA0', null, 'display: inline-block; width: 1px; margin-right: -1px');
       return n.setAttribute('cm-text', ''), n
@@ -2009,7 +2009,7 @@ module.exports = function (e) {
         var t = us[e.name];
         'string' == typeof t && (t = {
           name: t
-        }), e = T(t, e), e.name = t.name
+        }), e = _(t, e), e.name = t.name
       } else {
         if ('string' == typeof e && /^[\w\-]+\/[\w\-]+\+xml$/.test(e)) return ee('application/xml');
         if ('string' == typeof e && /^[\w\-]+\/[\w\-]+\+json$/.test(e)) return ee('application/json')
@@ -2185,7 +2185,7 @@ module.exports = function (e) {
       return n
     }
 
-    function Re(e, t, n, r) {
+    function Te(e, t, n, r) {
       var a = [e.state.modeGen],
         s = {};
       Ie(e, t.text, e.doc.mode, n, function (e, t) {
@@ -2213,17 +2213,17 @@ module.exports = function (e) {
       }
     }
 
-    function _e(e, t, n) {
+    function Re(e, t, n) {
       if (!t.styles || t.styles[0] != e.state.modeGen) {
-        var o = Te(e, pe(t)),
+        var o = _e(e, pe(t)),
           i = t.text.length > e.options.maxHighlightLength && oe(e.doc.mode, o.state),
-          a = Re(e, t, o);
+          a = Te(e, t, o);
         i && (o.state = i), t.stateAfter = o.save(!i), t.styles = a.styles, a.classes ? t.styleClasses = a.classes : t.styleClasses && (t.styleClasses = null), n === e.doc.highlightFrontier && (e.doc.modeFrontier = r(e.doc.modeFrontier, ++e.doc.highlightFrontier))
       }
       return t.styles
     }
 
-    function Te(e, t, n) {
+    function _e(e, t, n) {
       var o = e.doc,
         r = e.display;
       if (!o.mode.startState) return new Ss(o, !0, t);
@@ -2266,7 +2266,7 @@ module.exports = function (e) {
         a;
       t = Ee(r, t);
       var s = se(r, t.line),
-        d = Te(e, t.line, n),
+        d = _e(e, t.line, n),
         l = new hs(s.text, e.options.tabSize, d),
         c;
       for (o && (c = []);
@@ -2637,7 +2637,7 @@ module.exports = function (e) {
           a = void 0;
         o.pos = 0, o.addToken = St, $(e.display.measure) && (a = B(i, e.doc.direction)) && (o.addToken = bt(o.addToken, a)), o.map = [];
         var s = t != e.display.externalMeasured && pe(i);
-        Et(i, o, _e(e, i, s)), i.styleClasses && (i.styleClasses.bgClass && (o.bgClass = g(i.styleClasses.bgClass, o.bgClass || '')), i.styleClasses.textClass && (o.textClass = g(i.styleClasses.textClass, o.textClass || ''))), 0 == o.map.length && o.map.push(0, 0, o.content.appendChild(Q(e.display.measure))), 0 == r ? (t.measure.map = o.map, t.measure.cache = {}) : ((t.measure.maps || (t.measure.maps = [])).push(o.map), (t.measure.caches || (t.measure.caches = [])).push({}))
+        Et(i, o, Re(e, i, s)), i.styleClasses && (i.styleClasses.bgClass && (o.bgClass = g(i.styleClasses.bgClass, o.bgClass || '')), i.styleClasses.textClass && (o.textClass = g(i.styleClasses.textClass, o.textClass || ''))), 0 == o.map.length && o.map.push(0, 0, o.content.appendChild(Q(e.display.measure))), 0 == r ? (t.measure.map = o.map, t.measure.cache = {}) : ((t.measure.maps || (t.measure.maps = [])).push(o.map), (t.measure.caches || (t.measure.caches = [])).push({}))
       }
       if (Pa) {
         var d = o.content.lastChild;
@@ -2657,7 +2657,7 @@ module.exports = function (e) {
           d = e.cm.state.specialChars,
           l = !1,
           c;
-        if (!d.test(t)) e.col += t.length, c = document.createTextNode(s), e.map.push(e.pos, e.pos + t.length, c), Ta && 9 > xa && (l = !0), e.pos += t.length;
+        if (!d.test(t)) e.col += t.length, c = document.createTextNode(s), e.map.push(e.pos, e.pos + t.length, c), _a && 9 > xa && (l = !0), e.pos += t.length;
         else {
           c = document.createDocumentFragment();
           for (var u = 0;;) {
@@ -2666,7 +2666,7 @@ module.exports = function (e) {
               f = h ? h.index - u : t.length - u;
             if (f) {
               var g = document.createTextNode(s.slice(u, u + f));
-              Ta && 9 > xa ? c.appendChild(p('span', [g])) : c.appendChild(g), e.map.push(e.pos, e.pos + f, g), e.col += f, e.pos += f
+              _a && 9 > xa ? c.appendChild(p('span', [g])) : c.appendChild(g), e.map.push(e.pos, e.pos + f, g), e.col += f, e.pos += f
             }
             if (!h) break;
             u += f + 1;
@@ -2675,7 +2675,7 @@ module.exports = function (e) {
               var S = e.cm.options.tabSize,
                 C = S - e.col % S;
               y = c.appendChild(p('span', E(C), 'cm-tab')), y.setAttribute('role', 'presentation'), y.setAttribute('cm-text', '\t'), e.col += C
-            } else '\r' == h[0] || '\n' == h[0] ? (y = c.appendChild(p('span', '\r' == h[0] ? '\u240D' : '\u2424', 'cm-invalidchar')), y.setAttribute('cm-text', h[0]), e.col += 1) : (y = e.cm.options.specialCharPlaceholder(h[0]), y.setAttribute('cm-text', h[0]), Ta && 9 > xa ? c.appendChild(p('span', [y])) : c.appendChild(y), e.col += 1);
+            } else '\r' == h[0] || '\n' == h[0] ? (y = c.appendChild(p('span', '\r' == h[0] ? '\u240D' : '\u2424', 'cm-invalidchar')), y.setAttribute('cm-text', h[0]), e.col += 1) : (y = e.cm.options.specialCharPlaceholder(h[0]), y.setAttribute('cm-text', h[0]), _a && 9 > xa ? c.appendChild(p('span', [y])) : c.appendChild(y), e.col += 1);
             e.map.push(e.pos, e.pos + 1, y), e.pos++
           }
         }
@@ -2726,18 +2726,18 @@ module.exports = function (e) {
           g = y = S = f = '', b = null, C = null, u = Infinity;
           for (var v = [], E = void 0, w = 0; w < o.length; ++w) {
             var k = o[w],
-              R = k.marker;
-            if ('bookmark' == R.type && k.from == c && R.widgetNode) v.push(R);
-            else if (k.from <= c && (null == k.to || k.to > c || R.collapsed && k.to == c && k.from == c)) {
-              if (null != k.to && k.to != c && u > k.to && (u = k.to, y = ''), R.className && (g += ' ' + R.className), R.css && (f = (f ? f + ';' : '') + R.css), R.startStyle && k.from == c && (S += ' ' + R.startStyle), R.endStyle && k.to == u && (E || (E = [])).push(R.endStyle, k.to), R.title && ((b || (b = {})).title = R.title), R.attributes)
-                for (var m in R.attributes)(b || (b = {}))[m] = R.attributes[m];
-              R.collapsed && (!C || 0 > $e(C.marker, R)) && (C = k)
+              T = k.marker;
+            if ('bookmark' == T.type && k.from == c && T.widgetNode) v.push(T);
+            else if (k.from <= c && (null == k.to || k.to > c || T.collapsed && k.to == c && k.from == c)) {
+              if (null != k.to && k.to != c && u > k.to && (u = k.to, y = ''), T.className && (g += ' ' + T.className), T.css && (f = (f ? f + ';' : '') + T.css), T.startStyle && k.from == c && (S += ' ' + T.startStyle), T.endStyle && k.to == u && (E || (E = [])).push(T.endStyle, k.to), T.title && ((b || (b = {})).title = T.title), T.attributes)
+                for (var m in T.attributes)(b || (b = {}))[m] = T.attributes[m];
+              T.collapsed && (!C || 0 > $e(C.marker, T)) && (C = k)
             } else k.from > c && u > k.from && (u = k.from)
           }
           if (E)
-            for (var _ = 0; _ < E.length; _ += 2) E[_ + 1] == u && (y += ' ' + E[_]);
+            for (var R = 0; R < E.length; R += 2) E[R + 1] == u && (y += ' ' + E[R]);
           if (!C || C.from == c)
-            for (var T = 0; T < v.length; ++T) vt(t, 0, v[T]);
+            for (var _ = 0; _ < v.length; ++_) vt(t, 0, v[_]);
           if (C && (C.from || 0) == c) {
             if (vt(t, (null == C.to ? l + 1 : C.to) - c, C.marker, null == C.from), null == C.to) return;
             C.to == c && (C = !1)
@@ -2771,14 +2771,14 @@ module.exports = function (e) {
       return o
     }
 
-    function Rt(e) {
-      Rs ? Rs.ops.push(e) : e.ownsGroup = Rs = {
+    function Tt(e) {
+      Ts ? Ts.ops.push(e) : e.ownsGroup = Ts = {
         ops: [e],
         delayedCallbacks: []
       }
     }
 
-    function _t(e) {
+    function Rt(e) {
       var t = e.delayedCallbacks,
         n = 0;
       do {
@@ -2789,12 +2789,12 @@ module.exports = function (e) {
       } while (n < t.length)
     }
 
-    function Tt(e, t) {
+    function _t(e, t) {
       var n = e.ownsGroup;
       if (n) try {
-        _t(n)
+        Rt(n)
       } finally {
-        Rs = null, t(n)
+        Ts = null, t(n)
       }
     }
 
@@ -2803,7 +2803,7 @@ module.exports = function (e) {
       if (n.length) {
         var o = Array.prototype.slice.call(arguments, 2),
           r;
-        Rs ? r = Rs.delayedCallbacks : _s ? r = _s : (r = _s = [], setTimeout(Pt, 0));
+        Ts ? r = Ts.delayedCallbacks : Rs ? r = Rs : (r = Rs = [], setTimeout(Pt, 0));
         for (var a = function (e) {
             r.push(function () {
               return n[e].apply(null, o)
@@ -2813,8 +2813,8 @@ module.exports = function (e) {
     }
 
     function Pt() {
-      var e = _s;
-      _s = null;
+      var e = Rs;
+      Rs = null;
       for (var t = 0; t < e.length; ++t) e[t]()
     }
 
@@ -2824,7 +2824,7 @@ module.exports = function (e) {
     }
 
     function Mt(e) {
-      return e.node == e.text && (e.node = p('div', null, null, 'position: relative'), e.text.parentNode && e.text.parentNode.replaceChild(e.node, e.text), e.node.appendChild(e.text), Ta && 8 > xa && (e.node.style.zIndex = 2)), e.node
+      return e.node == e.text && (e.node = p('div', null, null, 'position: relative'), e.text.parentNode && e.text.parentNode.replaceChild(e.node, e.text), e.node.appendChild(e.text), _a && 8 > xa && (e.node.style.zIndex = 2)), e.node
     }
 
     function At(e, t) {
@@ -3053,7 +3053,7 @@ module.exports = function (e) {
     }
 
     function an(e, t) {
-      var n = Ts;
+      var n = _s;
       if ('left' == t)
         for (var o = 0; o < e.length && (n = e[o]).left == n.right; o++);
       else
@@ -3072,23 +3072,23 @@ module.exports = function (e) {
         for (var p = 0; 4 > p; p++) {
           for (; s && M(t.line.text.charAt(r.coverStart + s));) --s;
           for (; r.coverStart + d < r.coverEnd && M(t.line.text.charAt(r.coverStart + d));) ++d;
-          if (c = Ta && 9 > xa && 0 == s && d == r.coverEnd - r.coverStart ? a.parentNode.getBoundingClientRect() : an(ja(a, s, d).getClientRects(), o), c.left || c.right || 0 == s) break;
+          if (c = _a && 9 > xa && 0 == s && d == r.coverEnd - r.coverStart ? a.parentNode.getBoundingClientRect() : an(ja(a, s, d).getClientRects(), o), c.left || c.right || 0 == s) break;
           d = s, --s, l = 'right'
         }
-        Ta && 11 > xa && (c = dn(e.display.measure, c))
+        _a && 11 > xa && (c = dn(e.display.measure, c))
       } else {
         0 < s && (l = o = 'right');
         var u;
         c = e.options.lineWrapping && 1 < (u = a.getClientRects()).length ? u['right' == o ? u.length - 1 : 0] : a.getBoundingClientRect()
       }
-      if (Ta && 9 > xa && !s && (!c || !c.left && !c.right)) {
+      if (_a && 9 > xa && !s && (!c || !c.left && !c.right)) {
         var m = a.parentNode.getClientRects()[0];
         c = m ? {
           left: m.left,
           right: m.left + Pn(e.display),
           top: m.top,
           bottom: m.bottom
-        } : Ts
+        } : _s
       }
       for (var h = c.top - t.rect.top, f = c.bottom - t.rect.top, g = t.view.measure.heights, y = 0; y < g.length - 1 && !((h + f) / 2 < g[y]); y++);
       var i = y ? g[y - 1] : 0,
@@ -3228,7 +3228,7 @@ module.exports = function (e) {
       if (r > i) return bn(o.first + o.size - 1, se(o, i).text.length, null, 1, 1);
       0 > t && (t = 0);
       for (var a = se(o, r);;) {
-        var s = Rn(e, a, r, t, n),
+        var s = Tn(e, a, r, t, n),
           d = tt(a, s.ch + (0 < s.xRel || 0 < s.outside ? 1 : 0));
         if (!d) return s;
         var l = d.find(1);
@@ -3261,7 +3261,7 @@ module.exports = function (e) {
       return !(e.bottom <= n) && (!!(e.top > n) || (o ? e.left : e.right) > t)
     }
 
-    function Rn(e, t, n, o, r) {
+    function Tn(e, t, n, o, r) {
       r -= ct(t);
       var i = tn(e, t),
         a = hn(t),
@@ -3270,7 +3270,7 @@ module.exports = function (e) {
         l = !0,
         c = B(t, e.doc.direction);
       if (c) {
-        var p = (e.options.lineWrapping ? Tn : _n)(e, t, n, i, c, o, r);
+        var p = (e.options.lineWrapping ? _n : Rn)(e, t, n, i, c, o, r);
         l = 1 != p.level, s = l ? p.from : p.to - 1, d = l ? p.to : p.from - 1
       }
       var u = null,
@@ -3293,7 +3293,7 @@ module.exports = function (e) {
       return h = A(t.text, h, 1), bn(n, h, y, f, o - g)
     }
 
-    function _n(e, t, n, o, r, a, s) {
+    function Rn(e, t, n, o, r, a, s) {
       var i = I(function (d) {
           var i = r[d],
             l = 1 != i.level;
@@ -3308,7 +3308,7 @@ module.exports = function (e) {
       return d
     }
 
-    function Tn(e, t, n, o, a, s, l) {
+    function _n(e, t, n, o, a, s, l) {
       var c = En(e, t, o, l),
         u = c.begin,
         m = c.end;
@@ -3549,12 +3549,12 @@ module.exports = function (e) {
           if (3 >= S.top - y.top) {
             var w = (h ? C : b) && v,
               k = (h ? b : C) && E,
-              R = w ? u : (g ? y : S).left,
-              _ = k ? m : (g ? S : y).right;
-            i(R, y.top, _ - R, y.bottom)
+              T = w ? u : (g ? y : S).left,
+              R = k ? m : (g ? S : y).right;
+            i(T, y.top, R - T, y.bottom)
           } else {
-            var T, x, P, D;
-            g ? (T = h && C && v ? u : y.left, x = h ? m : a(e, s, 'before'), P = h ? u : a(t, s, 'after'), D = h && b && E ? m : S.right) : (T = h ? a(e, s, 'before') : u, x = !h && C && v ? m : y.right, P = !h && b && E ? u : S.left, D = h ? a(t, s, 'after') : m), i(T, y.top, x - T, y.bottom), y.bottom < S.top && i(u, y.bottom, null, S.top), i(P, S.top, D - P, S.bottom)
+            var _, x, P, D;
+            g ? (_ = h && C && v ? u : y.left, x = h ? m : a(e, s, 'before'), P = h ? u : a(t, s, 'after'), D = h && b && E ? m : S.right) : (_ = h ? a(e, s, 'before') : u, x = !h && C && v ? m : y.right, P = !h && b && E ? u : S.left, D = h ? a(t, s, 'after') : m), i(_, y.top, x - _, y.bottom), y.bottom < S.top && i(u, y.bottom, null, S.top), i(P, S.top, D - P, S.bottom)
           }(!p || 0 > Kn(y, p)) && (p = y), 0 > Kn(S, p) && (p = S), (!f || 0 > Kn(y, f)) && (f = y), 0 > Kn(S, f) && (f = S)
         }), {
           start: p,
@@ -3622,7 +3622,7 @@ module.exports = function (e) {
           a = void 0,
           d = 0;
         if (!r.hidden) {
-          if (Ta && 8 > xa) {
+          if (_a && 8 > xa) {
             var l = r.node.offsetTop + r.node.offsetHeight;
             a = l - n, n = l
           } else {
@@ -3845,12 +3845,12 @@ module.exports = function (e) {
         scrollToPos: null,
         focus: !1,
         id: ++As
-      }, Rt(e.curOp)
+      }, Tt(e.curOp)
     }
 
     function bo(e) {
       var t = e.curOp;
-      t && Tt(t, function (e) {
+      t && _t(t, function (e) {
         for (var t = 0; t < e.ops.length; t++) e.ops[t].cm.curOp = null;
         vo(e)
       })
@@ -3860,8 +3860,8 @@ module.exports = function (e) {
       for (var t = e.ops, n = 0; n < t.length; n++) Eo(t[n]);
       for (var o = 0; o < t.length; o++) wo(t[o]);
       for (var r = 0; r < t.length; r++) ko(t[r]);
-      for (var i = 0; i < t.length; i++) Ro(t[i]);
-      for (var a = 0; a < t.length; a++) _o(t[a])
+      for (var i = 0; i < t.length; i++) To(t[i]);
+      for (var a = 0; a < t.length; a++) Ro(t[a])
     }
 
     function Eo(e) {
@@ -3883,14 +3883,14 @@ module.exports = function (e) {
       e.updatedDisplay && Zn(t), e.barMeasure = fo(t), n.maxLineChanged && !t.options.lineWrapping && (e.adjustWidthTo = Jt(t, n.maxLine, n.maxLine.text.length).left + 3, t.display.sizerWidth = e.adjustWidthTo, e.barMeasure.scrollWidth = r(n.scroller.clientWidth, n.sizer.offsetLeft + e.adjustWidthTo + qt(t) + t.display.barWidth), e.maxScrollLeft = r(0, n.sizer.offsetLeft + e.adjustWidthTo - Yt(t))), (e.updatedDisplay || e.selectionChanged) && (e.preparedSelection = n.input.prepareSelection())
     }
 
-    function Ro(e) {
+    function To(e) {
       var t = e.cm;
       null != e.adjustWidthTo && (t.display.sizer.style.minWidth = e.adjustWidthTo + 'px', e.maxScrollLeft < t.doc.scrollLeft && ho(t, d(t.display.scroller.scrollLeft, e.maxScrollLeft), !0), t.display.maxLineChanged = !1);
       var n = e.focus && e.focus == h();
       e.preparedSelection && t.display.input.showSelection(e.preparedSelection, n), (e.updatedDisplay || e.startHeight != t.doc.height) && go(t, e.barMeasure), e.updatedDisplay && Uo(t, e.barMeasure), e.selectionChanged && qn(t), t.state.focused && e.updateInput && t.display.input.reset(e.typing), n && Yn(e.cm)
     }
 
-    function _o(e) {
+    function Ro(e) {
       var t = e.cm,
         n = t.display,
         o = t.doc;
@@ -3907,7 +3907,7 @@ module.exports = function (e) {
       n.wrapper.offsetHeight && (o.scrollTop = t.display.scroller.scrollTop), e.changeObjs && H(t, 'changes', t, e.changeObjs), e.update && e.update.finish()
     }
 
-    function To(e, t) {
+    function _o(e, t) {
       if (e.curOp) return t();
       Co(e);
       try {
@@ -3962,13 +3962,13 @@ module.exports = function (e) {
       var t = e.doc;
       if (!(t.highlightFrontier >= e.display.viewTo)) {
         var n = +new Date + e.options.workTime,
-          o = Te(e, t.highlightFrontier),
+          o = _e(e, t.highlightFrontier),
           a = [];
         t.iter(o.line, d(t.first + t.size, e.display.viewTo + 500), function (r) {
           if (o.line >= e.display.viewFrom) {
             var s = r.styles,
               d = r.text.length > e.options.maxHighlightLength ? oe(t.mode, o.state) : null,
-              l = Re(e, r, o, !0);
+              l = Te(e, r, o, !0);
             d && (o.state = d), r.styles = l.styles;
             var c = r.styleClasses,
               p = l.classes;
@@ -3977,7 +3977,7 @@ module.exports = function (e) {
             u && a.push(o.line), r.stateAfter = o.save(), o.nextLine()
           } else r.text.length <= e.options.maxHighlightLength && xe(e, r.text, o), r.stateAfter = 0 == o.line % 5 ? o.save() : null, o.nextLine();
           return +new Date > n ? (Mo(e, e.options.workDelay), !0) : void 0
-        }), t.highlightFrontier = o.line, t.modeFrontier = r(t.modeFrontier, o.line), a.length && To(e, function () {
+        }), t.highlightFrontier = o.line, t.modeFrontier = r(t.modeFrontier, o.line), a.length && _o(e, function () {
           for (var t = 0; t < a.length; t++) Nn(e, a[t], 'text')
         })
       }
@@ -4147,7 +4147,7 @@ module.exports = function (e) {
       var r = this;
       this.input = n, r.scrollbarFiller = p('div', null, 'CodeMirror-scrollbar-filler'), r.scrollbarFiller.setAttribute('cm-not-content', 'true'), r.gutterFiller = p('div', null, 'CodeMirror-gutter-filler'), r.gutterFiller.setAttribute('cm-not-content', 'true'), r.lineDiv = u('div', null, 'CodeMirror-code'), r.selectionDiv = p('div', null, null, 'position: relative; z-index: 1'), r.cursorDiv = p('div', null, 'CodeMirror-cursors'), r.measure = p('div', null, 'CodeMirror-measure'), r.lineMeasure = p('div', null, 'CodeMirror-measure'), r.lineSpace = u('div', [r.measure, r.lineMeasure, r.selectionDiv, r.cursorDiv, r.lineDiv], null, 'position: relative; outline: none');
       var i = u('div', [r.lineSpace], 'CodeMirror-lines');
-      r.mover = p('div', [i], null, 'position: relative'), r.sizer = p('div', [r.mover], 'CodeMirror-sizer'), r.sizerWidth = null, r.heightForcer = p('div', null, null, 'position: absolute; height: ' + Xa + 'px; width: 1px;'), r.gutters = p('div', null, 'CodeMirror-gutters'), r.lineGutter = null, r.scroller = p('div', [r.sizer, r.heightForcer, r.gutters], 'CodeMirror-scroll'), r.scroller.setAttribute('tabIndex', '-1'), r.wrapper = p('div', [r.scrollbarFiller, r.gutterFiller, r.scroller], 'CodeMirror'), Ta && 8 > xa && (r.gutters.style.zIndex = -1, r.scroller.style.paddingRight = 0), Pa || wa && Oa || (r.scroller.draggable = !0), e && (e.appendChild ? e.appendChild(r.wrapper) : e(r.wrapper)), r.viewFrom = r.viewTo = t.first, r.reportedViewFrom = r.reportedViewTo = t.first, r.view = [], r.renderedView = null, r.externalMeasured = null, r.viewOffset = 0, r.lastWrapHeight = r.lastWrapWidth = 0, r.updateLineNumbers = null, r.nativeBarWidth = r.barHeight = r.barWidth = 0, r.scrollbarsClipped = !1, r.lineNumWidth = r.lineNumInnerWidth = r.lineNumChars = null, r.alignWidgets = !1, r.cachedCharWidth = r.cachedTextHeight = r.cachedPaddingH = null, r.maxLine = null, r.maxLineLength = 0, r.maxLineChanged = !1, r.wheelDX = r.wheelDY = r.wheelStartX = r.wheelStartY = null, r.shift = !1, r.selForContextMenu = null, r.activeTouch = null, r.gutterSpecs = Go(o.gutters, o.lineNumbers), Ko(r), n.init(r)
+      r.mover = p('div', [i], null, 'position: relative'), r.sizer = p('div', [r.mover], 'CodeMirror-sizer'), r.sizerWidth = null, r.heightForcer = p('div', null, null, 'position: absolute; height: ' + Xa + 'px; width: 1px;'), r.gutters = p('div', null, 'CodeMirror-gutters'), r.lineGutter = null, r.scroller = p('div', [r.sizer, r.heightForcer, r.gutters], 'CodeMirror-scroll'), r.scroller.setAttribute('tabIndex', '-1'), r.wrapper = p('div', [r.scrollbarFiller, r.gutterFiller, r.scroller], 'CodeMirror'), _a && 8 > xa && (r.gutters.style.zIndex = -1, r.scroller.style.paddingRight = 0), Pa || wa && Oa || (r.scroller.draggable = !0), e && (e.appendChild ? e.appendChild(r.wrapper) : e(r.wrapper)), r.viewFrom = r.viewTo = t.first, r.reportedViewFrom = r.reportedViewTo = t.first, r.view = [], r.renderedView = null, r.externalMeasured = null, r.viewOffset = 0, r.lastWrapHeight = r.lastWrapWidth = 0, r.updateLineNumbers = null, r.nativeBarWidth = r.barHeight = r.barWidth = 0, r.scrollbarsClipped = !1, r.lineNumWidth = r.lineNumInnerWidth = r.lineNumChars = null, r.alignWidgets = !1, r.cachedCharWidth = r.cachedTextHeight = r.cachedPaddingH = null, r.maxLine = null, r.maxLineLength = 0, r.maxLineChanged = !1, r.wheelDX = r.wheelDY = r.wheelStartX = r.wheelStartY = null, r.shift = !1, r.selForContextMenu = null, r.activeTouch = null, r.gutterSpecs = Go(o.gutters, o.lineNumbers), Ko(r), n.init(r)
     }
 
     function Yo(t) {
@@ -4334,7 +4334,7 @@ module.exports = function (e) {
     }
 
     function pr(e) {
-      To(e, function () {
+      _o(e, function () {
         cr(e), Bn(e)
       })
     }
@@ -4462,7 +4462,7 @@ module.exports = function (e) {
       return o
     }
 
-    function Rr(e, t, n, o) {
+    function Tr(e, t, n, o) {
       if (o) {
         var r = e.anchor;
         if (n) {
@@ -4474,12 +4474,12 @@ module.exports = function (e) {
       return new Ns(n || t, t)
     }
 
-    function _r(e, t, n, o, r) {
-      null == r && (r = e.cm && (e.cm.display.shift || e.extend)), Ar(e, new Bs([Rr(e.sel.primary(), t, n, r)], 0), o)
+    function Rr(e, t, n, o, r) {
+      null == r && (r = e.cm && (e.cm.display.shift || e.extend)), Ar(e, new Bs([Tr(e.sel.primary(), t, n, r)], 0), o)
     }
 
-    function Tr(e, t, n) {
-      for (var o = [], r = e.cm && (e.cm.display.shift || e.extend), a = 0; a < e.sel.ranges.length; a++) o[a] = Rr(e.sel.ranges[a], t[a], null, r);
+    function _r(e, t, n) {
+      for (var o = [], r = e.cm && (e.cm.display.shift || e.extend), a = 0; a < e.sel.ranges.length; a++) o[a] = Tr(e.sel.ranges[a], t[a], null, r);
       var i = $o(e.cm, o, e.sel.primIndex);
       Ar(e, i, n)
     }
@@ -4888,7 +4888,7 @@ module.exports = function (e) {
     function di(t) {
       var e = this;
       if (pi(e), !(z(e, t) || Vt(e.display, t))) {
-        G(t), Ta && (Gs = +new Date);
+        G(t), _a && (Gs = +new Date);
         var o = Ln(e, t, !0),
           r = t.dataTransfer.files;
         if (o && !e.isReadOnly())
@@ -4929,7 +4929,7 @@ module.exports = function (e) {
     }
 
     function li(t, n) {
-      if (Ta && (!t.state.draggingText || 100 > +new Date - Gs)) return void q(n);
+      if (_a && (!t.state.draggingText || 100 > +new Date - Gs)) return void q(n);
       if (!(z(t, n) || Vt(t.display, n)) && (n.dataTransfer.setData('Text', t.getSelection()), n.dataTransfer.effectAllowed = 'copyMove', n.dataTransfer.setDragImage && !Ia)) {
         var e = p('img', null, null, 'position: fixed; left: 0; top: 0;');
         e.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==', Aa && (e.width = e.height = 1, t.display.wrapper.appendChild(e), e._top = e.offsetTop), n.dataTransfer.setDragImage(e, 0, 0), Aa && e.parentNode.removeChild(e)
@@ -5056,7 +5056,7 @@ module.exports = function (e) {
         }
         o.push(i)
       }
-      To(e, function () {
+      _o(e, function () {
         for (var t = o.length - 1; 0 <= t; t--) Yr(e.doc, '', o[t].from, o[t].to, '+delete');
         ao(e)
       })
@@ -5067,12 +5067,12 @@ module.exports = function (e) {
       return 0 > o || o > e.text.length ? null : o
     }
 
-    function Ri(e, t, n) {
+    function Ti(e, t, n) {
       var o = ki(e, t.ch, n);
       return null == o ? null : new fe(t.line, o, 0 > n ? 'after' : 'before')
     }
 
-    function _i(e, t, n, o, r) {
+    function Ri(e, t, n, o, r) {
       if (e) {
         var i = B(n, t.doc.direction);
         if (i) {
@@ -5094,13 +5094,13 @@ module.exports = function (e) {
       return new fe(o, 0 > r ? n.text.length : 0, 0 > r ? 'before' : 'after')
     }
 
-    function Ti(e, t, n, o) {
+    function _i(e, t, n, o) {
       var r = B(t, e.doc.direction);
-      if (!r) return Ri(t, n, o);
+      if (!r) return Ti(t, n, o);
       n.ch >= t.text.length ? (n.ch = t.text.length, n.sticky = 'before') : 0 >= n.ch && (n.ch = 0, n.sticky = 'after');
       var i = F(r, n.ch, n.sticky),
         a = r[i];
-      if ('ltr' == e.doc.direction && 0 == a.level % 2 && (0 < o ? a.to > n.ch : a.from < n.ch)) return Ri(t, n, o);
+      if ('ltr' == e.doc.direction && 0 == a.level % 2 && (0 < o ? a.to > n.ch : a.from < n.ch)) return Ti(t, n, o);
       var s = function (e, n) {
           return ki(t, e instanceof fe ? e.ch : e, n)
         },
@@ -5140,13 +5140,13 @@ module.exports = function (e) {
     function xi(e, t) {
       var n = se(e.doc, t),
         o = ot(n);
-      return o != n && (t = pe(o)), _i(!0, e, o, t, 1)
+      return o != n && (t = pe(o)), Ri(!0, e, o, t, 1)
     }
 
     function Pi(e, t) {
       var n = se(e.doc, t),
         o = rt(n);
-      return o != n && (t = pe(o)), _i(!0, e, n, t, -1)
+      return o != n && (t = pe(o)), Ri(!0, e, n, t, -1)
     }
 
     function Di(e, t) {
@@ -5216,7 +5216,7 @@ module.exports = function (e) {
     function Ni(t) {
       var e = this;
       if (e.curOp.focus = h(), !z(e, t)) {
-        Ta && 11 > xa && 27 == t.keyCode && (t.returnValue = !1);
+        _a && 11 > xa && 27 == t.keyCode && (t.returnValue = !1);
         var n = t.keyCode;
         e.display.shift = 16 == n || t.shiftKey;
         var o = Fi(e, t);
@@ -5265,7 +5265,7 @@ module.exports = function (e) {
           var o = Ln(e, t),
             r = X(t),
             i = o ? Ui(o, r) : 'single';
-          window.focus(), 1 == r && e.state.selectingText && e.state.selectingText(t), o && Vi(e, r, o, i, t) || (1 == r ? o ? Ki(e, o, i, t) : Y(t) == n.scroller && G(t) : 2 == r ? (o && _r(e.doc, o), setTimeout(function () {
+          window.focus(), 1 == r && e.state.selectingText && e.state.selectingText(t), o && Vi(e, r, o, i, t) || (1 == r ? o ? Ki(e, o, i, t) : Y(t) == n.scroller && G(t) : 2 == r ? (o && Rr(e.doc, o), setTimeout(function () {
             return n.input.focus()
           }, 20)) : 3 == r && (Ga ? e.display.input.onContextMenu(t) : Xn(e)))
         }
@@ -5297,7 +5297,7 @@ module.exports = function (e) {
     }
 
     function Ki(e, t, n, o) {
-      Ta ? setTimeout(y(Yn, e), 0) : e.curOp.focus = h();
+      _a ? setTimeout(y(Yn, e), 0) : e.curOp.focus = h();
       var r = Gi(e, n, o),
         i = e.doc.sel,
         a;
@@ -5308,7 +5308,7 @@ module.exports = function (e) {
       var i = t.display,
         a = !1,
         s = xo(t, function (o) {
-          Pa && (i.scroller.draggable = !1), t.state.draggingText = !1, O(i.wrapper.ownerDocument, 'mouseup', s), O(i.wrapper.ownerDocument, 'mousemove', d), O(i.scroller, 'dragstart', l), O(i.scroller, 'drop', s), a || (G(o), !r.addNew && _r(t.doc, n, null, null, r.extend), Pa || Ta && 9 == xa ? setTimeout(function () {
+          Pa && (i.scroller.draggable = !1), t.state.draggingText = !1, O(i.wrapper.ownerDocument, 'mouseup', s), O(i.wrapper.ownerDocument, 'mousemove', d), O(i.scroller, 'dragstart', l), O(i.scroller, 'drop', s), a || (G(o), !r.addNew && Rr(t.doc, n, null, null, r.extend), Pa || _a && 9 == xa ? setTimeout(function () {
             i.wrapper.ownerDocument.body.focus(), i.input.focus()
           }, 20) : i.input.focus())
         }),
@@ -5347,11 +5347,11 @@ module.exports = function (e) {
           } else {
             var w = m,
               k = qi(t, e, o.unit),
-              R = w.anchor,
-              _;
-            0 < ge(k.anchor, R) ? (_ = k.head, R = be(w.from(), k.anchor)) : (_ = k.anchor, R = Ce(w.to(), k.head));
-            var T = p.ranges.slice(0);
-            T[f] = Xi(t, new Ns(Ee(c, R), _)), Ar(c, $o(t, T, f), Za)
+              T = w.anchor,
+              R;
+            0 < ge(k.anchor, T) ? (R = k.head, T = be(w.from(), k.anchor)) : (R = k.anchor, T = Ce(w.to(), k.head));
+            var _ = p.ranges.slice(0);
+            _[f] = Xi(t, new Ns(Ee(c, T), R)), Ar(c, $o(t, _, f), Za)
           }
       }
 
@@ -5385,7 +5385,7 @@ module.exports = function (e) {
       if (o.addNew && !o.extend ? (f = c.sel.contains(n), m = -1 < f ? u[f] : new Ns(n, n)) : (m = c.sel.primary(), f = c.sel.primIndex), 'rectangle' == o.unit) o.addNew || (m = new Ns(n, n)), n = Ln(t, e, !0, !0), f = -1;
       else {
         var g = qi(t, n, o.unit);
-        m = o.extend ? Rr(m, g.anchor, g.head, o.extend) : g
+        m = o.extend ? Tr(m, g.anchor, g.head, o.extend) : g
       }
       o.addNew ? -1 == f ? (f = u.length, Ar(c, $o(t, u.concat([m]), f), {
         scroll: !1,
@@ -5505,7 +5505,7 @@ module.exports = function (e) {
           highlight: new Ya,
           keySeq: null,
           specialChars: null
-        }, t.autofocus && !Oa && a.input.focus(), Ta && 11 > xa && setTimeout(function () {
+        }, t.autofocus && !Oa && a.input.focus(), _a && 11 > xa && setTimeout(function () {
           return n.display.input.reset(!0)
         }, 20), ra(this), mi(), Co(this), this.curOp.forceUpdate = !0, lr(this, o), t.autofocus && !Oa || this.hasFocus() ? setTimeout(y(Qn, this), 20) : $n(this), nd) nd.hasOwnProperty(s) && nd[s](n, t[s], ed);
       Vo(this), t.finishInit && t.finishInit(this);
@@ -5533,13 +5533,13 @@ module.exports = function (e) {
         return 400 < n * n + o * o
       }
       var i = t.display;
-      as(i.scroller, 'mousedown', xo(t, Wi)), Ta && 11 > xa ? as(i.scroller, 'dblclick', xo(t, function (n) {
+      as(i.scroller, 'mousedown', xo(t, Wi)), _a && 11 > xa ? as(i.scroller, 'dblclick', xo(t, function (n) {
         if (!z(t, n)) {
           var e = Ln(t, n);
           if (!(!e || $i(t, n) || Vt(t.display, n))) {
             G(n);
             var o = t.findWordAt(e);
-            _r(t.doc, o.anchor, o.head)
+            Rr(t.doc, o.anchor, o.head)
           }
         }
       })) : as(i.scroller, 'dblclick', function (n) {
@@ -5607,7 +5607,7 @@ module.exports = function (e) {
     function ia(e, t, n, o) {
       var s = e.doc,
         d;
-      null == n && (n = 'add'), 'smart' == n && (s.mode.indent ? d = Te(e, t).state : n = 'prev');
+      null == n && (n = 'add'), 'smart' == n && (s.mode.indent ? d = _e(e, t).state : n = 'prev');
       var l = e.options.tabSize,
         c = se(s, t),
         p = C(c.text, null, l);
@@ -5670,7 +5670,7 @@ module.exports = function (e) {
 
     function da(t, e) {
       var n = t.clipboardData && t.clipboardData.getData('Text');
-      if (n) return t.preventDefault(), e.isReadOnly() || e.options.disableInput || To(e, function () {
+      if (n) return t.preventDefault(), e.isReadOnly() || e.options.disableInput || _o(e, function () {
         return sa(e, n, 0, null, 'paste')
       }), !0
     }
@@ -5725,8 +5725,8 @@ module.exports = function (e) {
 
       function a(o) {
         var a;
-        if (a = r ? Ti(e.cm, c, t, n) : Ri(c, t, n), null != a) t = a;
-        else if (!o && i()) t = _i(r, e.cm, c, t.line, n);
+        if (a = r ? _i(e.cm, c, t, n) : Ti(c, t, n), null != a) t = a;
+        else if (!o && i()) t = Ri(r, e.cm, c, t.line, n);
         else return !1;
         return !0
       }
@@ -5888,18 +5888,18 @@ module.exports = function (e) {
       Ea = navigator.platform,
       wa = /gecko\/\d/i.test(va),
       ka = /MSIE \d/.test(va),
-      Ra = /Trident\/(?:[7-9]|\d{2,})\..*rv:(\d+)/.exec(va),
-      _a = /Edge\/(\d+)/.exec(va),
-      Ta = ka || Ra || _a,
-      xa = Ta && (ka ? document.documentMode || 6 : +(_a || Ra)[1]),
-      Pa = !_a && /WebKit\//.test(va),
+      Ta = /Trident\/(?:[7-9]|\d{2,})\..*rv:(\d+)/.exec(va),
+      Ra = /Edge\/(\d+)/.exec(va),
+      _a = ka || Ta || Ra,
+      xa = _a && (ka ? document.documentMode || 6 : +(Ra || Ta)[1]),
+      Pa = !Ra && /WebKit\//.test(va),
       Da = Pa && /Qt\/\d+\.\d+/.test(va),
-      Ma = !_a && /Chrome\//.test(va),
+      Ma = !Ra && /Chrome\//.test(va),
       Aa = /Opera\//.test(va),
       Ia = /Apple Computer/.test(navigator.vendor),
       La = /Mac OS X 1\d\D([8-9]|\d\d)\D/.test(va),
       Fa = /PhantomJS/.test(va),
-      Ba = !_a && /AppleWebKit/.test(va) && /Mobile\/\w+/.test(va),
+      Ba = !Ra && /AppleWebKit/.test(va) && /Mobile\/\w+/.test(va),
       Na = /Android/.test(va),
       Oa = Ba || Na || /webOS|BlackBerry|Opera Mini|Opera Mobi|IEMobile/i.test(va),
       Ha = Ba || /Mac/.test(Ea),
@@ -5908,7 +5908,7 @@ module.exports = function (e) {
       Wa = Aa && va.match(/Version\/(\d*\.\d*)/);
     Wa && (Wa = +Wa[1]), Wa && 15 <= Wa && (Aa = !1, Pa = !0);
     var Va = Ha && (Da || Aa && (null == Wa || 12.11 > Wa)),
-      Ga = wa || Ta && 9 <= xa,
+      Ga = wa || _a && 9 <= xa,
       Ka = function (t, n) {
         var o = t.className,
           r = e(n).exec(o);
@@ -5935,7 +5935,7 @@ module.exports = function (e) {
     };
     Ba ? qa = function (e) {
       e.selectionStart = 0, e.selectionEnd = e.value.length
-    } : Ta && (qa = function (e) {
+    } : _a && (qa = function (e) {
       try {
         e.select()
       } catch (e) {}
@@ -5991,13 +5991,13 @@ module.exports = function (e) {
           for (var h = 0, f = l, g; h < c; ++h) g = p[h], 'm' == g ? p[h] = f : f = g;
           for (var y = 0, S = l, C; y < c; ++y) C = p[y], '1' == C && 'r' == S ? p[y] = 'n' : a.test(C) && (S = C, 'r' == C && (p[y] = 'R'));
           for (var b = 1, v = p[0], E; b < c - 1; ++b) E = p[b], '+' == E && '1' == v && '1' == p[b + 1] ? p[b] = '1' : ',' == E && v == p[b + 1] && ('1' == v || 'n' == v) && (p[b] = v), v = E;
-          for (var k = 0, R; k < c; ++k)
-            if (R = p[k], ',' == R) p[k] = 'N';
-            else if ('%' == R) {
-            var _ = void 0;
-            for (_ = k + 1; _ < c && '%' == p[_]; ++_);
-            for (var T = k && '!' == p[k - 1] || _ < c && '1' == p[_] ? '1' : 'N', x = k; x < _; ++x) p[x] = T;
-            k = _ - 1
+          for (var k = 0, T; k < c; ++k)
+            if (T = p[k], ',' == T) p[k] = 'N';
+            else if ('%' == T) {
+            var R = void 0;
+            for (R = k + 1; R < c && '%' == p[R]; ++R);
+            for (var _ = k && '!' == p[k - 1] || R < c && '1' == p[R] ? '1' : 'N', x = k; x < R; ++x) p[x] = _;
+            k = R - 1
           }
           for (var P = 0, D = l, M; P < c; ++P) M = p[P], 'L' == D && '1' == M ? p[P] = 'L' : a.test(M) && (D = M);
           for (var A = 0; A < c; ++A)
@@ -6036,7 +6036,7 @@ module.exports = function (e) {
         }
       },
       on = function () {
-        if (Ta && 9 > xa) return !1;
+        if (_a && 9 > xa) return !1;
         var e = p('div');
         return 'draggable' in e || 'dragDrop' in e
       }(),
@@ -6171,9 +6171,9 @@ module.exports = function (e) {
     }, V(Es);
     var ws = {},
       ks = {},
+      Ts = null,
       Rs = null,
-      _s = null,
-      Ts = {
+      _s = {
         left: 0,
         right: 0,
         top: 0,
@@ -6187,7 +6187,7 @@ module.exports = function (e) {
           o.clientHeight && t(o.scrollTop, 'vertical')
         }), as(r, 'scroll', function () {
           r.clientWidth && t(r.scrollLeft, 'horizontal')
-        }), this.checkedZeroWidth = !1, Ta && 8 > xa && (this.horiz.style.minHeight = this.vert.style.minWidth = '18px')
+        }), this.checkedZeroWidth = !1, _a && 8 > xa && (this.horiz.style.minHeight = this.vert.style.minWidth = '18px')
       },
       Ps;
     xs.prototype.update = function (e) {
@@ -6249,7 +6249,7 @@ module.exports = function (e) {
     };
     var Ls = 0,
       Fs = null;
-    Ta ? Fs = -.53 : wa ? Fs = 15 : Ma ? Fs = -.7 : Ia && (Fs = -1 / 3);
+    _a ? Fs = -.53 : wa ? Fs = 15 : Ma ? Fs = -.7 : Ia && (Fs = -1 / 3);
     var Bs = function (e, t) {
       this.ranges = e, this.primIndex = t
     };
@@ -6397,7 +6397,7 @@ module.exports = function (e) {
         for (var s = 0; s < n.length; ++s) n[s] == e && n.splice(s--, 1);
         n.length || (o.widgets = null);
         var i = Wt(this);
-        ce(o, r(0, o.height - i)), t && (To(t, function () {
+        ce(o, r(0, o.height - i)), t && (_o(t, function () {
           ti(t, o, -i), Nn(t, a, 'widget')
         }), xt(t, 'lineWidgetCleared', t, this, a))
       }
@@ -6408,7 +6408,7 @@ module.exports = function (e) {
         o = this.line;
       this.height = null;
       var r = Wt(this) - t;
-      r && (!dt(this.doc, o) && ce(o, o.height + r), n && To(n, function () {
+      r && (!dt(this.doc, o) && ce(o, o.height + r), n && _o(n, function () {
         n.curOp.forceUpdate = !0, ti(n, o, r), xt(n, 'lineWidgetChanged', n, e, pe(o))
       }))
     }, V(Os);
@@ -6456,7 +6456,7 @@ module.exports = function (e) {
         t = this.find(-1, !0),
         n = this,
         o = this.doc.cm;
-      t && o && To(o, function () {
+      t && o && _o(o, function () {
         var r = t.line,
           i = pe(t.line),
           a = en(o, i);
@@ -6506,7 +6506,7 @@ module.exports = function (e) {
           text: e
         }), Ar(this, Zo(i), $a)
       };
-    Vs.prototype = T(ei.prototype, {
+    Vs.prototype = _(ei.prototype, {
       constructor: Vs,
       iter: function (e, t, n) {
         n ? this.iterN(e - this.first, t - e, n) : this.iterN(this.first, this.first + this.size, e)
@@ -6583,14 +6583,14 @@ module.exports = function (e) {
         Pr(this, Ee(this, e), Ee(this, t || e), n)
       }),
       extendSelection: Do(function (e, t, n) {
-        _r(this, Ee(this, e), t && Ee(this, t), n)
+        Rr(this, Ee(this, e), t && Ee(this, t), n)
       }),
       extendSelections: Do(function (e, t) {
-        Tr(this, ke(this, e), t)
+        _r(this, ke(this, e), t)
       }),
       extendSelectionsBy: Do(function (e, t) {
         var n = k(this.sel.ranges, e);
-        Tr(this, ke(this, n), t)
+        _r(this, ke(this, n), t)
       }),
       setSelections: Do(function (e, t, n) {
         var o = this;
@@ -7217,7 +7217,7 @@ module.exports = function (e) {
           e.somethingSelected() ? e.indentSelection('add') : e.execCommand('insertTab')
         },
         transposeChars: function (e) {
-          return To(e, function () {
+          return _o(e, function () {
             for (var t = e.listSelections(), n = [], o = 0; o < t.length; o++)
               if (t[o].empty()) {
                 var r = t[o].head,
@@ -7233,7 +7233,7 @@ module.exports = function (e) {
           })
         },
         newlineAndIndent: function (e) {
-          return To(e, function () {
+          return _o(e, function () {
             for (var t = e.listSelections(), n = t.length - 1; 0 <= n; n--) e.replaceRange(e.doc.lineSeparator(), t[n].anchor, t[n].head, '+input');
             t = e.listSelections();
             for (var o = 0; o < t.length; o++) e.indentLine(t[o].from().line, null, !0);
@@ -7397,7 +7397,7 @@ module.exports = function (e) {
         t.cm.state.focused && (t.pollSelection(), t.polling.set(t.cm.options.pollInterval, e))
       }
       var t = this;
-      this.selectionInEditor() ? this.pollSelection() : To(this.cm, function () {
+      this.selectionInEditor() ? this.pollSelection() : _o(this.cm, function () {
         return t.cm.curOp.selectionChanged = !0
       }), this.polling.set(this.cm.options.pollInterval, e)
     }, sd.prototype.selectionChanged = function () {
@@ -7416,7 +7416,7 @@ module.exports = function (e) {
           this.rememberSelection();
           var n = Ca(t, e.anchorNode, e.anchorOffset),
             r = Ca(t, e.focusNode, e.focusOffset);
-          n && r && To(t, function () {
+          n && r && _o(t, function () {
             Ar(t.doc, Zo(n, r), $a), (n.bad || r.bad) && (t.curOp.selectionChanged = !0)
           })
         }
@@ -7462,7 +7462,7 @@ module.exports = function (e) {
       }, 80))
     }, sd.prototype.updateFromDOM = function () {
       var e = this;
-      (this.cm.isReadOnly() || !this.pollContent()) && To(this.cm, function () {
+      (this.cm.isReadOnly() || !this.pollContent()) && _o(this.cm, function () {
         return Bn(e.cm)
       })
     }, sd.prototype.setUneditable = function (e) {
@@ -7499,7 +7499,7 @@ module.exports = function (e) {
         this.createField(t);
         var i = this.textarea;
         t.wrapper.insertBefore(this.wrapper, t.wrapper.firstChild), Ba && (i.style.width = '0px'), as(i, 'input', function () {
-          Ta && 9 <= xa && n.hasSelection && (n.hasSelection = null), o.poll()
+          _a && 9 <= xa && n.hasSelection && (n.hasSelection = null), o.poll()
         }), as(i, 'paste', function (t) {
           z(r, t) || da(t, r) || (r.state.pasteIncoming = +new Date, o.fastPoll())
         }), as(i, 'cut', e), as(i, 'copy', e), as(t.scroller, 'paste', function (n) {
@@ -7545,8 +7545,8 @@ module.exports = function (e) {
           if (t.somethingSelected()) {
             this.prevInput = '';
             var n = t.getSelection();
-            this.textarea.value = n, t.state.focused && qa(this.textarea), Ta && 9 <= xa && (this.hasSelection = n)
-          } else e || (this.prevInput = this.textarea.value = '', Ta && 9 <= xa && (this.hasSelection = null))
+            this.textarea.value = n, t.state.focused && qa(this.textarea), _a && 9 <= xa && (this.hasSelection = n)
+          } else e || (this.prevInput = this.textarea.value = '', _a && 9 <= xa && (this.hasSelection = null))
         }
       }, dd.prototype.getField = function () {
         return this.textarea
@@ -7583,13 +7583,13 @@ module.exports = function (e) {
         if (this.contextMenuPending || !t.state.focused || ds(n) && !o && !this.composing || t.isReadOnly() || t.options.disableInput || t.state.keySeq) return !1;
         var r = n.value;
         if (r == o && !t.somethingSelected()) return !1;
-        if (Ta && 9 <= xa && this.hasSelection === r || Ha && /[\uf700-\uf7ff]/.test(r)) return t.display.input.reset(), !1;
+        if (_a && 9 <= xa && this.hasSelection === r || Ha && /[\uf700-\uf7ff]/.test(r)) return t.display.input.reset(), !1;
         if (t.doc.sel == t.display.selForContextMenu) {
           var i = r.charCodeAt(0);
           if (8203 != i || o || (o = '\u200B'), 8666 == i) return this.reset(), this.cm.execCommand('undo')
         }
         for (var a = 0, s = d(o.length, r.length); a < s && o.charCodeAt(a) == r.charCodeAt(a);) ++a;
-        return To(t, function () {
+        return _o(t, function () {
           sa(t, r.slice(a), o.length - a, null, e.composing ? '*compose' : null), 1e3 < r.length || -1 < r.indexOf('\n') ? n.value = e.prevInput = '' : e.prevInput = r, e.composing && (e.composing.range.clear(), e.composing.range = t.markText(e.composing.start, t.getCursor('to'), {
             className: 'CodeMirror-composing'
           }))
@@ -7597,7 +7597,7 @@ module.exports = function (e) {
       }, dd.prototype.ensurePolled = function () {
         this.pollingFast && this.poll() && (this.pollingFast = !1)
       }, dd.prototype.onKeyPress = function () {
-        Ta && 9 <= xa && (this.hasSelection = null), this.fastPoll()
+        _a && 9 <= xa && (this.hasSelection = null), this.fastPoll()
       }, dd.prototype.onContextMenu = function (t) {
         function e() {
           if (null != s.selectionStart) {
@@ -7608,8 +7608,8 @@ module.exports = function (e) {
         }
 
         function n() {
-          if (o.contextMenuPending == n && (o.contextMenuPending = !1, o.wrapper.style.cssText = p, s.style.cssText = c, Ta && 9 > xa && a.scrollbars.setScrollTop(a.scroller.scrollTop = d), null != s.selectionStart)) {
-            (!Ta || Ta && 9 > xa) && e();
+          if (o.contextMenuPending == n && (o.contextMenuPending = !1, o.wrapper.style.cssText = p, s.style.cssText = c, _a && 9 > xa && a.scrollbars.setScrollTop(a.scroller.scrollTop = d), null != s.selectionStart)) {
+            (!_a || _a && 9 > xa) && e();
             var t = 0,
               i = function () {
                 a.selForContextMenu == r.doc.sel && 0 == s.selectionStart && 0 < s.selectionEnd && '\u200B' == o.prevInput ? xo(r, zr)(r) : 10 > t++ ? a.detectingSelectAll = setTimeout(i, 500) : (a.selForContextMenu = null, a.input.reset())
@@ -7630,9 +7630,9 @@ module.exports = function (e) {
           var c = s.style.cssText,
             p = o.wrapper.style.cssText,
             u = o.wrapper.offsetParent.getBoundingClientRect();
-          o.wrapper.style.cssText = 'position: static', s.style.cssText = 'position: absolute; width: 30px; height: 30px;\n      top: ' + (t.clientY - u.top - 5) + 'px; left: ' + (t.clientX - u.left - 5) + 'px;\n      z-index: 1000; background: ' + (Ta ? 'rgba(255, 255, 255, .05)' : 'transparent') + ';\n      outline: none; border-width: 0; outline: none; overflow: hidden; opacity: .05; filter: alpha(opacity=5);';
+          o.wrapper.style.cssText = 'position: static', s.style.cssText = 'position: absolute; width: 30px; height: 30px;\n      top: ' + (t.clientY - u.top - 5) + 'px; left: ' + (t.clientX - u.left - 5) + 'px;\n      z-index: 1000; background: ' + (_a ? 'rgba(255, 255, 255, .05)' : 'transparent') + ';\n      outline: none; border-width: 0; outline: none; overflow: hidden; opacity: .05; filter: alpha(opacity=5);';
           var m;
-          if (Pa && (m = window.scrollY), a.input.focus(), Pa && window.scrollTo(null, m), a.input.reset(), r.somethingSelected() || (s.value = o.prevInput = ' '), o.contextMenuPending = n, a.selForContextMenu = r.doc.sel, clearTimeout(a.detectingSelectAll), Ta && 9 <= xa && e(), Ga) {
+          if (Pa && (m = window.scrollY), a.input.focus(), Pa && window.scrollTo(null, m), a.input.reset(), r.somethingSelected() || (s.value = o.prevInput = ' '), o.contextMenuPending = n, a.selForContextMenu = r.doc.sel, clearTimeout(a.detectingSelectAll), _a && 9 <= xa && e(), Ga) {
             q(t);
             var h = function () {
               O(window, 'mouseup', h), setTimeout(n, 20)
@@ -7744,7 +7744,7 @@ module.exports = function (e) {
           addOverlay: Po(function (t, n) {
             var o = t.token ? t : e.getMode(this.options, t);
             if (o.startState) throw new Error('Overlays may not be stateful.');
-            R(this.state.overlays, {
+            T(this.state.overlays, {
               mode: o,
               modeSpec: t,
               opaque: n && n.opaque,
@@ -7780,7 +7780,7 @@ module.exports = function (e) {
           },
           getTokenTypeAt: function (e) {
             e = Ee(this.doc, e);
-            var t = _e(this, se(this.doc, e.line)),
+            var t = Re(this, se(this.doc, e.line)),
               n = 0,
               o = (t.length - 1) / 2,
               r = e.ch,
@@ -7821,7 +7821,7 @@ module.exports = function (e) {
           },
           getStateAfter: function (e, t) {
             var n = this.doc;
-            return e = ve(n, null == e ? n.first + n.size - 1 : e), Te(this, e + 1, t).state
+            return e = ve(n, null == e ? n.first + n.size - 1 : e), _e(this, e + 1, t).state
           },
           cursorCoords: function (e, t) {
             var n = this.doc.sel.primary(),
@@ -8012,7 +8012,7 @@ module.exports = function (e) {
             }), this.curOp.forceUpdate = !0, H(this, 'refresh', this)
           }),
           operation: function (e) {
-            return To(this, e)
+            return _o(this, e)
           },
           startOperation: function () {
             return Co(this)
@@ -8126,7 +8126,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(697);
+  const r = n(696);
   var i;
   (function (e) {
     e[e.Local = 0] = 'Local', e[e.Remote = 1] = 'Remote'
@@ -8180,7 +8180,7 @@ module.exports = function (e) {
   e.exports = require('child_process')
 }, function (e, t, n) {
   (function () {
-    t.Emitter = n(770), t.Disposable = n(179), t.CompositeDisposable = n(769)
+    t.Emitter = n(767), t.Disposable = n(178), t.CompositeDisposable = n(766)
   }).call(this)
 }, function (e, t, n) {
   'use strict';
@@ -8268,8 +8268,38 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
+  async function o(e, t = process.env, n = a.resolveGitProxy) {
+    if (i.enableAutomaticGitProxyConfiguration()) {
+      if ('ALL_PROXY' in t || 'all_proxy' in t) return void log.info(`proxy url not resolved, ALL_PROXY already set`);
+      const o = /^(https?):\/\//i.exec(e);
+      if (null === o) return void log.info(`proxy url not resolved, protocol not supported`);
+      const r = o[1].toLowerCase(),
+        i = `${r}_proxy`;
+      if (i in t || 'https' === r && 'HTTPS_PROXY' in t) return void log.info(`proxy url not resolved, ${i} already set`);
+      const a = await n(e).catch((e) => {
+        log.error('Failed resolving Git proxy', e)
+      });
+      return void 0 === a ? void 0 : {
+        [i]: a
+      }
+    }
+  }
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const r = n(100),
+    i = n(18),
+    a = n(695),
+    s = n(10);
+  t.getFallbackUrlForProxyResolve = function (e, t) {
+    return null === e ? null !== t.gitHubRepository && null !== t.gitHubRepository.cloneURL ? t.gitHubRepository.cloneURL : 'https://github.com' : e.endpoint === s.getDotComAPIEndpoint() ? 'https://github.com' : e.endpoint
+  }, t.envForRemoteOperation = async function (e, t) {
+    return Object.assign({}, r.envForAuthentication(e), (await o(t)))
+  }, t.envForProxy = o
+}, function (e, t, n) {
+  'use strict';
   const o = n(38).fromPromise,
-    r = n(286);
+    r = n(287);
   e.exports = {
     pathExists: o(function (e) {
       return r.access(e).then(() => !0).catch(() => !1)
@@ -8345,6 +8375,22 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0),
+    r = n(4);
+  class i extends o.Component {
+    render() {
+      return o.createElement(r.Octicon, {
+        className: 'spin',
+        symbol: r.OcticonSymbol.sync
+      })
+    }
+  }
+  t.Loading = i
+}, function (e, t, n) {
+  'use strict';
   n.r(t), n.d(t, 'bpfrpt_proptype_CellPosition', function () {
     return s
   }), n.d(t, 'bpfrpt_proptype_CellRendererParams', function () {
@@ -8405,8 +8451,8 @@ module.exports = function (e) {
     w = null,
     k = null
 }, function (e, t, n) {
-  var o = n(224)('wks'),
-    r = n(223),
+  var o = n(222)('wks'),
+    r = n(221),
     i = n(118).Symbol;
   e.exports = function (e) {
     return o[e] || (o[e] = i && i[e] || (i || r)('Symbol.' + e))
@@ -8438,34 +8484,32 @@ module.exports = function (e) {
   }, t.getUncommittedChangesStrategy = o, t.parseStrategy = r
 }, function (e, t, n) {
   'use strict';
-  async function o(e, t = process.env, n = a.resolveGitProxy) {
-    if (i.enableAutomaticGitProxyConfiguration()) {
-      if ('ALL_PROXY' in t || 'all_proxy' in t) return void log.info(`proxy url not resolved, ALL_PROXY already set`);
-      const o = /^(https?):\/\//i.exec(e);
-      if (null === o) return void log.info(`proxy url not resolved, protocol not supported`);
-      const r = o[1].toLowerCase(),
-        i = `${r}_proxy`;
-      if (i in t || 'https' === r && 'HTTPS_PROXY' in t) return void log.info(`proxy url not resolved, ${i} already set`);
-      const a = await n(e).catch((e) => {
-        log.error('Failed resolving Git proxy', e)
-      });
-      return void 0 === a ? void 0 : {
-        [i]: a
-      }
-    }
-  }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  });
-  const r = n(100),
-    i = n(18),
-    a = n(696),
-    s = n(10);
-  t.getFallbackUrlForProxyResolve = function (e, t) {
-    return null === e ? null !== t.gitHubRepository && null !== t.gitHubRepository.cloneURL ? t.gitHubRepository.cloneURL : 'https://github.com' : e.endpoint === s.getDotComAPIEndpoint() ? 'https://github.com' : e.endpoint
-  }, t.envForRemoteOperation = async function (e, t) {
-    return Object.assign({}, r.envForAuthentication(e), (await o(t)))
-  }, t.envForProxy = o
+      });
+  const o = n(644);
+  t.structuralEquals = function (e, t) {
+    return o(e, t, {
+      strict: !0
+    })
+  }, t.shallowEquals = function (e, t) {
+    if (Object.is(e, t)) return !0;
+    if (null === e || null === t || 'object' != typeof e || 'object' != typeof t) return !1;
+    const n = Object.keys(e),
+      o = Object.keys(t);
+    if (n.length !== o.length) return !1;
+    for (let o = 0; o < n.length; o++) {
+      const r = n[o];
+      if (!Object.prototype.hasOwnProperty.call(t, r) || !Object.is(e[r], t[r])) return !1
+    }
+    return !0
+  }, t.arrayEquals = function (e, t) {
+    if (e === t) return !0;
+    if (e.length !== t.length) return !1;
+    for (let n = 0; n < e.length; n++)
+      if (e[n] !== t[n]) return !1;
+    return !0
+  }
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -8654,22 +8698,22 @@ module.exports = function (e) {
         return 0 > e ? a(e) || 0 : i(e)
       }
 
-      function R(e) {
+      function T(e) {
         var t = +e,
           n = 0;
         return 0 != t && isFinite(t) && (n = k(t)), n
       }
 
-      function _(e, t, n) {
+      function R(e, t, n) {
         var o = s(e.length, t.length),
           a = r(e.length - t.length),
           d = 0,
           l;
-        for (l = 0; l < o; l++)(n && e[l] !== t[l] || !n && R(e[l]) !== R(t[l])) && d++;
+        for (l = 0; l < o; l++)(n && e[l] !== t[l] || !n && T(e[l]) !== T(t[l])) && d++;
         return d + a
       }
 
-      function T(e) {
+      function _(e) {
         !1 === t.suppressDeprecationWarnings && 'undefined' != typeof console && console.warn && console.warn('Deprecation warning: ' + e)
       }
 
@@ -8684,14 +8728,14 @@ module.exports = function (e) {
               } else i = arguments[a];
               r.push(i)
             }
-            T(e + '\nArguments: ' + Array.prototype.slice.call(r).join('') + '\n' + new Error().stack), o = !1
+            _(e + '\nArguments: ' + Array.prototype.slice.call(r).join('') + '\n' + new Error().stack), o = !1
           }
           return n.apply(this, arguments)
         }, n)
       }
 
       function P(e, n) {
-        null != t.deprecationHandler && t.deprecationHandler(e, n), Wt[e] || (T(n), Wt[e] = !0)
+        null != t.deprecationHandler && t.deprecationHandler(e, n), Wt[e] || (_(n), Wt[e] = !0)
       }
 
       function D(e) {
@@ -8811,7 +8855,7 @@ module.exports = function (e) {
         var n = t,
           o;
         for ('string' == typeof e && (e = [e]), c(t) && (n = function (e, n) {
-            n[t] = R(e)
+            n[t] = T(e)
           }), o = 0; o < e.length; o++) gn[e[o]] = n
       }
 
@@ -8862,14 +8906,14 @@ module.exports = function (e) {
           r, i, a;
         if (!this._monthsParse)
           for (this._monthsParse = [], this._longMonthsParse = [], this._shortMonthsParse = [], r = 0; 12 > r; ++r) a = g([2e3, r]), this._shortMonthsParse[r] = this.monthsShort(a, '').toLocaleLowerCase(), this._longMonthsParse[r] = this.months(a, '').toLocaleLowerCase();
-        return n ? 'MMM' === t ? (i = Tn.call(this._shortMonthsParse, o), -1 === i ? null : i) : (i = Tn.call(this._longMonthsParse, o), -1 === i ? null : i) : 'MMM' === t ? (i = Tn.call(this._shortMonthsParse, o), -1 !== i) ? i : (i = Tn.call(this._longMonthsParse, o), -1 === i ? null : i) : (i = Tn.call(this._longMonthsParse, o), -1 !== i) ? i : (i = Tn.call(this._shortMonthsParse, o), -1 === i ? null : i)
+        return n ? 'MMM' === t ? (i = _n.call(this._shortMonthsParse, o), -1 === i ? null : i) : (i = _n.call(this._longMonthsParse, o), -1 === i ? null : i) : 'MMM' === t ? (i = _n.call(this._shortMonthsParse, o), -1 !== i) ? i : (i = _n.call(this._longMonthsParse, o), -1 === i ? null : i) : (i = _n.call(this._longMonthsParse, o), -1 !== i) ? i : (i = _n.call(this._shortMonthsParse, o), -1 === i ? null : i)
       }
 
       function ie(e, t) {
         var n;
         if (!e.isValid()) return e;
         if ('string' == typeof t)
-          if (/^\d+$/.test(t)) t = R(t);
+          if (/^\d+$/.test(t)) t = T(t);
           else if (t = e.localeData().monthsParse(t), !c(t)) return e;
         return n = s(e.date(), oe(e.year(), t)), e._d['set' + (e._isUTC ? 'UTC' : '') + 'Month'](t, n), e
       }
@@ -8955,7 +8999,7 @@ module.exports = function (e) {
           r, i, a;
         if (!this._weekdaysParse)
           for (this._weekdaysParse = [], this._shortWeekdaysParse = [], this._minWeekdaysParse = [], r = 0; 7 > r; ++r) a = g([2e3, 1]).day(r), this._minWeekdaysParse[r] = this.weekdaysMin(a, '').toLocaleLowerCase(), this._shortWeekdaysParse[r] = this.weekdaysShort(a, '').toLocaleLowerCase(), this._weekdaysParse[r] = this.weekdays(a, '').toLocaleLowerCase();
-        return n ? 'dddd' === t ? (i = Tn.call(this._weekdaysParse, o), -1 === i ? null : i) : 'ddd' === t ? (i = Tn.call(this._shortWeekdaysParse, o), -1 === i ? null : i) : (i = Tn.call(this._minWeekdaysParse, o), -1 === i ? null : i) : 'dddd' === t ? (i = Tn.call(this._weekdaysParse, o), -1 !== i) ? i : (i = Tn.call(this._shortWeekdaysParse, o), -1 !== i) ? i : (i = Tn.call(this._minWeekdaysParse, o), -1 === i ? null : i) : 'ddd' === t ? (i = Tn.call(this._shortWeekdaysParse, o), -1 !== i) ? i : (i = Tn.call(this._weekdaysParse, o), -1 !== i) ? i : (i = Tn.call(this._minWeekdaysParse, o), -1 === i ? null : i) : (i = Tn.call(this._minWeekdaysParse, o), -1 !== i) ? i : (i = Tn.call(this._weekdaysParse, o), -1 !== i) ? i : (i = Tn.call(this._shortWeekdaysParse, o), -1 === i ? null : i)
+        return n ? 'dddd' === t ? (i = _n.call(this._weekdaysParse, o), -1 === i ? null : i) : 'ddd' === t ? (i = _n.call(this._shortWeekdaysParse, o), -1 === i ? null : i) : (i = _n.call(this._minWeekdaysParse, o), -1 === i ? null : i) : 'dddd' === t ? (i = _n.call(this._weekdaysParse, o), -1 !== i) ? i : (i = _n.call(this._shortWeekdaysParse, o), -1 !== i) ? i : (i = _n.call(this._minWeekdaysParse, o), -1 === i ? null : i) : 'ddd' === t ? (i = _n.call(this._shortWeekdaysParse, o), -1 !== i) ? i : (i = _n.call(this._weekdaysParse, o), -1 !== i) ? i : (i = _n.call(this._minWeekdaysParse, o), -1 === i ? null : i) : (i = _n.call(this._minWeekdaysParse, o), -1 !== i) ? i : (i = _n.call(this._weekdaysParse, o), -1 !== i) ? i : (i = _n.call(this._shortWeekdaysParse, o), -1 === i ? null : i)
       }
 
       function Se() {
@@ -8994,7 +9038,7 @@ module.exports = function (e) {
         for (var t = 0, n, o, r, i; t < e.length;) {
           for (i = Ee(e[t]).split('-'), n = i.length, o = Ee(e[t + 1]), o = o ? o.split('-') : null; 0 < n;) {
             if (r = ke(i.slice(0, n).join('-')), r) return r;
-            if (o && o.length >= n && _(i, o, !0) >= n - 1) break;
+            if (o && o.length >= n && R(i, o, !0) >= n - 1) break;
             n--
           }
           t++
@@ -9009,17 +9053,17 @@ module.exports = function (e) {
           ! function () {
             var t = new Error('Cannot find module "undefined"');
             throw t.code = 'MODULE_NOT_FOUND', t
-          }(), Re(n)
+          }(), Te(n)
         } catch (t) {}
         return Ln[t]
       }
 
-      function Re(e, t) {
+      function Te(e, t) {
         var n;
-        return e && (n = p(t) ? Te(e) : _e(e, t), n ? Gn = n : 'undefined' != typeof console && console.warn && console.warn('Locale ' + e + ' not found. Did you forget to load it?')), Gn._abbr
+        return e && (n = p(t) ? _e(e) : Re(e, t), n ? Gn = n : 'undefined' != typeof console && console.warn && console.warn('Locale ' + e + ' not found. Did you forget to load it?')), Gn._abbr
       }
 
-      function _e(e, t) {
+      function Re(e, t) {
         if (null !== t) {
           var n = In,
             o;
@@ -9032,13 +9076,13 @@ module.exports = function (e) {
             config: t
           }), null;
           return Ln[e] = new A(M(n, t)), Fn[e] && Fn[e].forEach(function (e) {
-            _e(e.name, e.config)
-          }), Re(e), Ln[e]
+            Re(e.name, e.config)
+          }), Te(e), Ln[e]
         }
         return delete Ln[e], null
       }
 
-      function Te(e) {
+      function _e(e) {
         var t;
         if (e && e._locale && e._locale._abbr && (e = e._locale._abbr), !e) return Gn;
         if (!n(e)) {
@@ -9055,7 +9099,7 @@ module.exports = function (e) {
       function Pe(e) {
         var t = e._a,
           n;
-        return t && -2 === S(e).overflow && (n = 0 > t[Sn] || 11 < t[Sn] ? Sn : 1 > t[Cn] || t[Cn] > oe(t[yn], t[Sn]) ? Cn : 0 > t[bn] || 24 < t[bn] || 24 === t[bn] && (0 !== t[vn] || 0 !== t[En] || 0 !== t[wn]) ? bn : 0 > t[vn] || 59 < t[vn] ? vn : 0 > t[En] || 59 < t[En] ? En : 0 > t[wn] || 999 < t[wn] ? wn : -1, S(e)._overflowDayOfYear && (n < yn || n > Cn) && (n = Cn), S(e)._overflowWeeks && -1 === n && (n = kn), S(e)._overflowWeekday && -1 === n && (n = Rn), S(e).overflow = n), e
+        return t && -2 === S(e).overflow && (n = 0 > t[Sn] || 11 < t[Sn] ? Sn : 1 > t[Cn] || t[Cn] > oe(t[yn], t[Sn]) ? Cn : 0 > t[bn] || 24 < t[bn] || 24 === t[bn] && (0 !== t[vn] || 0 !== t[En] || 0 !== t[wn]) ? bn : 0 > t[vn] || 59 < t[vn] ? vn : 0 > t[En] || 59 < t[En] ? En : 0 > t[wn] || 999 < t[wn] ? wn : -1, S(e)._overflowDayOfYear && (n < yn || n > Cn) && (n = Cn), S(e)._overflowWeeks && -1 === n && (n = kn), S(e)._overflowWeekday && -1 === n && (n = Tn), S(e).overflow = n), e
       }
 
       function De(e, t, n) {
@@ -9204,7 +9248,7 @@ module.exports = function (e) {
       function qe(e) {
         var t = e._i,
           o = e._f;
-        return (e._locale = e._locale || Te(e._l), null === t || void 0 === o && '' === t) ? b({
+        return (e._locale = e._locale || _e(e._l), null === t || void 0 === o && '' === t) ? b({
           nullInput: !0
         }) : ('string' == typeof t && (e._i = t = e._locale.preparse(t)), w(t)) ? new E(Pe(t)) : (u(t) ? e._d = t : n(o) ? Ge(e) : o ? We(e) : Ye(e), C(e) || (e._d = null), e)
       }
@@ -9234,11 +9278,11 @@ module.exports = function (e) {
 
       function Ze(e) {
         for (var t in e)
-          if (-1 === Tn.call(qn, t) || null != e[t] && isNaN(e[t])) return !1;
+          if (-1 === _n.call(qn, t) || null != e[t] && isNaN(e[t])) return !1;
         for (var n = !1, o = 0; o < qn.length; ++o)
           if (e[qn[o]]) {
             if (n) return !1;
-            parseFloat(e[qn[o]]) !== R(e[qn[o]]) && (n = !0)
+            parseFloat(e[qn[o]]) !== T(e[qn[o]]) && (n = !0)
           } return !0
       }
 
@@ -9253,7 +9297,7 @@ module.exports = function (e) {
           d = t.minute || 0,
           l = t.second || 0,
           c = t.millisecond || 0;
-        this._isValid = Ze(t), this._milliseconds = +c + 1e3 * l + 6e4 * d + 60 * (60 * (1e3 * s)), this._days = +a + 7 * i, this._months = +r + 3 * o + 12 * n, this._data = {}, this._locale = Te(), this._bubble()
+        this._isValid = Ze(t), this._milliseconds = +c + 1e3 * l + 6e4 * d + 60 * (60 * (1e3 * s)), this._days = +a + 7 * i, this._months = +r + 3 * o + 12 * n, this._data = {}, this._locale = _e(), this._bubble()
       }
 
       function et(e) {
@@ -9277,7 +9321,7 @@ module.exports = function (e) {
         if (null === n) return null;
         var o = n[n.length - 1] || [],
           r = (o + '').match(Yn) || ['-', 0, 0],
-          i = +(60 * r[1]) + R(r[2]);
+          i = +(60 * r[1]) + T(r[2]);
         return 0 === i ? 0 : '+' === r[0] ? i : -i
       }
 
@@ -9304,11 +9348,11 @@ module.exports = function (e) {
           M: e._months
         } : c(e) ? (n = {}, t ? n[t] = e : n.milliseconds = e) : (o = Xn.exec(e)) ? (r = '-' === o[1] ? -1 : 1, n = {
           y: 0,
-          d: R(o[Cn]) * r,
-          h: R(o[bn]) * r,
-          m: R(o[vn]) * r,
-          s: R(o[En]) * r,
-          ms: R(tt(1e3 * o[wn])) * r
+          d: T(o[Cn]) * r,
+          h: T(o[bn]) * r,
+          m: T(o[vn]) * r,
+          s: T(o[En]) * r,
+          ms: T(tt(1e3 * o[wn])) * r
         }) : (o = Qn.exec(e)) ? (r = '-' === o[1] ? -1 : 1, n = {
           y: dt(o[2], r),
           M: dt(o[3], r),
@@ -9361,7 +9405,7 @@ module.exports = function (e) {
 
       function ht(e) {
         var t;
-        return void 0 === e ? this._locale._abbr : (t = Te(e), null != t && (this._locale = t), this)
+        return void 0 === e ? this._locale._abbr : (t = _e(e), null != t && (this._locale = t), this)
       }
 
       function ft() {
@@ -9396,7 +9440,7 @@ module.exports = function (e) {
       }
 
       function Et(e, t) {
-        t[wn] = R(1e3 * ('0.' + e))
+        t[wn] = T(1e3 * ('0.' + e))
       }
 
       function wt(e) {
@@ -9404,12 +9448,12 @@ module.exports = function (e) {
       }
 
       function kt(e, t, n, o) {
-        var r = Te(),
+        var r = _e(),
           i = g().set(o, t);
         return r[n](i, e)
       }
 
-      function Rt(e, t, n) {
+      function Tt(e, t, n) {
         if (c(e) && (t = e, e = void 0), e = e || '', null != t) return kt(e, t, n, 'month');
         var o = [],
           r;
@@ -9417,9 +9461,9 @@ module.exports = function (e) {
         return o
       }
 
-      function _t(e, t, n, o) {
+      function Rt(e, t, n, o) {
         'boolean' == typeof e ? (c(t) && (n = t, t = void 0), t = t || '') : (t = e, n = t, e = !1, c(t) && (n = t, t = void 0), t = t || '');
-        var r = Te(),
+        var r = _e(),
           a = e ? r._week.dow : 0;
         if (null != n) return kt(t, (n + a) % 7, o, 'day');
         var s = [],
@@ -9428,7 +9472,7 @@ module.exports = function (e) {
         return s
       }
 
-      function Tt(e, t, n, o) {
+      function _t(e, t, n, o) {
         var r = st(t, n);
         return e._milliseconds += o * r._milliseconds, e._days += o * r._days, e._months += o * r._months, e._bubble()
       }
@@ -9552,24 +9596,24 @@ module.exports = function (e) {
         En = 5,
         wn = 6,
         kn = 7,
-        Rn = 8;
+        Tn = 8;
       H('Y', 0, 0, function () {
         var e = this.year();
         return 9999 >= e ? '' + e : '+' + e
       }), H(0, ['YY', 2], 0, function () {
         return this.year() % 100
       }), H(0, ['YYYY', 4], 0, 'year'), H(0, ['YYYYY', 5], 0, 'year'), H(0, ['YYYYYY', 6, !0], 0, 'year'), I('year', 'y'), B('year', 1), G('Y', cn), G('YY', nn, Zt), G('YYYY', sn, en), G('YYYYY', dn, tn), G('YYYYYY', dn, tn), Y(['YYYYY', 'YYYYYY'], yn), Y('YYYY', function (e, n) {
-        n[yn] = 2 === e.length ? t.parseTwoDigitYear(e) : R(e)
+        n[yn] = 2 === e.length ? t.parseTwoDigitYear(e) : T(e)
       }), Y('YY', function (e, n) {
         n[yn] = t.parseTwoDigitYear(e)
       }), Y('Y', function (e, t) {
         t[yn] = parseInt(e, 10)
       }), t.parseTwoDigitYear = function (e) {
-        return R(e) + (68 < R(e) ? 1900 : 2e3)
+        return T(e) + (68 < T(e) ? 1900 : 2e3)
       };
-      var _n = J('FullYear', !0),
-        Tn;
-      Tn = Array.prototype.indexOf ? Array.prototype.indexOf : function (e) {
+      var Rn = J('FullYear', !0),
+        _n;
+      _n = Array.prototype.indexOf ? Array.prototype.indexOf : function (e) {
         var t;
         for (t = 0; t < this.length; ++t)
           if (this[t] === e) return t;
@@ -9585,7 +9629,7 @@ module.exports = function (e) {
       }), G('MMMM', function (e, t) {
         return t.monthsRegex(e)
       }), Y(['M', 'MM'], function (e, t) {
-        t[Sn] = R(e) - 1
+        t[Sn] = T(e) - 1
       }), Y(['MMM', 'MMMM'], function (e, t, n, o) {
         var r = n._locale.monthsParse(e, o, n._strict);
         null == r ? S(n).invalidMonth = e : t[Sn] = r
@@ -9593,7 +9637,7 @@ module.exports = function (e) {
       var xn = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/,
         Pn = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
       H('w', ['ww', 2], 'wo', 'week'), H('W', ['WW', 2], 'Wo', 'isoWeek'), I('week', 'w'), I('isoWeek', 'W'), B('week', 5), B('isoWeek', 5), G('w', nn), G('ww', nn, Zt), G('W', nn), G('WW', nn, Zt), X(['w', 'ww', 'W', 'WW'], function (e, t, n, o) {
-        t[o.substr(0, 1)] = R(e)
+        t[o.substr(0, 1)] = T(e)
       });
       H('d', 0, 'do', 'day'), H('dd', 0, 0, function (e) {
         return this.localeData().weekdaysMin(this, e)
@@ -9611,7 +9655,7 @@ module.exports = function (e) {
         var r = n._locale.weekdaysParse(e, o, n._strict);
         null == r ? S(n).invalidWeekday = e : t.d = r
       }), X(['d', 'e', 'E'], function (e, t, n, o) {
-        t[o] = R(e)
+        t[o] = T(e)
       });
       var Dn = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
       H('H', ['HH', 2], 0, 'hour'), H('h', ['hh', 2], 0, Ce), H('k', ['kk', 2], 0, function () {
@@ -9625,26 +9669,26 @@ module.exports = function (e) {
       }), H('Hmmss', 0, 0, function () {
         return '' + this.hours() + O(this.minutes(), 2) + O(this.seconds(), 2)
       }), be('a', !0), be('A', !1), I('hour', 'h'), B('hour', 13), G('a', ve), G('A', ve), G('H', nn), G('h', nn), G('k', nn), G('HH', nn, Zt), G('hh', nn, Zt), G('kk', nn, Zt), G('hmm', on), G('hmmss', rn), G('Hmm', on), G('Hmmss', rn), Y(['H', 'HH'], bn), Y(['k', 'kk'], function (e, t) {
-        var n = R(e);
+        var n = T(e);
         t[bn] = 24 === n ? 0 : n
       }), Y(['a', 'A'], function (e, t, n) {
         n._isPm = n._locale.isPM(e), n._meridiem = e
       }), Y(['h', 'hh'], function (e, t, n) {
-        t[bn] = R(e), S(n).bigHour = !0
+        t[bn] = T(e), S(n).bigHour = !0
       }), Y('hmm', function (e, t, n) {
         var o = e.length - 2;
-        t[bn] = R(e.substr(0, o)), t[vn] = R(e.substr(o)), S(n).bigHour = !0
+        t[bn] = T(e.substr(0, o)), t[vn] = T(e.substr(o)), S(n).bigHour = !0
       }), Y('hmmss', function (e, t, n) {
         var o = e.length - 4,
           r = e.length - 2;
-        t[bn] = R(e.substr(0, o)), t[vn] = R(e.substr(o, 2)), t[En] = R(e.substr(r)), S(n).bigHour = !0
+        t[bn] = T(e.substr(0, o)), t[vn] = T(e.substr(o, 2)), t[En] = T(e.substr(r)), S(n).bigHour = !0
       }), Y('Hmm', function (e, t) {
         var n = e.length - 2;
-        t[bn] = R(e.substr(0, n)), t[vn] = R(e.substr(n))
+        t[bn] = T(e.substr(0, n)), t[vn] = T(e.substr(n))
       }), Y('Hmmss', function (e, t) {
         var n = e.length - 4,
           o = e.length - 2;
-        t[bn] = R(e.substr(0, n)), t[vn] = R(e.substr(n, 2)), t[En] = R(e.substr(o))
+        t[bn] = T(e.substr(0, n)), t[vn] = T(e.substr(n, 2)), t[En] = T(e.substr(o))
       });
       var Mn = /[ap]\.?m?\.?/i,
         An = J('Hours', !0),
@@ -9776,19 +9820,19 @@ module.exports = function (e) {
       }), H(0, ['GG', 2], 0, function () {
         return this.isoWeekYear() % 100
       }), Ct('gggg', 'weekYear'), Ct('ggggg', 'weekYear'), Ct('GGGG', 'isoWeekYear'), Ct('GGGGG', 'isoWeekYear'), I('weekYear', 'gg'), I('isoWeekYear', 'GG'), B('weekYear', 1), B('isoWeekYear', 1), G('G', cn), G('g', cn), G('GG', nn, Zt), G('gg', nn, Zt), G('GGGG', sn, en), G('gggg', sn, en), G('GGGGG', dn, tn), G('ggggg', dn, tn), X(['gggg', 'ggggg', 'GGGG', 'GGGGG'], function (e, t, n, o) {
-        t[o.substr(0, 2)] = R(e)
+        t[o.substr(0, 2)] = T(e)
       }), X(['gg', 'GG'], function (e, n, o, r) {
         n[r] = t.parseTwoDigitYear(e)
       }), H('Q', 0, 'Qo', 'quarter'), I('quarter', 'Q'), B('quarter', 7), G('Q', $t), Y('Q', function (e, t) {
-        t[Sn] = 3 * (R(e) - 1)
+        t[Sn] = 3 * (T(e) - 1)
       }), H('D', ['DD', 2], 'Do', 'date'), I('date', 'D'), B('date', 9), G('D', nn), G('DD', nn, Zt), G('Do', function (e, t) {
         return e ? t._dayOfMonthOrdinalParse || t._ordinalParse : t._dayOfMonthOrdinalParseLenient
       }), Y(['D', 'DD'], Cn), Y('Do', function (e, t) {
-        t[Cn] = R(e.match(nn)[0])
+        t[Cn] = T(e.match(nn)[0])
       });
       var ro = J('Date', !0);
       H('DDD', ['DDDD', 3], 'DDDo', 'dayOfYear'), I('dayOfYear', 'DDD'), B('dayOfYear', 4), G('DDD', an), G('DDDD', Jt), Y(['DDD', 'DDDD'], function (e, t, n) {
-        n._dayOfYear = R(e)
+        n._dayOfYear = T(e)
       }), H('m', ['mm', 2], 0, 'minute'), I('minute', 'm'), B('minute', 14), G('m', nn), G('mm', nn, Zt), Y(['m', 'mm'], vn);
       var io = J('Minutes', !1);
       H('s', ['ss', 2], 0, 'second'), I('second', 's'), B('second', 15), G('s', nn), G('ss', nn, Zt), Y(['s', 'ss'], En);
@@ -9933,7 +9977,7 @@ module.exports = function (e) {
           isUTC: this._isUTC,
           strict: this._strict
         }
-      }, co.year = _n, co.isLeapYear = function () {
+      }, co.year = Rn, co.isLeapYear = function () {
         return Z(this.year())
       }, co.weekYear = function (e) {
         return bt.call(this, e, this.week(), this.weekday(), this.localeData()._week.dow, this.localeData()._week.doy)
@@ -10005,14 +10049,14 @@ module.exports = function (e) {
         return this._isUTC ? 'UTC' : ''
       }, co.zoneName = function () {
         return this._isUTC ? 'Coordinated Universal Time' : ''
-      }, co.dates = x('dates accessor is deprecated. Use date instead.', ro), co.months = x('months accessor is deprecated. Use month instead', ae), co.years = x('years accessor is deprecated. Use year instead', _n), co.zone = x('moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/', function (e, t) {
+      }, co.dates = x('dates accessor is deprecated. Use date instead.', ro), co.months = x('months accessor is deprecated. Use month instead', ae), co.years = x('years accessor is deprecated. Use year instead', Rn), co.zone = x('moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/', function (e, t) {
         return null == e ? -this.utcOffset() : ('string' != typeof e && (e = -e), this.utcOffset(e, t), this)
       }), co.isDSTShifted = x('isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information', function () {
         if (!p(this._isDSTShifted)) return this._isDSTShifted;
         var e = {};
         if (v(e, this), e = qe(e), e._a) {
           var t = e._isUTC ? g(e._a) : Qe(e._a);
-          this._isDSTShifted = this.isValid() && 0 < _(e._a, t.toArray())
+          this._isDSTShifted = this.isValid() && 0 < R(e._a, t.toArray())
         } else this._isDSTShifted = !1;
         return this._isDSTShifted
       });
@@ -10088,14 +10132,14 @@ module.exports = function (e) {
         return 'p' === (e + '').toLowerCase().charAt(0)
       }, po.meridiem = function (e, t, n) {
         return 11 < e ? n ? 'pm' : 'PM' : n ? 'am' : 'AM'
-      }, Re('en', {
+      }, Te('en', {
         dayOfMonthOrdinalParse: /\d{1,2}(th|st|nd|rd)/,
         ordinal: function (e) {
           var t = e % 10,
-            n = 1 === R(e % 100 / 10) ? 'th' : 1 == t ? 'st' : 2 == t ? 'nd' : 3 == t ? 'rd' : 'th';
+            n = 1 === T(e % 100 / 10) ? 'th' : 1 == t ? 'st' : 2 == t ? 'nd' : 3 == t ? 'rd' : 'th';
           return e + n
         }
-      }), t.lang = x('moment.lang is deprecated. Use moment.locale instead.', Re), t.langData = x('moment.langData is deprecated. Use moment.localeData instead.', Te);
+      }), t.lang = x('moment.lang is deprecated. Use moment.locale instead.', Te), t.langData = x('moment.langData is deprecated. Use moment.localeData instead.', _e);
       var uo = r,
         mo = Mt('ms'),
         ho = Mt('s'),
@@ -10109,9 +10153,9 @@ module.exports = function (e) {
         Eo = At('milliseconds'),
         wo = At('seconds'),
         ko = At('minutes'),
-        Ro = At('hours'),
-        _o = At('days'),
-        To = At('months'),
+        To = At('hours'),
+        Ro = At('days'),
+        _o = At('months'),
         xo = At('years'),
         Po = o,
         Do = {
@@ -10130,9 +10174,9 @@ module.exports = function (e) {
           var e = this._data;
           return this._milliseconds = uo(this._milliseconds), this._days = uo(this._days), this._months = uo(this._months), e.milliseconds = uo(e.milliseconds), e.seconds = uo(e.seconds), e.minutes = uo(e.minutes), e.hours = uo(e.hours), e.months = uo(e.months), e.years = uo(e.years), this
         }, Ao.add = function (e, t) {
-          return Tt(this, e, t, 1)
+          return _t(this, e, t, 1)
         }, Ao.subtract = function (e, t) {
-          return Tt(this, e, t, -1)
+          return _t(this, e, t, -1)
         }, Ao.as = function (e) {
           if (!this.isValid()) return NaN;
           var t = this._milliseconds,
@@ -10161,7 +10205,7 @@ module.exports = function (e) {
               throw new Error('Unknown unit ' + e);
           }
         }, Ao.asMilliseconds = mo, Ao.asSeconds = ho, Ao.asMinutes = fo, Ao.asHours = go, Ao.asDays = yo, Ao.asWeeks = So, Ao.asMonths = Co, Ao.asQuarters = bo, Ao.asYears = vo, Ao.valueOf = function () {
-          return this.isValid() ? this._milliseconds + 864e5 * this._days + 2592e6 * (this._months % 12) + 31536e6 * R(this._months / 12) : NaN
+          return this.isValid() ? this._milliseconds + 864e5 * this._days + 2592e6 * (this._months % 12) + 31536e6 * T(this._months / 12) : NaN
         }, Ao._bubble = function () {
           var e = this._milliseconds,
             t = this._days,
@@ -10173,9 +10217,9 @@ module.exports = function (e) {
           return st(this)
         }, Ao.get = function (e) {
           return e = L(e), this.isValid() ? this[e + 's']() : NaN
-        }, Ao.milliseconds = Eo, Ao.seconds = wo, Ao.minutes = ko, Ao.hours = Ro, Ao.days = _o, Ao.weeks = function () {
+        }, Ao.milliseconds = Eo, Ao.seconds = wo, Ao.minutes = ko, Ao.hours = To, Ao.days = Ro, Ao.weeks = function () {
           return k(this.days() / 7)
-        }, Ao.months = To, Ao.years = xo, Ao.humanize = function (e) {
+        }, Ao.months = _o, Ao.years = xo, Ao.humanize = function (e) {
           if (!this.isValid()) return this.localeData().invalidDate();
           var t = this.localeData(),
             n = Lt(this, !e, t);
@@ -10183,7 +10227,7 @@ module.exports = function (e) {
         }, Ao.toISOString = Nt, Ao.toString = Nt, Ao.toJSON = Nt, Ao.locale = ht, Ao.localeData = ft, Ao.toIsoString = x('toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)', Nt), Ao.lang = Jn, H('X', 0, 0, 'unix'), H('x', 0, 0, 'valueOf'), G('x', cn), G('X', mn), Y('X', function (e, t, n) {
           n._d = new Date(1e3 * parseFloat(e, 10))
         }), Y('x', function (e, t, n) {
-          n._d = new Date(R(e))
+          n._d = new Date(T(e))
         }), t.version = '2.24.0',
         function (e) {
           Ot = e
@@ -10198,24 +10242,24 @@ module.exports = function (e) {
         }, t.utc = g, t.unix = function (e) {
           return Qe(1e3 * e)
         }, t.months = function (e, t) {
-          return Rt(e, t, 'months')
-        }, t.isDate = u, t.locale = Re, t.invalid = b, t.duration = st, t.isMoment = w, t.weekdays = function (e, t, n) {
-          return _t(e, t, n, 'weekdays')
+          return Tt(e, t, 'months')
+        }, t.isDate = u, t.locale = Te, t.invalid = b, t.duration = st, t.isMoment = w, t.weekdays = function (e, t, n) {
+          return Rt(e, t, n, 'weekdays')
         }, t.parseZone = function () {
           return Qe.apply(null, arguments).parseZone()
-        }, t.localeData = Te, t.isDuration = et, t.monthsShort = function (e, t) {
-          return Rt(e, t, 'monthsShort')
+        }, t.localeData = _e, t.isDuration = et, t.monthsShort = function (e, t) {
+          return Tt(e, t, 'monthsShort')
         }, t.weekdaysMin = function (e, t, n) {
-          return _t(e, t, n, 'weekdaysMin')
-        }, t.defineLocale = _e, t.updateLocale = function (e, t) {
+          return Rt(e, t, n, 'weekdaysMin')
+        }, t.defineLocale = Re, t.updateLocale = function (e, t) {
           if (null != t) {
             var n = In,
               o, r;
-            r = ke(e), null != r && (n = r._config), t = M(n, t), o = new A(t), o.parentLocale = Ln[e], Ln[e] = o, Re(e)
+            r = ke(e), null != r && (n = r._config), t = M(n, t), o = new A(t), o.parentLocale = Ln[e], Ln[e] = o, Te(e)
           } else null != Ln[e] && (null == Ln[e].parentLocale ? null != Ln[e] && delete Ln[e] : Ln[e] = Ln[e].parentLocale);
           return Ln[e]
         }, t.locales = xe, t.weekdaysShort = function (e, t, n) {
-          return _t(e, t, n, 'weekdaysShort')
+          return Rt(e, t, n, 'weekdaysShort')
         }, t.normalizeUnits = L, t.relativeTimeRounding = Ft, t.relativeTimeThreshold = function (e, t) {
           return void 0 !== Do[e] && (void 0 === t ? Do[e] : (Do[e] = t, 's' === e && (Do.ss = t - 1), !0))
         }, t.calendarFormat = function (e, t) {
@@ -10244,15 +10288,15 @@ module.exports = function (e) {
     i = n(33),
     a = n(69),
     s = n(2),
-    d = n(465),
-    l = n(464),
+    d = n(464),
+    l = n(463),
     c = n(460),
     p = n(459),
     u = n(90),
     m = n(457);
   var h;
   (function (e) {
-    e.Start = 'Start', e.SignInToDotCom = 'SignInToDotCom', e.SignInToEnterprise = 'SignInToEnterprise', e.ConfigureGit = 'ConfigureGit', e.UsageOptOut = 'UsageOptOut'
+    e.Start = 'Start', e.SignInToDotComWithBrowser = 'SignInToDotComWithBrowser', e.SignInToDotCom = 'SignInToDotCom', e.SignInToEnterprise = 'SignInToEnterprise', e.ConfigureGit = 'ConfigureGit', e.UsageOptOut = 'UsageOptOut'
   })(h = t.WelcomeStep || (t.WelcomeStep = {}));
   const f = i.encodePathAsUrl(__dirname, 'static/welcome-illustration-right.svg');
   t.WelcomeLeftTopImageUri = i.encodePathAsUrl(__dirname, 'static/welcome-illustration-left-top.svg'), t.WelcomeLeftBottomImageUri = i.encodePathAsUrl(__dirname, 'static/welcome-illustration-left-bottom.svg');
@@ -10282,7 +10326,7 @@ module.exports = function (e) {
       this.props.dispatcher.recordWelcomeWizardInitiated()
     }
     get inSignInStep() {
-      return !(this.state.currentStep !== h.SignInToDotCom) || !(this.state.currentStep !== h.SignInToEnterprise)
+      return !(this.state.currentStep !== h.SignInToDotCom) || !(this.state.currentStep !== h.SignInToDotComWithBrowser) || !(this.state.currentStep !== h.SignInToEnterprise)
     }
     advanceOnSuccessfulSignIn(e) {
       return this.inSignInStep ? this.props.signInState ? e.signInState ? this.props.signInState.kind === e.signInState.kind ? void log.info(`[Welcome] kind ${this.props.signInState.kind} is the same as ${e.signInState.kind}. ignoring...`) : void(e.signInState.kind === a.SignInStep.Success && (this.advanceToStep(h.ConfigureGit), this.props.dispatcher.resetSignInState())) : void log.info(`[Welcome] next sign in state not found. ignoring...`) : void log.info(`[Welcome] current sign in state not found. ignoring...`) : void log.info(`[Welcome] no sign in step found. ignoring...`)
@@ -10290,25 +10334,42 @@ module.exports = function (e) {
     getComponentForCurrentStep() {
       const e = this.state.currentStep,
         t = this.props.signInState;
-      return e === h.Start ? o.createElement(d.Start, {
-        advance: this.advanceToStep
-      }) : e === h.SignInToDotCom ? o.createElement(l.SignInDotCom, {
+      switch (e) {
+        case h.Start:
+        case h.SignInToDotComWithBrowser:
+          const n = e === h.SignInToDotComWithBrowser && null !== t && t.kind === a.SignInStep.Authentication && t.loading;
+          return o.createElement(d.Start, {
+            advance: this.advanceToStep,
+        dispatcher: this.props.dispatcher,
+            loadingBrowserAuth: n
+          });
+        case h.SignInToDotCom:
+          return o.createElement(l.SignInDotCom, {
+            dispatcher: this.props.dispatcher,
+        advance: this.advanceToStep,
+        signInState: t
+          });
+        case h.SignInToEnterprise:
+          return o.createElement(c.SignInEnterprise, {
         dispatcher: this.props.dispatcher,
         advance: this.advanceToStep,
         signInState: t
-      }) : e === h.SignInToEnterprise ? o.createElement(c.SignInEnterprise, {
-        dispatcher: this.props.dispatcher,
-        advance: this.advanceToStep,
-        signInState: t
-      }) : e === h.ConfigureGit ? o.createElement(p.ConfigureGit, {
-        advance: this.advanceToStep,
-        accounts: this.props.accounts
-      }) : e === h.UsageOptOut ? o.createElement(m.UsageOptOut, {
-        dispatcher: this.props.dispatcher,
-        advance: this.advanceToStep,
-        optOut: this.props.optOut,
-        done: this.done
-      }) : s.assertNever(e, `Unknown welcome step: ${e}`)
+          });
+        case h.ConfigureGit:
+          return o.createElement(p.ConfigureGit, {
+            advance: this.advanceToStep,
+            accounts: this.props.accounts
+          });
+        case h.UsageOptOut:
+          return o.createElement(m.UsageOptOut, {
+            dispatcher: this.props.dispatcher,
+            advance: this.advanceToStep,
+            optOut: this.props.optOut,
+            done: this.done
+          });
+        default:
+          return s.assertNever(e, `Unknown welcome step: ${e}`);
+    }
     }
     render() {
       const e = r({
@@ -10338,22 +10399,6 @@ module.exports = function (e) {
   t.Welcome = g
 }, function (e, t, n) {
   'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(0),
-    r = n(4);
-  class i extends o.Component {
-    render() {
-      return o.createElement(r.Octicon, {
-        className: 'spin',
-        symbol: r.OcticonSymbol.sync
-      })
-    }
-  }
-  t.Loading = i
-}, function (e, t, n) {
-  'use strict';
 
   function o(e) {
     return e.replace(/[^a-z0-9\-_:.]+/gi, '_')
@@ -10372,34 +10417,6 @@ module.exports = function (e) {
     return !1, r.uuid()
   }, t.releaseUniqueId = function (e) {
     a.delete(e)
-  }
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(643);
-  t.structuralEquals = function (e, t) {
-    return o(e, t, {
-      strict: !0
-    })
-  }, t.shallowEquals = function (e, t) {
-    if (Object.is(e, t)) return !0;
-    if (null === e || null === t || 'object' != typeof e || 'object' != typeof t) return !1;
-    const n = Object.keys(e),
-      o = Object.keys(t);
-    if (n.length !== o.length) return !1;
-    for (let o = 0; o < n.length; o++) {
-      const r = n[o];
-      if (!Object.prototype.hasOwnProperty.call(t, r) || !Object.is(e[r], t[r])) return !1
-    }
-    return !0
-  }, t.arrayEquals = function (e, t) {
-    if (e === t) return !0;
-    if (e.length !== t.length) return !1;
-    for (let n = 0; n < e.length; n++)
-      if (e[n] !== t[n]) return !1;
-    return !0
   }
 }, function (e, t) {
   'use strict';
@@ -10489,12 +10506,12 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(742)), o(n(741)), o(n(633)), o(n(240)), o(n(632)), o(n(631)), o(n(630)), o(n(629)), o(n(264)), o(n(626)), o(n(233));
-  var r = n(238);
+  }), o(n(741)), o(n(740)), o(n(632)), o(n(239)), o(n(631)), o(n(630)), o(n(629)), o(n(628)), o(n(264)), o(n(625)), o(n(231));
+  var r = n(237);
   t.UpstreamRemoteName = r.UpstreamRemoteName
 }, function (e, t, n) {
   e.exports = {
-    default: n(579),
+    default: n(578),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -10808,7 +10825,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(610)), o(n(219))
+  }), o(n(609)), o(n(217))
 }, function (e, t) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -10887,14 +10904,14 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(693)), o(n(692)), o(n(691)), o(n(690)), o(n(68)), o(n(689)), o(n(255))
+  }), o(n(692)), o(n(691)), o(n(690)), o(n(689)), o(n(68)), o(n(688)), o(n(255))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(34),
-    r = n(171),
+    r = n(170),
     i = n(266);
   t.spawnAndComplete = function (e, t, n, a, s) {
     const d = `${n}: git ${e.join(' ')}`;
@@ -10981,7 +10998,7 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(2),
-    a = n(61);
+    a = n(63);
   var s;
   (function (e) {
     e[e.Light = 0] = 'Light', e[e.Dark = 1] = 'Dark'
@@ -11003,13 +11020,13 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(747);
+  var o = n(746);
   t.StatsDatabase = o.StatsDatabase;
-  var r = n(746);
+  var r = n(745);
   t.StatsStore = r.StatsStore, t.SamplesURL = r.SamplesURL;
-  var i = n(288);
+  var i = n(289);
   t.getGUID = i.getGUID;
-  var a = n(623);
+  var a = n(622);
   t.hasSeenUsageStatsNote = a.hasSeenUsageStatsNote, t.markUsageStatsNoteSeen = a.markUsageStatsNoteSeen
 }, function (e, t, n) {
   'use strict';
@@ -11064,7 +11081,7 @@ module.exports = function (e) {
       default: e
     }
   }
-  var r = n(776),
+  var r = n(775),
     i = o(r),
     a = n(305),
     s = o(a);
@@ -11099,19 +11116,19 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(503);
+  var o = n(502);
   t.PushBranchCommits = o.PushBranchCommits;
-  var r = n(205);
+  var r = n(203);
   t.BranchList = r.BranchList;
-  var i = n(496);
+  var i = n(495);
   t.BranchesContainer = i.BranchesContainer;
-  var a = n(491);
+  var a = n(490);
   t.PullRequestBadge = a.PullRequestBadge;
-  var s = n(204);
+  var s = n(202);
   t.groupBranches = s.groupBranches;
-  var d = n(201);
+  var d = n(199);
   t.BranchListItem = d.BranchListItem;
-  var l = n(202);
+  var l = n(200);
   t.renderDefaultBranch = l.renderDefaultBranch
 }, function (e, t, n) {
   'use strict';
@@ -11119,8 +11136,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(12),
-    i = n(544),
+    r = n(13),
+    i = n(543),
     a = n(2);
   class s extends o.Component {
     render() {
@@ -11197,7 +11214,7 @@ module.exports = function (e) {
     return a
   }
 }, function (e, t, n) {
-  var o = n(222),
+  var o = n(220),
     r = n(159);
   e.exports = function (e) {
     return o(r(e))
@@ -11207,7 +11224,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   var o = n(118),
     r = n(45),
-    i = n(231),
+    i = n(229),
     a = 'prototype',
     s = function (e, t, n) {
       var d = e & s.F,
@@ -11456,7 +11473,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(176),
+  const r = n(175),
     i = n(10);
   t.generateGravatarUrl = o, t.getAvatarWithEnterpriseFallback = function (e, t, n) {
     return n === i.getDotComAPIEndpoint() || null === t || 0 === t.length ? e : o(t)
@@ -11474,7 +11491,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(176),
+  const r = n(175),
     i = n(298);
   t.uuid = function () {
     return i({
@@ -11595,7 +11612,7 @@ module.exports = function (e) {
     }
     return i
   };
-  var o = n(180),
+  var o = n(179),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -11606,7 +11623,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(230),
+  var o = n(228),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -11627,7 +11644,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(19),
-    i = n(14);
+    i = n(12);
   class a extends o.Component {
     constructor() {
       super(...arguments), this.onClick = (e) => {
@@ -11654,7 +11671,7 @@ module.exports = function (e) {
     r = n(4),
     i = n(5),
     a = n(2),
-    s = n(14),
+    s = n(12),
     d = n(122);
   var l;
   (function (e) {
@@ -11726,7 +11743,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(214)), o(n(515)), o(n(514))
+  }), o(n(212)), o(n(514)), o(n(513))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -11749,8 +11766,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(62),
-    i = n(543);
+    r = n(64),
+    i = n(542);
   i(r);
   const a = 60 * 1e3,
     s = 60 * a,
@@ -11823,28 +11840,28 @@ module.exports = function (e) {
       }
       return !0
     }, t.computeScore = n = function (e, t, a) {
-      var s, d, l, u, S, C, v, E, i, w, k, R, _, n, T, x, P, D, M, A, I, L, F, B;
-      if (T = a.query, x = a.query_lw, w = e.length, _ = T.length, s = h(e, t, T, x), d = s.score, s.count === _) return g(_, w, d, s.pos);
-      if (n = t.indexOf(x), -1 < n) return y(e, t, T, x, n, _, w);
-      for (A = Array(_), S = Array(_), B = b(_, w), k = r(p * _) + 5, R = k, v = !0, i = -1; ++i < _;) A[i] = 0, S[i] = 0;
+      var s, d, l, u, S, C, v, E, i, w, k, T, R, n, _, x, P, D, M, A, I, L, F, B;
+      if (_ = a.query, x = a.query_lw, w = e.length, R = _.length, s = h(e, t, _, x), d = s.score, s.count === R) return g(R, w, d, s.pos);
+      if (n = t.indexOf(x), -1 < n) return y(e, t, _, x, n, R, w);
+      for (A = Array(R), S = Array(R), B = b(R, w), k = r(p * R) + 5, T = k, v = !0, i = -1; ++i < R;) A[i] = 0, S[i] = 0;
       for (E = -1; ++E < w;) {
         if (L = t[E], !L.charCodeAt(0) in a.charCodes) {
           if (v) {
-            for (i = -1; ++i < _;) S[i] = 0;
+            for (i = -1; ++i < R;) S[i] = 0;
             v = !1
           }
           continue
         }
-        for (D = 0, M = 0, u = 0, P = !0, v = !0, i = -1; ++i < _;) {
+        for (D = 0, M = 0, u = 0, P = !0, v = !0, i = -1; ++i < R;) {
           if (I = A[i], I > D && (D = I), C = 0, x[i] === L)
-            if (F = c(E, e, t), C = 0 < u ? u : f(e, t, T, x, E, i, F), l = M + m(E, i, F, d, C), l > D) D = l, R = k;
+            if (F = c(E, e, t), C = 0 < u ? u : f(e, t, _, x, E, i, F), l = M + m(E, i, F, d, C), l > D) D = l, T = k;
             else {
-              if (P && 0 >= --R) return o(D, A[_ - 1]) * B;
+              if (P && 0 >= --T) return o(D, A[R - 1]) * B;
               P = !1
             } M = I, u = S[i], S[i] = C, A[i] = D
         }
       }
-      return D = A[_ - 1], D * B
+      return D = A[R - 1], D * B
     }, t.isWordStart = c = function (e, t, n) {
       var o, r;
       return !(0 !== e) || (o = t[e], r = t[e - 1], d(r) || o !== n[e] && r === n[e - 1])
@@ -11975,7 +11992,7 @@ module.exports = function (e) {
     l = n(76),
     c = n(28),
     p = n(19),
-    u = n(565);
+    u = n(564);
   class m extends s.Component {
     constructor(e) {
       super(e), this.list = null, this.filterTextBox = null, this.renderRow = (e) => {
@@ -12154,7 +12171,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(290);
+  const o = n(291);
   class r extends o.default {
     constructor(e, t) {
       super(e), this.schemaVersion = t
@@ -12174,8 +12191,8 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(659));
-  var o = n(244);
+    }(n(658));
+  var o = n(243);
   t.ShellError = o.ShellError
 }, function (e, t) {
   'use strict';
@@ -12229,12 +12246,12 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(20),
-    r = n(60),
+  const o = n(21),
+    r = n(62),
     i = n(1),
     a = n(49),
-    s = n(702),
-    d = n(169);
+    s = n(701),
+    d = n(168);
   t.getTempFilePath = async function (e) {
     const t = i.join(r.tmpdir(), `${e}-`),
       n = await o.mkdtemp(t);
@@ -12555,7 +12572,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(38).fromCallback,
-    r = n(731);
+    r = n(730);
   e.exports = {
     remove: o(r),
     removeSync: r.sync
@@ -12565,9 +12582,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(745),
-    r = n(60),
-    i = n(744);
+  const o = n(744),
+    r = n(62),
+    i = n(743);
   t.getOS = function () {
     return `Windows ${r.release()}`
   }, t.isMacOsAndMojaveOrLater = function () {
@@ -12647,11 +12664,11 @@ module.exports = function (e) {
     r = o.remote.autoUpdater,
     i = 'last-successful-update-check',
     a = n(49),
-    s = n(26),
+    s = n(25),
     d = n(107),
-    l = n(768),
-    c = n(767),
-    p = n(61);
+    l = n(765),
+    c = n(764),
+    p = n(63);
   var u;
   (function (e) {
     e[e.CheckingForUpdates = 0] = 'CheckingForUpdates', e[e.UpdateAvailable = 1] = 'UpdateAvailable', e[e.UpdateNotAvailable = 2] = 'UpdateNotAvailable', e[e.UpdateReady = 3] = 'UpdateReady'
@@ -12708,7 +12725,7 @@ module.exports = function (e) {
         this.userInitiatedUpdate = !e;
         try {
           r.setFeedURL({
-            url: 'https://central.github.com/api/deployments/desktop/desktop/latest?version=2.4.3&env=production'
+            url: 'https://central.github.com/api/deployments/desktop/desktop/latest?version=2.5.0&env=production'
           }), r.checkForUpdates()
         } catch (t) {
           this.emitError(t)
@@ -12722,7 +12739,7 @@ module.exports = function (e) {
   t.updateStore = new m
 }, function (e, t, n) {
   e.exports = {
-    default: n(582),
+    default: n(581),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -12731,7 +12748,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(65);
+    r = n(66);
   class i extends o.Component {
     componentWillMount() {
       const e = this.props.label || 'unknown',
@@ -12842,7 +12859,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(507))
+    }(n(506))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -12851,12 +12868,12 @@ module.exports = function (e) {
   const o = n(0),
     r = n(2),
     i = n(33),
-    a = n(23),
+    a = n(24),
     s = n(30),
-    d = n(14),
-    l = n(540),
-    c = n(530),
-    p = n(529),
+    d = n(12),
+    l = n(539),
+    c = n(529),
+    p = n(528),
     u = i.encodePathAsUrl(__dirname, 'static/ufo-alert.svg');
   class m extends o.Component {
     constructor(e) {
@@ -12963,7 +12980,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(23),
+    r = n(24),
     i = n(4),
     a = n(74);
   class s extends o.Component {
@@ -13002,7 +13019,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(33),
-    i = n(550),
+    i = n(549),
     a = r.encodePathAsUrl(__dirname, 'static/default-avatar.png');
   class s extends o.Component {
     constructor(e) {
@@ -13151,7 +13168,7 @@ module.exports = function (e) {
   }
   t.FocusContainer = i
 }, function (e, t, n) {
-  var o = n(221);
+  var o = n(219);
   e.exports = function (e) {
     if (!o(e)) throw TypeError(e + ' is not an object!');
     return e
@@ -13162,13 +13179,13 @@ module.exports = function (e) {
     return t.call(e).slice(8, -1)
   }
 }, function (e, t, n) {
-  n(600);
+  n(599);
   var o = n(93);
   o.NodeList = o.HTMLCollection = o.Array
 }, function (e, t, n) {
   var o = n(37).setDesc,
     r = n(154),
-    i = n(56)('toStringTag');
+    i = n(58)('toStringTag');
   e.exports = function (e, t, n) {
     e && !r(e = n ? e : e.prototype, i) && o(e, i, {
       configurable: !0,
@@ -13192,15 +13209,15 @@ module.exports = function (e) {
 }, function (e, t, n) {
   var o = n(37),
     r = n(155);
-  e.exports = n(225) ? function (e, t, n) {
+  e.exports = n(223) ? function (e, t, n) {
     return o.setDesc(e, t, r(1, n))
   } : function (e, t, n) {
     return e[t] = n, e
   }
 }, function (e, t, n) {
   'use strict';
-  var o = n(603)(!0);
-  n(228)(String, 'String', function (e) {
+  var o = n(602)(!0);
+  n(226)(String, 'String', function (e) {
     this._t = e + '', this._i = 0
   }, function () {
     var e = this._t,
@@ -13271,7 +13288,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(21);
+  const o = n(20);
   t.validatedRepositoryPath = async function (e) {
     try {
       return await o.getTopLevelWorkingDirectory(e)
@@ -13368,27 +13385,6 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-
-  function o(e) {
-    const t = [];
-    for (const n of e)
-      if (r.isCoAuthoredByTrailer(n)) {
-        const e = i.GitAuthor.parse(n.value);
-        e && t.push(e)
-      } return t
-  }
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const r = n(126),
-    i = n(249);
-  t.Commit = class {
-    constructor(e, t, n, r, i, a, s, d, l) {
-      this.sha = e, this.shortSha = t, this.summary = n, this.body = r, this.author = i, this.committer = a, this.parentSHAs = s, this.trailers = d, this.tags = l, this.coAuthors = o(d), this.authoredByCommitter = this.author.name === this.committer.name && this.author.email === this.committer.email
-    }
-  }
-}, function (e, t, n) {
-  'use strict';
   async function o(e, t, n = {}) {
     if (t.length) {
       const o = ['update-index'];
@@ -13403,7 +13399,7 @@ module.exports = function (e) {
   const r = n(11),
     i = n(30),
     a = n(262),
-    s = n(23);
+    s = n(24);
   t.stageFiles = async function (e, t) {
     const n = [],
       r = [],
@@ -13432,9 +13428,9 @@ module.exports = function (e) {
       !t.encoding && e instanceof i.Readable && (t.encoding = e._readableState.encoding)
     })
   }
-  var i = n(285),
-    a = n(175),
-    s = n(701);
+  var i = n(286),
+    a = n(285),
+    s = n(700);
   e.exports = function (t, n) {
     return e.exports.createStream(t, n)
   }, e.exports.createStream = function (e, t) {
@@ -13475,7 +13471,7 @@ module.exports = function (e) {
   function i(e) {
     for (const t of e.hunks)
       for (const e of t.lines)
-        if (e.text.length > R) return !0;
+        if (e.text.length > T) return !0;
     return !1
   }
   async function a(e, t, n) {
@@ -13494,7 +13490,7 @@ module.exports = function (e) {
   }
   async function s(e, t, n, o, r) {
     const i = h.extname(t.path).toLowerCase();
-    return n.isBinary ? _.has(i) ? a(e, t, o) : {
+    return n.isBinary ? R.has(i) ? a(e, t, o) : {
       kind: S.DiffType.Binary
     } : {
       kind: S.DiffType.Text,
@@ -13511,7 +13507,7 @@ module.exports = function (e) {
   function l(e) {
     if (0 !== e.length) {
       const t = e.toString('utf-8'),
-        n = T.exec(t);
+        n = _.exec(t);
       if (n) {
         const e = S.parseLineEndingText(n[1]),
           t = S.parseLineEndingText(n[2]);
@@ -13561,16 +13557,16 @@ module.exports = function (e) {
   const h = n(1),
     f = n(125),
     g = n(261),
-    y = n(23),
+    y = n(24),
     S = n(30),
     C = n(81),
-    b = n(700),
+    b = n(699),
     v = n(260),
     E = n(124),
     w = 7e7,
     k = w / 16,
-    R = 5e3,
-    _ = new Set(['.png', '.jpg', '.jpeg', '.gif', '.ico', '.webp', '.bmp']);
+    T = 5e3,
+    R = new Set(['.png', '.jpg', '.jpeg', '.gif', '.ico', '.webp', '.bmp']);
   t.getCommitDiff = async function (e, t, n, o = !1) {
     const r = ['log', n, ...(o ? ['-w'] : []), '-m', '-1', '--first-parent', '--patch-with-raw', '-z', '--no-color', '--', t.path];
     (t.status.kind === y.AppFileStatusKind.Renamed || t.status.kind === y.AppFileStatusKind.Copied) && r.push(t.status.oldPath);
@@ -13587,7 +13583,7 @@ module.exports = function (e) {
     } = await C.spawnAndComplete(o, e.path, 'getWorkingDirectoryDiff', n), a = l(i);
     return p(r, e, t, 'HEAD', a)
   }, t.convertDiff = s;
-  const T = /warning: (CRLF|CR|LF) will be replaced by (CRLF|CR|LF) in .*/;
+  const _ = /warning: (CRLF|CR|LF) will be replaced by (CRLF|CR|LF) in .*/;
   t.getBlobImage = u, t.getWorkingDirectoryImage = m, t.getBinaryPaths = async function (e, t) {
     const {
       output: n
@@ -13667,15 +13663,189 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(38).fromCallback,
-    r = n(723);
+    r = n(722);
   e.exports = {
     readJson: o(r.readFile),
     readJsonSync: r.readFileSync,
     writeJson: o(r.writeFile),
     writeJsonSync: r.writeFileSync
   }
-}, function (e) {
-  e.exports = require('util')
+}, function (e, t, n) {
+  'use strict';
+  const o = n(294),
+    r = Symbol('max'),
+    i = Symbol('length'),
+    a = Symbol('lengthCalculator'),
+    s = Symbol('allowStale'),
+    d = Symbol('maxAge'),
+    l = Symbol('dispose'),
+    c = Symbol('noDisposeOnSet'),
+    p = Symbol('lruList'),
+    u = Symbol('cache'),
+    m = Symbol('updateAgeOnGet'),
+    h = () => 1;
+  class f {
+    constructor(e) {
+      if ('number' == typeof e && (e = {
+          max: e
+        }), e || (e = {}), e.max && ('number' != typeof e.max || 0 > e.max)) throw new TypeError('max must be a non-negative number');
+      const t = this[r] = e.max || Infinity,
+        n = e.length || h;
+      if (this[a] = 'function' == typeof n ? n : h, this[s] = e.stale || !1, e.maxAge && 'number' != typeof e.maxAge) throw new TypeError('maxAge must be a number');
+      this[d] = e.maxAge || 0, this[l] = e.dispose, this[c] = e.noDisposeOnSet || !1, this[m] = e.updateAgeOnGet || !1, this.reset()
+    }
+    set max(e) {
+      if ('number' != typeof e || 0 > e) throw new TypeError('max must be a non-negative number');
+      this[r] = e || Infinity, S(this)
+    }
+    get max() {
+      return this[r]
+    }
+    set allowStale(e) {
+      this[s] = !!e
+    }
+    get allowStale() {
+      return this[s]
+    }
+    set maxAge(e) {
+      if ('number' != typeof e) throw new TypeError('maxAge must be a non-negative number');
+      this[d] = e, S(this)
+    }
+    get maxAge() {
+      return this[d]
+    }
+    set lengthCalculator(e) {
+      'function' != typeof e && (e = h), e !== this[a] && (this[a] = e, this[i] = 0, this[p].forEach((e) => {
+        e.length = this[a](e.value, e.key), this[i] += e.length
+      })), S(this)
+    }
+    get lengthCalculator() {
+      return this[a]
+    }
+    get length() {
+      return this[i]
+    }
+    get itemCount() {
+      return this[p].length
+    }
+    rforEach(e, t) {
+      t = t || this;
+      for (let n = this[p].tail; null !== n;) {
+        const o = n.prev;
+        v(this, e, n, t), n = o
+      }
+    }
+    forEach(e, t) {
+      t = t || this;
+      for (let n = this[p].head; null !== n;) {
+        const o = n.next;
+        v(this, e, n, t), n = o
+      }
+    }
+    keys() {
+      return this[p].toArray().map((e) => e.key)
+    }
+    values() {
+      return this[p].toArray().map((e) => e.value)
+    }
+    reset() {
+      this[l] && this[p] && this[p].length && this[p].forEach((e) => this[l](e.key, e.value)), this[u] = new Map, this[p] = new o, this[i] = 0
+    }
+    dump() {
+      return this[p].map((e) => !y(this, e) && {
+        k: e.key,
+        v: e.value,
+        e: e.now + (e.maxAge || 0)
+      }).toArray().filter((e) => e)
+    }
+    dumpLru() {
+      return this[p]
+    }
+    set(e, t, n) {
+      if (n = n || this[d], n && 'number' != typeof n) throw new TypeError('maxAge must be a number');
+      const o = n ? Date.now() : 0,
+        s = this[a](t, e);
+      if (this[u].has(e)) {
+        if (s > this[r]) return C(this, this[u].get(e)), !1;
+        const a = this[u].get(e),
+          d = a.value;
+        return this[l] && !this[c] && this[l](e, d.value), d.now = o, d.maxAge = n, d.value = t, this[i] += s - d.length, d.length = s, this.get(e), S(this), !0
+      }
+      const m = new b(e, t, s, o, n);
+      return m.length > this[r] ? (this[l] && this[l](e, t), !1) : (this[i] += m.length, this[p].unshift(m), this[u].set(e, this[p].head), S(this), !0)
+    }
+    has(e) {
+      if (!this[u].has(e)) return !1;
+      const t = this[u].get(e).value;
+      return !y(this, t)
+    }
+    get(e) {
+      return g(this, e, !0)
+    }
+    peek(e) {
+      return g(this, e, !1)
+    }
+    pop() {
+      const e = this[p].tail;
+      return e ? (C(this, e), e.value) : null
+    }
+    del(e) {
+      C(this, this[u].get(e))
+    }
+    load(e) {
+      this.reset();
+      const t = Date.now();
+      for (let n = e.length - 1; 0 <= n; n--) {
+        const o = e[n],
+          r = o.e || 0;
+        if (0 === r) this.set(o.k, o.v);
+        else {
+          const e = r - t;
+          0 < e && this.set(o.k, o.v, e)
+        }
+      }
+    }
+    prune() {
+      this[u].forEach((e, t) => g(this, t, !1))
+    }
+  }
+  const g = (e, t, n) => {
+      const o = e[u].get(t);
+      if (o) {
+        const t = o.value;
+        if (!y(e, t)) n && (e[m] && (o.value.now = Date.now()), e[p].unshiftNode(o));
+        else if (C(e, o), !e[s]) return;
+        return t.value
+      }
+    },
+    y = (e, t) => {
+      if (!t || !t.maxAge && !e[d]) return !1;
+      const n = Date.now() - t.now;
+      return t.maxAge ? n > t.maxAge : e[d] && n > e[d]
+    },
+    S = (e) => {
+      if (e[i] > e[r])
+        for (let t = e[p].tail; e[i] > e[r] && null !== t;) {
+          const n = t.prev;
+          C(e, t), t = n
+        }
+    },
+    C = (e, t) => {
+      if (t) {
+        const n = t.value;
+        e[l] && e[l](n.key, n.value), e[i] -= n.length, e[u].delete(n.key), e[p].removeNode(t)
+      }
+    };
+  class b {
+    constructor(e, t, n, o, r) {
+      this.key = e, this.value = t, this.length = n, this.now = o, this.maxAge = r || 0
+    }
+  }
+  const v = (e, t, n, o) => {
+    let r = n.value;
+    y(e, r) && (C(e, n), !e[s] && (r = void 0)), r && t.call(o, r.value, r.key, e)
+  };
+  e.exports = f
 }, function (e) {
   e.exports = require('crypto')
 }, function (e, t) {
@@ -13794,7 +13964,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var r = n(180),
+  var r = n(179),
     i = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -13818,37 +13988,6 @@ module.exports = function (e) {
   }, d.cancel = function (e) {
     window[a] && 'function' == typeof window[a] && window[a](e)
   }, t.default = d, e.exports = t['default']
-}, function (e) {
-  'use strict';
-
-  function t(e) {
-    return function () {
-      return e
-    }
-  }
-  var n = function () {};
-  n.thatReturns = t, n.thatReturnsFalse = t(!1), n.thatReturnsTrue = t(!0), n.thatReturnsNull = t(null), n.thatReturnsThis = function () {
-    return this
-  }, n.thatReturnsArgument = function (e) {
-    return e
-  }, e.exports = n
-}, function (e) {
-  'use strict';
-  var t = function () {};
-  !1, e.exports = function (n, o, r, i, a, s, d, e) {
-    if (t(o), !n) {
-      var l;
-      if (void 0 === o) l = new Error('Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.');
-      else {
-        var c = [r, i, a, s, d, e],
-          p = 0;
-        l = new Error(o.replace(/%s/g, function () {
-          return c[p++]
-        })), l.name = 'Invariant Violation'
-      }
-      throw l.framesToPop = 1, l
-    }
-  }
 }, function (e) {
   'use strict';
   /*
@@ -13898,173 +14037,181 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(334)), o(n(333)), o(n(332)), o(n(234))
+  }), o(n(333)), o(n(332)), o(n(331)), o(n(232))
 }, function (e, t, n) {
   'use strict';
 
   function o(e, t) {
-    return l.createElement('li', {
+    return c.createElement('li', {
       key: e,
       className: 'unmerged-file-status-conflicts'
-    }, l.createElement(m.Octicon, {
-      symbol: m.OcticonSymbol.fileCode,
+    }, c.createElement(h.Octicon, {
+      symbol: h.OcticonSymbol.fileCode,
       className: 'file-octicon'
     }), t)
   }
 
-  function r(e, t, n) {
-    return t === f.ManualConflictResolutionKind.ours ? v.getUnmergedStatusEntryDescription(e.entry.us, n) : t === f.ManualConflictResolutionKind.theirs ? v.getUnmergedStatusEntryDescription(e.entry.them, n) : 'No conflicts remaining'
+  function r(e, t, n, o, r, i) {
+    return [{
+      label: E.getLabelForManualResolutionOption(o.entry.us, r),
+      action: () => n.updateManualConflictResolution(t, e, g.ManualConflictResolutionKind.ours)
+    }, {
+      label: E.getLabelForManualResolutionOption(o.entry.them, i),
+      action: () => n.updateManualConflictResolution(t, e, g.ManualConflictResolutionKind.theirs)
+    }]
   }
 
   function i(e, t, n) {
-    return e === f.ManualConflictResolutionKind.ours ? t : e === f.ManualConflictResolutionKind.theirs ? n : void 0
+    return t === g.ManualConflictResolutionKind.ours ? E.getUnmergedStatusEntryDescription(e.entry.us, n) : t === g.ManualConflictResolutionKind.theirs ? E.getUnmergedStatusEntryDescription(e.entry.them, n) : 'No conflicts remaining'
   }
 
-  function a(e) {
-    return Math.ceil(e / 3)
+  function a(e, t, n) {
+    return e === g.ManualConflictResolutionKind.ours ? t : e === g.ManualConflictResolutionKind.theirs ? n : void 0
   }
 
   function s(e) {
-    return `打开于 ${e||'editor'}`
+    return Math.ceil(e / 3)
   }
 
   function d(e) {
+    return `打开于 ${e||'editor'}`
+  }
+
+  function l(e) {
     return null === e ? `未配置编辑器，见 选项 > 高级` : void 0
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const l = n(0),
-    c = n(23),
-    p = n(1),
-    u = n(26),
-    m = n(4),
-    h = n(74),
-    f = n(252),
-    g = n(77),
-    y = n(114),
-    S = n(22),
-    C = n(14),
+  const c = n(0),
+    p = n(24),
+    u = n(1),
+    m = n(25),
+    h = n(4),
+    f = n(74),
+    g = n(252),
+    y = n(77),
+    S = n(114),
+    C = n(22),
     b = n(12),
-    v = n(41);
-  t.renderUnmergedFile = (e) => c.isConflictWithMarkers(e.status) && v.hasUnresolvedConflicts(e.status, e.manualResolution) ? k({
+    v = n(13),
+    E = n(41);
+  t.renderUnmergedFile = (e) => p.isConflictWithMarkers(e.status) && E.hasUnresolvedConflicts(e.status, e.manualResolution) ? T({
     path: e.path,
     status: e.status,
     resolvedExternalEditor: e.resolvedExternalEditor,
-    onOpenEditorClick: () => e.openFileInExternalEditor(p.join(e.repository.path, e.path)),
+    onOpenEditorClick: () => e.openFileInExternalEditor(u.join(e.repository.path, e.path)),
     repository: e.repository,
-    dispatcher: e.dispatcher
-  }) : c.isManualConflict(e.status) && void 0 === e.manualResolution ? w({
+    dispatcher: e.dispatcher,
+    ourBranch: e.ourBranch,
+    theirBranch: e.theirBranch
+  }) : p.isManualConflict(e.status) && E.hasUnresolvedConflicts(e.status, e.manualResolution) ? k({
     path: e.path,
     status: e.status,
     repository: e.repository,
     dispatcher: e.dispatcher,
     ourBranch: e.ourBranch,
     theirBranch: e.theirBranch
-  }) : E({
+  }) : w({
     path: e.path,
     status: e.status,
     repository: e.repository,
     dispatcher: e.dispatcher,
     manualResolution: e.manualResolution,
-    branch: i(e.manualResolution, e.ourBranch, e.theirBranch)
+    branch: a(e.manualResolution, e.ourBranch, e.theirBranch)
   });
-  const E = (e) => l.createElement('li', {
+  const w = (e) => c.createElement('li', {
       key: e.path,
       className: 'unmerged-file-status-resolved'
-    }, l.createElement(m.Octicon, {
-      symbol: m.OcticonSymbol.fileCode,
+    }, c.createElement(h.Octicon, {
+      symbol: h.OcticonSymbol.fileCode,
       className: 'file-octicon'
-    }), l.createElement('div', {
+    }), c.createElement('div', {
       className: 'column-left'
-    }, l.createElement(h.PathText, {
+    }, c.createElement(f.PathText, {
       path: e.path
-    }), x({
+    }), P({
       path: e.path,
       status: e.status,
       branch: e.branch,
       manualResolution: e.manualResolution,
       repository: e.repository,
       dispatcher: e.dispatcher
-    })), l.createElement('div', {
+    })), c.createElement('div', {
       className: 'green-circle'
-    }, l.createElement(m.Octicon, {
-      symbol: m.OcticonSymbol.check
+    }, c.createElement(h.Octicon, {
+      symbol: h.OcticonSymbol.check
     }))),
-    w = (e) => {
+    k = (e) => {
       const t = R(e.path, e.status, e.repository, e.dispatcher, e.ourBranch, e.theirBranch),
-        n = l.createElement(l.Fragment, null, l.createElement('div', {
+        n = c.createElement(c.Fragment, null, c.createElement('div', {
           className: 'column-left'
-        }, l.createElement(h.PathText, {
+        }, c.createElement(f.PathText, {
           path: e.path
-        }), l.createElement('div', {
+        }), c.createElement('div', {
           className: 'file-conflicts-status'
-        }, 'Manual conflict')), l.createElement('div', {
+        }, 'Manual conflict')), c.createElement('div', {
           className: 'action-buttons'
-        }, l.createElement(C.Button, {
+        }, c.createElement(b.Button, {
           className: 'small-button button-group-item resolve-arrow-menu',
           onClick: t
-        }, 'Resolve', l.createElement(m.Octicon, {
-          symbol: m.OcticonSymbol.triangleDown
+        }, 'Resolve', c.createElement(h.Octicon, {
+          symbol: h.OcticonSymbol.triangleDown
         }))));
       return o(e.path, n)
     },
-    k = (e) => {
-      const t = a(e.status.conflictMarkerCount),
+    T = (e) => {
+      const t = s(e.status.conflictMarkerCount),
         n = 1 === t ? `1 conflict` : `${t} conflicts`,
         r = null === e.resolvedExternalEditor,
-        i = d(e.resolvedExternalEditor),
-        c = T(e.path, e.repository.path, e.dispatcher),
-        p = l.createElement(l.Fragment, null, l.createElement('div', {
+        i = l(e.resolvedExternalEditor),
+        a = x(e.path, e.repository, e.dispatcher, e.status, e.ourBranch, e.theirBranch),
+        p = c.createElement(c.Fragment, null, c.createElement('div', {
           className: 'column-left'
-        }, l.createElement(h.PathText, {
+        }, c.createElement(f.PathText, {
           path: e.path
-        }), l.createElement('div', {
+        }), c.createElement('div', {
           className: 'file-conflicts-status'
-        }, n)), l.createElement('div', {
+        }, n)), c.createElement('div', {
           className: 'action-buttons'
-        }, l.createElement(C.Button, {
+        }, c.createElement(b.Button, {
           onClick: e.onOpenEditorClick,
           disabled: r,
           tooltip: i,
           className: 'small-button button-group-item'
-        }, s(e.resolvedExternalEditor)), l.createElement(C.Button, {
-          onClick: c,
+        }, d(e.resolvedExternalEditor)), c.createElement(b.Button, {
+          onClick: a,
           className: 'small-button button-group-item arrow-menu'
-        }, l.createElement(m.Octicon, {
-          symbol: m.OcticonSymbol.triangleDown
+        }, c.createElement(h.Octicon, {
+          symbol: h.OcticonSymbol.triangleDown
         }))));
       return o(e.path, p)
     },
-    R = (e, t, n, o, r, i) => () => {
-      const a = [{
-        label: v.getLabelForManualResolutionOption(t.entry.us, r),
-        action: () => o.updateManualConflictResolution(n, e, f.ManualConflictResolutionKind.ours)
-      }, {
-        label: v.getLabelForManualResolutionOption(t.entry.them, i),
-        action: () => o.updateManualConflictResolution(n, e, f.ManualConflictResolutionKind.theirs)
-      }];
-      u.showContextualMenu(a)
+    R = (e, t, n, o, i, a) => () => {
+      m.showContextualMenu(r(e, n, o, t, i, a))
     },
     _ = (e, t, n) => () => n.updateManualConflictResolution(t, e, null),
-    T = (e, t, n) => () => {
-      const o = p.join(t, e),
-        r = [{
-          label: g.OpenWithDefaultProgramLabel,
-          action: () => y.openFile(o, n)
+    x = (e, t, n, o, i, a) => () => {
+      const s = u.join(t.path, e),
+        d = [{
+          label: y.OpenWithDefaultProgramLabel,
+          action: () => S.openFile(s, n)
         }, {
-          label: g.RevealInFileManagerLabel,
-          action: () => S.shell.showItemInFolder(o)
-        }];
-      u.showContextualMenu(r)
+          label: y.RevealInFileManagerLabel,
+          action: () => C.shell.showItemInFolder(s)
+        }, {
+          type: 'separator'
+        }, ...r(e, t, n, o, i, a)];
+      m.showContextualMenu(d)
     },
-    x = (e) => {
-      const t = r(e.status, e.manualResolution, e.branch);
-      return void 0 === e.manualResolution ? l.createElement('div', {
+    P = (e) => {
+      if (p.isConflictWithMarkers(e.status) && 0 === e.status.conflictMarkerCount) return c.createElement('div', {
         className: 'file-conflicts-status'
-      }, t) : l.createElement('div', {
+      }, 'No conflicts remaining');
+      const t = i(e.status, e.manualResolution, e.branch);
+      return c.createElement('div', {
         className: 'file-conflicts-status'
-      }, t, '\xA0', l.createElement(b.LinkButton, {
+      }, t, '\xA0', c.createElement(v.LinkButton, {
         onClick: _(e.path, e.repository, e.dispatcher)
       }, 'Undo'))
     }
@@ -14075,7 +14222,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(12);
+    i = n(13);
   t.renderUnmergedFilesSummary = function (e) {
     const t = 1 === e ? `1 个冲突文件` : `${e} 个冲突文件`;
     return o.createElement('h3', {
@@ -14130,7 +14277,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const d = n(20),
+  const d = n(21),
     l = n(1),
     c = n(385);
   t.InstalledCLIPath = '/usr/local/bin/github';
@@ -14165,11 +14312,11 @@ module.exports = function (e) {
     s = n(10),
     d = n(413),
     l = n(91),
-    c = n(14),
+    c = n(12),
     p = n(4),
     u = n(95),
-    m = n(12),
-    h = n(24);
+    m = n(13),
+    h = n(23);
   class f extends i.PureComponent {
     constructor() {
       super(...arguments), this.getRepositoryGroups = l.default((e, t) => null === e ? [] : d.groupRepositories(e, t)), this.getSelectedListItem = l.default(o), this.refreshRepositories = () => {
@@ -14290,7 +14437,7 @@ module.exports = function (e) {
     i = n(5),
     a = n(4),
     s = n(455),
-    d = n(215);
+    d = n(213);
   t.friendlyAcceleratorText = o;
   class l extends r.Component {
     getIcon(e) {
@@ -14368,7 +14515,7 @@ module.exports = function (e) {
     d = n(5),
     l = n(76),
     c = n(129),
-    p = n(192),
+    p = n(189),
     u = 30,
     m = 10;
   t.getListHeight = r, t.getRowHeight = i;
@@ -14466,7 +14613,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(193),
+    i = n(190),
     a = 300;
   class s extends r.Component {
     constructor(e) {
@@ -14566,9 +14713,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(24),
-    i = n(12),
-    a = n(20);
+    r = n(23),
+    i = n(13),
+    a = n(21);
   class s extends o.Component {
     constructor() {
       super(...arguments), this.onDeleteLockFile = async () => {
@@ -14595,7 +14742,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(463),
+    r = n(194),
     i = n(2),
     a = n(462),
     s = n(461),
@@ -14663,6 +14810,103 @@ module.exports = function (e) {
   t.SignIn = l
 }, function (e, t, n) {
   'use strict';
+
+  function o(e) {
+    return e === u.getDotComAPIEndpoint() ? r.createElement(r.Fragment, null, r.createElement('p', null, 'GitHub now requires you to sign in with your browser.'), r.createElement('p', null, t.BrowserRedirectMessage)) : r.createElement('p', null, 'Your GitHub Enterprise Server instance requires you to sign in with your browser.')
+  }
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const r = n(0),
+    i = n(13),
+    a = n(4),
+    s = n(56),
+    d = n(87),
+    l = n(12),
+    c = n(28),
+    p = n(140),
+    u = n(10);
+  t.BrowserRedirectMessage = 'Your browser will redirect you back to GitHub Desktop once you\'ve signed in. If your browser asks for your permission to launch GitHub Desktop please allow it to.';
+  class m extends r.Component {
+    constructor(e) {
+      super(e), this.onUsernameChange = (e) => {
+        this.setState({
+          username: e
+        })
+      }, this.onPasswordChange = (e) => {
+        this.setState({
+          password: e
+        })
+      }, this.signInWithBrowser = (e) => {
+        e && e.preventDefault(), this.props.onBrowserSignInRequested()
+      }, this.signIn = () => {
+        this.props.onSubmit(this.state.username, this.state.password)
+      }, this.state = {
+        username: '',
+        password: ''
+      }
+    }
+    render() {
+      const e = this.props.supportsBasicAuth ? this.renderSignInForm() : this.renderEndpointRequiresWebFlow();
+      return r.createElement(d.Form, {
+        className: 'sign-in-form',
+        onSubmit: this.signIn
+      }, e)
+    }
+    renderUsernamePassword() {
+      const e = this.props.loading;
+      return r.createElement(r.Fragment, null, r.createElement(c.TextBox, {
+        label: 'Username or email address',
+        disabled: e,
+        autoFocus: !0,
+        onValueChanged: this.onUsernameChange
+      }), r.createElement(c.TextBox, {
+        label: 'Password',
+        type: 'password',
+        disabled: e,
+        onValueChanged: this.onPasswordChange
+      }), this.renderError(), r.createElement('div', {
+        className: 'sign-in-footer'
+      }, this.renderActions()))
+    }
+    renderActions() {
+      const e = !(this.state.username.length && this.state.password.length && !this.props.loading);
+      return r.createElement('div', {
+        className: 'actions'
+      }, this.props.supportsBasicAuth ? r.createElement(l.Button, {
+        type: 'submit',
+        disabled: e
+      }, this.props.loading ? r.createElement(s.Loading, null) : null, ' Sign in') : null, this.props.additionalButtons, this.props.supportsBasicAuth ? r.createElement(i.LinkButton, {
+        className: 'forgot-password-link',
+        uri: this.props.forgotPasswordUrl
+      }, 'Forgot password?') : null)
+    }
+    renderSignInWithBrowser() {
+      return r.createElement(r.Fragment, null, this.renderSignInWithBrowserButton(), this.props.additionalButtons)
+    }
+    renderSignInForm() {
+      return this.props.endpoint === u.getDotComAPIEndpoint() ? this.renderUsernamePassword() : r.createElement(r.Fragment, null, this.renderSignInWithBrowser(), this.renderUsernamePassword())
+    }
+    renderEndpointRequiresWebFlow() {
+      return r.createElement(r.Fragment, null, o(this.props.endpoint), this.renderSignInWithBrowserButton(), this.props.additionalButtons)
+    }
+    renderSignInWithBrowserButton() {
+      return r.createElement(l.Button, {
+        type: 'submit',
+        className: 'button-with-icon',
+        onClick: this.signInWithBrowser
+      }, 'Sign in using your browser', r.createElement(a.Octicon, {
+        symbol: a.OcticonSymbol.linkExternal
+      }))
+    }
+    renderError() {
+      const e = this.props.error;
+      return e ? r.createElement(p.Errors, null, e.message) : null
+    }
+  }
+  t.AuthenticationForm = m
+}, function (e, t, n) {
+  'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
@@ -14670,7 +14914,7 @@ module.exports = function (e) {
     r = n(4),
     i = n(2),
     a = n(112),
-    s = n(473),
+    s = n(472),
     d = n(5);
   class l extends o.Component {
     constructor(e) {
@@ -14792,8 +15036,8 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(474)), o(n(112)), o(n(197)), o(n(472)), o(n(471));
-  var r = n(470);
+  }), o(n(473)), o(n(112)), o(n(195)), o(n(471)), o(n(470));
+  var r = n(469);
   t.RevertProgress = r.RevertProgress
 }, function (e, t, n) {
   'use strict';
@@ -14804,7 +15048,7 @@ module.exports = function (e) {
     r = n(46),
     i = n(19),
     a = n(4),
-    s = n(24);
+    s = n(23);
   t.renderBranchNameWarning = function (e, t) {
     return 0 < e.length && /^\s*$/.test(t) ? o.createElement(i.Row, {
       className: 'warning-helper-text'
@@ -14840,13 +15084,13 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(483);
+  var o = n(482);
   t.TutorialPanel = o.TutorialPanel;
-  var r = n(482);
+  var r = n(481);
   t.TutorialWelcome = r.TutorialWelcome;
-  var i = n(481);
+  var i = n(480);
   t.TutorialDone = i.TutorialDone;
-  var a = n(480);
+  var a = n(479);
   t.ConfirmExitTutorial = a.ConfirmExitTutorial
 }, function (e, t, n) {
   'use strict';
@@ -14854,7 +15098,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(62),
+    r = n(64),
     i = n(4),
     a = n(95);
   class s extends o.Component {
@@ -14889,7 +15133,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(201);
+    r = n(199);
   t.renderDefaultBranch = function (e, t, n) {
     const i = e.branch,
       a = i.tip,
@@ -14914,7 +15158,7 @@ module.exports = function (e) {
     i = n(4),
     a = n(2),
     s = n(5),
-    d = n(493);
+    d = n(492);
   class l extends r.PureComponent {
     constructor(e) {
       super(e), this.statusSubscription = null, this.onStatus = (e) => {
@@ -15021,9 +15265,9 @@ module.exports = function (e) {
   const r = n(0),
     i = n(2),
     a = n(119),
-    s = n(14),
-    d = n(204),
-    l = n(497);
+    s = n(12),
+    d = n(202),
+    l = n(496);
   class c extends r.Component {
     constructor(e) {
       super(e), this.branchFilterList = null, this.onBranchesFilterListRef = (e) => {
@@ -15123,17 +15367,17 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(0),
-    a = n(212),
+    a = n(210),
     s = n(89),
     d = n(115),
     l = n(10),
     c = n(22),
-    p = n(26),
-    u = n(209),
-    m = n(210),
+    p = n(25),
+    u = n(207),
+    m = n(208),
     h = n(4),
     f = n(18);
-  class g extends i.Component {
+  class g extends i.PureComponent {
     constructor(e) {
       super(e), this.onCopySHA = () => {
         c.clipboard.writeText(this.props.commit.sha)
@@ -15206,13 +15450,10 @@ module.exports = function (e) {
         className: 'commit-indicators'
       }, f.enableGitTagsDisplay() && r(this.props.commit.tags), this.renderUnpushedIndicator()))
     }
-    shouldComponentUpdate(e) {
-      return this.props.commit.sha !== e.commit.sha || this.props.showUnpushedIndicator !== e.showUnpushedIndicator
-    }
     renderUnpushedIndicator() {
       return this.props.showUnpushedIndicator ? i.createElement('div', {
         className: 'unpushed-indicator',
-        title: 'This commit hasn\'t been pushed to the remote repository yet'
+        title: this.props.unpushedIndicatorTitle
       }, i.createElement(h.Octicon, {
         symbol: h.OcticonSymbol.arrowUp
       })) : null
@@ -15275,7 +15516,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(211);
+    r = n(209);
   class i extends o.Component {
     renderAuthorInline(e) {
       return o.createElement('span', {
@@ -15393,7 +15634,7 @@ module.exports = function (e) {
   });
   const i = n(105),
     a = n(10),
-    s = n(211);
+    s = n(209);
   t.getAvatarUsersForCommit = function (e, t, n) {
     const o = [r(e, t, n.author), ...n.coAuthors.map((n) => r(e, t, n))],
       i = n.coAuthors.some((e) => e.name === n.committer.name && e.email === n.committer.email),
@@ -15442,7 +15683,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(5),
-    i = n(14);
+    i = n(12);
   class a extends o.Component {
     render() {
       const e = 'primary' === this.props.type,
@@ -15551,7 +15792,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(556)), o(n(553)), o(n(552)), o(n(551))
+  }), o(n(555)), o(n(552)), o(n(551)), o(n(550))
 }, function (e, t, n) {
   (function () {
     var t, o, r, i, a, s, d, l;
@@ -15599,7 +15840,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   var o = n(151),
-    r = n(56)('toStringTag'),
+    r = n(58)('toStringTag'),
     i = 'Arguments' == o(function () {
       return arguments
     }());
@@ -15643,16 +15884,16 @@ module.exports = function (e) {
   e.exports = !0
 }, function (e, t, n) {
   'use strict';
-  var o = n(227),
+  var o = n(225),
     r = n(94),
-    i = n(226),
+    i = n(224),
     a = n(156),
     s = n(154),
     d = n(93),
-    l = n(601),
+    l = n(600),
     c = n(153),
     p = n(37).getProto,
-    u = n(56)('iterator'),
+    u = n(58)('iterator'),
     m = !([].keys && 'next' in [].keys()),
     h = '@@iterator',
     f = 'keys',
@@ -15663,7 +15904,7 @@ module.exports = function (e) {
   e.exports = function (e, t, n, S, C, b, v) {
     l(n, t, S);
     var E = function (e) {
-        return !m && e in _ ? _[e] : e === f ? function () {
+        return !m && e in R ? R[e] : e === f ? function () {
           return new n(this, e)
         } : e === g ? function () {
           return new n(this, e)
@@ -15673,25 +15914,25 @@ module.exports = function (e) {
       },
       w = t + ' Iterator',
       k = C == g,
-      R = !1,
-      _ = e.prototype,
-      T = _[u] || _[h] || C && _[C],
-      x = T || E(C),
+      T = !1,
+      R = e.prototype,
+      _ = R[u] || R[h] || C && R[C],
+      x = _ || E(C),
       P, D;
-    if (T) {
+    if (_) {
       var M = p(x.call(new e));
-      c(M, w, !0), !o && s(_, h) && a(M, u, y), k && T.name !== g && (R = !0, x = function () {
-        return T.call(this)
+      c(M, w, !0), !o && s(R, h) && a(M, u, y), k && _.name !== g && (T = !0, x = function () {
+        return _.call(this)
       })
     }
-    if ((!o || v) && (m || R || !_[u]) && a(_, u, x), d[t] = x, d[w] = y, C)
+    if ((!o || v) && (m || T || !R[u]) && a(R, u, x), d[t] = x, d[w] = y, C)
       if (P = {
           values: k ? x : E(g),
           keys: b ? x : E(f),
           entries: k ? E('entries') : x
         }, v)
-        for (D in P) D in _ || i(_, D, P[D]);
-      else r(r.P + r.F * (m || R), t, P);
+        for (D in P) D in R || i(R, D, P[D]);
+      else r(r.P + r.F * (m || T), t, P);
     return P
   }
 }, function (e, t, n) {
@@ -15703,9 +15944,9 @@ module.exports = function (e) {
     }
   }
   t.__esModule = !0;
-  var r = n(605),
+  var r = n(604),
     i = o(r),
-    a = n(597),
+    a = n(596),
     s = o(a),
     d = 'function' == typeof s.default && 'symbol' == typeof i.default ? function (e) {
       return typeof e
@@ -15719,11 +15960,11 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   e.exports = {
-    default: n(606),
+    default: n(605),
     __esModule: !0
   }
 }, function (e, t, n) {
-  var o = n(607);
+  var o = n(606);
   e.exports = function (e, t, n) {
     return (o(e), void 0 === t) ? e : 1 === n ? function (n) {
       return e.call(t, n)
@@ -16332,7 +16573,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(35),
-    i = n(624),
+    i = n(623),
     a = n(49);
   t.PullRequestCoordinator = class {
     constructor(e, t) {
@@ -16499,6 +16740,40 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
+
+  function o(e, t, n) {
+    return JSON.stringify([e, Array.from(t), n])
+  }
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const r = n(20),
+    i = n(174),
+    a = new Map;
+  t.fetchTagsToPushMemoized = async function (e, t, n, s, d, l) {
+    const c = o(s, d, l);
+    let p = a.get(n.name),
+      u = p && p.get(c);
+    if (u === void 0) {
+      let o;
+      try {
+        u = await r.fetchTagsToPush(e, t, n, s)
+      } catch (t) {
+        u = [], o = 300000
+      }
+      p = p || new i({
+        max: 25
+      }), p.set(c, u, o), a.set(n.name, p)
+    }
+    return u
+  }, t.clearTagsToPushCache = function (e) {
+    if (null !== e) {
+      const t = a.get(e.name);
+      t && t.reset()
+    }
+  }
+}, function (e, t, n) {
+  'use strict';
   async function o(e) {
     const t = '1F',
       n = String.fromCharCode(parseInt(t, 16)),
@@ -16565,7 +16840,7 @@ module.exports = function (e) {
     c = n(11),
     p = n(78),
     u = n(250),
-    m = n(168);
+    m = n(167);
   t.DesktopStashEntryMarker = '!!GitHub_Desktop';
   const h = /!!GitHub_Desktop<(.+)>$/;
   t.getStashes = o, t.getLastDesktopStashEntryForBranch = async function (e, t) {
@@ -16610,7 +16885,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(53);
+  const o = n(54);
   t.UpstreamRemoteName = 'upstream', t.findUpstreamRemote = function (e, n) {
     const r = n.find((e) => e.name === t.UpstreamRemoteName);
     return r ? o.repositoryMatchesRemote(e, r) ? r : null : null
@@ -16633,37 +16908,38 @@ module.exports = function (e) {
   });
   const o = n(32),
     r = n(1),
-    i = n(23),
+    i = n(24),
     a = n(46),
     s = n(29),
-    d = n(167),
-    l = n(173),
-    c = n(98),
-    p = n(27),
-    u = n(107),
-    m = n(47),
-    h = n(647),
-    f = n(21),
-    g = n(21),
-    y = n(34),
-    S = n(99),
-    C = n(239),
-    b = n(2),
-    v = n(238),
-    E = n(646),
-    w = n(268),
-    k = n(249),
-    R = n(59),
-    _ = n(18),
-    T = n(237),
-    x = n(78),
-    P = 100,
-    D = 'history';
-  class M extends R.BaseStore {
-    constructor(e, t) {
-      super(), this.commitLookup = new Map, this._history = [], this.requestsInFight = new Set, this._tip = {
+    d = n(172),
+    l = n(98),
+    c = n(27),
+    p = n(107),
+    u = n(47),
+    m = n(646),
+    h = n(20),
+    f = n(20),
+    g = n(34),
+    y = n(99),
+    S = n(238),
+    C = n(2),
+    b = n(237),
+    v = n(645),
+    E = n(268),
+    w = n(248),
+    k = n(61),
+    T = n(18),
+    R = n(236),
+    _ = n(78),
+    x = n(235),
+    P = n(60),
+    D = 100,
+    M = 'history';
+  class A extends k.BaseStore {
+    constructor(e, t, n) {
+      super(), this.repository = e, this.shell = t, this.statsStore = n, this.commitLookup = new Map, this._history = [], this.requestsInFight = new Set, this._tip = {
         kind: s.TipState.Unknown
-      }, this._defaultBranch = null, this._allBranches = [], this._recentBranches = [], this._localCommitSHAs = [], this._commitMessage = c.DefaultCommitMessage, this._showCoAuthoredBy = !1, this._coAuthors = [], this._aheadBehind = null, this._defaultRemote = null, this._currentRemote = null, this._upstreamRemote = null, this._lastFetched = null, this._desktopStashEntries = new Map, this._stashEntryCount = 0, this.repository = e, this.shell = t
+      }, this._defaultBranch = null, this._localTags = null, this._allBranches = [], this._recentBranches = [], this._localCommitSHAs = [], this._commitMessage = l.DefaultCommitMessage, this._showCoAuthoredBy = !1, this._coAuthors = [], this._aheadBehind = null, this._tagsToPush = null, this._defaultRemote = null, this._currentRemote = null, this._upstreamRemote = null, this._lastFetched = null, this._desktopStashEntries = new Map, this._stashEntryCount = 0
     }
     emitNewCommitsLoaded(e) {
       this.emitter.emit('did-load-new-commits', e)
@@ -16673,10 +16949,10 @@ module.exports = function (e) {
     }
     async reconcileHistory(e) {
       if (0 === this._history.length) return;
-      if (this.requestsInFight.has(D)) return;
-      this.requestsInFight.add(D);
-      const t = f.revRange('HEAD', e),
-        n = await this.performFailableOperation(() => f.getCommits(this.repository, t, P));
+      if (this.requestsInFight.has(M)) return;
+      this.requestsInFight.add(M);
+      const t = h.revRange('HEAD', e),
+        n = await this.performFailableOperation(() => h.getCommits(this.repository, t, D));
       if (null != n) {
         const t = this._history,
           o = t.findIndex((t) => t === e);
@@ -16685,40 +16961,64 @@ module.exports = function (e) {
           const r = t.slice(o);
           this._history = [...n.map((e) => e.sha), ...r]
         }
-        this.storeCommits(n, !0), this.requestsInFight.delete(D), this.emitUpdate()
+        this.storeCommits(n, !0), this.requestsInFight.delete(M), this.emitUpdate()
       }
     }
     async loadNextHistoryBatch() {
-      if (this.requestsInFight.has(D)) return;
+      if (this.requestsInFight.has(M)) return;
       if (!this.history.length) return;
       const e = this.history[this.history.length - 1],
         t = `history/${e}`;
       if (!this.requestsInFight.has(t)) {
         this.requestsInFight.add(t);
-        const n = await this.performFailableOperation(() => f.getCommits(this.repository, `${e}^`, P));
+        const n = await this.performFailableOperation(() => h.getCommits(this.repository, `${e}^`, D));
         n && (this._history = this._history.concat(n.map((e) => e.sha)), this.storeCommits(n, !0), this.requestsInFight.delete(t), this.emitUpdate())
       }
     }
     async loadCommitBatch(e) {
-      if (this.requestsInFight.has(D)) return null;
+      if (this.requestsInFight.has(M)) return null;
       const t = `history/compare/${e}`;
       if (this.requestsInFight.has(t)) return null;
       this.requestsInFight.add(t);
-      const n = await this.performFailableOperation(() => f.getCommits(this.repository, e, P));
+      const n = await this.performFailableOperation(() => h.getCommits(this.repository, e, D));
       return (this.requestsInFight.delete(t), !n) ? null : (this.storeCommits(n, !1), n.map((e) => e.sha))
     }
-    async getAllTags() {
-      return f.getAllTags(this.repository)
+    async refreshTags() {
+      const e = this._localTags;
+      this._localTags = await h.getAllTags(this.repository), null !== e && this.emitUpdatesForChangedTags(e, this._localTags)
     }
-    async createTag(e, t) {
-      const n = await this.performFailableOperation(async () => (await f.createTag(this.repository, e, t), f.getCommit(this.repository, t)));
-      n instanceof d.Commit && this.storeCommits([n], !0)
+    async emitUpdatesForChangedTags(e, t) {
+      const n = new Set;
+      let o = 0;
+      for (const [o, r] of e) {
+        const e = t.get(o);
+        e ? e !== r && (n.add(r), n.add(e)) : n.add(r)
+    }
+      for (const [r, i] of t) e.has(r) || (n.add(i), o++);
+      0 < o && this.statsStore.recordTagCreated(o);
+      const r = [];
+      for (const o of n) {
+        const e = await h.getCommit(this.repository, o);
+        null !== e && r.push(e)
+      }
+      this.storeCommits(r, !0)
+    }
+    async createTag(e, t, n) {
+      await this.performFailableOperation(async () => {
+        await h.createTag(this.repository, t, n)
+      }), await this.refreshTags(), this.fetchTagsToPush(e)
     }
     get history() {
       return this._history
     }
+    get tagsToPush() {
+      return this._tagsToPush
+    }
+    get localTags() {
+      return this._localTags
+    }
     async loadBranches() {
-      const [e, t] = await Promise.all([this.performFailableOperation(() => f.getBranches(this.repository)) || [], this.performFailableOperation(() => f.getRecentBranches(this.repository, 5))]);
+      const [e, t] = await Promise.all([this.performFailableOperation(() => h.getBranches(this.repository)) || [], this.performFailableOperation(() => h.getRecentBranches(this.repository, 5))]);
       e && (this._allBranches = this.mergeRemoteAndLocalBranches(e), this.refreshDefaultBranch(), this.refreshRecentBranches(t), this.checkPullWithRebase(), this.emitUpdate())
       }
     mergeRemoteAndLocalBranches(e) {
@@ -16732,12 +17032,23 @@ module.exports = function (e) {
       return r
     }
     async checkPullWithRebase() {
-      const e = await f.getConfigValue(this.repository, 'pull.rebase');
+      const e = await h.getConfigValue(this.repository, 'pull.rebase');
       null === e || '' === e ? this.pullWithRebase = void 0 : 'true' === e ? this.pullWithRebase = !0 : 'false' === e ? this.pullWithRebase = !1 : (log.warn(`Unexpected value found for pull.rebase in config: '${e}'`), this.pullWithRebase = void 0)
     }
     async refreshDefaultBranch() {
       const e = await this.resolveDefaultBranch();
-      this._defaultBranch = this._allBranches.filter((t) => t.name === e).sort((e, t) => m.compare(e.type, t.type)).shift() || null
+      this._defaultBranch = this._allBranches.filter((t) => t.name === e).sort((e, t) => u.compare(e.type, t.type)).shift() || null
+    }
+    async fetchTagsToPush(e) {
+      const t = this._currentRemote;
+      if (null === t) return void(this._tagsToPush = null);
+      const n = this._localTags;
+      if (null === n) return void(this._tagsToPush = null);
+      if (this.tip.kind !== s.TipState.Valid) return void(this._tagsToPush = null);
+      const o = this.tip.branch,
+        r = await this.performFailableOperation(() => x.fetchTagsToPushMemoized(this.repository, e, t, o.name, n, o.tip.sha)),
+        i = this._tagsToPush;
+      this._tagsToPush = r === void 0 ? null : r, P.shallowEquals(i, this._tagsToPush) || this.emitUpdate()
     }
     async resolveDefaultBranch() {
       const {
@@ -16746,7 +17057,7 @@ module.exports = function (e) {
       if (e && null != e.defaultBranch) return e.defaultBranch;
       if (null !== this.currentRemote) {
         const e = `refs/remotes/${this.currentRemote.name}/`,
-          t = await f.getSymbolicRef(this.repository, `${e}HEAD`);
+          t = await h.getSymbolicRef(this.repository, `${e}HEAD`);
         if (null != t && t.length > e.length && t.startsWith(e)) return t.substr(e.length)
       }
       return 'master'
@@ -16777,9 +17088,9 @@ module.exports = function (e) {
       if (null === e) return void(this._localCommitSHAs = []);
       let t;
       if (e.upstream) {
-        const n = f.revRange(e.upstream, e.name);
-        t = await this.performFailableOperation(() => f.getCommits(this.repository, n, P))
-      } else t = await this.performFailableOperation(() => f.getCommits(this.repository, 'HEAD', P, ['--not', '--remotes']));
+        const n = h.revRange(e.upstream, e.name);
+        t = await this.performFailableOperation(() => h.getCommits(this.repository, n, D))
+      } else t = await this.performFailableOperation(() => h.getCommits(this.repository, 'HEAD', D, ['--not', '--remotes']));
       t && (this.storeCommits(t), this._localCommitSHAs = t.map((e) => e.sha), this.emitUpdate())
     }
     get localCommitSHAs() {
@@ -16790,15 +17101,15 @@ module.exports = function (e) {
       t && this.emitNewCommitsLoaded(e)
     }
     async undoFirstCommit(e) {
-      const t = await this.performFailableOperation(() => f.getStatus(this.repository));
+      const t = await this.performFailableOperation(() => h.getStatus(this.repository));
       if (null == t) throw new Error(`Unable to undo commit because there are too many files in your repository's working directory.`);
       const n = t.workingDirectory.files,
         o = n.filter((e) => e.status.kind === i.AppFileStatusKind.Deleted),
         r = o.map((e) => e.path);
-      return await f.checkoutPaths(e, r), await f.deleteRef(e, 'HEAD', 'Reverting first commit'), await f.unstageAllFiles(e), !0
+      return await h.checkoutPaths(e, r), await h.deleteRef(e, 'HEAD', 'Reverting first commit'), await h.unstageAllFiles(e), !0
     }
     async undoCommit(e) {
-      const t = await this.performFailableOperation(() => 0 === e.parentSHAs.length ? this.undoFirstCommit(this.repository) : f.reset(this.repository, 2, e.parentSHAs[0]));
+      const t = await this.performFailableOperation(() => 0 === e.parentSHAs.length ? this.undoFirstCommit(this.repository) : h.reset(this.repository, 2, e.parentSHAs[0]));
       if (void 0 !== t) {
         if (this.repository.gitHubRepository) try {
           return await this.loadCommitAndCoAuthors(e), void this.emitUpdate()
@@ -16813,26 +17124,26 @@ module.exports = function (e) {
     }
     async loadCommitAndCoAuthors(e) {
       const t = this.repository,
-        n = await w.formatCommitMessage(t, {
+        n = await E.formatCommitMessage(t, {
           summary: e.summary,
           description: e.body
         }),
-        o = await f.parseTrailers(t, n),
-        r = o.filter(f.isCoAuthoredByTrailer);
+        o = await h.parseTrailers(t, n),
+        r = o.filter(h.isCoAuthoredByTrailer);
       if (0 === r.length) return void(this._commitMessage = {
         summary: e.summary,
         description: e.body
       });
-      const i = await f.mergeTrailers(t, n, [], !0),
+      const i = await h.mergeTrailers(t, n, [], !0),
         a = i.split('\n'),
-        s = await f.getTrailerSeparatorCharacters(this.repository),
+        s = await h.getTrailerSeparatorCharacters(this.repository),
         d = /^co-authored-by(.)\s(.*)/i,
         l = [];
       for (let t = a.length - 1; 0 <= t; t--) {
         const e = a[t],
           n = d.exec(e);
         if (!n || -1 === s.indexOf(n[1])) continue;
-        const o = f.parseSingleUnfoldedTrailer(e, n[1]);
+        const o = h.parseSingleUnfoldedTrailer(e, n[1]);
         if (!o) continue;
         const i = r.findIndex((e) => e.value === o.value); - 1 !== i && (l.unshift(r[i]), r.splice(i, 1), a.splice(t, 1))
       }
@@ -16842,7 +17153,7 @@ module.exports = function (e) {
         summary: e.summary,
         description: c
       };
-      const p = l.map((e) => k.GitAuthor.parse(e.value)),
+      const p = l.map((e) => w.GitAuthor.parse(e.value)),
         u = [];
       for (let t = 0; t < p.length; t++) {
         const e = p[t];
@@ -16864,7 +17175,7 @@ module.exports = function (e) {
         const t = await e();
         return t
       } catch (n) {
-        return n = new u.ErrorWithMetadata(n, Object.assign({
+        return n = new p.ErrorWithMetadata(n, Object.assign({
           repository: this.repository
         }, t)), void this.emitError(n)
       }
@@ -16883,8 +17194,8 @@ module.exports = function (e) {
       if (null !== this.currentRemote && o.set(this.currentRemote.name, this.currentRemote), null !== this.defaultRemote && o.set(this.defaultRemote.name, this.defaultRemote), null !== this.upstreamRemote && o.set(this.upstreamRemote.name, this.upstreamRemote), 0 < o.size && (await this.fetchRemotes(e, [...o.values()], t, n)), this.tip.kind === s.TipState.Valid) {
         const e = this.tip.branch;
         if (null !== e.remote && null !== e.upstream) {
-          const t = f.revSymmetricDifference(e.name, e.upstream);
-          this._aheadBehind = await f.getAheadBehind(this.repository, t), this.emitUpdate()
+          const t = h.revSymmetricDifference(e.name, e.upstream);
+          this._aheadBehind = await h.getAheadBehind(this.repository, t), this.emitUpdate()
         }
       }
     }
@@ -16903,20 +17214,20 @@ module.exports = function (e) {
     }
     async fetchRemote(e, t, n, o) {
       const r = {
-        type: S.RetryActionType.Fetch,
+        type: y.RetryActionType.Fetch,
         repository: this.repository
       };
-      await this.performFailableOperation(() => f.fetch(this.repository, e, t, o), {
+      await this.performFailableOperation(() => h.fetch(this.repository, e, t, o), {
         backgroundTask: n,
         retryAction: r
       })
     }
     async fetchRefspec(e, t) {
-      const n = await f.getRemotes(this.repository);
-      for (const o of n) await this.performFailableOperation(() => f.fetchRefspec(this.repository, e, o, t))
+      const n = await h.getRemotes(this.repository);
+      for (const o of n) await this.performFailableOperation(() => h.fetchRefspec(this.repository, e, o, t))
     }
     async loadStatus() {
-      const e = await this.performFailableOperation(() => f.getStatus(this.repository));
+      const e = await this.performFailableOperation(() => h.getStatus(this.repository));
       if (!e) return null;
       this._aheadBehind = e.branchAheadBehind || null;
       const {
@@ -16945,14 +17256,14 @@ module.exports = function (e) {
     async lookupCommit(e) {
       const t = this.commitLookup.get(e);
       if (null != t) return Promise.resolve(t);
-      const n = await this.performFailableOperation(() => f.getCommit(this.repository, e));
+      const n = await this.performFailableOperation(() => h.getCommit(this.repository, e));
       if (null != n) return this.commitLookup.set(e, n), n;
       throw new Error(`Could not load commit: '${e}'`)
     }
     async loadStashEntries() {
-      if (_.enableStashing()) {
+      if (T.enableStashing()) {
         const e = new Map,
-          t = await T.getStashes(this.repository);
+          t = await R.getStashes(this.repository);
         for (const n of t.desktopEntries)
           if (!e.has(n.branchName)) {
             const t = this._desktopStashEntries.get(n.branchName);
@@ -16972,22 +17283,22 @@ module.exports = function (e) {
       return this._desktopStashEntries.size
     }
     async loadFilesForCurrentStashEntry() {
-      if (_.enableStashing()) {
+      if (T.enableStashing()) {
         const e = this.currentBranchStashEntry;
-        if (e && e.files.kind === x.StashedChangesLoadStates.NotLoaded) {
+        if (e && e.files.kind === _.StashedChangesLoadStates.NotLoaded) {
           const {
             branchName: t
           } = e;
           this._desktopStashEntries.set(t, Object.assign({}, e, {
             files: {
-              kind: x.StashedChangesLoadStates.Loading
+              kind: _.StashedChangesLoadStates.Loading
             }
           })), this.emitUpdate();
-          const n = await T.getStashedFiles(this.repository, e.stashSha),
+          const n = await R.getStashedFiles(this.repository, e.stashSha),
             o = this._desktopStashEntries.get(t);
           o && o.stashSha === e.stashSha && (this._desktopStashEntries.set(t, Object.assign({}, o, {
             files: {
-              kind: x.StashedChangesLoadStates.Loaded,
+              kind: _.StashedChangesLoadStates.Loaded,
               files: n
             }
           })), this.emitUpdate())
@@ -16995,36 +17306,36 @@ module.exports = function (e) {
       }
     }
     async loadRemotes() {
-      const e = await f.getRemotes(this.repository);
-      this._defaultRemote = E.findDefaultRemote(e);
+      const e = await h.getRemotes(this.repository);
+      this._defaultRemote = v.findDefaultRemote(e);
       const t = this.tip.kind === s.TipState.Valid && null !== this.tip.branch.remote ? this.tip.branch.remote : null;
       this._currentRemote = null === t ? this._defaultRemote : e.find((e) => e.name === t) || this._defaultRemote;
       const n = this.repository.gitHubRepository && this.repository.gitHubRepository.parent;
-      this._upstreamRemote = n ? v.findUpstreamRemote(n, e) : null, this.emitUpdate()
+      this._upstreamRemote = n ? b.findUpstreamRemote(n, e) : null, this.emitUpdate()
     }
     async addUpstreamRemoteIfNeeded() {
       const e = this.repository.gitHubRepository && this.repository.gitHubRepository.parent;
       if (!e) return;
-      const t = await f.getRemotes(this.repository),
-        n = v.findUpstreamRemote(e, t);
+      const t = await h.getRemotes(this.repository),
+        n = b.findUpstreamRemote(e, t);
       if (n) return;
-      const o = t.find((e) => e.name === v.UpstreamRemoteName);
+      const o = t.find((e) => e.name === b.UpstreamRemoteName);
       if (o) {
-        const e = new C.UpstreamAlreadyExistsError(this.repository, o);
+        const e = new S.UpstreamAlreadyExistsError(this.repository, o);
         return void this.emitError(e)
       }
-      const r = b.forceUnwrap('Parent repositories are fully loaded', e.cloneURL);
-      await this.performFailableOperation(() => f.addRemote(this.repository, v.UpstreamRemoteName, r)), this._upstreamRemote = {
-        name: v.UpstreamRemoteName,
+      const r = C.forceUnwrap('Parent repositories are fully loaded', e.cloneURL);
+      await this.performFailableOperation(() => h.addRemote(this.repository, b.UpstreamRemoteName, r)), this._upstreamRemote = {
+        name: b.UpstreamRemoteName,
         url: r
       }
     }
     async ensureUpstreamRemoteURL(t) {
       await this.performFailableOperation(async () => {
         try {
-          await f.addRemote(this.repository, v.UpstreamRemoteName, t)
+          await h.addRemote(this.repository, b.UpstreamRemoteName, t)
         } catch (n) {
-          if (n instanceof g.GitError && n.result.gitError === y.GitError.RemoteAlreadyExists) await f.setRemoteURL(this.repository, v.UpstreamRemoteName, t);
+          if (n instanceof f.GitError && n.result.gitError === g.GitError.RemoteAlreadyExists) await h.setRemoteURL(this.repository, b.UpstreamRemoteName, t);
           else throw n
         }
       })
@@ -17064,7 +17375,7 @@ module.exports = function (e) {
     merge(e) {
       if (this.tip.kind !== s.TipState.Valid) throw new Error(`unable to merge as tip state is '${this.tip.kind}' and the application expects the repository to be on a branch currently`);
       const t = this.tip.branch.name;
-      return this.performFailableOperation(() => f.merge(this.repository, e), {
+      return this.performFailableOperation(() => h.merge(this.repository, e), {
         gitContext: {
           kind: 'merge',
           currentBranch: t,
@@ -17073,42 +17384,42 @@ module.exports = function (e) {
       })
     }
     async setRemoteURL(e, t) {
-      const n = !0 === (await this.performFailableOperation(() => f.setRemoteURL(this.repository, e, t)));
+      const n = !0 === (await this.performFailableOperation(() => h.setRemoteURL(this.repository, e, t)));
       return await this.loadRemotes(), this.emitUpdate(), n
     }
     async discardChanges(e) {
       const t = [],
         n = [],
-        o = await f.listSubmodules(this.repository);
-      await h.queueWorkHigh(e, async (e) => {
+        o = await h.listSubmodules(this.repository);
+      await m.queueWorkHigh(e, async (e) => {
         const a = o.some((t) => t.path === e.path);
         e.status.kind === i.AppFileStatusKind.Deleted || a || this.shell.moveItemToTrash(r.resolve(this.repository.path, e.path)), e.status.kind === i.AppFileStatusKind.Copied || e.status.kind === i.AppFileStatusKind.Renamed ? (n.push(e.path), t.push(e.status.oldPath), n.push(e.status.oldPath)) : (t.push(e.path), n.push(e.path))
       });
-      const a = await f.getIndexChanges(this.repository),
+      const a = await h.getIndexChanges(this.repository),
         s = n.filter((e) => a.has(e)),
         d = t.filter((e) => o.find((t) => t.path === e)),
-        l = t.filter((e) => -1 === d.indexOf(e) || a.get(e) !== f.IndexStatus.Added);
+        l = t.filter((e) => -1 === d.indexOf(e) || a.get(e) !== h.IndexStatus.Added);
       await this.performFailableOperation(async () => {
-        await f.resetSubmodulePaths(this.repository, d), await f.resetPaths(this.repository, 2, 'HEAD', s), await f.checkoutIndex(this.repository, l)
+        await h.resetSubmodulePaths(this.repository, d), await h.resetPaths(this.repository, 2, 'HEAD', s), await h.checkoutIndex(this.repository, l)
       })
     }
     async revertCommit(e, t, n, o) {
-      await this.performFailableOperation(() => f.revertCommit(e, t, n, o)), this.emitUpdate()
+      await this.performFailableOperation(() => h.revertCommit(e, t, n, o)), this.emitUpdate()
     }
     async updateExistingUpstreamRemote() {
-      const e = b.forceUnwrap('To update an upstream remote, the repository must be a GitHub repository', this.repository.gitHubRepository),
-        t = b.forceUnwrap('To update an upstream remote, the repository must have a parent', e.parent),
-        n = b.forceUnwrap('Parent repositories are always fully loaded', t.cloneURL);
-      await this.performFailableOperation(() => f.setRemoteURL(this.repository, v.UpstreamRemoteName, n))
+      const e = C.forceUnwrap('To update an upstream remote, the repository must be a GitHub repository', this.repository.gitHubRepository),
+        t = C.forceUnwrap('To update an upstream remote, the repository must have a parent', e.parent),
+        n = C.forceUnwrap('Parent repositories are always fully loaded', t.cloneURL);
+      await this.performFailableOperation(() => h.setRemoteURL(this.repository, b.UpstreamRemoteName, n))
     }
     async getCompareCommits(e, t) {
       if (this.tip.kind !== s.TipState.Valid) return null;
       const n = this.tip.branch,
-        o = await f.getAheadBehind(this.repository, f.revSymmetricDifference(n.name, e.name));
+        o = await h.getAheadBehind(this.repository, h.revSymmetricDifference(n.name, e.name));
       if (null == o) return null;
-      const r = t === p.ComparisonMode.Ahead ? f.revRange(e.name, n.name) : f.revRange(n.name, e.name),
-        i = t === p.ComparisonMode.Ahead ? o.ahead : o.behind,
-        a = await f.getCommits(this.repository, r, i);
+      const r = t === c.ComparisonMode.Ahead ? h.revRange(e.name, n.name) : h.revRange(n.name, e.name),
+        i = t === c.ComparisonMode.Ahead ? o.ahead : o.behind,
+        a = await h.getCommits(this.repository, r, i);
       return 0 < a.length && this.storeCommits(a, !0), {
         commits: a,
         ahead: o.ahead,
@@ -17116,19 +17427,19 @@ module.exports = function (e) {
       }
     }
     async pruneForkedRemotes(e) {
-      const t = await f.getRemotes(this.repository),
+      const t = await h.getRemotes(this.repository),
         n = new Set;
       for (const t of e) null !== t.head.gitHubRepository.cloneURL && n.add(t.head.gitHubRepository.cloneURL);
-      for (const o of t) o.name.startsWith(l.ForkedRemotePrefix) && !n.has(o.url) && (await f.removeRemote(this.repository, o.name))
+      for (const o of t) o.name.startsWith(d.ForkedRemotePrefix) && !n.has(o.url) && (await h.removeRemote(this.repository, o.name))
     }
   }
-  t.GitStore = M
+  t.GitStore = A
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(21);
+  const o = n(20);
   class r {
     constructor() {
       this.backingStore = new Map
@@ -17349,16 +17660,16 @@ module.exports = function (e) {
     value: !0
   });
   const c = n(1),
-    p = n(20),
+    p = n(21),
     u = n(34),
-    m = n(169),
-    h = n(23),
-    f = n(52),
+    m = n(168),
+    h = n(24),
+    f = n(53),
     g = n(79),
     y = n(11),
     S = n(253),
-    C = n(168),
-    b = n(248),
+    C = n(167),
+    b = n(247),
     v = n(166);
   var E;
   (function (e) {
@@ -17414,12 +17725,12 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(20),
+  const r = n(21),
     i = n(1),
     a = n(11),
     s = n(34),
     d = n(67),
-    l = n(676),
+    l = n(675),
     c = n(81);
   t.merge = async function (e, t) {
     const {
@@ -17598,14 +17909,14 @@ module.exports = function (e) {
     value: !0
   });
   const p = n(81),
-    u = n(679),
-    m = n(23),
-    h = n(678),
+    u = n(678),
+    m = n(24),
+    h = n(677),
     f = n(30),
     g = n(2),
-    y = n(247),
-    S = n(170),
-    C = n(246),
+    y = n(246),
+    S = n(169),
+    C = n(245),
     b = 2e7,
     v = ['DD', 'AU', 'UD', 'UA', 'DU', 'AA', 'UU'];
   t.getStatus = async function (e) {
@@ -17633,7 +17944,7 @@ module.exports = function (e) {
         branchAheadBehind: void 0,
         match: null
       }),
-      R = m.WorkingDirectoryStatus.fromFiles([...g.values()]);
+      T = m.WorkingDirectoryStatus.fromFiles([...g.values()]);
     return {
       currentBranch: S,
       currentTip: w,
@@ -17642,7 +17953,7 @@ module.exports = function (e) {
       exists: !0,
       mergeHeadFound: d,
       rebaseInternalState: u,
-      workingDirectory: R
+      workingDirectory: T
     }
   }
 }, function (e, t) {
@@ -17663,6 +17974,27 @@ module.exports = function (e) {
     }
   }
   t.GitAuthor = n
+}, function (e, t, n) {
+  'use strict';
+
+  function o(e) {
+    const t = [];
+    for (const n of e)
+      if (r.isCoAuthoredByTrailer(n)) {
+        const e = i.GitAuthor.parse(n.value);
+        e && t.push(e)
+      } return t
+  }
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const r = n(126),
+    i = n(248);
+  t.Commit = class {
+    constructor(e, t, n, r, i, a, s, d, l) {
+      this.sha = e, this.shortSha = t, this.summary = n, this.body = r, this.author = i, this.committer = a, this.parentSHAs = s, this.trailers = d, this.tags = l, this.coAuthors = o(d), this.authoredByCommitter = this.author.name === this.committer.name && this.author.email === this.committer.email
+    }
+  }
 }, function (e, t, n) {
   'use strict';
 
@@ -17743,8 +18075,8 @@ module.exports = function (e) {
     value: !0
   });
   const a = n(11),
-    s = n(23),
-    d = n(167),
+    s = n(24),
+    d = n(249),
     l = n(123),
     c = n(126),
     p = n(124);
@@ -17761,7 +18093,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(1),
-    r = n(20),
+    r = n(21),
     i = '.git/description';
   t.getGitDescription = async function (e) {
     const t = o.join(e, i);
@@ -17789,16 +18121,16 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(23),
+  const o = n(24),
     r = n(252),
-    i = n(21),
+    i = n(20),
     a = n(2);
   t.stageManualConflictResolution = async function (e, t, n) {
     const {
       status: s
     } = t;
     if (!o.isConflictedFileStatus(s)) return void log.error(`tried to manually resolve unconflicted file (${t.path})`);
-    if (!o.isManualConflict(s)) return void log.error(`tried to manually resolve conflicted file with markers (${t.path})`);
+    if (!(o.isConflictWithMarkers(s) && 0 === s.conflictMarkerCount)) {
     const d = n === r.ManualConflictResolutionKind.theirs ? s.entry.them : s.entry.us;
     switch (d) {
       case o.GitStatusEntry.Deleted: {
@@ -17817,6 +18149,7 @@ module.exports = function (e) {
       default:
         a.assertNever(d, 'unnacounted for git status entry possibility');
     }
+  }
   }
 }, function (e, t, n) {
   'use strict';
@@ -17878,9 +18211,9 @@ module.exports = function (e) {
   });
   const r = n(32),
     i = n(1),
-    a = n(169),
-    s = n(52),
-    d = n(688),
+    a = n(168),
+    s = n(53),
+    d = n(687),
     l = n(125);
   t.executionOptionsWithProgress = async function (e, t, n) {
     let r = null,
@@ -17971,7 +18304,7 @@ module.exports = function (e) {
     r = n(34),
     i = n(46),
     a = n(123),
-    s = n(173),
+    s = n(172),
     d = `refs/remotes/${s.ForkedRemotePrefix}`;
   t.getBranches = async function (e, ...t) {
     const n = String.fromCharCode(parseInt('1F', 16));
@@ -18011,7 +18344,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(23);
+  const o = n(24);
   t.getOldPathOrDefault = function (e) {
     return e.status.kind === o.AppFileStatusKind.Renamed || e.status.kind === o.AppFileStatusKind.Copied ? e.status.oldPath : e.path
   }
@@ -18047,10 +18380,10 @@ module.exports = function (e) {
   });
   const o = n(34),
     r = n(11),
-    i = n(23),
+    i = n(24),
     a = n(30),
-    s = n(170),
-    d = n(699);
+    s = n(169),
+    d = n(698);
   t.applyPatchToIndex = async function (e, t) {
     if (t.status.kind === i.AppFileStatusKind.Renamed) {
       await r.git(['add', '--u', '--', t.status.oldPath], e.path, 'applyPatchToIndex');
@@ -18088,7 +18421,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(704);
+  const o = n(703);
   t.TokenStore = {
     setItem: function (e, t, n) {
       return o.setPassword(e, t, n)
@@ -18111,7 +18444,7 @@ module.exports = function (e) {
   });
   const r = n(42),
     i = n(104),
-    a = n(287),
+    a = n(288),
     s = n(264);
   t.getGenericHostname = function (e) {
     const t = i.parseRemote(e);
@@ -18319,7 +18652,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const s = n(20),
+  const s = n(21),
     d = n(2);
   var l;
   (function (e) {
@@ -18332,7 +18665,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(709))
+    }(n(708))
 }, function (e, t, n) {
   'use strict';
 
@@ -18683,7 +19016,7 @@ module.exports = function (e) {
   });
   const p = n(1),
     u = n(271),
-    m = n(20),
+    m = n(21),
     h = n(2);
   var f;
   (function (e) {
@@ -18800,7 +19133,7 @@ module.exports = function (e) {
     value: !0
   });
   const d = n(1),
-    l = n(20),
+    l = n(21),
     c = n(2);
   var p;
   (function (e) {
@@ -18845,7 +19178,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(275)), o(n(707));
+  }), o(n(275)), o(n(706));
   var r = n(101);
   t.parse = r.parse
 }, function (e, t) {
@@ -18875,7 +19208,7 @@ module.exports = function (e) {
   'use strict';
   const o = n(38).fromCallback;
   e.exports = {
-    copy: o(n(733))
+    copy: o(n(732))
   }
 }, function (e) {
   'use strict';
@@ -18891,7 +19224,7 @@ module.exports = function (e) {
   'use strict';
   var o = Math.floor;
   const r = n(31),
-    i = n(60),
+    i = n(62),
     a = n(1);
   e.exports = {
     hasMillisRes: function (e) {
@@ -18943,10 +19276,12 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   e.exports = {
-    copySync: n(736)
+    copySync: n(735)
   }
 }, function (e) {
   e.exports = require('assert')
+}, function (e) {
+  e.exports = require('util')
 }, function (e) {
   e.exports = require('stream')
 }, function (e, t, n) {
@@ -19009,7 +19344,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(61),
+  const o = n(63),
     r = 'has-shown-welcome-flow';
   t.hasShownWelcomeFlow = function () {
     return o.getBoolean(r, !1)
@@ -19202,30 +19537,30 @@ module.exports = function (e) {
     qe = e, Ye = t
   }
 
-  function R() {
+  function T() {
     if (Xe) try {
-      throw R.arguments, new Error
+      throw T.arguments, new Error
     } catch (t) {
       return t
     }
     return new Error
   }
 
-  function _(e, t) {
+  function R(e, t) {
     var n = e.stack;
     return n ? (t = t || 0, 0 === n.indexOf(e.name) && (t += (e.name + e.message).split('\n').length), n.split('\n').slice(t).filter(Ye).map(function (e) {
       return '\n' + e
     }).join('')) : ''
   }
 
-  function T(e, t) {
+  function _(e, t) {
     return function () {
-      return console.warn(e + ' is deprecated. See https://github.com/dfahlander/Dexie.js/wiki/Deprecations. ' + _(R(), 1)), t.apply(this, arguments)
+      return console.warn(e + ' is deprecated. See https://github.com/dfahlander/Dexie.js/wiki/Deprecations. ' + R(T(), 1)), t.apply(this, arguments)
     }
   }
 
   function x(e, t) {
-    this._e = R(), this.name = e, this.message = t
+    this._e = T(), this.name = e, this.message = t
   }
 
   function P(e, t) {
@@ -19237,11 +19572,11 @@ module.exports = function (e) {
   }
 
   function D(e, t, n, o) {
-    this._e = R(), this.failures = t, this.failedKeys = o, this.successCount = n
+    this._e = T(), this.failures = t, this.failedKeys = o, this.successCount = n
   }
 
   function M(e, t) {
-    this._e = R(), this.name = 'BulkError', this.failures = t, this.message = P(e, t)
+    this._e = T(), this.name = 'BulkError', this.failures = t, this.message = P(e, t)
   }
 
   function A(e, t) {
@@ -19327,8 +19662,8 @@ module.exports = function (e) {
   function W(e) {
     if ('object' != typeof this) throw new TypeError('Promises must be constructed via new');
     this._listeners = [], this.onuncatched = I, this._lib = !1;
-    var t = this._PSD = Rt;
-    if (qe && (this._stackHolder = R(), this._prev = null, this._numPrev = 0), 'function' != typeof e) {
+    var t = this._PSD = Tt;
+    if (qe && (this._stackHolder = T(), this._prev = null, this._numPrev = 0), 'function' != typeof e) {
       if (e !== rt) throw new TypeError('Not a function');
       return this._state = arguments[1], this._value = arguments[2], void(!1 === this._state && K(this, this._value))
     }
@@ -19374,15 +19709,15 @@ module.exports = function (e) {
     e._listeners = [];
     for (var n = 0, o = t.length; n < o; ++n) q(e, t[n]);
     var r = e._PSD;
-    --r.ref || r.finalize(), 0 === Tt && (++Tt, yt(function () {
-      0 == --Tt && ee()
+    --r.ref || r.finalize(), 0 === _t && (++_t, yt(function () {
+      0 == --_t && ee()
     }, []))
   }
 
   function q(e, t) {
     if (null === e._state) return void e._listeners.push(t);
     var n = e._state ? t.onFulfilled : t.onRejected;
-    return null === n ? (e._state ? t.resolve : t.reject)(e._value) : void(++t.psd.ref, ++Tt, yt(Y, [n, e, t]))
+    return null === n ? (e._state ? t.resolve : t.reject)(e._value) : void(++t.psd.ref, ++_t, yt(Y, [n, e, t]))
   }
 
   function Y(e, t, n) {
@@ -19394,7 +19729,7 @@ module.exports = function (e) {
     } catch (t) {
       n.reject(t)
     } finally {
-      Et = null, 0 == --Tt && ee(), --n.psd.ref || n.psd.finalize()
+      Et = null, 0 == --_t && ee(), --n.psd.ref || n.psd.finalize()
     }
   }
 
@@ -19404,9 +19739,9 @@ module.exports = function (e) {
     if (!1 === e._state) {
       var r = e._value,
         i, a;
-      null == r ? (i = r, a = '') : (i = r.name || 'Error', a = r.message || r, o = _(r, 0)), t.push(i + (a ? ': ' + a : '') + o)
+      null == r ? (i = r, a = '') : (i = r.name || 'Error', a = r.message || r, o = R(r, 0)), t.push(i + (a ? ': ' + a : '') + o)
     }
-    return qe && (o = _(e._stackHolder, 2), o && -1 === t.indexOf(o) && t.push(o), e._prev && X(e._prev, t, n)), t
+    return qe && (o = R(e._stackHolder, 2), o && -1 === t.indexOf(o) && t.push(o), e._prev && X(e._prev, t, n)), t
   }
 
   function Q(e, t) {
@@ -19426,12 +19761,12 @@ module.exports = function (e) {
   function J() {
     var e, t, n;
     do
-      for (; 0 < _t.length;)
-        for (e = _t, _t = [], n = e.length, t = 0; t < n; ++t) {
+      for (; 0 < Rt.length;)
+        for (e = Rt, Rt = [], n = e.length, t = 0; t < n; ++t) {
           var o = e[t];
           o[0].apply(null, o[1])
         }
-    while (0 < _t.length);
+    while (0 < Rt.length);
     St = !0, Ct = !0
   }
 
@@ -19447,8 +19782,8 @@ module.exports = function (e) {
     function t() {
       e(), xt.splice(xt.indexOf(t), 1)
     }
-    xt.push(t), ++Tt, yt(function () {
-      0 == --Tt && ee()
+    xt.push(t), ++_t, yt(function () {
+      0 == --_t && ee()
     }, [])
   }
 
@@ -19468,10 +19803,10 @@ module.exports = function (e) {
   }
 
   function ie(e, t) {
-    var n = Rt;
+    var n = Tt;
     return function () {
       var o = Z(),
-        r = Rt;
+        r = Tt;
       try {
         return ue(n, !0), e.apply(this, arguments)
       } catch (n) {
@@ -19483,7 +19818,7 @@ module.exports = function (e) {
   }
 
   function ae(e, t, n, r) {
-    var i = Rt,
+    var i = Tt,
       a = Object.create(i);
     a.parent = i, a.ref = 0, a.global = !1, a.id = ++Ft;
     var s = kt.env;
@@ -19524,7 +19859,7 @@ module.exports = function (e) {
   }
 
   function ce(e) {
-    ++Lt, Dt.echoes && 0 != --Dt.echoes || (Dt.echoes = Dt.id = 0), At.push(Rt), ue(e, !0)
+    ++Lt, Dt.echoes && 0 != --Dt.echoes || (Dt.echoes = Dt.id = 0), At.push(Tt), ue(e, !0)
   }
 
   function pe() {
@@ -19533,8 +19868,8 @@ module.exports = function (e) {
   }
 
   function ue(e, t) {
-    var n = Rt;
-    if (((t ? Dt.echoes && (!It++ || e !== Rt) : It && (!--It || e !== Rt)) && fe(t ? ce.bind(null, e) : pe), e !== Rt) && (Rt = e, n === kt && (kt.env = me()), ht)) {
+    var n = Tt;
+    if (((t ? Dt.echoes && (!It++ || e !== Tt) : It && (!--It || e !== Tt)) && fe(t ? ce.bind(null, e) : pe), e !== Tt) && (Tt = e, n === kt && (kt.env = me()), ht)) {
       var o = kt.env.Promise,
         r = e.env;
       lt.then = r.nthen, o.prototype.then = r.gthen, (n.global || e.global) && (Object.defineProperty(Be, 'Promise', r.PromiseProp), o.all = r.all, o.race = r.race, o.resolve = r.resolve, o.reject = r.reject)
@@ -19556,7 +19891,7 @@ module.exports = function (e) {
   }
 
   function he(e, t, n, o, r) {
-    var i = Rt;
+    var i = Tt;
     try {
       return ue(e, !0), t(n, o, r)
     } finally {
@@ -19570,7 +19905,7 @@ module.exports = function (e) {
 
   function ge(e, t, n) {
     return 'function' == typeof e ? function () {
-      var o = Rt;
+      var o = Tt;
       n && se(), ue(t, !0);
       try {
         return e.apply(this, arguments)
@@ -19669,7 +20004,7 @@ module.exports = function (e) {
       o.create(t), o._completion.catch(n);
       var r = o._reject.bind(o);
       ae(function () {
-        Rt.trans = o, 0 === e ? (Le(Oe).forEach(function (e) {
+        Tt.trans = o, 0 === e ? (Le(Oe).forEach(function (e) {
           S(t, e, Oe[e].primKey, Oe[e].indexes)
         }), W.follow(function () {
           return $e.on.populate.fire(o)
@@ -19717,7 +20052,7 @@ module.exports = function (e) {
         }), r.push(function (t) {
           if (!a || !jt) {
             var n = e._cfg.dbschema;
-            _(n, t)
+            R(n, t)
           }
         })
       }), o().then(function () {
@@ -19779,7 +20114,7 @@ module.exports = function (e) {
       })
     }
 
-    function _(e, t) {
+    function R(e, t) {
       for (var n = 0, o; n < t.db.objectStoreNames.length; ++n) o = t.db.objectStoreNames[n], null == e[o] && t.db.deleteObjectStore(o)
     }
 
@@ -19791,7 +20126,7 @@ module.exports = function (e) {
     }
 
     function P(e, t, n) {
-      if (!Ye && !Rt.letThrough) {
+      if (!Ye && !Tt.letThrough) {
         if (!Ge) {
           if (!Se) return Nt(new tt.DatabaseClosed);
           $e.open().catch(I)
@@ -19808,7 +20143,7 @@ module.exports = function (e) {
       }
       return o._promise(e, function (e, t) {
         return ae(function () {
-          return Rt.trans = o, n(e, t, o)
+          return Tt.trans = o, n(e, t, o)
         })
       }).then(function (e) {
         return o._completion.then(function () {
@@ -19836,7 +20171,7 @@ module.exports = function (e) {
     }
 
     function z(t, n, e) {
-      return (e ? _e : ke)(function (o) {
+      return (e ? Re : ke)(function (o) {
         t.push(o), n && n()
       })
     }
@@ -19851,7 +20186,7 @@ module.exports = function (e) {
             return a()
           }));
         else {
-          var p = _e(s),
+          var p = Re(s),
             u = we(null),
             m;
           f(function () {
@@ -20135,7 +20470,7 @@ module.exports = function (e) {
       }), this._allTables = Ue, this._createTransaction = function (e, t, n, o) {
         return new G(e, t, n, o)
       }, this._whenReady = function (e) {
-        return Ye || Rt.letThrough ? e() : new W(function (e, t) {
+        return Ye || Tt.letThrough ? e() : new W(function (e, t) {
           if (!Ge) {
             if (!Se) return void t(new tt.DatabaseClosed);
             $e.open().catch(I)
@@ -20146,7 +20481,7 @@ module.exports = function (e) {
         if (Ge || We) return Ze.then(function () {
           return Ve ? Nt(Ve) : $e
         });
-        qe && (Je._stackHolder = R()), Ge = !0, Ve = null, Ye = !1;
+        qe && (Je._stackHolder = T()), Ge = !0, Ve = null, Ye = !1;
         var t = ot,
           n = null;
         return W.race([Je, new W(function (t, o) {
@@ -20155,7 +20490,7 @@ module.exports = function (e) {
           if (!r) throw new tt.MissingAPI('IndexedDB API not available');
           r.onerror = ke(o), r.onblocked = ie(me), r.onupgradeneeded = ie(function (t) {
             if (n = r.transaction, et && !$e._allowEmptyDB) {
-              r.onerror = Te, n.abort(), r.result.close();
+              r.onerror = _e, n.abort(), r.result.close();
               var i = ve.deleteDatabase(e);
               i.onsuccess = i.onerror = ie(function () {
                 o(new tt.NoSuchDatabase('Database ' + e + ' doesnt exist'))
@@ -20255,7 +20590,7 @@ module.exports = function (e) {
       }, this._transaction = function (e, t, n) {
         function o() {
           return W.resolve().then(function () {
-            var t = Rt.transless || Rt,
+            var t = Tt.transless || Tt,
               o = $e._createTransaction(e, a, Oe, r);
             r ? o.idbtrans = r.idbtrans : o.create(), n.constructor === mt && se();
             var i = W.follow(function () {
@@ -20282,7 +20617,7 @@ module.exports = function (e) {
             })
           })
         }
-        var r = Rt.trans;
+        var r = Tt.trans;
         r && r.db === $e && -1 === e.indexOf('!') || (r = null);
         var i = -1 !== e.indexOf('?');
         e = e.replace('!', '').replace('?', '');
@@ -20310,20 +20645,20 @@ module.exports = function (e) {
             n(t)
           }) : Nt(t)
         }
-        return r ? r._promise(e, o, 'lock') : Rt.trans ? he(Rt.transless, function () {
+        return r ? r._promise(e, o, 'lock') : Tt.trans ? he(Tt.transless, function () {
           return $e._whenReady(o)
         }) : $e._whenReady(o)
       }, this.table = function (e) {
         if (!r(Ue, e)) throw new tt.InvalidTable('Table ' + e + ' does not exist');
         return Ue[e]
-      }, i(B.prototype, {
+      }, i(B.prototype, { 
         _trans: function (e, t, n) {
-          var o = this._tx || Rt.trans;
-          return o && o.db === $e ? o === Rt.trans ? o._promise(e, t, n) : ae(function () {
+          var o = this._tx || Tt.trans;
+          return o && o.db === $e ? o === Tt.trans ? o._promise(e, t, n) : ae(function () {
             return o._promise(e, t, n)
           }, {
             trans: o,
-            transless: Rt.transless || Rt
+            transless: Tt.transless || Tt
           }) : P(e, [this.name], t)
         },
         _idbstore: function (e, t, n) {
@@ -20435,7 +20770,7 @@ module.exports = function (e) {
             if (n.hook.creating.fire === I && n.hook.updating.fire === I) {
               h = z(d);
               for (var f = 0, i = e.length; f < i; ++f) u = t ? a.put(e[f], t[f]) : a.put(e[f]), u.onerror = h;
-              u.onerror = z(d, s), u.onsuccess = Re(s)
+              u.onerror = z(d, s), u.onsuccess = Te(s)
             } else {
               var l = t || a.keyPath && e.map(function (e) {
                   return g(e, a.keyPath)
@@ -20497,7 +20832,7 @@ module.exports = function (e) {
             } else {
               h = z(p);
               for (var E = 0, i = e.length; E < i; ++E) m = t ? s.add(e[E], t[E]) : s.add(e[E]), m.onerror = h;
-              m.onerror = z(p, c), m.onsuccess = Re(c)
+              m.onerror = z(p, c), m.onsuccess = Te(c)
             }
           })
         },
@@ -20515,7 +20850,7 @@ module.exports = function (e) {
             }
             try {
               var c = null == t ? i.add(e) : i.add(e, t);
-              c._hookCtx = s, c.onerror = _e(r), c.onsuccess = we(function (t) {
+              c._hookCtx = s, c.onerror = Re(r), c.onsuccess = we(function (t) {
                 var n = i.keyPath;
                 n && y(e, n, t), o(t)
               })
@@ -20576,11 +20911,11 @@ module.exports = function (e) {
         }
       }), i(G.prototype, {
         _lock: function () {
-          return p(!Rt.global), ++this._reculock, 1 !== this._reculock || Rt.global || (Rt.lockOwnerFor = this), this
+          return p(!Tt.global), ++this._reculock, 1 !== this._reculock || Tt.global || (Tt.lockOwnerFor = this), this
         },
         _unlock: function () {
-          if (p(!Rt.global), 0 == --this._reculock)
-            for (Rt.global || (Rt.lockOwnerFor = null); 0 < this._blockedFuncs.length && !this._locked();) {
+          if (p(!Tt.global), 0 == --this._reculock)
+            for (Tt.global || (Tt.lockOwnerFor = null); 0 < this._blockedFuncs.length && !this._locked();) {
               var e = this._blockedFuncs.shift();
               try {
                 he(e[1], e[0])
@@ -20589,7 +20924,7 @@ module.exports = function (e) {
           return this
         },
         _locked: function () {
-          return this._reculock && Rt.lockOwnerFor !== this
+          return this._reculock && Tt.lockOwnerFor !== this
         },
         create: function (e) {
           var t = this;
@@ -20604,9 +20939,9 @@ module.exports = function (e) {
           }
           if (!this.active) throw new tt.TransactionInactive;
           return p(null === this._completion._state), e = this.idbtrans = e || We.transaction(Me(this.storeNames), this.mode), e.onerror = ie(function (n) {
-            Te(n), t._reject(e.error)
+            _e(n), t._reject(e.error)
           }), e.onabort = ie(function (n) {
-            Te(n), t.active && t._reject(new tt.Abort(e.error)), t.active = !1, t.on('abort').fire(n)
+            _e(n), t.active && t._reject(new tt.Abort(e.error)), t.active = !1, t.on('abort').fire(n)
           }), e.oncomplete = ie(function () {
             t.active = !1, t._resolve()
           }), this
@@ -20618,7 +20953,7 @@ module.exports = function (e) {
           if (this._locked()) return new W(function (r, i) {
             o._blockedFuncs.push([function () {
               o._promise(e, t, n).then(r, i)
-            }, Rt])
+            }, Tt])
           });
           if (n) return ae(function () {
             var e = new W(function (e, n) {
@@ -20667,7 +21002,7 @@ module.exports = function (e) {
           this.active && this._reject(new tt.Abort), this.active = !1
         },
         tables: {
-          get: T('Transaction.tables', function () {
+          get: _('Transaction.tables', function () {
             return Ue
           })
         },
@@ -21051,7 +21386,7 @@ module.exports = function (e) {
                 var r = t.table.hook.reading.fire,
                   d = i(t, o),
                   l = t.limit < Infinity ? d.getAll(t.range, t.limit) : d.getAll(t.range);
-                l.onerror = ke(n), l.onsuccess = r === L ? Re(e) : Re(function (t) {
+                l.onerror = ke(n), l.onsuccess = r === L ? Te(e) : Te(function (t) {
                   try {
                     e(t.map(r))
                   } catch (t) {
@@ -21152,7 +21487,7 @@ module.exports = function (e) {
             if (it && 'next' === t.dir && q(t, !0) && 0 < t.limit) return this._read(function (e, n, o) {
               var r = i(t, o),
                 a = t.limit < Infinity ? r.getAllKeys(t.range, t.limit) : r.getAllKeys(t.range);
-              a.onerror = ke(n), a.onsuccess = Re(e)
+              a.onerror = ke(n), a.onsuccess = Te(e)
             }).then(e);
             t.keysOnly = !t.isMatch;
             var n = [];
@@ -21193,7 +21528,7 @@ module.exports = function (e) {
             return this._write(function (n, i, d, l) {
               function c(e, t) {
                 function n(t) {
-                  return _.push(t), T.push(o.primKey), u(), !0
+                  return R.push(t), _.push(o.primKey), u(), !0
                 }
                 x = t.primaryKey;
                 var o = {
@@ -21206,7 +21541,7 @@ module.exports = function (e) {
                   var i = !r(o, 'value');
                   ++w, f(function () {
                     var e = i ? t.delete() : t.update(o.value);
-                    e._hookCtx = o, e.onerror = _e(n), e.onsuccess = we(function () {
+                    e._hookCtx = o, e.onerror = Re(n), e.onsuccess = we(function () {
                       ++k, u()
                     })
                   }, n)
@@ -21214,11 +21549,11 @@ module.exports = function (e) {
               }
 
               function p(t) {
-                return t && (_.push(t), T.push(x)), i(new D('Error modifying one or more objects', _, k, T))
+                return t && (R.push(t), _.push(x)), i(new D('Error modifying one or more objects', R, k, _))
               }
 
               function u() {
-                R && k + _.length === w && (0 < _.length ? p() : n(k))
+                T && k + R.length === w && (0 < R.length ? p() : n(k))
               }
               var m;
               if ('function' == typeof e) m = a === I && s === I ? e : function (t) {
@@ -21257,12 +21592,12 @@ module.exports = function (e) {
               }
               var w = 0,
                 k = 0,
-                R = !1,
+                T = !1,
+                R = [],
                 _ = [],
-                T = [],
                 x = null;
               t.clone().raw()._iterate(c, function () {
-                R = !0, u()
+                T = !0, u()
               }, p, d)
             })
           },
@@ -21359,27 +21694,27 @@ module.exports = function (e) {
 
   function ke(e) {
     return ie(function (t) {
-      return Te(t), e(t.target.error), !1
+      return _e(t), e(t.target.error), !1
     })
   }
 
-  function Re(e) {
+  function Te(e) {
     return ie(function (t) {
       e(t.target.result)
     })
   }
 
-  function _e(e) {
+  function Re(e) {
     return ie(function (t) {
       var n = t.target,
         o = n.error,
         r = n._hookCtx,
         i = r && r.onerror;
-      return i && i(o), Te(t), e(o), !1
+      return i && i(o), _e(t), e(o), !1
     })
   }
 
-  function Te(e) {
+  function _e(e) {
     e.stopPropagation && e.stopPropagation(), e.preventDefault && e.preventDefault()
   }
 
@@ -21465,7 +21800,7 @@ module.exports = function (e) {
   s(x).from(Error).extend({
     stack: {
       get: function () {
-        return this._stack || (this._stack = this.name + ': ' + this.message + _(this._e, 2))
+        return this._stack || (this._stack = this.name + ': ' + this.message + R(this._e, 2))
       }
     },
     toString: function () {
@@ -21478,7 +21813,7 @@ module.exports = function (e) {
     et = x,
     tt = $e.reduce(function (e, t) {
       function n(e, n) {
-        this._e = R(), this.name = o, e ? 'string' == typeof e ? (this.message = e, this.inner = n || null) : 'object' == typeof e && (this.message = e.name + ' ' + e.message, this.inner = e) : (this.message = Ze[t] || o, this.inner = null)
+        this._e = T(), this.name = o, e ? 'string' == typeof e ? (this.message = e, this.inner = n || null) : 'object' == typeof e && (this.message = e.name + ' ' + e.message, this.inner = e) : (this.message = Ze[t] || o, this.inner = null)
       }
       var o = t + 'Error';
       return s(n).from(et), e[t] = n, e
@@ -21523,7 +21858,7 @@ module.exports = function (e) {
       setTimeout($, 0)
     },
     yt = function (e, t) {
-      _t.push([e, t]), Ct && (gt(), Ct = !1)
+      Rt.push([e, t]), Ct && (gt(), Ct = !1)
     },
     St = !0,
     Ct = !0,
@@ -21547,22 +21882,22 @@ module.exports = function (e) {
         })
       }
     },
-    Rt = kt,
-    _t = [],
-    Tt = 0,
+    Tt = kt,
+    Rt = [],
+    _t = 0,
     xt = [],
     Pt = {
       get: function () {
         function e(e, o) {
           var r = this,
-            i = !t.global && (t !== Rt || n !== Lt);
+            i = !t.global && (t !== Tt || n !== Lt);
           i && de();
           var a = new W(function (n, a) {
             q(r, new V(ge(e, t, i), ge(o, t, i), n, a, t))
           });
           return qe && Q(a, this), a
         }
-        var t = Rt,
+        var t = Tt,
           n = Lt;
         return e.prototype = rt, e
       },
@@ -21578,7 +21913,7 @@ module.exports = function (e) {
   i(W.prototype, {
     then: Pt,
     _then: function (e, t) {
-      q(this, new V(null, null, e, t, Rt))
+      q(this, new V(null, null, e, t, Tt))
     },
     catch: function (e) {
       if (1 === arguments.length) return this.then(null, e);
@@ -21651,10 +21986,10 @@ module.exports = function (e) {
     },
     PSD: {
       get: function () {
-        return Rt
+        return Tt
       },
       set: function (e) {
-        return Rt = e
+        return Tt = e
       }
     },
     newPSD: ae,
@@ -21678,7 +22013,7 @@ module.exports = function (e) {
     follow: function (e, t) {
       return new W(function (n, o) {
         return ae(function (t, n) {
-          var o = Rt;
+          var o = Tt;
           o.unhandleds = [], o.onunhandled = n, o.finalize = B(function () {
             var e = this;
             te(function () {
@@ -21756,11 +22091,11 @@ module.exports = function (e) {
       },
       applyStructure: Ee,
       ignoreTransaction: function (e) {
-        return Rt.trans ? he(Rt.transless, e) : e()
+        return Tt.trans ? he(Tt.transless, e) : e()
       },
       vip: function (e) {
         return ae(function () {
-          return Rt.letThrough = !0, e()
+          return Tt.letThrough = !0, e()
         })
       },
       async: function (e) {
@@ -21783,12 +22118,12 @@ module.exports = function (e) {
       },
       currentTransaction: {
         get: function () {
-          return Rt.trans || null
+          return Tt.trans || null
         }
       },
       waitFor: function (e, t) {
         var n = W.resolve('function' == typeof e ? be.ignoreTransaction(e) : e).timeout(t || 6e4);
-        return Rt.trans ? Rt.trans.waitFor(n) : n
+        return Tt.trans ? Tt.trans.waitFor(n) : n
       },
       Promise: W,
       debug: {
@@ -21857,9 +22192,9 @@ module.exports = function (e) {
     }(), t['default'] = be
 }, function (e, t, n) {
   'use strict';
-  const o = n(751),
-    r = n(750),
-    i = n(749),
+  const o = n(750),
+    r = n(749),
+    i = n(748),
     a = new WeakMap,
     s = (...e) => {
       if (0 === e.length) return '__defaultKey';
@@ -22030,218 +22365,8 @@ module.exports = function (e) {
     return this.head = t, this.tail = e, this
   };
   try {
-    n(760)
+    n(759)
   } catch (e) {}
-}, function (e, t, n) {
-  'use strict';
-
-  function o() {
-    return 1
-  }
-
-  function r(e) {
-    if (!(this instanceof r)) return new r(e);
-    'number' == typeof e && (e = {
-      max: e
-    }), e || (e = {});
-    var t = this[g] = e.max;
-    t && 'number' == typeof t && !(0 >= t) || (this[g] = Infinity);
-    var n = e.length || o;
-    'function' != typeof n && (n = o), this[S] = n, this[C] = e.stale || !1, this[b] = e.maxAge || 0, this[v] = e.dispose, this[E] = e.noDisposeOnSet || !1, this.reset()
-  }
-
-  function i(e, t, n, o) {
-    var r = n.value;
-    s(e, r) && (l(e, n), !e[C] && (r = void 0)), r && t.call(o, r.value, r.key, e)
-  }
-
-  function a(e, t, n) {
-    var o = e[k].get(t);
-    if (o) {
-      var r = o.value;
-      s(e, r) ? (l(e, o), !e[C] && (r = void 0)) : n && e[w].unshiftNode(o), r && (r = r.value)
-    }
-    return r
-  }
-
-  function s(e, t) {
-    if (!t || !t.maxAge && !e[b]) return !1;
-    var n = !1,
-      o = Date.now() - t.now;
-    return n = t.maxAge ? o > t.maxAge : e[b] && o > e[b], n
-  }
-
-  function d(e) {
-    if (e[y] > e[g])
-      for (var t = e[w].tail, n; e[y] > e[g] && null !== t;) n = t.prev, l(e, t), t = n
-  }
-
-  function l(e, t) {
-    if (t) {
-      var n = t.value;
-      e[v] && e[v](n.key, n.value), e[y] -= n.length, e[k].delete(n.key), e[w].removeNode(t)
-    }
-  }
-
-  function c(e, t, n, o, r) {
-    this.key = e, this.value = t, this.length = n, this.now = o, this.maxAge = r || 0
-  }
-  e.exports = r;
-  var p = n(762),
-    u = n(175),
-    m = n(293),
-    h = 'function' == typeof Symbol,
-    f;
-  f = h ? function (e) {
-    return Symbol.for(e)
-  } : function (e) {
-    return '_' + e
-  };
-  var g = f('max'),
-    y = f('length'),
-    S = f('lengthCalculator'),
-    C = f('allowStale'),
-    b = f('maxAge'),
-    v = f('dispose'),
-    E = f('noDisposeOnSet'),
-    w = f('lruList'),
-    k = f('cache');
-  Object.defineProperty(r.prototype, 'max', {
-    set: function (e) {
-      e && 'number' == typeof e && !(0 >= e) || (e = Infinity), this[g] = e, d(this)
-    },
-    get: function () {
-      return this[g]
-    },
-    enumerable: !0
-  }), Object.defineProperty(r.prototype, 'allowStale', {
-    set: function (e) {
-      this[C] = !!e
-    },
-    get: function () {
-      return this[C]
-    },
-    enumerable: !0
-  }), Object.defineProperty(r.prototype, 'maxAge', {
-    set: function (e) {
-      e && 'number' == typeof e && !(0 > e) || (e = 0), this[b] = e, d(this)
-    },
-    get: function () {
-      return this[b]
-    },
-    enumerable: !0
-  }), Object.defineProperty(r.prototype, 'lengthCalculator', {
-    set: function (e) {
-      'function' != typeof e && (e = o), e !== this[S] && (this[S] = e, this[y] = 0, this[w].forEach(function (e) {
-        e.length = this[S](e.value, e.key), this[y] += e.length
-      }, this)), d(this)
-    },
-    get: function () {
-      return this[S]
-    },
-    enumerable: !0
-  }), Object.defineProperty(r.prototype, 'length', {
-    get: function () {
-      return this[y]
-    },
-    enumerable: !0
-  }), Object.defineProperty(r.prototype, 'itemCount', {
-    get: function () {
-      return this[w].length
-    },
-    enumerable: !0
-  }), r.prototype.rforEach = function (e, t) {
-    t = t || this;
-    for (var n = this[w].tail, o; null !== n;) o = n.prev, i(this, e, n, t), n = o
-  }, r.prototype.forEach = function (e, t) {
-    t = t || this;
-    for (var n = this[w].head, o; null !== n;) o = n.next, i(this, e, n, t), n = o
-  }, r.prototype.keys = function () {
-    return this[w].toArray().map(function (e) {
-      return e.key
-    }, this)
-  }, r.prototype.values = function () {
-    return this[w].toArray().map(function (e) {
-      return e.value
-    }, this)
-  }, r.prototype.reset = function () {
-    this[v] && this[w] && this[w].length && this[w].forEach(function (e) {
-      this[v](e.key, e.value)
-    }, this), this[k] = new p, this[w] = new m, this[y] = 0
-  }, r.prototype.dump = function () {
-    return this[w].map(function (e) {
-      if (!s(this, e)) return {
-        k: e.key,
-        v: e.value,
-        e: e.now + (e.maxAge || 0)
-      }
-    }, this).toArray().filter(function (e) {
-      return e
-    })
-  }, r.prototype.dumpLru = function () {
-    return this[w]
-  }, r.prototype.inspect = function (e, t) {
-    var n = 'LRUCache {',
-      r = !1,
-      i = this[C];
-    i && (n += '\n  allowStale: true', r = !0);
-    var a = this[g];
-    a && a !== Infinity && (r && (n += ','), n += '\n  max: ' + u.inspect(a, t), r = !0);
-    var d = this[b];
-    d && (r && (n += ','), n += '\n  maxAge: ' + u.inspect(d, t), r = !0);
-    var l = this[S];
-    l && l !== o && (r && (n += ','), n += '\n  length: ' + u.inspect(this[y], t), r = !0);
-    var c = !1;
-    return this[w].forEach(function (e) {
-      c ? n += ',\n  ' : (r && (n += ',\n'), c = !0, n += '\n  ');
-      var i = u.inspect(e.key).split('\n').join('\n  '),
-        a = {
-          value: e.value
-        };
-      e.maxAge !== d && (a.maxAge = e.maxAge), l !== o && (a.length = e.length), s(this, e) && (a.stale = !0), a = u.inspect(a, t).split('\n').join('\n  '), n += i + ' => ' + a
-    }), (c || r) && (n += '\n'), n += '}', n
-  }, r.prototype.set = function (e, t, n) {
-    n = n || this[b];
-    var o = n ? Date.now() : 0,
-      r = this[S](t, e);
-    if (this[k].has(e)) {
-      if (r > this[g]) return l(this, this[k].get(e)), !1;
-      var i = this[k].get(e),
-        a = i.value;
-      return this[v] && !this[E] && this[v](e, a.value), a.now = o, a.maxAge = n, a.value = t, this[y] += r - a.length, a.length = r, this.get(e), d(this), !0
-    }
-    var s = new c(e, t, r, o, n);
-    return s.length > this[g] ? (this[v] && this[v](e, t), !1) : (this[y] += s.length, this[w].unshift(s), this[k].set(e, this[w].head), d(this), !0)
-  }, r.prototype.has = function (e) {
-    if (!this[k].has(e)) return !1;
-    var t = this[k].get(e).value;
-    return !s(this, t)
-  }, r.prototype.get = function (e) {
-    return a(this, e, !0)
-  }, r.prototype.peek = function (e) {
-    return a(this, e, !1)
-  }, r.prototype.pop = function () {
-    var e = this[w].tail;
-    return e ? (l(this, e), e.value) : null
-  }, r.prototype.del = function (e) {
-    l(this, this[k].get(e))
-  }, r.prototype.load = function (e) {
-    this.reset();
-    for (var t = Date.now(), n = e.length - 1; 0 <= n; n--) {
-      var o = e[n],
-        r = o.e || 0;
-      if (0 === r) this.set(o.k, o.v);
-      else {
-        var i = r - t;
-        0 < i && this.set(o.k, o.v, i)
-      }
-    }
-  }, r.prototype.prune = function () {
-    var e = this;
-    this[k].forEach(function (t, n) {
-      a(e, n, !1)
-    })
-  }
 }, function (e, t, n) {
   'use strict';
 
@@ -22282,12 +22407,12 @@ module.exports = function (e) {
     return n = c({}, n), n.__winShell = !0, o = process.env.comspec || 'cmd.exe', r = ['/s', '/c', '"' + t + '"'], n.windowsVerbatimArguments = !0, n.shell && (o = n.shell), e(o, r, n)
   }
   var s = n(48),
-    d = n(764),
-    l = n(754),
-    c = n(184),
-    p = n(753),
-    u = n(752),
-    m = n(292)(),
+    d = n(761),
+    l = n(753),
+    c = n(181),
+    p = n(752),
+    u = n(751),
+    m = n(293)(),
     h = 10485760;
   e.exports = function (e, t, n) {
     var a = new Promise(function (a, c) {
@@ -22332,7 +22457,7 @@ module.exports = function (e) {
   for (var n = [], o = 0; 256 > o; ++o) n[o] = (o + 256).toString(16).substr(1);
   e.exports = t
 }, function (e, t, n) {
-  var o = n(176).randomBytes;
+  var o = n(175).randomBytes;
   e.exports = function () {
     return o(16)
   }
@@ -22411,7 +22536,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   }), t.animationEnd = t.animationDelay = t.animationTiming = t.animationDuration = t.animationName = t.transitionEnd = t.transitionDuration = t.transitionDelay = t.transitionTiming = t.transitionProperty = t.transform = void 0;
-  var r = n(180),
+  var r = n(179),
     i = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -22453,7 +22578,7 @@ module.exports = function (e) {
   }), t.default = function (e, t) {
     e.classList ? e.classList.add(t) : !(0, r.default)(e) && (e.className = e.className + ' ' + t)
   };
-  var o = n(771),
+  var o = n(768),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -22517,7 +22642,7 @@ module.exports = function (e) {
     m = o(u),
     h = n(303),
     f = o(h),
-    g = n(773),
+    g = n(770),
     y = {
       component: m.default.any,
       childFactory: m.default.func,
@@ -22628,8 +22753,8 @@ module.exports = function (e) {
     d = n(2),
     l = n(39),
     c = n(135),
-    p = n(766),
-    u = n(53),
+    p = n(763),
+    u = n(54),
     m = n(10),
     h = n(84),
     f = n(85),
@@ -22641,17 +22766,17 @@ module.exports = function (e) {
     v = n(29),
     E = n(128),
     w = n(103),
-    k = n(622),
-    R = n(614),
-    _ = n(561),
-    T = n(479),
-    x = n(477),
-    P = n(475),
-    D = n(198),
+    k = n(621),
+    T = n(613),
+    R = n(560),
+    _ = n(478),
+    x = n(476),
+    P = n(474),
+    D = n(196),
     M = n(4),
-    A = n(26),
-    I = n(469),
-    L = n(466),
+    A = n(25),
+    I = n(468),
+    L = n(465),
     F = n(456),
     B = n(452),
     N = n(445),
@@ -22685,7 +22810,7 @@ module.exports = function (e) {
     pe = n(83),
     ue = n(365),
     me = n(41),
-    he = n(25),
+    he = n(26),
     fe = n(363),
     ge = n(362),
     ye = n(360),
@@ -22696,20 +22821,21 @@ module.exports = function (e) {
     Ee = n(349),
     we = n(348),
     ke = n(347),
-    Re = n(18),
-    _e = n(200),
-    Te = n(96),
+    Te = n(18),
+    Re = n(198),
+    _e = n(96),
     xe = n(346),
-    Pe = n(57),
+    Pe = n(59),
     De = n(345),
     Me = n(344),
     Ae = n(343),
     Ie = n(342),
     Le = n(341),
-    Fe = 60000,
-    Be = 60 * Fe;
+    Fe = n(339),
+    Be = 60000,
+    Ne = 60 * Be;
   t.dialogTransitionEnterTimeout = 250, t.dialogTransitionLeaveTimeout = 100;
-  class Ne extends r.Component {
+  class Oe extends r.Component {
     constructor(e) {
       super(e), this.loading = !0, this.lastKeyPressed = null, this.showAddLocalRepo = () => this.props.dispatcher.showPopup({
         type: he.PopupType.AddRepository
@@ -22724,7 +22850,7 @@ module.exports = function (e) {
           initialURL: t
         })
       }, this.showCreateTutorialRepositoryPopup = () => {
-        if (Re.enableTutorial()) {
+        if (Te.enableTutorial()) {
           const e = this.getDotComAccount() || this.getEnterpriseAccount();
           null === e || this.props.dispatcher.showPopup({
             type: he.PopupType.CreateTutorialRepository,
@@ -22841,7 +22967,7 @@ module.exports = function (e) {
           t = this.state.selectedExternalEditor ? this.state.selectedExternalEditor : void 0,
           n = this.state.selectedShell,
           o = this.state.repositoryFilterText;
-        return r.createElement(R.RepositoriesList, {
+        return r.createElement(T.RepositoriesList, {
           filterText: o,
           onFilterTextChanged: this.onRepositoryFilterTextChanged,
           selectedRepository: e,
@@ -22927,8 +23053,8 @@ module.exports = function (e) {
         const t = window.setTimeout(async () => {
           window.clearTimeout(t), await this.props.appStore.refreshAllSidebarIndicators(), this.updateIntervalHandle = window.setInterval(() => {
             this.props.appStore.refreshAllSidebarIndicators()
-          }, 15 * Fe)
-        }, 2 * Fe)
+          }, 15 * Be)
+        }, 2 * Be)
       }), this.state = e.appStore.getState(), e.appStore.onDidUpdate((e) => {
         this.setState(e)
       }), e.appStore.onDidError((t) => {
@@ -61634,161 +61760,33 @@ module.exports = function (e) {
     return (9 === t.nodeType ? t : t.ownerDocument).createTextNode(e)
   }
 
-  function Pn(t, n, o, r) {
-    var i = Rn(n, o);
-    switch (n) {
-      case 'iframe':
-      case 'object':
-        qt('topLoad', 'load', t);
-        var e = o;
-        break;
-      case 'video':
-      case 'audio':
-        for (e in fe) fe.hasOwnProperty(e) && qt(e, fe[e], t);
-        e = o;
-        break;
-      case 'source':
-        qt('topError', 'error', t), e = o;
-        break;
-      case 'img':
-      case 'image':
-      case 'link':
-        qt('topError', 'error', t), qt('topLoad', 'load', t), e = o;
-        break;
-      case 'form':
-        qt('topReset', 'reset', t), qt('topSubmit', 'submit', t), e = o;
-        break;
-      case 'details':
-        qt('topToggle', 'toggle', t), e = o;
-        break;
-      case 'input':
-        Ct(t, o), e = St(t, o), qt('topInvalid', 'invalid', t), _n(r, 'onChange');
-        break;
-      case 'option':
-        e = mn(t, o);
-        break;
-      case 'select':
-        fn(t, o), e = m({}, o, {
-          value: void 0
-        }), qt('topInvalid', 'invalid', t), _n(r, 'onChange');
-        break;
-      case 'textarea':
-        yn(t, o), e = gn(t, o), qt('topInvalid', 'invalid', t), _n(r, 'onChange');
-        break;
-      default:
-        e = o;
-    }
-    kn(n, e, Qr);
-    var a = e,
-      s;
-    for (s in a)
-      if (a.hasOwnProperty(s)) {
-        var d = a[s];
-        'style' === s ? wn(t, d, Qr) : 'dangerouslySetInnerHTML' === s ? (d = d ? d.__html : void 0, null != d && jr(t, d)) : 'children' === s ? 'string' == typeof d ? ('textarea' !== n || '' !== d) && En(t, d) : 'number' == typeof d && En(t, '' + d) : 'suppressContentEditableWarning' !== s && 'suppressHydrationWarning' !== s && 'autoFocus' !== s && (eo.hasOwnProperty(s) ? null != d && _n(r, s) : null != d && yt(t, s, d, i))
-      }
-    'input' === n ? (dt(t), Et(t, o)) : 'textarea' === n ? (dt(t), Cn(t, o)) : 'option' === n ? null != o.value && t.setAttribute('value', o.value) : 'select' === n ? (t.multiple = !!o.multiple, n = o.value, null == n ? null != o.defaultValue && hn(t, !!o.multiple, o.defaultValue, !0) : hn(t, !!o.multiple, n, !1)) : 'function' == typeof e.onClick && (t.onclick = A)
-  }
-
-  function Dn(t, n, o, r, i) {
-    var e = null;
-    'input' === n ? (o = St(t, o), r = St(t, r), e = []) : 'option' === n ? (o = mn(t, o), r = mn(t, r), e = []) : 'select' === n ? (o = m({}, o, {
-      value: void 0
-    }), r = m({}, r, {
-      value: void 0
-    }), e = []) : 'textarea' === n ? (o = gn(t, o), r = gn(t, r), e = []) : 'function' != typeof o.onClick && 'function' == typeof r.onClick && (t.onclick = A), kn(n, r, Qr), n = t = void 0;
-    var a = null;
-    for (t in o)
-      if (!r.hasOwnProperty(t) && o.hasOwnProperty(t) && null != o[t])
-        if ('style' === t) {
-          var s = o[t];
-          for (n in s) s.hasOwnProperty(n) && (a || (a = {}), a[n] = '')
-        } else 'dangerouslySetInnerHTML' !== t && 'children' !== t && 'suppressContentEditableWarning' !== t && 'suppressHydrationWarning' !== t && 'autoFocus' !== t && (eo.hasOwnProperty(t) ? e || (e = []) : (e = e || []).push(t, null));
-    for (t in r) {
-      var d = r[t];
-      if (s = null == o ? void 0 : o[t], r.hasOwnProperty(t) && d !== s && (null != d || null != s))
-        if ('style' !== t) 'dangerouslySetInnerHTML' === t ? (d = d ? d.__html : void 0, s = s ? s.__html : void 0, null != d && s !== d && (e = e || []).push(t, '' + d)) : 'children' === t ? s === d || 'string' != typeof d && 'number' != typeof d || (e = e || []).push(t, '' + d) : 'suppressContentEditableWarning' !== t && 'suppressHydrationWarning' !== t && (eo.hasOwnProperty(t) ? (null != d && _n(i, t), e || s === d || (e = [])) : (e = e || []).push(t, d));
-        else if (s) {
-        for (n in s) !s.hasOwnProperty(n) || d && d.hasOwnProperty(n) || (a || (a = {}), a[n] = '');
-        for (n in d) d.hasOwnProperty(n) && s[n] !== d[n] && (a || (a = {}), a[n] = d[n])
-      } else a || (e || (e = []), e.push(t, a)), a = d
-    }
-    return a && (e = e || []).push('style', a), e
-  }
-
-  function Mn(t, n, o, r, i) {
-    'input' === o && 'radio' === i.type && null != i.name && bt(t, i), Rn(o, r), r = Rn(o, i);
-    for (var e = 0; e < n.length; e += 2) {
-      var a = n[e],
-        s = n[e + 1];
-      'style' === a ? wn(t, s, Qr) : 'dangerouslySetInnerHTML' === a ? jr(t, s) : 'children' === a ? En(t, s) : yt(t, a, s, r)
-    }
-    'input' === o ? vt(t, i) : 'textarea' === o ? Sn(t, i) : 'select' === o ? (t._wrapperState.initialValue = void 0, n = t._wrapperState.wasMultiple, t._wrapperState.wasMultiple = !!i.multiple, o = i.value, null == o ? n !== !!i.multiple && (null == i.defaultValue ? hn(t, !!i.multiple, i.multiple ? [] : '', !1) : hn(t, !!i.multiple, i.defaultValue, !0)) : hn(t, !!i.multiple, o, !1)) : void 0
-  }
-
-  function An(t, n, o, r, i) {
-    switch (n) {
-      case 'iframe':
-      case 'object':
-        qt('topLoad', 'load', t);
-        break;
-      case 'video':
-      case 'audio':
-        for (var e in fe) fe.hasOwnProperty(e) && qt(e, fe[e], t);
-        break;
-      case 'source':
-        qt('topError', 'error', t);
-        break;
-      case 'img':
-      case 'image':
-      case 'link':
-        qt('topError', 'error', t), qt('topLoad', 'load', t);
-        break;
-      case 'form':
-        qt('topReset', 'reset', t), qt('topSubmit', 'submit', t);
-        break;
-      case 'details':
-        qt('topToggle', 'toggle', t);
-        break;
-      case 'input':
-        Ct(t, o), qt('topInvalid', 'invalid', t), _n(i, 'onChange');
-        break;
-      case 'select':
-        fn(t, o), qt('topInvalid', 'invalid', t), _n(i, 'onChange');
-        break;
-      case 'textarea':
-        yn(t, o), qt('topInvalid', 'invalid', t), _n(i, 'onChange');
-    }
-    for (var a in kn(n, o, Qr), r = null, o) o.hasOwnProperty(a) && (e = o[a], 'children' === a ? 'string' == typeof e ? t.textContent !== e && (r = ['children', e]) : 'number' == typeof e && t.textContent !== '' + e && (r = ['children', '' + e]) : eo.hasOwnProperty(a) && null != e && _n(i, a));
-    switch (n) {
-      case 'input':
-        dt(t), Et(t, o);
-        break;
-      case 'textarea':
-        dt(t), Cn(t, o);
-        break;
-      case 'select':
-      case 'option':
-        break;
-      default:
-        'function' == typeof o.onClick && (t.onclick = A);
-    }
-    return r
-  }
-
-  function In(e, t) {
-    return e.nodeValue !== t
-  }
-
-  function Ln(e) {
-    this._expirationTime = ei.computeUniqueAsyncExpiration(), this._root = e, this._callbacks = this._next = null, this._hasChildren = this._didComplete = !1, this._children = null, this._defer = !0
-  }
-
-  function Fn() {
+  function Br() {
     this._callbacks = null, this._didCommit = !1, this._onCommit = this._onCommit.bind(this)
   }
 
-  function Bn(e, t, n) {
-    this._internalRoot = ei.createContainer(e, t, n)
+  function Nr(e, t, n) {
+    t = Ue(3, null, null, t ? 3 : 0), e = {
+      current: t,
+      containerInfo: e,
+      pendingChildren: null,
+      pingCache: null,
+      earliestPendingTime: 0,
+      latestPendingTime: 0,
+      earliestSuspendedTime: 0,
+      latestSuspendedTime: 0,
+      latestPingedTime: 0,
+      didError: !1,
+      pendingCommitExpirationTime: 0,
+      finishedWork: null,
+      timeoutHandle: -1,
+      context: null,
+      pendingContext: null,
+      hydrate: n,
+      nextExpirationTimeToWorkOn: 0,
+      expirationTime: 0,
+      firstBatch: null,
+      nextScheduledRoot: null
+    }, this._internalRoot = t.stateNode = e
   }
 
   function Nn(e) {
@@ -61834,92 +61832,45 @@ module.exports = function (e) {
 
   function Un(e, t) {
     var n = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : null;
-    return Nn(t) ? void 0 : o('200'), pn(e, t, null, n)
-  }
-  var Wn = String.fromCharCode,
-    Vn = Math.min,
-    Gn = n(183),
-    Kn = n(0),
-    jn = n(782),
-    m = n(184),
-    A = n(182),
-    C = n(781),
-    qn = n(780),
-    Yn = n(779),
-    Xn = n(307);
-  Kn ? void 0 : o('227');
-  var Qn = {
-      _caughtError: null,
-      _hasCaughtError: !1,
-      _rethrowError: null,
-      _hasRethrowError: !1,
-      invokeGuardedCallback: function () {
-        r.apply(Qn, arguments)
-      },
-      invokeGuardedCallbackAndCatchFirstError: function () {
-        if (Qn.invokeGuardedCallback.apply(this, arguments), Qn.hasCaughtError()) {
-          var e = Qn.clearCaughtError();
-          Qn._hasRethrowError || (Qn._hasRethrowError = !0, Qn._rethrowError = e)
+    return Or(t) ? void 0 : s('200'), Lr(e, t, null, n)
         }
-      },
-      rethrowCaughtError: function () {
-        return i.apply(Qn, arguments)
-      },
-      hasCaughtError: function () {
-        return Qn._hasCaughtError
-      },
-      clearCaughtError: function () {
-        if (Qn._hasCaughtError) {
-          var e = Qn._caughtError;
-          return Qn._caughtError = null, Qn._hasCaughtError = !1, e
-        }
-        o('198')
+  var Wr = String.fromCharCode,
+    Vr = Math.min,
+    Gr = o(0),
+    Kr = o(181),
+    n = o(777);
+  Gr ? void 0 : s('227');
+  var r = !1,
+    jr = null,
+    qr = !1,
+    Yr = null,
+    Xr = {
+      onError: function (e) {
+        r = !0, jr = e
       }
     },
-    E = null,
-    $n = {},
-    Zn = [],
-    Jn = {},
-    eo = {},
-    to = {},
-    no = Object.freeze({
-      plugins: Zn,
-      eventNameDispatchConfigs: Jn,
-      registrationNameModules: eo,
-      registrationNameDependencies: to,
-      possibleRegistrationNames: null,
-      injectEventPluginOrder: a,
-      injectEventPluginsByName: d
-    }),
-    oo = null,
-    ro = null,
-    io = null,
-    ao = null,
-    so = {
-      injectEventPluginOrder: a,
-      injectEventPluginsByName: d
+    Qr = null,
+    $r = {},
+    Zr = [],
+    Jr = {},
+    ei = {},
+    ai = {},
+    di = null,
+    ci = null,
+    hi = null,
+    fi = null,
+    yi = {
+      injectEventPluginOrder: function (e) {
+        Qr ? s('101') : void 0, Qr = Array.prototype.slice.call(e), p()
     },
-    lo = Object.freeze({
-      injection: so,
-      getListener: y,
-      runEventsInBatch: S,
-      runExtractedEventsInBatch: v
-    }),
-    co = Math.random().toString(36).slice(2),
-    po = '__reactInternalInstance$' + co,
-    F = '__reactEventHandlers$' + co,
-    uo = Object.freeze({
-      precacheFiberNode: function (e, t) {
-        t[po] = e
-      },
-      getClosestInstanceFromNode: w,
-      getInstanceFromNode: function (e) {
-        return e = e[po], e && (5 === e.tag || 6 === e.tag) ? e : null
-      },
-      getNodeFromInstance: k,
-      getFiberCurrentPropsFromNode: b,
-      updateFiberProps: function (e, t) {
-        e[F] = t
+      injectEventPluginsByName: function (e) {
+        var t = !1,
+          n;
+        for (n in e)
+          if (e.hasOwnProperty(n)) {
+            var o = e[n];
+            $r.hasOwnProperty(n) && $r[n] === o || ($r[n] ? s('102', n) : void 0, $r[n] = o, t = !0)
+          } t && p()
       }
     }),
     mo = Object.freeze({
@@ -61927,32 +61878,28 @@ module.exports = function (e) {
       accumulateTwoPhaseDispatchesSkipTarget: function (e) {
         c(e, P)
       },
-      accumulateEnterLeaveDispatches: B,
-      accumulateDirectDispatches: function (e) {
-        c(e, I)
-      }
-    }),
-    ho = null,
-    fo = {
-      _root: null,
-      _startText: null,
-      _fallbackText: null
+    Si = Math.random().toString(36).slice(2),
+    Ci = '__reactInternalInstance$' + Si,
+    bi = '__reactEventHandlers$' + Si,
+    ki = 'undefined' != typeof window && window.document && window.document.createElement,
+    Ri = {
+      animationend: $('Animation', 'AnimationEnd'),
+      animationiteration: $('Animation', 'AnimationIteration'),
+      animationstart: $('Animation', 'AnimationStart'),
+      transitionend: $('Transition', 'TransitionEnd')
     },
-    M = ['dispatchConfig', '_targetInst', 'nativeEvent', 'isDefaultPrevented', 'isPropagationStopped', '_dispatchListeners', '_dispatchInstances'],
-    go = {
-      type: null,
-      target: null,
-      currentTarget: A.thatReturnsNull,
-      eventPhase: null,
-      bubbles: null,
-      cancelable: null,
-      timeStamp: function (e) {
-        return e.timeStamp || Date.now()
-      },
-      defaultPrevented: null,
-      isTrusted: null
-    };
-  m(K.prototype, {
+    _i = {},
+    xi = {};
+  ki && (xi = document.createElement('div').style, 'AnimationEvent' in window || (delete Ri.animationend.animation, delete Ri.animationiteration.animation, delete Ri.animationstart.animation), 'TransitionEvent' in window || delete Ri.transitionend.transition);
+  var Pi = _e('animationend'),
+    Di = _e('animationiteration'),
+    Mi = _e('animationstart'),
+    Ai = _e('transitionend'),
+    Li = ['abort', 'canplay', 'canplaythrough', 'durationchange', 'emptied', 'encrypted', 'ended', 'error', 'loadeddata', 'loadedmetadata', 'loadstart', 'pause', 'play', 'playing', 'progress', 'ratechange', 'seeked', 'seeking', 'stalled', 'suspend', 'timeupdate', 'volumechange', 'waiting'],
+    Fi = null,
+    Bi = null,
+    Ni = null;
+  Kr(ot.prototype, {
     preventDefault: function () {
       this.defaultPrevented = !0;
       var e = this.nativeEvent;
@@ -61972,7 +61919,21 @@ module.exports = function (e) {
       for (t in e) this[t] = null;
       for (e = 0; e < M.length; e++) this[M[e]] = null
     }
-  }), K.Interface = go, K.extend = function (t) {
+  }), ot.Interface = {
+    type: null,
+    target: null,
+    currentTarget: function () {
+      return null
+    },
+    eventPhase: null,
+    bubbles: null,
+    cancelable: null,
+    timeStamp: function (e) {
+      return e.timeStamp || Date.now()
+    },
+    defaultPrevented: null,
+    isTrusted: null
+  }, ot.extend = function (t) {
     function n() {}
 
     function o() {
@@ -61989,14 +61950,14 @@ module.exports = function (e) {
     So = K.extend({
       data: null
     }),
-    Co = [9, 13, 27, 32],
-    bo = jn.canUseDOM && 'CompositionEvent' in window,
-    vo = null;
-  jn.canUseDOM && 'documentMode' in document && (vo = document.documentMode);
-  var Eo = jn.canUseDOM && 'TextEvent' in window && !vo,
-    wo = jn.canUseDOM && (!bo || vo && 8 < vo && 11 >= vo),
-    ko = ' ',
-    Ro = {
+    zi = [9, 13, 27, 32],
+    Ui = ki && 'CompositionEvent' in window,
+    Ki = null;
+  ki && 'documentMode' in document && (Ki = document.documentMode);
+  var Yi = ki && 'TextEvent' in window && !Ki,
+    Qi = ki && (!Ui || Ki && 8 < Ki && 11 >= Ki),
+    $i = ' ',
+    Zi = {
       beforeInput: {
         phasedRegistrationNames: {
           bubbled: 'onBeforeInput',
@@ -62026,24 +61987,13 @@ module.exports = function (e) {
         dependencies: ['topBlur', 'topCompositionUpdate', 'topKeyDown', 'topKeyPress', 'topKeyUp', 'topMouseDown']
       }
     },
-    _o = !1,
-    To = !1,
-    xo = null,
-    Po = {
-      injectFiberControlledHostComponent: function (e) {
-        xo = e
-      }
-    },
-    Do = null,
-    Mo = null,
-    Ao = Object.freeze({
-      injection: Po,
-      enqueueStateRestore: ye,
-      needsStateRestore: ve,
-      restoreStateIfNeeded: we
-    }),
-    Io = !1,
-    Lo = {
+    Ji = !1,
+    ea = !1,
+    ta = null,
+    na = null,
+    oa = null,
+    ra = !1,
+    ia = {
       color: !0,
       date: !0,
       datetime: !0,
@@ -62060,23 +62010,30 @@ module.exports = function (e) {
       url: !0,
       week: !0
     },
-    Fo = Kn.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,
-    Bo = 'function' == typeof Symbol && Symbol['for'],
-    O = Bo ? Symbol['for']('react.element') : 60103,
-    No = Bo ? Symbol['for']('react.call') : 60104,
-    Oo = Bo ? Symbol['for']('react.return') : 60105,
-    Ho = Bo ? Symbol['for']('react.portal') : 60106,
-    zo = Bo ? Symbol['for']('react.fragment') : 60107,
-    Uo = Bo ? Symbol['for']('react.strict_mode') : 60108,
-    Wo = Bo ? Symbol['for']('react.provider') : 60109,
-    Vo = Bo ? Symbol['for']('react.context') : 60110,
-    Go = Bo ? Symbol['for']('react.async_mode') : 60111,
-    Ko = Bo ? Symbol['for']('react.forward_ref') : 60112,
-    jo = 'function' == typeof Symbol && Symbol.iterator,
-    qo = /^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,
-    Yo = {},
-    Xo = {},
-    Qo = {};
+    aa = Gr.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+  aa.hasOwnProperty('ReactCurrentDispatcher') || (aa.ReactCurrentDispatcher = {
+    current: null
+  });
+  var sa = /^(.*)[\\\/]/,
+    da = 'function' == typeof Symbol && Symbol.for,
+    z = da ? Symbol.for('react.element') : 60103,
+    la = da ? Symbol.for('react.portal') : 60106,
+    ca = da ? Symbol.for('react.fragment') : 60107,
+    pa = da ? Symbol.for('react.strict_mode') : 60108,
+    ua = da ? Symbol.for('react.profiler') : 60114,
+    ma = da ? Symbol.for('react.provider') : 60109,
+    ha = da ? Symbol.for('react.context') : 60110,
+    fa = da ? Symbol.for('react.concurrent_mode') : 60111,
+    ga = da ? Symbol.for('react.forward_ref') : 60112,
+    ya = da ? Symbol.for('react.suspense') : 60113,
+    Sa = da ? Symbol.for('react.memo') : 60115,
+    Ca = da ? Symbol.for('react.lazy') : 60116,
+    ba = 'function' == typeof Symbol && Symbol.iterator,
+    va = /^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,
+    Ea = Object.prototype.hasOwnProperty,
+    wa = {},
+    ka = {},
+    Ta = {};
   ['children', 'dangerouslySetInnerHTML', 'defaultValue', 'defaultChecked', 'innerHTML', 'suppressContentEditableWarning', 'suppressHydrationWarning', 'style'].forEach(function (e) {
     Qo[e] = new gt(e, 0, !1, e, null)
   }), [
@@ -62162,16 +62119,46 @@ module.exports = function (e) {
       buttons: null,
       relatedTarget: function (e) {
         return e.relatedTarget || (e.fromElement === e.srcElement ? e.toElement : e.fromElement)
+      },
+      movementX: function (e) {
+        if ('movementX' in e) return e.movementX;
+        var t = La;
+        return La = e.screenX, Ba ? 'mousemove' === e.type ? e.screenX - t : 0 : (Ba = !0, 0)
+      },
+      movementY: function (e) {
+        if ('movementY' in e) return e.movementY;
+        var t = Fa;
+        return Fa = e.screenY, Na ? 'mousemove' === e.type ? e.screenY - t : 0 : (Na = !0, 0)
       }
     }),
-    ir = {
+    za = Oa.extend({
+      pointerId: null,
+      width: null,
+      height: null,
+      pressure: null,
+      tangentialPressure: null,
+      tiltX: null,
+      tiltY: null,
+      twist: null,
+      pointerType: null,
+      isPrimary: null
+    }),
+    Ua = {
       mouseEnter: {
         registrationName: 'onMouseEnter',
         dependencies: ['topMouseOut', 'topMouseOver']
       },
       mouseLeave: {
         registrationName: 'onMouseLeave',
-        dependencies: ['topMouseOut', 'topMouseOver']
+        dependencies: ['mouseout', 'mouseover']
+      },
+      pointerEnter: {
+        registrationName: 'onPointerEnter',
+        dependencies: ['pointerout', 'pointerover']
+      },
+      pointerLeave: {
+        registrationName: 'onPointerLeave',
+        dependencies: ['pointerout', 'pointerover']
       }
     },
     ar = K.extend({
@@ -62293,12 +62280,88 @@ module.exports = function (e) {
       deltaZ: null,
       deltaMode: null
     }),
-    gr = {},
-    yr = {};
-  ['blur', 'cancel', 'click', 'close', 'contextMenu', 'copy', 'cut', 'doubleClick', 'dragEnd', 'dragStart', 'drop', 'focus', 'input', 'invalid', 'keyDown', 'keyPress', 'keyUp', 'mouseDown', 'mouseUp', 'paste', 'pause', 'play', 'rateChange', 'reset', 'seeked', 'submit', 'touchCancel', 'touchEnd', 'touchStart', 'volumeChange'].forEach(function (e) {
-    Gt(e, !0)
-  }), ['abort', 'animationEnd', 'animationIteration', 'animationStart', 'canPlay', 'canPlayThrough', 'drag', 'dragEnter', 'dragExit', 'dragLeave', 'dragOver', 'durationChange', 'emptied', 'encrypted', 'ended', 'error', 'load', 'loadedData', 'loadedMetadata', 'loadStart', 'mouseMove', 'mouseOut', 'mouseOver', 'playing', 'progress', 'scroll', 'seeking', 'stalled', 'suspend', 'timeUpdate', 'toggle', 'touchMove', 'transitionEnd', 'waiting', 'wheel'].forEach(function (e) {
-    Gt(e, !1)
+    Ja = {},
+    es = {};
+  [
+    ['blur', 'blur'],
+    ['cancel', 'cancel'],
+    ['click', 'click'],
+    ['close', 'close'],
+    ['contextmenu', 'contextMenu'],
+    ['copy', 'copy'],
+    ['cut', 'cut'],
+    ['auxclick', 'auxClick'],
+    ['dblclick', 'doubleClick'],
+    ['dragend', 'dragEnd'],
+    ['dragstart', 'dragStart'],
+    ['drop', 'drop'],
+    ['focus', 'focus'],
+    ['input', 'input'],
+    ['invalid', 'invalid'],
+    ['keydown', 'keyDown'],
+    ['keypress', 'keyPress'],
+    ['keyup', 'keyUp'],
+    ['mousedown', 'mouseDown'],
+    ['mouseup', 'mouseUp'],
+    ['paste', 'paste'],
+    ['pause', 'pause'],
+    ['play', 'play'],
+    ['pointercancel', 'pointerCancel'],
+    ['pointerdown', 'pointerDown'],
+    ['pointerup', 'pointerUp'],
+    ['ratechange', 'rateChange'],
+    ['reset', 'reset'],
+    ['seeked', 'seeked'],
+    ['submit', 'submit'],
+    ['touchcancel', 'touchCancel'],
+    ['touchend', 'touchEnd'],
+    ['touchstart', 'touchStart'],
+    ['volumechange', 'volumeChange']
+  ].forEach(function (e) {
+    rn(e, !0)
+  }), [
+    ['abort', 'abort'],
+    [Pi, 'animationEnd'],
+    [Di, 'animationIteration'],
+    [Mi, 'animationStart'],
+    ['canplay', 'canPlay'],
+    ['canplaythrough', 'canPlayThrough'],
+    ['drag', 'drag'],
+    ['dragenter', 'dragEnter'],
+    ['dragexit', 'dragExit'],
+    ['dragleave', 'dragLeave'],
+    ['dragover', 'dragOver'],
+    ['durationchange', 'durationChange'],
+    ['emptied', 'emptied'],
+    ['encrypted', 'encrypted'],
+    ['ended', 'ended'],
+    ['error', 'error'],
+    ['gotpointercapture', 'gotPointerCapture'],
+    ['load', 'load'],
+    ['loadeddata', 'loadedData'],
+    ['loadedmetadata', 'loadedMetadata'],
+    ['loadstart', 'loadStart'],
+    ['lostpointercapture', 'lostPointerCapture'],
+    ['mousemove', 'mouseMove'],
+    ['mouseout', 'mouseOut'],
+    ['mouseover', 'mouseOver'],
+    ['playing', 'playing'],
+    ['pointermove', 'pointerMove'],
+    ['pointerout', 'pointerOut'],
+    ['pointerover', 'pointerOver'],
+    ['progress', 'progress'],
+    ['scroll', 'scroll'],
+    ['seeking', 'seeking'],
+    ['stalled', 'stalled'],
+    ['suspend', 'suspend'],
+    ['timeupdate', 'timeUpdate'],
+    ['toggle', 'toggle'],
+    ['touchmove', 'touchMove'],
+    [Ai, 'transitionEnd'],
+    ['waiting', 'waiting'],
+    ['wheel', 'wheel']
+  ].forEach(function (e) {
+    rn(e, !1)
   });
   var Sr = {
       eventTypes: gr,
@@ -62545,89 +62608,13 @@ module.exports = function (e) {
       extractEvents: function (t, n, o, r) {
         var i = void 0,
           e = void 0;
-        if (bo) b: 'topCompositionStart' === t ? i = Ro.compositionStart : 'topCompositionEnd' === t ? i = Ro.compositionEnd : 'topCompositionUpdate' === t ? i = Ro.compositionUpdate : void 0, i = void 0;
-        else To ? Y(t, o) && (i = Ro.compositionEnd) : 'topKeyDown' === t && 229 === o.keyCode && (i = Ro.compositionStart);
-        return i ? (wo && (To || i !== Ro.compositionStart ? i === Ro.compositionEnd && To && (e = z()) : (fo._root = r, fo._startText = G(), To = !0)), i = yo.getPooled(i, n, o, r), e ? i.data = e : (e = Q(o), null !== e && (i.data = e)), L(i), e = i) : e = null, (t = Eo ? $(t, o) : Z(t, o)) ? (n = So.getPooled(Ro.beforeInput, n, o, r), n.data = t, L(n)) : n = null, null === e ? n : null === n ? e : [e, n]
+        if (Ui) b: 'compositionstart' === t ? i = Zi.compositionStart : 'compositionend' === t ? i = Zi.compositionEnd : 'compositionupdate' === t ? i = Zi.compositionUpdate : void 0, i = void 0;
+        else ea ? at(t, o) && (i = Zi.compositionEnd) : 'keydown' === t && 229 === o.keyCode && (i = Zi.compositionStart);
+        return i ? (Qi && 'ko' !== o.locale && (ea || i !== Zi.compositionStart ? i === Zi.compositionEnd && ea && (e = et()) : (Fi = r, Bi = 'value' in Fi ? Fi.value : Fi.textContent, ea = !0)), i = Oi.getPooled(i, n, o, r), e ? i.data = e : (e = st(o), null !== e && (i.data = e)), q(i), e = i) : e = null, (t = Yi ? dt(t, o) : lt(t, o)) ? (n = Hi.getPooled(Zi.beforeInput, n, o, r), n.data = t, q(n)) : n = null, null === e ? n : null === n ? e : [e, n]
       }
     }
   });
-  var te = null,
-    Rr = null;
-  new Set;
-  var _r = void 0,
-    Me = void 0,
-    Ne = Array.isArray,
-    Ue = We(!0),
-    Ye = We(!1),
-    Ze = {},
-    Tr = Object.freeze({
-      default: cn
-    }),
-    xr = Tr && cn || Tr,
-    Pr = xr['default'] ? xr['default'] : xr,
-    Dr = 'object' == typeof performance && 'function' == typeof performance.now,
-    Mr = void 0;
-  Mr = Dr ? function () {
-    return performance.now()
-  } : function () {
-    return Date.now()
-  };
-  var Ar, Ir;
-  if (!jn.canUseDOM) Ar = function (e) {
-    return setTimeout(function () {
-      e({
-        timeRemaining: function () {
-          return Infinity
-        },
-        didTimeout: !1
-      })
-    })
-  }, Ir = function (e) {
-    clearTimeout(e)
-  };
-  else if ('function' != typeof requestIdleCallback || 'function' != typeof cancelIdleCallback) {
-    var Lr = null,
-      Fr = !1,
-      Br = -1,
-      Nr = !1,
-      Or = 0,
-      Hr = 33,
-      zr = 33,
-      Ur;
-    Ur = Dr ? {
-      didTimeout: !1,
-      timeRemaining: function () {
-        var e = Or - performance.now();
-        return 0 < e ? e : 0
-      }
-    } : {
-      didTimeout: !1,
-      timeRemaining: function () {
-        var e = Or - Date.now();
-        return 0 < e ? e : 0
-      }
-    };
-    var Wr = '__reactIdleCallback$' + Math.random().toString(36).slice(2);
-    window.addEventListener('message', function (e) {
-      if (e.source === window && e.data === Wr) {
-        if (Fr = !1, e = Mr(), !(0 >= Or - e)) Ur.didTimeout = !1;
-        else if (-1 != Br && Br <= e) Ur.didTimeout = !0;
-        else return void(Nr || (Nr = !0, requestAnimationFrame(Vr)));
-        Br = -1, e = Lr, Lr = null, null !== e && e(Ur)
-      }
-    }, !1);
-    var Vr = function (e) {
-      Nr = !1;
-      var t = e - Or + zr;
-      t < zr && Hr < zr ? (8 > t && (t = 8), zr = t < Hr ? Hr : t) : Hr = t, Or = e + zr, Fr || (Fr = !0, window.postMessage(Wr, '*'))
-    };
-    Ar = function (e, t) {
-      return Lr = e, null != t && 'number' == typeof t.timeout && (Br = Mr() + t.timeout), Nr || (Nr = !0, requestAnimationFrame(Vr)), 0
-    }, Ir = function () {
-      Lr = null, Fr = !1, Br = -1
-    }
-  } else Ar = window.requestIdleCallback, Ir = window.cancelIdleCallback;
-  var Gr = {
+  var hs = {
       html: 'http://www.w3.org/1999/xhtml',
       mathml: 'http://www.w3.org/1998/Math/MathML',
       svg: 'http://www.w3.org/2000/svg'
@@ -62714,21 +62701,282 @@ module.exports = function (e) {
       track: !0,
       wbr: !0
     }),
-    Qr = A.thatReturns(''),
-    $r = Object.freeze({
-      createElement: Tn,
-      createTextNode: xn,
-      setInitialProperties: Pn,
-      diffProperties: Dn,
-      updateProperties: Mn,
-      diffHydratedProperties: An,
-      diffHydratedText: In,
-      warnForUnmatchedText: function () {},
-      warnForDeletedHydratableElement: function () {},
-      warnForDeletedHydratableText: function () {},
-      warnForInsertedHydratedElement: function () {},
-      warnForInsertedHydratedText: function () {},
-      restoreControlledState: function (t, n, r) {
+    pe = null,
+    fs = null,
+    ve = 'function' == typeof setTimeout ? setTimeout : void 0,
+    ye = 'function' == typeof clearTimeout ? clearTimeout : void 0,
+    ze = n.unstable_scheduleCallback,
+    Ae = n.unstable_cancelCallback;
+  new Set;
+  var Be = [],
+    Fe = -1,
+    Ge = {},
+    gs = {
+      current: Ge
+    },
+    H = {
+      current: !1
+    },
+    I = Ge,
+    Ie = null,
+    ys = null,
+    Ss = new Gr.Component().refs,
+    Cs = {
+      isMounted: function (e) {
+        return !!(e = e._reactInternalFiber) && 2 === Jt(e)
+      },
+      enqueueSetState: function (t, n, o) {
+        t = t._reactInternalFiber;
+        var r = Sr();
+        r = sr(r, t);
+        var i = _o(r);
+        i.payload = n, void 0 !== o && null !== o && (i.callback = o), tr(), Po(t, i), pr(t, r)
+      },
+      enqueueReplaceState: function (t, n, o) {
+        t = t._reactInternalFiber;
+        var r = Sr();
+        r = sr(r, t);
+        var i = _o(r);
+        i.tag = rd, i.payload = n, void 0 !== o && null !== o && (i.callback = o), tr(), Po(t, i), pr(t, r)
+      },
+      enqueueForceUpdate: function (e, t) {
+        e = e._reactInternalFiber;
+        var n = Sr();
+        n = sr(n, e);
+        var o = _o(n);
+        o.tag = id, void 0 !== t && null !== t && (o.callback = t), tr(), Po(e, o), pr(e, n)
+      }
+    },
+    bs = Array.isArray,
+    vs = Nn(!0),
+    Es = Nn(!1),
+    ws = {},
+    ks = {
+      current: ws
+    },
+    N = {
+      current: ws
+    },
+    Ts = {
+      current: ws
+    },
+    Rs = 0,
+    _s = 2,
+    xs = 4,
+    Ps = 8,
+    Ds = 16,
+    Ms = 32,
+    As = 64,
+    Is = 128,
+    Ls = aa.ReactCurrentDispatcher,
+    Fs = 0,
+    Bs = null,
+    Ns = null,
+    O = null,
+    P = null,
+    Os = null,
+    Q = null,
+    Hs = 0,
+    zs = null,
+    Us = 0,
+    Ws = !1,
+    Vs = null,
+    Gs = 0,
+    Ks = {
+      readContext: ko,
+      useCallback: Vn,
+      useContext: Vn,
+      useEffect: Vn,
+      useImperativeHandle: Vn,
+      useLayoutEffect: Vn,
+      useMemo: Vn,
+      useReducer: Vn,
+      useRef: Vn,
+      useState: Vn,
+      useDebugValue: Vn
+    },
+    js = {
+      readContext: ko,
+      useCallback: function (e, t) {
+        return qn().memoizedState = [e, void 0 === t ? null : t], e
+      },
+      useContext: ko,
+      useEffect: function (e, t) {
+        return Zn(516, Is | As, e, t)
+      },
+      useImperativeHandle: function (e, t, n) {
+        return n = null !== n && void 0 !== n ? n.concat([e]) : null, Zn(4, xs | Ms, eo.bind(null, t, e), n)
+      },
+      useLayoutEffect: function (e, t) {
+        return Zn(4, xs | Ms, e, t)
+      },
+      useMemo: function (e, t) {
+        var n = qn();
+        return t = void 0 === t ? null : t, e = e(), n.memoizedState = [e, t], e
+      },
+      useReducer: function (e, t, n) {
+        var o = qn();
+        return t = void 0 === n ? t : n(t), o.memoizedState = o.baseState = t, e = o.queue = {
+          last: null,
+          dispatch: null,
+          eagerReducer: e,
+          eagerState: t
+        }, e = e.dispatch = no.bind(null, Bs, e), [o.memoizedState, e]
+      },
+      useRef: function (e) {
+        var t = qn();
+        return e = {
+          current: e
+        }, t.memoizedState = e
+      },
+      useState: function (e) {
+        var t = qn();
+        return 'function' == typeof e && (e = e()), t.memoizedState = t.baseState = e, e = t.queue = {
+          last: null,
+          dispatch: null,
+          eagerReducer: Xn,
+          eagerState: e
+        }, e = e.dispatch = no.bind(null, Bs, e), [t.memoizedState, e]
+      },
+      useDebugValue: to
+    },
+    qs = {
+      readContext: ko,
+      useCallback: function (e, t) {
+        var n = Yn();
+        t = void 0 === t ? null : t;
+        var o = n.memoizedState;
+        return null !== o && null !== t && Gn(t, o[1]) ? o[0] : (n.memoizedState = [e, t], e)
+      },
+      useContext: ko,
+      useEffect: function (e, t) {
+        return Jn(516, Is | As, e, t)
+      },
+      useImperativeHandle: function (e, t, n) {
+        return n = null !== n && void 0 !== n ? n.concat([e]) : null, Jn(4, xs | Ms, eo.bind(null, t, e), n)
+      },
+      useLayoutEffect: function (e, t) {
+        return Jn(4, xs | Ms, e, t)
+      },
+      useMemo: function (e, t) {
+        var n = Yn();
+        t = void 0 === t ? null : t;
+        var o = n.memoizedState;
+        return null !== o && null !== t && Gn(t, o[1]) ? o[0] : (e = e(), n.memoizedState = [e, t], e)
+      },
+      useReducer: Qn,
+      useRef: function () {
+        return Yn().memoizedState
+      },
+      useState: function (e) {
+        return Qn(Xn, e)
+      },
+      useDebugValue: to
+    },
+    Ys = null,
+    Xs = null,
+    Qs = !1,
+    $s = aa.ReactCurrentOwner,
+    Zs = !1,
+    Js = {
+      current: null
+    },
+    ed = null,
+    td = null,
+    nd = null,
+    od = 0,
+    rd = 1,
+    id = 2,
+    ad = 3,
+    sd = !1,
+    dd = void 0,
+    ld = void 0,
+    cd = void 0,
+    pd = void 0;
+  dd = function (e, t) {
+    for (var n = t.child; null !== n;) {
+      if (5 === n.tag || 6 === n.tag) e.appendChild(n.stateNode);
+      else if (4 !== n.tag && null !== n.child) {
+        n.child.return = n, n = n.child;
+        continue
+      }
+      if (n === t) break;
+      for (; null === n.sibling;) {
+        if (null === n.return || n.return === t) return;
+        n = n.return
+      }
+      n.sibling.return = n.return, n = n.sibling
+    }
+  }, ld = function () {}, cd = function (t, n, o, r, i) {
+    var e = t.memoizedProps;
+    if (e !== r) {
+      var a = n.stateNode;
+      On(ks.current), t = null;
+      'input' === o ? (e = It(a, e), r = It(a, r), t = []) : 'option' === o ? (e = vn(a, e), r = vn(a, r), t = []) : 'select' === o ? (e = Kr({}, e, {
+        value: void 0
+      }), r = Kr({}, r, {
+        value: void 0
+      }), t = []) : 'textarea' === o ? (e = ae(a, e), r = ae(a, r), t = []) : 'function' != typeof e.onClick && 'function' == typeof r.onClick && (a.onclick = se);
+      oe(o, r), a = o = void 0;
+      var s = null;
+      for (o in e)
+        if (!r.hasOwnProperty(o) && e.hasOwnProperty(o) && null != e[o])
+          if ('style' === o) {
+            var d = e[o];
+            for (a in d) d.hasOwnProperty(a) && (s || (s = {}), s[a] = '')
+          } else 'dangerouslySetInnerHTML' !== o && 'children' !== o && 'suppressContentEditableWarning' !== o && 'suppressHydrationWarning' !== o && 'autoFocus' !== o && (ei.hasOwnProperty(o) ? t || (t = []) : (t = t || []).push(o, null));
+      for (o in r) {
+        var l = r[o];
+        if (d = null == e ? void 0 : e[o], r.hasOwnProperty(o) && l !== d && (null != l || null != d))
+          if ('style' !== o) 'dangerouslySetInnerHTML' === o ? (l = l ? l.__html : void 0, d = d ? d.__html : void 0, null != l && d !== l && (t = t || []).push(o, '' + l)) : 'children' === o ? d === l || 'string' != typeof l && 'number' != typeof l || (t = t || []).push(o, '' + l) : 'suppressContentEditableWarning' !== o && 'suppressHydrationWarning' !== o && (ei.hasOwnProperty(o) ? (null != l && re(i, o), t || d === l || (t = [])) : (t = t || []).push(o, l));
+          else if (d) {
+          for (a in d) !d.hasOwnProperty(a) || l && l.hasOwnProperty(a) || (s || (s = {}), s[a] = '');
+          for (a in l) l.hasOwnProperty(a) && d[a] !== l[a] && (s || (s = {}), s[a] = l[a])
+        } else s || (t || (t = []), t.push(o, s)), s = l
+      }
+      s && (t = t || []).push('style', s), i = t, (n.updateQueue = i) && No(n)
+    }
+  }, pd = function (e, t, n, o) {
+    n !== o && No(t)
+  };
+  var md = 'function' == typeof WeakSet ? WeakSet : Set,
+    hd = 'function' == typeof WeakMap ? WeakMap : Map,
+    fd = aa.ReactCurrentDispatcher,
+    gd = aa.ReactCurrentOwner,
+    yd = 1073741822,
+    Cd = !1,
+    bd = null,
+    T = null,
+    vd = 0,
+    U = -1,
+    Ed = !1,
+    wd = null,
+    V = !1,
+    kd = null,
+    Td = null,
+    Rd = null,
+    _d = null,
+    Pd = null,
+    li = null,
+    Y = 0,
+    mi = void 0,
+    ni = !1,
+    W = null,
+    oi = 0,
+    Z = 0,
+    gi = !1,
+    pi = null,
+    qi = !1,
+    X = !1,
+    Dd = null,
+    si = n.unstable_now(),
+    ti = 1073741822 - (0 | si / 10),
+    ui = ti,
+    vi = 50,
+    ji = 0,
+    ii = null,
+    wi = !1;
+  ta = function (t, n, o) {
         switch (n) {
           case 'input':
             if (vt(t, r), n = r.name, 'radio' === r.type && null != n) {
@@ -62840,172 +63088,8 @@ module.exports = function (e) {
             start: t.selectionStart,
             end: t.selectionEnd
           };
-          else a: {
-            var o = window.getSelection && window.getSelection();
-            if (o && 0 !== o.rangeCount) {
-              n = o.anchorNode;
-              var r = o.anchorOffset,
-                i = o.focusNode;
-              o = o.focusOffset;
-              try {
-                n.nodeType, i.nodeType
-              } catch (e) {
-                n = null;
-                break a
-              }
-              var e = 0,
-                s = -1,
-                d = -1,
-                c = 0,
-                u = 0,
-                m = t,
-                l = null;
-              b: for (;;) {
-                for (var p;;) {
-                  if (m !== n || 0 !== r && 3 !== m.nodeType || (s = e + r), m !== i || 0 !== o && 3 !== m.nodeType || (d = e + o), 3 === m.nodeType && (e += m.nodeValue.length), null === (p = m.firstChild)) break;
-                  l = m, m = p
-                }
-                for (;;) {
-                  if (m === t) break b;
-                  if (l === n && ++c === r && (s = e), l === i && ++u === o && (d = e), null !== (p = m.nextSibling)) break;
-                  m = l, l = m.parentNode
-                }
-                m = p
-              }
-              n = -1 === s || -1 === d ? null : {
-                start: s,
-                end: d
-              }
-            } else n = null
-          }
-          n = n || {
-            start: 0,
-            end: 0
-          }
-        } else n = null;
-        Jr = {
-          focusedElem: t,
-          selectionRange: n
-        }, jt(!1)
-      },
-      resetAfterCommit: function () {
-        var t = Jr,
-          n = C(),
-          o = t.focusedElem,
-          r = t.selectionRange;
-        if (n !== o && Yn(document.documentElement, o)) {
-          if (me(o))
-            if (n = r.start, t = r.end, void 0 === t && (t = n), 'selectionStart' in o) o.selectionStart = n, o.selectionEnd = Vn(t, o.value.length);
-            else if (window.getSelection) {
-            n = window.getSelection();
-            var i = o[H()].length;
-            t = Vn(r.start, i), r = void 0 === r.end ? t : Vn(r.end, i), !n.extend && t > r && (i = r, r = t, t = i), i = le(o, t);
-            var e = le(o, r);
-            if (i && e && (1 !== n.rangeCount || n.anchorNode !== i.node || n.anchorOffset !== i.offset || n.focusNode !== e.node || n.focusOffset !== e.offset)) {
-              var s = document.createRange();
-              s.setStart(i.node, i.offset), n.removeAllRanges(), t > r ? (n.addRange(s), n.extend(e.node, e.offset)) : (s.setEnd(e.node, e.offset), n.addRange(s))
-            }
-          }
-          for (n = [], t = o; t = t.parentNode;) 1 === t.nodeType && n.push({
-            element: t,
-            left: t.scrollLeft,
-            top: t.scrollTop
-          });
-          for (o.focus(), o = 0; o < n.length; o++) t = n[o], t.element.scrollLeft = t.left, t.element.scrollTop = t.top
-        }
-        Jr = null, jt(Zr), Zr = null
-      },
-      createInstance: function (t, n, o, r, i) {
-        return t = Tn(t, n, o, r), t[po] = i, t[F] = n, t
-      },
-      appendInitialChild: function (e, t) {
-        e.appendChild(t)
-      },
-      finalizeInitialChildren: function (e, t, n, o) {
-        return Pn(e, t, n, o), On(t, n)
-      },
-      prepareUpdate: function (t, n, o, r, i) {
-        return Dn(t, n, o, r, i)
-      },
-      shouldSetTextContent: function (e, t) {
-        return 'textarea' === e || 'string' == typeof t.children || 'number' == typeof t.children || 'object' == typeof t.dangerouslySetInnerHTML && null !== t.dangerouslySetInnerHTML && 'string' == typeof t.dangerouslySetInnerHTML.__html
-      },
-      shouldDeprioritizeSubtree: function (e, t) {
-        return !!t.hidden
-      },
-      createTextInstance: function (e, t, n, o) {
-        return e = xn(e, t), e[po] = o, e
-      },
-      now: Mr,
-      mutation: {
-        commitMount: function (e, t, n) {
-          On(t, n) && e.focus()
-        },
-        commitUpdate: function (t, n, o, r, i) {
-          t[F] = i, Mn(t, n, o, r, i)
-        },
-        resetTextContent: function (e) {
-          En(e, '')
-        },
-        commitTextUpdate: function (e, t, n) {
-          e.nodeValue = n
-        },
-        appendChild: function (e, t) {
-          e.appendChild(t)
-        },
-        appendChildToContainer: function (e, t) {
-          8 === e.nodeType ? e.parentNode.insertBefore(t, e) : e.appendChild(t)
-        },
-        insertBefore: function (e, t, n) {
-          e.insertBefore(t, n)
-        },
-        insertInContainerBefore: function (e, t, n) {
-          8 === e.nodeType ? e.parentNode.insertBefore(t, n) : e.insertBefore(t, n)
-        },
-        removeChild: function (e, t) {
-          e.removeChild(t)
-        },
-        removeChildFromContainer: function (e, t) {
-          8 === e.nodeType ? e.parentNode.removeChild(t) : e.removeChild(t)
-        }
-      },
-      hydration: {
-        canHydrateInstance: function (e, t) {
-          return 1 !== e.nodeType || t.toLowerCase() !== e.nodeName.toLowerCase() ? null : e
-        },
-        canHydrateTextInstance: function (e, t) {
-          return '' === t || 3 !== e.nodeType ? null : e
-        },
-        getNextHydratableSibling: function (e) {
-          for (e = e.nextSibling; e && 1 !== e.nodeType && 3 !== e.nodeType;) e = e.nextSibling;
-          return e
-        },
-        getFirstHydratableChild: function (e) {
-          for (e = e.firstChild; e && 1 !== e.nodeType && 3 !== e.nodeType;) e = e.nextSibling;
-          return e
-        },
-        hydrateInstance: function (t, n, o, r, i, e) {
-          return t[po] = e, t[F] = o, An(t, n, o, i, r)
-        },
-        hydrateTextInstance: function (e, t, n) {
-          return e[po] = n, In(e, t)
-        },
-        didNotMatchHydratedContainerTextInstance: function () {},
-        didNotMatchHydratedTextInstance: function () {},
-        didNotHydrateContainerInstance: function () {},
-        didNotHydrateInstance: function () {},
-        didNotFindHydratableContainerInstance: function () {},
-        didNotFindHydratableContainerTextInstance: function () {},
-        didNotFindHydratableInstance: function () {},
-        didNotFindHydratableTextInstance: function () {}
-      },
-      scheduleDeferredCallback: Ar,
-      cancelDeferredCallback: Ir
-    }),
-    X = ei;
-  _e = X.batchedUpdates, et = X.interactiveUpdates, tt = X.flushInteractiveUpdates;
-  var ti = {
-    createPortal: Un,
+  var Md = {
+    createPortal: Ur,
     findDOMNode: function (e) {
       return null == e ? null : 1 === e.nodeType ? e : ei.findHostInstance(e)
     },
@@ -63028,24 +63112,50 @@ module.exports = function (e) {
     unstable_createPortal: function () {
       return Un.apply(void 0, arguments)
     },
-    unstable_batchedUpdates: ei.batchedUpdates,
-    unstable_deferredUpdates: ei.deferredUpdates,
-    flushSync: ei.flushSync,
-    unstable_flushControlled: ei.flushControlled,
-    __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {
-      EventPluginHub: lo,
-      EventPluginRegistry: no,
-      EventPropagators: mo,
-      ReactControlledComponent: Ao,
-      ReactDOMComponentTree: uo,
-      ReactDOMEventListener: Er
+    unstable_batchedUpdates: xr,
+    unstable_interactiveUpdates: Dr,
+    flushSync: function (e, t) {
+      ni ? s('187') : void 0;
+      var n = qi;
+      qi = !0;
+      try {
+        return ur(e, t)
+      } finally {
+        qi = n, wr(1073741823, !1)
+      }
     },
     unstable_createRoot: function (e, t) {
-      return new Bn(e, !0, null != t && !0 === t.hydrate)
+      return Or(e) ? void 0 : s('299', 'unstable_createRoot'), new Nr(e, !0, null != t && !0 === t.hydrate)
+    },
+    unstable_flushControlled: function (e) {
+      var t = qi;
+      qi = !0;
+      try {
+        ur(e)
+      } finally {
+        (qi = t) || ni || wr(1073741823, !1)
+      }
+    },
+    __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {
+      Events: [g, _, b, yi.injectEventPluginsByName, Jr, q, function (e) {
+        c(e, j)
+      }, pt, ut, ln, w]
     }
   };
-  ei.injectIntoDevTools({
-    findFiberByHostInstance: w,
+  (function (e) {
+    var t = e.findFiberByHostInstance;
+    return Se(Kr({}, e, {
+      overrideProps: null,
+      currentDispatcherRef: aa.ReactCurrentDispatcher,
+      findHostInstanceByFiber: function (e) {
+        return e = nn(e), null === e ? null : e.stateNode
+      },
+      findFiberByHostInstance: function (e) {
+        return t ? t(e) : null
+      }
+    }))
+  })({
+    findFiberByHostInstance: R,
     bundleType: 0,
     version: '16.3.2',
     rendererPackageName: 'react-dom'
@@ -63065,9 +63175,23 @@ module.exports = function (e) {
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
    */
-  function s(t) {
-    for (var n = arguments.length - 1, o = 'http://reactjs.org/docs/error-decoder.html?invariant=' + t, e = 0; e < n; e++) o += '&args[]=' + encodeURIComponent(arguments[e + 1]);
-    F(!1, 'Minified React error #' + t + '; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ', o)
+  function s(t, n, o, r, i, e, s, d) {
+    if (!t) {
+      if (t = void 0, void 0 === n) t = Error('Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.');
+      else {
+        var c = [o, r, i, e, s, d],
+          l = 0;
+        t = Error(n.replace(/%s/g, function () {
+          return c[l++]
+        })), t.name = 'Invariant Violation'
+      }
+      throw t.framesToPop = 1, t
+    }
+  }
+
+  function _(e) {
+    for (var t = arguments.length - 1, n = 'https://reactjs.org/docs/error-decoder.html?invariant=' + e, o = 0; o < t; o++) n += '&args[]=' + encodeURIComponent(arguments[o + 1]);
+    s(!1, 'Minified React error #' + e + '; visit %s for the full message or use the non-minified dev environment for full errors and additional helpful warnings. ', n)
   }
 
   function a(t, o, r) {
@@ -63099,9 +63223,20 @@ module.exports = function (e) {
       $$typeof: r,
       type: n,
       key: s,
-      ref: p,
-      props: e,
-      _owner: H.current
+      ref: d,
+      props: i,
+      _owner: le.current
+    }
+  }
+
+  function m(e, t) {
+    return {
+      $$typeof: n,
+      type: e.type,
+      key: t,
+      ref: e.ref,
+      props: e.props,
+      _owner: e._owner
     }
   }
 
@@ -63153,20 +63288,23 @@ module.exports = function (e) {
           case U:
             d = !0;
         }
+    if (e) return r(i, t, '' === o ? '.' + U(t, 0) : o), 1;
+    if (e = 0, o = '' === o ? '.' : o + ':', Array.isArray(t))
+      for (var d = 0; d < t.length; d++) {
+        s = t[d];
+        var l = o + U(s, d);
+        e += R(s, l, r, i)
+      } else if (null === t || 'object' != typeof t ? l = null : (l = de && t[de] || t['@@iterator'], l = 'function' == typeof l ? l : null), 'function' == typeof l)
+        for (t = l.call(t), d = 0; !(s = t.next()).done;) s = s.value, l = o + U(s, d++), e += R(s, l, r, i);
+      else 'object' === s && (r = '' + t, _('31', '[object Object]' === r ? 'object with keys {' + Object.keys(t).join(', ') + '}' : r, ''));
+    return e
     }
-    if (d) return o(e, t, '' === n ? '.' + R(t, 0) : n), 1;
-    if (d = 0, n = '' === n ? '.' : n + ':', Array.isArray(t))
-      for (var l = 0; l < t.length; l++) {
-        i = t[l];
-        var c = n + R(i, l);
-        d += _(i, c, o, e)
-      } else if (null === t || 'undefined' == typeof t ? c = null : (c = Z && t[Z] || t['@@iterator'], c = 'function' == typeof c ? c : null), 'function' == typeof c)
-        for (t = c.call(t), l = 0; !(i = t.next()).done;) i = i.value, c = n + R(i, l++), d += _(i, c, o, e);
-      else 'object' === i && (o = '' + t, s('31', '[object Object]' === o ? 'object with keys {' + Object.keys(t).join(', ') + '}' : o, ''));
-    return d
+
+  function S(e, t, n) {
+    return null == e ? 0 : R(e, '', t, n)
   }
 
-  function R(e, t) {
+  function U(e, t) {
     return 'object' == typeof e && null !== e && null != e.key ? f(e.key) : t.toString(36)
   }
 
@@ -63174,83 +63312,92 @@ module.exports = function (e) {
     e.func.call(e.context, t, e.count++)
   }
 
-  function S(n, o, i) {
-    var e = n.result,
-      a = n.keyPrefix;
-    n = n.func.call(n.context, o, n.count++), Array.isArray(n) ? T(n, e, i, p.thatReturnsArgument) : null != n && (h(n) && (o = a + (!n.key || o && o.key === n.key ? '' : ('' + n.key).replace(K, '$&/') + '/') + i, n = {
-      $$typeof: r,
-      type: n.type,
-      key: o,
-      ref: n.ref,
-      props: n.props,
-      _owner: n._owner
-    }), e.push(n))
+  function T(t, n, o) {
+    var r = t.result,
+      i = t.keyPrefix;
+    t = t.func.call(t.context, n, t.count++), Array.isArray(t) ? j(t, r, o, function (e) {
+      return e
+    }) : null != t && (h(t) && (t = m(t, i + (!t.key || n && n.key === t.key ? '' : ('' + t.key).replace(L, '$&/') + '/') + o)), r.push(t))
   }
 
-  function T(t, n, o, e, r) {
-    var i = '';
-    null != o && (i = ('' + o).replace(K, '$&/') + '/'), n = C(n, i, e, r), null == t || _(t, '', S, n), k(n)
+  function j(t, n, o, r, i) {
+    var e = '';
+    null != o && (e = ('' + o).replace(L, '$&/') + '/'), n = F(n, e, r, i), S(t, T, n), B(n)
   }
-  var P = i(184),
-    F = i(183),
-    n = i(307),
-    p = i(182),
-    b = 'function' == typeof Symbol && Symbol['for'],
-    r = b ? Symbol['for']('react.element') : 60103,
-    U = b ? Symbol['for']('react.portal') : 60106,
-    u = b ? Symbol['for']('react.fragment') : 60107,
-    V = b ? Symbol['for']('react.strict_mode') : 60108,
-    j = b ? Symbol['for']('react.provider') : 60109,
-    q = b ? Symbol['for']('react.context') : 60110,
-    Q = b ? Symbol['for']('react.async_mode') : 60111,
-    $ = b ? Symbol['for']('react.forward_ref') : 60112,
-    Z = 'function' == typeof Symbol && Symbol.iterator,
-    B = {
+
+  function V() {
+    var e = H.current;
+    return null === e ? _('307') : void 0, e
+  }
+  var W = i(181),
+    b = 'function' == typeof Symbol && Symbol.for,
+    n = b ? Symbol.for('react.element') : 60103,
+    Q = b ? Symbol.for('react.portal') : 60106,
+    q = b ? Symbol.for('react.fragment') : 60107,
+    $ = b ? Symbol.for('react.strict_mode') : 60108,
+    ee = b ? Symbol.for('react.profiler') : 60114,
+    te = b ? Symbol.for('react.provider') : 60109,
+    ne = b ? Symbol.for('react.context') : 60110,
+    oe = b ? Symbol.for('react.concurrent_mode') : 60111,
+    re = b ? Symbol.for('react.forward_ref') : 60112,
+    ie = b ? Symbol.for('react.suspense') : 60113,
+    ae = b ? Symbol.for('react.memo') : 60115,
+    se = b ? Symbol.for('react.lazy') : 60116,
+    de = 'function' == typeof Symbol && Symbol.iterator,
+    A = {
       isMounted: function () {
         return !1
       },
       enqueueForceUpdate: function () {},
       enqueueReplaceState: function () {},
       enqueueSetState: function () {}
-    };
+    },
+    C = {};
   a.prototype.isReactComponent = {}, a.prototype.setState = function (e, t) {
-    'object' != typeof e && 'function' != typeof e && null != e ? s('85') : void 0, this.updater.enqueueSetState(this, e, t, 'setState')
+    'object' != typeof e && 'function' != typeof e && null != e ? _('85') : void 0, this.updater.enqueueSetState(this, e, t, 'setState')
   }, a.prototype.forceUpdate = function (e) {
     this.updater.enqueueForceUpdate(this, e, 'forceUpdate')
   }, d.prototype = a.prototype;
   var D = l.prototype = new d;
-  D.constructor = l, P(D, a.prototype), D.isPureReactComponent = !0;
+  D.constructor = l, W(D, a.prototype), D.isPureReactComponent = !0;
   var H = {
       current: null
     },
-    ee = Object.prototype.hasOwnProperty,
-    J = {
+    le = {
+      current: null
+    },
+    ce = Object.prototype.hasOwnProperty,
+    K = {
       key: !0,
       ref: !0,
       __self: !0,
       __source: !0
     },
-    K = /\/+/g,
-    N = [],
-    O = {
+    L = /\/+/g,
+    O = [],
+    P = {
       Children: {
-        map: function (t, n, o) {
-          if (null == t) return t;
-          var e = [];
-          return T(t, e, null, n, o), e
+        map: function (e, t, n) {
+          if (null == e) return e;
+          var o = [];
+          return j(e, o, null, t, n), o
         },
-        forEach: function (t, n, o) {
-          return null == t ? t : void(n = C(null, null, n, o), null == t || _(t, '', g, n), k(n))
+        forEach: function (e, t, n) {
+          return null == e ? e : void(t = F(null, null, t, n), S(e, g, t), B(t))
         },
         count: function (e) {
-          return null == e ? 0 : _(e, '', p.thatReturnsNull, null)
+          return S(e, function () {
+            return null
+          }, null)
         },
         toArray: function (e) {
           var t = [];
-          return T(e, t, null, p.thatReturnsArgument), t
+          return j(e, t, null, function (e) {
+            return e
+          }), t
         },
         only: function (e) {
-          return h(e) ? void 0 : s('143'), e
+          return h(e) ? void 0 : _('143'), e
         }
       },
       createRef: function () {
@@ -63262,53 +63409,96 @@ module.exports = function (e) {
       PureComponent: l,
       createContext: function (e, t) {
         return void 0 === t && (t = null), e = {
-          $$typeof: q,
+          $$typeof: ne,
           _calculateChangedBits: t,
-          _defaultValue: e,
           _currentValue: e,
-          _changedBits: 0,
+          _currentValue2: e,
+          _threadCount: 0,
           Provider: null,
           Consumer: null
         }, e.Provider = {
-          $$typeof: j,
+          $$typeof: te,
           _context: e
         }, e.Consumer = e
       },
       forwardRef: function (e) {
         return {
-          $$typeof: $,
+          $$typeof: re,
           render: e
         }
       },
-      Fragment: u,
-      StrictMode: V,
-      unstable_AsyncMode: Q,
-      createElement: c,
-      cloneElement: function (n, o, i) {
-        null === n || void 0 === n ? s('267', n) : void 0;
-        var e = P({}, n.props),
-          a = n.key,
-          p = n.ref,
-          u = n._owner,
-          m;
-        if (null != o) {
-          void 0 !== o.ref && (p = o.ref, u = H.current), void 0 !== o.key && (a = '' + o.key);
-          var c;
-          for (m in n.type && n.type.defaultProps && (c = n.type.defaultProps), o) ee.call(o, m) && !J.hasOwnProperty(m) && (e[m] = void 0 === o[m] && void 0 !== c ? c[m] : o[m])
+      lazy: function (e) {
+        return {
+          $$typeof: se,
+          _ctor: e,
+          _status: -1,
+          _result: null
         }
-        if (m = arguments.length - 2, 1 === m) e.children = i;
-        else if (1 < m) {
-          c = Array(m);
-          for (var y = 0; y < m; y++) c[y] = arguments[y + 2];
-          e.children = c
+      },
+      memo: function (e, t) {
+        return {
+          $$typeof: ae,
+          type: e,
+          compare: void 0 === t ? null : t
+        }
+      },
+      useCallback: function (e, t) {
+        return V().useCallback(e, t)
+      },
+      useContext: function (e, t) {
+        return V().useContext(e, t)
+      },
+      useEffect: function (e, t) {
+        return V().useEffect(e, t)
+      },
+      useImperativeHandle: function (e, t, n) {
+        return V().useImperativeHandle(e, t, n)
+      },
+      useDebugValue: function () {},
+      useLayoutEffect: function (e, t) {
+        return V().useLayoutEffect(e, t)
+      },
+      useMemo: function (e, t) {
+        return V().useMemo(e, t)
+      },
+      useReducer: function (e, t, n) {
+        return V().useReducer(e, t, n)
+      },
+      useRef: function (e) {
+        return V().useRef(e)
+      },
+      useState: function (e) {
+        return V().useState(e)
+      },
+      Fragment: q,
+      StrictMode: $,
+      Suspense: ie,
+      createElement: c,
+      cloneElement: function (t, o, r) {
+        null === t || void 0 === t ? _('267', t) : void 0;
+        var i = W({}, t.props),
+          a = t.key,
+          s = t.ref,
+          d = t._owner,
+          u;
+        if (null != o) {
+          void 0 !== o.ref && (s = o.ref, d = le.current), void 0 !== o.key && (a = '' + o.key);
+          var c;
+          for (u in t.type && t.type.defaultProps && (c = t.type.defaultProps), o) ce.call(o, u) && !K.hasOwnProperty(u) && (i[u] = void 0 === o[u] && void 0 !== c ? c[u] : o[u])
+        }
+        if (u = arguments.length - 2, 1 === u) i.children = r;
+        else if (1 < u) {
+          c = Array(u);
+          for (var l = 0; l < u; l++) c[l] = arguments[l + 2];
+          i.children = c
         }
         return {
-          $$typeof: r,
-          type: n.type,
+          $$typeof: n,
+          type: t.type,
           key: a,
-          ref: p,
-          props: e,
-          _owner: u
+          ref: s,
+          props: i,
+          _owner: d
         }
       },
       createFactory: function (e) {
@@ -63316,24 +63506,27 @@ module.exports = function (e) {
         return t.type = e, t
       },
       isValidElement: h,
-      version: '16.3.2',
+      version: '16.8.4',
+      unstable_ConcurrentMode: oe,
+      unstable_Profiler: ee,
       __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {
-        ReactCurrentOwner: H,
-        assign: P
+        ReactCurrentDispatcher: H,
+        ReactCurrentOwner: le,
+        assign: W
       }
     },
-    te = Object.freeze({
-      default: O
-    }),
-    X = te && O || te;
-  e.exports = X['default'] ? X['default'] : X
+    pe = {
+      default: P
+    },
+    Y = pe && P || pe;
+  e.exports = Y.default || Y
 }, function (e) {
   e.exports = require('module')
 }, function (e, t, n) {
   function o(e, t, n, o, r) {
     this.children = [], this.sourceContents = {}, this.line = null == e ? null : e, this.column = null == t ? null : t, this.source = null == n ? null : n, this.name = null == r ? null : r, this[s] = !0, null != o && this.add(o)
   }
-  var r = n(310).SourceMapGenerator,
+  var r = n(309).SourceMapGenerator,
     a = n(108),
     i = /(\r?\n)/,
     s = '$$$isSourceNode$$$';
@@ -63556,10 +63749,10 @@ module.exports = function (e) {
     })
   }
   var d = n(108),
-    s = n(788),
-    l = n(308).ArraySet,
-    c = n(309),
-    p = n(787).quickSort;
+    s = n(783),
+    l = n(307).ArraySet,
+    c = n(308),
+    p = n(782).quickSort;
   o.fromSourceMap = function (e) {
     return r.fromSourceMap(e)
   }, o.prototype._version = 3, o.prototype.__generatedMappings = null, Object.defineProperty(o.prototype, '_generatedMappings', {
@@ -63852,7 +64045,7 @@ module.exports = function (e) {
     return t <= e && e <= 90 ? e - t : n <= e && e <= 122 ? e - n + 26 : o <= e && e <= 57 ? e - o + 52 : e == 43 ? 62 : e == 47 ? 63 : -1
   }
 }, function (e, t, n) {
-  t.SourceMapGenerator = n(310).SourceMapGenerator, t.SourceMapConsumer = n(789).SourceMapConsumer, t.SourceNode = n(786).SourceNode
+  t.SourceMapGenerator = n(309).SourceMapGenerator, t.SourceMapConsumer = n(784).SourceMapConsumer, t.SourceNode = n(781).SourceNode
 }, function (e, t, n) {
   function o() {
     return !('browser' !== w) || 'node' !== w && 'undefined' != typeof window && 'function' == typeof XMLHttpRequest && !(window.require && window.module && window.process && 'renderer' === window.process.type)
@@ -63892,10 +64085,10 @@ module.exports = function (e) {
   }
 
   function d(e) {
-    var t = R[e.source];
+    var t = T[e.source];
     if (!t) {
       var n = D(e.source);
-      n ? (t = R[e.source] = {
+      n ? (t = T[e.source] = {
         url: n.url,
         map: new y(n.map)
       }, t.map.sourcesContent && t.map.sources.forEach(function (e, n) {
@@ -63904,7 +64097,7 @@ module.exports = function (e) {
           var r = a(t.url, e);
           k[r] = o
         }
-      })) : t = R[e.source] = {
+      })) : t = T[e.source] = {
         url: null,
         map: null
       }
@@ -63995,7 +64188,7 @@ module.exports = function (e) {
   }
 
   function m(e, t) {
-    return E && (k = {}, R = {}), e + t.map(function (e) {
+    return E && (k = {}, T = {}), e + t.map(function (e) {
       return '\n    at ' + u(e)
     }).join('')
   }
@@ -64036,7 +64229,7 @@ module.exports = function (e) {
       return e.apply(this, arguments)
     }
   }
-  var y = n(792).SourceMapConsumer,
+  var y = n(787).SourceMapConsumer,
     S = n(1),
     C;
   try {
@@ -64047,12 +64240,12 @@ module.exports = function (e) {
     E = !1,
     w = 'auto',
     k = {},
-    R = {},
-    _ = /^data:application\/json[^,]+base64,/,
-    T = [],
+    T = {},
+    R = /^data:application\/json[^,]+base64,/,
+    _ = [],
     x = [],
-    P = i(T);
-  T.push(function (e) {
+    P = i(_);
+  _.push(function (e) {
     if (e = e.trim(), e in k) return k[e];
     var t = null;
     if (!C) {
@@ -64072,7 +64265,7 @@ module.exports = function (e) {
     var t = s(e);
     if (!t) return null;
     var n;
-    if (_.test(t)) {
+    if (R.test(t)) {
       var o = t.slice(t.indexOf(',') + 1);
       n = new Buffer(o, 'base64').toString(), t = e
     } else t = a(e, t), n = P(t);
@@ -64082,14 +64275,14 @@ module.exports = function (e) {
     } : null
   }), t.wrapCallSite = u, t.getErrorSource = h, t.mapSourcePosition = d, t.retrieveSourceMap = D, t.install = function (e) {
     if (e = e || {}, e.environment && (w = e.environment, -1 === ['node', 'browser', 'auto'].indexOf(w))) throw new Error('environment ' + w + ' was unknown. Available options are {auto, browser, node}');
-    if (e.retrieveFile && (e.overrideRetrieveFile && (T.length = 0), T.unshift(e.retrieveFile)), e.retrieveSourceMap && (e.overrideRetrieveSourceMap && (x.length = 0), x.unshift(e.retrieveSourceMap)), e.hookRequire && !o()) {
+    if (e.retrieveFile && (e.overrideRetrieveFile && (_.length = 0), _.unshift(e.retrieveFile)), e.retrieveSourceMap && (e.overrideRetrieveSourceMap && (x.length = 0), x.unshift(e.retrieveSourceMap)), e.hookRequire && !o()) {
       var t;
       try {
-        t = n(785)
+        t = n(780)
       } catch (e) {}
       var i = t.prototype._compile;
       i.__sourceMapSupport || (t.prototype._compile = function (e, t) {
-        return k[t] = e, R[t] = void 0, i.call(this, e, t)
+        return k[t] = e, T[t] = void 0, i.call(this, e, t)
       }, t.prototype._compile.__sourceMapSupport = !0)
     }
     if (E || (E = !!('emptyCacheBetweenOperations' in e) && e.emptyCacheBetweenOperations), b || (b = !0, Error.prepareStackTrace = m), !v) {
@@ -64112,7 +64305,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(311);
+  const o = n(310);
   t.formatError = function (e, t) {
     return e = o.withSourceMappedStack(e), e.stack ? t ? `${t}\n${e.stack}` : e.stack.trim() : t ? `${t}\n${e.name}: ${e.message}` : `${e.name}: ${e.message}`
   }
@@ -64121,7 +64314,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(795);
+  const o = n(790);
   t.formatLogMessage = function (e, t) {
     return t ? o.formatError(t, e) : e
   }
@@ -64135,7 +64328,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(22),
-    i = n(796),
+    i = n(791),
     a = global;
   a.log = {
     error(e, t) {
@@ -64155,34 +64348,34 @@ module.exports = function (e) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), n(797);
+  }), n(792);
   const o = n(0),
     r = n(43),
     i = n(1),
     a = n(22),
     s = n(306),
-    d = n(339),
+    d = n(338),
     l = n(69),
-    c = n(185),
+    c = n(182),
     p = n(27),
     u = n(84),
-    m = n(185),
-    h = n(331),
-    f = n(330),
-    g = n(26),
+    m = n(182),
+    h = n(330),
+    f = n(329),
+    g = n(25),
     y = n(131),
     S = n(84),
-    C = n(311),
-    b = n(329),
-    v = n(328),
-    E = n(327),
-    w = n(326),
-    k = n(233);
-  !1, h.shellNeedsPatching(process) && h.updateEnvironmentForProcess(), C.enableSourceMaps(), process.env.LOCAL_GIT_DIRECTORY = i.resolve(__dirname, 'git'), n(322);
-  const R = performance.now();
-  n(321);
-  let _ = null,
-    T = null,
+    C = n(310),
+    b = n(328),
+    v = n(327),
+    E = n(326),
+    w = n(325),
+    k = n(231);
+  !1, h.shellNeedsPatching(process) && h.updateEnvironmentForProcess(), C.enableSourceMaps(), process.env.LOCAL_GIT_DIRECTORY = i.resolve(__dirname, 'git'), n(321);
+  const T = performance.now();
+  n(320);
+  let R = null,
+    _ = null,
     x = null;
   const P = (e, t = {}, n) => {
     e = C.withSourceMappedStack(e), console.error('Uncaught exception', e); {
@@ -64191,7 +64384,7 @@ module.exports = function (e) {
         guid: S.getGUID()
       }, t);
       try {
-        _ && (null !== _.currentBanner && (o.currentBanner = _.currentBanner.type), null !== _.currentPopup && (o.currentPopup = `${_.currentPopup.type}`), null !== _.selectedState && (o.selectedState = `${_.selectedState.type}`, _.selectedState.type === p.SelectionType.Repository && (o.selectedRepositorySection = `${_.selectedState.state.selectedSection}`)), null !== _.currentFoldout && (o.currentFoldout = `${_.currentFoldout.type}`), _.showWelcomeFlow && (o.inWelcomeFlow = 'true'), 1 !== _.windowZoomFactor && (o.windowZoomFactor = `${_.windowZoomFactor}`), 0 < _.errors.length && (o.activeAppErrors = `${_.errors.length}`), null != T && null != x && (o.lastUnhandledRejection = T, o.lastUnhandledRejectionTime = x.toString()), o.repositoryCount = `${_.repositories.length}`, o.windowState = _.windowState, o.accounts = `${_.accounts.length}`, !1)
+        R && (null !== R.currentBanner && (o.currentBanner = R.currentBanner.type), null !== R.currentPopup && (o.currentPopup = `${R.currentPopup.type}`), null !== R.selectedState && (o.selectedState = `${R.selectedState.type}`, R.selectedState.type === p.SelectionType.Repository && (o.selectedRepositorySection = `${R.selectedState.state.selectedSection}`)), null !== R.currentFoldout && (o.currentFoldout = `${R.currentFoldout.type}`), R.showWelcomeFlow && (o.inWelcomeFlow = 'true'), 1 !== R.windowZoomFactor && (o.windowZoomFactor = `${R.windowZoomFactor}`), 0 < R.errors.length && (o.activeAppErrors = `${R.errors.length}`), null != _ && null != x && (o.lastUnhandledRejection = _, o.lastUnhandledRejectionTime = x.toString()), o.repositoryCount = `${R.repositories.length}`, o.windowState = R.windowState, o.accounts = `${R.accounts.length}`, !1)
       } catch (e) {}
       g.sendErrorReport(e, o, n)
     }
@@ -64202,7 +64395,7 @@ module.exports = function (e) {
     P(e, t, !0)
   }), window.addEventListener('unhandledrejection', (e) => {
     if (null !== e.reason && e.reason !== void 0) try {
-      T = `${e.reason}`, x = new Date
+      _ = `${e.reason}`, x = new Date
     } catch (e) {}
   });
   const D = new l.GitHubUserStore(new c.GitHubUserDatabase('GitHubUserDatabase')),
@@ -64219,14 +64412,14 @@ module.exports = function (e) {
     U = new w.CommitStatusStore(F),
     W = new l.AppStore(D, M, A, I, L, F, B, O, H, z);
   W.onDidUpdate((e) => {
-    _ = e
+    R = e
   });
   const V = new d.Dispatcher(W, H, I, U);
-  V.registerErrorHandler(d.defaultErrorHandler), V.registerErrorHandler(d.upstreamAlreadyExistsHandler), V.registerErrorHandler(d.externalEditorErrorHandler), V.registerErrorHandler(d.openShellErrorHandler), V.registerErrorHandler(d.mergeConflictHandler), V.registerErrorHandler(d.lfsAttributeMismatchHandler), V.registerErrorHandler(d.insufficientGitHubRepoPermissions), V.registerErrorHandler(d.schannelUnableToCheckRevocationForCertificate), V.registerErrorHandler(d.gitAuthenticationErrorHandler), V.registerErrorHandler(d.pushNeedsPullHandler), V.registerErrorHandler(d.samlReauthRequired), V.registerErrorHandler(d.backgroundTaskHandler), V.registerErrorHandler(d.missingRepositoryHandler), V.registerErrorHandler(d.localChangesOverwrittenHandler), V.registerErrorHandler(d.rebaseConflictsHandler), V.registerErrorHandler(d.refusedWorkflowUpdate), document.body.classList.add(`platform-${'win32'}`), V.setAppFocusState(a.remote.getCurrentWindow().isFocused()), a.ipcRenderer.on('focus', () => {
+  V.registerErrorHandler(d.defaultErrorHandler), V.registerErrorHandler(d.upstreamAlreadyExistsHandler), V.registerErrorHandler(d.externalEditorErrorHandler), V.registerErrorHandler(d.openShellErrorHandler), V.registerErrorHandler(d.mergeConflictHandler), V.registerErrorHandler(d.lfsAttributeMismatchHandler), V.registerErrorHandler(d.insufficientGitHubRepoPermissions), V.registerErrorHandler(d.schannelUnableToCheckRevocationForCertificate), V.registerErrorHandler(d.gitAuthenticationErrorHandler), V.registerErrorHandler(d.pushNeedsPullHandler), V.registerErrorHandler(d.samlReauthRequired), V.registerErrorHandler(d.backgroundTaskHandler), V.registerErrorHandler(d.missingRepositoryHandler), V.registerErrorHandler(d.localChangesOverwrittenHandler), V.registerErrorHandler(d.rebaseConflictsHandler), V.registerErrorHandler(d.refusedWorkflowUpdate), V.registerErrorHandler(d.gitCloneErrorHandler), document.body.classList.add(`platform-${'win32'}`), V.setAppFocusState(a.remote.getCurrentWindow().isFocused()), a.ipcRenderer.on('focus', async () => {
     const {
       selectedState: e
     } = W.getState();
-    e && e.type !== p.SelectionType.CloningRepository && V.refreshRepository(e.repository), V.setAppFocusState(!0)
+    e && e.type !== p.SelectionType.CloningRepository && (await V.refreshTags(e.repository), await V.refreshRepository(e.repository)), V.setAppFocusState(!0)
   }), a.ipcRenderer.on('blur', () => {
     V.setAccessKeyHighlightState(!1), V.setAppFocusState(!1)
   }), a.ipcRenderer.on('url-action', (e, {
@@ -64239,7 +64432,7 @@ module.exports = function (e) {
     repositoryStateManager: H,
     issuesStore: A,
     gitHubUserStore: D,
-    startTime: R
+    startTime: T
   }), document.getElementById('desktop-app-container'))
 }]);
 //# sourceMappingURL=renderer.js.map

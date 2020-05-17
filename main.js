@@ -28,7 +28,7 @@ module.exports = function (e) {
     return n.d(t, 'a', t), t
   }, n.o = function (e, n) {
     return Object.prototype.hasOwnProperty.call(e, n)
-  }, n.p = '', n(n.s = 134)
+  }, n.p = '', n(n.s = 135)
 }([function (e) {
   e.exports = require('path')
 }, function (e, n, t) {
@@ -163,9 +163,9 @@ module.exports = function (e) {
     e && (m('RETRY', e[0].name, e[1]), e[0].apply(null, e[1]))
   }
   var a = t(5),
-    s = t(104),
-    d = t(102),
-    l = t(101),
+    s = t(105),
+    d = t(103),
+    l = t(102),
     c = t(6),
     p, u;
   'function' == typeof Symbol && 'function' == typeof Symbol.for ? (p = Symbol.for('graceful-fs.queue'), u = Symbol.for('graceful-fs.previous')) : (p = '___graceful-fs.queue', u = '___graceful-fs.previous');
@@ -221,8 +221,8 @@ module.exports = function (e) {
 }, function (e, n, t) {
   'use strict';
   const r = t(2).fromCallback,
-    o = r(t(99)),
-    i = t(98);
+    o = r(t(100)),
+    i = t(99);
   e.exports = {
     mkdirs: o,
     mkdirsSync: i,
@@ -251,10 +251,10 @@ module.exports = function (e) {
   e.exports = require('stream')
 }, function (e, n, t) {
   var r = t(6),
-    o = t(129),
-    i = t(128),
+    o = t(130),
+    i = t(129),
     a = t(5),
-    s = t(127).StringDecoder,
+    s = t(128).StringDecoder,
     d = t(8).Stream,
     l = t(21);
   n.setLevels = function (e, t, r) {
@@ -503,9 +503,9 @@ module.exports = function (e) {
   }
   var s = {};
   e.exports = s, s.themes = {};
-  var a = s.styles = t(125),
+  var a = s.styles = t(126),
     d = Object.defineProperties;
-  s.supportsColor = t(124), 'undefined' == typeof s.enabled && (s.enabled = s.supportsColor), s.stripColors = s.strip = function (e) {
+  s.supportsColor = t(125), 'undefined' == typeof s.enabled && (s.enabled = s.supportsColor), s.stripColors = s.strip = function (e) {
     return ('' + e).replace(/\x1B\[\d+m/g, '')
   };
   var l = s.stylize = function (e, n) {
@@ -529,7 +529,7 @@ module.exports = function (e) {
     m = d(function () {}, u);
   s.setTheme = function (e) {
     if ('string' == typeof e) try {
-      return s.themes[e] = t(123)(e), i(s.themes[e]), s.themes[e]
+      return s.themes[e] = t(124)(e), i(s.themes[e]), s.themes[e]
     } catch (e) {
       return console.log(e), e
     } else i(e)
@@ -538,7 +538,7 @@ module.exports = function (e) {
     var t = n.split('');
     return t = t.map(e), t.join('')
   };
-  for (var f in s.trap = t(122), s.zalgo = t(121), s.maps = {}, s.maps.america = t(120), s.maps.zebra = t(119), s.maps.rainbow = t(118), s.maps.random = t(117), s.maps)(function (e) {
+  for (var f in s.trap = t(123), s.zalgo = t(122), s.maps = {}, s.maps.america = t(121), s.maps.zebra = t(120), s.maps.rainbow = t(119), s.maps.random = t(118), s.maps)(function (e) {
     s[e] = function (n) {
       return g(s.maps[e], n)
     }
@@ -557,9 +557,9 @@ module.exports = function (e) {
   e.exports = require('events')
 }, function (e, n, t) {
   var r = n;
-  r.version = t(132).version, r.transports = t(131);
+  r.version = t(133).version, r.transports = t(132);
   var o = t(9);
-  r.hash = o.hash, r.clone = o.clone, r.longestElement = o.longestElement, r.exception = t(45), r.config = t(21), r.addColors = r.config.addColors, r.Container = t(106).Container, r.Logger = t(105).Logger, r.Transport = t(12).Transport, r.loggers = new r.Container;
+  r.hash = o.hash, r.clone = o.clone, r.longestElement = o.longestElement, r.exception = t(45), r.config = t(21), r.addColors = r.config.addColors, r.Container = t(107).Container, r.Logger = t(106).Logger, r.Transport = t(12).Transport, r.loggers = new r.Container;
   var i = new r.Logger({
     transports: [new r.transports.Console]
   });
@@ -600,7 +600,7 @@ module.exports = function (e) {
 }, function (e, n, t) {
   'use strict';
   const r = t(2).fromCallback,
-    o = t(95);
+    o = t(96);
   e.exports = {
     remove: r(o),
     removeSync: o.sync
@@ -633,7 +633,7 @@ module.exports = function (e) {
   }
 }, function (e, n, t) {
   'use strict';
-  e.exports = Object.assign({}, t(43), t(41), t(37), t(96), t(94), t(88), t(3), t(85), t(84), t(83), t(7), t(16));
+  e.exports = Object.assign({}, t(43), t(41), t(37), t(97), t(95), t(89), t(3), t(86), t(85), t(84), t(7), t(16));
   const r = t(5);
   Object.getOwnPropertyDescriptor(r, 'promises') && Object.defineProperty(e.exports, 'promises', {
     get() {
@@ -647,7 +647,7 @@ module.exports = function (e) {
       for (var t = Object.keys(n), r = 0; r < t.length; r++) e[t[r]] = n[t[r]]
     }), e
   }
-  var o = t(126);
+  var o = t(127);
   o.enabled = !0;
   var i = n,
     a = n.allColors = {};
@@ -663,7 +663,7 @@ module.exports = function (e) {
       a[e] = s
     } else t = o[a[e]](t);
     return t
-  }, i.cli = t(116), i.npm = t(115), i.syslog = t(114), i.addColors(i.cli.colors), i.addColors(i.npm.colors), i.addColors(i.syslog.colors)
+  }, i.cli = t(117), i.npm = t(116), i.syslog = t(115), i.addColors(i.cli.colors), i.addColors(i.npm.colors), i.addColors(i.syslog.colors)
 }, function (e) {
   e.exports = require('child_process')
 }, function (e, n, t) {
@@ -706,7 +706,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(n, '__esModule', {
     value: !0
-  }), r(t(63)), r(t(24)), r(t(59)), r(t(58))
+  }), r(t(64)), r(t(24)), r(t(60)), r(t(59))
 }, function (e, n) {
   'use strict';
   Object.defineProperty(n, '__esModule', {
@@ -747,7 +747,7 @@ module.exports = function (e) {
   }
 }, function (e, n, t) {
   (function () {
-    n.Emitter = t(69), n.Disposable = t(17), n.CompositeDisposable = t(68)
+    n.Emitter = t(70), n.Disposable = t(17), n.CompositeDisposable = t(69)
   }).call(this)
 }, function (e, n, t) {
   function r() {
@@ -794,7 +794,7 @@ module.exports = function (e) {
     var n = e >> 1;
     return 1 == (1 & e) ? -n : n
   }
-  var i = t(77),
+  var i = t(78),
     a = 5,
     s = 1 << a,
     d = s - 1,
@@ -824,7 +824,7 @@ module.exports = function (e) {
   var o = t(31),
     a = t(11),
     i = t(30).ArraySet,
-    s = t(76).MappingList;
+    s = t(77).MappingList;
   r.prototype._version = 3, r.fromSourceMap = function (e) {
     var n = e.sourceRoot,
       t = new r({
@@ -954,8 +954,8 @@ module.exports = function (e) {
   });
   const a = t(0),
     s = t(5),
-    d = t(80),
-    l = t(79),
+    d = t(81),
+    l = t(80),
     c = ['renderer.js', 'main.js'],
     p = new WeakMap;
   let u;
@@ -1118,7 +1118,7 @@ module.exports = function (e) {
   'use strict';
   const r = t(2).fromCallback;
   e.exports = {
-    copy: r(t(97))
+    copy: r(t(98))
   }
 }, function (e) {
   'use strict';
@@ -1186,7 +1186,7 @@ module.exports = function (e) {
 }, function (e, n, t) {
   'use strict';
   e.exports = {
-    copySync: t(100)
+    copySync: t(101)
   }
 }, function (e) {
   e.exports = require('assert')
@@ -1235,7 +1235,7 @@ module.exports = function (e) {
   n.getLogDirectoryPath = r
 }, function (e, n, t) {
   var r = t(10),
-    o = t(107),
+    o = t(108),
     i = n;
   i.getAllInfo = function (e) {
     return {
@@ -2018,7 +2018,7 @@ module.exports = function (e) {
     s = t(15),
     d = t(44),
     l = t(20);
-  t(82);
+  t(83);
   const c = 14;
   let p = null;
   n.log = async function (e, n) {
@@ -2030,6 +2030,15 @@ module.exports = function (e) {
         })
       })
     } catch (e) {}
+  }
+}, function (e, n) {
+  'use strict';
+  Object.defineProperty(n, '__esModule', {
+    value: !0
+  }), n.sendNonFatalException = function (e, n) {
+    process.emit('send-non-fatal-exception', n, {
+      kind: e
+    })
   }
 }, function (e, n, t) {
   'use strict';
@@ -2163,7 +2172,7 @@ module.exports = function (e) {
   const o = t(4),
     i = t(25),
     a = t(34),
-    s = t(50);
+    s = t(51);
   let d = !1;
   n.showUncaughtException = r
 }, function (e, n, t) {
@@ -2174,7 +2183,7 @@ module.exports = function (e) {
   const r = t(4);
   n.reportError = async function (e, n, t) {
     const o = new Map;
-    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', '539849ed767a2f1edc6809e347ee4f639c8dfa6f'), o.set('version', r.app.getVersion()), n)
+    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', '736ef36605adafe4da19b322a87a05c9afab837d'), o.set('version', r.app.getVersion()), n)
       for (const e of Object.keys(n)) o.set(e, n[e]);
     const i = {
         method: 'POST',
@@ -2320,7 +2329,7 @@ module.exports = function (e) {
   const f = t(0),
     h = t(10),
     y = t(20),
-    _ = t(53),
+    _ = t(54),
     b = f.resolve(process.execPath, '..'),
     S = f.resolve(b, '..'),
     w = f.resolve(f.join(S, 'Update.exe')),
@@ -2350,7 +2359,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = t(18),
-    i = t(55);
+    i = t(56);
   n.parseAppURL = function (e) {
     const n = o.parse(e, !0),
       t = n.hostname,
@@ -2542,9 +2551,9 @@ module.exports = function (e) {
   }, n.enableNDDBBanner = function () {
     return r()
   }, n.enableGitTagsDisplay = function () {
-    return t()  
+    return !0
   }, n.enableGitTagsCreation = function () {
-    return t()
+    return !0
   }
 }, function (e, n) {
   'use strict';
@@ -2904,12 +2913,12 @@ module.exports = function (e) {
   });
   const c = t(4),
     p = t(24),
-    u = t(62),
+    u = t(63),
     m = t(44),
     g = t(20),
     f = t(23),
-    h = t(61),
-    y = t(60),
+    h = t(62),
+    y = t(61),
     _ = '在命令提示符下打开',
     b = '创建拉取请求',
     S = '显示拉取请求',
@@ -3267,7 +3276,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = t(0),
-    o = t(66);
+    o = t(67);
   n.encodePathAsUrl = function (...e) {
     const n = r.resolve(...e);
     return o(n)
@@ -3374,12 +3383,12 @@ module.exports = function (e) {
   });
   const r = t(4),
     o = t(29),
-    i = t(67),
+    i = t(68),
     a = t(28),
-    s = t(65),
+    s = t(66),
     d = t(26),
     l = t(0),
-    c = t(64);
+    c = t(65);
   class p {
     constructor() {
       this.emitter = new o.Emitter, this._loadTime = null, this._rendererReadyTime = null, this.minWidth = 960, this.minHeight = 660;
@@ -3745,10 +3754,10 @@ module.exports = function (e) {
     })
   }
   var d = t(11),
-    s = t(74),
+    s = t(75),
     l = t(30).ArraySet,
     c = t(31),
-    p = t(73).quickSort;
+    p = t(74).quickSort;
   r.fromSourceMap = function (e) {
     return o.fromSourceMap(e)
   }, r.prototype._version = 3, r.prototype.__generatedMappings = null, Object.defineProperty(r.prototype, '_generatedMappings', {
@@ -4041,7 +4050,7 @@ module.exports = function (e) {
     return n <= e && e <= 90 ? e - n : t <= e && e <= 122 ? e - t + 26 : r <= e && e <= 57 ? e - r + 52 : e == 43 ? 62 : e == 47 ? 63 : -1
   }
 }, function (e, n, t) {
-  n.SourceMapGenerator = t(32).SourceMapGenerator, n.SourceMapConsumer = t(75).SourceMapConsumer, n.SourceNode = t(72).SourceNode
+  n.SourceMapGenerator = t(32).SourceMapGenerator, n.SourceMapConsumer = t(76).SourceMapConsumer, n.SourceNode = t(73).SourceNode
 }, function (e, n, t) {
   function r() {
     return !('browser' !== x) || 'node' !== x && 'undefined' != typeof window && 'function' == typeof XMLHttpRequest && !(window.require && window.module && window.process && 'renderer' === window.process.type)
@@ -4225,7 +4234,7 @@ module.exports = function (e) {
       return e.apply(this, arguments)
     }
   }
-  var y = t(78).SourceMapConsumer,
+  var y = t(79).SourceMapConsumer,
     _ = t(0),
     b;
   try {
@@ -4274,7 +4283,7 @@ module.exports = function (e) {
     if (e.retrieveFile && (e.overrideRetrieveFile && (M.length = 0), M.unshift(e.retrieveFile)), e.retrieveSourceMap && (e.overrideRetrieveSourceMap && (L.length = 0), L.unshift(e.retrieveSourceMap)), e.hookRequire && !r()) {
       var n;
       try {
-        n = t(71)
+        n = t(72)
       } catch (e) {}
       var i = n.prototype._compile;
       i.__sourceMapSupport || (n.prototype._compile = function (e, n) {
@@ -4733,7 +4742,7 @@ module.exports = function (e) {
   'use strict';
   const r = t(2).fromCallback,
     o = t(19);
-  o.outputJson = r(t(87)), o.outputJsonSync = t(86), o.outputJSON = o.outputJson, o.outputJSONSync = o.outputJsonSync, o.writeJSON = o.writeJson, o.writeJSONSync = o.writeJsonSync, o.readJSON = o.readJson, o.readJSONSync = o.readJsonSync, e.exports = o
+  o.outputJson = r(t(88)), o.outputJsonSync = t(87), o.outputJSON = o.outputJson, o.outputJSONSync = o.outputJsonSync, o.writeJSON = o.writeJson, o.writeJSONSync = o.writeJsonSync, o.readJSON = o.readJson, o.readJSONSync = o.readJsonSync, e.exports = o
 }, function (e, n, t) {
   'use strict';
   const r = t(1);
@@ -4806,10 +4815,10 @@ module.exports = function (e) {
     a = t(3),
     s = a.mkdirs,
     d = a.mkdirsSync,
-    l = t(90),
+    l = t(91),
     c = l.symlinkPaths,
     p = l.symlinkPathsSync,
-    u = t(89),
+    u = t(90),
     m = u.symlinkType,
     g = u.symlinkTypeSync,
     f = t(7).pathExists;
@@ -4895,9 +4904,9 @@ module.exports = function (e) {
   }
 }, function (e, n, t) {
   'use strict';
-  const r = t(93),
-    o = t(92),
-    i = t(91);
+  const r = t(94),
+    o = t(93),
+    i = t(92);
   e.exports = {
     createFile: r.createFile,
     createFileSync: r.createFileSync,
@@ -5446,7 +5455,7 @@ module.exports = function (e) {
 }, function (e) {
   e.exports = require('constants')
 }, function (e, n, t) {
-  var r = t(103),
+  var r = t(104),
     o = process.cwd,
     i = null,
     a = process.env.GRACEFUL_FS_PLATFORM || 'win32';
@@ -5953,8 +5962,8 @@ module.exports = function (e) {
 }, function (e, n, t) {
   var r = t(6),
     o = t(15),
-    i = t(110),
-    a = t(109),
+    i = t(111),
+    a = t(110),
     s = t(8).Stream,
     d = t(12).Transport,
     l = n.Http = function (e) {
@@ -6059,7 +6068,7 @@ module.exports = function (e) {
     d = t(46),
     l = t(9),
     c = t(12).Transport,
-    p = t(112).isWritable,
+    p = t(113).isWritable,
     u = t(8).Stream,
     m = t(10),
     g = n.File = function (e) {
@@ -6445,7 +6454,7 @@ module.exports = function (e) {
   }
   n.keys = function () {
     return []
-  }, n.resolve = n, e.exports = n, n.id = 123
+  }, n.resolve = n, e.exports = n, n.id = 124
 }, function (e) {
   var n = process.argv;
   e.exports = function () {
@@ -6583,25 +6592,25 @@ module.exports = function (e) {
     configurable: !0,
     enumerable: !0,
     get: function () {
-      return t(130).Console
+      return t(131).Console
     }
   }), Object.defineProperty(n, 'File', {
     configurable: !0,
     enumerable: !0,
     get: function () {
-      return t(113).File
+      return t(114).File
     }
   }), Object.defineProperty(n, 'Http', {
     configurable: !0,
     enumerable: !0,
     get: function () {
-      return t(111).Http
+      return t(112).Http
     }
   }), Object.defineProperty(n, 'Memory', {
     configurable: !0,
     enumerable: !0,
     get: function () {
-      return t(108).Memory
+      return t(109).Memory
     }
   })
 }, function (e) {
@@ -6645,7 +6654,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = t(48),
-    o = t(81),
+    o = t(82),
     i = global;
   i.log = {
     error(e, n) {
@@ -6665,13 +6674,13 @@ module.exports = function (e) {
   'use strict';
 
   function r(e) {
-    O = !0;
-    const n = null === M;
-    M && (M.destroy(), M = null), C.showUncaughtException(n, e)
+    P = !0;
+    const n = null === L;
+    L && (L.destroy(), L = null), C.showUncaughtException(n, e)
   }
 
   function o() {
-    return (E.now() - L) / 1e3
+    return (E.now() - O) / 1e3
   }
 
   function i() {
@@ -6694,91 +6703,92 @@ module.exports = function (e) {
       const n = e.filter((e) => {
         try {
           const n = m.parse(e);
-          return n.protocol && N.has(n.protocol.slice(0, -1))
+          return n.protocol && A.has(n.protocol.slice(0, -1))
         } catch (n) {
           return log.error(`Unable to parse argument as URL: ${e}`), !1
         }
       });
-      e.includes(F) && 1 === n.length ? a(n[0]) : log.error(`Malformed launch arguments received: ${e}`)
+      e.includes(N) && 1 === n.length ? a(n[0]) : log.error(`Malformed launch arguments received: ${e}`)
     }
   }
 
   function d(e) {
-    p.app.setAsDefaultProtocolClient(e, process.execPath, [F])
+    p.app.setAsDefaultProtocolClient(e, process.execPath, [N])
   }
 
   function l() {
     const e = new g.AppWindow;
     !1, e.onClose(() => {
-      M = null, O || p.app.quit()
+      L = null, P || p.app.quit()
     }), e.onDidLoad(() => {
       e.show(), e.sendLaunchTimingStats({
-        mainReadyTime: P,
+        mainReadyTime: T,
         loadTime: e.loadTime,
         rendererReadyTime: e.rendererReadyTime
       });
-      const n = T;
-      T = null;
+      const n = F;
+      F = null;
       for (const t of n) t(e)
-    }), e.load(), M = e
+    }), e.load(), L = e
   }
 
   function c(e) {
-    T ? T.push(e) : M && e(M)
+    F ? F.push(e) : L && e(L)
   }
   Object.defineProperty(n, '__esModule', {
     value: !0
-  }), t(133);
+  }), t(134);
   const p = t(4),
     u = t(5),
     m = t(18),
-    g = t(70),
+    g = t(71),
     f = t(25),
-    h = t(57),
-    y = t(56),
-    _ = t(54),
+    h = t(58),
+    y = t(57),
+    _ = t(55),
     b = t(27),
     S = t(48),
     w = t(23),
-    v = t(52),
+    v = t(53),
     x = t(33),
     E = t(26),
-    C = t(51),
-    k = t(49);
+    C = t(52),
+    k = t(50),
+    M = t(49);
   p.app.setAppLogsPath(), x.enableSourceMaps();
-  let M = null;
-  const L = E.now();
-  let O = !1,
-    P = null,
-    T = [];
-  const F = '--protocol-launcher',
-    N = new Set(['x-github-client']);
-  N.add('x-github-desktop-auth'), N.add('github-windows'), p.app.on('window-all-closed', () => {}), process.on('uncaughtException', (e) => {
+  let L = null;
+  const O = E.now();
+  let P = !1,
+    T = null,
+    F = [];
+  const N = '--protocol-launcher',
+    A = new Set(['x-github-client']);
+  A.add('x-github-desktop-auth'), A.add('github-windows'), p.app.on('window-all-closed', () => {}), process.on('uncaughtException', (e) => {
     e = x.withSourceMappedStack(e), v.reportError(e, i()), r(e)
   });
-  let A = !1;
+  let R = !1;
   if (1 < process.argv.length) {
     const n = process.argv[1],
       e = _.handleSquirrelEvent(n);
-    e ? (A = !0, e.catch((t) => {
+    e ? (R = !0, e.catch((t) => {
       log.error(`Failed handling Squirrel event: ${n}`, t)
     }).then(() => {
       p.app.quit()
     })) : s(process.argv)
   }
-  let R = !1;
-  if (!A) {
+  let I = !1;
+  if (!R) {
     const e = p.app.requestSingleInstanceLock();
-    R = !e, p.app.on('second-instance', (e, n) => {
-      M && (M.isMinimized() && M.restore(), !M.isVisible() && M.show(), M.focus()), s(n)
-    }), R && p.app.quit()
+    I = !e, p.app.on('second-instance', (e, n) => {
+      L && (L.isMinimized() && L.restore(), !L.isVisible() && L.show(), L.focus()), s(n)
+    }), I && p.app.quit()
   }
   h.shellNeedsPatching(process) && h.updateEnvironmentForProcess(), p.app.on('will-finish-launching', () => {
     p.app.on('open-url', (e, n) => {
       e.preventDefault(), a(n)
     })
   }), !1, process.env.GITHUB_DESKTOP_DISABLE_HARDWARE_ACCELERATION && (log.info(`GITHUB_DESKTOP_DISABLE_HARDWARE_ACCELERATION environment variable set, disabling hardware acceleration`), p.app.disableHardwareAcceleration()), p.app.on('ready', () => {
-    R || A || (P = E.now() - L, N.forEach((e) => d(e)), l(), p.Menu.setApplicationMenu(f.buildDefaultMenu({
+    I || R || (T = E.now() - O, A.forEach((e) => d(e)), l(), p.Menu.setApplicationMenu(f.buildDefaultMenu({
       selectedShell: null,
       selectedExternalEditor: null,
       askForConfirmationOnRepositoryRemoval: !1,
@@ -6786,7 +6796,7 @@ module.exports = function (e) {
     })), p.ipcMain.on('update-preferred-app-menu-item-labels', (e, n) => {
       const t = f.buildDefaultMenu(n),
         r = p.Menu.getApplicationMenu();
-      if (null === r) return p.Menu.setApplicationMenu(t), void(null !== M && M.sendAppMenu());
+      if (null === r) return p.Menu.setApplicationMenu(t), void(null !== L && L.sendAppMenu());
       let o = !1;
       for (const i of f.getAllMenuItems(t)) {
         const e = i.id;
@@ -6794,12 +6804,12 @@ module.exports = function (e) {
         const n = r.getMenuItemById(e);
         n ? (n.label !== i.label && (o = !0), n.enabled !== i.enabled && (i.enabled = n.enabled, o = !0)) : o = !0
       }
-      o && M && (p.Menu.setApplicationMenu(t), M.sendAppMenu())
+      o && L && (p.Menu.setApplicationMenu(t), L.sendAppMenu())
     }), p.ipcMain.on('menu-event', (e) => {
       const {
         name: n
       } = e;
-      M && M.sendMenuEvent(n)
+      L && L.sendMenuEvent(n)
     }), p.ipcMain.on('execute-menu-item', (e, {
       id: n
     }) => {
@@ -6826,7 +6836,7 @@ module.exports = function (e) {
         } = o, i = r.getMenuItemById(e);
         i ? n.enabled !== void 0 && i.enabled !== n.enabled && (i.enabled = n.enabled, t = !0) : b.fatalError(`Unknown menu id: ${e}`)
       }
-      t && M && (p.Menu.setApplicationMenu(r), M.sendAppMenu())
+      t && L && (p.Menu.setApplicationMenu(r), L.sendAppMenu())
     }), p.ipcMain.on('show-contextual-menu', (e, n) => {
       const t = k.buildContextMenu(n, (n) => e.sender.send('contextual-menu-action', n)),
         r = p.BrowserWindow.fromWebContents(e.sender);
@@ -6834,7 +6844,7 @@ module.exports = function (e) {
         window: r
       })
     }), p.ipcMain.on('get-app-menu', () => {
-      M && M.sendAppMenu()
+      L && L.sendAppMenu()
     }), p.ipcMain.on('show-certificate-trust-dialog', (e, {
       certificate: n,
       message: t
@@ -6877,7 +6887,13 @@ module.exports = function (e) {
     })
   }), p.app.on('web-contents-created', (e, n) => {
     n.on('new-window', (e, n) => {
-      e.preventDefault(), log.warn(`Prevented new window to: ${n}`)
+      e.preventDefault();
+      const t = `Prevented new window to: ${n}`;
+      log.warn(t), M.sendNonFatalException('newWindowPrevented', Error(t))
+    }), n.on('will-navigate', (e, n) => {
+      e.preventDefault();
+      const t = `Prevented navigation to: ${n}`;
+      log.warn(t), M.sendNonFatalException('willNavigatePrevented', Error(t))
     })
   }), p.app.on('certificate-error', (e, n, t, r, o, i) => {
     i(!1), c((e) => {
