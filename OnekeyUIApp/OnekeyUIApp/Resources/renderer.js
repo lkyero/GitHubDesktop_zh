@@ -40935,10 +40935,10 @@ module.exports = function (e) {
         r = this.getMenuItemInfo(o);
       if (void 0 === r) return log.error(`找不到与${o}匹配的菜单项`), null;
       const i = null !== this.props.repository.gitHubRepository,
-        a = s.createElement(s.Fragment, null, '当前分支(', s.createElement(g.Ref, null, e.branch.name), ') 有', ' ', 1 === n.behind ? 'a commit' : 'commits', ' 至远程', ' ', i ? 'GitHub' : '但', ' ', ' ', 1 === n.behind ? '不' : '不', ' 存在与你的机器'),
+        a = s.createElement(s.Fragment, null, '当前分支(', s.createElement(g.Ref, null, e.branch.name), ') 有', ' ', 1 === n.behind ? '一次提交' : '次提交', ' 至远端', ' ', i ? 'GitHub' : '但', ' ', ' ', 1 === n.behind ? '不' : '不', ' 存在与你的机器'),
         d = s.createElement(s.Fragment, null, '当有远程更改时可在工具栏中访问或快捷键', ' ', this.renderDiscoverabilityKeyboardShortcut(r)),
-        l = `Pull ${n.behind} ${1===n.behind?'commit':'commits'} from the ${t.name} remote`,
-        c = `Pull ${t.name}`;
+        l = `从远端 ${t.name} 拉取 ${n.behind} 次 ${1===n.behind?'提交':'提交'} `,
+        c = `拉取 ${t.name}`;
       return s.createElement(m.MenuBackedSuggestedAction, {
         key: 'pull-branch-action',
         title: l,
