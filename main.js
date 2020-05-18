@@ -2756,7 +2756,6 @@ module.exports = function (e) {
       }, F, {
         id: 'create-issue-in-repository-on-github',
         label: '在 GitHub 上新建问题',
-        accelerator: 'CmdOrCtrl+Shift+I',
         accelerator: 'CmdOrCtrl+I',
         click: a('create-issue-in-repository-on-github'),
         visible: h.enableCreateGitHubIssueFromMenu()
