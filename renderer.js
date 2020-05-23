@@ -34134,7 +34134,7 @@ module.exports = function (e) {
       if (!e || e.kind === r.SignInStep.Success) return null;
       const t = e.loading,
         n = e.error ? o.createElement(c.DialogError, null, e.error.message) : null,
-        i = this.props.signInState && this.props.signInState.kind === r.SignInStep.Authentication && !this.props.signInState.supportsBasicAuth ? h : '登录';
+        i = this.props.signInState && this.props.signInState.kind === r.SignInStep.Authentication && !this.props.signInState.supportsBasicAuth ? f : '登录';
       return o.createElement(c.Dialog, {
         id: 'sign-in',
         title: i,
@@ -35191,7 +35191,7 @@ module.exports = function (e) {
         label: '使用 README 文件初始化此存储库',
         value: this.state.createWithReadme ? u.CheckboxValue.On : u.CheckboxValue.Off,
         onChange: this.onCreateWithReadmeChange
-      })), this.renderReadmeOverwriteWarning(), this.renderGitIgnores(), this.renderLicenses()), r.createElement(b.DialogFooter, null, r.createElement(_.OkCancelButtonGroup, {
+      })), this.renderReadmeOverwriteWarning(), this.renderGitIgnores(), this.renderLicenses()), r.createElement(b.DialogFooter, null, r.createElement(R.OkCancelButtonGroup, {
         okButtonText: '创建存储库',
         okButtonDisabled: e
       })))
