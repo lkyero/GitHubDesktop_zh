@@ -2168,8 +2168,8 @@ module.exports = function (e) {
     }), t.onFailedToLoad(async () => {
       await o.dialog.showMessageBox({
         type: 'error',
-        title: '无法恢复的错误',
-        message: `GitHub Desktop遇到了一个无法恢复的错误，需要重新启动。${n.stack||n.message}`
+        title: 'Unrecoverable error',
+        message: `GitHub Desktop has encountered an unrecoverable error and will need to restart.\n\n` + `This has been reported to the team, but if you encounter this repeatedly please report ` + `this issue to the GitHub Desktop issue tracker.\n\n${n.stack||n.message}`
       }), o.app.relaunch(), o.app.quit()
     }), t.onClose(() => {
       o.app.relaunch(), o.app.quit()
@@ -2503,7 +2503,7 @@ module.exports = function (e) {
     value: !0
   });
   const t = ['.cmd', '.exe', '.bat', '.sh'];
-  n.CopyFilePathLabel = '复制文件路径', n.DefaultEditorLabel = '用外部编辑器打开', n.RevealInFileManagerLabel = '在资源管理器中显示', n.TrashNameLabel = '回收站', n.OpenWithDefaultProgramLabel = '用默认程序打开', n.isSafeFileExtension = function (e) {
+  n.CopyFilePathLabel = 'Copy file path', n.DefaultEditorLabel = 'Open in external editor', n.RevealInFileManagerLabel = 'Show in Explorer', n.TrashNameLabel = 'Recycle Bin', n.OpenWithDefaultProgramLabel = 'Open with default program', n.isSafeFileExtension = function (e) {
     return -1 === t.indexOf(e.toLowerCase())
   }
 }, function (e, n) {
@@ -2577,26 +2577,26 @@ module.exports = function (e) {
     l = u.truncateWithEllipsis(l, 25);
     const M = r ? v : x,
       L = s ? S : b,
-      O = null === n ? _ : `用${n}打开`,
-      P = null === e ? y.DefaultEditorLabel : `用${e}打开`,
+      O = null === n ? _ : `Open in ${n}`,
+      P = null === e ? y.DefaultEditorLabel : `Open in ${e}`,
       F = [],
       T = {
         type: 'separator'
       };
     const N = {
-      label: '文件(&F)',
+      label: '&File',
       submenu: [{
-        label: '新建 存储库\u2026',
+        label: 'New &repository\u2026',
         id: 'new-repository',
         click: a('create-repository'),
         accelerator: 'CmdOrCtrl+N'
       }, T, {
-        label: '添加 本地存储库\u2026',
+        label: 'Add &local repository\u2026',
         id: 'add-local-repository',
         accelerator: 'CmdOrCtrl+O',
         click: a('add-local-repository')
       }, {
-        label: '克隆 存储库\u2026',
+        label: 'Clo&ne repository\u2026',
         id: 'clone-repository',
         accelerator: 'CmdOrCtrl+Shift+O',
         click: a('clone-repository')
@@ -2604,67 +2604,67 @@ module.exports = function (e) {
     }; {
       const e = N.submenu;
       e.push(T, {
-        label: '选项\u2026',
+        label: '&Options\u2026',
         id: 'preferences',
         accelerator: 'CmdOrCtrl+,',
         click: a('show-preferences')
       }, T, {
         role: 'quit',
-        label: '退出',
+        label: 'E&xit',
         accelerator: 'Alt+F4'
       })
     }
     F.push(N), F.push({
-      label: '编辑(&E)',
+      label: '&Edit',
       submenu: [{
         role: 'undo',
-        label: '撤消'
+        label: '&Undo'
       }, {
         role: 'redo',
-        label: '恢复'
+        label: '&Redo'
       }, T, {
         role: 'cut',
-        label: '剪切'
+        label: 'Cu&t'
       }, {
         role: 'copy',
-        label: '复制'
+        label: '&Copy'
       }, {
         role: 'paste',
-        label: '粘贴'
+        label: '&Paste'
       }, {
-        label: '全选',
+        label: 'Select &all',
         accelerator: 'CmdOrCtrl+A',
         click: a('select-all')
       }, T, {
         id: 'find',
-        label: '查找',
+        label: '&Find',
         accelerator: 'CmdOrCtrl+F',
         click: a('find-text')
       }]
     }), F.push({
-      label: '视图(&V)',
+      label: '&View',
       submenu: [{
-        label: '更改',
+        label: '&Changes',
         id: 'show-changes',
         accelerator: 'CmdOrCtrl+1',
         click: a('show-changes')
       }, {
-        label: '历史',
+        label: '&History',
         id: 'show-history',
         accelerator: 'CmdOrCtrl+2',
         click: a('show-history')
       }, {
-        label: '存储库列表',
+        label: 'Repository &list',
         id: 'show-repository-list',
         accelerator: 'CmdOrCtrl+T',
         click: a('choose-repository')
       }, {
-        label: '分支列表',
+        label: '&Branches list',
         id: 'show-branches-list',
         accelerator: 'CmdOrCtrl+B',
         click: a('show-branches')
       }, T, {
-        label: '转到摘要',
+        label: 'Go to &Summary',
         id: 'go-to-commit-message',
         accelerator: 'CmdOrCtrl+G',
         click: a('go-to-commit-message')
@@ -2674,22 +2674,22 @@ module.exports = function (e) {
         accelerator: 'Ctrl+H',
         click: k ? a('hide-stashed-changes') : a('show-stashed-changes')
       }, {
-        label: '全屏切换',
+        label: 'Toggle &full screen',
         role: 'togglefullscreen'
       }, T, {
-        label: '重置缩放',
+        label: 'Reset zoom',
         accelerator: 'CmdOrCtrl+0',
         click: d(E.Reset)
       }, {
-        label: '放大',
+        label: 'Zoom in',
         accelerator: 'CmdOrCtrl+=',
         click: d(E.In)
       }, {
-        label: '缩小',
+        label: 'Zoom out',
         accelerator: 'CmdOrCtrl+-',
         click: d(E.Out)
       }, T, {
-        label: '重载',
+        label: '&Reload',
         id: 'reload-window',
         accelerator: 'CmdOrCtrl+Alt+R',
         click(e, n) {
@@ -2698,7 +2698,7 @@ module.exports = function (e) {
         visible: !1
       }, {
         id: 'show-devtools',
-        label: '开发工具',
+        label: '&Toggle developer tools',
         accelerator: (() => 'Ctrl+Shift+I')(),
         click(e, n) {
           n && n.webContents.toggleDevTools()
@@ -2708,7 +2708,7 @@ module.exports = function (e) {
     const A = o(C, t),
       R = C ? 'force-push' : 'push';
     F.push({
-      label: '存储库(&R)',
+      label: '&Repository',
       id: 'repository',
       submenu: [{
         id: 'push',
@@ -2717,7 +2717,7 @@ module.exports = function (e) {
         click: a(R)
       }, {
         id: 'pull',
-        label: '拉取',
+        label: 'Pu&ll',
         accelerator: 'CmdOrCtrl+Shift+P',
         click: a('pull')
       }, {
@@ -2727,7 +2727,7 @@ module.exports = function (e) {
         click: a('remove-repository')
       }, T, {
         id: 'view-repository-on-github',
-        label: '在Github上查看',
+        label: '&View on GitHub',
         accelerator: 'CmdOrCtrl+Shift+G',
         click: a('view-repository-on-github')
       }, {
@@ -2736,7 +2736,7 @@ module.exports = function (e) {
         accelerator: 'Ctrl+`',
         click: a('open-in-shell')
       }, {
-        label: '资源管理器',
+        label: 'Show in E&xplorer',
         id: 'open-working-directory',
         accelerator: 'CmdOrCtrl+Shift+F',
         click: a('open-working-directory')
@@ -2747,60 +2747,60 @@ module.exports = function (e) {
         click: a('open-external-editor')
       }, T, {
         id: 'create-issue-in-repository-on-github',
-        label: '在 GitHub 上新建问题',
+        label: 'Create &issue on GitHub',
         accelerator: 'CmdOrCtrl+I',
         click: a('create-issue-in-repository-on-github'),
         visible: h.enableCreateGitHubIssueFromMenu()
       }, T, {
-        label: '存储库设置\u2026',
+        label: 'Repository &settings\u2026',
         id: 'show-repository-settings',
         click: a('show-repository-settings')
       }]
     }), F.push({
-      label: '分支(&B)',
+      label: '&Branch',
       id: 'branch',
       submenu: [{
-        label: '新建分支\u2026',
+        label: 'New &branch\u2026',
         id: 'create-branch',
         accelerator: 'CmdOrCtrl+Shift+N',
         click: a('create-branch')
       }, {
-        label: '重命名\u2026',
+        label: '&Rename\u2026',
         id: 'rename-branch',
         accelerator: 'CmdOrCtrl+Shift+R',
         click: a('rename-branch')
       }, {
-        label: '删除\u2026',
+        label: '&Delete\u2026',
         id: 'delete-branch',
         accelerator: 'CmdOrCtrl+Shift+D',
         click: a('delete-branch')
       }, T, {
-        label: '放弃所有更改\u2026',
+        label: 'Discard all changes\u2026',
         id: 'discard-all-changes',
         accelerator: 'CmdOrCtrl+Shift+Backspace',
         click: a('discard-all-changes')
       }, T, {
-        label: `更新自${l}`,
+        label: `&Update from ${l}`,
         id: 'update-branch',
         accelerator: 'CmdOrCtrl+Shift+U',
         click: a('update-branch')
       }, {
-        label: '与分支比较',
+        label: '&Compare to branch',
         id: 'compare-to-branch',
         accelerator: 'CmdOrCtrl+Shift+B',
         click: a('compare-to-branch')
       }, {
-        label: '合并到当前分支\u2026',
+        label: '&Merge into current branch\u2026',
         id: 'merge-branch',
         accelerator: 'CmdOrCtrl+Shift+M',
         click: a('merge-branch')
       }, {
-        label: '恢复当前分支\u2026',
+        label: 'R&ebase current branch\u2026',
         id: 'rebase-branch',
         accelerator: 'CmdOrCtrl+Shift+E',
         click: a('rebase-branch')
       }, T, {
-        label: '前往GitHub比较',
+        label: 'Compare on &GitHub',
         id: 'compare-on-github',
         accelerator: 'CmdOrCtrl+Shift+C',
         click: a('compare-on-github')
@@ -2812,30 +2812,30 @@ module.exports = function (e) {
       }]
     }), !1;
     const I = {
-        label: '反馈问题\u2026',
+        label: 'Report issue\u2026',
         click() {
           c.shell.openExternal('https://github.com/desktop/desktop/issues/new/choose').catch((e) => log.error('Failed opening issue creation page', e))
         }
       },
       D = {
-        label: '联系Github支持\u2026',
+        label: '&Contact GitHub support\u2026',
         click() {
           c.shell.openExternal(`https://github.com/contact?from_desktop_app=1&app_version=${c.app.getVersion()}`).catch((e) => log.error('Failed opening contact support page', e))
         }
       },
       z = {
-        label: '用户指南',
+        label: 'Show User Guides',
         click() {
           c.shell.openExternal('https://help.github.com/desktop/guides/').catch((e) => log.error('Failed opening user guides page', e))
         }
       },
       j = {
-        label: '键盘快捷键',
+        label: 'Show keyboard shortcuts',
         click() {
           c.shell.openExternal('https://help.github.com/en/desktop/getting-started-with-github-desktop/keyboard-shortcuts-in-github-desktop').catch((e) => log.error('Failed opening keyboard shortcuts page', e))
         }
       },
-      B = '打开日志文件夹',
+      B = 'S&how logs in Explorer',
       U = {
         label: B,
         click() {
@@ -2848,9 +2848,9 @@ module.exports = function (e) {
         }
       };
     return !1, F.push({
-      label: '帮助(&H)',
+      label: '&Help',
       submenu: [...[I, D, z, j, U], T, {
-        label: '关于 Github 桌面',
+        label: '&About GitHub Desktop',
         click: a('show-about'),
         id: 'about'
       }]
@@ -2858,11 +2858,11 @@ module.exports = function (e) {
   }
 
   function o(e, n) {
-    return e ? n ? '强制推送\u2026' : '强制推送' : '推送'
+    return e ? n ? 'Force P&ush\u2026' : 'Force P&ush' : 'P&ush'
   }
 
   function i(e) {
-    return e ? '隐藏贮藏的变更' : '显示贮藏的变更'
+    return e ? 'H&ide stashed changes' : 'Sho&w stashed changes'
   }
 
   function a(e) {
@@ -2909,12 +2909,12 @@ module.exports = function (e) {
     f = t(23),
     h = t(62),
     y = t(61),
-    _ = '在命令提示符下打开',
-    b = '创建拉取请求',
-    S = '显示拉取请求',
-    w = '默认分支',
-    v = '删除\u2026',
-    x = '删除';
+    _ = 'Open in Command Prompt',
+    b = 'Create &pull request',
+    S = 'Show &pull request',
+    w = 'default branch',
+    v = '&Remove\u2026',
+    x = '&Remove';
   var E;
   (function (e) {
     e[e.Reset = 0] = 'Reset', e[e.In = 1] = 'In', e[e.Out = 2] = 'Out'
