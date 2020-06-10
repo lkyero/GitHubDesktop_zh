@@ -1941,7 +1941,7 @@ module.exports = function (e) {
     }, a.compose = function () {
       return a.seq.apply(null, Array.prototype.reverse.call(arguments))
     };
-    var T = function (e, n) {
+    var F = function (e, n) {
       var t = function () {
         var t = this,
           r = h(arguments),
@@ -1956,7 +1956,7 @@ module.exports = function (e) {
       }
       return t
     };
-    a.applyEach = S(T), a.applyEachSeries = v(T), a.forever = function (e, n) {
+    a.applyEach = S(F), a.applyEachSeries = v(F), a.forever = function (e, n) {
       function t(r) {
         if (r) {
           if (n) return n(r);
@@ -2048,27 +2048,36 @@ module.exports = function (e) {
   }
 
   function o() {
-    const e = i.Menu.buildFromTemplate([{
+    const e = a.Menu.buildFromTemplate([{
         role: 'editMenu'
       }]).items[0],
       n = e && e.submenu ? e.submenu.items : [];
     return n.filter((e) => !r(e.role, 'pasteandmatchstyle'))
   }
+
+  function i(e, n, t = []) {
+    const s = new a.Menu;
+    for (const [d, l] of e.entries())
+      if (r(l.role, 'editmenu'))
+        for (const e of o()) s.append(e);
+      else {
+        const e = [...t, d];
+        s.append(new a.MenuItem({
+          label: l.label,
+          type: l.type,
+          enabled: l.enabled,
+          role: l.role,
+          click: () => n(e),
+          submenu: l.submenu ? i(l.submenu, n, e) : void 0
+        }))
+      } return s
+  }
   Object.defineProperty(n, '__esModule', {
     value: !0
   });
-  const i = t(4);
+  const a = t(4);
   n.buildContextMenu = function (e, n) {
-    const t = [];
-    for (const [a, s] of e.entries()) r(s.role, 'editmenu') ? t.push(...o()) : t.push(new i.MenuItem({
-      label: s.label,
-      type: s.type,
-      enabled: s.enabled,
-      role: s.role,
-      click: () => n(a, s)
-    }));
-    const a = new i.Menu;
-    return t.forEach((e) => a.append(e)), a
+    return i(e, n)
   }
 }, function (e, n, t) {
   'use strict';
@@ -2183,7 +2192,7 @@ module.exports = function (e) {
   const r = t(4);
   n.reportError = async function (e, n, t) {
     const o = new Map;
-    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', '736ef36605adafe4da19b322a87a05c9afab837d'), o.set('version', r.app.getVersion()), n)
+    if (o.set('name', e.name), o.set('message', e.message), e.stack && o.set('stack', e.stack), o.set('platform', 'win32'), o.set('sha', '41e70ee49004936e5e1058d406996961bd475cf2'), o.set('version', r.app.getVersion()), n)
       for (const e of Object.keys(n)) o.set(e, n[e]);
     const i = {
         method: 'POST',
@@ -2516,26 +2525,8 @@ module.exports = function (e) {
     return r()
   }, n.enableReadmeOverwriteWarning = function () {
     return r()
-  }, n.enableBranchPruning = function () {
-    return !0
-  }, n.enableNoChangesCreatePRBlankslateAction = function () {
-    return !0
-  }, n.enableGroupRepositoriesByOwner = function () {
-    return !0
-  }, n.enableRebaseDialog = function () {
-    return !0
-  }, n.enableStashing = function () {
-    return !0
-  }, n.enableBranchProtectionChecks = function () {
-    return !0
   }, n.enableWSLDetection = function () {
     return r()
-  }, n.enableBranchProtectionWarningFlow = function () {
-    return !0
-  }, n.enableHideWhitespaceInDiffOption = function () {
-    return !0
-  }, n.enableTutorial = function () {
-    return !0
   }, n.enableCreateForkFlow = function () {
     return !0
   }, n.enableSchannelCheckRevokeOptOut = function () {
@@ -2549,10 +2540,12 @@ module.exports = function (e) {
   }, n.enableForkyCreateBranchUI = function () {
     return !0
   }, n.enableNDDBBanner = function () {
-    return r()
+    return !1
   }, n.enableGitTagsDisplay = function () {
     return !0
   }, n.enableGitTagsCreation = function () {
+    return !0
+  }, n.enableForkSettings = function () {
     return !0
   }
 }, function (e, n) {
@@ -2586,8 +2579,8 @@ module.exports = function (e) {
       L = s ? S : b,
       O = null === n ? _ : `用${n}打开`,
       P = null === e ? y.DefaultEditorLabel : `用${e}打开`,
-      T = [],
-      F = {
+      F = [],
+      T = {
         type: 'separator'
       };
     const N = {
@@ -2597,7 +2590,7 @@ module.exports = function (e) {
         id: 'new-repository',
         click: a('create-repository'),
         accelerator: 'CmdOrCtrl+N'
-      }, F, {
+      }, T, {
         label: '添加 本地存储库\u2026',
         id: 'add-local-repository',
         accelerator: 'CmdOrCtrl+O',
@@ -2610,18 +2603,18 @@ module.exports = function (e) {
       }]
     }; {
       const e = N.submenu;
-      e.push(F, {
+      e.push(T, {
         label: '选项\u2026',
         id: 'preferences',
         accelerator: 'CmdOrCtrl+,',
         click: a('show-preferences')
-      }, F, {
+      }, T, {
         role: 'quit',
         label: '退出',
         accelerator: 'Alt+F4'
       })
     }
-    T.push(N), T.push({
+    F.push(N), F.push({
       label: '编辑(&E)',
       submenu: [{
         role: 'undo',
@@ -2629,7 +2622,7 @@ module.exports = function (e) {
       }, {
         role: 'redo',
         label: '恢复'
-      }, F, {
+      }, T, {
         role: 'cut',
         label: '剪切'
       }, {
@@ -2642,13 +2635,13 @@ module.exports = function (e) {
         label: '全选',
         accelerator: 'CmdOrCtrl+A',
         click: a('select-all')
-      }, F, {
+      }, T, {
         id: 'find',
         label: '查找',
         accelerator: 'CmdOrCtrl+F',
         click: a('find-text')
       }]
-    }), T.push({
+    }), F.push({
       label: '视图(&V)',
       submenu: [{
         label: '更改',
@@ -2670,7 +2663,7 @@ module.exports = function (e) {
         id: 'show-branches-list',
         accelerator: 'CmdOrCtrl+B',
         click: a('show-branches')
-      }, F, {
+      }, T, {
         label: '转到摘要',
         id: 'go-to-commit-message',
         accelerator: 'CmdOrCtrl+G',
@@ -2679,12 +2672,11 @@ module.exports = function (e) {
         label: i(k),
         id: 'toggle-stashed-changes',
         accelerator: 'Ctrl+H',
-        click: k ? a('hide-stashed-changes') : a('show-stashed-changes'),
-        visible: h.enableStashing()
+        click: k ? a('hide-stashed-changes') : a('show-stashed-changes')
       }, {
         label: '全屏切换',
         role: 'togglefullscreen'
-      }, F, {
+      }, T, {
         label: '重置缩放',
         accelerator: 'CmdOrCtrl+0',
         click: d(E.Reset)
@@ -2696,7 +2688,7 @@ module.exports = function (e) {
         label: '缩小',
         accelerator: 'CmdOrCtrl+-',
         click: d(E.Out)
-      }, F, {
+      }, T, {
         label: '重载',
         id: 'reload-window',
         accelerator: 'CmdOrCtrl+Alt+R',
@@ -2715,7 +2707,7 @@ module.exports = function (e) {
     });
     const A = o(C, t),
       R = C ? 'force-push' : 'push';
-    T.push({
+    F.push({
       label: '存储库(&R)',
       id: 'repository',
       submenu: [{
@@ -2733,7 +2725,7 @@ module.exports = function (e) {
         id: 'remove-repository',
         accelerator: 'CmdOrCtrl+Backspace',
         click: a('remove-repository')
-      }, F, {
+      }, T, {
         id: 'view-repository-on-github',
         label: '在Github上查看',
         accelerator: 'CmdOrCtrl+Shift+G',
@@ -2753,18 +2745,18 @@ module.exports = function (e) {
         id: 'open-external-editor',
         accelerator: 'CmdOrCtrl+Shift+A',
         click: a('open-external-editor')
-      }, F, {
+      }, T, {
         id: 'create-issue-in-repository-on-github',
         label: '在 GitHub 上新建问题',
         accelerator: 'CmdOrCtrl+I',
         click: a('create-issue-in-repository-on-github'),
         visible: h.enableCreateGitHubIssueFromMenu()
-      }, F, {
+      }, T, {
         label: '存储库设置\u2026',
         id: 'show-repository-settings',
         click: a('show-repository-settings')
       }]
-    }), T.push({
+    }), F.push({
       label: '分支(&B)',
       id: 'branch',
       submenu: [{
@@ -2782,12 +2774,12 @@ module.exports = function (e) {
         id: 'delete-branch',
         accelerator: 'CmdOrCtrl+Shift+D',
         click: a('delete-branch')
-      }, F, {
+      }, T, {
         label: '放弃所有更改\u2026',
         id: 'discard-all-changes',
         accelerator: 'CmdOrCtrl+Shift+Backspace',
         click: a('discard-all-changes')
-      }, F, {
+      }, T, {
         label: `更新自${l}`,
         id: 'update-branch',
         accelerator: 'CmdOrCtrl+Shift+U',
@@ -2806,9 +2798,8 @@ module.exports = function (e) {
         label: '恢复当前分支\u2026',
         id: 'rebase-branch',
         accelerator: 'CmdOrCtrl+Shift+E',
-        click: a('rebase-branch'),
-        visible: h.enableRebaseDialog()
-      }, F, {
+        click: a('rebase-branch')
+      }, T, {
         label: '前往GitHub比较',
         id: 'compare-on-github',
         accelerator: 'CmdOrCtrl+Shift+C',
@@ -2856,14 +2847,14 @@ module.exports = function (e) {
           })
         }
       };
-    return !1, T.push({
+    return !1, F.push({
       label: '帮助(&H)',
-      submenu: [...[I, D, z, j, U], F, {
+      submenu: [...[I, D, z, j, U], T, {
         label: '关于 Github 桌面',
         click: a('show-about'),
         id: 'about'
       }]
-    }), p.ensureItemIds(T), c.Menu.buildFromTemplate(T)
+    }), p.ensureItemIds(F), c.Menu.buildFromTemplate(F)
   }
 
   function o(e, n) {
@@ -6721,18 +6712,18 @@ module.exports = function (e) {
       L = null, P || p.app.quit()
     }), e.onDidLoad(() => {
       e.show(), e.sendLaunchTimingStats({
-        mainReadyTime: T,
+        mainReadyTime: F,
         loadTime: e.loadTime,
         rendererReadyTime: e.rendererReadyTime
       });
-      const n = F;
-      F = null;
+      const n = T;
+      T = null;
       for (const t of n) t(e)
     }), e.load(), L = e
   }
 
   function c(e) {
-    F ? F.push(e) : L && e(L)
+    T ? T.push(e) : L && e(L)
   }
   Object.defineProperty(n, '__esModule', {
     value: !0
@@ -6758,8 +6749,8 @@ module.exports = function (e) {
   let L = null;
   const O = E.now();
   let P = !1,
-    T = null,
-    F = [];
+    F = null,
+    T = [];
   const N = '--protocol-launcher',
     A = new Set(['x-github-client']);
   A.add('x-github-desktop-auth'), A.add('github-windows'), p.app.on('window-all-closed', () => {}), process.on('uncaughtException', (e) => {
@@ -6787,7 +6778,7 @@ module.exports = function (e) {
       e.preventDefault(), a(n)
     })
   }), !1, process.env.GITHUB_DESKTOP_DISABLE_HARDWARE_ACCELERATION && (log.info(`GITHUB_DESKTOP_DISABLE_HARDWARE_ACCELERATION environment variable set, disabling hardware acceleration`), p.app.disableHardwareAcceleration()), p.app.on('ready', () => {
-    I || R || (T = E.now() - O, A.forEach((e) => d(e)), l(), p.Menu.setApplicationMenu(f.buildDefaultMenu({
+    I || R || (F = E.now() - O, A.forEach((e) => d(e)), l(), p.Menu.setApplicationMenu(f.buildDefaultMenu({
       selectedShell: null,
       selectedExternalEditor: null,
       askForConfirmationOnRepositoryRemoval: !1,
