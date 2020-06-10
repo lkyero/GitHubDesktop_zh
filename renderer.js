@@ -36613,7 +36613,7 @@ module.exports = function (e) {
   class a extends o.Component {
     render() {
       const e = this.props.remote;
-      return o.createElement(i.DialogContent, null, o.createElement('div', null, '主要远程存储库Primary remote repository (', e.name, ')'), o.createElement(r.TextBox, {
+      return o.createElement(i.DialogContent, null, o.createElement('p', null, '主要远程存储库Primary remote repository (', e.name, ')'), o.createElement(r.TextBox, {
         placeholder: '远端 URL 地址',
         value: e.url,
         onValueChanged: this.props.onRemoteUrlChanged
@@ -42168,7 +42168,7 @@ module.exports = function (e) {
       }, s.createElement('div', {
         className: 'text'
       }, s.createElement('h1', null, '无本地更改'), s.createElement('p', null, '此存储库中没有未提交的更改。下面是一些友好的建议。')), s.createElement('img', {
-        src: c,
+        src: C,
         className: 'blankslate-image'
       })), this.renderActions()))
     }
