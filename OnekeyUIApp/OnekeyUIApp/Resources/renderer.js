@@ -28,10 +28,10 @@ module.exports = function (e) {
     return t.d(n, 'a', n), n
   }, t.o = function (e, t) {
     return Object.prototype.hasOwnProperty.call(e, t)
-  }, t.p = '', t(t.s = 802)
+  }, t.p = '', t(t.s = 804)
 }([function (e, t, n) {
   'use strict';
-  e.exports = n(788)
+  e.exports = n(790)
 }, function (e) {
   e.exports = require('path')
 }, function (e, t) {
@@ -55,19 +55,19 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(509)), o(n(508)), o(n(506)), o(n(206)), o(n(7)), o(n(505))
+  }), o(n(510)), o(n(509)), o(n(507)), o(n(207)), o(n(7)), o(n(506))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(625);
+  var o = n(627);
   t.Octicon = o.Octicon;
-  var r = n(232);
+  var r = n(233);
   t.OcticonSymbol = r.OcticonSymbol;
-  var i = n(624);
+  var i = n(626);
   t.iconForRepository = i.iconForRepository;
-  var a = n(623);
+  var a = n(625);
   t.iconForStatus = a.iconForStatus
 }, function (e, t) {
   var n, o;
@@ -97,7 +97,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(138),
+  var o = n(139),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -163,7 +163,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(230),
+  var o = n(231),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -321,14 +321,14 @@ module.exports = function (e) {
   });
   const p = n(63),
     u = n(42),
-    m = n(135),
-    h = n(178),
-    f = n(177),
+    m = n(136),
+    h = n(179),
+    f = n(178),
     g = n(106),
     y = n(105),
-    S = n(134),
+    S = n(135),
     C = process.env.DESKTOP_GITHUB_DOTCOM_API_ENDPOINT,
-    b = n(771),
+    b = n(773),
     v = 'de0e3c7e9973e1c4dd77',
     E = '1273305a5fc2737c2ca2911948ba24a9d961e2a3';
   v.length && E && E.length || log.warn(`DESKTOP_OAUTH_CLIENT_ID and/or DESKTOP_OAUTH_CLIENT_SECRET is undefined. You won't be able to authenticate new users.`);
@@ -358,7 +358,8 @@ module.exports = function (e) {
     }
     async fetchRepositories() {
       try {
-        return await this.fetchAll('user/repos')
+        const e = await this.fetchAll('user/repos');
+        return e.filter((e) => null !== e.owner)
       } catch (e) {
         return log.warn(`fetchRepositories: ${e}`), null
       }
@@ -674,10 +675,10 @@ module.exports = function (e) {
   const a = n(35),
     s = n(2),
     d = n(10),
-    l = n(171),
+    l = n(172),
     c = n(1),
-    p = n(82),
-    u = n(269);
+    p = n(84),
+    u = n(270);
   class m extends Error {
     constructor(e, t) {
       super(o(e)), this.name = 'GitError', this.result = e, this.args = t
@@ -777,7 +778,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(39),
+    r = n(40),
     i = n(5);
   class a extends o.Component {
     constructor() {
@@ -806,7 +807,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(229),
+  var o = n(230),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -817,7 +818,7 @@ module.exports = function (e) {
     return t && ('object' === ('undefined' == typeof t ? 'undefined' : (0, r.default)(t)) || 'function' == typeof t) ? t : e
   }
 }, function (e, t, n) {
-  e.exports = n(783)()
+  e.exports = n(785)()
 }, function (e, t, n) {
   'use strict';
 
@@ -827,11 +828,11 @@ module.exports = function (e) {
     }
   }
   t.__esModule = !0;
-  var r = n(595),
+  var r = n(597),
     i = o(r),
-    a = n(591),
+    a = n(593),
     s = o(a),
-    d = n(229),
+    d = n(230),
     l = o(d);
   t.default = function (e, t) {
     if ('function' != typeof t && null !== t) throw new TypeError('Super expression must either be null or a function, not ' + ('undefined' == typeof t ? 'undefined' : (0, l.default)(t)));
@@ -846,7 +847,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   e.exports = {
-    default: n(615),
+    default: n(617),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -867,7 +868,7 @@ module.exports = function (e) {
   t.Row = i
 }, function (e, t, n) {
   'use strict';
-  e.exports = Object.assign({}, n(289), n(286), n(282), n(738), n(736), n(730), n(40), n(726), n(725), n(724), n(52), n(132));
+  e.exports = Object.assign({}, n(290), n(287), n(283), n(740), n(738), n(732), n(41), n(728), n(727), n(726), n(53), n(133));
   const o = n(33);
   Object.getOwnPropertyDescriptor(o, 'promises') && Object.defineProperty(e.exports, 'promises', {
     get() {
@@ -882,7 +883,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(265)), o(n(704)), o(n(700)), o(n(693)), o(n(692)), o(n(82)), o(n(11)), o(n(254)), o(n(170)), o(n(691)), o(n(262)), o(n(20)), o(n(690)), o(n(253)), o(n(689)), o(n(688)), o(n(687)), o(n(261)), o(n(259)), o(n(257)), o(n(167)), o(n(686)), o(n(250)), o(n(260)), o(n(681)), o(n(249)), o(n(680)), o(n(679)), o(n(678)), o(n(676)), o(n(675)), o(n(127)), o(n(673)), o(n(248)), o(n(672)), o(n(671)), o(n(668))
+  }), o(n(266)), o(n(706)), o(n(702)), o(n(695)), o(n(694)), o(n(84)), o(n(11)), o(n(255)), o(n(171)), o(n(693)), o(n(263)), o(n(20)), o(n(692)), o(n(254)), o(n(691)), o(n(690)), o(n(689)), o(n(262)), o(n(260)), o(n(258)), o(n(168)), o(n(688)), o(n(251)), o(n(261)), o(n(683)), o(n(250)), o(n(682)), o(n(681)), o(n(680)), o(n(678)), o(n(677)), o(n(128)), o(n(675)), o(n(249)), o(n(674)), o(n(673)), o(n(670))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -916,7 +917,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(31);
+  const i = n(30);
   var a;
   (function (e) {
     e.Modified = 'M', e.Added = 'A', e.Deleted = 'D', e.Renamed = 'R', e.Copied = 'C', e.Unchanged = '.', e.Untracked = '?', e.Ignored = '!', e.UpdatedButUnmerged = 'U'
@@ -985,8 +986,52 @@ module.exports = function (e) {
   });
   var n;
   (function (e) {
-    e[e.RenameBranch = 1] = 'RenameBranch', e[e.DeleteBranch = 2] = 'DeleteBranch', e[e.ConfirmDiscardChanges = 3] = 'ConfirmDiscardChanges', e[e.Preferences = 4] = 'Preferences', e[e.MergeBranch = 5] = 'MergeBranch', e[e.RepositorySettings = 6] = 'RepositorySettings', e[e.AddRepository = 7] = 'AddRepository', e[e.CreateRepository = 8] = 'CreateRepository', e[e.CloneRepository = 9] = 'CloneRepository', e[e.CreateBranch = 10] = 'CreateBranch', e[e.SignIn = 11] = 'SignIn', e[e.About = 12] = 'About', e[e.InstallGit = 13] = 'InstallGit', e[e.PublishRepository = 14] = 'PublishRepository', e[e.Acknowledgements = 15] = 'Acknowledgements', e[e.UntrustedCertificate = 16] = 'UntrustedCertificate', e[e.RemoveRepository = 17] = 'RemoveRepository', e[e.TermsAndConditions = 18] = 'TermsAndConditions', e[e.PushBranchCommits = 19] = 'PushBranchCommits', e[e.CLIInstalled = 20] = 'CLIInstalled', e[e.GenericGitAuthentication = 21] = 'GenericGitAuthentication', e[e.ExternalEditorFailed = 22] = 'ExternalEditorFailed', e[e.OpenShellFailed = 23] = 'OpenShellFailed', e[e.InitializeLFS = 24] = 'InitializeLFS', e[e.LFSAttributeMismatch = 25] = 'LFSAttributeMismatch', e[e.UpstreamAlreadyExists = 26] = 'UpstreamAlreadyExists', e[e.ReleaseNotes = 27] = 'ReleaseNotes', e[e.DeletePullRequest = 28] = 'DeletePullRequest', e[e.MergeConflicts = 29] = 'MergeConflicts', e[e.AbortMerge = 30] = 'AbortMerge', e[e.OversizedFiles = 31] = 'OversizedFiles', e[e.UsageReportingChanges = 32] = 'UsageReportingChanges', e[e.CommitConflictsWarning = 33] = 'CommitConflictsWarning', e[e.PushNeedsPull = 34] = 'PushNeedsPull', e[e.RebaseFlow = 35] = 'RebaseFlow', e[e.ConfirmForcePush = 36] = 'ConfirmForcePush', e[e.StashAndSwitchBranch = 37] = 'StashAndSwitchBranch', e[e.ConfirmOverwriteStash = 38] = 'ConfirmOverwriteStash', e[e.ConfirmDiscardStash = 39] = 'ConfirmDiscardStash', e[e.CreateTutorialRepository = 40] = 'CreateTutorialRepository', e[e.ConfirmExitTutorial = 41] = 'ConfirmExitTutorial', e[e.PushRejectedDueToMissingWorkflowScope = 42] = 'PushRejectedDueToMissingWorkflowScope', e[e.SAMLReauthRequired = 43] = 'SAMLReauthRequired', e[e.CreateFork = 44] = 'CreateFork', e[e.SChannelNoRevocationCheck = 45] = 'SChannelNoRevocationCheck', e[e.CreateTag = 46] = 'CreateTag', e[e.DeleteTag = 47] = 'DeleteTag', e[e.LocalChangesOverwritten = 48] = 'LocalChangesOverwritten', e[e.RebaseConflicts = 49] = 'RebaseConflicts', e[e.RetryClone = 50] = 'RetryClone', e[e.ChooseForkSettings = 51] = 'ChooseForkSettings'
+    e[e.RenameBranch = 1] = 'RenameBranch', e[e.DeleteBranch = 2] = 'DeleteBranch', e[e.ConfirmDiscardChanges = 3] = 'ConfirmDiscardChanges', e[e.Preferences = 4] = 'Preferences', e[e.MergeBranch = 5] = 'MergeBranch', e[e.RepositorySettings = 6] = 'RepositorySettings', e[e.AddRepository = 7] = 'AddRepository', e[e.CreateRepository = 8] = 'CreateRepository', e[e.CloneRepository = 9] = 'CloneRepository', e[e.CreateBranch = 10] = 'CreateBranch', e[e.SignIn = 11] = 'SignIn', e[e.About = 12] = 'About', e[e.InstallGit = 13] = 'InstallGit', e[e.PublishRepository = 14] = 'PublishRepository', e[e.Acknowledgements = 15] = 'Acknowledgements', e[e.UntrustedCertificate = 16] = 'UntrustedCertificate', e[e.RemoveRepository = 17] = 'RemoveRepository', e[e.TermsAndConditions = 18] = 'TermsAndConditions', e[e.PushBranchCommits = 19] = 'PushBranchCommits', e[e.CLIInstalled = 20] = 'CLIInstalled', e[e.GenericGitAuthentication = 21] = 'GenericGitAuthentication', e[e.ExternalEditorFailed = 22] = 'ExternalEditorFailed', e[e.OpenShellFailed = 23] = 'OpenShellFailed', e[e.InitializeLFS = 24] = 'InitializeLFS', e[e.LFSAttributeMismatch = 25] = 'LFSAttributeMismatch', e[e.UpstreamAlreadyExists = 26] = 'UpstreamAlreadyExists', e[e.ReleaseNotes = 27] = 'ReleaseNotes', e[e.DeletePullRequest = 28] = 'DeletePullRequest', e[e.MergeConflicts = 29] = 'MergeConflicts', e[e.AbortMerge = 30] = 'AbortMerge', e[e.OversizedFiles = 31] = 'OversizedFiles', e[e.UsageReportingChanges = 32] = 'UsageReportingChanges', e[e.CommitConflictsWarning = 33] = 'CommitConflictsWarning', e[e.PushNeedsPull = 34] = 'PushNeedsPull', e[e.RebaseFlow = 35] = 'RebaseFlow', e[e.ConfirmForcePush = 36] = 'ConfirmForcePush', e[e.StashAndSwitchBranch = 37] = 'StashAndSwitchBranch', e[e.ConfirmOverwriteStash = 38] = 'ConfirmOverwriteStash', e[e.ConfirmDiscardStash = 39] = 'ConfirmDiscardStash', e[e.CreateTutorialRepository = 40] = 'CreateTutorialRepository', e[e.ConfirmExitTutorial = 41] = 'ConfirmExitTutorial', e[e.PushRejectedDueToMissingWorkflowScope = 42] = 'PushRejectedDueToMissingWorkflowScope', e[e.SAMLReauthRequired = 43] = 'SAMLReauthRequired', e[e.CreateFork = 44] = 'CreateFork', e[e.SChannelNoRevocationCheck = 45] = 'SChannelNoRevocationCheck', e[e.CreateTag = 46] = 'CreateTag', e[e.DeleteTag = 47] = 'DeleteTag', e[e.LocalChangesOverwritten = 48] = 'LocalChangesOverwritten', e[e.RebaseConflicts = 49] = 'RebaseConflicts', e[e.ChooseForkSettings = 50] = 'ChooseForkSettings', e[e.ConfirmDiscardSelection = 51] = 'ConfirmDiscardSelection'
   })(n = t.PopupType || (t.PopupType = {}))
+}, function (e, t) {
+  'use strict';
+
+  function n() {
+    return !1, '1' === process.env.GITHUB_DESKTOP_PREVIEW_FEATURES
+  }
+
+  function o() {
+    return n() || !1
+  }
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  t.enableProgressBarOnIcon = function () {
+    return o()
+  }, t.enableRecurseSubmodulesFlag = function () {
+    return o()
+  }, t.enableReadmeOverwriteWarning = function () {
+    return o()
+  }, t.enableWSLDetection = function () {
+    return o()
+  }, t.enableCreateForkFlow = function () {
+    return !0
+  }, t.enableSchannelCheckRevokeOptOut = function () {
+    return !0
+  }, t.enableAutomaticGitProxyConfiguration = function () {
+    return !0
+  }, t.enableCreateGitHubIssueFromMenu = function () {
+    return !0
+  }, t.enableUpdateRemoteUrl = function () {
+    return !0
+  }, t.enableForkyCreateBranchUI = function () {
+    return !0
+  }, t.enableNDDBBanner = function () {
+    return !1
+  }, t.enableGitTagsDisplay = function () {
+    return !0
+  }, t.enableGitTagsCreation = function () {
+    return !0
+  }, t.enableForkSettings = function () {
+    return !0
+  }, t.enableDiscardLines = function () {
+    return !0
+  }
 }, function (e, t, n) {
   'use strict';
 
@@ -1017,7 +1062,7 @@ module.exports = function (e) {
   });
   const d = n(1),
     l = n(102),
-    c = n(128),
+    c = n(129),
     p = n(2);
   class u {
     constructor(e, t, n, r, i = {}, a) {
@@ -1113,48 +1158,6 @@ module.exports = function (e) {
   }
 }, function (e, t) {
   'use strict';
-
-  function n() {
-    return !1, '1' === process.env.GITHUB_DESKTOP_PREVIEW_FEATURES
-  }
-
-  function o() {
-    return n() || !1
-  }
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  t.enableProgressBarOnIcon = function () {
-    return o()
-  }, t.enableRecurseSubmodulesFlag = function () {
-    return o()
-  }, t.enableReadmeOverwriteWarning = function () {
-    return o()
-  }, t.enableWSLDetection = function () {
-    return o()
-  }, t.enableCreateForkFlow = function () {
-    return !0
-  }, t.enableSchannelCheckRevokeOptOut = function () {
-    return !0
-  }, t.enableAutomaticGitProxyConfiguration = function () {
-    return !0
-  }, t.enableCreateGitHubIssueFromMenu = function () {
-    return !0
-  }, t.enableUpdateRemoteUrl = function () {
-    return !0
-  }, t.enableForkyCreateBranchUI = function () {
-    return !0
-  }, t.enableNDDBBanner = function () {
-    return !1
-  }, t.enableGitTagsDisplay = function () {
-    return !0
-  }, t.enableGitTagsCreation = function () {
-    return !0
-  }, t.enableForkSettings = function () {
-    return !0
-  }
-}, function (e, t) {
-  'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
@@ -1193,9 +1196,9 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(5),
-    i = n(65),
+    i = n(68),
     a = n(13),
-    s = n(26);
+    s = n(27);
   class d extends o.Component {
     constructor() {
       super(...arguments), this.inputElement = null, this.onChange = (e) => {
@@ -1293,6 +1296,15 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
 
+  function o(e) {
+    for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
+  }
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  }), o(n(724)), o(n(723)), o(n(722)), o(n(721)), o(n(720)), o(n(719))
+}, function (e, t, n) {
+  'use strict';
+
   function o(e, t) {
     if (e === t) return !0;
     const n = e.kind;
@@ -1321,15 +1333,6 @@ module.exports = function (e) {
   (function (e) {
     e.Unknown = 'Unknown', e.Unborn = 'Unborn', e.Detached = 'Detached', e.Valid = 'Valid'
   })(a = t.TipState || (t.TipState = {})), t.tipEquals = o
-}, function (e, t, n) {
-  'use strict';
-
-  function o(e) {
-    for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-  }
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  }), o(n(722)), o(n(721)), o(n(720)), o(n(719)), o(n(718)), o(n(717))
 }, function (e, t, n) {
   function o(e) {
     function t(t) {
@@ -1462,10 +1465,10 @@ module.exports = function (e) {
     e && (m('RETRY', e[0].name, e[1]), e[0].apply(null, e[1]))
   }
   var a = n(33),
-    s = n(746),
-    d = n(744),
-    l = n(743),
-    c = n(175),
+    s = n(748),
+    d = n(746),
+    l = n(745),
+    c = n(176),
     p, u;
   'function' == typeof Symbol && 'function' == typeof Symbol.for ? (p = Symbol.for('graceful-fs.queue'), u = Symbol.for('graceful-fs.previous')) : (p = '___graceful-fs.queue', u = '___graceful-fs.previous');
   var m = function () {};
@@ -1495,7 +1498,7 @@ module.exports = function (e) {
         value: e
       }), t
     }(a.closeSync), /\bgfs4\b/i.test(process.env.NODE_DEBUG || '') && process.on('exit', function () {
-      m(global[p]), n(287).equal(global[p].length, 0)
+      m(global[p]), n(288).equal(global[p].length, 0)
     })
   }
   e.exports = o(l(a)), process.env.TEST_GRACEFUL_FS_GLOBAL_PATCH && !a.__patched && (e.exports = o(a), a.__patched = !0)
@@ -1507,7 +1510,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(1),
-    r = n(655);
+    r = n(657);
   t.encodePathAsUrl = function (...e) {
     const t = o.resolve(...e);
     return r(t)
@@ -1517,9 +1520,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(712);
+  var o = n(714);
   t.GitProcess = o.GitProcess;
-  var r = n(270);
+  var r = n(271);
   t.GitError = r.GitError, t.RepositoryDoesNotExistErrorCode = r.RepositoryDoesNotExistErrorCode, t.GitNotFoundErrorCode = r.GitNotFoundErrorCode
 }, function (e, t, n) {
   'use strict';
@@ -1527,7 +1530,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(65);
+    r = n(68);
   var i;
   (function (e) {
     e[e.On = 0] = 'On', e[e.Off = 1] = 'Off', e[e.Mixed = 2] = 'Mixed'
@@ -1595,66 +1598,6 @@ module.exports = function (e) {
     getSymbols: t.getOwnPropertySymbols,
     each: [].forEach
   }
-}, function (e, t) {
-  'use strict';
-  t.fromCallback = function (e) {
-    return Object.defineProperty(function () {
-      return 'function' == typeof arguments[arguments.length - 1] ? void e.apply(this, arguments) : new Promise((t, n) => {
-        arguments[arguments.length] = (e, o) => e ? n(e) : void t(o), arguments.length++, e.apply(this, arguments)
-      })
-    }, 'name', {
-      value: e.name
-    })
-  }, t.fromPromise = function (e) {
-    return Object.defineProperty(function () {
-      const t = arguments[arguments.length - 1];
-      return 'function' == typeof t ? void e.apply(this, arguments).then((e) => t(null, e), t) : e.apply(this, arguments)
-    }, 'name', {
-      value: e.name
-    })
-  }
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(22),
-    r = n(1);
-  t.shell = {
-    moveItemToTrash: o.shell.moveItemToTrash,
-    beep: o.shell.beep,
-    openExternal: (e) => new Promise((t) => {
-      o.ipcRenderer.once('open-external-result', (e, {
-        result: n
-      }) => {
-        t(n)
-      }), o.ipcRenderer.send('open-external', {
-        path: e
-      })
-    }),
-    showItemInFolder: (e) => {
-      o.ipcRenderer.send('show-item-in-folder', {
-        path: e
-      })
-    },
-    openItem: o.shell.openItem
-  }, t.revealInFileManager = function (e, n) {
-    const o = r.join(e.path, n);
-    return t.shell.showItemInFolder(o)
-  }
-}, function (e, t, n) {
-  'use strict';
-  const o = n(38).fromCallback,
-    r = o(n(741)),
-    i = n(740);
-  e.exports = {
-    mkdirs: r,
-    mkdirsSync: i,
-    mkdirp: r,
-    mkdirpSync: i,
-    ensureDir: r,
-    ensureDirSync: i
-  }
 }, function (e, t, n) {
   'use strict';
 
@@ -1708,6 +1651,66 @@ module.exports = function (e) {
   }, t.getConflictedFiles = function (e, t) {
     return e.files.filter((e) => i.isConflictedFileStatus(e.status) && r(e.status, t.get(e.path)))
   }
+}, function (e, t) {
+  'use strict';
+  t.fromCallback = function (e) {
+    return Object.defineProperty(function () {
+      return 'function' == typeof arguments[arguments.length - 1] ? void e.apply(this, arguments) : new Promise((t, n) => {
+        arguments[arguments.length] = (e, o) => e ? n(e) : void t(o), arguments.length++, e.apply(this, arguments)
+      })
+    }, 'name', {
+      value: e.name
+    })
+  }, t.fromPromise = function (e) {
+    return Object.defineProperty(function () {
+      const t = arguments[arguments.length - 1];
+      return 'function' == typeof t ? void e.apply(this, arguments).then((e) => t(null, e), t) : e.apply(this, arguments)
+    }, 'name', {
+      value: e.name
+    })
+  }
+}, function (e, t, n) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(22),
+    r = n(1);
+  t.shell = {
+    moveItemToTrash: o.shell.moveItemToTrash,
+    beep: o.shell.beep,
+    openExternal: (e) => new Promise((t) => {
+      o.ipcRenderer.once('open-external-result', (e, {
+        result: n
+      }) => {
+        t(n)
+      }), o.ipcRenderer.send('open-external', {
+        path: e
+      })
+    }),
+    showItemInFolder: (e) => {
+      o.ipcRenderer.send('show-item-in-folder', {
+        path: e
+      })
+    },
+    openItem: o.shell.openItem
+  }, t.revealInFileManager = function (e, n) {
+    const o = r.join(e.path, n);
+    return t.shell.showItemInFolder(o)
+  }
+}, function (e, t, n) {
+  'use strict';
+  const o = n(39).fromCallback,
+    r = o(n(743)),
+    i = n(742);
+  e.exports = {
+    mkdirs: r,
+    mkdirsSync: i,
+    mkdirp: r,
+    mkdirpSync: i,
+    ensureDir: r,
+    ensureDirSync: i
+  }
 }, function (e) {
   e.exports = require('url')
 }, function (e, t, n) {
@@ -1722,7 +1725,7 @@ module.exports = function (e) {
       }
     }
   }
-  o(), e.exports = n(787)
+  o(), e.exports = n(789)
 }, function (e) {
   var t = String.fromCharCode,
     n = Math.round,
@@ -8131,7 +8134,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(703);
+  const r = n(705);
   var i;
   (function (e) {
     e[e.Local = 0] = 'Local', e[e.Remote = 1] = 'Remote'
@@ -8185,7 +8188,7 @@ module.exports = function (e) {
   e.exports = require('child_process')
 }, function (e, t, n) {
   (function () {
-    t.Emitter = n(776), t.Disposable = n(179), t.CompositeDisposable = n(775)
+    t.Emitter = n(778), t.Disposable = n(180), t.CompositeDisposable = n(777)
   }).call(this)
 }, function (e, t, n) {
   'use strict';
@@ -8273,6 +8276,22 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0),
+    r = n(4);
+  class i extends o.Component {
+    render() {
+      return o.createElement(r.Octicon, {
+        className: 'spin',
+        symbol: r.OcticonSymbol.sync
+      })
+    }
+  }
+  t.Loading = i
+}, function (e, t, n) {
+  'use strict';
   async function o(e, t = process.env, n = a.resolveGitProxy) {
     if (i.enableAutomaticGitProxyConfiguration()) {
       if ('ALL_PROXY' in t || 'all_proxy' in t) return void log.info(`proxy url not resolved, ALL_PROXY already set`);
@@ -8293,8 +8312,8 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(100),
-    i = n(27),
-    a = n(702),
+    i = n(25),
+    a = n(704),
     s = n(10);
   t.getFallbackUrlForProxyResolve = function (e, t) {
     return null === e ? null !== t.gitHubRepository && null !== t.gitHubRepository.cloneURL ? t.gitHubRepository.cloneURL : 'https://github.com' : e.endpoint === s.getDotComAPIEndpoint() ? 'https://github.com' : e.endpoint
@@ -8303,8 +8322,8 @@ module.exports = function (e) {
   }, t.envForProxy = o
 }, function (e, t, n) {
   'use strict';
-  const o = n(38).fromPromise,
-    r = n(289);
+  const o = n(39).fromPromise,
+    r = n(290);
   e.exports = {
     pathExists: o(function (e) {
       return r.access(e).then(() => !0).catch(() => !1)
@@ -10107,7 +10126,7 @@ module.exports = function (e) {
           MONTH: 'YYYY-MM'
         }, t
     })
-  }).call(this, n(137)(e))
+  }).call(this, n(138)(e))
 }, function (e, t) {
   'use strict';
   t.__esModule = !0, t.default = function (e, t) {
@@ -10115,22 +10134,6 @@ module.exports = function (e) {
     for (var o in e) 0 <= t.indexOf(o) || Object.prototype.hasOwnProperty.call(e, o) && (n[o] = e[o]);
     return n
   }
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(0),
-    r = n(4);
-  class i extends o.Component {
-    render() {
-      return o.createElement(r.Octicon, {
-        className: 'spin',
-        symbol: r.OcticonSymbol.sync
-      })
-    }
-  }
-  t.Loading = i
 }, function (e, t, n) {
   'use strict';
   n.r(t), n.d(t, 'bpfrpt_proptype_CellPosition', function () {
@@ -10193,8 +10196,8 @@ module.exports = function (e) {
     w = null,
     k = null
 }, function (e, t, n) {
-  var o = n(224)('wks'),
-    r = n(223),
+  var o = n(225)('wks'),
+    r = n(224),
     i = n(119).Symbol;
   e.exports = function (e) {
     return o[e] || (o[e] = i && i[e] || (i || r)('Symbol.' + e))
@@ -10274,14 +10277,14 @@ module.exports = function (e) {
   const o = n(0),
     r = n(5),
     i = n(34),
-    a = n(69),
+    a = n(72),
     s = n(2),
-    d = n(472),
-    l = n(471),
-    c = n(468),
-    p = n(467),
-    u = n(90),
-    m = n(465);
+    d = n(474),
+    l = n(473),
+    c = n(470),
+    p = n(469),
+    u = n(92),
+    m = n(467);
   var h;
   (function (e) {
     e.Start = 'Start', e.SignInToDotComWithBrowser = 'SignInToDotComWithBrowser', e.SignInToDotCom = 'SignInToDotCom', e.SignInToEnterprise = 'SignInToEnterprise', e.ConfigureGit = 'ConfigureGit', e.UsageOptOut = 'UsageOptOut'
@@ -10290,7 +10293,11 @@ module.exports = function (e) {
   t.WelcomeLeftTopImageUri = i.encodePathAsUrl(__dirname, 'static/welcome-illustration-left-top.svg'), t.WelcomeLeftBottomImageUri = i.encodePathAsUrl(__dirname, 'static/welcome-illustration-left-bottom.svg');
   class g extends o.Component {
     constructor(e) {
-      super(e), this.advanceToStep = (e) => {
+      super(e), this.dotComSupportsBasicAuthSubscription = null, this.onDotComSupportsBasicAuthUpdated = (e) => {
+        this.setState({
+          dotComSupportsBasicAuth: e
+        })
+      }, this.advanceToStep = (e) => {
         log.info(`[Welcome] advancing to step: ${e}`), e === h.SignInToDotCom ? this.props.dispatcher.beginDotComSignIn() : e === h.SignInToEnterprise && this.props.dispatcher.beginEnterpriseSignIn(), this.setState({
           currentStep: e
         })
@@ -10304,14 +10311,18 @@ module.exports = function (e) {
         })
       }, this.state = {
         currentStep: h.Start,
-        exiting: !1
+        exiting: !1,
+        dotComSupportsBasicAuth: e.dispatcher.tryGetDotComSupportsBasicAuth()
       }
     }
     componentWillReceiveProps(e) {
       this.advanceOnSuccessfulSignIn(e)
     }
     componentDidMount() {
-      this.props.dispatcher.recordWelcomeWizardInitiated()
+      this.props.dispatcher.recordWelcomeWizardInitiated(), this.dotComSupportsBasicAuthSubscription = this.props.dispatcher.onDotComSupportsBasicAuthUpdated(this.onDotComSupportsBasicAuthUpdated)
+    }
+    componentWillUnmount() {
+      null !== this.dotComSupportsBasicAuthSubscription && (this.dotComSupportsBasicAuthSubscription.dispose(), this.dotComSupportsBasicAuthSubscription = null)
     }
     get inSignInStep() {
       return !(this.state.currentStep !== h.SignInToDotCom) || !(this.state.currentStep !== h.SignInToDotComWithBrowser) || !(this.state.currentStep !== h.SignInToEnterprise)
@@ -10329,7 +10340,8 @@ module.exports = function (e) {
           return o.createElement(d.Start, {
             advance: this.advanceToStep,
             dispatcher: this.props.dispatcher,
-            loadingBrowserAuth: n
+            loadingBrowserAuth: n,
+            dotComSupportsBasicAuth: this.state.dotComSupportsBasicAuth
           });
         case h.SignInToDotCom:
           return o.createElement(l.SignInDotCom, {
@@ -10387,6 +10399,242 @@ module.exports = function (e) {
   t.Welcome = g
 }, function (e, t, n) {
   'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0);
+  class r extends o.Component {
+    render() {
+      return o.createElement('span', {
+        className: 'monospaced'
+      }, this.props.children)
+    }
+  }
+  t.Monospaced = r
+}, function (e, t, n) {
+  'use strict';
+
+  function o(e, t) {
+    if (e.length <= t) return e;
+    if (0 >= t) return '';
+    if (1 === t) return '\u2026';
+    const n = (t - 1) / 2,
+      o = e.substr(0, d(n)),
+      r = e.substr(e.length - Math.ceil(n));
+    return `${o}…${r}`
+  }
+
+  function r(e, t) {
+    if (e.length <= t) return e;
+    if (0 >= t) return '';
+    if (1 === t) return '\u2026';
+    const n = e.lastIndexOf(c.sep);
+    if (-1 === n) return o(e, t);
+    const r = e.length - n - 1;
+    if (r + 2 > t) return o(e, t);
+    const i = e.substr(0, t - r - 2),
+      a = e.substr(n);
+    return `${i}…${a}`
+  }
+
+  function i(e) {
+    e = e.endsWith('/') ? e.substr(0, e.length - 1) : e;
+    const t = c.basename(e),
+      n = e.substr(0, e.length - t.length);
+    return {
+      normalizedFileName: t,
+      normalizedDirectory: n
+    }
+  }
+
+  function a(e, t) {
+    if (t = void 0 === t ? e.length : t, 0 >= t) return {
+      normalizedPath: e,
+      directoryText: '',
+      fileText: '',
+      length: t
+    };
+    const {
+      normalizedFileName: n,
+      normalizedDirectory: o
+    } = i(e);
+    if (t >= e.length) return {
+      normalizedPath: e,
+      directoryText: o,
+      fileText: n,
+      length: t
+    };
+    const a = r(e, t);
+    let s = 0;
+    for (let n = 0; n < a.length && n < o.length; n++) {
+      const e = o[n],
+        t = a[n];
+      if (e === t) s++;
+      else {
+        if ('\u2026' === t) {
+          s++;
+          const e = n + 1;
+          a.length > e && a[e] === c.sep && s++
+        }
+        break
+      }
+    }
+    const d = a.substr(s),
+      l = a.substr(0, s);
+    return {
+      normalizedPath: e,
+      directoryText: l,
+      fileText: d,
+      length: t
+    }
+  }
+
+  function s(e, t) {
+    const n = c.normalize(e);
+    return Object.assign({
+      normalizedPath: n,
+      longestFit: 0,
+      shortestNonFit: void 0,
+      availableWidth: void 0,
+      fullTextWidth: void 0
+    }, a(n, t))
+  }
+  var d = Math.floor;
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const l = n(0),
+    c = n(1),
+    p = n(124);
+  t.truncateMid = o, t.truncatePath = r, t.extract = i;
+  class u extends l.PureComponent {
+    constructor(e) {
+      super(e), this.pathElement = null, this.pathInnerElement = null, this.onDialogShow = (e) => {
+        const t = e.target;
+        t instanceof Element && t.contains(this.pathElement) && this.resizeIfNecessary()
+      }, this.onPathElementRef = (e) => {
+        this.pathElement = e
+      }, this.onPathInnerElementRef = (e) => {
+        this.pathInnerElement = e
+      }, this.state = s(e.path)
+    }
+    componentWillReceiveProps(e) {
+      e.path !== this.props.path && this.setState(s(e.path))
+    }
+    componentDidMount() {
+      this.resizeIfNecessary(), document.addEventListener('dialog-show', this.onDialogShow)
+    }
+    componentWillUnmount() {
+      document.removeEventListener('dialog-show', this.onDialogShow)
+    }
+    componentDidUpdate() {
+      this.resizeIfNecessary()
+    }
+    render() {
+      const e = this.state.directoryText && this.state.directoryText.length ? l.createElement('span', {
+          className: 'dirname'
+        }, this.state.directoryText) : null,
+        t = this.state.length < this.state.normalizedPath.length,
+        n = t ? this.state.normalizedPath : void 0;
+      return l.createElement('div', {
+        className: 'path-text-component',
+        ref: this.onPathElementRef,
+        title: n
+      }, l.createElement('span', {
+        ref: this.onPathInnerElementRef
+      }, e, l.createElement('span', {
+        className: 'filename'
+      }, this.state.fileText)))
+    }
+    resizeIfNecessary() {
+      if (this.pathElement && this.pathInnerElement) {
+        const e = void 0 === this.props.availableWidth ? this.pathElement.getBoundingClientRect().width : this.props.availableWidth,
+          t = Math.max(e, 0);
+        if (void 0 !== this.state.fullTextWidth && this.state.fullTextWidth <= t) return this.state.length === this.state.normalizedPath.length ? void(t !== this.state.availableWidth && this.setState(Object.assign({}, this.state, {
+          availableWidth: t
+        }))) : void this.setState(Object.assign({}, this.state, a(this.state.normalizedPath), {
+          availableWidth: t
+        }));
+        if (void 0 !== this.state.availableWidth && this.state.availableWidth !== t) {
+          const e = s(this.props.path, this.state.length);
+          return void(t < this.state.availableWidth ? this.setState(Object.assign({}, e, {
+            fullTextWidth: this.state.fullTextWidth,
+            shortestNonFit: this.state.shortestNonFit,
+            availableWidth: t
+          })) : t > this.state.availableWidth && this.setState(Object.assign({}, e, {
+            fullTextWidth: this.state.fullTextWidth,
+            longestFit: this.state.longestFit,
+            availableWidth: t
+          })))
+        }
+        if (0 === t) return void(0 !== this.state.length && this.setState(Object.assign({}, this.state, a(this.state.normalizedPath, 0), {
+          availableWidth: t,
+          longestFit: 0,
+          shortestNonFit: 1
+        })));
+        const n = this.pathInnerElement.getBoundingClientRect().width,
+          o = this.state.length === this.state.normalizedPath.length ? n : this.state.fullTextWidth,
+          r = 0 === n ? .5 : t / n;
+        if (!(n <= t)) {
+          const e = this.state.length,
+            n = this.state.longestFit || 0,
+            i = p.clamp(d(this.state.length * r), n, e - 1);
+          this.setState(Object.assign({}, this.state, a(this.state.normalizedPath, i), {
+            shortestNonFit: e,
+            availableWidth: t,
+            fullTextWidth: o
+          }))
+        } else if (this.state.length === this.state.normalizedPath.length) return void this.setState(Object.assign({}, this.state, {
+          availableWidth: t,
+          fullTextWidth: o
+        }));
+        else {
+          const e = this.state.length,
+            i = void 0 === this.state.shortestNonFit ? this.state.normalizedPath.length : this.state.shortestNonFit - 1,
+            s = e + 1;
+          if (s >= i) return void this.setState(Object.assign({}, this.state, {
+            longestFit: e,
+            availableWidth: t,
+            fullTextWidth: o
+          }));
+          if (3 > t - n) return void this.setState(Object.assign({}, this.state, {
+            longestFit: e,
+            availableWidth: t,
+            fullTextWidth: o
+          }));
+          const l = p.clamp(d(this.state.length * r), s, i);
+          this.setState(Object.assign({}, this.state, a(this.state.normalizedPath, l), {
+            longestFit: e,
+            availableWidth: t,
+            fullTextWidth: o
+          }))
+        }
+      }
+    }
+  }
+  t.PathText = u
+}, function (e, t, n) {
+  'use strict';
+  n.r(t);
+  var o = function (e, t) {
+    return e === t
+  };
+  t['default'] = function (e, t) {
+    void 0 === t && (t = o);
+    var n = [],
+      r = !1,
+      i = function (e, o) {
+        return t(e, n[o])
+      },
+      a = function () {
+        for (var t = arguments.length, o = Array(t), a = 0; a < t; a++) o[a] = arguments[a];
+        return r && s === this && o.length === n.length && o.every(i) ? d : (d = e.apply(this, o), r = !0, s = this, n = o, d)
+      },
+      s, d;
+    return a
+  }
+}, function (e, t, n) {
+  'use strict';
 
   function o(e) {
     return e.replace(/[^a-z0-9\-_:.]+/gi, '_')
@@ -10411,7 +10659,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(649);
+  const o = n(651);
   t.structuralEquals = function (e, t) {
     return o(e, t, {
       strict: !0
@@ -10522,12 +10770,12 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(748)), o(n(747)), o(n(639)), o(n(241)), o(n(638)), o(n(637)), o(n(636)), o(n(635)), o(n(267)), o(n(632)), o(n(233));
-  var r = n(239);
+  }), o(n(750)), o(n(749)), o(n(641)), o(n(242)), o(n(640)), o(n(639)), o(n(638)), o(n(637)), o(n(268)), o(n(634)), o(n(234));
+  var r = n(240);
   t.UpstreamRemoteName = r.UpstreamRemoteName
 }, function (e, t, n) {
   e.exports = {
-    default: n(585),
+    default: n(587),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -10540,11 +10788,11 @@ module.exports = function (e) {
   class i extends o.Component {
     constructor() {
       super(...arguments), this.timeoutId = null, this.componentDidMount = () => {
-        this.props.timeout !== void 0 && (this.timeoutId = setTimeout(() => {
+        this.props.timeout !== void 0 && (this.timeoutId = window.setTimeout(() => {
           this.props.onDismissed()
         }, this.props.timeout))
       }, this.componentWillUnmount = () => {
-        this.props.timeout !== void 0 && null !== this.timeoutId && clearTimeout(this.timeoutId)
+        this.props.timeout !== void 0 && null !== this.timeoutId && window.clearTimeout(this.timeoutId)
       }
     }
     render() {
@@ -10576,20 +10824,6 @@ module.exports = function (e) {
   });
   const o = n(0);
   class r extends o.Component {
-    render() {
-      return o.createElement('span', {
-        className: 'monospaced'
-      }, this.props.children)
-    }
-  }
-  t.Monospaced = r
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(0);
-  class r extends o.Component {
     constructor() {
       super(...arguments), this.onLoad = (t) => {
         this.props.onElementLoad && this.props.onElementLoad(t.currentTarget)
@@ -10610,208 +10844,6 @@ module.exports = function (e) {
   'use strict';
 
   function o(e, t) {
-    if (e.length <= t) return e;
-    if (0 >= t) return '';
-    if (1 === t) return '\u2026';
-    const n = (t - 1) / 2,
-      o = e.substr(0, d(n)),
-      r = e.substr(e.length - Math.ceil(n));
-    return `${o}…${r}`
-  }
-
-  function r(e, t) {
-    if (e.length <= t) return e;
-    if (0 >= t) return '';
-    if (1 === t) return '\u2026';
-    const n = e.lastIndexOf(c.sep);
-    if (-1 === n) return o(e, t);
-    const r = e.length - n - 1;
-    if (r + 2 > t) return o(e, t);
-    const i = e.substr(0, t - r - 2),
-      a = e.substr(n);
-    return `${i}…${a}`
-  }
-
-  function i(e) {
-    e = e.endsWith('/') ? e.substr(0, e.length - 1) : e;
-    const t = c.basename(e),
-      n = e.substr(0, e.length - t.length);
-    return {
-      normalizedFileName: t,
-      normalizedDirectory: n
-    }
-  }
-
-  function a(e, t) {
-    if (t = void 0 === t ? e.length : t, 0 >= t) return {
-      normalizedPath: e,
-      directoryText: '',
-      fileText: '',
-      length: t
-    };
-    const {
-      normalizedFileName: n,
-      normalizedDirectory: o
-    } = i(e);
-    if (t >= e.length) return {
-      normalizedPath: e,
-      directoryText: o,
-      fileText: n,
-      length: t
-    };
-    const a = r(e, t);
-    let s = 0;
-    for (let n = 0; n < a.length && n < o.length; n++) {
-      const e = o[n],
-        t = a[n];
-      if (e === t) s++;
-      else {
-        if ('\u2026' === t) {
-          s++;
-          const e = n + 1;
-          a.length > e && a[e] === c.sep && s++
-        }
-        break
-      }
-    }
-    const d = a.substr(s),
-      l = a.substr(0, s);
-    return {
-      normalizedPath: e,
-      directoryText: l,
-      fileText: d,
-      length: t
-    }
-  }
-
-  function s(e, t) {
-    const n = c.normalize(e);
-    return Object.assign({
-      normalizedPath: n,
-      longestFit: 0,
-      shortestNonFit: void 0,
-      availableWidth: void 0,
-      fullTextWidth: void 0
-    }, a(n, t))
-  }
-  var d = Math.floor;
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const l = n(0),
-    c = n(1),
-    p = n(123);
-  t.truncateMid = o, t.truncatePath = r, t.extract = i;
-  class u extends l.PureComponent {
-    constructor(e) {
-      super(e), this.pathElement = null, this.pathInnerElement = null, this.onDialogShow = (e) => {
-        const t = e.target;
-        t instanceof Element && t.contains(this.pathElement) && this.resizeIfNecessary()
-      }, this.onPathElementRef = (e) => {
-        this.pathElement = e
-      }, this.onPathInnerElementRef = (e) => {
-        this.pathInnerElement = e
-      }, this.state = s(e.path)
-    }
-    componentWillReceiveProps(e) {
-      e.path !== this.props.path && this.setState(s(e.path))
-    }
-    componentDidMount() {
-      this.resizeIfNecessary(), document.addEventListener('dialog-show', this.onDialogShow)
-    }
-    componentWillUnmount() {
-      document.removeEventListener('dialog-show', this.onDialogShow)
-    }
-    componentDidUpdate() {
-      this.resizeIfNecessary()
-    }
-    render() {
-      const e = this.state.directoryText && this.state.directoryText.length ? l.createElement('span', {
-          className: 'dirname'
-        }, this.state.directoryText) : null,
-        t = this.state.length < this.state.normalizedPath.length,
-        n = t ? this.state.normalizedPath : void 0;
-      return l.createElement('div', {
-        className: 'path-text-component',
-        ref: this.onPathElementRef,
-        title: n
-      }, l.createElement('span', {
-        ref: this.onPathInnerElementRef
-      }, e, l.createElement('span', {
-        className: 'filename'
-      }, this.state.fileText)))
-    }
-    resizeIfNecessary() {
-      if (this.pathElement && this.pathInnerElement) {
-        const e = void 0 === this.props.availableWidth ? this.pathElement.getBoundingClientRect().width : this.props.availableWidth,
-          t = Math.max(e, 0);
-        if (void 0 !== this.state.fullTextWidth && this.state.fullTextWidth <= t) return this.state.length === this.state.normalizedPath.length ? void(t !== this.state.availableWidth && this.setState(Object.assign({}, this.state, {
-          availableWidth: t
-        }))) : void this.setState(Object.assign({}, this.state, a(this.state.normalizedPath), {
-          availableWidth: t
-        }));
-        if (void 0 !== this.state.availableWidth && this.state.availableWidth !== t) {
-          const e = s(this.props.path, this.state.length);
-          return void(t < this.state.availableWidth ? this.setState(Object.assign({}, e, {
-            fullTextWidth: this.state.fullTextWidth,
-            shortestNonFit: this.state.shortestNonFit,
-            availableWidth: t
-          })) : t > this.state.availableWidth && this.setState(Object.assign({}, e, {
-            fullTextWidth: this.state.fullTextWidth,
-            longestFit: this.state.longestFit,
-            availableWidth: t
-          })))
-        }
-        if (0 === t) return void(0 !== this.state.length && this.setState(Object.assign({}, this.state, a(this.state.normalizedPath, 0), {
-          availableWidth: t,
-          longestFit: 0,
-          shortestNonFit: 1
-        })));
-        const n = this.pathInnerElement.getBoundingClientRect().width,
-          o = this.state.length === this.state.normalizedPath.length ? n : this.state.fullTextWidth,
-          r = 0 === n ? .5 : t / n;
-        if (!(n <= t)) {
-          const e = this.state.length,
-            n = this.state.longestFit || 0,
-            i = p.clamp(d(this.state.length * r), n, e - 1);
-          this.setState(Object.assign({}, this.state, a(this.state.normalizedPath, i), {
-            shortestNonFit: e,
-            availableWidth: t,
-            fullTextWidth: o
-          }))
-        } else if (this.state.length === this.state.normalizedPath.length) return void this.setState(Object.assign({}, this.state, {
-          availableWidth: t,
-          fullTextWidth: o
-        }));
-        else {
-          const e = this.state.length,
-            i = void 0 === this.state.shortestNonFit ? this.state.normalizedPath.length : this.state.shortestNonFit - 1,
-            s = e + 1;
-          if (s >= i) return void this.setState(Object.assign({}, this.state, {
-            longestFit: e,
-            availableWidth: t,
-            fullTextWidth: o
-          }));
-          if (3 > t - n) return void this.setState(Object.assign({}, this.state, {
-            longestFit: e,
-            availableWidth: t,
-            fullTextWidth: o
-          }));
-          const l = p.clamp(d(this.state.length * r), s, i);
-          this.setState(Object.assign({}, this.state, a(this.state.normalizedPath, l), {
-            longestFit: e,
-            availableWidth: t,
-            fullTextWidth: o
-          }))
-        }
-      }
-    }
-  }
-  t.PathText = u
-}, function (e, t, n) {
-  'use strict';
-
-  function o(e, t) {
     return () => {
       const n = performance.now() - e,
         o = (n / 1e3).toFixed(3),
@@ -10822,7 +10854,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(25);
+  const r = n(26);
   t.startTimer = function (e, t) {
     const n = performance && performance.now ? performance.now() : null;
     if (null === n) return log.warn(`[Timing] invoked but performance.now not found - are you using this outside the renderer?`), {
@@ -10841,7 +10873,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(616)), o(n(219))
+  }), o(n(618)), o(n(220))
 }, function (e, t) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -10860,13 +10892,22 @@ module.exports = function (e) {
   (function (e) {
     e.NotLoaded = 'NotLoaded', e.Loading = 'Loading', e.Loaded = 'Loaded'
   })(n = t.StashedChangesLoadStates || (t.StashedChangesLoadStates = {}))
+}, function (e, t) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  var n;
+  (function (e) {
+    e[e.Push = 1] = 'Push', e[e.Pull = 2] = 'Pull', e[e.Fetch = 3] = 'Fetch', e[e.Clone = 4] = 'Clone', e[e.Checkout = 5] = 'Checkout'
+  })(n = t.RetryActionType || (t.RetryActionType = {}))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(30),
-    r = n(123);
+  const o = n(31),
+    r = n(124);
   t.initializeNewRebaseFlow = function (e) {
     const {
       defaultBranch: t,
@@ -10920,15 +10961,15 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(699)), o(n(698)), o(n(697)), o(n(696)), o(n(68)), o(n(695)), o(n(258))
+  }), o(n(701)), o(n(700)), o(n(699)), o(n(698)), o(n(71)), o(n(697)), o(n(259))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(35),
-    r = n(171),
-    i = n(269);
+    r = n(172),
+    i = n(270);
   t.spawnAndComplete = function (e, t, n, a, s) {
     const d = `${n}: git ${e.join(' ')}`;
     return r.measure(d, () => new Promise((r, d) => {
@@ -11014,7 +11055,7 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(2),
-    a = n(55);
+    a = n(56);
   var s;
   (function (e) {
     e[e.Light = 0] = 'Light', e[e.Dark = 1] = 'Dark'
@@ -11036,13 +11077,13 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(753);
+  var o = n(755);
   t.StatsDatabase = o.StatsDatabase;
-  var r = n(752);
+  var r = n(754);
   t.StatsStore = r.StatsStore, t.SamplesURL = r.SamplesURL;
-  var i = n(291);
+  var i = n(292);
   t.getGUID = i.getGUID;
-  var a = n(629);
+  var a = n(631);
   t.hasSeenUsageStatsNote = a.hasSeenUsageStatsNote, t.markUsageStatsNoteSeen = a.markUsageStatsNoteSeen
 }, function (e, t, n) {
   'use strict';
@@ -11097,9 +11138,9 @@ module.exports = function (e) {
       default: e
     }
   }
-  var r = n(784),
+  var r = n(786),
     i = o(r),
-    a = n(308),
+    a = n(309),
     s = o(a);
   e.exports = {
     TransitionGroup: s.default,
@@ -11132,66 +11173,78 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(510);
+  var o = n(511);
   t.PushBranchCommits = o.PushBranchCommits;
-  var r = n(205);
+  var r = n(206);
   t.BranchList = r.BranchList;
-  var i = n(503);
+  var i = n(504);
   t.BranchesContainer = i.BranchesContainer;
-  var a = n(498);
+  var a = n(499);
   t.PullRequestBadge = a.PullRequestBadge;
-  var s = n(204);
+  var s = n(205);
   t.groupBranches = s.groupBranches;
-  var d = n(201);
+  var d = n(202);
   t.BranchListItem = d.BranchListItem;
-  var l = n(202);
+  var l = n(203);
   t.renderDefaultBranch = l.renderDefaultBranch
 }, function (e, t, n) {
   'use strict';
+
+  function o(e, t, n, o) {
+    const d = new a.Tokenizer(e, t),
+      l = 'string' == typeof o ? d.tokenize(o) : o;
+    return l.map((e, t) => {
+      switch (e.kind) {
+        case a.TokenType.Emoji:
+          return r.createElement('img', {
+            key: t,
+            alt: e.text,
+            className: 'emoji',
+            src: e.path
+          });
+        case a.TokenType.Link:
+          return !1 === n ? r.createElement('span', {
+            key: t
+          }, e.text) : r.createElement(i.LinkButton, {
+            key: t,
+            uri: e.url,
+            title: e.url
+          }, e.text);
+        case a.TokenType.Text:
+          return r.createElement('span', {
+            key: t
+          }, e.text);
+        default:
+          return s.assertNever(e, `Unknown token type: ${e}`);
+      }
+    })
+  }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(0),
-    r = n(13),
-    i = n(550),
-    a = n(2);
-  class s extends o.Component {
+  const r = n(0),
+    i = n(13),
+    a = n(147),
+    s = n(2),
+    d = n(67);
+  class l extends r.Component {
+    constructor() {
+      super(...arguments), this.getElements = d.default(o), this.getTitle = d.default((e) => 'string' == typeof e ? e : e.map((e) => e.text).join(''))
+    }
     render() {
-      const e = this.props.text;
-      if (!e.length) return null;
-      const t = new i.Tokenizer(this.props.emoji, this.props.repository),
-        n = t.tokenize(e).map((e, t) => {
-          switch (e.kind) {
-            case i.TokenType.Emoji:
-              return o.createElement('img', {
-                key: t,
-                alt: e.text,
-                className: 'emoji',
-                src: e.path
-              });
-            case i.TokenType.Link:
-              return !1 === this.props.renderUrlsAsLinks ? o.createElement('span', {
-                key: t
-              }, e.text) : o.createElement(r.LinkButton, {
-                key: t,
-                uri: e.url,
-                children: e.text
-              });
-            case i.TokenType.Text:
-              return o.createElement('span', {
-                key: t
-              }, e.text);
-            default:
-              return a.assertNever(e, 'Unknown token type: ${r.kind}');
-          }
-        });
-      return o.createElement('div', {
+      const {
+        emoji: e,
+        repository: t,
+        renderUrlsAsLinks: n,
+        text: o
+      } = this.props;
+      return 0 === o.length ? null : r.createElement('div', {
         className: this.props.className,
-        title: e
-      }, n)
+        title: this.getTitle(o)
+      }, this.getElements(e, t, n, o))
     }
   }
-  t.RichText = s
+  t.RichText = l
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -11210,28 +11263,8 @@ module.exports = function (e) {
   }
   t.UiView = i
 }, function (e, t, n) {
-  'use strict';
-  n.r(t);
-  var o = function (e, t) {
-    return e === t
-  };
-  t['default'] = function (e, t) {
-    void 0 === t && (t = o);
-    var n = [],
-      r = !1,
-      i = function (e, o) {
-        return t(e, n[o])
-      },
-      a = function () {
-        for (var t = arguments.length, o = Array(t), a = 0; a < t; a++) o[a] = arguments[a];
-        return r && s === this && o.length === n.length && o.every(i) ? d : (d = e.apply(this, o), r = !0, s = this, n = o, d)
-      },
-      s, d;
-    return a
-  }
-}, function (e, t, n) {
-  var o = n(222),
-    r = n(160);
+  var o = n(223),
+    r = n(162);
   e.exports = function (e) {
     return o(r(e))
   }
@@ -11240,7 +11273,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   var o = n(119),
     r = n(45),
-    i = n(231),
+    i = n(232),
     a = 'prototype',
     s = function (e, t, n) {
       var d = e & s.F,
@@ -11315,15 +11348,6 @@ module.exports = function (e) {
     summary: '',
     description: ''
   }
-}, function (e, t) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  var n;
-  (function (e) {
-    e[e.Push = 1] = 'Push', e[e.Pull = 2] = 'Pull', e[e.Fetch = 3] = 'Fetch', e[e.Clone = 4] = 'Clone', e[e.Checkout = 5] = 'Checkout'
-  })(n = t.RetryActionType || (t.RetryActionType = {}))
 }, function (e, t, n) {
   'use strict';
 
@@ -11358,9 +11382,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(277),
-    r = n(275),
-    i = n(273);
+  const o = n(278),
+    r = n(276),
+    i = n(274);
   t.parse = function (e) {
     return r.parse(e)
   };
@@ -11489,7 +11513,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(176),
+  const r = n(177),
     i = n(10);
   t.generateGravatarUrl = o, t.getAvatarWithEnterpriseFallback = function (e, t, n) {
     return n === i.getDotComAPIEndpoint() || null === t || 0 === t.length ? e : o(t)
@@ -11507,8 +11531,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(176),
-    i = n(301);
+  const r = n(177),
+    i = n(302);
   t.uuid = function () {
     return i({
       random: o(16)
@@ -11628,7 +11652,7 @@ module.exports = function (e) {
     }
     return i
   };
-  var o = n(180),
+  var o = n(181),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -11639,7 +11663,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   t.__esModule = !0;
-  var o = n(230),
+  var o = n(231),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -11660,7 +11684,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(446))
+    }(n(448))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -11696,7 +11720,7 @@ module.exports = function (e) {
     i = n(5),
     a = n(2),
     s = n(12),
-    d = n(123);
+    d = n(124);
   var l;
   (function (e) {
     e[e.Standard = 0] = 'Standard', e[e.Subtitle = 1] = 'Subtitle'
@@ -11767,13 +11791,13 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(214)), o(n(522)), o(n(521))
+  }), o(n(215)), o(n(524)), o(n(523))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(39);
+  const o = n(40);
   t.openFile = async function (e, t) {
     const n = await o.shell.openExternal(`file://${e}`);
     if (!n) {
@@ -11790,7 +11814,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(56),
+    r = n(57),
     i = 60 * 1e3,
     a = 60 * i,
     s = 24 * a;
@@ -12011,10 +12035,10 @@ module.exports = function (e) {
   });
   const s = n(0),
     d = n(5),
-    l = n(76),
+    l = n(77),
     c = n(29),
     p = n(18),
-    u = n(571);
+    u = n(573);
   class m extends s.Component {
     constructor(e) {
       super(e), this.list = null, this.filterTextBox = null, this.renderRow = (e) => {
@@ -12140,7 +12164,7 @@ module.exports = function (e) {
         ref: this.onTextBoxRef,
         type: 'search',
         autoFocus: !0,
-        placeholder: this.props.placeholderText || '筛选',
+        placeholder: this.props.placeholderText || 'Filter',
         className: 'filter-list-filter-field',
         onValueChanged: this.onFilterValueChanged,
         onKeyDown: this.onKeyDown,
@@ -12193,7 +12217,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(293);
+  const o = n(294);
   class r extends o.default {
     constructor(e, t) {
       super(e), this.schemaVersion = t
@@ -12206,6 +12230,25 @@ module.exports = function (e) {
     }
   }
   t.BaseDatabase = r
+}, function (e, t) {
+  'use strict';
+  async function n(e) {
+    return new Promise((t) => window.setTimeout(t, e))
+  }
+  async function o(e, t, n) {
+    let o = null;
+    const r = new Promise((e) => {
+      o = window.setTimeout(() => e(n), t)
+    });
+    return Promise.race([e, r]).finally(() => {
+      null !== o && window.clearTimeout(o)
+    })
+  }
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  }), t.promiseWithMinimumTimeout = function (e, t) {
+    return Promise.all([e(), n(t)]).then((e) => e[0])
+  }, t.sleep = n, t.timeout = o
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -12213,8 +12256,8 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(665));
-  var o = n(245);
+    }(n(667));
+  var o = n(246);
   t.ShellError = o.ShellError
 }, function (e, t) {
   'use strict';
@@ -12272,8 +12315,8 @@ module.exports = function (e) {
     r = n(63),
     i = n(1),
     a = n(49),
-    s = n(708),
-    d = n(169);
+    s = n(710),
+    d = n(170);
   t.getTempFilePath = async function (e) {
     const t = i.join(r.tmpdir(), `${e}-`),
       n = await o.mkdtemp(t);
@@ -12344,7 +12387,7 @@ module.exports = function (e) {
     value: !0
   });
   const a = n(11),
-    s = n(82);
+    s = n(84);
   t.isCoAuthoredByTrailer = function (e) {
     return 'co-authored-by' === e.token.toLowerCase()
   }, t.parseRawUnfoldedTrailers = o, t.parseSingleUnfoldedTrailer = r, t.getTrailerSeparatorCharacters = i, t.parseTrailers = async function (e, t) {
@@ -12602,8 +12645,8 @@ module.exports = function (e) {
   t.AppMenu = u
 }, function (e, t, n) {
   'use strict';
-  const o = n(38).fromCallback,
-    r = n(737);
+  const o = n(39).fromCallback,
+    r = n(739);
   e.exports = {
     remove: o(r),
     removeSync: r.sync
@@ -12613,9 +12656,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(751),
+  const o = n(753),
     r = n(63),
-    i = n(750);
+    i = n(752);
   t.getOS = function () {
     return `Windows ${r.release()}`
   }, t.isMacOsAndMojaveOrLater = function () {
@@ -12681,11 +12724,11 @@ module.exports = function (e) {
     r = o.remote.autoUpdater,
     i = 'last-successful-update-check',
     a = n(49),
-    s = n(26),
+    s = n(27),
     d = n(107),
-    l = n(774),
-    c = n(773),
-    p = n(55);
+    l = n(776),
+    c = n(775),
+    p = n(56);
   var u;
   (function (e) {
     e[e.CheckingForUpdates = 0] = 'CheckingForUpdates', e[e.UpdateAvailable = 1] = 'UpdateAvailable', e[e.UpdateNotAvailable = 2] = 'UpdateNotAvailable', e[e.UpdateReady = 3] = 'UpdateReady'
@@ -12742,7 +12785,7 @@ module.exports = function (e) {
         this.userInitiatedUpdate = !e;
         try {
           r.setFeedURL({
-            url: 'https://central.github.com/api/deployments/desktop/desktop/latest?version=2.5.2&env=production'
+            url: 'https://central.github.com/api/deployments/desktop/desktop/latest?version=2.5.3&env=production'
           }), r.checkForUpdates()
         } catch (t) {
           this.emitError(t)
@@ -12770,7 +12813,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   e.exports = {
-    default: n(588),
+    default: n(590),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -12779,7 +12822,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(65);
+    r = n(68);
   class i extends o.Component {
     componentWillMount() {
       const e = this.props.label || 'unknown',
@@ -12853,7 +12896,7 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(5),
-    a = n(67),
+    a = n(70),
     s = n(2),
     d = n(4);
   class l extends r.Component {
@@ -12882,121 +12925,229 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(514))
+    }(n(516))
+}, function (e, t, n) {
+  'use strict';
+
+  function o() {}
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const r = n(0),
+    i = n(5),
+    a = n(549),
+    s = n(51);
+  class d extends r.Component {
+    constructor(e) {
+      super(e), this.slowLoadingTimeoutId = null, this.onSlowLoadingTimeout = () => {
+        this.setState({
+          isLoadingSlow: !0
+        })
+      }, this.state = {
+        isLoadingDiff: null === e.diff,
+        isLoadingSlow: !1,
+        propSnapshot: e
+      }
+    }
+    static getDerivedStateFromProps(e, t) {
+      const n = null === e.diff,
+        o = n !== t.isLoadingDiff;
+      return Object.assign({
+        isLoadingDiff: n
+      }, n ? void 0 : {
+        propSnapshot: e
+      }, o ? {
+        isLoadingSlow: !1
+      } : void 0)
+    }
+    componentDidMount() {
+      this.state.isLoadingDiff && this.scheduleSlowLoadingTimeout()
+    }
+    componentWillUnmount() {
+      this.clearSlowLoadingTimeout()
+    }
+    componentDidUpdate(e, t) {
+      this.state.isLoadingDiff !== t.isLoadingDiff && (this.state.isLoadingDiff ? this.scheduleSlowLoadingTimeout() : this.clearSlowLoadingTimeout())
+    }
+    scheduleSlowLoadingTimeout() {
+      this.clearSlowLoadingTimeout(), this.slowLoadingTimeoutId = window.setTimeout(this.onSlowLoadingTimeout, 150)
+    }
+    clearSlowLoadingTimeout() {
+      null !== this.slowLoadingTimeoutId && (window.clearTimeout(this.slowLoadingTimeoutId), this.slowLoadingTimeoutId = null)
+    }
+    render() {
+      const {
+        isLoadingDiff: e,
+        isLoadingSlow: t
+      } = this.state, {
+        repository: n,
+        imageDiffType: d,
+        readOnly: l,
+        hideWhitespaceInDiff: c,
+        onIncludeChanged: p,
+        onDiscardChanges: u,
+        diff: m,
+        file: h,
+        onOpenBinaryFile: f,
+        onChangeImageDiffType: g
+      } = this.state.propSnapshot, y = i('seamless-diff-switcher', {
+        loading: e,
+        slow: e && t,
+        "has-diff": null !== m
+      }), S = e ? r.createElement('div', {
+        className: 'loading-indicator'
+      }, r.createElement(s.Loading, null)) : null;
+      return r.createElement('div', {
+        className: y
+      }, null === m ? null : r.createElement(a.Diff, {
+        repository: n,
+        imageDiffType: d,
+        file: h,
+        diff: m,
+        readOnly: l,
+        hideWhitespaceInDiff: c,
+        askForConfirmationOnDiscardChanges: this.props.askForConfirmationOnDiscardChanges,
+        onIncludeChanged: e ? o : p,
+        onDiscardChanges: e ? o : u,
+        onOpenBinaryFile: e ? o : f,
+        onChangeImageDiffType: e ? o : g
+      }), S)
+    }
+  }
+  t.SeamlessDiffSwitcher = d
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(0),
-    r = n(2),
-    i = n(34),
-    a = n(23),
-    s = n(31),
-    d = n(12),
-    l = n(547),
-    c = n(537),
-    p = n(536),
-    u = i.encodePathAsUrl(__dirname, 'static/ufo-alert.svg');
-  class m extends o.Component {
-    constructor(e) {
-      super(e), this.onChangeImageDiffType = (e) => {
-        this.props.dispatcher.changeImageDiffType(e)
-      }, this.showLargeDiff = () => {
-        this.setState({
-          forceShowLargeDiff: !0
-        })
-      }, this.state = {
-        forceShowLargeDiff: !1
-      }
+  const o = n(26),
+    r = n(10);
+  var i;
+  (function (e) {
+    e[e.Text = 0] = 'Text', e[e.Emoji = 1] = 'Emoji', e[e.Link = 2] = 'Link'
+  })(i = t.TokenType || (t.TokenType = {}));
+  t.Tokenizer = class {
+    constructor(e, t) {
+      this.repository = null, this._results = [], this._currentString = '', this.emoji = e, t && o.isRepositoryWithGitHubRepository(t) && (this.repository = o.getNonForkGitHubRepository(t))
     }
-    render() {
-      const e = this.props.diff;
-      switch (e.kind) {
-        case s.DiffType.Text:
-          return this.renderText(e);
-        case s.DiffType.Binary:
-          return this.renderBinaryFile();
-        case s.DiffType.Image:
-          return this.renderImage(e);
-        case s.DiffType.LargeText:
-          return this.state.forceShowLargeDiff ? this.renderLargeText(e) : this.renderLargeTextDiff();
-        case s.DiffType.Unrenderable:
-          return this.renderUnrenderableDiff();
-        default:
-          return r.assertNever(e, `Unsupported diff type: ${e}`);
-      }
+    reset() {
+      this._results = [], this._currentString = ''
     }
-    renderImage(e) {
-      return e.current && e.previous ? o.createElement(l.ModifiedImageDiff, {
-        onChangeDiffType: this.onChangeImageDiffType,
-        diffType: this.props.imageDiffType,
-        current: e.current,
-        previous: e.previous
-      }) : e.current && (this.props.file.status.kind === a.AppFileStatusKind.New || this.props.file.status.kind === a.AppFileStatusKind.Untracked) ? o.createElement(l.NewImageDiff, {
-        current: e.current
-      }) : e.previous && this.props.file.status.kind === a.AppFileStatusKind.Deleted ? o.createElement(l.DeletedImageDiff, {
-        previous: e.previous
+    append(e) {
+      this._currentString += e
+    }
+    flush() {
+      this._currentString.length && (this._results.push({
+        kind: i.Text,
+        text: this._currentString
+      }), this._currentString = '')
+    }
+    getLastProcessedChar() {
+      return this._currentString.length ? this._currentString[this._currentString.length - 1] : null
+    }
+    scanForEndOfWord(e, t) {
+      const n = e.indexOf('\n', t + 1),
+        o = e.indexOf(' ', t + 1);
+      return -1 < n && -1 < o ? Math.min(n, o) : -1 < n ? n : -1 < o ? o : e.length
+    }
+    scanForEmoji(e, t) {
+      const n = this.scanForEndOfWord(e, t),
+        o = e.slice(t, n);
+      if (!/^:.*?:$/.test(o)) return null;
+      const r = this.emoji.get(o);
+      return r ? (this.flush(), this._results.push({
+        kind: i.Emoji,
+        text: o,
+        path: r
+      }), {
+        nextIndex: n
       }) : null
     }
-    renderLargeTextDiff() {
-      return o.createElement('div', {
-        className: 'panel empty large-diff'
-      }, o.createElement('img', {
-        src: u,
-        className: 'blankslate-image'
-      }), o.createElement('p', null, '代码前后差异太大以至于，默认不显示.', o.createElement('br', null), '你依然可以让差异显示出来.但性能可能非常差'), o.createElement(d.Button, {
-        onClick: this.showLargeDiff
-      }, '显示差异'))
+    scanForIssue(e, t, n) {
+      let o = this.scanForEndOfWord(e, t),
+        r = e.slice(t, o);
+      if (r.endsWith(')') && (o -= 1, r = e.slice(t, o)), r.endsWith('.') && (o -= 1, r = e.slice(t, o)), r.endsWith(',') && (o -= 1, r = e.slice(t, o)), !/^#\d+$/.test(r)) return null;
+      this.flush();
+      const a = parseInt(r.substr(1), 10);
+      if (isNaN(a)) return null;
+      const s = `${n.htmlURL}/issues/${a}`;
+      return this._results.push({
+        kind: i.Link,
+        text: r,
+        url: s
+      }), {
+        nextIndex: o
+      }
     }
-    renderUnrenderableDiff() {
-      return o.createElement('div', {
-        className: 'panel empty large-diff'
-      }, o.createElement('img', {
-        src: u
-      }), o.createElement('p', null, '代码前后差异·太大以至于，默认不显示.'))
+    scanForMention(e, t, n) {
+      const o = this.getLastProcessedChar();
+      if (o && ' ' !== o) return null;
+      let a = this.scanForEndOfWord(e, t),
+        s = e.slice(t, a);
+      if ((s.endsWith('!') || s.endsWith(',')) && (a -= 1, s = e.slice(t, a)), !/^@[a-zA-Z0-9\-]+$/.test(s)) return null;
+      this.flush();
+      const d = s.substr(1),
+        l = `${r.getHTMLURL(n.endpoint)}/${d}`;
+      return this._results.push({
+        kind: i.Link,
+        text: s,
+        url: l
+      }), {
+        nextIndex: a
+      }
     }
-    renderLargeText(e) {
-      const t = {
-        text: e.text,
-        hunks: e.hunks,
-        kind: s.DiffType.Text,
-        lineEndingsChange: e.lineEndingsChange
-      };
-      return this.renderTextDiff(t)
+    scanForHyperlink(e, t, n) {
+      const o = this.getLastProcessedChar();
+      if (o && ' ' !== o) return null;
+      const r = this.scanForEndOfWord(e, t),
+        a = e.slice(t, r);
+      if (!/^https?:\/\/.+/.test(a)) return null;
+      if (this.flush(), n && n.htmlURL) {
+        const e = n.htmlURL.toLowerCase();
+        if (a.toLowerCase().startsWith(`${e}/issues/`)) {
+          const e = /\/issues\/(\d+)/.exec(a);
+          if (e) {
+            const t = e[1];
+            return this._results.push({
+              kind: i.Link,
+              url: a,
+              text: `#${t}`
+            }), {
+              nextIndex: r
+            }
+          }
+        }
+      }
+      return this._results.push({
+        kind: i.Link,
+        url: a,
+        text: a
+      }), {
+        nextIndex: r
+      }
     }
-    renderText(e) {
-      return 0 === e.hunks.length ? this.props.file.status.kind === a.AppFileStatusKind.New || this.props.file.status.kind === a.AppFileStatusKind.Untracked ? o.createElement('div', {
-        className: 'panel empty'
-      }, '这个文件是空的') : this.props.file.status.kind === a.AppFileStatusKind.Renamed ? o.createElement('div', {
-        className: 'panel renamed'
-      }, '这个文件被重命名了但是没有改任何内容') : a.isConflictedFileStatus(this.props.file.status) && a.isManualConflict(this.props.file.status) ? o.createElement('div', {
-        className: 'panel empty'
-      }, '这个文件存在争议且必须通过命令行解决.') : this.props.hideWhitespaceInDiff ? o.createElement('div', {
-        className: 'panel empty'
-      }, '只有空白改变被发现') : o.createElement('div', {
-        className: 'panel empty'
-      }, '没发现任何改变') : this.renderTextDiff(e)
+    inspectAndMove(e, t, n) {
+      const o = n();
+      return o ? o.nextIndex : (this.append(e), t + 1)
     }
-    renderBinaryFile() {
-      return o.createElement(c.BinaryFile, {
-        path: this.props.file.path,
-        repository: this.props.repository,
-        dispatcher: this.props.dispatcher
-      })
+    tokenizeNonGitHubRepository(e) {
+      for (let t = 0; t < e.length;) {
+        const n = e[t];
+        ':' === n ? t = this.inspectAndMove(n, t, () => this.scanForEmoji(e, t)) : 'h' === n ? t = this.inspectAndMove(n, t, () => this.scanForHyperlink(e, t)) : (this.append(n), t++)
+      }
+      return this.flush(), this._results
     }
-    renderTextDiff(e) {
-      return o.createElement(p.TextDiff, {
-        repository: this.props.repository,
-        file: this.props.file,
-        readOnly: this.props.readOnly,
-        onIncludeChanged: this.props.onIncludeChanged,
-        text: e.text,
-        hunks: e.hunks
-      })
+    tokenizeGitHubRepository(e, t) {
+      for (let n = 0; n < e.length;) {
+        const o = e[n];
+        ':' === o ? n = this.inspectAndMove(o, n, () => this.scanForEmoji(e, n)) : '#' === o ? n = this.inspectAndMove(o, n, () => this.scanForIssue(e, n, t)) : '@' === o ? n = this.inspectAndMove(o, n, () => this.scanForMention(e, n, t)) : 'h' === o ? n = this.inspectAndMove(o, n, () => this.scanForHyperlink(e, n, t)) : (this.append(o), n++)
+      }
+      return this.flush(), this._results
+    }
+    tokenize(e) {
+      return this.reset(), this.repository ? this.tokenizeGitHubRepository(e, this.repository) : this.tokenizeNonGitHubRepository(e)
     }
   }
-  t.Diff = m
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -13005,7 +13156,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(23),
     i = n(4),
-    a = n(74);
+    a = n(66);
   class s extends o.Component {
     render() {
       const e = {
@@ -13042,7 +13193,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(34),
-    i = n(556),
+    i = n(558),
     a = r.encodePathAsUrl(__dirname, 'static/default-avatar.png');
   class s extends o.Component {
     constructor(e) {
@@ -13191,7 +13342,7 @@ module.exports = function (e) {
   }
   t.FocusContainer = i
 }, function (e, t, n) {
-  var o = n(221);
+  var o = n(222);
   e.exports = function (e) {
     if (!o(e)) throw TypeError(e + ' is not an object!');
     return e
@@ -13202,12 +13353,12 @@ module.exports = function (e) {
     return t.call(e).slice(8, -1)
   }
 }, function (e, t, n) {
-  n(606);
-  var o = n(93);
+  n(608);
+  var o = n(94);
   o.NodeList = o.HTMLCollection = o.Array
 }, function (e, t, n) {
   var o = n(37).setDesc,
-    r = n(155),
+    r = n(157),
     i = n(60)('toStringTag');
   e.exports = function (e, t, n) {
     e && !r(e = n ? e : e.prototype, i) && o(e, i, {
@@ -13231,16 +13382,16 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   var o = n(37),
-    r = n(156);
-  e.exports = n(225) ? function (e, t, n) {
+    r = n(158);
+  e.exports = n(226) ? function (e, t, n) {
     return o.setDesc(e, t, r(1, n))
   } : function (e, t, n) {
     return e[t] = n, e
   }
 }, function (e, t, n) {
   'use strict';
-  var o = n(609)(!0);
-  n(228)(String, 'String', function (e) {
+  var o = n(611)(!0);
+  n(229)(String, 'String', function (e) {
     this._t = e + '', this._i = 0
   }, function () {
     var e = this._t,
@@ -13255,7 +13406,7 @@ module.exports = function (e) {
     })
   })
 }, function (e, t, n) {
-  var o = n(94),
+  var o = n(95),
     r = n(45),
     i = n(118);
   e.exports = function (e, t) {
@@ -13271,7 +13422,7 @@ module.exports = function (e) {
     return e
   }
 }, function (e, t, n) {
-  var o = n(160);
+  var o = n(162);
   e.exports = function (e) {
     return Object(o(e))
   }
@@ -13290,7 +13441,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(1),
-    r = n(85),
+    r = n(87),
     i = 'last-clone-location';
   t.getDefaultDir = function () {
     return localStorage.getItem(i) || o.join(r.getDocumentsPath(), 'GitHub')
@@ -13319,31 +13470,6 @@ module.exports = function (e) {
       return null
     }
   }
-}, function (e, t) {
-  'use strict';
-  async function n(e) {
-    return new Promise((t) => {
-      window.setTimeout(() => {
-        t()
-      }, e)
-    })
-  }
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  }), t.promiseWithMinimumTimeout = function (e, t) {
-    return new Promise((n, o) => {
-      let r = !1,
-        i = null;
-      const a = () => {
-        null != i && r && (n(i), i = null)
-      };
-      window.setTimeout(() => {
-        r = !0, a()
-      }, t), e().then((e) => {
-        i = e, a()
-      }).catch(o)
-    })
-  }, t.timeout = n
 }, function (e, t, n) {
   'use strict';
 
@@ -13420,8 +13546,8 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(11),
-    i = n(31),
-    a = n(265),
+    i = n(30),
+    a = n(266),
     s = n(23);
   t.stageFiles = async function (e, t) {
     const n = [],
@@ -13451,9 +13577,9 @@ module.exports = function (e) {
       !t.encoding && e instanceof i.Readable && (t.encoding = e._readableState.encoding)
     })
   }
-  var i = n(288),
-    a = n(175),
-    s = n(707);
+  var i = n(289),
+    a = n(176),
+    s = n(709);
   e.exports = function (t, n) {
     return e.exports.createStream(t, n)
   }, e.exports.createStream = function (e, t) {
@@ -13578,14 +13704,14 @@ module.exports = function (e) {
     value: !0
   });
   const h = n(1),
-    f = n(126),
-    g = n(264),
+    f = n(127),
+    g = n(265),
     y = n(23),
-    S = n(31),
-    C = n(81),
-    b = n(706),
-    v = n(263),
-    E = n(125),
+    S = n(30),
+    C = n(83),
+    b = n(708),
+    v = n(264),
+    E = n(126),
     w = 7e7,
     k = w / 16,
     T = 5e3,
@@ -13670,7 +13796,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(22),
-    i = n(133);
+    i = n(134);
   t.supportsDarkMode = o, t.isDarkModeEnabled = function () {
     return !!o() && r.remote.nativeTheme.shouldUseDarkColors
   }
@@ -13685,8 +13811,8 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  const o = n(38).fromCallback,
-    r = n(729);
+  const o = n(39).fromCallback,
+    r = n(731);
   e.exports = {
     readJson: o(r.readFile),
     readJsonSync: r.readFileSync,
@@ -13739,7 +13865,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = n(85),
+  const a = n(87),
     s = n(42);
   class d extends Error {
     constructor(e, t) {
@@ -13813,7 +13939,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var r = n(180),
+  var r = n(181),
     i = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -13886,7 +14012,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(337)), o(n(336)), o(n(335)), o(n(234))
+  }), o(n(338)), o(n(337)), o(n(336)), o(n(235))
 }, function (e, t, n) {
   'use strict';
 
@@ -13935,16 +14061,16 @@ module.exports = function (e) {
   const c = n(0),
     p = n(23),
     u = n(1),
-    m = n(26),
+    m = n(27),
     h = n(4),
-    f = n(74),
-    g = n(255),
-    y = n(77),
+    f = n(66),
+    g = n(256),
+    y = n(78),
     S = n(115),
     C = n(22),
     b = n(12),
     v = n(13),
-    E = n(41);
+    E = n(38);
   t.renderUnmergedFile = (e) => p.isConflictWithMarkers(e.status) && E.hasUnresolvedConflicts(e.status, e.manualResolution) ? T({
     path: e.path,
     status: e.status,
@@ -14128,7 +14254,7 @@ module.exports = function (e) {
   });
   const d = n(19),
     l = n(1),
-    c = n(392);
+    c = n(393);
   t.InstalledCLIPath = '/usr/local/bin/github';
   const p = l.resolve(__dirname, 'static', 'github.sh');
   t.installCLI = async function () {
@@ -14159,11 +14285,11 @@ module.exports = function (e) {
   const i = n(0),
     a = n(120),
     s = n(10),
-    d = n(420),
-    l = n(91),
+    d = n(421),
+    l = n(67),
     c = n(12),
     p = n(4),
-    u = n(95),
+    u = n(96),
     m = n(13),
     h = n(21);
   class f extends i.PureComponent {
@@ -14266,7 +14392,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(128);
+    r = n(129);
   t.ForkSettingsDescription = function (e) {
     const t = e.forkContributionTarget === r.ForkContributionTarget.Self ? e.repository.gitHubRepository : e.repository.gitHubRepository.parent;
     return o.createElement('ul', {
@@ -14298,8 +14424,8 @@ module.exports = function (e) {
   const r = n(0),
     i = n(5),
     a = n(4),
-    s = n(463),
-    d = n(215);
+    s = n(465),
+    d = n(216);
   t.friendlyAcceleratorText = o;
   class l extends r.Component {
     getIcon(e) {
@@ -14375,9 +14501,9 @@ module.exports = function (e) {
   });
   const s = n(0),
     d = n(5),
-    l = n(76),
-    c = n(131),
-    p = n(191),
+    l = n(77),
+    c = n(132),
+    p = n(192),
     u = 30,
     m = 10;
   t.getListHeight = r, t.getRowHeight = i;
@@ -14475,7 +14601,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(192),
+    i = n(193),
     a = 300;
   class s extends r.Component {
     constructor(e) {
@@ -14604,11 +14730,11 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(196),
+    r = n(197),
     i = n(2),
-    a = n(470),
-    s = n(469),
-    d = n(69);
+    a = n(472),
+    s = n(471),
+    d = n(72);
   class l extends o.Component {
     constructor() {
       super(...arguments), this.onEndpointEntered = (e) => {
@@ -14682,11 +14808,11 @@ module.exports = function (e) {
   const r = n(0),
     i = n(13),
     a = n(4),
-    s = n(58),
-    d = n(87),
+    s = n(51),
+    d = n(89),
     l = n(12),
     c = n(29),
-    p = n(141),
+    p = n(142),
     u = n(10);
   t.BrowserRedirectMessage = 'Your browser will redirect you back to GitHub Desktop once you\'ve signed in. If your browser asks for your permission to launch GitHub Desktop please allow it to.';
   class m extends r.Component {
@@ -14776,7 +14902,7 @@ module.exports = function (e) {
     r = n(4),
     i = n(2),
     a = n(113),
-    s = n(480),
+    s = n(481),
     d = n(5);
   class l extends o.Component {
     constructor(e) {
@@ -14898,8 +15024,8 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(481)), o(n(113)), o(n(197)), o(n(479)), o(n(478));
-  var r = n(477);
+  }), o(n(482)), o(n(113)), o(n(198)), o(n(480)), o(n(479));
+  var r = n(478);
   t.RevertProgress = r.RevertProgress
 }, function (e, t, n) {
   'use strict';
@@ -14946,13 +15072,13 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(490);
+  var o = n(491);
   t.TutorialPanel = o.TutorialPanel;
-  var r = n(489);
+  var r = n(490);
   t.TutorialWelcome = r.TutorialWelcome;
-  var i = n(488);
+  var i = n(489);
   t.TutorialDone = i.TutorialDone;
-  var a = n(487);
+  var a = n(488);
   t.ConfirmExitTutorial = a.ConfirmExitTutorial
 }, function (e, t, n) {
   'use strict';
@@ -14960,9 +15086,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(56),
+    r = n(57),
     i = n(4),
-    a = n(95);
+    a = n(96);
   class s extends o.Component {
     render() {
       const e = this.props.lastCommitDate,
@@ -14995,7 +15121,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(201);
+    r = n(202);
   t.renderDefaultBranch = function (e, t, n) {
     const i = e.branch,
       a = i.tip,
@@ -15020,7 +15146,7 @@ module.exports = function (e) {
     i = n(4),
     a = n(2),
     s = n(5),
-    d = n(500);
+    d = n(501);
   class l extends r.PureComponent {
     constructor(e) {
       super(e), this.statusSubscription = null, this.onStatus = (e) => {
@@ -15128,8 +15254,8 @@ module.exports = function (e) {
     i = n(2),
     a = n(120),
     s = n(12),
-    d = n(204),
-    l = n(504);
+    d = n(205),
+    l = n(505);
   class c extends r.Component {
     constructor(e) {
       super(e), this.branchFilterList = null, this.onBranchesFilterListRef = (e) => {
@@ -15229,16 +15355,16 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(0),
-    a = n(212),
-    s = n(89),
+    a = n(213),
+    s = n(91),
     d = n(116),
     l = n(10),
     c = n(22),
-    p = n(26),
-    u = n(209),
-    m = n(210),
+    p = n(27),
+    u = n(210),
+    m = n(211),
     h = n(4),
-    f = n(27);
+    f = n(25);
   class g extends i.PureComponent {
     constructor(e) {
       super(e), this.onCopySHA = () => {
@@ -15365,10 +15491,10 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(146),
-    i = n(76),
+    r = n(148),
+    i = n(77),
     a = n(4),
-    s = n(41);
+    s = n(38);
   class d extends o.Component {
     constructor() {
       super(...arguments), this.onSelectedRowChanged = (e) => {
@@ -15415,7 +15541,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(211);
+    r = n(212);
   class i extends o.Component {
     renderAuthorInline(e) {
       return o.createElement('span', {
@@ -15462,7 +15588,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(5),
-    a = n(147),
+    a = n(149),
     s = 3;
   class i extends o.Component {
     render() {
@@ -15533,7 +15659,7 @@ module.exports = function (e) {
   });
   const i = n(105),
     a = n(10),
-    s = n(211);
+    s = n(212);
   t.getAvatarUsersForCommit = function (e, t, n) {
     const o = [r(e, t, n.author), ...n.coAuthors.map((n) => r(e, t, n))],
       i = n.coAuthors.some((e) => e.name === n.committer.name && e.email === n.committer.email),
@@ -15634,18 +15760,27 @@ module.exports = function (e) {
     }
     return e
   }
-}, function (e, t) {
+}, function (e, t, n) {
   'use strict';
 
-  function n(e, t) {
+  function o(e, t) {
     const n = e.find((e) => t >= e.unifiedDiffStart && t <= e.unifiedDiffEnd);
     return n || null
   }
+
+  function r(e, t) {
+    return t.type !== i.DiffLineType.Add && t.type !== i.DiffLineType.Delete ? e : null === e ? t.type === i.DiffLineType.Add ? a.Additions : a.Deletions : e === a.Mixed ? e : t.type === i.DiffLineType.Add && e !== a.Additions || t.type === i.DiffLineType.Delete && e !== a.Deletions ? a.Mixed : e
+  }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), t.diffHunkForIndex = n, t.diffLineForIndex = function (e, t) {
-    const o = n(e, t);
-    return o ? o.lines[t - o.unifiedDiffStart] || null : null
+  });
+  const i = n(30);
+  var a;
+  (function (e) {
+    e[e.Additions = 0] = 'Additions', e[e.Deletions = 1] = 'Deletions', e[e.Mixed = 2] = 'Mixed'
+  })(a = t.DiffRangeType || (t.DiffRangeType = {})), t.diffHunkForIndex = o, t.diffLineForIndex = function (e, t) {
+    const n = o(e, t);
+    return n ? n.lines[t - n.unifiedDiffStart] || null : null
   }, t.lineNumberForDiffLine = function (e, t) {
     let n = 0;
     for (const o of t) {
@@ -15655,32 +15790,36 @@ module.exports = function (e) {
     }
     return -1
   }, t.findInteractiveDiffRange = function (e, t) {
-    const o = n(e, t);
-    if (!o) return null;
-    const r = t - o.unifiedDiffStart;
-    let a = null;
-    for (let n = r - 1; 0 <= n; n--) {
-      const e = o.lines[n];
+    const n = o(e, t);
+    if (!n) return null;
+    const a = t - n.unifiedDiffStart;
+    let s = r(null, n.lines[a]),
+      d = null;
+    for (let o = a - 1; 0 <= o; o--) {
+      const e = n.lines[o];
       if (!e.isIncludeableLine()) {
-        const e = n + 1;
-        a = o.unifiedDiffStart + e;
+        const e = o + 1;
+        d = n.unifiedDiffStart + e;
         break
       }
+      s = r(s, e)
     }
-    const i = null === a ? o.unifiedDiffStart + 1 : a;
-    let s = null;
-    for (let n = r + 1; n < o.lines.length; n++) {
-      const e = o.lines[n];
+    const i = null === d ? n.unifiedDiffStart + 1 : d;
+    let l = null;
+    for (let o = a + 1; o < n.lines.length; o++) {
+      const e = n.lines[o];
       if (!e.isIncludeableLine()) {
-        const e = n - 1;
-        s = o.unifiedDiffStart + e;
+        const e = o - 1;
+        l = n.unifiedDiffStart + e;
         break
       }
+      s = r(s, e)
     }
-    const d = null === s ? o.unifiedDiffEnd : s;
+    const c = null === l ? n.unifiedDiffEnd : l;
     return {
       from: i,
-      to: d
+      to: c,
+      type: s
     }
   }
 }, function (e, t, n) {
@@ -15691,11 +15830,11 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(562)), o(n(559)), o(n(558)), o(n(557))
+  }), o(n(564)), o(n(561)), o(n(560)), o(n(559))
 }, function (e, t, n) {
   (function () {
     var t, o, r, i, a, s, d, l;
-    l = n(149), r = l.countDir, a = l.getExtension, e.exports = t = function () {
+    l = n(151), r = l.countDir, a = l.getExtension, e.exports = t = function () {
       function e(e, t) {
         var n, s, l;
         return l = null == t ? {} : t, n = l.optCharRegEx, s = l.pathSeparator, e && e.length ? void(this.query = e, this.query_lw = e.toLowerCase(), this.core = o(e, n), this.core_lw = this.core.toLowerCase(), this.core_up = d(this.core), this.depth = r(e, e.length, s), this.ext = a(this.query_lw), this.charCodes = i(this.query_lw)) : null
@@ -15738,7 +15877,7 @@ module.exports = function (e) {
     return null
   }
 }, function (e, t, n) {
-  var o = n(152),
+  var o = n(154),
     r = n(60)('toStringTag'),
     i = 'Arguments' == o(function () {
       return arguments
@@ -15752,7 +15891,7 @@ module.exports = function (e) {
     return 'object' == typeof e ? null !== e : 'function' == typeof e
   }
 }, function (e, t, n) {
-  var o = n(152);
+  var o = n(154);
   e.exports = Object('z').propertyIsEnumerable(0) ? Object : function (e) {
     return 'String' == o(e) ? e.split('') : Object(e)
   }
@@ -15778,19 +15917,19 @@ module.exports = function (e) {
     }).a
   })
 }, function (e, t, n) {
-  e.exports = n(157)
+  e.exports = n(159)
 }, function (e) {
   e.exports = !0
 }, function (e, t, n) {
   'use strict';
-  var o = n(227),
-    r = n(94),
-    i = n(226),
-    a = n(157),
-    s = n(155),
-    d = n(93),
-    l = n(607),
-    c = n(154),
+  var o = n(228),
+    r = n(95),
+    i = n(227),
+    a = n(159),
+    s = n(157),
+    d = n(94),
+    l = n(609),
+    c = n(156),
     p = n(37).getProto,
     u = n(60)('iterator'),
     m = !([].keys && 'next' in [].keys()),
@@ -15843,9 +15982,9 @@ module.exports = function (e) {
     }
   }
   t.__esModule = !0;
-  var r = n(611),
+  var r = n(613),
     i = o(r),
-    a = n(603),
+    a = n(605),
     s = o(a),
     d = 'function' == typeof s.default && 'symbol' == typeof i.default ? function (e) {
       return typeof e
@@ -15859,11 +15998,11 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   e.exports = {
-    default: n(612),
+    default: n(614),
     __esModule: !0
   }
 }, function (e, t, n) {
-  var o = n(613);
+  var o = n(615);
   e.exports = function (e, t, n) {
     return (o(e), void 0 === t) ? e : 1 === n ? function (n) {
       return e.call(t, n)
@@ -16471,8 +16610,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(25),
-    i = n(630),
+  const r = n(26),
+    i = n(632),
     a = n(49);
   t.PullRequestCoordinator = class {
     constructor(e, t) {
@@ -16610,7 +16749,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = n(39),
+  const a = n(40),
     s = n(2),
     d = n(10),
     l = n(106);
@@ -16650,7 +16789,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(55);
+  const i = n(56);
   t.storeTagsToPush = function (e, t) {
     0 === t.length ? o(e) : i.setStringArray(r(e), t)
   }, t.getTagsToPush = function (e) {
@@ -16722,9 +16861,9 @@ module.exports = function (e) {
   });
   const l = n(35),
     c = n(11),
-    p = n(78),
-    u = n(253),
-    m = n(168);
+    p = n(79),
+    u = n(254),
+    m = n(169);
   t.DesktopStashEntryMarker = '!!GitHub_Desktop';
   const h = /!!GitHub_Desktop<(.+)>$/;
   t.getStashes = o, t.getLastDesktopStashEntryForBranch = async function (e, t) {
@@ -16769,7 +16908,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(54);
+  const o = n(55);
   t.UpstreamRemoteName = 'upstream', t.findUpstreamRemote = function (e, n) {
     const r = n.find((e) => e.name === t.UpstreamRemoteName);
     return r ? o.repositoryMatchesRemote(e, r) ? r : null : null
@@ -16794,27 +16933,27 @@ module.exports = function (e) {
     r = n(1),
     i = n(23),
     a = n(46),
-    s = n(30),
-    d = n(173),
-    l = n(98),
+    s = n(31),
+    d = n(174),
+    l = n(99),
     c = n(28),
     p = n(107),
     u = n(47),
-    m = n(653),
+    m = n(655),
     h = n(20),
     f = n(20),
     g = n(35),
-    y = n(99),
-    S = n(240),
+    y = n(80),
+    S = n(241),
     C = n(2),
-    b = n(239),
-    v = n(652),
-    E = n(271),
-    w = n(251),
+    b = n(240),
+    v = n(654),
+    E = n(272),
+    w = n(252),
     k = n(62),
-    T = n(238),
-    _ = n(78),
-    R = n(237),
+    T = n(239),
+    _ = n(79),
+    R = n(238),
     x = 100,
     P = 'history';
   class D extends k.BaseStore {
@@ -17287,6 +17426,9 @@ module.exports = function (e) {
         await h.resetSubmodulePaths(this.repository, d), await h.resetPaths(this.repository, 2, 'HEAD', s), await h.checkoutIndex(this.repository, l)
       })
     }
+    async discardChangesFromSelection(e, t, n) {
+      await this.performFailableOperation(() => h.discardChangesFromSelection(this.repository, e, t, n))
+    }
     async revertCommit(e, t, n, o) {
       await this.performFailableOperation(() => h.revertCommit(e, t, n, o)), this.emitUpdate()
     }
@@ -17583,15 +17725,15 @@ module.exports = function (e) {
   const c = n(1),
     p = n(19),
     u = n(35),
-    m = n(169),
+    m = n(170),
     h = n(23),
-    f = n(53),
-    g = n(79),
+    f = n(54),
+    g = n(81),
     y = n(11),
-    S = n(256),
-    C = n(168),
-    b = n(250),
-    v = n(167);
+    S = n(257),
+    C = n(169),
+    b = n(251),
+    v = n(168);
   var E;
   (function (e) {
     e.CompletedWithoutError = 'CompletedWithoutError', e.ConflictsEncountered = 'ConflictsEncountered', e.OutstandingFilesNotStaged = 'OutstandingFilesNotStaged', e.Aborted = 'Aborted', e.Error = 'Error'
@@ -17650,9 +17792,9 @@ module.exports = function (e) {
     i = n(1),
     a = n(11),
     s = n(35),
-    d = n(67),
-    l = n(682),
-    c = n(81);
+    d = n(70),
+    l = n(684),
+    c = n(83);
   t.merge = async function (e, t) {
     const {
       exitCode: n,
@@ -17829,15 +17971,15 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const p = n(81),
-    u = n(685),
+  const p = n(83),
+    u = n(687),
     m = n(23),
-    h = n(684),
-    f = n(31),
+    h = n(686),
+    f = n(30),
     g = n(2),
-    y = n(249),
-    S = n(170),
-    C = n(248),
+    y = n(250),
+    S = n(171),
+    C = n(249),
     b = 2e7,
     v = ['DD', 'AU', 'UD', 'UA', 'DU', 'AA', 'UU'];
   t.getStatus = async function (e) {
@@ -17909,8 +18051,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(127),
-    i = n(251);
+  const r = n(128),
+    i = n(252);
   t.Commit = class {
     constructor(e, t, n, r, i, a, s, d, l) {
       this.sha = e, this.shortSha = t, this.summary = n, this.body = r, this.author = i, this.committer = a, this.parentSHAs = s, this.trailers = d, this.tags = l, this.coAuthors = o(d), this.authoredByCommitter = this.author.name === this.committer.name && this.author.email === this.committer.email
@@ -17997,10 +18139,10 @@ module.exports = function (e) {
   });
   const a = n(11),
     s = n(23),
-    d = n(252),
-    l = n(124),
-    c = n(127),
-    p = n(125);
+    d = n(253),
+    l = n(125),
+    c = n(128),
+    p = n(126);
   t.getCommits = r, t.getChangedFiles = async function (e, t) {
     const n = await a.git(['log', t, '-C', '-M', '-m', '-1', '--no-show-signature', '--first-parent', '--name-status', '--format=format:', '-z', '--'], e.path, 'getChangedFiles');
     return i(n.stdout, t)
@@ -18043,7 +18185,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(23),
-    r = n(255),
+    r = n(256),
     i = n(20),
     a = n(2);
   t.stageManualConflictResolution = async function (e, t, n) {
@@ -18132,10 +18274,10 @@ module.exports = function (e) {
   });
   const r = n(33),
     i = n(1),
-    a = n(169),
-    s = n(53),
-    d = n(694),
-    l = n(126);
+    a = n(170),
+    s = n(54),
+    d = n(696),
+    l = n(127);
   t.executionOptionsWithProgress = async function (e, t, n) {
     let r = null,
       i = {};
@@ -18224,8 +18366,8 @@ module.exports = function (e) {
   const o = n(11),
     r = n(35),
     i = n(46),
-    a = n(124),
-    s = n(173),
+    a = n(125),
+    s = n(174),
     d = `refs/remotes/${s.ForkedRemotePrefix}`;
   t.getBranches = async function (e, ...t) {
     const n = String.fromCharCode(parseInt('1F', 16));
@@ -18275,7 +18417,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(11),
-    r = n(81);
+    r = n(83);
   t.getBlobContents = async function (e, t, n) {
     const r = new Set([0, 1]),
       i = ['show', `${t}:${n}`],
@@ -18302,9 +18444,9 @@ module.exports = function (e) {
   const o = n(35),
     r = n(11),
     i = n(23),
-    a = n(31),
-    s = n(170),
-    d = n(705);
+    a = n(30),
+    s = n(171),
+    d = n(707);
   t.applyPatchToIndex = async function (e, t) {
     if (t.status.kind === i.AppFileStatusKind.Renamed) {
       await r.git(['add', '--u', '--', t.status.oldPath], e.path, 'applyPatchToIndex');
@@ -18326,6 +18468,13 @@ module.exports = function (e) {
       expectedErrors: new Set([o.GitError.PatchDoesNotApply])
     });
     return n.gitError !== o.GitError.PatchDoesNotApply
+  }, t.discardChangesFromSelection = async function (e, t, n, o) {
+    const i = d.formatPatchToDiscardChanges(t, n, o);
+    if (null !== i) {
+      await r.git(['apply', '--unidiff-zero', '--whitespace=nowarn', '-'], e.path, 'discardChangesFromSelection', {
+        stdin: i
+      })
+    }
   }
 }, function (e, t, n) {
   'use strict';
@@ -18342,7 +18491,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(710);
+  const o = n(712);
   t.TokenStore = {
     setItem: function (e, t, n) {
       return o.setPassword(e, t, n)
@@ -18365,8 +18514,8 @@ module.exports = function (e) {
   });
   const r = n(42),
     i = n(104),
-    a = n(290),
-    s = n(267);
+    a = n(291),
+    s = n(268);
   t.getGenericHostname = function (e) {
     const t = i.parseRemote(e);
     if (t) return t.hostname;
@@ -18457,7 +18606,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(127);
+  const o = n(128);
   t.formatCommitMessage = async function (e, t) {
     const {
       summary: n,
@@ -18479,7 +18628,7 @@ module.exports = function (e) {
   const r = n(42),
     i = n(10),
     a = n(104),
-    s = n(135);
+    s = n(136);
   t.findAccountForRemoteURL = async function (e, t, n = o) {
     const d = [...t, s.Account.anonymous()],
       l = a.parseRemote(e);
@@ -18586,7 +18735,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(715))
+    }(n(717))
 }, function (e, t, n) {
   'use strict';
 
@@ -18936,7 +19085,7 @@ module.exports = function (e) {
     value: !0
   });
   const p = n(1),
-    u = n(274),
+    u = n(275),
     m = n(19),
     h = n(2);
   var f;
@@ -18949,7 +19098,7 @@ module.exports = function (e) {
   function o(e) {
     throw 2 === e.code && (e.message = 'Couldn\'t find the app'), e
   }
-  const r = n(298);
+  const r = n(299);
   e.exports = (e) => {
     return Promise.reject(new Error('macOS only'))
   }, e.exports.sync = (e) => {
@@ -19060,7 +19209,7 @@ module.exports = function (e) {
   (function (e) {
     e.Atom = 'Atom', e.MacVim = 'MacVim', e.VSCode = 'Visual Studio Code', e.VSCodeInsiders = 'Visual Studio Code (Insiders)', e.VSCodium = 'VSCodium', e.SublimeText = 'Sublime Text', e.BBEdit = 'BBEdit', e.PhpStorm = 'PhpStorm', e.PyCharm = 'PyCharm', e.RubyMine = 'RubyMine', e.TextMate = 'TextMate', e.Brackets = 'Brackets', e.WebStorm = 'WebStorm', e.Typora = 'Typora', e.CodeRunner = 'CodeRunner', e.SlickEdit = 'SlickEdit', e.IntelliJ = 'IntelliJ', e.Xcode = 'Xcode', e.GoLand = 'GoLand', e.AndroidStudio = 'Android Studio', e.Rider = 'Rider'
   })(p = t.ExternalEditor || (t.ExternalEditor = {})), t.parse = o;
-  const u = n(276);
+  const u = n(277);
   t.getAvailableEditors = s
 }, function (e, t, n) {
   'use strict';
@@ -19071,9 +19220,9 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(101),
-    i = n(277),
-    a = n(275),
-    s = n(273);
+    i = n(278),
+    a = n(276),
+    s = n(274);
   let d = null;
   t.getAvailableEditors = o, t.findEditorOrDefault = async function (e) {
     const t = await o();
@@ -19099,7 +19248,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(278)), o(n(713));
+  }), o(n(279)), o(n(715));
   var r = n(101);
   t.parse = r.parse
 }, function (e, t) {
@@ -19127,9 +19276,9 @@ module.exports = function (e) {
   })(n = t.BranchesTab || (t.BranchesTab = {}))
 }, function (e, t, n) {
   'use strict';
-  const o = n(38).fromCallback;
+  const o = n(39).fromCallback;
   e.exports = {
-    copy: o(n(739))
+    copy: o(n(741))
   }
 }, function (e) {
   'use strict';
@@ -19197,7 +19346,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   e.exports = {
-    copySync: n(742)
+    copySync: n(744)
   }
 }, function (e) {
   e.exports = require('assert')
@@ -19205,7 +19354,7 @@ module.exports = function (e) {
   e.exports = require('stream')
 }, function (e, t, n) {
   'use strict';
-  const o = n(38).fromCallback,
+  const o = n(39).fromCallback,
     r = n(32),
     i = ['access', 'appendFile', 'chmod', 'chown', 'close', 'copyFile', 'fchmod', 'fchown', 'fdatasync', 'fstat', 'fsync', 'ftruncate', 'futimes', 'lchown', 'lchmod', 'link', 'lstat', 'mkdir', 'mkdtemp', 'open', 'readFile', 'readdir', 'readlink', 'realpath', 'rename', 'rmdir', 'stat', 'symlink', 'truncate', 'unlink', 'utimes', 'writeFile'].filter((e) => 'function' == typeof r[e]);
   Object.keys(r).forEach((e) => {
@@ -19263,7 +19412,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(55),
+  const o = n(56),
     r = 'has-shown-welcome-flow';
   t.hasShownWelcomeFlow = function () {
     return o.getBoolean(r, !1)
@@ -22111,9 +22260,9 @@ module.exports = function (e) {
     }(), t['default'] = be
 }, function (e, t, n) {
   'use strict';
-  const o = n(757),
-    r = n(756),
-    i = n(755),
+  const o = n(759),
+    r = n(758),
+    i = n(757),
     a = new WeakMap,
     s = (...e) => {
       if (0 === e.length) return '__defaultKey';
@@ -22284,7 +22433,7 @@ module.exports = function (e) {
     return this.head = t, this.tail = e, this
   };
   try {
-    n(766)
+    n(768)
   } catch (e) {}
 }, function (e, t, n) {
   'use strict';
@@ -22341,9 +22490,9 @@ module.exports = function (e) {
     this.key = e, this.value = t, this.length = n, this.now = o, this.maxAge = r || 0
   }
   e.exports = r;
-  var p = n(768),
-    u = n(175),
-    m = n(296),
+  var p = n(770),
+    u = n(176),
+    m = n(297),
     h = 'function' == typeof Symbol,
     f;
   f = h ? function (e) {
@@ -22536,12 +22685,12 @@ module.exports = function (e) {
     return n = c({}, n), n.__winShell = !0, o = process.env.comspec || 'cmd.exe', r = ['/s', '/c', '"' + t + '"'], n.windowsVerbatimArguments = !0, n.shell && (o = n.shell), e(o, r, n)
   }
   var s = n(48),
-    d = n(770),
-    l = n(760),
-    c = n(182),
-    p = n(759),
-    u = n(758),
-    m = n(295)(),
+    d = n(772),
+    l = n(762),
+    c = n(183),
+    p = n(761),
+    u = n(760),
+    m = n(296)(),
     h = 10485760;
   e.exports = function (e, t, n) {
     var a = new Promise(function (a, c) {
@@ -22586,13 +22735,13 @@ module.exports = function (e) {
   for (var n = [], o = 0; 256 > o; ++o) n[o] = (o + 256).toString(16).substr(1);
   e.exports = t
 }, function (e, t, n) {
-  var o = n(176).randomBytes;
+  var o = n(177).randomBytes;
   e.exports = function () {
     return o(16)
   }
 }, function (e, t, n) {
-  var o = n(300),
-    r = n(299);
+  var o = n(301),
+    r = n(300);
   e.exports = function (e, t, n) {
     var a = t && n || 0;
     'string' == typeof e && (t = 'binary' == e ? Array(16) : null, e = null), e = e || {};
@@ -22665,7 +22814,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   }), t.animationEnd = t.animationDelay = t.animationTiming = t.animationDuration = t.animationName = t.transitionEnd = t.transitionDuration = t.transitionDelay = t.transitionTiming = t.transitionProperty = t.transform = void 0;
-  var r = n(180),
+  var r = n(181),
     i = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -22707,7 +22856,7 @@ module.exports = function (e) {
   }), t.default = function (e, t) {
     e.classList ? e.classList.add(t) : !(0, r.default)(e) && (e.className = e.className + ' ' + t)
   };
-  var o = n(777),
+  var o = n(779),
     r = function (e) {
       return e && e.__esModule ? e : {
         default: e
@@ -22763,15 +22912,15 @@ module.exports = function (e) {
         for (var o in n = arguments[t], n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
       return e
     },
-    d = n(307),
+    d = n(308),
     l = o(d),
     c = n(0),
     p = o(c),
     u = n(15),
     m = o(u),
-    h = n(306),
+    h = n(307),
     f = o(h),
-    g = n(779),
+    g = n(781),
     y = {
       component: m.default.any,
       childFactory: m.default.func,
@@ -22877,90 +23026,90 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(22),
-    a = n(86),
+    a = n(88),
     s = n(28),
     d = n(2),
-    l = n(39),
-    c = n(136),
-    p = n(772),
-    u = n(54),
+    l = n(40),
+    c = n(137),
+    p = n(774),
+    u = n(55),
     m = n(10),
-    h = n(84),
-    f = n(85),
-    g = n(133),
-    y = n(165),
-    S = n(25),
-    C = n(162),
-    b = n(131),
-    v = n(30),
-    E = n(130),
+    h = n(86),
+    f = n(87),
+    g = n(134),
+    y = n(167),
+    S = n(26),
+    C = n(164),
+    b = n(132),
+    v = n(31),
+    E = n(131),
     w = n(103),
-    k = n(628),
-    T = n(620),
-    _ = n(567),
-    R = n(486),
-    x = n(484),
-    P = n(482),
-    D = n(198),
+    k = n(630),
+    T = n(622),
+    _ = n(569),
+    R = n(487),
+    x = n(485),
+    P = n(483),
+    D = n(199),
     M = n(4),
-    A = n(26),
-    I = n(476),
-    L = n(473),
-    F = n(464),
-    B = n(460),
-    N = n(453),
-    O = n(443),
-    H = n(441),
-    z = n(434),
-    U = n(433),
-    W = n(432),
-    V = n(424),
-    G = n(419),
-    K = n(416),
-    j = n(414),
-    q = n(412),
-    Y = n(410),
-    X = n(408),
-    Q = n(404),
-    $ = n(402),
-    Z = n(400),
-    J = n(398),
-    ee = n(396),
-    te = n(88),
-    ne = n(394),
-    oe = n(389),
-    re = n(387),
-    ie = n(385),
-    ae = n(382),
-    se = n(380),
-    de = n(378),
-    le = n(377),
-    ce = n(373),
-    pe = n(83),
-    ue = n(372),
-    me = n(41),
+    A = n(27),
+    I = n(477),
+    L = n(475),
+    F = n(466),
+    B = n(462),
+    N = n(455),
+    O = n(445),
+    H = n(443),
+    z = n(436),
+    U = n(434),
+    W = n(433),
+    V = n(425),
+    G = n(420),
+    K = n(417),
+    j = n(415),
+    q = n(413),
+    Y = n(411),
+    X = n(409),
+    Q = n(405),
+    $ = n(403),
+    Z = n(401),
+    J = n(399),
+    ee = n(397),
+    te = n(90),
+    ne = n(395),
+    oe = n(390),
+    re = n(388),
+    ie = n(386),
+    ae = n(383),
+    se = n(381),
+    de = n(379),
+    le = n(378),
+    ce = n(374),
+    pe = n(85),
+    ue = n(373),
+    me = n(38),
     he = n(24),
-    fe = n(370),
-    ge = n(369),
-    ye = n(367),
-    Se = n(365),
-    Ce = n(79),
-    be = n(97),
-    ve = n(357),
-    Ee = n(356),
-    we = n(355),
-    ke = n(354),
-    Te = n(27),
-    _e = n(200),
-    Re = n(96),
-    xe = n(353),
+    fe = n(371),
+    ge = n(370),
+    ye = n(368),
+    Se = n(366),
+    Ce = n(81),
+    be = n(98),
+    ve = n(358),
+    Ee = n(357),
+    we = n(356),
+    ke = n(355),
+    Te = n(25),
+    _e = n(201),
+    Re = n(97),
+    xe = n(354),
     Pe = n(61),
-    De = n(352),
-    Me = n(351),
-    Ae = n(350),
-    Ie = n(349),
-    Le = n(348),
-    Fe = n(346),
+    De = n(353),
+    Me = n(352),
+    Ae = n(351),
+    Ie = n(350),
+    Le = n(349),
+    Fe = n(347),
     Be = n(345),
     Ne = n(343),
     Oe = 60000,
@@ -23089,6 +23238,8 @@ module.exports = function (e) {
         })
       }, this.clearError = (e) => this.props.dispatcher.clearError(e), this.onConfirmDiscardChangesChanged = (e) => {
         this.props.dispatcher.setConfirmDiscardChangesSetting(e)
+      }, this.onRetryAction = (e) => {
+        this.props.dispatcher.performRetry(e)
       }, this.showPopup = (e) => {
         this.props.dispatcher.showPopup(e)
       }, this.renderRepositoryList = () => {
@@ -23225,7 +23376,7 @@ module.exports = function (e) {
     onMenuEvent(e) {
       if (!this.state.errors.length) return 'push' === e ? this.push() : 'force-push' === e ? this.push({
         forceWithLease: !0
-      }) : 'pull' === e ? this.pull() : 'show-changes' === e ? this.showChanges() : 'show-history' === e ? this.showHistory() : 'choose-repository' === e ? this.chooseRepository() : 'add-local-repository' === e ? this.showAddLocalRepo() : 'create-branch' === e ? this.showCreateBranch() : 'show-branches' === e ? this.showBranches() : 'remove-repository' === e ? this.removeRepository(this.getRepository()) : 'create-repository' === e ? this.showCreateRepository() : 'rename-branch' === e ? this.renameBranch() : 'delete-branch' === e ? this.deleteBranch() : 'discard-all-changes' === e ? this.discardAllChanges() : 'show-preferences' === e ? this.props.dispatcher.showPopup({
+      }) : 'pull' === e ? this.pull() : 'show-changes' === e ? this.showChanges() : 'show-history' === e ? this.showHistory() : 'choose-repository' === e ? this.chooseRepository() : 'add-local-repository' === e ? this.showAddLocalRepo() : 'create-branch' === e ? this.showCreateBranch() : 'show-branches' === e ? this.showBranches() : 'remove-repository' === e ? this.removeRepository(this.getRepository()) : 'create-repository' === e ? this.showCreateRepository() : 'rename-branch' === e ? this.renameBranch() : 'delete-branch' === e ? this.deleteBranch() : 'discard-all-changes' === e ? this.discardAllChanges() : 'stash-all-changes' === e ? this.stashAllChanges() : 'show-preferences' === e ? this.props.dispatcher.showPopup({
         type: he.PopupType.Preferences
       }) : 'open-working-directory' === e ? this.openCurrentRepositoryWorkingDirectory() : 'update-branch' === e ? (this.props.dispatcher.recordMenuInitiatedUpdate(), this.updateBranch()) : 'compare-to-branch' === e ? this.showHistory(!0) : 'merge-branch' === e ? (this.props.dispatcher.recordMenuInitiatedMerge(), this.mergeBranch()) : 'rebase-branch' === e ? (this.props.dispatcher.recordMenuInitiatedRebase(), this.showRebaseDialog()) : 'show-repository-settings' === e ? this.showRepositorySettings() : 'view-repository-on-github' === e ? this.viewRepositoryOnGitHub() : 'compare-on-github' === e ? this.compareBranchOnDotcom() : 'create-issue-in-repository-on-github' === e ? this.openIssueCreationOnGitHub() : 'open-in-shell' === e ? this.openCurrentRepositoryInShell() : 'clone-repository' === e ? this.showCloneRepo() : 'show-about' === e ? this.showAbout() : 'boomtown' === e ? this.boomtown() : 'go-to-commit-message' === e ? this.goToCommitMessage() : 'open-pull-request' === e ? this.openPullRequest() : 'install-cli' === e ? this.props.dispatcher.installCLI() : 'open-external-editor' === e ? this.openCurrentRepositoryInExternalEditor() : 'select-all' === e ? this.selectAll() : 'show-release-notes-popup' === e ? this.showFakeReleaseNotesPopup() : 'show-stashed-changes' === e ? this.showStashedChanges() : 'hide-stashed-changes' === e ? this.hideStashedChanges() : 'test-prune-branches' === e ? this.testPruneBranches() : 'find-text' === e ? this.findText() : d.assertNever(e, `Unknown menu event name: ${e}`)
     }
@@ -23353,6 +23504,10 @@ module.exports = function (e) {
           discardingAllChanges: !0
         })
       }
+    }
+    stashAllChanges() {
+      const e = this.getRepository();
+      null !== e && e instanceof S.Repository && this.props.dispatcher.createStashForCurrentBranch(e)
     }
     getSelectedTutorialRepository() {
       const {
@@ -23550,6 +23705,16 @@ module.exports = function (e) {
             discardingAllChanges: o,
             onDismissed: this.onPopupDismissed,
             onConfirmDiscardChangesChanged: this.onConfirmDiscardChangesChanged
+          });
+        case he.PopupType.ConfirmDiscardSelection:
+          return r.createElement(Ne.DiscardSelection, {
+            key: 'discard-selection',
+            repository: e.repository,
+            dispatcher: this.props.dispatcher,
+            file: e.file,
+            diff: e.diff,
+            selection: e.selection,
+            onDismissed: this.onPopupDismissed
           });
         case he.PopupType.Preferences:
           return r.createElement(N.Preferences, {
@@ -24006,23 +24171,15 @@ module.exports = function (e) {
             localTags: e.localTags
           });
         case he.PopupType.DeleteTag:
-          return r.createElement(Be.DeleteTag, {
+          return r.createElement(Fe.DeleteTag, {
             key: 'delete-tag',
             repository: e.repository,
             onDismissed: this.onPopupDismissed,
             dispatcher: this.props.dispatcher,
             tagName: e.tagName
           });
-        case he.PopupType.RetryClone:
-          return r.createElement(Fe.RetryCloneDialog, {
-            repository: e.repository,
-            retryAction: e.retryAction,
-            onDismissed: this.onPopupDismissed,
-            dispatcher: this.props.dispatcher,
-            errorMessage: e.errorMessage
-          });
         case he.PopupType.ChooseForkSettings:
-          return r.createElement(Ne.ChooseForkSettings, {
+          return r.createElement(Be.ChooseForkSettings, {
             repository: e.repository,
             onDismissed: this.onPopupDismissed,
             dispatcher: this.props.dispatcher
@@ -24053,7 +24210,8 @@ module.exports = function (e) {
       return r.createElement(z.AppError, {
         errors: this.state.errors,
         onClearError: this.clearError,
-        onShowPopup: this.showPopup
+        onShowPopup: this.showPopup,
+        onRetryAction: this.onRetryAction
       })
     }
     renderApp() {
@@ -24308,7 +24466,7 @@ module.exports = function (e) {
     var t = e >> 1;
     return 1 == (1 & e) ? -t : t
   }
-  var i = n(795),
+  var i = n(797),
     a = 5,
     s = 1 << a,
     d = s - 1,
@@ -24335,10 +24493,10 @@ module.exports = function (e) {
   function o(e) {
     e || (e = {}), this._file = a.getArg(e, 'file', null), this._sourceRoot = a.getArg(e, 'sourceRoot', null), this._skipValidation = a.getArg(e, 'skipValidation', !1), this._sources = new i, this._names = new i, this._mappings = new s, this._sourcesContents = null
   }
-  var r = n(311),
+  var r = n(312),
     a = n(108),
-    i = n(310).ArraySet,
-    s = n(794).MappingList;
+    i = n(311).ArraySet,
+    s = n(796).MappingList;
   o.prototype._version = 3, o.fromSourceMap = function (e) {
     var t = e.sourceRoot,
       n = new o({
@@ -24468,8 +24626,8 @@ module.exports = function (e) {
   });
   const a = n(1),
     s = n(33),
-    d = n(798),
-    l = n(797),
+    d = n(800),
+    l = n(799),
     c = ['renderer.js', 'main.js'],
     p = new WeakMap;
   let u;
@@ -24497,9 +24655,9 @@ module.exports = function (e) {
     }
   }
   t.__esModule = !0;
-  var r = n(580),
+  var r = n(582),
     a = o(r),
-    i = n(577),
+    i = n(579),
     s = o(i);
   t.default = function () {
     function e(e, t) {
@@ -24528,7 +24686,7 @@ module.exports = function (e) {
   }()
 }, function (e, t, n) {
   e.exports = {
-    default: n(583),
+    default: n(585),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -25667,11 +25825,11 @@ module.exports = function (e) {
         }
       }]), e
     }(),
-    Ie = n(57),
+    Ie = n(58),
     Le = n.n(Ie),
     Fe = n(5),
     Be = n.n(Fe),
-    Ne = n(70),
+    Ne = n(73),
     Oe = n.n(Ne),
     He = n(109),
     ze = n.n(He),
@@ -26253,7 +26411,7 @@ module.exports = function (e) {
     }(we.PureComponent),
     Xe = Ye;
   Ye.propTypes = {};
-  var Qe = n(138),
+  var Qe = n(139),
     $e = n.n(Qe),
     Ze = function () {
       function e(t) {
@@ -27410,7 +27568,7 @@ module.exports = function (e) {
   };
   var St = yt;
   yt.propTypes = {};
-  var Ct = n(315),
+  var Ct = n(316),
     bt = n.n(Ct),
     vt = function (e) {
       function t() {
@@ -27576,7 +27734,7 @@ module.exports = function (e) {
   }, vt.propTypes = null;
   var Et = n(110),
     wt = n.n(Et),
-    kt = n(314),
+    kt = n(315),
     Tt = n.n(kt),
     _t = {
       ge: function (e, t, n, o, r) {
@@ -29300,7 +29458,7 @@ module.exports = function (e) {
    *  Released under the MIT license
    */
   (function (o, r) {
-    s = [n(56)], a = r, d = 'function' == typeof a ? a.apply(t, s) : a, !(d !== void 0 && (e.exports = d)), o && (o.momentDurationFormatSetup = o.moment ? r(o.moment) : r)
+    s = [n(57)], a = r, d = 'function' == typeof a ? a.apply(t, s) : a, !(d !== void 0 && (e.exports = d)), o && (o.momentDurationFormatSetup = o.moment ? r(o.moment) : r)
   })(this, function (e) {
     function t(e, t) {
       return !(t.length > e.length) && -1 !== e.indexOf(t)
@@ -30121,7 +30279,7 @@ module.exports = function (e) {
   e.exports = t, e.exports.default = t
 }, function (e, t, n) {
   'use strict';
-  const o = n(327),
+  const o = n(328),
     r = (e) => {
       if (1 > e) throw new TypeError('Expected `concurrency` to be a number from 1 and up');
       const t = [];
@@ -30172,8 +30330,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = n(328),
-    s = n(326),
+  const a = n(329),
+    s = n(327),
     d = n(10),
     l = n(49);
   t.CommitStatusStore = class {
@@ -30269,7 +30427,7 @@ module.exports = function (e) {
   });
   const i = n(62),
     a = n(10),
-    s = n(53);
+    s = n(54);
   class d extends i.BaseStore {
     constructor(e) {
       super(), this.accountState = new Map, this.onAccountsChanged = (e) => {
@@ -30401,11 +30559,11 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(23),
-    i = n(30),
+    i = n(31),
     a = n(28),
-    s = n(242),
-    d = n(53),
-    l = n(98);
+    s = n(243),
+    d = n(54),
+    l = n(99);
   t.RepositoryStateCache = class {
     constructor(e) {
       this.getUsersForRepository = e, this.repositoryState = new Map
@@ -30525,7 +30683,7 @@ module.exports = function (e) {
     value: !0
   }), t.installDevGlobals = function () {
     const e = global;
-    e.GitPerf = n(171)
+    e.GitPerf = n(172)
   }
 }, function (e, t, n) {
   'use strict';
@@ -30695,15 +30853,15 @@ module.exports = function (e) {
     p = n(107),
     u = n(100),
     m = n(11),
-    h = n(122),
-    f = n(240),
+    h = n(123),
+    f = n(241),
     g = n(24),
-    y = n(25),
+    y = n(26),
     S = n(10),
     C = n(102),
-    b = n(27),
-    v = n(99),
-    E = n(164);
+    b = n(25),
+    v = n(80),
+    E = n(166);
   t.defaultErrorHandler = async function (t, n) {
     const o = i(t) || t;
     return await n.presentError(o), null
@@ -30735,20 +30893,6 @@ module.exports = function (e) {
     if (d instanceof y.Repository && d.gitHubRepository) return t;
     const l = o.metadata.retryAction;
     return l ? (await n.promptForGenericGitAuthentication(d, l), null) : (log.error(`No retry action provided for a git authentication error.`, o), t)
-  }, t.gitCloneErrorHandler = async function (t, n) {
-    const o = i(t);
-    if (!o || null == o.metadata.retryAction || o.metadata.retryAction.type !== v.RetryActionType.Clone) return t;
-    const r = a(o.underlyingError);
-    if (!r) return t;
-    const s = r.result.gitError;
-    if (null !== s && u.AuthenticationErrors.has(s)) return t;
-    const d = o.metadata.repository;
-    return d ? (await n.showPopup({
-      type: g.PopupType.RetryClone,
-      repository: d,
-      retryAction: o.metadata.retryAction,
-      errorMessage: o.underlyingError.message
-    }), null) : t
   }, t.externalEditorErrorHandler = async function (t, n) {
     const o = s(t);
     if (!o) return t;
@@ -30939,7 +31083,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(30);
+  const o = n(31);
   t.getTipSha = function (e) {
     return e.kind === o.TipState.Valid ? e.branch.tip.sha : e.kind === o.TipState.Detached ? e.currentSha : '(unknown)'
   }
@@ -30951,27 +31095,27 @@ module.exports = function (e) {
   const o = n(22),
     r = n(49),
     i = n(1),
-    a = n(39),
+    a = n(40),
     s = n(28),
     d = n(2),
-    l = n(268),
+    l = n(269),
     c = n(20),
-    p = n(246),
-    u = n(235),
-    m = n(54),
-    h = n(165),
-    f = n(339),
-    g = n(79),
-    y = n(130),
-    S = n(129),
+    p = n(247),
+    u = n(236),
+    m = n(55),
+    h = n(167),
+    f = n(340),
+    g = n(81),
+    y = n(131),
+    S = n(130),
     C = n(24),
-    b = n(25),
-    v = n(99),
-    E = n(30),
-    w = n(97),
-    k = n(186),
-    T = n(26),
-    _ = n(27);
+    b = n(26),
+    v = n(80),
+    E = n(31),
+    w = n(98),
+    k = n(187),
+    T = n(27),
+    _ = n(25);
   t.Dispatcher = class {
     constructor(e, t, n, o) {
       this.appStore = e, this.repositoryStateManager = t, this.statsStore = n, this.commitStatusStore = o, this.errorHandlers = [], this.addRebasedBranchToForcePushList = (e, t, n) => {
@@ -31066,9 +31210,6 @@ module.exports = function (e) {
     }
     refreshRepository(e) {
       return this.appStore._refreshOrRecoverRepository(e)
-    }
-    refreshTags(e) {
-      return this.appStore._refreshTags(e)
     }
     showPopup(e) {
       return this.appStore._showPopup(e)
@@ -31218,6 +31359,9 @@ module.exports = function (e) {
     }
     discardChanges(e, t) {
       return this.appStore._discardChanges(e, t)
+    }
+    discardChangesFromSelection(e, t, n, o) {
+      return this.appStore._discardChangesFromSelection(e, t, n, o)
     }
     undoCommit(e, t) {
       return this.appStore._undoCommit(e, t)
@@ -31420,6 +31564,12 @@ module.exports = function (e) {
     }
     resetSignInState() {
       return this.appStore._resetSignInState()
+    }
+    onDotComSupportsBasicAuthUpdated(e) {
+      return this.appStore._onDotComSupportsBasicAuthUpdated(e)
+    }
+    tryGetDotComSupportsBasicAuth() {
+      return this.appStore._tryGetDotComSupportsBasicAuth()
     }
     beginDotComSignIn() {
       return this.appStore._beginDotComSignIn()
@@ -31827,6 +31977,9 @@ module.exports = function (e) {
     subscribeToCommitStatus(e, t, n) {
       return this.commitStatusStore.subscribe(e, t, n)
     }
+    createStashForCurrentBranch(e, t = !0) {
+      return this.appStore._createStashForCurrentBranch(e, t)
+    }
     dropStash(e, t) {
       return this.appStore._dropStashEntry(e, t)
     }
@@ -31891,20 +32044,74 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(340)), o(n(338))
+  }), o(n(341)), o(n(339))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(25),
+    r = n(3),
+    i = n(66),
+    a = n(65),
+    s = n(36),
+    d = n(7);
+  class l extends o.Component {
+    constructor(e) {
+      super(e), this.discard = async () => {
+        this.setState({
+          isDiscardingSelection: !0
+        }), await this.props.dispatcher.discardChangesFromSelection(this.props.repository, this.props.file.path, this.props.diff, this.props.selection), this.props.dispatcher.setConfirmDiscardChangesSetting(this.state.confirmDiscardSelection), this.props.onDismissed()
+      }, this.onConfirmDiscardSelectionChanged = (e) => {
+        const t = !e.currentTarget.checked;
+        this.setState({
+          confirmDiscardSelection: t
+        })
+      }, this.state = {
+        isDiscardingSelection: !1,
+        confirmDiscardSelection: !0
+      }
+    }
+    getOkButtonLabel() {
+      return 'Discard changes'
+    }
+    render() {
+      const e = this.state.isDiscardingSelection;
+      return o.createElement(r.Dialog, {
+        id: 'discard-changes',
+        title: 'Confirm discard changes',
+        onDismissed: this.props.onDismissed,
+        onSubmit: this.discard,
+        dismissable: !e,
+        loading: e,
+        disabled: e,
+        type: 'warning'
+      }, o.createElement(r.DialogContent, null, o.createElement('p', null, 'Are you sure you want to discard the selected changes to', o.createElement(a.Monospaced, null, o.createElement(i.PathText, {
+        path: this.props.file.path
+      }))), o.createElement(s.Checkbox, {
+        label: 'Do not show this message again',
+        value: this.state.confirmDiscardSelection ? s.CheckboxValue.Off : s.CheckboxValue.On,
+        onChange: this.onConfirmDiscardSelectionChanged
+      })), o.createElement(r.DialogFooter, null, o.createElement(d.OkCancelButtonGroup, {
+        destructive: !0,
+        okButtonText: this.getOkButtonLabel()
+      })))
+    }
+  }
+  t.DiscardSelection = l
+}, function (e, t, n) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0),
+    r = n(26),
     i = n(18),
     a = n(3),
     s = n(7),
-    d = n(128),
+    d = n(129),
     l = n(111),
-    c = n(189);
+    c = n(190);
   class p extends o.Component {
     constructor(e) {
       super(e), this.onSelectionChanged = (e) => {
@@ -31953,7 +32160,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(342);
+  var o = n(344);
   t.ChooseForkSettings = o.ChooseForkSettings
 }, function (e, t, n) {
   'use strict';
@@ -32000,7 +32207,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(344);
+  var o = n(346);
   t.DeleteTag = o.DeleteTag
 }, function (e, t, n) {
   'use strict';
@@ -32008,43 +32215,12 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(3),
-    i = n(7),
-    a = n(21);
-  class s extends o.Component {
-    constructor(e) {
-      super(e), this.cloneAgain = async () => {
-        null != this.props.retryAction && (this.props.dispatcher.closePopup(), await this.props.dispatcher.performRetry(this.props.retryAction))
-      }
-    }
-    render() {
-      return o.createElement(r.Dialog, {
-        id: 'clone-failed',
-        title: 'Retry clone',
-        type: 'error',
-        onDismissed: this.props.onDismissed,
-        onSubmit: this.cloneAgain
-      }, o.createElement(r.DialogContent, null, o.createElement('p', null, this.getCloneFailureExplanation())), o.createElement(r.DialogFooter, null, o.createElement(i.OkCancelButtonGroup, {
-        okButtonText: 'Retry clone'
-      })))
-    }
-    getCloneFailureExplanation() {
-      return 0 === this.props.errorMessage.length ? o.createElement('p', null, 'Cloning failed to complete. You can attempt to retry to clone', o.createElement('em', null, this.props.repository.name), ' or dismiss this warning.') : o.createElement('div', null, this.props.errorMessage, o.createElement('p', null, 'Would you like to retry cloning', ' ', o.createElement(a.Ref, null, this.props.repository.name), '?'))
-    }
-  }
-  t.RetryCloneDialog = s
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(0),
-    r = n(142),
+    r = n(143),
     i = n(29),
     a = n(18),
     s = n(3),
     d = n(7),
-    l = n(75),
+    l = n(76),
     c = n(4),
     p = n(21),
     u = 245;
@@ -32121,7 +32297,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(347);
+  var o = n(348);
   t.CreateTag = o.CreateTag
 }, function (e, t, n) {
   'use strict';
@@ -32129,8 +32305,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(46),
-    r = n(69),
-    i = n(25);
+    r = n(72),
+    i = n(26);
   t.findDefaultUpstreamBranch = function (e, t) {
     const n = i.getNonForkGitHubRepository(e);
     if (n === e.gitHubRepository) return null;
@@ -32194,13 +32370,13 @@ module.exports = function (e) {
   });
   const i = n(0),
     a = n(3),
-    s = n(25),
+    s = n(26),
     d = n(7),
-    l = n(164),
+    l = n(166),
     c = n(10),
     p = n(13),
     u = n(24),
-    m = n(27);
+    m = n(25);
   class h extends i.Component {
     constructor(e) {
       super(e), this.onSubmit = async () => {
@@ -32322,7 +32498,7 @@ module.exports = function (e) {
     a = n(21),
     s = n(13),
     d = n(7),
-    l = n(236);
+    l = n(237);
   class c extends o.Component {
     constructor() {
       super(...arguments), this.onSubmit = () => this.props.onCreateTutorialRepository(this.props.account)
@@ -32432,18 +32608,18 @@ module.exports = function (e) {
           onDismissed: o
         } = this.props;
         this.setState({
-          isCheckingOutBranch: !0
+          isLoading: !0
         });
         try {
-          await e.checkoutBranch(t, n, a.stashOnCurrentBranch)
+          null === n ? await e.createStashForCurrentBranch(t, !1) : await e.checkoutBranch(t, n, a.stashOnCurrentBranch)
         } finally {
           this.setState({
-            isCheckingOutBranch: !1
+            isLoading: !1
           })
         }
         o()
       }, this.state = {
-        isCheckingOutBranch: !1
+        isLoading: !1
       }
     }
     render() {
@@ -32452,8 +32628,8 @@ module.exports = function (e) {
         id: 'overwrite-stash',
         type: 'warning',
         title: e,
-        loading: this.state.isCheckingOutBranch,
-        disabled: this.state.isCheckingOutBranch,
+        loading: this.state.isLoading,
+        disabled: this.state.isLoading,
         onSubmit: this.onSubmit,
         onDismissed: this.props.onDismissed
       }, o.createElement(r.DialogContent, null, o.createElement(i.Row, null, '确定要继续吗？这将覆盖您现有的隐藏与您当前的变化。')), o.createElement(r.DialogFooter, null, o.createElement(s.OkCancelButtonGroup, {
@@ -32475,7 +32651,7 @@ module.exports = function (e) {
     s = n(61),
     d = n(4),
     l = n(24),
-    c = n(75),
+    c = n(76),
     p = n(7);
   var u;
   (function (e) {
@@ -32711,8 +32887,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(79),
-    i = n(89),
+    r = n(81),
+    i = n(91),
     a = n(3),
     s = n(4);
   class d extends o.Component {
@@ -32758,9 +32934,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(41),
-    i = n(185),
-    a = n(184),
+    r = n(38),
+    i = n(186),
+    a = n(185),
     s = n(3);
   class d extends o.Component {
     constructor(e) {
@@ -32854,13 +33030,13 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(67),
-    a = n(190),
+    i = n(70),
+    a = n(191),
     s = n(20),
-    d = n(143),
+    d = n(144),
     l = n(3),
-    c = n(88),
-    p = n(166);
+    c = n(90),
+    p = n(122);
   class u extends r.Component {
     constructor(e) {
       super(e), this.computingRebaseForBranch = null, this.onFilterTextChanged = (e) => {
@@ -33009,12 +33185,12 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(2),
-    i = n(363),
-    a = n(362),
-    s = n(361),
-    d = n(360),
-    l = n(41),
-    c = n(359);
+    i = n(364),
+    a = n(363),
+    s = n(362),
+    d = n(361),
+    l = n(38),
+    c = n(360);
   class p extends o.Component {
     constructor(e) {
       super(e), this.moveToShowConflictedFileState = (e) => {
@@ -33160,9 +33336,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(364);
+  var o = n(365);
   t.RebaseFlow = o.RebaseFlow;
-  var r = n(358);
+  var r = n(359);
   t.ConfirmForcePush = r.ConfirmForcePush
 }, function (e, t, n) {
   'use strict';
@@ -33171,7 +33347,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(3),
-    i = n(129),
+    i = n(130),
     a = n(7);
   class s extends o.Component {
     constructor(e) {
@@ -33206,7 +33382,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(366);
+  var o = n(367);
   t.PushNeedsPullWarning = o.PushNeedsPullWarning
 }, function (e, t, n) {
   'use strict';
@@ -33260,7 +33436,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(368);
+  var o = n(369);
   t.UsageStatsChange = o.UsageStatsChange
 }, function (e, t, n) {
   'use strict';
@@ -33270,9 +33446,9 @@ module.exports = function (e) {
   const o = n(0),
     r = n(3),
     i = n(13),
-    a = n(72),
-    s = n(74),
-    d = n(98),
+    a = n(65),
+    s = n(66),
+    d = n(99),
     l = n(7);
   class c extends o.Component {
     constructor(e) {
@@ -33356,14 +33532,14 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(371))
+    }(n(372))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(83);
+    r = n(85);
   class i extends o.PureComponent {
     componentDidMount() {
       this.ensureTheme()
@@ -33395,9 +33571,9 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(3),
-    i = n(74),
-    a = n(72),
-    s = n(98),
+    i = n(66),
+    a = n(65),
+    s = n(99),
     d = n(7);
   class l extends o.Component {
     constructor() {
@@ -33438,7 +33614,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(185)), o(n(184))
+  }), o(n(186)), o(n(185))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -33448,10 +33624,10 @@ module.exports = function (e) {
     r = n(3),
     i = n(24),
     a = n(28),
-    s = n(41),
-    d = n(98),
-    l = n(375),
-    c = n(97),
+    s = n(38),
+    d = n(99),
+    l = n(376),
+    c = n(98),
     p = n(7);
   class u extends o.Component {
     constructor() {
@@ -33535,7 +33711,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(376)), o(n(374))
+  }), o(n(377)), o(n(375))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -33574,14 +33750,14 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(34),
-    i = n(136),
+    i = n(137),
     a = n(13),
     s = n(3),
-    d = n(89),
-    l = n(25),
+    d = n(91),
+    l = n(26),
     c = n(10),
-    p = n(39),
-    u = n(140),
+    p = n(40),
+    u = n(141),
     m = n(7),
     h = new l.Repository('', -1, {
       dbID: null,
@@ -33688,7 +33864,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(379);
+  var o = n(380);
   t.ReleaseNotes = o.ReleaseNotes
 }, function (e, t, n) {
   'use strict';
@@ -33699,7 +33875,7 @@ module.exports = function (e) {
     r = n(3),
     i = n(21),
     a = n(2),
-    s = n(69),
+    s = n(72),
     d = n(7);
   class l extends o.Component {
     constructor() {
@@ -33735,7 +33911,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(381);
+  var o = n(382);
   t.UpstreamAlreadyExists = o.UpstreamAlreadyExists
 }, function (e, t, n) {
   'use strict';
@@ -33746,7 +33922,7 @@ module.exports = function (e) {
     r = n(3),
     i = n(13),
     a = n(20),
-    s = n(39),
+    s = n(40),
     d = n(7);
   class l extends o.Component {
     constructor(e) {
@@ -33794,8 +33970,8 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(3),
-    i = n(72),
-    a = n(74),
+    i = n(65),
+    a = n(66),
     s = n(13),
     d = n(7),
     l = 'https://git-lfs.github.com/';
@@ -33840,9 +34016,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(384);
+  var o = n(385);
   t.InitializeLFS = o.InitializeLFS;
-  var r = n(383);
+  var r = n(384);
   t.AttributeMismatch = r.AttributeMismatch
 }, function (e, t, n) {
   'use strict';
@@ -33878,7 +34054,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(386);
+  var o = n(387);
   t.ShellError = o.ShellError
 }, function (e, t, n) {
   'use strict';
@@ -33889,7 +34065,7 @@ module.exports = function (e) {
     r = n(29),
     i = n(18),
     a = n(3),
-    s = n(72),
+    s = n(65),
     d = n(7);
   class l extends o.Component {
     constructor(e) {
@@ -33937,7 +34113,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(388);
+  var o = n(389);
   t.GenericGitAuthentication = o.GenericGitAuthentication
 }, function (e, t, n) {
   e.exports = n.p + 'fff110f06938764612a1a3588659e22e.cmd'
@@ -33950,7 +34126,7 @@ module.exports = function (e) {
     } catch (e) {
       throw new Error('Cannot open ' + o + ': ' + e)
     }
-  }).call(this, n(137)(e))
+  }).call(this, n(138)(e))
 }, function (e, t, n) {
   function o(e, t) {
     return (n) => t(0 === n ? null : new Error(e + ' failed with exit status ' + n))
@@ -33960,8 +34136,8 @@ module.exports = function (e) {
       spawn: i,
       spawnSync: a
     } = n(48),
-    s = n(243),
-    d = n(391),
+    s = n(244),
+    d = n(392),
     l = e.exports;
   Object.assign(l, {
     symlink(e, t, n) {
@@ -33974,7 +34150,7 @@ module.exports = function (e) {
       d.spawnAsAdmin('cmd', ['/c', 'mkdir', e], l.testMode, o('mkdir', t))
     },
     recursiveCopy(e, t, n) {
-      d.spawnAsAdmin('cmd', ['/c', 390, e, t], l.testMode, o('robocopy', n))
+      d.spawnAsAdmin('cmd', ['/c', 391, e, t], l.testMode, o('robocopy', n))
     }
   })
 }, function (e, t, n) {
@@ -33984,7 +34160,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(3),
-    i = n(186);
+    i = n(187);
   class a extends o.Component {
     render() {
       return o.createElement(r.Dialog, {
@@ -34002,7 +34178,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(393);
+  var o = n(394);
   t.CLIInstalled = o.CLIInstalled
 }, function (e, t, n) {
   'use strict';
@@ -34039,7 +34215,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(395);
+  var o = n(396);
   t.TermsAndConditions = o.TermsAndConditions
 }, function (e, t, n) {
   'use strict';
@@ -34050,7 +34226,7 @@ module.exports = function (e) {
     r = n(36),
     i = n(3),
     a = n(21),
-    s = n(77),
+    s = n(78),
     d = n(7);
   class l extends o.Component {
     constructor(e) {
@@ -34098,7 +34274,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(397);
+  var o = n(398);
   t.ConfirmRemoveRepository = o.ConfirmRemoveRepository
 }, function (e, t, n) {
   'use strict';
@@ -34106,12 +34282,12 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(90),
+    r = n(92),
     i = n(12),
     a = n(4),
     s = n(64),
     d = n(50),
-    l = n(187),
+    l = n(188),
     c = n(2);
   var p;
   (function (e) {
@@ -34267,7 +34443,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(399);
+  var o = n(400);
   t.NoRepositoriesView = o.NoRepositoriesView
 }, function (e, t, n) {
   'use strict';
@@ -34303,7 +34479,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(401);
+  var o = n(402);
   t.UntrustedCertificate = o.UntrustedCertificate
 }, function (e, t, n) {
   'use strict';
@@ -34318,8 +34494,8 @@ module.exports = function (e) {
   const r = n(1),
     i = n(33),
     a = n(0),
-    s = n(85),
-    d = n(58),
+    s = n(87),
+    d = n(51),
     l = n(13),
     c = n(3);
   class p extends a.Component {
@@ -34391,7 +34567,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(403);
+  var o = n(404);
   t.Acknowledgements = o.Acknowledgements
 }, function (e, t) {
   'use strict';
@@ -34410,12 +34586,12 @@ module.exports = function (e) {
   const o = n(0),
     r = n(10),
     i = n(29),
-    a = n(139),
+    a = n(140),
     s = n(3),
     d = n(18),
-    l = n(53),
+    l = n(54),
     c = n(47),
-    p = n(188),
+    p = n(189),
     u = n(4);
   class m extends o.Component {
     constructor(e) {
@@ -34521,14 +34697,14 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(406),
+    r = n(407),
     i = n(3),
     a = n(50),
     s = n(10),
     d = n(2),
     l = n(112),
     c = n(20),
-    p = n(405),
+    p = n(406),
     u = n(7);
   var m;
   (function (e) {
@@ -34697,7 +34873,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(407);
+  var o = n(408);
   t.Publish = o.Publish
 }, function (e, t, n) {
   'use strict';
@@ -34709,11 +34885,11 @@ module.exports = function (e) {
     i = n(12),
     a = n(3),
     s = n(13),
-    d = n(136),
-    l = n(58),
+    d = n(137),
+    l = n(51),
     c = n(116),
     p = n(2),
-    u = n(140),
+    u = n(141),
     m = n(34),
     h = m.encodePathAsUrl(__dirname, 'static/logo-64x64@2x.png');
   class f extends o.Component {
@@ -34836,7 +35012,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(409))
+    }(n(410))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -34844,7 +35020,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(3),
-    i = n(39);
+    i = n(40);
   class a extends o.Component {
     constructor(e) {
       super(e), this.onExternalLink = () => {
@@ -34889,7 +35065,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(411))
+    }(n(412))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -34897,7 +35073,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(3),
-    i = n(39),
+    i = n(40),
     a = n(7);
   class s extends o.Component {
     constructor(e) {
@@ -34930,21 +35106,21 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(413))
+    }(n(414))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(69),
+    r = n(72),
     i = n(2),
     a = n(13),
     s = n(4),
     d = n(18),
     l = n(29),
     c = n(3),
-    p = n(177),
+    p = n(178),
     u = n(10),
     m = n(7),
     h = n(12),
@@ -34988,8 +35164,8 @@ module.exports = function (e) {
         this.setState({
           otpToken: e
         })
-      }, this.onSignInWithBrowser = (e) => {
-        e.preventDefault(), this.props.dispatcher.requestBrowserAuthentication()
+      }, this.onSignInWithBrowser = () => {
+        this.props.dispatcher.requestBrowserAuthentication()
       }, this.state = {
         endpoint: '',
         username: '',
@@ -35044,8 +35220,7 @@ module.exports = function (e) {
       return o.createElement(c.DialogContent, null, o.createElement(d.Row, {
         className: 'sign-in-with-browser'
       }, o.createElement(h.Button, {
-        className: 'button-with-icon',
-        type: 'submit',
+        className: 'button-with-icon button-component-primary',
         onClick: this.onSignInWithBrowser,
         disabled: t
       }, 'Sign in using your browser', o.createElement(s.Octicon, {
@@ -35119,13 +35294,13 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(415))
+    }(n(416))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(30),
+  const o = n(31),
     r = n(46);
   t.getStartPoint = function (e, t) {
     return e.tip.kind === o.TipState.Detached ? r.StartPoint.Head : t === r.StartPoint.UpstreamDefaultBranch && null !== e.upstreamDefaultBranch ? t : t === r.StartPoint.DefaultBranch && null !== e.defaultBranch ? t : t === r.StartPoint.CurrentBranch && e.tip.kind === o.TipState.Valid ? t : t === r.StartPoint.Head ? t : e.upstreamDefaultBranch ? r.StartPoint.UpstreamDefaultBranch : e.defaultBranch ? r.StartPoint.DefaultBranch : e.tip.kind === o.TipState.Valid ? r.StartPoint.CurrentBranch : r.StartPoint.Head
@@ -35140,7 +35315,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(142),
+    i = n(143),
     a = n(46),
     s = n(29),
     d = n(18),
@@ -35148,12 +35323,12 @@ module.exports = function (e) {
     c = n(13),
     p = n(3),
     u = n(111),
-    m = n(30),
+    m = n(31),
     h = n(2),
-    f = n(199),
-    g = n(417),
+    f = n(200),
+    g = n(418),
     y = n(7),
-    S = n(75),
+    S = n(76),
     C = n(61);
   var b;
   (function (e) {
@@ -35317,7 +35492,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(418);
+  var o = n(419);
   t.CreateBranch = o.CreateBranch
 }, function (e, t, n) {
   'use strict';
@@ -35372,7 +35547,7 @@ module.exports = function (e) {
     i = n(29),
     a = n(18),
     s = n(12),
-    d = n(187);
+    d = n(188);
   class l extends o.PureComponent {
     render() {
       return o.createElement(r.DialogContent, {
@@ -35446,18 +35621,18 @@ module.exports = function (e) {
     r = n(0),
     i = n(22),
     a = n(19),
-    s = n(163),
+    s = n(165),
     d = n(104),
-    l = n(272),
+    l = n(273),
     c = n(10),
     p = n(3),
     u = n(50),
-    m = n(130),
-    h = n(422),
-    f = n(421),
+    m = n(131),
+    h = n(423),
+    f = n(422),
     g = n(2),
     y = n(112),
-    S = n(53),
+    S = n(54),
     C = n(7);
   class b extends r.Component {
     constructor(e) {
@@ -35751,7 +35926,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(423))
+    }(n(424))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -35861,24 +36036,24 @@ module.exports = function (e) {
     i = n(1),
     a = n(19),
     s = n(20),
-    d = n(188),
+    d = n(189),
     l = n(29),
     c = n(12),
     p = n(18),
     u = n(36),
-    m = n(428),
-    h = n(139),
-    f = n(254),
-    g = n(427),
-    y = n(426),
-    S = n(425),
-    C = n(163),
+    m = n(429),
+    h = n(140),
+    f = n(255),
+    g = n(428),
+    y = n(427),
+    S = n(426),
+    C = n(165),
     b = n(3),
     v = n(4),
     E = n(13),
     w = n(24),
     k = n(21),
-    T = n(27),
+    T = n(25),
     _ = n(7),
     R = 'None',
     x = {
@@ -36190,7 +36365,7 @@ module.exports = function (e) {
     m = n(13),
     h = n(24),
     f = n(7),
-    g = n(430);
+    g = n(431);
   class y extends o.Component {
     constructor(e) {
       super(e), this.onPathChanged = async (e) => {
@@ -36302,14 +36477,14 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(431)), o(n(429))
+  }), o(n(432)), o(n(430))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(90),
+    r = n(92),
     i = n(12),
     a = n(18),
     s = n(13);
@@ -36365,36 +36540,77 @@ module.exports = function (e) {
     }
   }
   t.MissingRepository = d
-}, function (e, t, n) {
+}, function (e, t) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
+  }), t.parseCarriageReturn = function (e) {
+    return 0 > e.indexOf('\r') ? e : e.split('\n').map((e) => e.split('\r').reduce((e, t) => t.length >= e.length ? t : t + e.substring(t.length))).join('\n')
+  }
+}, function (e, t, n) {
+  'use strict';
+
+  function o(e) {
+    return r(e) ? e.underlyingError : e
+  }
+
+  function r(e) {
+    return e instanceof h.ErrorWithMetadata
+  }
+
+  function i(e) {
+    return e instanceof c.GitError
+  }
+
+  function a(e) {
+    if (!r(e)) return !1;
+    const {
+      retryAction: t
+    } = e.metadata;
+    return t !== void 0 && t.type === f.RetryActionType.Clone
+  }
+  Object.defineProperty(t, '__esModule', {
+    value: !0
   });
-  const o = n(0),
-    r = n(3),
-    i = n(309),
-    a = n(11),
-    s = n(35),
-    d = n(24),
-    l = n(86),
-    c = n(7),
-    p = n(107);
-  class u extends o.Component {
+  const s = n(0),
+    d = n(3),
+    l = n(310),
+    c = n(11),
+    p = n(24),
+    u = n(88),
+    m = n(7),
+    h = n(107),
+    f = n(80),
+    g = n(21),
+    y = n(67),
+    S = n(435);
+  class C extends s.Component {
     constructor(e) {
-      super(e), this.dialogContent = null, this.onDismissed = () => {
+      super(e), this.dialogContent = null, this.formatGitErrorMessage = y.default(S.parseCarriageReturn), this.onDismissed = () => {
         const e = this.state.error;
-        e && (this.setState({
+        null !== e && (this.setState({
           error: null,
           disabled: !0
         }), window.setTimeout(() => {
           this.props.onClearError(e)
-        }, i.dialogTransitionLeaveTimeout))
+        }, l.dialogTransitionLeaveTimeout))
       }, this.showPreferencesDialog = () => {
         this.onDismissed(), window.setTimeout(() => {
           this.props.onShowPopup({
-            type: d.PopupType.Preferences
+            type: p.PopupType.Preferences
           })
-        }, i.dialogTransitionLeaveTimeout)
+        }, l.dialogTransitionLeaveTimeout)
+      }, this.onRetryAction = (e) => {
+        e.preventDefault(), this.onDismissed();
+        const {
+          error: t
+        } = this.state;
+        if (null !== t && r(t)) {
+          const {
+            retryAction: e
+          } = t.metadata;
+          e !== void 0 && this.props.onRetryAction(e)
+        }
       }, this.onDialogContentRef = (e) => {
         this.dialogContent = e
       }, this.onCloseButtonClick = (t) => {
@@ -36411,45 +36627,46 @@ module.exports = function (e) {
         disabled: !1
       })
     }
-    renderGitErrorFooter(e) {
-      const t = e.result.gitError;
-      return t === s.GitError.HTTPSAuthenticationFailed ? o.createElement(r.DialogFooter, null, o.createElement(c.OkCancelButtonGroup, {
-        okButtonText: '关闭',
-        onOkButtonClick: this.onCloseButtonClick,
-        cancelButtonText: '打开选项',
-        onCancelButtonClick: this.showPreferencesDialog
-      })) : o.createElement(r.DefaultDialogFooter, {
-        onButtonClick: this.onCloseButtonClick
-      })
-    }
     renderErrorMessage(t) {
-      let n = !1;
-      const r = t instanceof p.ErrorWithMetadata ? t.underlyingError : t;
-      r instanceof a.GitError && (r.message === r.result.stderr || r.message === r.result.stdout) && (n = !0);
-      const e = n ? 'monospace' : void 0;
-      return o.createElement('p', {
-        className: e
-      }, r.message)
+      const n = t instanceof h.ErrorWithMetadata ? t.underlyingError : t;
+      if (n instanceof c.GitError && (n.message === n.result.stderr || n.message === n.result.stdout)) {
+        const e = this.formatGitErrorMessage(n.message);
+        return s.createElement('p', {
+          className: 'monospace'
+        }, e)
+      }
+      return s.createElement('p', null, n.message)
+    }
+    getTitle(e) {
+      return a(e) ? 'Clone failed' : 'Error'
     }
     renderDialog() {
       const e = this.state.error;
-      return e ? o.createElement(r.Dialog, {
+      return e ? s.createElement(d.Dialog, {
         id: 'app-error',
         type: 'error',
         key: 'error',
-        title: '错误',
+        title: this.getTitle(e),
         dismissable: !1,
         onSubmit: this.onDismissed,
         onDismissed: this.onDismissed,
         disabled: this.state.disabled
-      }, o.createElement(r.DialogContent, {
+      }, s.createElement(d.DialogContent, {
         onRef: this.onDialogContentRef
-      }, this.renderErrorMessage(e)), this.renderFooter(e)) : null
+      }, this.renderErrorMessage(e), this.renderContentAfterErrorMessage(e)), this.renderFooter(e)) : null
+    }
+    renderContentAfterErrorMessage(e) {
+      if (r(e)) {
+        const {
+          retryAction: t
+        } = e.metadata;
+        return t && t.type === f.RetryActionType.Clone ? s.createElement('p', null, 'Would you like to retry cloning ', s.createElement(g.Ref, null, t.name), '?') : void 0
+      }
     }
     scrollToBottomOfGitErrorMessage() {
-      if (this.dialogContent) {
-        const t = this.state.error instanceof p.ErrorWithMetadata ? this.state.error.underlyingError : this.state.error;
-        t instanceof a.GitError && (t.message === t.result.stderr || t.message === t.result.stdout) && (this.dialogContent.scrollTop = this.dialogContent.scrollHeight)
+      if (null !== this.dialogContent && null !== this.state.error) {
+        const t = o(this.state.error);
+        i(t) && (t.message === t.result.stderr || t.message === t.result.stdout) && (this.dialogContent.scrollTop = this.dialogContent.scrollHeight)
       }
     }
     componentDidMount() {
@@ -36458,22 +36675,47 @@ module.exports = function (e) {
     componentDidUpdate(e, t) {
       t.error !== this.state.error && this.scrollToBottomOfGitErrorMessage()
     }
-    renderFooter(t) {
-      const n = t instanceof p.ErrorWithMetadata ? t.underlyingError : t;
-      return n instanceof a.GitError ? this.renderGitErrorFooter(n) : o.createElement(r.DefaultDialogFooter, {
+    renderFooter(e) {
+      if (a(e)) return this.renderRetryCloneFooter();
+      const t = o(e);
+      if (i(t)) {
+        const {
+          gitError: e
+        } = t.result;
+        if (null !== e && c.isAuthFailureError(e)) return this.renderOpenPreferencesFooter()
+      }
+      return this.renderDefaultFooter()
+    }
+    renderRetryCloneFooter() {
+      return s.createElement(d.DialogFooter, null, s.createElement(m.OkCancelButtonGroup, {
+        okButtonText: 'Retry clone',
+        onOkButtonClick: this.onRetryAction,
+        onCancelButtonClick: this.onCloseButtonClick
+      }))
+    }
+    renderOpenPreferencesFooter() {
+      return s.createElement(d.DialogFooter, null, s.createElement(m.OkCancelButtonGroup, {
+        okButtonText: 'Close',
+        onOkButtonClick: this.onCloseButtonClick,
+        cancelButtonText: 'Open options',
+        onCancelButtonClick: this.showPreferencesDialog
+      }))
+    }
+    renderDefaultFooter() {
+      return s.createElement(d.DefaultDialogFooter, {
         onButtonClick: this.onCloseButtonClick
       })
     }
     render() {
-      return o.createElement(l.CSSTransitionGroup, {
+      return s.createElement(u.CSSTransitionGroup, {
         transitionName: 'modal',
         component: 'div',
-        transitionEnterTimeout: i.dialogTransitionEnterTimeout,
-        transitionLeaveTimeout: i.dialogTransitionLeaveTimeout
+        transitionEnterTimeout: l.dialogTransitionEnterTimeout,
+        transitionLeaveTimeout: l.dialogTransitionLeaveTimeout
       }, this.renderDialog())
     }
   }
-  t.AppError = u
+  t.AppError = C
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -36481,8 +36723,8 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(3),
-    i = n(128),
-    a = n(189);
+    i = n(129),
+    a = n(190);
   var s;
   (function (e) {
     e.Parent = 'ForkContributionTargetParent', e.Self = 'ForkContributionTargetSelf'
@@ -36549,7 +36791,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(5),
-    i = n(26);
+    i = n(27);
   class a extends o.Component {
     constructor() {
       super(...arguments), this.onChange = (e) => {
@@ -36586,7 +36828,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(3),
-    i = n(437),
+    i = n(439),
     a = n(13),
     s = n(21);
   class d extends o.Component {
@@ -36628,17 +36870,17 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(50),
-    i = n(439),
-    a = n(438),
+    i = n(441),
+    a = n(440),
     s = n(2),
     d = n(24),
-    l = n(25),
+    l = n(26),
     c = n(3),
-    p = n(436),
+    p = n(438),
     u = n(20),
     m = n(7),
-    h = n(435),
-    f = n(27);
+    h = n(437),
+    f = n(25);
   var g;
   (function (e) {
     e[e.Remote = 0] = 'Remote', e[e.IgnoredFiles = 1] = 'IgnoredFiles', e[e.ForkSettings = 2] = 'ForkSettings'
@@ -36786,7 +37028,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(440);
+  var o = n(442);
   t.RepositorySettings = o.RepositorySettings
 }, function (e, t, n) {
   'use strict';
@@ -36796,12 +37038,12 @@ module.exports = function (e) {
   const o = n(0),
     r = n(20),
     i = n(3),
-    a = n(88),
+    a = n(90),
     s = n(20),
-    d = n(67),
-    l = n(143),
-    c = n(166),
-    p = n(190);
+    d = n(70),
+    l = n(144),
+    c = n(122),
+    p = n(191);
   class u extends o.Component {
     constructor(e) {
       super(e), this.onFilterTextChanged = (e) => {
@@ -36935,7 +37177,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(442);
+  var o = n(444);
   t.Merge = o.Merge
 }, function (e, t, n) {
   'use strict';
@@ -36946,9 +37188,9 @@ module.exports = function (e) {
     r = n(3),
     i = n(13),
     a = n(18),
-    s = n(139),
-    d = n(279),
-    l = n(122);
+    s = n(140),
+    d = n(280),
+    l = n(123);
   class c extends o.Component {
     constructor(e) {
       super(e), this.onSelectedEditorChanged = (e) => {
@@ -37049,8 +37291,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(65),
-    i = n(445);
+    r = n(68),
+    i = n(447);
   class a extends o.Component {
     constructor(e) {
       super(e), this.listRef = null, this.formRef = null, this.onItemClick = (e) => {
@@ -37128,12 +37370,12 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(172),
+    r = n(173),
     i = n(36),
     a = n(18),
     s = n(3),
     d = n(111),
-    l = n(83),
+    l = n(85),
     c = n(2),
     p = [{
       title: 'Light',
@@ -37212,9 +37454,9 @@ module.exports = function (e) {
     r = n(3),
     i = n(36),
     a = n(13),
-    s = n(84),
+    s = n(86),
     d = n(61),
-    l = n(27);
+    l = n(25);
   class c extends o.Component {
     constructor(e) {
       super(e), this.onReportingOptOutChanged = (e) => {
@@ -37330,12 +37572,12 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(134),
+    r = n(135),
     i = n(2),
     a = n(12),
     s = n(18),
     d = n(3),
-    l = n(147),
+    l = n(149),
     c = n(112);
   var p;
   (function (e) {
@@ -37396,25 +37638,25 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(162),
+    r = n(164),
     i = n(50),
-    a = n(451),
-    s = n(450),
-    d = n(449),
+    a = n(453),
+    s = n(452),
+    d = n(451),
     l = n(2),
     c = n(3),
-    p = n(82),
-    u = n(134),
-    m = n(122),
-    h = n(278),
-    f = n(448),
-    g = n(447),
+    p = n(84),
+    u = n(135),
+    m = n(123),
+    h = n(279),
+    f = n(450),
+    g = n(449),
     y = n(7),
-    S = n(444),
+    S = n(446),
     C = n(61),
     b = n(4),
     v = n(20),
-    E = n(194);
+    E = n(195);
   class w extends o.Component {
     constructor(e) {
       super(e), this.onDotComSignIn = () => {
@@ -37664,7 +37906,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(452);
+  var o = n(454);
   t.Preferences = o.Preferences
 }, function (e, t, n) {
   'use strict';
@@ -37673,7 +37915,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(71);
+    i = n(74);
   t.SuccessfulRebase = function ({
     baseBranch: e,
     targetBranch: t,
@@ -37700,7 +37942,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(71),
+    i = n(74),
     a = n(13);
   class s extends o.Component {
     constructor() {
@@ -37733,7 +37975,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(71);
+    i = n(74);
   t.SuccessfulMerge = function ({
     ourBranch: e,
     theirBranch: t,
@@ -37760,7 +38002,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(71),
+    i = n(74),
     a = n(13);
   class s extends o.Component {
     constructor() {
@@ -37791,11 +38033,11 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(2),
-    i = n(97),
-    a = n(457),
-    s = n(456),
-    d = n(455),
-    l = n(454);
+    i = n(98),
+    a = n(459),
+    s = n(458),
+    d = n(457),
+    l = n(456);
   t.renderBanner = function (e, t, n) {
     switch (e.type) {
       case i.BannerType.SuccessfulMerge:
@@ -37839,12 +38081,12 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(13),
-    i = n(136),
+    i = n(137),
     a = n(4),
     s = n(24),
-    d = n(39),
-    l = n(71),
-    c = n(140);
+    d = n(40),
+    l = n(74),
+    c = n(141);
   class p extends o.Component {
     constructor() {
       super(...arguments), this.showReleaseNotes = () => {
@@ -37878,11 +38120,11 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(71);
+  var o = n(74);
   t.Banner = o.Banner;
-  var r = n(459);
+  var r = n(461);
   t.UpdateAvailable = r.UpdateAvailable;
-  var i = n(458);
+  var i = n(460);
   t.renderBanner = i.renderBanner
 }, function (e, t, n) {
   'use strict';
@@ -37890,9 +38132,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(191),
-    i = n(193),
-    a = n(198);
+    r = n(192),
+    i = n(194),
+    a = n(199);
   class s extends o.Component {
     constructor() {
       super(...arguments), this.innerDropDown = null, this.onDropDownRef = (e) => {
@@ -37971,8 +38213,8 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(131),
-    a = n(461),
+    i = n(132),
+    a = n(463),
     s = n(28);
   class d extends r.Component {
     constructor(e) {
@@ -38150,7 +38392,7 @@ module.exports = function (e) {
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), o(n(193)), o(n(462)), o(n(192))
+  }), o(n(194)), o(n(464)), o(n(193))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -38160,10 +38402,10 @@ module.exports = function (e) {
     r = n(64),
     i = n(13),
     a = n(36),
-    s = n(87),
+    s = n(89),
     d = n(12),
     l = n(18),
-    c = n(84);
+    c = n(86);
   class p extends o.Component {
     constructor(e) {
       super(e), this.onChange = (e) => {
@@ -38208,17 +38450,17 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(252),
-    i = n(134),
-    a = n(82),
-    s = n(207),
-    d = n(124),
-    l = n(87),
+    r = n(253),
+    i = n(135),
+    a = n(84),
+    s = n(208),
+    d = n(125),
+    l = n(89),
     c = n(12),
     p = n(29),
     u = n(18),
     m = n(20),
-    h = n(194);
+    h = n(195);
   class f extends o.Component {
     constructor(e) {
       super(e), this.globalUsernamePromise = a.getGlobalConfigValue('user.name'), this.globalEmailPromise = a.getGlobalConfigValue('user.email'), this.onLockFileDeleted = () => {
@@ -38353,7 +38595,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(64),
-    i = n(466),
+    i = n(468),
     a = n(12);
   class s extends o.Component {
     constructor() {
@@ -38388,7 +38630,7 @@ module.exports = function (e) {
   const o = n(0),
     r = n(64),
     i = n(12),
-    a = n(195);
+    a = n(196);
   class s extends o.Component {
     constructor() {
       super(...arguments), this.cancel = () => {
@@ -38416,11 +38658,11 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(58),
-    i = n(87),
+    r = n(51),
+    i = n(89),
     a = n(29),
     s = n(12),
-    d = n(141);
+    d = n(142);
   class l extends o.Component {
     constructor(e) {
       super(e), this.onServerAddressChanged = (e) => {
@@ -38459,12 +38701,12 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(58),
+    r = n(51),
     i = n(12),
     a = n(29),
-    s = n(87),
-    d = n(141),
-    l = n(177);
+    s = n(89),
+    d = n(142),
+    l = n(178);
   class c extends o.Component {
     constructor(e) {
       super(e), this.onOTPChange = (e) => {
@@ -38507,7 +38749,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(64),
-    i = n(195),
+    i = n(196),
     a = n(12);
   class s extends o.Component {
     constructor() {
@@ -38543,8 +38785,8 @@ module.exports = function (e) {
     i = n(13),
     a = n(4),
     s = n(12),
-    d = n(58),
-    l = n(196);
+    d = n(51),
+    l = n(197);
   t.CreateAccountURL = 'https://github.com/join?source=github-desktop';
   class c extends o.Component {
     constructor() {
@@ -38604,13 +38846,6 @@ module.exports = function (e) {
   });
   var o = n(64);
   t.Welcome = o.Welcome
-}, function (e, t) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  }), t.toPlatformCase = function (e) {
-    return e = e.toLowerCase(), e = e.replace(/\b[a-z]/i, (e) => e.toUpperCase()), e
-  }
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -38618,13 +38853,12 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(3),
-    i = n(74),
-    a = n(72),
+    i = n(66),
+    a = n(65),
     s = n(36),
-    d = n(77),
-    l = n(474),
-    c = n(7);
-  class p extends o.Component {
+    d = n(78),
+    l = n(7);
+  class c extends o.Component {
     constructor(e) {
       super(e), this.discard = async () => {
         this.setState({
@@ -38643,19 +38877,21 @@ module.exports = function (e) {
     getOkButtonLabel() {
       return this.props.discardingAllChanges ? '放弃所有更改' : '确认放弃更改'
     }
+    getDialogTitle() {
+      return this.props.discardingAllChanges ? '确认放弃所有更改' : '确认放弃更改'
+    }
     render() {
-      const e = this.props.discardingAllChanges,
-        t = this.state.isDiscardingChanges;
+      const e = this.state.isDiscardingChanges;
       return o.createElement(r.Dialog, {
         id: 'discard-changes',
-        title: e ? l.toPlatformCase('确认放弃所有更改') : l.toPlatformCase('确认放弃更改'),
+        title: this.getDialogTitle(),
         onDismissed: this.props.onDismissed,
         onSubmit: this.discard,
-        dismissable: !t,
-        loading: t,
-        disabled: t,
+        dismissable: !e,
+        loading: e,
+        disabled: e,
         type: 'warning'
-      }, o.createElement(r.DialogContent, null, this.renderFileList(), o.createElement('p', null, '可以通过从', d.TrashNameLabel, '检索更改来恢复更改.'), this.renderConfirmDiscardChanges()), o.createElement(r.DialogFooter, null, o.createElement(c.OkCancelButtonGroup, {
+      }, o.createElement(r.DialogContent, null, this.renderFileList(), o.createElement('p', null, '可以通过从', d.TrashNameLabel, '检索更改来恢复更改.'), this.renderConfirmDiscardChanges()), o.createElement(r.DialogFooter, null, o.createElement(l.OkCancelButtonGroup, {
         destructive: !0,
         okButtonText: this.getOkButtonLabel()
       })))
@@ -38675,13 +38911,13 @@ module.exports = function (e) {
       }))))))
     }
   }
-  t.DiscardChanges = p
+  t.DiscardChanges = c
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(475);
+  var o = n(476);
   t.DiscardChanges = o.DiscardChanges
 }, function (e, t, n) {
   'use strict';
@@ -38715,10 +38951,10 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(30),
-    a = n(197),
+    i = n(31),
+    a = n(198),
     s = n(28),
-    d = n(88),
+    d = n(90),
     l = n(2),
     c = n(5);
   class p extends o.Component {
@@ -38774,7 +39010,7 @@ module.exports = function (e) {
       if (n) {
         if (C = n.targetBranch, f = '切换到分支', 0 < n.value) {
           const e = Math.round(100 * n.value);
-          f = `${f} (${e} %)`
+          f = `${f} (${e}%)`
         }
         v = n.value, h = r.OcticonSymbol.sync, S = 'spin', g = !1
       } else null !== u && s.isRebaseConflictState(u) && (C = u.targetBranch, f = 'Rebasing branch', h = r.OcticonSymbol.gitBranch, g = !1, y = !0);
@@ -38935,8 +39171,8 @@ module.exports = function (e) {
     value: !0
   });
   const h = n(0),
-    f = n(30),
-    g = n(129),
+    f = n(31),
+    g = n(130),
     y = n(4),
     S = n(116),
     C = n(113),
@@ -39017,7 +39253,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(90);
+    i = n(92);
   class a extends o.Component {
     render() {
       const e = this.props.progress.value || void 0;
@@ -39096,7 +39332,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(483);
+  var o = n(484);
   t.DeleteBranch = o.DeleteBranch
 }, function (e, t, n) {
   'use strict';
@@ -39104,11 +39340,11 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(142),
+    r = n(143),
     i = n(29),
     a = n(18),
     s = n(3),
-    d = n(199),
+    d = n(200),
     l = n(7);
   class c extends o.Component {
     constructor(e) {
@@ -39146,7 +39382,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(485);
+  var o = n(486);
   t.RenameBranch = o.RenameBranch
 }, function (e, t, n) {
   'use strict';
@@ -39278,12 +39514,12 @@ module.exports = function (e) {
     r = n(1),
     i = n(13),
     a = n(12),
-    s = n(72),
+    s = n(65),
     d = n(4),
-    l = n(96),
+    l = n(97),
     c = n(34),
     p = n(24),
-    u = n(162),
+    u = n(164),
     m = c.encodePathAsUrl(__dirname, 'static/required-status-check.svg');
   class h extends o.Component {
     constructor(e) {
@@ -39539,11 +39775,11 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(78),
-    i = n(208),
+    r = n(79),
+    i = n(209),
     a = n(145),
-    s = n(144),
-    d = n(491);
+    s = n(492),
+    d = n(146);
   class l extends o.PureComponent {
     constructor() {
       super(...arguments), this.onSelectedFileChanged = (e) => this.props.dispatcher.selectStashedFile(this.props.repository, e), this.onResize = (e) => this.props.dispatcher.setStashedFilesWidth(e), this.onReset = () => this.props.dispatcher.resetStashedFilesWidth()
@@ -39557,35 +39793,38 @@ module.exports = function (e) {
         dispatcher: c,
         imageDiffType: p,
         isWorkingTreeClean: u,
-        fileListWidth: m
-      } = this.props, h = e.files.kind === r.StashedChangesLoadStates.Loaded ? e.files.files : [], f = null !== t && null !== n ? o.createElement(a.Diff, {
+        fileListWidth: m,
+        onOpenBinaryFile: h,
+        onChangeImageDiffType: f
+      } = this.props, g = e.files.kind === r.StashedChangesLoadStates.Loaded ? e.files.files : [], y = null === t ? null : o.createElement(d.SeamlessDiffSwitcher, {
         repository: l,
         readOnly: !0,
         file: t,
         diff: n,
-        dispatcher: c,
         imageDiffType: p,
-        hideWhitespaceInDiff: !1
-      }) : null;
+        hideWhitespaceInDiff: !1,
+        onOpenBinaryFile: h,
+        onChangeImageDiffType: f
+      });
       return o.createElement('section', {
         id: 'stash-diff-viewer'
-      }, o.createElement(d.StashDiffHeader, {
+      }, o.createElement(s.StashDiffHeader, {
         stashEntry: e,
         repository: l,
         dispatcher: c,
         isWorkingTreeClean: u
       }), o.createElement('div', {
         className: 'commit-details'
-      }, o.createElement(s.Resizable, {
+      }, o.createElement(a.Resizable, {
         width: this.props.fileListWidth,
         onResize: this.onResize,
         onReset: this.onReset
       }, o.createElement(i.FileList, {
-        files: h,
+        files: g,
         onSelectedFileChanged: this.onSelectedFileChanged,
         selectedFile: t,
         availableWidth: m
-      })), f))
+      })), y))
     }
   }
   t.StashDiffViewer = l
@@ -39596,7 +39835,7 @@ module.exports = function (e) {
     }),
     function (e) {
       for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-    }(n(492))
+    }(n(493))
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -39605,8 +39844,8 @@ module.exports = function (e) {
   const o = n(0),
     r = n(28),
     i = n(12),
-    a = n(143),
-    s = n(67);
+    a = n(144),
+    s = n(70);
   class d extends o.Component {
     constructor() {
       super(...arguments), this.onMergeClicked = async () => {
@@ -39801,7 +40040,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(4),
-    i = n(95);
+    i = n(96);
   class a extends o.Component {
     render() {
       const e = this.props.isCurrentBranch,
@@ -39842,7 +40081,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(203);
+    r = n(204);
   class i extends o.Component {
     render() {
       const e = `refs/pull/${this.props.number}/head`;
@@ -39879,7 +40118,7 @@ module.exports = function (e) {
     }
     renderTitle() {
       return this.props.isSearch ? o.createElement('div', {
-        className: 'title' 
+        className: 'title'
       }, '对不起，我找不到合并请求！') : this.props.isLoadingPullRequests ? o.createElement('div', {
         className: 'title'
       }, '团队协作') : o.createElement('div', null, o.createElement('div', {
@@ -39932,11 +40171,11 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(56),
+    r = n(57),
     i = n(5),
     a = n(4),
-    s = n(203),
-    d = n(95);
+    s = n(204),
+    d = n(96);
   class l extends o.Component {
     getSubtitle() {
       if (!0 !== this.props.loading) {
@@ -40014,15 +40253,15 @@ module.exports = function (e) {
     value: !0
   });
   const s = n(0),
-    d = n(56),
+    d = n(57),
     l = n(120),
-    c = n(501),
-    p = n(499),
-    u = n(25),
+    c = n(502),
+    p = n(500),
+    u = n(26),
     m = n(12),
     h = n(4),
     f = n(28),
-    g = n(75);
+    g = n(76);
   t.RowHeight = 47;
   class y extends s.Component {
     constructor(e) {
@@ -40114,8 +40353,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(25),
-    i = n(281),
+    r = n(26),
+    i = n(282),
     a = n(24),
     s = n(28),
     d = n(2),
@@ -40123,10 +40362,10 @@ module.exports = function (e) {
     c = n(18),
     p = n(4),
     u = n(12),
-    m = n(205),
-    h = n(502),
-    f = n(202),
-    g = n(75),
+    m = n(206),
+    h = n(503),
+    f = n(203),
+    g = n(76),
     y = n(61);
   class S extends o.Component {
     constructor(e) {
@@ -40306,7 +40545,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(7),
-    i = n(206);
+    i = n(207);
   class a extends o.Component {
     render() {
       return o.createElement(i.DialogFooter, null, o.createElement(r.OkCancelButtonGroup, {
@@ -40382,8 +40621,8 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(5),
-    i = n(507),
-    a = n(65),
+    i = n(508),
+    a = n(68),
     s = 28;
   class d extends o.Component {
     constructor(e) {
@@ -40512,7 +40751,8 @@ module.exports = function (e) {
         id: this.props.id,
         onMouseDown: this.onDialogMouseDown,
         className: e,
-        "aria-labelledby": this.state.titleId
+        "aria-labelledby": this.state.titleId,
+        tabIndex: -1
       }, this.renderHeader(), o.createElement('form', {
         onSubmit: this.onSubmit,
         onReset: this.onDismiss
@@ -40624,10 +40864,10 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(0),
-    a = n(91),
-    s = n(207),
-    d = n(76),
-    l = n(66),
+    a = n(67),
+    s = n(208),
+    d = n(77),
+    l = n(69),
     c = 50;
   class p extends i.Component {
     constructor() {
@@ -40721,20 +40961,20 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(0),
-    a = n(86),
+    a = n(88),
     s = n(28),
-    d = n(511),
-    l = n(148),
-    c = n(88),
+    d = n(512),
+    l = n(150),
+    c = n(90),
     p = n(50),
-    u = n(497),
-    m = n(496),
+    u = n(498),
+    m = n(497),
     h = n(4),
     f = n(21),
-    g = n(495),
-    y = n(494),
+    g = n(496),
+    y = n(495),
     S = n(2),
-    C = n(27);
+    C = n(25);
   class b extends i.Component {
     constructor(e) {
       super(e), this.textbox = null, this.loadChangedFilesScheduler = new l.ThrottledScheduler(200), this.branchList = null, this.loadingMoreCommitsPromise = null, this.resultCount = 0, this.onBranchesListRef = (e) => {
@@ -40825,12 +41065,8 @@ module.exports = function (e) {
           filterText: e.name,
           showBranchList: !1
         })
-      }, this.onSelectionChanged = (e, t) => {
-        'mouseclick' === t.kind && null != e && this.props.dispatcher.executeCompare(this.props.repository, {
-          kind: s.HistoryTabMode.Compare,
-          comparisonMode: s.ComparisonMode.Behind,
-          branch: e
-        }), this.setState({
+      }, this.onSelectionChanged = (e) => {
+        this.setState({
           focusedBranch: e
         })
       }, this.onTextBoxFocused = () => {
@@ -41025,44 +41261,88 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
 
-  function o(e) {
-    return e.replace(/\s+$/, '')
+  function o() {
+    return r('\u2026')
   }
 
-  function r(e, t) {
-    let n = o(t.commit.summary),
-      r = o(t.commit.body);
-    if (n.length > f) {
-      const e = f - 3,
-        t = n.substr(e);
-      r = 0 < r.length ? `…${t}\n\n${r}` : `…${t}`, n = `${n.substr(0,e)}…`
+  function r(e) {
+    return {
+      kind: a.TokenType.Text,
+      text: e
     }
-    const i = c.getAvatarUsersForCommit(t.repository.gitHubRepository, t.gitHubUsers, t.commit);
+  }
+
+  function i(e, t) {
+    return {
+      kind: a.TokenType.Link,
+      text: e,
+      url: t
+    }
+  }
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const a = n(147),
+    s = n(2);
+  t.wrapRichTextCommitMessage = function (e, t, n, d = 72) {
+    const l = n.tokenize(e.trimRight()),
+      c = [],
+      p = [];
+    let u = d;
+    for (const o of l) {
+      const e = o.kind === a.TokenType.Emoji ? 2 : o.text.length;
+      if (0 >= u) p.push(o);
+      else if (u >= e) c.push(o), u -= e;
+      else {
+        if (o.kind === a.TokenType.Text) c.push(r(o.text.substr(0, u))), p.push(r(o.text.substr(u)));
+        else if (o.kind === a.TokenType.Emoji) p.push(o);
+        else if (o.kind === a.TokenType.Link) !o.text.startsWith('#') && 5 < u ? (c.push(i(o.text.substr(0, u), o.text)), p.push(i(o.text.substr(u), o.text))) : p.push(o);
+        else return s.assertNever(o, `Unknown token type`);
+        u = 0
+      }
+    }
+    let m = n.tokenize(t.trimRight());
+    return 0 < p.length && (c.push(o()), m = 0 < m.length ? [o(), ...p, r('\n\n'), ...m] : [o(), ...p]), {
+      summary: c,
+      body: m
+    }
+  }
+}, function (e, t, n) {
+  'use strict';
+
+  function o(e, t) {
+    const n = new h.Tokenizer(t.emoji, t.repository),
+      {
+        summary: o,
+        body: r
+      } = f.wrapRichTextCommitMessage(t.commit.summary, t.commit.body, n),
+      i = l.getAvatarUsersForCommit(t.repository.gitHubRepository, t.gitHubUsers, t.commit);
     return {
       isOverflowed: e,
-      summary: n,
+      summary: o,
       body: r,
       avatarUsers: i
     }
   }
 
-  function i(e, t) {
+  function r(e, t) {
     return e.summary === t.summary && e.body === t.body
   }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = n(0),
-    s = n(5),
-    d = n(4),
-    l = n(89),
-    c = n(212),
+  const i = n(0),
+    a = n(5),
+    s = n(4),
+    d = n(91),
+    l = n(213),
+    c = n(211),
     p = n(210),
-    u = n(209),
-    m = n(36),
-    h = n(27),
-    f = 72;
-  class g extends a.Component {
+    u = n(36),
+    m = n(25),
+    h = n(147),
+    f = n(514);
+  class g extends i.Component {
     constructor(e) {
       super(e), this.descriptionScrollViewRef = null, this.resizeObserver = null, this.updateOverflowTimeoutId = null, this.descriptionRef = null, this.onHideWhitespaceInDiffChanged = (e) => {
         const t = e.currentTarget.checked;
@@ -41083,7 +41363,7 @@ module.exports = function (e) {
         this.props.onExpandChanged(!0)
       }, this.onCollapse = () => {
         this.descriptionScrollViewRef && (this.descriptionScrollViewRef.scrollTop = 0), this.props.onExpandChanged(!1)
-      }, this.state = r(!1, e);
+      }, this.state = o(!1, e);
       const t = window.ResizeObserver;
       (t || !1) && (this.resizeObserver = new t((e) => {
         for (const t of e) t.target === this.descriptionScrollViewRef && (null !== this.updateOverflowTimeoutId && clearImmediate(this.updateOverflowTimeoutId), this.updateOverflowTimeoutId = setImmediate(this.onResized))
@@ -41093,11 +41373,11 @@ module.exports = function (e) {
       if (!this.state.body.length || !this.props.isExpanded && !this.state.isOverflowed) return null;
       const e = this.props.isExpanded,
         t = e ? this.onCollapse : this.onExpand,
-        n = e ? d.OcticonSymbol.fold : d.OcticonSymbol.unfold;
-      return a.createElement('a', {
+        n = e ? s.OcticonSymbol.fold : s.OcticonSymbol.unfold;
+      return i.createElement('a', {
         onClick: t,
         className: 'expander'
-      }, a.createElement(d.Octicon, {
+      }, i.createElement(s.Octicon, {
         symbol: n
       }), e ? '折叠' : '扩展')
     }
@@ -41113,7 +41393,7 @@ module.exports = function (e) {
       this.props.isExpanded || this.updateOverflow()
     }
     componentWillUpdate(e) {
-      i(e.commit, this.props.commit) || this.setState(r(!1, e))
+      r(e.commit, this.props.commit) || this.setState(o(!1, e))
     }
     componentDidUpdate(e, t) {
       this.props.isExpanded ? this.state.isOverflowed && this.setState({
@@ -41121,86 +41401,86 @@ module.exports = function (e) {
       }) : (t.body !== this.state.body || e.isExpanded) && this.updateOverflow()
     }
     renderDescription() {
-      return this.state.body ? a.createElement('div', {
+      return 0 === this.state.body.length ? null : i.createElement('div', {
         className: 'commit-summary-description-container',
         ref: this.onDescriptionRef
-      }, a.createElement('div', {
+      }, i.createElement('div', {
         className: 'commit-summary-description-scroll-view',
         ref: this.onDescriptionScrollViewRef
-      }, a.createElement(l.RichText, {
+      }, i.createElement(d.RichText, {
         className: 'commit-summary-description',
         emoji: this.props.emoji,
         repository: this.props.repository,
         text: this.state.body
-      })), this.renderExpander()) : null
+      })), this.renderExpander())
     }
     render() {
       const e = this.props.files.length,
         t = 1 === e ? '文件' : '文件',
         n = `${e} 个${t}有改动`,
         o = this.props.commit.shortSha,
-        r = s({
+        r = a({
           expanded: this.props.isExpanded,
           collapsed: !this.props.isExpanded,
           "has-expander": this.props.isExpanded || this.state.isOverflowed,
           "hide-description-border": this.props.hideDescriptionBorder
         });
-      return a.createElement('div', {
+      return i.createElement('div', {
         id: 'commit-summary',
         className: r
-      }, a.createElement('div', {
+      }, i.createElement('div', {
         className: 'commit-summary-header'
-      }, a.createElement(l.RichText, {
+      }, i.createElement(d.RichText, {
         className: 'commit-summary-title',
         emoji: this.props.emoji,
         repository: this.props.repository,
         text: this.state.summary
-      }), a.createElement('ul', {
+      }), i.createElement('ul', {
         className: 'commit-summary-meta'
-      }, a.createElement('li', {
+      }, i.createElement('li', {
         className: 'commit-summary-meta-item without-truncation',
         "aria-label": 'Author'
-      }, a.createElement(p.AvatarStack, {
+      }, i.createElement(c.AvatarStack, {
         users: this.state.avatarUsers
-      }), a.createElement(u.CommitAttribution, {
+      }), i.createElement(p.CommitAttribution, {
         gitHubRepository: this.props.repository.gitHubRepository,
         commit: this.props.commit
-      })), a.createElement('li', {
+      })), i.createElement('li', {
         className: 'commit-summary-meta-item without-truncation',
         "aria-label": 'SHA'
-      }, a.createElement('span', {
+      }, i.createElement('span', {
         "aria-hidden": 'true'
-      }, a.createElement(d.Octicon, {
-        symbol: d.OcticonSymbol.gitCommit
-      })), a.createElement('span', {
+      }, i.createElement(s.Octicon, {
+        symbol: s.OcticonSymbol.gitCommit
+      })), i.createElement('span', {
         className: 'sha'
-      }, o)), a.createElement('li', {
+      }, o)), i.createElement('li', {
         className: 'commit-summary-meta-item without-truncation',
         title: n
-      }, a.createElement('span', {
+      }, i.createElement('span', {
         "aria-hidden": 'true'
-      }, a.createElement(d.Octicon, {
-        symbol: d.OcticonSymbol.diff
-      })), n), this.renderTags(), a.createElement('li', {
+      }, i.createElement(s.Octicon, {
+        symbol: s.OcticonSymbol.diff
+      })), n), this.renderTags(), i.createElement('li', {
         className: 'commit-summary-meta-item without-truncation',
         title: n
-      }, a.createElement(m.Checkbox, {
+      }, i.createElement(u.Checkbox, {
         label: '隐藏空格',
-        value: this.props.hideWhitespaceInDiff ? m.CheckboxValue.On : m.CheckboxValue.Off,
+        value: this.props.hideWhitespaceInDiff ? u.CheckboxValue.On : u.CheckboxValue.Off,
         onChange: this.onHideWhitespaceInDiffChanged
       })))), this.renderDescription())
     }
     renderTags() {
-      if (!h.enableGitTagsDisplay()) return null;
+      if (!m.enableGitTagsDisplay()) return null;
       const e = this.props.commit.tags || [];
-      return 0 === e.length ? null : a.createElement('li', {
+      return 0 === e.length ? null : i.createElement('li', {
         className: 'commit-summary-meta-item',
         title: e.join('\n')
-      }, a.createElement('span', {
+      }, i.createElement('span', {
         "aria-label": 'Tags'
-      }, a.createElement(d.Octicon, {
-        symbol: d.OcticonSymbol.tag
-      })), a.createElement('span', {
+      }, i.createElement(s.Octicon, {
+        symbol: s.OcticonSymbol.tag
+      })), i.createElement('span', {
         className: 'tags'
       }, e.join(', ')))
     }
@@ -41277,15 +41557,15 @@ module.exports = function (e) {
     a = n(19),
     s = n(1),
     d = n(34),
-    l = n(39),
+    l = n(40),
     c = n(115),
-    p = n(77),
-    u = n(148),
+    p = n(78),
+    u = n(150),
     m = n(145),
-    h = n(144),
-    f = n(26),
-    g = n(513),
-    y = n(208);
+    h = n(27),
+    f = n(515),
+    g = n(209),
+    y = n(146);
   class S extends r.Component {
     constructor(e) {
       super(e), this.loadChangedFilesScheduler = new u.ThrottledScheduler(200), this.historyRef = null, this.onFileSelected = (e) => {
@@ -41317,7 +41597,7 @@ module.exports = function (e) {
         const t = this.props.selectedFile.path,
           n = s.join(this.props.repository.path, t),
           o = await a.pathExists(n);
-        if (!o) return void f.showContextualMenu([{
+        if (!o) return void h.showContextualMenu([{
           label: '磁盘上不存在文件',
           enabled: !1
         }]);
@@ -41340,7 +41620,7 @@ module.exports = function (e) {
             action: () => this.onOpenItem(t),
             enabled: d && o
           }];
-        f.showContextualMenu(u)
+        h.showContextualMenu(u)
       }, this.state = {
         isExpanded: !1,
         hideDescriptionBorder: !1
@@ -41359,25 +41639,26 @@ module.exports = function (e) {
     renderDiff() {
       const e = this.props.selectedFile,
         t = this.props.currentDiff;
-      if (null == e || null == t) {
+      if (null == e) {
         const e = 0 === this.props.changedFiles.length ? '' : '没有文件被选中';
         return r.createElement('div', {
           className: 'panel blankslate',
           id: 'diff'
         }, e)
       }
-      return r.createElement(m.Diff, {
+      return r.createElement(y.SeamlessDiffSwitcher, {
         repository: this.props.repository,
         imageDiffType: this.props.selectedDiffType,
         file: e,
         diff: t,
         readOnly: !0,
-        dispatcher: this.props.dispatcher,
-        hideWhitespaceInDiff: this.props.hideWhitespaceInDiff
+        hideWhitespaceInDiff: this.props.hideWhitespaceInDiff,
+        onOpenBinaryFile: this.props.onOpenBinaryFile,
+        onChangeImageDiffType: this.props.onChangeImageDiffType
       })
     }
     renderCommitSummary(e) {
-      return r.createElement(g.CommitSummary, {
+      return r.createElement(f.CommitSummary, {
         commit: e,
         files: this.props.changedFiles,
         emoji: this.props.emoji,
@@ -41397,7 +41678,7 @@ module.exports = function (e) {
         className: 'fill-window'
       }, '提交中没有任何文件');
       const t = this.props.commitSummaryWidth - 1;
-      return r.createElement(y.FileList, {
+      return r.createElement(g.FileList, {
         files: e,
         onSelectedFileChanged: this.onFileSelected,
         selectedFile: this.props.selectedFile,
@@ -41415,7 +41696,7 @@ module.exports = function (e) {
         className: t
       }, this.renderCommitSummary(e), r.createElement('div', {
         className: 'commit-details'
-      }, r.createElement(h.Resizable, {
+      }, r.createElement(m.Resizable, {
         width: this.props.commitSummaryWidth,
         onResize: this.onCommitSummaryResize,
         onReset: this.onCommitSummaryReset
@@ -41428,9 +41709,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(515);
+  var o = n(517);
   t.SelectedCommit = o.SelectedCommit;
-  var r = n(512);
+  var r = n(513);
   t.CompareSidebar = r.CompareSidebar
 }, function (e, t, n) {
   'use strict';
@@ -41526,19 +41807,19 @@ module.exports = function (e) {
         for (var o in n = arguments[t], n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
       return e
     },
-    c = n(305),
+    c = n(306),
     p = o(c),
-    u = n(304),
+    u = n(305),
     m = o(u),
-    h = n(181),
+    h = n(182),
     f = o(h),
-    g = n(303),
+    g = n(304),
     y = n(0),
     S = o(y),
     C = n(15),
     b = o(C),
     v = n(43),
-    E = n(213),
+    E = n(214),
     w = [],
     k, T;
   g.transitionEnd && w.push(g.transitionEnd), g.animationEnd && w.push(g.animationEnd);
@@ -41668,15 +41949,15 @@ module.exports = function (e) {
     m = n(43),
     h = n(15),
     f = o(h),
-    g = n(307),
+    g = n(308),
     y = o(g),
-    S = n(306),
+    S = n(307),
     C = o(S),
-    b = n(181),
+    b = n(182),
     v = o(b),
-    E = n(519),
+    E = n(521),
     w = o(E),
-    k = n(213),
+    k = n(214),
     T = u.default.createFactory(w.default),
     _ = (x = R = function (e) {
       function t(n, o) {
@@ -41842,7 +42123,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(520);
+    r = n(522);
   t.SuggestedActionGroup = (e) => {
     const t = 'suggested-action-group ' + (e.type ? e.type : 'normal');
     if ('replace' === e.transitions) {
@@ -41869,8 +42150,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(214),
-    i = n(26);
+    r = n(215),
+    i = n(27);
   class a extends o.Component {
     constructor() {
       super(...arguments), this.onClick = (t) => {
@@ -41925,14 +42206,14 @@ module.exports = function (e) {
   const s = n(0),
     d = n(34),
     l = n(13),
-    c = n(91),
-    p = n(215),
+    c = n(67),
+    p = n(216),
     u = n(114),
-    m = n(26),
-    h = n(30),
+    m = n(27),
+    h = n(31),
     f = n(21),
-    g = n(79),
-    y = n(78),
+    g = n(81),
+    y = n(79),
     S = n(114),
     C = d.encodePathAsUrl(__dirname, 'static/paper-stack.svg');
   class b extends s.Component {
@@ -42174,45 +42455,6 @@ module.exports = function (e) {
     }
   }
   t.NoChanges = b
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
-  const o = n(0),
-    r = n(146),
-    i = n(31),
-    a = n(4),
-    s = n(41);
-  class d extends o.Component {
-    render() {
-      const e = this.props.status,
-        t = s.mapStatus(e);
-      return o.createElement('div', {
-        className: 'header'
-      }, o.createElement(r.PathLabel, {
-        path: this.props.path,
-        status: this.props.status
-      }), this.renderDecorator(), o.createElement(a.Octicon, {
-        symbol: a.iconForStatus(e),
-        className: 'status status-' + t.toLowerCase(),
-        title: t
-      }))
-    }
-    renderDecorator() {
-      const e = this.props.diff;
-      if (e.kind === i.DiffType.Text && e.lineEndingsChange) {
-        const t = `警告: 行尾符将由 '${e.lineEndingsChange.from}' 到 '${e.lineEndingsChange.to}'.`;
-        return o.createElement(a.Octicon, {
-          symbol: a.OcticonSymbol.alert,
-          className: 'line-endings',
-          title: t
-        })
-      }
-      return null
-    }
-  }
-  t.ChangedFileDetails = d
 }, function (e, t) {
   'use strict';
 
@@ -42307,12 +42549,12 @@ module.exports = function (e) {
   });
   const i = n(1),
     a = n(2),
-    s = n(264),
-    d = n(126),
-    l = n(526),
+    s = n(265),
+    d = n(127),
+    l = n(527),
     c = n(23),
-    p = n(31),
-    u = n(263),
+    p = n(30),
+    u = n(264),
     m = 262144;
   t.getFileContents = async function (e, t, n) {
     const i = n.oldLineFilter.length ? o(e, t) : Promise.resolve(Buffer.alloc(0)),
@@ -42657,7 +42899,7 @@ module.exports = function (e) {
   })
 }, function (e, t, n) {
   (function (e) {
-    e(n(44), n(529), n(528))
+    e(n(44), n(530), n(529))
   })(function (e) {
     'use strict';
 
@@ -43270,7 +43512,7 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(44);
-  n(532), n(531), !1, n(530);
+  n(533), n(532), !1, n(531);
   class a extends r.Component {
     constructor(e) {
       super(e), this.wrapper = null, this.codeMirror = null, this.resizeDebounceId = null, this.lastKnownWidth = null, this.onSwapDoc = (e, t) => {
@@ -44030,8 +44272,8 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(44),
-    a = n(216);
-  n(534);
+    a = n(217);
+  n(535);
   const s = {
     "+": 'diff-add',
     "-": 'diff-delete',
@@ -44076,7 +44318,7 @@ module.exports = function (e) {
   'use strict';
 
   function o(e, t) {
-    return e === t || e.file.id === t.file.id && e.text === t.text
+    return e === t || e.file.id === t.file.id && e.diff.text === t.diff.text
   }
 
   function r() {
@@ -44086,7 +44328,7 @@ module.exports = function (e) {
         w: n,
         h: o,
         d: r
-      } = D,
+      } = M,
       i = 'http://www.w3.org/2000/svg',
       a = document.createElementNS(i, 'svg');
     a.setAttribute('version', '1.1'), a.setAttribute('viewBox', `0 0 ${n} ${o}`), a.setAttribute('role', 'img'), a.setAttribute('aria-labelledby', t), a.classList.add('no-newline');
@@ -44141,24 +44383,25 @@ module.exports = function (e) {
   const u = n(0),
     m = n(22),
     h = n(44),
-    f = n(31),
+    f = n(30),
     g = n(23),
     y = n(4),
-    S = n(535),
-    C = n(533),
-    b = n(216),
-    v = n(527),
-    E = n(525),
-    w = n(91),
-    k = n(66),
+    S = n(536),
+    C = n(534),
+    b = n(217),
+    v = n(528),
+    E = n(526),
+    w = n(67),
+    k = n(69),
     T = n(2),
-    _ = n(123),
+    _ = n(124),
     R = n(106),
-    x = n(26),
-    P = 4096,
-    D = new y.OcticonSymbol(16, 8, 'm 16,1 0,3 c 0,0.55 -0.45,1 -1,1 l -3,0 0,2 -3,-3 3,-3 0,2 2,0 0,-2 2,0 z M 8,4 C 8,6.2 6.2,8 4,8 1.8,8 0,6.2 0,4 0,1.8 1.8,0 4,0 6.2,0 8,1.8 8,4 Z M 1.5,5.66 5.66,1.5 C 5.18,1.19 4.61,1 4,1 2.34,1 1,2.34 1,4 1,4.61 1.19,5.17 1.5,5.66 Z M 7,4 C 7,3.39 6.81,2.83 6.5,2.34 L 2.34,6.5 C 2.82,6.81 3.39,7 4,7 5.66,7 7,5.66 7,4 Z'),
-    M = 'diff-gutter',
-    A = {
+    x = n(27),
+    P = n(25),
+    D = 4096,
+    M = new y.OcticonSymbol(16, 8, 'm 16,1 0,3 c 0,0.55 -0.45,1 -1,1 l -3,0 0,2 -3,-3 3,-3 0,2 2,0 0,-2 2,0 z M 8,4 C 8,6.2 6.2,8 4,8 1.8,8 0,6.2 0,4 0,1.8 1.8,0 4,0 6.2,0 8,1.8 8,4 Z M 1.5,5.66 5.66,1.5 C 5.18,1.19 4.61,1 4,1 2.34,1 1,2.34 1,4 1,4.61 1.19,5.17 1.5,5.66 Z M 7,4 C 7,3.39 6.81,2.83 6.5,2.34 L 2.34,6.5 C 2.82,6.81 3.39,7 4,7 5.66,7 7,5.66 7,4 Z'),
+    A = 'diff-gutter',
+    I = {
       lineNumbers: !1,
       readOnly: !0,
       showCursorWhenSelecting: !1,
@@ -44184,16 +44427,16 @@ module.exports = function (e) {
       styleSelectedText: !0,
       lineSeparator: '\n',
       specialChars: /[\u0000-\u001f\u007f-\u009f\u00ad\u061c\u200b-\u200f\u2028\u2029\ufeff]/,
-      gutters: [M]
+      gutters: [A]
     };
-  class I extends u.Component {
+  class L extends u.Component {
     constructor() {
       super(...arguments), this.codeMirror = null, this.getCodeMirrorDocument = w.default((e, t) => {
         const {
           mode: n,
           firstLineNumber: o,
           lineSeparator: i
-        } = A; - 1 !== e.indexOf('\r') && (e = e.replace(/\r(?=\n|$)/g, ''));
+        } = I; - 1 !== e.indexOf('\r') && (e = e.replace(/\r(?=\n|$)/g, ''));
         const a = new h.Doc(e, n, o, i);
         for (const n of t) a.setBookmark({
           line: n,
@@ -44207,7 +44450,7 @@ module.exports = function (e) {
         for (const n of e)
           for (const o of n.lines) o.noTrailingNewLine && t.push(b.lineNumberForDiffLine(o, e));
         return t
-      }), this.selection = null, this.hunkHighlightRange = null, this.onDocumentMouseMove = (e) => {
+      }), this.selection = null, this.hunkHighlightRange = null, this.swappedDocumentHasUpdatedViewport = !0, this.onDocumentMouseMove = (e) => {
         if (null !== this.codeMirror && null !== this.selection && 'range' === this.selection.kind) {
           const t = c(0, this.codeMirror.getDoc().lineCount() - 1),
             n = _.clamp(this.codeMirror.lineAtHeight(e.y), 0, t);
@@ -44219,12 +44462,14 @@ module.exports = function (e) {
           }), this.updateViewport())
         }
       }, this.onDocumentMouseUp = (e) => {
-        if (e.preventDefault(), null === this.selection || null === this.codeMirror) return this.cancelSelection();
-        if ('hunk' !== this.selection.kind) {
-          if ('range' !== this.selection.kind) return T.assertNever(this.selection.kind, `Unknown selection kind ${this.selection.kind}`);
-          if (this.selection.from === this.selection.to && !a(e.target, 'diff-line-number') && !a(e.target, 'diff-line-gutter')) return this.cancelSelection()
-        } else if (!a(e.target, 'hunk-handle') || !i(this.selection, this.codeMirror.lineAtHeight(e.y))) return this.cancelSelection();
-        this.endSelection()
+        if (e.preventDefault(), 0 === e.button) {
+          if (null === this.selection || null === this.codeMirror) return this.cancelSelection();
+          if ('hunk' !== this.selection.kind) {
+            if ('range' !== this.selection.kind) return T.assertNever(this.selection.kind, `Unknown selection kind ${this.selection.kind}`);
+            if (this.selection.from === this.selection.to && !a(e.target, 'diff-line-number') && !a(e.target, 'diff-line-gutter')) return this.cancelSelection()
+          } else if (!a(e.target, 'hunk-handle') || !i(this.selection, this.codeMirror.lineAtHeight(e.y))) return this.cancelSelection();
+          this.endSelection()
+        }
       }, this.isSelectionEnabled = () => null === this.selection, this.getAndStoreCodeMirrorInstance = (e) => {
         this.codeMirror = null === e ? null : e.getEditor()
       }, this.onContextMenu = (e, t) => {
@@ -44235,8 +44480,11 @@ module.exports = function (e) {
               null !== this.onCopy && this.onCopy(e, t)
             },
             enabled: this.onCopy && null != n
-          }];
-        x.showContextualMenu(o)
+          }],
+          r = this.buildDiscardMenuItems(e, t);
+        null !== r && o.push({
+          type: 'separator'
+        }, ...r), x.showContextualMenu(o)
       }, this.onCopy = (e, t) => {
         t.preventDefault();
         const n = e.getDoc(),
@@ -44252,24 +44500,24 @@ module.exports = function (e) {
           m.clipboard.writeText(i)
         }
       }, this.onSwapDoc = (e) => {
-        this.initDiffSyntaxMode(), this.markIntraLineChanges(e.getDoc(), this.props.hunks)
-      }, this.onAfterSwapDoc = (e, t, n) => {
-        t.lineCount() === n.lineCount() && this.updateViewport()
+        this.swappedDocumentHasUpdatedViewport = !1, this.initDiffSyntaxMode(), this.markIntraLineChanges(e.getDoc(), this.props.diff.hunks)
+      }, this.onAfterSwapDoc = () => {
+        this.swappedDocumentHasUpdatedViewport || this.updateViewport()
       }, this.onViewportChange = (e, t, n) => {
         const o = e.getDoc(),
           r = [];
-        o.eachLine(t, n, (t) => {
+        this.swappedDocumentHasUpdatedViewport = !0, o.eachLine(t, n, (t) => {
           const n = o.getLineNumber(t);
           if (null !== n) {
-            const o = b.diffLineForIndex(this.props.hunks, n);
+            const o = b.diffLineForIndex(this.props.diff.hunks, n);
             if (null !== o) {
               const i = e.lineInfo(t);
-              if (i.gutterMarkers && M in i.gutterMarkers) {
-                const e = i.gutterMarkers[M];
+              if (i.gutterMarkers && A in i.gutterMarkers) {
+                const e = i.gutterMarkers[A];
                 e instanceof HTMLElement && this.updateGutterMarker(e, n, o)
               } else r.push(() => {
                 const r = this.createGutterMarker(n, o);
-                e.setGutterMarker(t, M, r)
+                e.setGutterMarker(t, A, r)
               })
             }
           }
@@ -44277,9 +44525,9 @@ module.exports = function (e) {
       }, this.onHunkHandleMouseEnter = (e) => {
         if (!(null === this.codeMirror || this.props.readOnly || null !== this.selection && 'range' === this.selection.kind)) {
           const t = this.codeMirror.lineAtHeight(e.y),
-            n = b.diffLineForIndex(this.props.hunks, t);
+            n = b.diffLineForIndex(this.props.diff.hunks, t);
           if (n && n.isIncludeableLine()) {
-            const e = b.findInteractiveDiffRange(this.props.hunks, t);
+            const e = b.findInteractiveDiffRange(this.props.diff.hunks, t);
             if (null !== e) {
               const {
                 from: t,
@@ -44295,31 +44543,31 @@ module.exports = function (e) {
           }
         }
       }, this.onDiffLineGutterMouseDown = (e) => {
-        if (!(e.defaultPrevented || null === this.codeMirror)) {
+        if (!(e.defaultPrevented || null === this.codeMirror) && 0 === e.button) {
           const {
             file: t,
-            hunks: n,
+            diff: n,
             readOnly: o
           } = this.props;
           if (s(t) && !o) {
             e.preventDefault();
             const o = this.codeMirror.lineAtHeight(e.y);
-            this.startSelection(t, n, o, 'range')
+            this.startSelection(t, n.hunks, o, 'range')
           }
         }
       }, this.onHunkHandleMouseLeave = () => {
         null !== this.hunkHighlightRange && (this.hunkHighlightRange = null, this.updateViewport())
       }, this.onHunkHandleMouseDown = (e) => {
-        if (this.codeMirror) {
+        if (this.codeMirror && 0 === e.button) {
           const {
             file: t,
-            hunks: n,
+            diff: n,
             readOnly: o
           } = this.props;
           if (s(t) && !o) {
             e.preventDefault();
             const o = this.codeMirror.lineAtHeight(e.y);
-            this.startSelection(t, n, o, 'hunk')
+            this.startSelection(t, n.hunks, o, 'hunk')
           }
         }
       }, this.onFindText = (e) => {
@@ -44330,15 +44578,15 @@ module.exports = function (e) {
       if (this.codeMirror) {
         const {
           file: e,
-          hunks: t,
+          diff: t,
           repository: n
-        } = this.props, r = this.props, i = v.getLineFilters(t), a = this.codeMirror.getOption('tabSize'), s = 'number' == typeof a ? a : 4, d = await v.getFileContents(n, e, i);
+        } = this.props, r = this.props, i = v.getLineFilters(t.hunks), a = this.codeMirror.getOption('tabSize'), s = 'number' == typeof a ? a : 4, d = await v.getFileContents(n, e, i);
         if (o(this.props, r)) {
           const e = await v.highlightContents(d, s, i);
           if (o(this.props, r)) {
             const t = {
               name: S.DiffSyntaxMode.ModeName,
-              hunks: this.props.hunks,
+              hunks: this.props.diff.hunks,
               oldTokens: e.oldTokens,
               newTokens: e.newTokens
             };
@@ -44391,6 +44639,38 @@ module.exports = function (e) {
         e(n.withRangeSelection(r, i - r + 1, o)), this.selection = null
       }
     }
+    buildDiscardMenuItems(e, t) {
+      if (!P.enableDiscardLines()) return null;
+      const n = this.props.file;
+      if (this.props.readOnly || !s(n)) return null;
+      if (!(t instanceof MouseEvent)) return null;
+      if (!this.props.onDiscardChanges) return null;
+      const o = e.lineAtHeight(t.y),
+        r = b.diffLineForIndex(this.props.diff.hunks, o);
+      if (null === r || !r.isIncludeableLine()) return null;
+      const i = b.findInteractiveDiffRange(this.props.diff.hunks, o);
+      return null === i ? null : null === i.type ? null : a(t.target, 'hunk-handle') ? [{
+        label: this.getDiscardLabel(i.type, i.to - i.from + 1),
+        action: () => this.onDiscardChanges(n, i.from, i.to)
+      }] : a(t.target, 'diff-line-number') ? [{
+        label: this.getDiscardLabel(i.type, 1),
+        action: () => this.onDiscardChanges(n, o),
+        enabled: i.type !== b.DiffRangeType.Mixed
+      }] : null
+    }
+    onDiscardChanges(e, t, n = t) {
+      if (this.props.onDiscardChanges) {
+        const o = e.selection.withSelectNone().withRangeSelection(t, n - t + 1, !0);
+        this.props.onDiscardChanges(this.props.diff, o)
+      }
+    }
+    getDiscardLabel(e, t) {
+      const n = this.props.askForConfirmationOnDiscardChanges ? '\u2026' : '';
+      let o = '';
+      e === b.DiffRangeType.Additions ? o = 'added' : e === b.DiffRangeType.Deletions ? o = 'removed' : e === b.DiffRangeType.Mixed ? o = 'modified' : T.assertNever(e, `Invalid range type: ${e}`);
+      const r = 1 < t ? 's' : '';
+      return `Discard ${o} line${r}${n}`
+    }
     markIntraLineChanges(e, t) {
       for (const n of t) {
         const o = n.lines.filter((e) => e.type === f.DiffLineType.Add),
@@ -44399,7 +44679,7 @@ module.exports = function (e) {
           for (let n = 0; n < o.length; n++) {
             const i = o[n],
               a = r[n];
-            if (i.text.length > P || a.text.length > P) continue;
+            if (i.text.length > D || a.text.length > D) continue;
             const s = E.relativeChanges(i.content, a.content),
               d = s.stringARange;
             if (0 < d.length) {
@@ -44492,20 +44772,20 @@ module.exports = function (e) {
       this.cancelSelection(), this.codeMirror = null, document.removeEventListener('find-text', this.onFindText)
     }
     componentDidUpdate(e, t, n) {
-      null === this.codeMirror || (s(this.props.file) && (!s(e.file) || this.props.file.selection !== e.file.selection) && this.props.text === e.text && this.updateViewport(), null !== n && this.codeMirror.scrollTo(void 0, n.top))
+      null === this.codeMirror || (s(this.props.file) && (!s(e.file) || this.props.file.selection !== e.file.selection) && this.props.diff.text === e.diff.text && this.updateViewport(), null !== n && this.codeMirror.scrollTo(void 0, n.top))
     }
     getSnapshotBeforeUpdate(e) {
-      return null !== this.codeMirror && this.props.file !== e.file && this.props.file.id === e.file.id && this.props.text !== e.text ? this.codeMirror.getScrollInfo() : null
+      return null !== this.codeMirror && this.props.file !== e.file && this.props.file.id === e.file.id && this.props.diff.text !== e.diff.text ? this.codeMirror.getScrollInfo() : null
     }
     componentDidMount() {
       this.initDiffSyntaxMode(), document.addEventListener('find-text', this.onFindText)
     }
     render() {
-      const e = this.getCodeMirrorDocument(this.props.text, this.getNoNewlineIndicatorLines(this.props.hunks));
+      const e = this.getCodeMirrorDocument(this.props.diff.text, this.getNoNewlineIndicatorLines(this.props.diff.hunks));
       return u.createElement(C.CodeMirrorHost, {
         className: 'diff-code-mirror',
         value: e,
-        options: A,
+        options: I,
         isSelectionEnabled: this.isSelectionEnabled,
         onSwapDoc: this.onSwapDoc,
         onAfterSwapDoc: this.onAfterSwapDoc,
@@ -44516,7 +44796,7 @@ module.exports = function (e) {
       })
     }
   }
-  t.TextDiff = I
+  t.TextDiff = L
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -44524,13 +44804,12 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(1),
-    i = n(115),
-    a = n(13);
-  class s extends o.Component {
+    i = n(13);
+  class a extends o.Component {
     constructor() {
       super(...arguments), this.open = () => {
         const e = r.join(this.props.repository.path, this.props.path);
-        i.openFile(e, this.props.dispatcher)
+        this.props.onOpenBinaryFile(e)
       }
     }
     render() {
@@ -44541,19 +44820,19 @@ module.exports = function (e) {
         className: 'image-header'
       }, '此二进制文件已更改。'), o.createElement('div', {
         className: 'image-header'
-      }, o.createElement(a.LinkButton, {
+      }, o.createElement(i.LinkButton, {
         onClick: this.open
       }, '在外部程序中打开文件。')))
     }
   }
-  t.BinaryFile = s
+  t.BinaryFile = a
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
   const o = n(0),
-    r = n(73);
+    r = n(75);
   class i extends o.Component {
     render() {
       return o.createElement('div', {
@@ -44575,7 +44854,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(73);
+    r = n(75);
   class i extends o.Component {
     render() {
       return o.createElement('div', {
@@ -44622,7 +44901,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(73);
+    r = n(75);
   class i extends o.Component {
     constructor(e) {
       super(e), this.onValueChange = (t) => {
@@ -44692,7 +44971,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(73);
+    r = n(75);
   class i extends o.Component {
     constructor(e) {
       super(e), this.onValueChange = (t) => {
@@ -44757,7 +45036,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(73);
+    r = n(75);
   class i extends o.Component {
     render() {
       const e = {
@@ -44811,8 +45090,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(73),
-    i = n(544),
+    r = n(75),
+    i = n(545),
     a = n(5);
   class s extends o.Component {
     render() {
@@ -44880,14 +45159,14 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(31),
+    r = n(30),
     i = n(50),
-    a = n(545),
-    s = n(543),
-    d = n(542),
-    l = n(541),
+    a = n(546),
+    s = n(544),
+    d = n(543),
+    l = n(542),
     c = n(2),
-    p = n(540);
+    p = n(541);
   class u extends o.Component {
     constructor(e) {
       super(e), this.container = null, this.resizedTimeoutID = null, this.onPreviousImageLoad = (e) => {
@@ -44976,11 +45255,11 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(546);
+  var o = n(547);
   t.ModifiedImageDiff = o.ModifiedImageDiff;
-  var r = n(539);
+  var r = n(540);
   t.NewImageDiff = r.NewImageDiff;
-  var i = n(538);
+  var i = n(539);
   t.DeletedImageDiff = i.DeletedImageDiff
 }, function (e, t, n) {
   'use strict';
@@ -44988,13 +45267,175 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(145),
-    i = n(524);
-  class a extends o.Component {
+    r = n(2),
+    i = n(34),
+    a = n(23),
+    s = n(30),
+    d = n(12),
+    l = n(548),
+    c = n(538),
+    p = n(537),
+    u = i.encodePathAsUrl(__dirname, 'static/ufo-alert.svg');
+  class m extends o.Component {
+    constructor(e) {
+      super(e), this.showLargeDiff = () => {
+        this.setState({
+          forceShowLargeDiff: !0
+        })
+      }, this.state = {
+        forceShowLargeDiff: !1
+      }
+    }
+    render() {
+      const e = this.props.diff;
+      switch (e.kind) {
+        case s.DiffType.Text:
+          return this.renderText(e);
+        case s.DiffType.Binary:
+          return this.renderBinaryFile();
+        case s.DiffType.Image:
+          return this.renderImage(e);
+        case s.DiffType.LargeText:
+          return this.state.forceShowLargeDiff ? this.renderLargeText(e) : this.renderLargeTextDiff();
+        case s.DiffType.Unrenderable:
+          return this.renderUnrenderableDiff();
+        default:
+          return r.assertNever(e, `Unsupported diff type: ${e}`);
+      }
+    }
+    renderImage(e) {
+      return e.current && e.previous ? o.createElement(l.ModifiedImageDiff, {
+        onChangeDiffType: this.props.onChangeImageDiffType,
+        diffType: this.props.imageDiffType,
+        current: e.current,
+        previous: e.previous
+      }) : e.current && (this.props.file.status.kind === a.AppFileStatusKind.New || this.props.file.status.kind === a.AppFileStatusKind.Untracked) ? o.createElement(l.NewImageDiff, {
+        current: e.current
+      }) : e.previous && this.props.file.status.kind === a.AppFileStatusKind.Deleted ? o.createElement(l.DeletedImageDiff, {
+        previous: e.previous
+      }) : null
+    }
+    renderLargeTextDiff() {
+      return o.createElement('div', {
+        className: 'panel empty large-diff'
+      }, o.createElement('img', {
+        src: u,
+        className: 'blankslate-image'
+      }), o.createElement('p', null, 'The diff is too large to be displayed by default.', o.createElement('br', null), 'You can try to show it anyway, but performance may be negatively impacted.'), o.createElement(d.Button, {
+        onClick: this.showLargeDiff
+      }, 'Show diff'))
+    }
+    renderUnrenderableDiff() {
+      return o.createElement('div', {
+        className: 'panel empty large-diff'
+      }, o.createElement('img', {
+        src: u
+      }), o.createElement('p', null, 'The diff is too large to be displayed.'))
+    }
+    renderLargeText(e) {
+      const t = {
+        text: e.text,
+        hunks: e.hunks,
+        kind: s.DiffType.Text,
+        lineEndingsChange: e.lineEndingsChange
+      };
+      return this.renderTextDiff(t)
+    }
+    renderText(e) {
+      return 0 === e.hunks.length ? this.props.file.status.kind === a.AppFileStatusKind.New || this.props.file.status.kind === a.AppFileStatusKind.Untracked ? o.createElement('div', {
+        className: 'panel empty'
+      }, 'The file is empty') : this.props.file.status.kind === a.AppFileStatusKind.Renamed ? o.createElement('div', {
+        className: 'panel renamed'
+      }, 'The file was renamed but not changed') : a.isConflictedFileStatus(this.props.file.status) && a.isManualConflict(this.props.file.status) ? o.createElement('div', {
+        className: 'panel empty'
+      }, 'The file is in conflict and must be resolved via the command line.') : this.props.hideWhitespaceInDiff ? o.createElement('div', {
+        className: 'panel empty'
+      }, 'Only whitespace changes found') : o.createElement('div', {
+        className: 'panel empty'
+      }, 'No content changes found') : this.renderTextDiff(e)
+    }
+    renderBinaryFile() {
+      return o.createElement(c.BinaryFile, {
+        path: this.props.file.path,
+        repository: this.props.repository,
+        onOpenBinaryFile: this.props.onOpenBinaryFile
+      })
+    }
+    renderTextDiff(e) {
+      return o.createElement(p.TextDiff, {
+        repository: this.props.repository,
+        file: this.props.file,
+        readOnly: this.props.readOnly,
+        onIncludeChanged: this.props.onIncludeChanged,
+        onDiscardChanges: this.props.onDiscardChanges,
+        diff: e,
+        askForConfirmationOnDiscardChanges: this.props.askForConfirmationOnDiscardChanges
+      })
+    }
+  }
+  t.Diff = m
+}, function (e, t, n) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0),
+    r = n(148),
+    i = n(30),
+    a = n(4),
+    s = n(38);
+  class d extends o.Component {
+    render() {
+      const e = this.props.status,
+        t = s.mapStatus(e);
+      return o.createElement('div', {
+        className: 'header'
+      }, o.createElement(r.PathLabel, {
+        path: this.props.path,
+        status: this.props.status
+      }), this.renderDecorator(), o.createElement(a.Octicon, {
+        symbol: a.iconForStatus(e),
+        className: 'status status-' + t.toLowerCase(),
+        title: t
+      }))
+    }
+    renderDecorator() {
+      const e = this.props.diff;
+      if (null === e) return null;
+      if (e.kind === i.DiffType.Text && e.lineEndingsChange) {
+        const t = `Warning: line endings will be changed from '${e.lineEndingsChange.from}' to '${e.lineEndingsChange.to}'.`;
+        return o.createElement(a.Octicon, {
+          symbol: a.OcticonSymbol.alert,
+          className: 'line-endings',
+          title: t
+        })
+      }
+      return null
+    }
+  }
+  t.ChangedFileDetails = d
+}, function (e, t, n) {
+  'use strict';
+  Object.defineProperty(t, '__esModule', {
+    value: !0
+  });
+  const o = n(0),
+    r = n(550),
+    i = n(146),
+    a = n(24);
+  class s extends o.Component {
     constructor() {
       super(...arguments), this.onDiffLineIncludeChanged = (e) => {
         const t = this.props.file;
         this.props.dispatcher.changeFileLineSelection(this.props.repository, t, e)
+      }, this.onDiscardChanges = (e, t) => {
+        this.props.askForConfirmationOnDiscardChanges ? this.props.dispatcher.showPopup({
+          type: a.PopupType.ConfirmDiscardSelection,
+          repository: this.props.repository,
+          file: this.props.file,
+          diff: e,
+          selection: t
+        }) : this.props.dispatcher.discardChangesFromSelection(this.props.repository, this.props.file.path, e, t)
       }
     }
     render() {
@@ -45003,31 +45444,32 @@ module.exports = function (e) {
         n = this.props.isCommitting;
       return o.createElement('div', {
         className: 'changed-file'
-      }, o.createElement(i.ChangedFileDetails, {
+      }, o.createElement(r.ChangedFileDetails, {
         path: t.path,
         status: t.status,
         diff: e
-      }), o.createElement('div', {
-        className: 'diff-wrapper'
-      }, o.createElement(r.Diff, {
+      }), o.createElement(i.SeamlessDiffSwitcher, {
         repository: this.props.repository,
         imageDiffType: this.props.imageDiffType,
         file: t,
         readOnly: n,
         onIncludeChanged: this.onDiffLineIncludeChanged,
+        onDiscardChanges: this.onDiscardChanges,
         diff: e,
-        dispatcher: this.props.dispatcher,
-        hideWhitespaceInDiff: this.props.hideWhitespaceInDiff
-      })))
+        hideWhitespaceInDiff: this.props.hideWhitespaceInDiff,
+        askForConfirmationOnDiscardChanges: this.props.askForConfirmationOnDiscardChanges,
+        onOpenBinaryFile: this.props.onOpenBinaryFile,
+        onChangeImageDiffType: this.props.onChangeImageDiffType
+      }))
     }
   }
-  t.Changes = a
+  t.Changes = s
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(31),
+  const o = n(30),
     r = n(19),
     i = n(1);
   t.getLargeFilePaths = async function (e, t, n) {
@@ -45051,141 +45493,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(25),
-    r = n(10);
-  var i;
-  (function (e) {
-    e[e.Text = 0] = 'Text', e[e.Emoji = 1] = 'Emoji', e[e.Link = 2] = 'Link'
-  })(i = t.TokenType || (t.TokenType = {}));
-  t.Tokenizer = class {
-    constructor(e, t) {
-      this.repository = null, this._results = [], this._currentString = '', this.emoji = e, t && o.isRepositoryWithGitHubRepository(t) && (this.repository = o.getNonForkGitHubRepository(t))
-    }
-    reset() {
-      this._results = [], this._currentString = ''
-    }
-    append(e) {
-      this._currentString += e
-    }
-    flush() {
-      this._currentString.length && (this._results.push({
-        kind: i.Text,
-        text: this._currentString
-      }), this._currentString = '')
-    }
-    getLastProcessedChar() {
-      return this._currentString.length ? this._currentString[this._currentString.length - 1] : null
-    }
-    scanForEndOfWord(e, t) {
-      const n = e.indexOf('\n', t + 1),
-        o = e.indexOf(' ', t + 1);
-      return -1 < n && -1 < o ? Math.min(n, o) : -1 < n ? n : -1 < o ? o : e.length
-    }
-    scanForEmoji(e, t) {
-      const n = this.scanForEndOfWord(e, t),
-        o = e.slice(t, n);
-      if (!/^:.*?:$/.test(o)) return null;
-      const r = this.emoji.get(o);
-      return r ? (this.flush(), this._results.push({
-        kind: i.Emoji,
-        text: o,
-        path: r
-      }), {
-        nextIndex: n
-      }) : null
-    }
-    scanForIssue(e, t, n) {
-      let o = this.scanForEndOfWord(e, t),
-        r = e.slice(t, o);
-      if (r.endsWith(')') && (o -= 1, r = e.slice(t, o)), r.endsWith('.') && (o -= 1, r = e.slice(t, o)), r.endsWith(',') && (o -= 1, r = e.slice(t, o)), !/^#\d+$/.test(r)) return null;
-      this.flush();
-      const a = parseInt(r.substr(1), 10);
-      if (isNaN(a)) return null;
-      const s = `${n.htmlURL}/issues/${a}`;
-      return this._results.push({
-        kind: i.Link,
-        text: r,
-        url: s
-      }), {
-        nextIndex: o
-      }
-    }
-    scanForMention(e, t, n) {
-      const o = this.getLastProcessedChar();
-      if (o && ' ' !== o) return null;
-      let a = this.scanForEndOfWord(e, t),
-        s = e.slice(t, a);
-      if ((s.endsWith('!') || s.endsWith(',')) && (a -= 1, s = e.slice(t, a)), !/^@[a-zA-Z0-9\-]+$/.test(s)) return null;
-      this.flush();
-      const d = s.substr(1),
-        l = `${r.getHTMLURL(n.endpoint)}/${d}`;
-      return this._results.push({
-        kind: i.Link,
-        text: s,
-        url: l
-      }), {
-        nextIndex: a
-      }
-    }
-    scanForHyperlink(e, t, n) {
-      const o = this.getLastProcessedChar();
-      if (o && ' ' !== o) return null;
-      const r = this.scanForEndOfWord(e, t),
-        a = e.slice(t, r);
-      if (!/^https?:\/\/.+/.test(a)) return null;
-      if (this.flush(), n && n.htmlURL) {
-        const e = n.htmlURL.toLowerCase();
-        if (a.toLowerCase().startsWith(`${e}/issues/`)) {
-          const e = /\/issues\/(\d+)/.exec(a);
-          if (e) {
-            const t = e[1];
-            return this._results.push({
-              kind: i.Link,
-              url: a,
-              text: `#${t}`
-            }), {
-              nextIndex: r
-            }
-          }
-        }
-      }
-      return this._results.push({
-        kind: i.Link,
-        url: a,
-        text: a
-      }), {
-        nextIndex: r
-      }
-    }
-    inspectAndMove(e, t, n) {
-      const o = n();
-      return o ? o.nextIndex : (this.append(e), t + 1)
-    }
-    tokenizeNonGitHubRepository(e) {
-      for (let t = 0; t < e.length;) {
-        const n = e[t];
-        ':' === n ? t = this.inspectAndMove(n, t, () => this.scanForEmoji(e, t)) : 'h' === n ? t = this.inspectAndMove(n, t, () => this.scanForHyperlink(e, t)) : (this.append(n), t++)
-      }
-      return this.flush(), this._results
-    }
-    tokenizeGitHubRepository(e, t) {
-      for (let n = 0; n < e.length;) {
-        const o = e[n];
-        ':' === o ? n = this.inspectAndMove(o, n, () => this.scanForEmoji(e, n)) : '#' === o ? n = this.inspectAndMove(o, n, () => this.scanForIssue(e, n, t)) : '@' === o ? n = this.inspectAndMove(o, n, () => this.scanForMention(e, n, t)) : 'h' === o ? n = this.inspectAndMove(o, n, () => this.scanForHyperlink(e, n, t)) : (this.append(o), n++)
-      }
-      return this.flush(), this._results
-    }
-    tokenize(e) {
-      return this.reset(), this.repository ? this.tokenizeGitHubRepository(e, this.repository) : this.tokenizeNonGitHubRepository(e)
-    }
-  }
-}, function (e, t, n) {
-  'use strict';
-  Object.defineProperty(t, '__esModule', {
-    value: !0
-  });
   const o = n(0),
-    r = n(89),
+    r = n(91),
     i = n(116),
     a = n(12);
   class s extends o.Component {
@@ -45226,8 +45535,8 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(12),
-    i = n(58),
-    a = n(41);
+    i = n(51),
+    a = n(38);
   class s extends o.Component {
     constructor() {
       super(...arguments), this.onSubmit = async () => {
@@ -45268,10 +45577,10 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(146),
+    r = n(148),
     i = n(4),
     a = n(36),
-    s = n(41);
+    s = n(38);
   class d extends o.Component {
     constructor() {
       super(...arguments), this.handleCheckboxChange = (e) => {
@@ -45469,9 +45778,9 @@ module.exports = function (e) {
     k = n(5),
     T = n(10),
     _ = n(47),
-    R = n(66),
+    R = n(69),
     x = n(4),
-    P = n(26);
+    P = n(27);
   class D extends v.Component {
     constructor(e) {
       super(e), this.editor = null, this.resizeDebounceId = null, this.lastKnownWidth = null, this.hintActive = !1, this.label = null, this.placeholder = null, this.authors = [], this.markAuthorMap = new Map, this.authorMarkMap = new Map, this.onResized = () => {
@@ -45796,7 +46105,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(148);
+    r = n(150);
   t.IssuesAutocompletionProvider = class {
     constructor(e, t, n) {
       this.kind = 'issue', this.updateIssuesScheduler = new r.ThrottledScheduler(60000), this.issuesStore = e, this.repository = t, this.dispatcher = n
@@ -45912,11 +46221,11 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(76),
+    i = n(77),
     a = n(2),
     s = n(5),
-    d = n(560),
-    l = n(26),
+    d = n(562),
+    l = n(27),
     c = 29,
     p = 20,
     u = 100;
@@ -46151,7 +46460,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(561);
+  const o = n(563);
   class r extends o.AutocompletingTextInput {
     getElementTagName() {
       return 'textarea'
@@ -46177,18 +46486,18 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(5),
-    a = n(217),
-    s = n(25),
+    a = n(218),
+    s = n(26),
     d = n(12),
-    l = n(147),
-    c = n(58),
+    l = n(149),
+    c = n(51),
     p = n(105),
-    u = n(555),
-    m = n(150),
-    h = n(26),
+    u = n(557),
+    m = n(152),
+    h = n(27),
     f = n(4),
-    g = n(75),
-    y = n(554),
+    g = n(76),
+    y = n(556),
     S = n(13),
     C = n(28),
     b = new f.OcticonSymbol(12, 7, 'M9.875 2.125H12v1.75H9.875V6h-1.75V3.875H6v-1.75h2.125V0h1.75v2.125zM6 6.5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5V6c0-1.316 2-2 2-2s.114-.204 0-.5c-.42-.31-.472-.795-.5-2C1.587.293 2.434 0 3 0s1.413.293 1.5 1.5c-.028 1.205-.08 1.69-.5 2-.114.295 0 .5 0 .5s2 .684 2 2v.5z');
@@ -46487,25 +46796,26 @@ module.exports = function (e) {
   });
   const i = n(0),
     a = n(1),
-    s = n(39),
+    s = n(40),
     d = n(23),
-    l = n(31),
-    c = n(76),
+    l = n(30),
+    c = n(77),
     p = n(36),
-    u = n(77),
-    m = n(563),
-    h = n(553),
-    f = n(26),
-    g = n(66),
+    u = n(78),
+    m = n(565),
+    h = n(555),
+    f = n(27),
+    g = n(69),
     y = n(22),
     S = n(1),
-    C = n(552),
+    C = n(554),
     b = n(4),
     v = n(5),
     E = n(102),
-    w = new b.OcticonSymbol(16, 16, 'M3.002 15H15V4c.51 0 1 .525 1 .996V15c0 .471-.49 1-1 1H4.002c-.51 0-1-.529-1-1zm-2-2H13V2c.51 0 1 .525 1 .996V13c0 .471-.49 1-1 1H2.002c-.51 0-1-.529-1-1zm10.14-13A.86.86 0 0 1 12 .857v10.286a.86.86 0 0 1-.857.857H.857A.86.86 0 0 1 0 11.143V.857A.86.86 0 0 1 .857 0h10.286zM11 11V1H1v10h10zM3 6c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z'),
-    k = '.gitignore';
-  class T extends i.Component {
+    w = n(38),
+    k = new b.OcticonSymbol(16, 16, 'M3.002 15H15V4c.51 0 1 .525 1 .996V15c0 .471-.49 1-1 1H4.002c-.51 0-1-.529-1-1zm-2-2H13V2c.51 0 1 .525 1 .996V13c0 .471-.49 1-1 1H2.002c-.51 0-1-.529-1-1zm10.14-13A.86.86 0 0 1 12 .857v10.286a.86.86 0 0 1-.857.857H.857A.86.86 0 0 1 0 11.143V.857A.86.86 0 0 1 .857 0h10.286zM11 11V1H1v10h10zM3 6c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z'),
+    T = '.gitignore';
+  class _ extends i.Component {
     constructor(e) {
       super(e), this.onIncludeAllChanged = (e) => {
         const t = e.currentTarget.checked;
@@ -46529,6 +46839,8 @@ module.exports = function (e) {
         })
       }, this.onDiscardAllChanges = () => {
         this.props.onDiscardChangesFromFiles(this.props.workingDirectory.files, !0)
+      }, this.onStashChanges = () => {
+        this.props.dispatcher.createStashForCurrentBranch(this.props.repository)
       }, this.onDiscardChanges = (e) => {
         const t = this.props.workingDirectory;
         if (1 === e.length) {
@@ -46549,12 +46861,21 @@ module.exports = function (e) {
         return this.props.askForConfirmationOnDiscardChanges ? `${t}…` : t
       }, this.onContextMenu = (e) => {
         if (e.preventDefault(), !(null !== this.props.rebaseConflictState || this.props.isCommitting)) {
-          const e = [{
-            label: '放弃所有更改\u2026',
-            action: this.onDiscardAllChanges,
-            enabled: 0 < this.props.workingDirectory.files.length
-          }];
-          f.showContextualMenu(e)
+          const e = 0 < this.props.workingDirectory.files.length,
+            t = null !== this.props.stashEntry,
+            n = null !== this.props.conflictState || w.hasConflictedFiles(this.props.workingDirectory),
+            o = 'Stash all changes',
+            r = 'Stash all changes\u2026',
+            i = [{
+              label: '放弃所有更改\u2026',
+              action: this.onDiscardAllChanges,
+              enabled: e
+            }, {
+              label: t ? r : o,
+              action: this.onStashChanges,
+              enabled: e && null !== this.props.branch && !n
+            }];
+          f.showContextualMenu(i)
         }
       }, this.getDiscardChangesMenuItem = (e) => ({
         label: this.getDiscardChangesMenuItemLabel(e),
@@ -46678,13 +46999,13 @@ module.exports = function (e) {
       1 === p.length ? f.push({
         label: '忽略文件 (添加到.gitignore)',
         action: () => this.props.onIgnore(n),
-        enabled: a.basename(n) !== k
+        enabled: a.basename(n) !== T
       }) : 1 < p.length && f.push({
         label: `忽略选定的 ${p.length} 文件 (添加到gitignore)`,
         action: () => {
-          this.props.onIgnore(p.filter((e) => a.basename(e) !== k))
+          this.props.onIgnore(p.filter((e) => a.basename(e) !== T))
         },
-        enabled: p.some((e) => a.basename(e) !== k)
+        enabled: p.some((e) => a.basename(e) !== T)
       }), Array.from(m).slice(0, 5).forEach((e) => {
         f.push({
           label: `忽略所有 ${e} 文件 (添加到 .gitignore)`,
@@ -46739,7 +47060,7 @@ module.exports = function (e) {
         "aria-selected": this.props.isShowingStashEntry
       }, i.createElement(b.Octicon, {
         className: 'stack-icon',
-        symbol: w
+        symbol: k
       }), i.createElement('div', {
         className: 'text'
       }, 'Stashed Changes'), i.createElement(b.Octicon, {
@@ -46778,7 +47099,7 @@ module.exports = function (e) {
       }), this.renderStashedChanges(), this.renderCommitMessageForm())
     }
   }
-  t.ChangesList = T
+  t.ChangesList = _
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
@@ -46786,17 +47107,17 @@ module.exports = function (e) {
   });
   const o = n(1),
     r = n(0),
-    i = n(564),
-    a = n(31),
+    i = n(566),
+    a = n(30),
     s = n(28),
-    d = n(551),
-    l = n(217),
-    c = n(86),
+    d = n(553),
+    l = n(218),
+    c = n(88),
     p = n(115),
     u = n(24),
-    m = n(247),
-    h = n(549),
-    g = n(41),
+    m = n(248),
+    h = n(552),
+    g = n(38),
     f = 500;
   class y extends r.Component {
     constructor(e) {
@@ -46915,6 +47236,7 @@ module.exports = function (e) {
         dispatcher: this.props.dispatcher,
         repository: this.props.repository,
         workingDirectory: e,
+        conflictState: a,
         rebaseConflictState: u,
         selectedFileIDs: m,
         onFileSelectionChanged: this.onFileSelectionChanged,
@@ -46954,9 +47276,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(565);
+  var o = n(567);
   t.ChangesSidebar = o.ChangesSidebar;
-  var r = n(548);
+  var r = n(551);
   t.Changes = r.Changes
 }, function (e, t, n) {
   'use strict';
@@ -46964,25 +47286,26 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(30),
-    i = n(90),
-    a = n(566),
-    s = n(523),
-    d = n(518),
-    l = n(517),
-    c = n(516),
-    p = n(144),
+    r = n(31),
+    i = n(92),
+    a = n(568),
+    s = n(525),
+    d = n(520),
+    l = n(519),
+    c = n(518),
+    p = n(145),
     u = n(50),
     m = n(28),
     h = n(2),
-    f = n(150),
+    f = n(152),
     g = n(4),
-    y = n(493),
-    S = n(78),
-    C = n(200),
-    b = n(27),
-    v = n(96);
-  class E extends o.Component {
+    y = n(494),
+    S = n(79),
+    C = n(201),
+    b = n(25),
+    v = n(97),
+    E = n(115);
+  class w extends o.Component {
     constructor(e) {
       super(e), this.previousSection = this.props.state.selectedSection, this.onChangesListScrolled = (e) => {
         this.setState({
@@ -47002,6 +47325,10 @@ module.exports = function (e) {
         }), !1 === e && this.props.state.selectedSection === m.RepositorySectionTab.History && this.props.dispatcher.updateCompareForm(this.props.repository, {
           showBranchList: !1
         })
+      }, this.onOpenBinaryFile = (e) => {
+        E.openFile(e, this.props.dispatcher)
+      }, this.onChangeImageDiffType = (e) => {
+        this.props.dispatcher.changeImageDiffType(e)
       }, this.onRevertCommit = (e) => {
         this.props.dispatcher.revertCommit(this.props.repository, e)
       }, this.onGlobalKeyDown = (e) => {
@@ -47123,7 +47450,9 @@ module.exports = function (e) {
         fileListWidth: this.props.stashedFilesWidth,
         repository: this.props.repository,
         dispatcher: this.props.dispatcher,
-        isWorkingTreeClean: i
+        isWorkingTreeClean: i,
+        onOpenBinaryFile: this.onOpenBinaryFile,
+        onChangeImageDiffType: this.onChangeImageDiffType
       }) : null
     }
     renderContentForHistory() {
@@ -47147,7 +47476,9 @@ module.exports = function (e) {
         selectedDiffType: this.props.imageDiffType,
         externalEditorLabel: this.props.externalEditorLabel,
         onOpenInExternalEditor: this.props.onOpenInExternalEditor,
-        hideWhitespaceInDiff: this.props.hideWhitespaceInDiff
+        hideWhitespaceInDiff: this.props.hideWhitespaceInDiff,
+        onOpenBinaryFile: this.onOpenBinaryFile,
+        onChangeImageDiffType: this.onChangeImageDiffType
       })
     }
     renderTutorialPane() {
@@ -47180,7 +47511,7 @@ module.exports = function (e) {
         dispatcher: this.props.dispatcher
       }) : this.renderTutorialPane();
       else {
-        if (0 === r.length || null === i) return null;
+        if (0 === r.length) return null;
         const e = t.findFileWithID(r[0]);
         return null === e ? null : o.createElement(a.Changes, {
           repository: this.props.repository,
@@ -47189,7 +47520,10 @@ module.exports = function (e) {
           diff: i,
           isCommitting: this.props.state.isCommitting,
           imageDiffType: this.props.imageDiffType,
-          hideWhitespaceInDiff: this.props.hideWhitespaceInDiff
+          hideWhitespaceInDiff: this.props.hideWhitespaceInDiff,
+          onOpenBinaryFile: this.onOpenBinaryFile,
+          onChangeImageDiffType: this.onChangeImageDiffType,
+          askForConfirmationOnDiscardChanges: this.props.askForConfirmationOnDiscardChanges
         })
       }
     }
@@ -47222,7 +47556,7 @@ module.exports = function (e) {
       }) : null
     }
   }
-  t.RepositoryView = E
+  t.RepositoryView = w
 }, function (e, t, n) {
   (function () {
     var e, o, r, a, i, s, d, l, c, p;
@@ -47283,7 +47617,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   (function () {
     var t, o, r, i, a;
-    i = n(117), o = n(149), t = n(218), r = function (e) {
+    i = n(117), o = n(151), t = n(219), r = function (e) {
       return e.candidate
     }, a = function (e, t) {
       return t.score - e.score
@@ -47299,7 +47633,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   (function () {
     var t, o, r, i, a, s, d, l;
-    r = n(569), i = n(568), l = n(117), s = n(149), t = n(218), d = null, o = 'win32' === ('undefined' != typeof process && null !== process ? 'win32' : void 0) ? '\\' : '/', e.exports = {
+    r = n(571), i = n(570), l = n(117), s = n(151), t = n(219), d = null, o = 'win32' === ('undefined' != typeof process && null !== process ? 'win32' : void 0) ? '\\' : '/', e.exports = {
       filter: function (e, t, n) {
         return (null == n && (n = {}), !((null == t ? void 0 : t.length) && (null == e ? void 0 : e.length))) ? [] : (n = a(n, t), r(e, t, n))
       },
@@ -47333,7 +47667,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(570),
+  const r = n(572),
     i = n(47);
   t.match = function (e, t, n) {
     const a = o(e, e, 1),
@@ -47421,40 +47755,40 @@ module.exports = function (e) {
   }
   t.ListRow = i
 }, function (e, t, n) {
-  var o = n(220),
+  var o = n(221),
     r = n(60)('iterator'),
-    i = n(93);
+    i = n(94);
   e.exports = n(45).getIteratorMethod = function (e) {
     if (e != void 0) return e[r] || e['@@iterator'] || i[o(e)]
   }
 }, function (e, t, n) {
-  var o = n(151),
-    r = n(574);
+  var o = n(153),
+    r = n(576);
   e.exports = n(45).getIterator = function (e) {
     var t = r(e);
     if ('function' != typeof t) throw TypeError(e + ' is not iterable!');
     return o(t.call(e))
   }
 }, function (e, t, n) {
-  n(153), n(158), e.exports = n(575)
+  n(155), n(160), e.exports = n(577)
 }, function (e, t, n) {
   e.exports = {
-    default: n(576),
+    default: n(578),
     __esModule: !0
   }
 }, function (e, t, n) {
-  var o = n(220),
+  var o = n(221),
     r = n(60)('iterator'),
-    i = n(93);
+    i = n(94);
   e.exports = n(45).isIterable = function (e) {
     var t = Object(e);
     return t[r] !== void 0 || '@@iterator' in t || i.hasOwnProperty(o(t))
   }
 }, function (e, t, n) {
-  n(153), n(158), e.exports = n(578)
+  n(155), n(160), e.exports = n(580)
 }, function (e, t, n) {
   e.exports = {
-    default: n(579),
+    default: n(581),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -47477,30 +47811,30 @@ module.exports = function (e) {
     l = null,
     c = null
 }, function (e, t, n) {
-  var o = n(92);
-  n(159)('getOwnPropertyDescriptor', function (e) {
+  var o = n(93);
+  n(161)('getOwnPropertyDescriptor', function (e) {
     return function (t, n) {
       return e(o(t), n)
     }
   })
 }, function (e, t, n) {
   var o = n(37);
-  n(582), e.exports = function (e, t) {
+  n(584), e.exports = function (e, t) {
     return o.getDesc(e, t)
   }
 }, function (e, t, n) {
-  var o = n(161);
-  n(159)('keys', function (e) {
+  var o = n(163);
+  n(161)('keys', function (e) {
     return function (t) {
       return e(o(t))
     }
   })
 }, function (e, t, n) {
-  n(584), e.exports = n(45).Object.keys
+  n(586), e.exports = n(45).Object.keys
 }, function (e, t, n) {
   var o = n(37),
-    r = n(161),
-    i = n(222);
+    r = n(163),
+    i = n(223);
   e.exports = n(118)(function () {
     var e = Object.assign,
       t = {},
@@ -47516,12 +47850,12 @@ module.exports = function (e) {
     return t
   } : Object.assign
 }, function (e, t, n) {
-  var o = n(94);
+  var o = n(95);
   o(o.S + o.F, 'Object', {
-    assign: n(586)
+    assign: n(588)
   })
 }, function (e, t, n) {
-  n(587), e.exports = n(45).Object.assign
+  n(589), e.exports = n(45).Object.assign
 }, function (e, t, n) {
   'use strict';
   n.r(t), n.d(t, 'bpfrpt_proptype_ScrollIndices', function () {
@@ -47537,20 +47871,20 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   e.exports = {
-    default: n(590),
+    default: n(592),
     __esModule: !0
   }
 }, function (e, t, n) {
   var o = n(37).getDesc,
-    r = n(221),
-    i = n(151),
+    r = n(222),
+    i = n(153),
     a = function (e, t) {
       if (i(e), !r(t) && null !== t) throw TypeError(t + ': can\'t set as prototype!')
     };
   e.exports = {
     set: Object.setPrototypeOf || ('__proto__' in {} ? function (e, t, r) {
       try {
-        r = n(231)(Function.call, o(Object.prototype, '__proto__').set, 2), r(e, []), t = !(e instanceof Array)
+        r = n(232)(Function.call, o(Object.prototype, '__proto__').set, 2), r(e, []), t = !(e instanceof Array)
       } catch (n) {
         t = !0
       }
@@ -47561,19 +47895,19 @@ module.exports = function (e) {
     check: a
   }
 }, function (e, t, n) {
-  var o = n(94);
+  var o = n(95);
   o(o.S, 'Object', {
-    setPrototypeOf: n(592).set
+    setPrototypeOf: n(594).set
   })
 }, function (e, t, n) {
-  n(593), e.exports = n(45).Object.setPrototypeOf
+  n(595), e.exports = n(45).Object.setPrototypeOf
 }, function (e, t, n) {
   e.exports = {
-    default: n(594),
+    default: n(596),
     __esModule: !0
   }
 }, function () {}, function (e, t, n) {
-  var o = n(152);
+  var o = n(154);
   e.exports = Array.isArray || function (e) {
     return 'Array' == o(e)
   }
@@ -47587,7 +47921,7 @@ module.exports = function (e) {
     return t
   }
 }, function (e, t, n) {
-  var o = n(92),
+  var o = n(93),
     r = n(37).getNames,
     i = {}.toString,
     a = 'object' == typeof window && Object.getOwnPropertyNames ? Object.getOwnPropertyNames(window) : [],
@@ -47603,7 +47937,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   var o = n(37),
-    r = n(92);
+    r = n(93);
   e.exports = function (e, t) {
     for (var n = r(e), i = o.getKeys(n), a = i.length, s = 0, d; a > s;)
       if (n[d = i[s++]] === t) return d
@@ -47612,22 +47946,22 @@ module.exports = function (e) {
   'use strict';
   var o = n(37),
     r = n(119),
-    a = n(155),
-    i = n(225),
-    s = n(94),
-    d = n(226),
+    a = n(157),
+    i = n(226),
+    s = n(95),
+    d = n(227),
     l = n(118),
-    c = n(224),
-    p = n(154),
-    u = n(223),
+    c = n(225),
+    p = n(156),
+    u = n(224),
     m = n(60),
-    h = n(600),
-    f = n(599),
-    g = n(598),
-    y = n(597),
-    S = n(151),
-    C = n(92),
-    b = n(156),
+    h = n(602),
+    f = n(601),
+    g = n(600),
+    y = n(599),
+    S = n(153),
+    C = n(93),
+    b = n(158),
     v = o.getDesc,
     E = o.setDesc,
     w = o.create,
@@ -47716,7 +48050,7 @@ module.exports = function (e) {
     return this._k
   }), N = function (e) {
     return e instanceof T
-  }, o.create = z, o.isEnum = U, o.getDesc = W, o.setDesc = O, o.setDescs = H, o.getNames = f.get = V, o.getSymbols = G, i && !n(227) && d(L, 'propertyIsEnumerable', U, !0));
+  }, o.create = z, o.isEnum = U, o.getDesc = W, o.setDesc = O, o.setDescs = H, o.getNames = f.get = V, o.getSymbols = G, i && !n(228) && d(L, 'propertyIsEnumerable', U, !0));
   var q = {
     for: function (e) {
       return a(M, e += '') ? M[e] : M[e] = T(e)
@@ -47747,10 +48081,10 @@ module.exports = function (e) {
     stringify: K
   }), p(T, 'Symbol'), p(Math, 'Math', !0), p(r.JSON, 'JSON', !0)
 }, function (e, t, n) {
-  n(601), n(596), e.exports = n(45).Symbol
+  n(603), n(598), e.exports = n(45).Symbol
 }, function (e, t, n) {
   e.exports = {
-    default: n(602),
+    default: n(604),
     __esModule: !0
   }
 }, function (e) {
@@ -47764,11 +48098,11 @@ module.exports = function (e) {
   e.exports = function () {}
 }, function (e, t, n) {
   'use strict';
-  var o = n(605),
-    r = n(604),
-    i = n(93),
-    a = n(92);
-  e.exports = n(228)(Array, 'Array', function (e, t) {
+  var o = n(607),
+    r = n(606),
+    i = n(94),
+    a = n(93);
+  e.exports = n(229)(Array, 'Array', function (e, t) {
     this._t = a(e), this._i = 0, this._k = t
   }, function () {
     var e = this._t,
@@ -47779,10 +48113,10 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   var o = n(37),
-    r = n(156),
-    i = n(154),
+    r = n(158),
+    i = n(156),
     a = {};
-  n(157)(a, n(60)('iterator'), function () {
+  n(159)(a, n(60)('iterator'), function () {
     return this
   }), e.exports = function (e, t, n) {
     e.prototype = o.create(a, {
@@ -47796,8 +48130,8 @@ module.exports = function (e) {
     return isNaN(e = +e) ? 0 : (0 < e ? n : t)(e)
   }
 }, function (e, t, n) {
-  var o = n(608),
-    r = n(160);
+  var o = n(610),
+    r = n(162);
   e.exports = function (e) {
     return function (t, n) {
       var d = r(t) + '',
@@ -47808,10 +48142,10 @@ module.exports = function (e) {
     }
   }
 }, function (e, t, n) {
-  n(158), n(153), e.exports = n(60)('iterator')
+  n(160), n(155), e.exports = n(60)('iterator')
 }, function (e, t, n) {
   e.exports = {
-    default: n(610),
+    default: n(612),
     __esModule: !0
   }
 }, function (e, t, n) {
@@ -47825,14 +48159,14 @@ module.exports = function (e) {
     return e
   }
 }, function (e, t, n) {
-  var o = n(161);
-  n(159)('getPrototypeOf', function (e) {
+  var o = n(163);
+  n(161)('getPrototypeOf', function (e) {
     return function (t) {
       return e(o(t))
     }
   })
 }, function (e, t, n) {
-  n(614), e.exports = n(45).Object.getPrototypeOf
+  n(616), e.exports = n(45).Object.getPrototypeOf
 }, function (e, t, n) {
   'use strict';
 
@@ -47845,13 +48179,13 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(43),
-    a = n(316),
-    s = n(66),
-    d = n(150),
-    l = n(573),
-    c = n(219),
-    p = n(65),
-    u = n(572);
+    a = n(317),
+    s = n(69),
+    d = n(152),
+    l = n(575),
+    c = n(220),
+    p = n(68),
+    u = n(574);
   class m extends r.Component {
     constructor(e) {
       super(e), this.focusItem = null, this.fakeScroll = null, this.scrollToRow = -1, this.focusRow = -1, this.gridStyle = {
@@ -48218,7 +48552,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const i = n(25),
+  const i = n(26),
     r = n(10),
     a = n(47);
   var s;
@@ -48266,11 +48600,11 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(25),
+    r = n(26),
     i = n(4),
-    a = n(26),
-    s = n(95),
-    d = n(77);
+    a = n(27),
+    s = n(96),
+    d = n(78);
   class l extends o.Component {
     constructor() {
       super(...arguments), this.onContextMenu = (e) => {
@@ -48378,15 +48712,15 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(0),
-    i = n(618),
-    a = n(617),
+    i = n(620),
+    a = n(619),
     s = n(120),
     d = n(12),
     l = n(4),
-    c = n(26),
+    c = n(27),
     p = n(24),
     u = n(34),
-    m = n(91),
+    m = n(67),
     h = u.encodePathAsUrl(__dirname, 'static/empty-no-repo.svg');
   class f extends r.Component {
     constructor() {
@@ -48501,7 +48835,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(619);
+  var o = n(621);
   t.RepositoriesList = o.RepositoriesList
 }, function (e, t, n) {
   'use strict';
@@ -48509,7 +48843,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(86),
+    r = n(88),
     i = 100,
     a = 250,
     s = 3e3;
@@ -48565,7 +48899,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(0),
-    r = n(86),
+    r = n(88),
     i = 100,
     a = 750;
   class s extends o.Component {
@@ -48600,7 +48934,7 @@ module.exports = function (e) {
     }
     renderZoomInfo() {
       if (!this.state.renderInfo) return null;
-      const e = `${(100*this.state.windowZoomFactor).toFixed(0)} %`;
+      const e = `${(100*this.state.windowZoomFactor).toFixed(0)}%`;
       return o.createElement('div', null, o.createElement('span', null, e))
     }
     render() {
@@ -48623,7 +48957,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(23),
-    r = n(232),
+    r = n(233),
     i = n(2);
   t.iconForStatus = function (e) {
     switch (e.kind) {
@@ -48667,7 +49001,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(5),
-    i = n(65);
+    i = n(68);
   class a extends o.Component {
     constructor() {
       super(...arguments), this.titleId = null
@@ -48705,7 +49039,7 @@ module.exports = function (e) {
   });
   const o = n(0),
     r = n(22),
-    i = n(244),
+    i = n(245),
     a = n(5);
   class s extends o.Component {
     constructor() {
@@ -48775,7 +49109,7 @@ module.exports = function (e) {
   });
   const r = n(0),
     i = n(22),
-    a = n(626),
+    a = n(628),
     s = n(4);
   class d extends r.Component {
     constructor(e) {
@@ -48816,18 +49150,18 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  var o = n(627);
+  var o = n(629);
   t.TitleBar = o.TitleBar;
-  var r = n(622);
+  var r = n(624);
   t.ZoomInfo = r.ZoomInfo;
-  var i = n(621);
+  var i = n(623);
   t.FullScreenInfo = i.FullScreenInfo
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(55),
+  const o = n(56),
     r = 'has-seen-usage-stats-note';
   t.hasSeenUsageStatsNote = function () {
     return o.getBoolean(r, !1)
@@ -48894,14 +49228,14 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(294),
-    i = n(234),
+  const r = n(295),
+    i = n(235),
     a = n(10),
     s = n(2),
-    d = n(631),
-    l = n(66),
+    d = n(633),
+    l = n(69),
     c = n(49),
-    p = n(178);
+    p = n(179);
   t.PullRequestStore = class {
     constructor(e, t) {
       this.db = e, this.repositoryStore = t, this.emitter = new c.Emitter, this.currentRefreshOperations = new Map, this.lastRefreshForRepository = new Map
@@ -49063,27 +49397,33 @@ module.exports = function (e) {
   function o(e) {
     return `Unable to authenticate. The account ${e} is lacking a verified email address. Please sign in to GitHub.com, confirm your email address in the Emails section under Personal settings, and try again.`
   }
+
+  function r() {
+    return Date.now() < f
+  }
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(2),
-    i = n(235),
-    a = n(634),
-    s = n(10),
-    d = n(633),
-    l = n(62),
-    c = `The GitHub Enterprise Server version does not support GitHub Desktop. Talk to your server's administrator about upgrading to the latest version of GitHub Enterprise Server.`;
-  var p;
+  const i = n(2),
+    a = n(236),
+    s = n(636),
+    d = n(10),
+    l = n(635),
+    c = n(62),
+    p = n(122),
+    u = `The GitHub Enterprise Server version does not support GitHub Desktop. Talk to your server's administrator about upgrading to the latest version of GitHub Enterprise Server.`;
+  var m;
   (function (e) {
     e.EndpointEntry = 'EndpointEntry', e.Authentication = 'Authentication', e.TwoFactorAuthentication = 'TwoFactorAuthentication', e.Success = 'Success'
-  })(p = t.SignInStep || (t.SignInStep = {}));
-  var u;
+  })(m = t.SignInStep || (t.SignInStep = {}));
+  var h;
   (function (e) {
     e.Basic = 'basic', e.Web = 'web'
-  })(u = t.SignInMethod || (t.SignInMethod = {}));
-  class m extends l.TypedBaseStore {
+  })(h = t.SignInMethod || (t.SignInMethod = {}));
+  const f = Date.parse('2020-11-13T16:00:00.000Z');
+  class g extends c.TypedBaseStore {
     constructor() {
-      super(...arguments), this.state = null
+      super(...arguments), this.state = null, this.endpointSupportBasicAuth = new Map
     }
     emitAuthenticate(e, t) {
       this.emitter.emit('did-authenticate', {
@@ -49099,6 +49439,22 @@ module.exports = function (e) {
         e(t, n)
       })
     }
+    emitDotComSupportsBasicAuthUpdated(e) {
+      this.emitter.emit('dotComSupportsBasicAuthUpdated', {
+        dotComSupportsBasicAuth: e
+      })
+    }
+    onDotComSupportsBasicAuthUpdated(e) {
+      return this.endpointSupportBasicAuth.has(d.getDotComAPIEndpoint()) || this.endpointSupportsBasicAuth(d.getDotComAPIEndpoint()).catch(() => {}), this.emitter.on('dotComSupportsBasicAuthUpdated', ({
+        dotComSupportsBasicAuth: t
+      }) => {
+        e(t)
+      })
+    }
+    tryGetDotComSupportsBasicAuth() {
+      const e = this.endpointSupportBasicAuth.get(d.getDotComAPIEndpoint());
+      return e === void 0 ? r() : e
+    }
     getState() {
       return this.state
     }
@@ -49106,143 +49462,158 @@ module.exports = function (e) {
       this.state = e, this.emitUpdate(this.getState())
     }
     async endpointSupportsBasicAuth(e) {
-      const t = await s.fetchMetadata(e);
-      if (t) return !1 !== t.verifiable_password_authentication;
-      throw new Error(`Unable to authenticate with the GitHub Enterprise Server instance. Verify that the URL is correct, that your GitHub Enterprise Server instance is running version ${d.minimumSupportedEnterpriseVersion} or later, that you have an internet connection and try again.`)
+      const t = this.endpointSupportBasicAuth.get(e),
+        n = t === void 0 ? null : {
+          verifiable_password_authentication: t
+        },
+        o = await p.timeout(d.fetchMetadata(e), 2e3, n);
+      if (null !== o) {
+        const t = !0 === o.verifiable_password_authentication;
+        return this.endpointSupportBasicAuth.set(e, t), e === d.getDotComAPIEndpoint() && this.emitDotComSupportsBasicAuthUpdated(t), t
+      }
+      if (e === d.getDotComAPIEndpoint()) {
+        const e = r();
+        return this.emitDotComSupportsBasicAuthUpdated(e), e
+      }
+      throw new Error(`Unable to authenticate with the GitHub Enterprise Server instance. Verify that the URL is correct, that your GitHub Enterprise Server instance is running version ${l.minimumSupportedEnterpriseVersion} or later, that you have an internet connection and try again.`)
     }
     getForgotPasswordURL(e) {
-      return `${s.getHTMLURL(e)}/password_reset`
+      return `${d.getHTMLURL(e)}/password_reset`
     }
     reset() {
       this.setState(null)
     }
     beginDotComSignIn() {
-      const e = s.getDotComAPIEndpoint();
+      const e = d.getDotComAPIEndpoint();
       this.setState({
-        kind: p.Authentication,
+        kind: m.Authentication,
         endpoint: e,
-        supportsBasicAuth: !0,
+        supportsBasicAuth: this.tryGetDotComSupportsBasicAuth(),
         error: null,
         loading: !1,
         forgotPasswordUrl: this.getForgotPasswordURL(e)
-      })
+      }), this.endpointSupportsBasicAuth(e).then((t) => {
+        null !== this.state && this.state.kind === m.Authentication && this.state.endpoint === e && this.setState(Object.assign({}, this.state, {
+          supportsBasicAuth: t
+        }))
+      }).catch((e) => log.error('Failed resolving whether GitHub.com supports password authentication', e))
     }
     async authenticateWithBasicAuth(e, t) {
       const n = this.state;
-      if (!n || n.kind !== p.Authentication) {
+      if (!n || n.kind !== m.Authentication) {
         const e = n ? n.kind : 'null';
-        return r.fatalError(`Sign in step '${e}' not compatible with authentication`)
+        return i.fatalError(`Sign in step '${e}' not compatible with authentication`)
       }
-      const i = n.endpoint;
+      const r = n.endpoint;
       this.setState(Object.assign({}, n, {
         loading: !0
       }));
       let a;
       try {
-        a = await s.createAuthorization(i, e, t, null)
+        a = await d.createAuthorization(r, e, t, null)
       } catch (t) {
         return void this.emitError(t)
       }
-      if (this.state && this.state.kind === p.Authentication)
-        if (a.kind === s.AuthorizationResponseKind.Authorized) {
+      if (this.state && this.state.kind === m.Authentication)
+        if (a.kind === d.AuthorizationResponseKind.Authorized) {
           const e = a.token,
-            t = await s.fetchUser(i, e);
-          if (!this.state || this.state.kind !== p.Authentication) return;
-          this.emitAuthenticate(t, u.Basic), this.setState({
-            kind: p.Success
+            t = await d.fetchUser(r, e);
+          if (!this.state || this.state.kind !== m.Authentication) return;
+          this.emitAuthenticate(t, h.Basic), this.setState({
+            kind: m.Success
           })
-        } else if (a.kind === s.AuthorizationResponseKind.TwoFactorAuthenticationRequired) this.setState({
-        kind: p.TwoFactorAuthentication,
-        endpoint: i,
+        } else if (a.kind === d.AuthorizationResponseKind.TwoFactorAuthenticationRequired) this.setState({
+        kind: m.TwoFactorAuthentication,
+        endpoint: r,
         username: e,
         password: t,
         type: a.type,
         error: null,
         loading: !1
       });
-      else if (a.kind === s.AuthorizationResponseKind.Error) this.emitError(new Error(`The server responded with an error while attempting to authenticate (${a.response.status})\n\n${a.response.statusText}`)), this.setState(Object.assign({}, n, {
+      else if (a.kind === d.AuthorizationResponseKind.Error) this.emitError(new Error(`The server responded with an error while attempting to authenticate (${a.response.status})\n\n${a.response.statusText}`)), this.setState(Object.assign({}, n, {
         loading: !1
       }));
-      else if (a.kind === s.AuthorizationResponseKind.Failed) e.includes('@') ? this.setState(Object.assign({}, n, {
+      else if (a.kind === d.AuthorizationResponseKind.Failed) e.includes('@') ? this.setState(Object.assign({}, n, {
         loading: !1,
         error: new Error('电子邮件或密码不正确。')
       })) : this.setState(Object.assign({}, n, {
         loading: !1,
         error: new Error('用户名或密码不正确。')
       }));
-      else if (a.kind === s.AuthorizationResponseKind.UserRequiresVerification) this.setState(Object.assign({}, n, {
+      else if (a.kind === d.AuthorizationResponseKind.UserRequiresVerification) this.setState(Object.assign({}, n, {
         loading: !1,
         error: new Error(o(e))
       }));
-      else if (a.kind === s.AuthorizationResponseKind.PersonalAccessTokenBlocked) this.setState(Object.assign({}, n, {
+      else if (a.kind === d.AuthorizationResponseKind.PersonalAccessTokenBlocked) this.setState(Object.assign({}, n, {
         loading: !1,
         error: new Error('A personal access token cannot be used to login to GitHub Desktop.')
       }));
-      else if (a.kind === s.AuthorizationResponseKind.EnterpriseTooOld) this.setState(Object.assign({}, n, {
+      else if (a.kind === d.AuthorizationResponseKind.EnterpriseTooOld) this.setState(Object.assign({}, n, {
         loading: !1,
-        error: new Error(c)
+        error: new Error(u)
       }));
-      else if (a.kind === s.AuthorizationResponseKind.WebFlowRequired) this.setState(Object.assign({}, n, {
+      else if (a.kind === d.AuthorizationResponseKind.WebFlowRequired) this.setState(Object.assign({}, n, {
         loading: !1,
         supportsBasicAuth: !1,
-        kind: p.Authentication
+        kind: m.Authentication
       }));
-      else return r.assertNever(a, `Unsupported response: ${a}`)
+      else return i.assertNever(a, `Unsupported response: ${a}`)
     }
     async authenticateWithBrowser() {
       const t = this.state;
-      if (!t || t.kind !== p.Authentication) {
+      if (!t || t.kind !== m.Authentication) {
         const e = t ? t.kind : 'null';
-        return r.fatalError(`Sign in step '${e}' not compatible with browser authentication`)
+        return i.fatalError(`Sign in step '${e}' not compatible with browser authentication`)
       }
       this.setState(Object.assign({}, t, {
         loading: !0
       }));
       let e;
       try {
-        log.info('[SignInStore] initializing OAuth flow'), e = await i.askUserToOAuth(t.endpoint), log.info('[SignInStore] account resolved')
+        log.info('[SignInStore] initializing OAuth flow'), e = await a.askUserToOAuth(t.endpoint), log.info('[SignInStore] account resolved')
       } catch (n) {
         return log.info('[SignInStore] error with OAuth flow', n), void this.setState(Object.assign({}, t, {
           error: n,
           loading: !1
         }))
       }
-      this.state && this.state.kind === p.Authentication && (this.emitAuthenticate(e, u.Web), this.setState({
-        kind: p.Success
+      this.state && this.state.kind === m.Authentication && (this.emitAuthenticate(e, h.Web), this.setState({
+        kind: m.Success
       }))
     }
     beginEnterpriseSignIn() {
       this.setState({
-        kind: p.EndpointEntry,
+        kind: m.EndpointEntry,
         error: null,
         loading: !1
       })
     }
     async setEndpoint(e) {
       const t = this.state;
-      if (!t || t.kind !== p.EndpointEntry) {
+      if (!t || t.kind !== m.EndpointEntry) {
         const e = t ? t.kind : 'null';
-        return r.fatalError(`Sign in step '${e}' not compatible with endpoint entry`)
+        return i.fatalError(`Sign in step '${e}' not compatible with endpoint entry`)
       }
       this.setState(Object.assign({}, t, {
         loading: !0
       }));
       let n;
       try {
-        n = a.validateURL(e)
+        n = s.validateURL(e)
       } catch (n) {
         let e = n;
-        return n.name === a.InvalidURLErrorName ? e = new Error(`The GitHub Enterprise Server instance address doesn't appear to be a valid URL. We're expecting something like https://github.example.com.`) : n.name === a.InvalidProtocolErrorName && (e = new Error('Unsupported protocol. Only http or https is supported when authenticating with GitHub Enterprise Server instances.')), void this.setState(Object.assign({}, t, {
+        return n.name === s.InvalidURLErrorName ? e = new Error(`The GitHub Enterprise Server instance address doesn't appear to be a valid URL. We're expecting something like https://github.example.com.`) : n.name === s.InvalidProtocolErrorName && (e = new Error('Unsupported protocol. Only http or https is supported when authenticating with GitHub Enterprise Server instances.')), void this.setState(Object.assign({}, t, {
           loading: !1,
           error: e
         }))
       }
-      const o = s.getEnterpriseAPIURL(n);
+      const o = d.getEnterpriseAPIURL(n);
       try {
         const e = await this.endpointSupportsBasicAuth(o);
-        if (!this.state || this.state.kind !== p.EndpointEntry) return;
+        if (!this.state || this.state.kind !== m.EndpointEntry) return;
         this.setState({
-          kind: p.Authentication,
+          kind: m.Authentication,
           endpoint: o,
           supportsBasicAuth: e,
           error: null,
@@ -49259,62 +49630,62 @@ module.exports = function (e) {
     }
     async setTwoFactorOTP(e) {
       const t = this.state;
-      if (!t || t.kind !== p.TwoFactorAuthentication) {
+      if (!t || t.kind !== m.TwoFactorAuthentication) {
         const e = t ? t.kind : 'null';
-        return void r.fatalError(`Sign in step '${e}' not compatible with two factor authentication`)
+        return void i.fatalError(`Sign in step '${e}' not compatible with two factor authentication`)
       }
       this.setState(Object.assign({}, t, {
         loading: !0
       }));
       let n;
       try {
-        n = await s.createAuthorization(t.endpoint, t.username, t.password, e)
+        n = await d.createAuthorization(t.endpoint, t.username, t.password, e)
       } catch (t) {
         return void this.emitError(t)
       }
-      if (this.state && this.state.kind === p.TwoFactorAuthentication)
-        if (n.kind === s.AuthorizationResponseKind.Authorized) {
+      if (this.state && this.state.kind === m.TwoFactorAuthentication)
+        if (n.kind === d.AuthorizationResponseKind.Authorized) {
           const e = n.token,
-            o = await s.fetchUser(t.endpoint, e);
-          if (!this.state || this.state.kind !== p.TwoFactorAuthentication) return;
-          this.emitAuthenticate(o, u.Basic), this.setState({
-            kind: p.Success
+            o = await d.fetchUser(t.endpoint, e);
+          if (!this.state || this.state.kind !== m.TwoFactorAuthentication) return;
+          this.emitAuthenticate(o, h.Basic), this.setState({
+            kind: m.Success
           })
         } else switch (n.kind) {
-          case s.AuthorizationResponseKind.Failed:
-          case s.AuthorizationResponseKind.TwoFactorAuthenticationRequired:
+          case d.AuthorizationResponseKind.Failed:
+          case d.AuthorizationResponseKind.TwoFactorAuthenticationRequired:
             this.setState(Object.assign({}, t, {
               loading: !1,
               error: new Error('Two-factor authentication failed.')
             }));
             break;
-          case s.AuthorizationResponseKind.Error:
+          case d.AuthorizationResponseKind.Error:
             this.emitError(new Error(`The server responded with an error (${n.response.status})\n\n${n.response.statusText}`));
             break;
-          case s.AuthorizationResponseKind.UserRequiresVerification:
+          case d.AuthorizationResponseKind.UserRequiresVerification:
             this.emitError(new Error(o(t.username)));
             break;
-          case s.AuthorizationResponseKind.PersonalAccessTokenBlocked:
+          case d.AuthorizationResponseKind.PersonalAccessTokenBlocked:
             this.emitError(new Error('A personal access token cannot be used to login to GitHub Desktop.'));
             break;
-          case s.AuthorizationResponseKind.EnterpriseTooOld:
-            this.emitError(new Error(c));
+          case d.AuthorizationResponseKind.EnterpriseTooOld:
+            this.emitError(new Error(u));
             break;
-          case s.AuthorizationResponseKind.WebFlowRequired:
+          case d.AuthorizationResponseKind.WebFlowRequired:
             this.setState(Object.assign({}, t, {
               forgotPasswordUrl: this.getForgotPasswordURL(t.endpoint),
               loading: !1,
               supportsBasicAuth: !1,
-              kind: p.Authentication,
+              kind: m.Authentication,
               error: null
             }));
             break;
           default:
-            r.assertNever(n, `Unknown response: ${n}`);
+            i.assertNever(n, `Unknown response: ${n}`);
         }
     }
   }
-  t.SignInStore = m
+  t.SignInStore = g
 }, function (e, t, n) {
   'use strict';
 
@@ -49332,12 +49703,12 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = n(280),
+  const a = n(281),
     s = n(102),
-    d = n(25),
+    d = n(26),
     l = n(2),
     c = n(62),
-    p = n(237);
+    p = n(238);
   class u extends c.TypedBaseStore {
     constructor(e) {
       super(), this.lastStashCheckCache = new Map, this.branchProtectionSettingsFoundCache = new Map, this.protectionEnabledForBranchCache = new Map, this.db = e
@@ -49808,7 +50179,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(103),
-    r = n(99),
+    r = n(80),
     i = n(20),
     a = n(107),
     s = n(62);
@@ -49834,6 +50205,7 @@ module.exports = function (e) {
         l = !1;
         const e = {
           type: r.RetryActionType.Clone,
+          name: d.name,
           url: t,
           path: n,
           options: s
@@ -49885,11 +50257,11 @@ module.exports = function (e) {
   const i = n(1),
     a = n(19),
     s = n(10),
-    d = n(178),
-    l = n(80),
+    d = n(179),
+    l = n(82),
     c = n(20),
-    p = n(236),
-    u = n(51),
+    p = n(237),
+    u = n(52),
     m = '\r\n',
     h = `# Welcome to GitHub Desktop!${m}${m}` + `This is your README. READMEs are where you can communicate ` + `what your project is and how to use it.${m}${m}` + `Write your name on line 6, save it, and then head ` + `back to GitHub Desktop.${m}`;
   t.createTutorialRepository = async function (e, t, n, s) {
@@ -49914,7 +50286,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(54);
+  const r = n(55);
   t.findAssociatedPullRequest = function (e, t, n) {
     return null == e.upstreamWithoutRemote ? null : t.find((t) => o(e, t, n)) || null
   }, t.isPullRequestAssociatedWithBranch = o
@@ -49935,9 +50307,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(96),
-    r = n(30),
-    i = n(55),
+  const o = n(97),
+    r = n(31),
+    i = n(56),
     a = 'tutorial-install-editor-skipped',
     s = 'tutorial-pull-request-step-complete',
     d = 'tutorial-paused';
@@ -50006,7 +50378,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(46),
-    r = n(30),
+    r = n(31),
     i = 20;
   t.findBranchesForFastForward = function (e) {
     const {
@@ -50026,7 +50398,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(54),
+  const o = n(55),
     r = n(42);
   t.updateRemoteUrl = async function (e, t, n) {
     if (null !== e.defaultRemote) {
@@ -50045,8 +50417,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(30),
-    r = n(54);
+  const o = n(31),
+    r = n(55);
   t.findRemoteBranchName = function (e, t, n) {
     return e.kind === o.TipState.Valid ? null !== e.branch.upstreamWithoutRemote && null !== t && r.urlMatchesCloneURL(t.url, n) ? e.branch.upstreamWithoutRemote : e.branch.nameWithoutRemote : null
   }
@@ -50105,8 +50477,8 @@ module.exports = function (e) {
     return typeof e == typeof t
   }
   var s = Array.prototype.slice,
-    d = n(648),
-    l = n(647),
+    d = n(650),
+    l = n(649),
     c = e.exports = function (e, t, n) {
       return n || (n = {}), e === t || (e instanceof Date && t instanceof Date ? e.getTime() === t.getTime() : e && t && ('object' == typeof e || 'object' == typeof t) ? i(e, t, n) : n.strict ? e === t : e == t)
     }
@@ -50127,7 +50499,7 @@ module.exports = function (e) {
   });
   const r = n(20),
     i = n(2),
-    a = n(56),
+    a = n(57),
     s = ['HEAD', 'refs/heads/master', 'refs/heads/gh-pages', 'refs/heads/develop', 'refs/heads/dev', 'refs/heads/development', 'refs/heads/trunk', 'refs/heads/devel', 'refs/heads/release'],
     d = {
       enforcePruneThreshold: !0,
@@ -50269,7 +50641,7 @@ module.exports = function (e) {
   });
   const a = n(23),
     s = n(28),
-    d = n(31),
+    d = n(30),
     l = n(47),
     c = n(2);
   t.updateChangedFiles = function (e, t, n) {
@@ -50349,7 +50721,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(241);
+  const o = n(242);
   t.GitStoreCache = class {
     constructor(e, t, n, o, r) {
       this.shell = e, this.statsStore = t, this.onGitStoreUpdated = n, this.onDidLoadNewCommits = o, this.onDidError = r, this.gitStores = new Map
@@ -50456,8 +50828,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const d = n(25),
-    l = n(54);
+  const d = n(26),
+    l = n(55);
   t.inferComparisonBranch = async function (e, t, n, s) {
     if (null !== n) {
       const e = i(t, n);
@@ -50573,8 +50945,8 @@ module.exports = function (e) {
   function a(e) {
     this.session++, this.running = !1, this.emit('end', e)
   }
-  var s = n(659),
-    d = n(243).EventEmitter;
+  var s = n(661),
+    d = n(244).EventEmitter;
   e.exports = o, s(o, d);
   ['pop', 'shift', 'indexOf', 'lastIndexOf'].forEach(function (e) {
     o.prototype[e] = function () {
@@ -50627,10 +50999,10 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(660),
+  const o = n(662),
     r = n(20),
     i = n(20),
-    a = n(242);
+    a = n(243);
   t.AheadBehindUpdater = class {
     constructor(e, t) {
       this.repository = e, this.onCacheUpdate = t, this.comparisonCache = new a.ComparisonCache, this.aheadBehindQueue = o({
@@ -50936,11 +51308,11 @@ module.exports = function (e) {
   });
   const m = n(48),
     h = n(1),
-    f = n(274),
+    f = n(275),
     g = n(19),
     y = n(2),
-    S = n(27),
-    C = n(246);
+    S = n(25),
+    C = n(247);
   var b;
   (function (e) {
     e.Cmd = 'Command Prompt', e.PowerShell = 'PowerShell', e.PowerShellCore = 'PowerShell Core', e.Hyper = 'Hyper', e.GitBash = 'Git Bash', e.Cygwin = 'Cygwin', e.WSL = 'WSL', e.WindowTerminal = 'Windows Terminal'
@@ -50999,7 +51371,7 @@ module.exports = function (e) {
   });
   const d = n(48),
     l = n(2),
-    c = n(276);
+    c = n(277);
   var p;
   (function (e) {
     e.Terminal = 'Terminal', e.Hyper = 'Hyper', e.iTerm2 = 'iTerm2', e.PowerShellCore = 'PowerShell Core', e.Kitty = 'Kitty'
@@ -51024,10 +51396,10 @@ module.exports = function (e) {
     value: !0
   });
   const i = n(19),
-    a = n(664),
-    s = n(663),
-    d = n(662),
-    l = n(245);
+    a = n(666),
+    s = n(665),
+    d = n(664),
+    l = n(246);
   t.Default = function () {
     return s.Default
   }();
@@ -51059,8 +51431,8 @@ module.exports = function (e) {
   }
 
   function i() {
-    const e = new S;
-    for (const t of C) e.disable(t);
+    const e = new C;
+    for (const t of b) e.disable(t);
     return e
   }
 
@@ -51077,35 +51449,36 @@ module.exports = function (e) {
       u = !1,
       f = !1,
       y = !1,
-      C = !1,
-      b = !1;
-    const v = null !== t && t.repository instanceof h.Repository && p(t.repository);
+      b = !1,
+      v = !1,
+      E = !1;
+    const w = null !== t && t.repository instanceof h.Repository && p(t.repository);
     if (t && t.type === m.SelectionType.Repository) {
       r = !0;
       const {
         branchesState: e,
         changesState: n
       } = t.state, o = e.tip, p = e.defaultBranch;
-      l = !!p, a = o.kind === g.TipState.Valid, s = o.kind === g.TipState.Detached, f = o.kind === g.TipState.Unknown, y = o.kind === g.TipState.Unborn, o.kind === g.TipState.Valid ? (null !== p && (i = o.branch.name !== p.name), c = !!o.branch.upstream, b = null !== n.stashEntry) : i = !0, u = t.state.isPushPullFetchInProgress;
+      c = !!p, a = o.kind === g.TipState.Valid, s = o.kind === g.TipState.Detached, y = o.kind === g.TipState.Unknown, b = o.kind === g.TipState.Unborn, o.kind === g.TipState.Valid ? (null !== p && (i = o.branch.name !== p.name), u = !!o.branch.upstream, E = null !== n.stashEntry) : i = !0, f = t.state.isPushPullFetchInProgress;
       const {
         conflictState: m,
         workingDirectory: h
       } = t.state.changesState;
-      C = null !== m && 'rebase' === m.kind, d = 0 < h.files.length
+      v = null !== m && 'rebase' === m.kind, l = null !== n.conflictState || S.hasConflictedFiles(h), d = 0 < h.files.length
     }
-    const E = ['branch', 'repository', 'remove-repository', 'open-in-shell', 'open-working-directory', 'show-repository-settings', 'go-to-commit-message', 'show-changes', 'show-history', 'show-branches-list', 'open-external-editor', 'compare-to-branch'],
-      w = new S,
-      k = 'hidden' !== e.windowState,
-      T = e.showWelcomeFlow,
-      _ = k && r && !T;
-    if (_) {
-      for (const e of E) w.enable(e);
-      w.setEnabled('rename-branch', i && !y && !s), w.setEnabled('delete-branch', i && !y && !s), w.setEnabled('update-branch', i && l && !s), w.setEnabled('merge-branch', a), w.setEnabled('rebase-branch', a), w.setEnabled('compare-on-github', n && c), w.setEnabled('view-repository-on-github', n), w.setEnabled('create-issue-in-repository-on-github', v), w.setEnabled('create-pull-request', n && !y && !s), w.setEnabled('push', !y && !s && !u), w.setEnabled('pull', c && !u), w.setEnabled('create-branch', !f && !y && !C), w.setEnabled('discard-all-changes', _ && d && !C), w.setEnabled('compare-to-branch', !s), w.setEnabled('toggle-stashed-changes', b), t && t.type === m.SelectionType.MissingRepository && w.disable('open-external-editor')
+    const k = ['branch', 'repository', 'remove-repository', 'open-in-shell', 'open-working-directory', 'show-repository-settings', 'go-to-commit-message', 'show-changes', 'show-history', 'show-branches-list', 'open-external-editor', 'compare-to-branch'],
+      T = new C,
+      _ = 'hidden' !== e.windowState,
+      R = e.showWelcomeFlow,
+      x = _ && r && !R;
+    if (x) {
+      for (const e of k) T.enable(e);
+      T.setEnabled('rename-branch', i && !b && !s), T.setEnabled('delete-branch', i && !b && !s), T.setEnabled('update-branch', i && c && !s), T.setEnabled('merge-branch', a), T.setEnabled('rebase-branch', a), T.setEnabled('compare-on-github', n && u), T.setEnabled('view-repository-on-github', n), T.setEnabled('create-issue-in-repository-on-github', w), T.setEnabled('create-pull-request', n && !b && !s), T.setEnabled('push', !b && !s && !f), T.setEnabled('pull', u && !f), T.setEnabled('create-branch', !y && !b && !v), T.setEnabled('discard-all-changes', x && d && !v), T.setEnabled('stash-all-changes', d && a && !v && !l), T.setEnabled('compare-to-branch', !s), T.setEnabled('toggle-stashed-changes', E), t && t.type === m.SelectionType.MissingRepository && T.disable('open-external-editor')
     } else {
-      for (const e of E) w.disable(e);
-      w.disable('view-repository-on-github'), w.disable('create-pull-request'), t && t.type === m.SelectionType.MissingRepository && (t.repository.gitHubRepository && w.enable('view-repository-on-github'), w.enable('remove-repository')), w.disable('create-branch'), w.disable('rename-branch'), w.disable('delete-branch'), w.disable('discard-all-changes'), w.disable('update-branch'), w.disable('merge-branch'), w.disable('rebase-branch'), w.disable('push'), w.disable('pull'), w.disable('compare-to-branch'), w.disable('compare-on-github'), w.disable('toggle-stashed-changes')
+      for (const e of k) T.disable(e);
+      T.disable('view-repository-on-github'), T.disable('create-pull-request'), t && t.type === m.SelectionType.MissingRepository && (t.repository.gitHubRepository && T.enable('view-repository-on-github'), T.enable('remove-repository')), T.disable('create-branch'), T.disable('rename-branch'), T.disable('delete-branch'), T.disable('discard-all-changes'), T.disable('stash-all-changes'), T.disable('update-branch'), T.disable('merge-branch'), T.disable('rebase-branch'), T.disable('push'), T.disable('pull'), T.disable('compare-to-branch'), T.disable('compare-on-github'), T.disable('toggle-stashed-changes')
     }
-    return w
+    return T
   }
 
   function s(e) {
@@ -51113,14 +51486,14 @@ module.exports = function (e) {
   }
 
   function d() {
-    const e = new S;
-    for (const t of C) e.enable(t);
+    const e = new C;
+    for (const t of b) e.enable(t);
     return e
   }
 
   function l(e) {
     const t = ['new-repository', 'add-local-repository', 'clone-repository', 'preferences', 'about'],
-      n = new S;
+      n = new C;
     if (e)
       for (const e of t) n.disable(e);
     else
@@ -51130,7 +51503,7 @@ module.exports = function (e) {
 
   function c(e) {
     const t = ['show-repository-list'],
-      n = new S;
+      n = new C;
     if (0 === e.repositories.length)
       for (const e of t) n.disable(e);
     return n
@@ -51146,13 +51519,14 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const u = n(53),
+  const u = n(54),
     m = n(28),
-    h = n(25),
+    h = n(26),
     f = n(103),
-    g = n(30),
-    y = n(26);
-  class S {
+    g = n(31),
+    y = n(27),
+    S = n(38);
+  class C {
     constructor(e = new Map) {
       this._state = e
     }
@@ -51181,10 +51555,10 @@ module.exports = function (e) {
     merge(e) {
       const t = new Map(this._state);
       for (const [n, o] of e._state) t.set(n, o);
-      return new S(t)
+      return new C(t)
     }
   }
-  const C = ['rename-branch', 'delete-branch', 'discard-all-changes', 'preferences', 'update-branch', 'compare-to-branch', 'merge-branch', 'rebase-branch', 'view-repository-on-github', 'compare-on-github', 'open-in-shell', 'push', 'pull', 'branch', 'repository', 'go-to-commit-message', 'create-branch', 'show-changes', 'show-history', 'show-repository-list', 'show-branches-list', 'open-working-directory', 'show-repository-settings', 'open-external-editor', 'remove-repository', 'new-repository', 'add-local-repository', 'clone-repository', 'about', 'create-pull-request'];
+  const b = ['rename-branch', 'delete-branch', 'discard-all-changes', 'stash-all-changes', 'preferences', 'update-branch', 'compare-to-branch', 'merge-branch', 'rebase-branch', 'view-repository-on-github', 'compare-on-github', 'open-in-shell', 'push', 'pull', 'branch', 'repository', 'go-to-commit-message', 'create-branch', 'show-changes', 'show-history', 'show-repository-list', 'show-branches-list', 'open-working-directory', 'show-repository-settings', 'open-external-editor', 'remove-repository', 'new-repository', 'add-local-repository', 'clone-repository', 'about', 'create-pull-request'];
   t.updateMenuState = function (e, t) {
     const n = s(e);
     if (t)
@@ -51204,9 +51578,9 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(266),
+  const o = n(267),
     r = n(10),
-    i = n(54);
+    i = n(55);
   t.inferLastPushForRepository = async function (e, t, n) {
     const a = o.getAccountForRepository(e, n);
     if (null == a) return null;
@@ -51238,7 +51612,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(11),
-    r = n(51);
+    r = n(52);
   t.createTag = async function (e, t, n) {
     await o.git(['tag', '-a', '-m', '', t, n], e.path, 'createTag')
   }, t.deleteTag = async function (e, t) {
@@ -51292,8 +51666,8 @@ module.exports = function (e) {
     for (var y = e.node || s, S = 0; 6 > S; ++S) i[r + S] = y[S];
     return t ? t : a(i)
   }
-  var r = n(300),
-    a = n(299),
+  var r = n(301),
+    a = n(300),
     i = r(),
     s = [1 | i[0], i[1], i[2], i[3], i[4], i[5]],
     d = 16383 & (i[6] << 8 | i[7]),
@@ -51301,8 +51675,8 @@ module.exports = function (e) {
     c = 0;
   e.exports = o
 }, function (e, t, n) {
-  var o = n(669),
-    r = n(301),
+  var o = n(671),
+    r = n(302),
     i = r;
   i.v1 = o, i.v4 = r, e.exports = i
 }, function (e, t, n) {
@@ -51340,8 +51714,8 @@ module.exports = function (e) {
     d = n(1),
     l = n(19),
     c = n(11),
-    p = n(670),
-    u = n(125),
+    p = n(672),
+    u = n(126),
     m = 'github-desktop-worktree-';
   t.listWorkTrees = o, t.createTemporaryWorkTree = async function (e, t) {
     const n = await l.mkdtemp(i());
@@ -51360,8 +51734,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(167),
-    r = n(81);
+  const o = n(168),
+    r = n(83);
   t.formatPatch = async function (e, t, n) {
     const i = o.revRange(t, n),
       {
@@ -51413,7 +51787,7 @@ module.exports = function (e) {
   });
   const a = n(1),
     s = n(33),
-    d = n(82);
+    d = n(84);
   t.readGitIgnoreAtRoot = o, t.saveGitIgnore = r, t.appendIgnoreRule = async function (e, t) {
     const n = (await o(e)) || '',
       a = await i(n, e),
@@ -51439,7 +51813,7 @@ module.exports = function (e) {
   const o = n(1),
     r = n(19),
     i = n(11),
-    a = n(674);
+    a = n(676);
   t.listSubmodules = async function (e) {
     const [t, n] = await Promise.all([r.pathExists(o.join(e.path, '.gitmodules')), r.pathExists(o.join(e.path, '.git', 'modules'))]);
     if (!t && !n) return log.info('No submodules found. Skipping "git submodule status"'), [];
@@ -51475,7 +51849,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(68),
+  const o = n(71),
     r = [{
       title: '',
       weight: 0
@@ -51492,9 +51866,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(11),
-    r = n(258),
-    i = n(677),
-    a = n(51);
+    r = n(259),
+    i = n(679),
+    a = n(52);
   t.revertCommit = async function (e, t, n, s) {
     const d = await o.gitNetworkArguments(e, n),
       l = [...d, 'revert'];
@@ -51594,7 +51968,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(11),
-    r = n(124);
+    r = n(125);
   t.getAuthorIdentity = async function (e) {
     const t = await o.git(['var', 'GIT_AUTHOR_IDENT'], e.path, 'getAuthorIdentity', {
       successExitCodes: new Set([0, 128])
@@ -51638,7 +52012,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(67),
+  const r = n(70),
     a = /^(merged|added in remote|removed in remote|changed in both|removed in local|added in both)$/,
     s = /^\s{2}(result|our|their|base)\s+(\d{6})\s([0-9a-f]{40})\s(.+)$/;
   t.parseMergeResult = function (e) {
@@ -51871,7 +52245,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const s = n(683),
+  const s = n(685),
     d = n(23);
   t.isStatusHeader = function (e) {
     return 'header' === e.kind
@@ -52010,8 +52384,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(81),
-    r = n(125);
+  const o = n(83),
+    r = n(126);
   t.getFilesWithConflictMarkers = async function (e) {
     const {
       output: t
@@ -52106,9 +52480,9 @@ module.exports = function (e) {
   });
   const o = n(35),
     r = n(11),
-    i = n(80),
+    i = n(82),
     a = n(100),
-    s = n(51);
+    s = n(52);
   t.push = async function (e, t, n, d, l, c, p = {
     forceWithLease: !1
   }, u) {
@@ -52159,10 +52533,10 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(11),
-    i = n(80),
+    i = n(82),
     a = n(100),
-    s = n(27),
-    d = n(51);
+    s = n(25),
+    d = n(52);
   t.pull = async function (e, t, n, s) {
     let l = {
       env: await d.envForRemoteOperation(t, n.url),
@@ -52215,9 +52589,9 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(11),
-    i = n(80),
-    a = n(27),
-    s = n(51);
+    i = n(82),
+    a = n(25),
+    s = n(52);
   t.fetch = async function (e, t, n, a) {
     let d = {
       successExitCodes: new Set([0]),
@@ -52276,9 +52650,9 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(11),
-    i = n(168),
-    a = n(257),
-    s = n(256);
+    i = n(169),
+    a = n(258),
+    s = n(257);
   t.createCommit = async function (e, t, n) {
     await a.unstageAll(e), await i.stageFiles(e, n);
     try {
@@ -52309,8 +52683,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(11),
-    r = n(80),
-    i = n(51);
+    r = n(82),
+    i = n(52);
   t.clone = async function (e, t, n, a) {
     const s = await o.gitNetworkArguments(null, n.account),
       d = await i.envForRemoteOperation(n.account, e),
@@ -52347,7 +52721,7 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(19),
-    r = n(126);
+    r = n(127);
   t.createLFSProgressFile = async function () {
     const e = await r.getTempFilePath('GitHubDesktop-lfs-progress');
     return await o.ensureFile(e), e
@@ -52394,7 +52768,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(68),
+  const o = n(71),
     r = [{
       title: '远端: 压缩对象中',
       weight: .1
@@ -52419,7 +52793,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(68),
+  const o = n(71),
     r = [{
       title: '远端: 压缩对象中',
       weight: .1
@@ -52441,7 +52815,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(68),
+  const o = n(71),
     r = [{
       title: '压缩对象中',
       weight: .2
@@ -52463,7 +52837,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(68),
+  const o = n(71),
     r = [{
       title: '远端: 压缩对象中',
       weight: .1
@@ -52488,7 +52862,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(68),
+  const o = n(71),
     r = [{
       title: '检出文件中',
       weight: 1
@@ -52511,10 +52885,10 @@ module.exports = function (e) {
   });
   const r = n(11),
     i = n(46),
-    a = n(80),
+    a = n(82),
     s = n(100),
-    d = n(27),
-    l = n(51);
+    d = n(25),
+    l = n(52);
   t.checkoutBranch = async function (e, t, n, i) {
     let d = {
       env: await l.envForRemoteOperation(t, l.getFallbackUrlForProxyResolve(t, e)),
@@ -52590,8 +52964,8 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(22),
-    r = n(27),
-    i = n(701);
+    r = n(25),
+    i = n(703);
   t.resolveGitProxy = async function (e) {
     if (r.enableAutomaticGitProxyConfiguration()) {
       const t = await o.remote.session.defaultSession.resolveProxy(e).catch((t) => (log.error(`Failed resolving proxy for '${e}'`, t), 'DIRECT')),
@@ -52619,13 +52993,13 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(11),
-    i = n(262),
+    i = n(263),
     a = n(46),
-    s = n(261),
-    d = n(260),
+    s = n(262),
+    d = n(261),
     l = n(35),
-    c = n(259),
-    p = n(51);
+    c = n(260),
+    p = n(52);
   t.createBranch = async function (e, t, n, o) {
     const a = null === n ? ['branch', t] : ['branch', t, n];
     o && a.push('--no-track'), await r.git(a, e.path, 'createBranch');
@@ -52708,7 +53082,7 @@ module.exports = function (e) {
   });
   const a = n(2),
     s = n(23),
-    d = n(31);
+    d = n(30);
   t.formatPatch = function (e, t) {
     let n = '';
     if (t.hunks.forEach((t) => {
@@ -52731,13 +53105,34 @@ module.exports = function (e) {
         }), c && (n += i(t.header.oldStartLine, r, t.header.newStartLine, l), n += o)
       }), !n.length) throw log.debug(`formatPatch: empty path for ${e.path}`), new Error(`Could not generate a patch, no changes`);
     return n = r(e) + n, n
+  }, t.formatPatchToDiscardChanges = function (e, t, n) {
+    let r = '';
+    return t.hunks.forEach((e) => {
+      let t = '',
+        o = 0,
+        s = 0,
+        l = !1;
+      e.lines.forEach((r, i) => {
+        const c = e.unifiedDiffStart + i;
+        if (r.type !== d.DiffLineType.Hunk) {
+          if (r.type === d.DiffLineType.Context) t += `${r.text}\n`, o++, s++;
+          else if (n.isSelected(c)) r.type === d.DiffLineType.Add ? (t += `-${r.text.substr(1)}\n`, s++) : r.type === d.DiffLineType.Delete ? (t += `+${r.text.substr(1)}\n`, o++) : a.assertNever(r.type, `Unsupported line type ${r.type}`), l = !0;
+          else if (r.type === d.DiffLineType.Add) o++, s++, t += ` ${r.text.substr(1)}\n`;
+          else {
+            if (r.type === d.DiffLineType.Delete) return;
+            a.assertNever(r.type, `Unsupported line type ${r.type}`)
+          }
+          r.noTrailingNewLine && (t += '\\ No newline at end of file\n')
+        }
+      }), l && (r += i(e.header.newStartLine, s, e.header.oldStartLine, o), r += t)
+    }), 0 === r.length ? null : o(e, e) + r
   }
 }, function (e, t, n) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(31),
+  const o = n(30),
     r = n(2),
     i = /^@@ -(\d+)(?:,(\d+))? \+(\d+)(?:,(\d+))? @@/,
     a = '+',
@@ -52929,7 +53324,7 @@ module.exports = function (e) {
     } catch (e) {
       throw new Error('Cannot open ' + o + ': ' + e)
     }
-  }).call(this, n(137)(e))
+  }).call(this, n(138)(e))
 }, function (e, t, n) {
   function o(e, t) {
     if (!e || 0 >= e.length) throw new Error(t + ' is required.')
@@ -52943,7 +53338,7 @@ module.exports = function (e) {
     });
     throw new Error('Callback required')
   }
-  var i = n(709);
+  var i = n(711);
   e.exports = {
     getPassword: function (e, t) {
       return o(e, 'Service'), o(t, 'Account'), r((n) => i.getPassword(e, t, n))
@@ -53018,8 +53413,8 @@ module.exports = function (e) {
   });
   const r = n(33),
     i = n(48),
-    a = n(270),
-    s = n(711);
+    a = n(271),
+    s = n(713);
   class d {
     static pathExists(e) {
       try {
@@ -53116,7 +53511,7 @@ module.exports = function (e) {
     } catch (e) {
       throw new Error('Cannot open ' + o + ': ' + e)
     }
-  }).call(this, n(137)(e))
+  }).call(this, n(138)(e))
 }, function (e, t, n) {
   'use strict';
 
@@ -53144,7 +53539,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const s = n(714);
+  const s = n(716);
   var d;
   (function (e) {
     e.REG_BINARY = 'REG_BINARY', e.REG_DWORD = 'REG_DWORD', e.REG_DWORD_LITTLE_ENDIAN = 'REG_DWORD_LITTLE_ENDIAN', e.REG_DWORD_BIG_ENDIAN = 'REG_DWORD_BIG_ENDIAN', e.REG_EXPAND_SZ = 'REG_EXPAND_SZ', e.REG_LINK = 'REG_LINK', e.REG_MULTI_SZ = 'REG_MULTI_SZ', e.REG_NONE = 'REG_NONE', e.REG_QWORD = 'REG_QWORD', e.REG_QWORD_LITTLE_ENDIAN = 'REG_QWORD_LITTLE_ENDIAN', e.REG_SZ = 'REG_SZ'
@@ -53171,9 +53566,9 @@ module.exports = function (e) {
     value: !0
   });
   const o = n(22),
-    r = n(83),
+    r = n(85),
     i = n(49),
-    a = n(172);
+    a = n(173);
   t.themeChangeMonitor = new class {
     constructor() {
       this.emitter = new i.Emitter, this.subscribe = () => {
@@ -53344,11 +53739,11 @@ module.exports = function (e) {
   e.exports = require('querystring')
 }, function (e, t, n) {
   'use strict';
-  const o = n(38).fromCallback,
+  const o = n(39).fromCallback,
     r = n(32),
     i = n(1),
-    a = n(40),
-    s = n(52).pathExists;
+    a = n(41),
+    s = n(53).pathExists;
   e.exports = {
     outputFile: o(function (e, t, n, o) {
       'function' == typeof n && (o = n, n = 'utf8');
@@ -53383,13 +53778,13 @@ module.exports = function (e) {
       o = t.split(l.sep);
     return n.reduce((e, t, n) => e && o[n] === t, !0)
   }
-  const s = n(38).fromCallback,
+  const s = n(39).fromCallback,
     d = n(32),
     l = n(1),
-    c = n(282).copy,
-    p = n(132).remove,
-    u = n(40).mkdirp,
-    m = n(52).pathExists;
+    c = n(283).copy,
+    p = n(133).remove,
+    u = n(41).mkdirp,
+    m = n(53).pathExists;
   e.exports = {
     move: s(function (e, t, n, r) {
       'function' == typeof n && (r = n, n = {});
@@ -53460,10 +53855,10 @@ module.exports = function (e) {
   }
   const d = n(32),
     l = n(1),
-    c = n(286).copySync,
-    p = n(132).removeSync,
-    u = n(40).mkdirsSync,
-    m = n(283);
+    c = n(287).copySync,
+    p = n(133).removeSync,
+    u = n(41).mkdirsSync,
+    m = n(284);
   e.exports = {
     moveSync: o
   }
@@ -53471,8 +53866,8 @@ module.exports = function (e) {
   'use strict';
   const o = n(32),
     r = n(1),
-    i = n(40),
-    a = n(174);
+    i = n(41),
+    a = n(175);
   e.exports = function (e, t, n) {
     const s = r.dirname(e);
     o.existsSync(s) || i.mkdirsSync(s), a.writeJsonSync(e, t, n)
@@ -53480,9 +53875,9 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   const o = n(1),
-    r = n(40),
-    i = n(52).pathExists,
-    a = n(174);
+    r = n(41),
+    i = n(53).pathExists,
+    a = n(175);
   e.exports = function (e, t, n, s) {
     'function' == typeof n && (s = n, n = {});
     const d = o.dirname(e);
@@ -53568,9 +53963,9 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  const o = n(38).fromCallback,
-    r = n(174);
-  r.outputJson = o(n(728)), r.outputJsonSync = n(727), r.outputJSON = r.outputJson, r.outputJSONSync = r.outputJsonSync, r.writeJSON = r.writeJson, r.writeJSONSync = r.writeJsonSync, r.readJSON = r.readJson, r.readJSONSync = r.readJsonSync, e.exports = r
+  const o = n(39).fromCallback,
+    r = n(175);
+  r.outputJson = o(n(730)), r.outputJsonSync = n(729), r.outputJSON = r.outputJson, r.outputJSONSync = r.outputJsonSync, r.writeJSON = r.writeJson, r.writeJSONSync = r.writeJsonSync, r.readJSON = r.readJson, r.readJSONSync = r.readJsonSync, e.exports = r
 }, function (e, t, n) {
   'use strict';
   const o = n(32);
@@ -53593,7 +53988,7 @@ module.exports = function (e) {
   'use strict';
   const o = n(1),
     r = n(32),
-    i = n(52).pathExists;
+    i = n(53).pathExists;
   e.exports = {
     symlinkPaths: function (e, t, n) {
       if (o.isAbsolute(e)) return r.lstat(e, (t) => t ? (t.message = t.message.replace('lstat', 'ensureSymlink'), n(t)) : n(null, {
@@ -53637,19 +54032,19 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  const o = n(38).fromCallback,
+  const o = n(39).fromCallback,
     r = n(1),
     i = n(32),
-    a = n(40),
+    a = n(41),
     s = a.mkdirs,
     d = a.mkdirsSync,
-    l = n(732),
+    l = n(734),
     c = l.symlinkPaths,
     p = l.symlinkPathsSync,
-    u = n(731),
+    u = n(733),
     m = u.symlinkType,
     h = u.symlinkTypeSync,
-    f = n(52).pathExists;
+    f = n(53).pathExists;
   e.exports = {
     createSymlink: o(function (e, t, n, o) {
       o = 'function' == typeof n ? n : o, n = 'function' != typeof n && n, f(t, (a, d) => a ? o(a) : d ? o(null) : void c(e, t, (a, d) => a ? o(a) : void(e = d.toDst, m(d.toCwd, n, (n, a) => {
@@ -53671,11 +54066,11 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  const o = n(38).fromCallback,
+  const o = n(39).fromCallback,
     r = n(1),
     i = n(32),
-    a = n(40),
-    s = n(52).pathExists;
+    a = n(41),
+    s = n(53).pathExists;
   e.exports = {
     createLink: o(function (e, t, n) {
       function o(e, t) {
@@ -53703,11 +54098,11 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  const o = n(38).fromCallback,
+  const o = n(39).fromCallback,
     r = n(1),
     i = n(32),
-    a = n(40),
-    s = n(52).pathExists;
+    a = n(41),
+    s = n(53).pathExists;
   e.exports = {
     createFile: o(function (e, t) {
       function n() {
@@ -53732,9 +54127,9 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  const o = n(735),
-    r = n(734),
-    i = n(733);
+  const o = n(737),
+    r = n(736),
+    i = n(735);
   e.exports = {
     createFile: o.createFile,
     createFileSync: o.createFileSync,
@@ -53869,7 +54264,7 @@ module.exports = function (e) {
   }
   const p = n(32),
     h = n(1),
-    f = n(287),
+    f = n(288),
     g = !0;
   e.exports = r, r.sync = c
 }, function (e, t, n) {
@@ -53886,11 +54281,11 @@ module.exports = function (e) {
       t = a.join(e, t), d.removeSync(t)
     })
   }
-  const r = n(38).fromCallback,
+  const r = n(39).fromCallback,
     i = n(33),
     a = n(1),
-    s = n(40),
-    d = n(132),
+    s = n(41),
+    d = n(133),
     l = r(function (e, t) {
       t = t || function () {}, i.readdir(e, (n, o) => {
         function r() {
@@ -54022,9 +54417,9 @@ module.exports = function (e) {
   }
   const w = n(32),
     k = n(1),
-    T = n(40).mkdirs,
-    _ = n(52).pathExists,
-    R = n(284).utimesMillis,
+    T = n(41).mkdirs,
+    _ = n(53).pathExists,
+    R = n(285).utimesMillis,
     x = Symbol('notExist');
   e.exports = o
 }, function (e, t, n) {
@@ -54061,7 +54456,7 @@ module.exports = function (e) {
   }
   const r = n(32),
     i = n(1),
-    a = n(285).invalidWin32Path,
+    a = n(286).invalidWin32Path,
     s = parseInt('0777', 8);
   e.exports = o
 }, function (e, t, n) {
@@ -54094,7 +54489,7 @@ module.exports = function (e) {
   }
   const r = n(32),
     i = n(1),
-    a = n(285).invalidWin32Path,
+    a = n(286).invalidWin32Path,
     s = parseInt('0777', 8);
   e.exports = o
 }, function (e, t, n) {
@@ -54138,7 +54533,7 @@ module.exports = function (e) {
 
   function l(e, t, o, r) {
     const i = 65536,
-      a = n(283)(i),
+      a = n(284)(i),
       s = C.openSync(t, 'r'),
       d = C.openSync(o, 'w', e.mode);
     for (let n = 0; n < e.size;) {
@@ -54225,8 +54620,8 @@ module.exports = function (e) {
   }
   const C = n(32),
     b = n(1),
-    v = n(40).mkdirsSync,
-    E = n(284).utimesMillisSync,
+    v = n(41).mkdirsSync,
+    E = n(285).utimesMillisSync,
     w = Symbol('notExist');
   e.exports = o
 }, function (e) {
@@ -54242,7 +54637,7 @@ module.exports = function (e) {
     }), t
   }
 }, function (e, t, n) {
-  var o = n(288).Stream;
+  var o = n(289).Stream;
   e.exports = function (e) {
     function t(n, r) {
       if (!(this instanceof t)) return new t(n, r);
@@ -54283,7 +54678,7 @@ module.exports = function (e) {
 }, function (e) {
   e.exports = require('constants')
 }, function (e, t, n) {
-  var o = n(745),
+  var o = n(747),
     r = process.cwd,
     i = null,
     a = process.env.GRACEFUL_FS_PLATFORM || 'win32';
@@ -54474,80 +54869,80 @@ module.exports = function (e) {
   const a = n(1),
     s = n(22),
     d = n(19),
-    l = n(723),
-    c = n(135),
-    p = n(131),
-    u = n(281),
-    m = n(130),
+    l = n(725),
+    c = n(136),
+    p = n(132),
+    u = n(282),
+    m = n(131),
     h = n(103),
-    g = n(31),
-    f = n(129),
+    g = n(30),
+    f = n(130),
     y = n(102),
-    S = n(280),
-    C = n(173),
-    b = n(25),
+    S = n(281),
+    C = n(174),
+    b = n(26),
     v = n(23),
-    E = n(30),
+    E = n(31),
     w = n(24),
-    k = n(716),
-    T = n(85),
-    _ = n(83),
-    R = n(26),
+    k = n(718),
+    T = n(87),
+    _ = n(85),
+    R = n(27),
     x = n(10),
-    P = n(39),
+    P = n(40),
     D = n(28),
-    M = n(279),
+    M = n(280),
     A = n(2),
-    I = n(272),
-    L = n(271),
-    F = n(268),
-    B = n(266),
+    I = n(273),
+    L = n(272),
+    F = n(269),
+    B = n(267),
     N = n(20),
-    O = n(247),
-    H = n(667),
-    z = n(666),
-    U = n(53),
-    W = n(54),
-    V = n(79),
-    G = n(99),
-    K = n(122),
-    j = n(84),
-    q = n(292),
-    Y = n(244),
+    O = n(248),
+    H = n(669),
+    z = n(668),
+    U = n(54),
+    W = n(55),
+    V = n(81),
+    G = n(80),
+    K = n(123),
+    j = n(86),
+    q = n(293),
+    Y = n(245),
     X = n(62),
-    Q = n(661),
-    $ = n(166),
-    Z = n(658),
-    J = n(657),
-    ee = n(165),
-    te = n(656),
-    ne = n(654),
-    oe = n(55),
+    Q = n(663),
+    $ = n(122),
+    Z = n(660),
+    J = n(659),
+    ee = n(167),
+    te = n(658),
+    ne = n(656),
+    oe = n(56),
     re = n(101),
-    ie = n(651),
-    ae = n(650),
-    se = n(27),
-    de = n(97),
-    le = n(56),
-    ce = n(172),
-    pe = n(67),
-    ue = n(238),
+    ie = n(653),
+    ae = n(652),
+    se = n(25),
+    de = n(98),
+    le = n(57),
+    ce = n(173),
+    pe = n(70),
+    ue = n(239),
     me = n(61),
-    he = n(78),
-    fe = n(66),
-    ge = n(646),
-    ye = n(645),
-    Se = n(644),
-    Ce = n(96),
-    be = n(643),
-    ve = n(41),
-    Ee = n(27),
-    we = n(642),
-    ke = n(641),
+    he = n(79),
+    fe = n(69),
+    ge = n(648),
+    ye = n(647),
+    Se = n(646),
+    Ce = n(97),
+    be = n(645),
+    ve = n(38),
+    Ee = n(25),
+    we = n(644),
+    ke = n(643),
     Te = n(104),
-    _e = n(640),
-    Re = n(164),
-    xe = n(163),
+    _e = n(642),
+    Re = n(166),
+    xe = n(165),
     Pe = 'last-selected-repository-id',
     De = 'recently-selected-repositories',
     Me = 250,
@@ -54572,7 +54967,7 @@ module.exports = function (e) {
     constructor(e, t, n, o, r, i, a, d, l, c) {
       super(), this.gitHubUserStore = e, this.cloningRepositoriesStore = t, this.issuesStore = n, this.statsStore = o, this.signInStore = r, this.accountsStore = i, this.repositoriesStore = a, this.pullRequestCoordinator = d, this.repositoryStateCache = l, this.apiRepositoriesStore = c, this.accounts = [], this.repositories = [], this.recentRepositories = [], this.selectedRepository = null, this.currentBackgroundFetcher = null, this.currentAheadBehindUpdater = null, this.currentBranchPruner = null, this.showWelcomeFlow = !1, this.focusCommitMessage = !1, this.currentPopup = null, this.currentFoldout = null, this.currentBanner = null, this.errors = [], this.emitQueued = !1, this.localRepositoryStateLookup = new Map, this.emoji = new Map, this.appMenu = null, this.highlightAccessKeys = !1, this.appIsFocused = !1, this.sidebarWidth = Me, this.commitSummaryWidth = Ie, this.stashedFilesWidth = Fe, this.windowZoomFactor = 1, this.isUpdateAvailableBannerVisible = !1, this.askForConfirmationOnRepositoryRemoval = Ne, this.confirmDiscardChanges = Oe, this.askForConfirmationOnForcePush = He, this.imageDiffType = Ke, this.hideWhitespaceInDiff = !1, this.uncommittedChangesStrategyKind = me.uncommittedChangesStrategyKindDefault, this.selectedExternalEditor = null, this.resolvedExternalEditor = null, this.selectedShell = K.Default, this.repositoryFilterText = '', this.currentMergeTreePromise = null, this.resolveOpenInDesktop = null, this.selectedCloneRepositoryTab = m.CloneRepositoryTab.DotCom, this.selectedBranchesTab = u.BranchesTab.Branches, this.selectedTheme = _.ApplicationTheme.Light, this.automaticallySwitchTheme = !1, this.hasUserViewedStash = !1, this.currentOnboardingTutorialStep = Ce.TutorialStep.NotApplicable, this.getResolvedExternalEditor = () => this.resolvedExternalEditor, this.showWelcomeFlow = !q.hasShownWelcomeFlow(), this.gitStoreCache = new ne.GitStoreCache(P.shell, this.statsStore, (e, t) => this.onGitStoreUpdated(e, t), (e, t) => this.loadAndCacheUsers(e, this.accounts, t), (e) => this.emitError(e));
       const p = s.remote.getCurrentWindow();
-      this.windowState = Y.getWindowState(p), this.onWindowZoomFactorChanged(p.webContents.getZoomFactor()), this.wireupIpcEventHandlers(p), this.wireupStoreEventHandlers(), R.getAppMenu(), this.tutorialAssessor = new be.OnboardingTutorialAssessor(this.getResolvedExternalEditor)
+      this.windowState = Y.getWindowState(p), this.onWindowZoomFactorChanged(p.webContents.zoomFactor), this.wireupIpcEventHandlers(p), this.wireupStoreEventHandlers(), R.getAppMenu(), this.tutorialAssessor = new be.OnboardingTutorialAssessor(this.getResolvedExternalEditor)
     }
     async updateCurrentTutorialStep(e) {
       const t = await this.tutorialAssessor.getCurrentStep(e.isTutorialRepository, this.repositoryStateCache.get(e));
@@ -55064,7 +55459,7 @@ module.exports = function (e) {
       oe.setNumberArray(De, o), this.recentRepositories = o, this.emitUpdate()
     }
     async _selectRepositoryRefreshTasks(e, t) {
-      return (await this._refreshTags(e), this._refreshRepository(e), b.isRepositoryWithGitHubRepository(e) && (this._refreshIssues(e.gitHubRepository), this.pullRequestCoordinator.getAllPullRequests(e).then((t) => {
+      return (this._refreshRepository(e), b.isRepositoryWithGitHubRepository(e) && (this._refreshIssues(e.gitHubRepository), this.pullRequestCoordinator.getAllPullRequests(e).then((t) => {
         this.onPullRequestChanged(e, t)
       })), this.selectedRepository !== e) ? null : (this.stopBackgroundFetching(), this.stopPullRequestUpdater(), this.stopAheadBehindUpdate(), this.stopBackgroundPruner(), this.startBackgroundFetching(e, !t), this.startPullRequestUpdater(e), this.startAheadBehindUpdater(e), this.refreshMentionables(e), this.startBackgroundPruner(e), this.addUpstreamRemoteIfNeeded(e), this.repositoryWithRefreshedGitHubRepository(e))
     }
@@ -55204,12 +55599,13 @@ module.exports = function (e) {
       } = e, {
         defaultBranch: l,
         currentPullRequest: c
-      } = s, p = null === l || null === l.upstreamWithoutRemote ? void 0 : l.upstreamWithoutRemote, u = V.isCurrentBranchForcePush(s, d), m = a.selection.kind === D.ChangesSelectionKind.Stash;
+      } = s, p = null === l || null === l.upstreamWithoutRemote ? void 0 : l.upstreamWithoutRemote, u = V.isCurrentBranchForcePush(s, d), m = a.selection.kind === D.ChangesSelectionKind.Stash, h = null !== a.stashEntry;
       R.updatePreferredAppMenuItemLabels(Object.assign({}, i, {
         defaultBranchName: p,
         isForcePushForCurrentRepository: u,
         isStashedChangesVisible: m,
-        hasCurrentPullRequest: null !== c
+        hasCurrentPullRequest: null !== c,
+        askForConfirmationWhenStashingAllChanges: h
       }))
     }
     updateRepositorySelectionAfterRepositoriesChanged() {
@@ -55303,7 +55699,7 @@ module.exports = function (e) {
     async _changeRepositorySection(e, t) {
       return (this.repositoryStateCache.update(e, () => ({
         selectedSection: t
-      })), this.emitUpdate(), this._hideStashedChanges(e), t === D.RepositorySectionTab.History) ? this.refreshHistorySection(e) : t === D.RepositorySectionTab.Changes ? this.refreshChangesSection(e, {
+      })), this.emitUpdate(), t === D.RepositorySectionTab.History) ? this.refreshHistorySection(e) : t === D.RepositorySectionTab.Changes ? this.refreshChangesSection(e, {
         includingStatus: !0,
         clearPartialState: !1
       }) : void 0
@@ -55352,7 +55748,10 @@ module.exports = function (e) {
       })), this.emitUpdate()
     }
     _hideStashedChanges(e) {
-      this.repositoryStateCache.updateChangesState(e, (e) => {
+      const {
+        changesState: t
+      } = this.repositoryStateCache.get(e);
+      t.selection.kind !== D.ChangesSelectionKind.Stash || (this.repositoryStateCache.updateChangesState(e, (e) => {
         const t = e.workingDirectory.files,
           n = t.filter((e) => e.selection.getSelectionType() !== g.DiffSelectionType.None).map((e) => e.id);
         return {
@@ -55362,7 +55761,7 @@ module.exports = function (e) {
             selectedFileIDs: n
           }
         }
-      }), this.emitUpdate(), this.updateMenuLabelsForSelectedRepository()
+      }), this.emitUpdate(), this.updateMenuLabelsForSelectedRepository())
     }
     async _selectStashedFile(e, t) {
       this.repositoryStateCache.update(e, () => ({
@@ -55490,10 +55889,6 @@ module.exports = function (e) {
       const t = (await d.pathExists(e.path)) && (await N.isGitRepository(e.path)) && null !== (await this._loadStatus(e));
       return t ? await this._updateRepositoryMissing(e, !1) : e
     }
-    async _refreshTags(e) {
-      const t = this.gitStoreCache.get(e);
-      return t.refreshTags()
-    }
     async _refreshRepository(e) {
       if (e.missing) return;
       const t = await d.pathExists(e.path);
@@ -55511,7 +55906,7 @@ module.exports = function (e) {
         clearPartialState: !1
       });
       else return A.assertNever(i, `Unknown section: ${i}`);
-      await Promise.all([o.loadRemotes(), o.updateLastFetched(), o.loadStashEntries(), this.refreshAuthor(e), a]), this.updateStashEntryCountMetric(e, o.desktopStashEntryCount, o.stashEntryCount), this.updateCurrentPullRequest(e);
+      await Promise.all([o.loadRemotes(), o.updateLastFetched(), o.loadStashEntries(), this.refreshAuthor(e), a]), await o.refreshTags(), this.updateStashEntryCountMetric(e, o.desktopStashEntryCount, o.stashEntryCount), this.updateCurrentPullRequest(e);
       const s = this.repositoryStateCache.get(e);
       this.updateMenuItemLabels(s), this._initializeCompare(e), this.updateCurrentTutorialStep(e)
     }
@@ -55702,6 +56097,17 @@ module.exports = function (e) {
         return i
       }
       return null
+    }
+    async _createStashForCurrentBranch(e, t) {
+      const n = this.repositoryStateCache.get(e),
+        o = n.branchesState.tip,
+        r = o.kind === E.TipState.Valid ? o.branch : null,
+        i = null !== n.changesState.stashEntry;
+      return null === r ? void 0 : t && i ? this._showPopup({
+        type: w.PopupType.ConfirmOverwriteStash,
+        branchToCheckout: null,
+        repository: e
+      }) : void(await this._createStashAndDropPreviousEntry(e, r.name), this.statsStore.recordStashCreatedOnCurrentBranch(), await this._refreshRepository(e))
     }
     async repositoryWithRefreshedGitHubRepository(e) {
       const t = e.gitHubRepository,
@@ -55927,7 +56333,7 @@ module.exports = function (e) {
               kind: 'generic',
               title: u,
               value: p
-            }), r && (await n.reconcileHistory(r)), await this.refreshBranchProtectionState(e), await this._refreshTags(e), await this._refreshRepository(e), this.updatePushPullFetchProgress(e, {
+            }), r && (await n.reconcileHistory(r)), await this.refreshBranchProtectionState(e), await this._refreshRepository(e), this.updatePushPullFetchProgress(e, {
               kind: 'generic',
               title: u,
               description: '快进分支',
@@ -55999,6 +56405,10 @@ module.exports = function (e) {
       const n = this.gitStoreCache.get(e);
       return await n.discardChanges(t), this._refreshRepository(e)
     }
+    async _discardChangesFromSelection(e, t, n, o) {
+      const r = this.gitStoreCache.get(e);
+      return await r.discardChangesFromSelection(t, n, o), this._refreshRepository(e)
+    }
     async _undoCommit(e, t) {
       const n = this.gitStoreCache.get(e);
       await n.undoCommit(t);
@@ -56010,7 +56420,7 @@ module.exports = function (e) {
     async _fetchRefspec(e, t) {
       return this.withAuthenticatingUser(e, async (e, n) => {
         const o = this.gitStoreCache.get(e);
-        return await o.fetchRefspec(n, t), await this._refreshTags(e), this._refreshRepository(e)
+        return await o.fetchRefspec(n, t), this._refreshRepository(e)
       })
     }
     _fetch(e, t) {
@@ -56036,7 +56446,7 @@ module.exports = function (e) {
             kind: 'generic',
             title: d,
             value: i
-          }), await this.refreshBranchProtectionState(e), await this._refreshTags(e), await this._refreshRepository(e), this.updatePushPullFetchProgress(e, {
+          }), await this.refreshBranchProtectionState(e), await this._refreshRepository(e), this.updatePushPullFetchProgress(e, {
             kind: 'generic',
             title: d,
             description: '正在快进分支',
@@ -56126,7 +56536,7 @@ module.exports = function (e) {
     async _setRebaseFlowStep(e, t) {
       this.repositoryStateCache.updateRebaseState(e, () => ({
         step: t
-      })), this.emitUpdate(), 'ShowProgress' === t.kind && null !== t.rebaseAction && (await $.timeout(500), await t.rebaseAction())
+      })), this.emitUpdate(), 'ShowProgress' === t.kind && null !== t.rebaseAction && (await $.sleep(500), await t.rebaseAction())
     }
     _endRebaseFlow(e) {
       this.repositoryStateCache.updateRebaseState(e, () => ({
@@ -56266,6 +56676,12 @@ module.exports = function (e) {
     }
     _resetSignInState() {
       return this.signInStore.reset(), Promise.resolve()
+    }
+    _onDotComSupportsBasicAuthUpdated(e) {
+      return this.signInStore.onDotComSupportsBasicAuthUpdated(e)
+    }
+    _tryGetDotComSupportsBasicAuth() {
+      return this.signInStore.tryGetDotComSupportsBasicAuth()
     }
     _beginDotComSignIn() {
       return this.signInStore.beginDotComSignIn(), Promise.resolve()
@@ -56731,8 +57147,8 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(290),
-    i = n(135),
+  const r = n(291),
+    i = n(136),
     a = n(10),
     s = n(2),
     d = n(62);
@@ -57436,7 +57852,7 @@ module.exports = function (e) {
     }, P.OS = {
       NAME: c,
       VERSION: m
-    }, typeof t == s ? n(749) ? (o = function () {
+    }, typeof t == s ? n(751) ? (o = function () {
       return P
     }.call(t, n, t, e), !(o !== void 0 && (e.exports = o))) : r && (r.UAParser = P) : (typeof e != s && e.exports && (t = e.exports = P), t.UAParser = P);
     var D = r && (r.jQuery || r.Zepto);
@@ -57558,15 +57974,15 @@ module.exports = function (e) {
     value: !0
   });
   const d = n(10),
-    l = n(85),
-    c = n(292),
-    p = n(133),
-    u = n(291),
-    m = n(53),
-    h = n(83),
-    f = n(69),
+    l = n(87),
+    c = n(293),
+    p = n(134),
+    u = n(292),
+    m = n(54),
+    h = n(85),
+    f = n(72),
     g = n(2),
-    y = n(55);
+    y = n(56);
   t.SamplesURL = 'https://desktop.github.com/usage-data/';
   const S = 'last-daily-stats-report',
     C = 'stats-opt-out',
@@ -58285,7 +58701,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(293);
+  const o = n(294);
   class r extends o.default {
     constructor(e) {
       super(e), this.version(1).stores({
@@ -58368,7 +58784,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const a = i(n(754));
+  const a = i(n(756));
   t.default = o, e.exports = o, e.exports.default = o
 }, function (e) {
   'use strict';
@@ -58398,7 +58814,7 @@ module.exports = function (e) {
 }, function (e, t, n) {
   'use strict';
   var o = n(1),
-    r = n(295);
+    r = n(296);
   e.exports = function (e) {
     e = e || {};
     for (var t = o.resolve(e.cwd || '.'), n = [], i; i !== t;) n.push(o.join(t, 'node_modules/.bin')), i = t, t = o.resolve(t, '..');
@@ -58477,7 +58893,7 @@ module.exports = function (e) {
   }
   var i = n(33),
     a;
-  a = n(762), e.exports = o, o.sync = r
+  a = n(764), e.exports = o, o.sync = r
 }, function (e, t, n) {
   function o(e) {
     var t = new Error('not found: ' + e);
@@ -58548,12 +58964,12 @@ module.exports = function (e) {
   };
   var a = n(1),
     s = ';',
-    d = n(763)
+    d = n(765)
 }, function (e, t, n) {
   'use strict';
   var o = n(1),
-    r = n(764),
-    i = n(297),
+    r = n(766),
+    i = n(298),
     a = new i({
       max: 50,
       maxAge: 30000
@@ -58571,7 +58987,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  var o = n(296);
+  var o = n(297);
   o.prototype[Symbol.iterator] = function* () {
     for (let e = this.head; e; e = e.next) yield e.value
   }
@@ -58640,7 +59056,7 @@ module.exports = function (e) {
     throw new Error('iterators are not implemented in this version')
   }
 }, function (e, t, n) {
-  'pseudomap' === process.env.npm_package_name && 'test' === process.env.npm_lifecycle_script && (process.env.TEST_PSEUDOMAP = 'true'), e.exports = 'function' != typeof Map || process.env.TEST_PSEUDOMAP ? n(767) : Map
+  'pseudomap' === process.env.npm_package_name && 'test' === process.env.npm_lifecycle_script && (process.env.TEST_PSEUDOMAP = 'true'), e.exports = 'function' != typeof Map || process.env.TEST_PSEUDOMAP ? n(769) : Map
 }, function (e, t, n) {
   'use strict';
 
@@ -58662,8 +59078,8 @@ module.exports = function (e) {
     return /^[a-z0-9_-]+$/i.test(e) ? e : r(e, !0)
   }
   var a = n(33),
-    s = n(297),
-    d = n(765),
+    s = n(298),
+    d = n(767),
     l = new s({
       max: 50,
       maxAge: 30000
@@ -58688,8 +59104,8 @@ module.exports = function (e) {
     return o = i(e, t, n), s = r.spawn(o.command, o.args, o.options), a.hookChildProcess(s, o), s
   }
   var r = n(48),
-    i = n(769),
-    a = n(761);
+    i = n(771),
+    a = n(763);
   e.exports = o, e.exports.spawn = o, e.exports._parse = i, e.exports._enoent = a
 }, function (e, t, n) {
   'use strict';
@@ -58705,8 +59121,8 @@ module.exports = function (e) {
 
   function i() {}
   const a = n(63),
-    s = n(298),
-    d = n(294);
+    s = n(299),
+    d = n(295);
   e.exports = d(() => {
     if (a.userInfo) return Promise.resolve(a.userInfo().username);
     const e = o();
@@ -58728,7 +59144,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const r = n(55);
+  const r = n(56);
   t.shouldRenderApplicationMenu = function (e, t, n) {
     const r = () => o(e, t);
     if (n) {
@@ -58790,7 +59206,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const d = n(56),
+  const d = n(57),
     l = /^\[([a-z]{1,})\]\s(.*)/i;
   t.parseReleaseEntries = i, t.getReleaseSummary = a, t.generateReleaseSummary = async function () {
     const e = await s(),
@@ -58832,13 +59248,13 @@ module.exports = function (e) {
         this.disposed || this.disposables.clear()
       }, e
     }(), r = function (e) {
-      if (null == o && (o = n(179)), !o.isDisposable(e)) throw new TypeError('Arguments to CompositeDisposable.add must have a .dispose() method')
+      if (null == o && (o = n(180)), !o.isDisposable(e)) throw new TypeError('Arguments to CompositeDisposable.add must have a .dispose() method')
     }
   }).call(this)
 }, function (e, t, n) {
   (function () {
     var t, o;
-    t = n(179), e.exports = o = function () {
+    t = n(180), e.exports = o = function () {
       function e() {
         this.clear()
       }
@@ -58956,19 +59372,19 @@ module.exports = function (e) {
         for (var o in n = arguments[t], n) Object.prototype.hasOwnProperty.call(n, o) && (e[o] = n[o]);
       return e
     },
-    l = n(305),
+    l = n(306),
     c = o(l),
-    p = n(304),
+    p = n(305),
     u = o(p),
-    m = n(181),
+    m = n(182),
     h = o(m),
-    f = n(303),
+    f = n(304),
     g = n(0),
     y = o(g),
     S = n(15),
     C = o(S),
     b = n(43),
-    v = n(302),
+    v = n(303),
     E = [];
   f.transitionEnd && E.push(f.transitionEnd), f.animationEnd && E.push(f.animationEnd);
   var w = {
@@ -59098,9 +59514,9 @@ module.exports = function (e) {
   }, e.exports = n
 }, function (e, t, n) {
   'use strict';
-  var o = n(782),
-    r = n(781),
-    i = n(780);
+  var o = n(784),
+    r = n(783),
+    i = n(782);
   e.exports = function () {
     function e(e, t, n, o, a, s) {
       s === i || r(!1, 'Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types')
@@ -59170,11 +59586,11 @@ module.exports = function (e) {
     l = o(d),
     c = n(15),
     p = o(c),
-    u = n(308),
+    u = n(309),
     m = o(u),
-    h = n(778),
+    h = n(780),
     f = o(h),
-    g = n(302),
+    g = n(303),
     y = {
       transitionName: g.nameShape.isRequired,
       transitionAppear: p.default.bool,
@@ -59488,7 +59904,7 @@ module.exports = function (e) {
   }
 }, function (e, t, n) {
   'use strict';
-  e.exports = n(785)
+  e.exports = n(787)
 }, function (e, t, o) {
   'use strict';
   /** @license React v16.8.4
@@ -62777,8 +63193,8 @@ module.exports = function (e) {
   var Wr = String.fromCharCode,
     Vr = Math.min,
     Gr = o(0),
-    Kr = o(182),
-    n = o(786);
+    Kr = o(183),
+    n = o(788);
   Gr ? void 0 : s('227');
   var r = !1,
     jr = null,
@@ -64191,7 +64607,7 @@ module.exports = function (e) {
     var e = H.current;
     return null === e ? _('307') : void 0, e
   }
-  var W = i(182),
+  var W = i(183),
     b = 'function' == typeof Symbol && Symbol.for,
     n = b ? Symbol.for('react.element') : 60103,
     Q = b ? Symbol.for('react.portal') : 60106,
@@ -64388,7 +64804,7 @@ module.exports = function (e) {
   function o(e, t, n, o, r) {
     this.children = [], this.sourceContents = {}, this.line = null == e ? null : e, this.column = null == t ? null : t, this.source = null == n ? null : n, this.name = null == r ? null : r, this[s] = !0, null != o && this.add(o)
   }
-  var r = n(312).SourceMapGenerator,
+  var r = n(313).SourceMapGenerator,
     a = n(108),
     i = /(\r?\n)/,
     s = '$$$isSourceNode$$$';
@@ -64611,10 +65027,10 @@ module.exports = function (e) {
     })
   }
   var d = n(108),
-    s = n(792),
-    l = n(310).ArraySet,
-    c = n(311),
-    p = n(791).quickSort;
+    s = n(794),
+    l = n(311).ArraySet,
+    c = n(312),
+    p = n(793).quickSort;
   o.fromSourceMap = function (e) {
     return r.fromSourceMap(e)
   }, o.prototype._version = 3, o.prototype.__generatedMappings = null, Object.defineProperty(o.prototype, '_generatedMappings', {
@@ -64907,7 +65323,7 @@ module.exports = function (e) {
     return t <= e && e <= 90 ? e - t : n <= e && e <= 122 ? e - n + 26 : o <= e && e <= 57 ? e - o + 52 : e == 43 ? 62 : e == 47 ? 63 : -1
   }
 }, function (e, t, n) {
-  t.SourceMapGenerator = n(312).SourceMapGenerator, t.SourceMapConsumer = n(793).SourceMapConsumer, t.SourceNode = n(790).SourceNode
+  t.SourceMapGenerator = n(313).SourceMapGenerator, t.SourceMapConsumer = n(795).SourceMapConsumer, t.SourceNode = n(792).SourceNode
 }, function (e, t, n) {
   function o() {
     return !('browser' !== w) || 'node' !== w && 'undefined' != typeof window && 'function' == typeof XMLHttpRequest && !(window.require && window.module && window.process && 'renderer' === window.process.type)
@@ -65091,7 +65507,7 @@ module.exports = function (e) {
       return e.apply(this, arguments)
     }
   }
-  var y = n(796).SourceMapConsumer,
+  var y = n(798).SourceMapConsumer,
     S = n(1),
     C;
   try {
@@ -65140,7 +65556,7 @@ module.exports = function (e) {
     if (e.retrieveFile && (e.overrideRetrieveFile && (R.length = 0), R.unshift(e.retrieveFile)), e.retrieveSourceMap && (e.overrideRetrieveSourceMap && (x.length = 0), x.unshift(e.retrieveSourceMap)), e.hookRequire && !o()) {
       var t;
       try {
-        t = n(789)
+        t = n(791)
       } catch (e) {}
       var i = t.prototype._compile;
       i.__sourceMapSupport || (t.prototype._compile = function (e, t) {
@@ -65167,7 +65583,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(313);
+  const o = n(314);
   t.formatError = function (e, t) {
     return e = o.withSourceMappedStack(e), e.stack ? t ? `${t}\n${e.stack}` : e.stack.trim() : t ? `${t}\n${e.name}: ${e.message}` : `${e.name}: ${e.message}`
   }
@@ -65176,7 +65592,7 @@ module.exports = function (e) {
   Object.defineProperty(t, '__esModule', {
     value: !0
   });
-  const o = n(799);
+  const o = n(801);
   t.formatLogMessage = function (e, t) {
     return t ? o.formatError(t, e) : e
   }
@@ -65190,7 +65606,7 @@ module.exports = function (e) {
     value: !0
   });
   const r = n(22),
-    i = n(800),
+    i = n(802),
     a = global;
   a.log = {
     error(e, t) {
@@ -65210,35 +65626,35 @@ module.exports = function (e) {
   'use strict';
   Object.defineProperty(t, '__esModule', {
     value: !0
-  }), n(801);
+  }), n(803);
   const o = n(0),
     r = n(43),
     i = n(1),
-    a = n(56),
+    a = n(57),
     s = n(22),
-    d = n(309),
-    l = n(341),
-    c = n(69),
-    p = n(183),
+    d = n(310),
+    l = n(342),
+    c = n(72),
+    p = n(184),
     u = n(28),
-    m = n(84),
-    h = n(183),
-    f = n(334),
-    g = n(333),
-    y = n(26),
-    S = n(133),
-    C = n(84),
-    b = n(313),
-    v = n(332),
-    E = n(331),
-    w = n(330),
-    k = n(329),
-    T = n(233);
-  !1, f.shellNeedsPatching(process) && f.updateEnvironmentForProcess(), b.enableSourceMaps(), process.env.LOCAL_GIT_DIRECTORY = i.resolve(__dirname, 'git'), n(325);
-  const _ = n(324);
+    m = n(86),
+    h = n(184),
+    f = n(335),
+    g = n(334),
+    y = n(27),
+    S = n(134),
+    C = n(86),
+    b = n(314),
+    v = n(333),
+    E = n(332),
+    w = n(331),
+    k = n(330),
+    T = n(234);
+  !1, f.shellNeedsPatching(process) && f.updateEnvironmentForProcess(), b.enableSourceMaps(), process.env.LOCAL_GIT_DIRECTORY = i.resolve(__dirname, 'git'), n(326);
+  const _ = n(325);
   _(a);
   const R = performance.now();
-  n(323);
+  n(324);
   let x = null,
     P = null,
     D = null;
@@ -65280,11 +65696,11 @@ module.exports = function (e) {
     x = e
   });
   const K = new l.Dispatcher(G, U, F, V);
-  K.registerErrorHandler(l.defaultErrorHandler), K.registerErrorHandler(l.gitCloneErrorHandler), K.registerErrorHandler(l.upstreamAlreadyExistsHandler), K.registerErrorHandler(l.externalEditorErrorHandler), K.registerErrorHandler(l.openShellErrorHandler), K.registerErrorHandler(l.mergeConflictHandler), K.registerErrorHandler(l.lfsAttributeMismatchHandler), K.registerErrorHandler(l.insufficientGitHubRepoPermissions), K.registerErrorHandler(l.schannelUnableToCheckRevocationForCertificate), K.registerErrorHandler(l.gitAuthenticationErrorHandler), K.registerErrorHandler(l.pushNeedsPullHandler), K.registerErrorHandler(l.samlReauthRequired), K.registerErrorHandler(l.backgroundTaskHandler), K.registerErrorHandler(l.missingRepositoryHandler), K.registerErrorHandler(l.localChangesOverwrittenHandler), K.registerErrorHandler(l.rebaseConflictsHandler), K.registerErrorHandler(l.refusedWorkflowUpdate), document.body.classList.add(`platform-${'win32'}`), K.setAppFocusState(s.remote.getCurrentWindow().isFocused()), s.ipcRenderer.on('focus', async () => {
+  K.registerErrorHandler(l.defaultErrorHandler), K.registerErrorHandler(l.upstreamAlreadyExistsHandler), K.registerErrorHandler(l.externalEditorErrorHandler), K.registerErrorHandler(l.openShellErrorHandler), K.registerErrorHandler(l.mergeConflictHandler), K.registerErrorHandler(l.lfsAttributeMismatchHandler), K.registerErrorHandler(l.insufficientGitHubRepoPermissions), K.registerErrorHandler(l.schannelUnableToCheckRevocationForCertificate), K.registerErrorHandler(l.gitAuthenticationErrorHandler), K.registerErrorHandler(l.pushNeedsPullHandler), K.registerErrorHandler(l.samlReauthRequired), K.registerErrorHandler(l.backgroundTaskHandler), K.registerErrorHandler(l.missingRepositoryHandler), K.registerErrorHandler(l.localChangesOverwrittenHandler), K.registerErrorHandler(l.rebaseConflictsHandler), K.registerErrorHandler(l.refusedWorkflowUpdate), document.body.classList.add(`platform-${'win32'}`), K.setAppFocusState(s.remote.getCurrentWindow().isFocused()), s.ipcRenderer.on('focus', () => {
     const {
       selectedState: e
     } = G.getState();
-    e && e.type !== u.SelectionType.CloningRepository && (await K.refreshTags(e.repository), await K.refreshRepository(e.repository)), K.setAppFocusState(!0)
+    e && e.type !== u.SelectionType.CloningRepository && K.refreshRepository(e.repository), K.setAppFocusState(!0)
   }), s.ipcRenderer.on('blur', () => {
     K.setAccessKeyHighlightState(!1), K.setAppFocusState(!1)
   }), s.ipcRenderer.on('url-action', (e, {

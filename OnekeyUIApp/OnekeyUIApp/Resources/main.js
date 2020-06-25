@@ -2294,7 +2294,7 @@ module.exports = function (e) {
   }
 
   function l(e) {
-    const n = s(e, 'resources/app/static/github.sh'),
+    const n = s(e, 'resources/app/static/github.sh').replace(/\\/g, '/'),
       t = `#!/usr/bin/env bash
   DIR="$( cd "$( dirname "\$\{BASH_SOURCE[0]\}" )" && pwd )"
   sh "$DIR/${n}" "$@"`,
@@ -2547,6 +2547,8 @@ module.exports = function (e) {
     return !0
   }, n.enableForkSettings = function () {
     return !0
+  }, n.enableDiscardLines = function () {
+    return !0
   }
 }, function (e, n) {
   'use strict';
@@ -2571,26 +2573,27 @@ module.exports = function (e) {
     askForConfirmationOnRepositoryRemoval: r,
     hasCurrentPullRequest: s = !1,
     defaultBranchName: l = w,
-    isForcePushForCurrentRepository: C = !1,
-    isStashedChangesVisible: k = !1
+    isForcePushForCurrentRepository: M = !1,
+    isStashedChangesVisible: L = !1,
+    askForConfirmationWhenStashingAllChanges: O = !0
   }) {
     l = u.truncateWithEllipsis(l, 25);
-    const M = r ? v : x,
-      L = s ? S : b,
-      O = null === n ? _ : `用${n}打开`,
-      P = null === e ? y.DefaultEditorLabel : `用${e}打开`,
-      F = [],
-      T = {
+    const P = r ? v : x,
+      F = s ? S : b,
+      T = null === n ? _ : `用${n}打开`,
+      N = null === e ? y.DefaultEditorLabel : `用${e}打开`,
+      A = [],
+      R = {
         type: 'separator'
       };
-    const N = {
+    const I = {
       label: '文件(&F)',
       submenu: [{
         label: '新建 存储库\u2026',
         id: 'new-repository',
         click: a('create-repository'),
         accelerator: 'CmdOrCtrl+N'
-      }, T, {
+      }, R, {
         label: '添加 本地存储库\u2026',
         id: 'add-local-repository',
         accelerator: 'CmdOrCtrl+O',
@@ -2602,54 +2605,54 @@ module.exports = function (e) {
         click: a('clone-repository')
       }]
     }; {
-      const e = N.submenu;
-      e.push(T, {
-        label: '选项\u2026',
+      const e = I.submenu;
+      e.push(R, {
+        label: '&选项\u2026',
         id: 'preferences',
         accelerator: 'CmdOrCtrl+,',
         click: a('show-preferences')
-      }, T, {
+      }, R, {
         role: 'quit',
         label: '退出',
         accelerator: 'Alt+F4'
       })
     }
-    F.push(N), F.push({
+    A.push(I), A.push({
       label: '编辑(&E)',
       submenu: [{
         role: 'undo',
-        label: '撤消'
+        label: '&撤消'
       }, {
         role: 'redo',
-        label: '恢复'
-      }, T, {
+        label: '&恢复'
+      }, R, {
         role: 'cut',
         label: '剪切'
       }, {
         role: 'copy',
-        label: '复制'
+        label: '&复制'
       }, {
         role: 'paste',
-        label: '粘贴'
+        label: '&粘贴'
       }, {
         label: '全选',
         accelerator: 'CmdOrCtrl+A',
         click: a('select-all')
-      }, T, {
+      }, R, {
         id: 'find',
-        label: '查找',
+        label: '&查找',
         accelerator: 'CmdOrCtrl+F',
         click: a('find-text')
       }]
-    }), F.push({
+    }), A.push({
       label: '视图(&V)',
       submenu: [{
-        label: '更改',
+        label: '&更改',
         id: 'show-changes',
         accelerator: 'CmdOrCtrl+1',
         click: a('show-changes')
       }, {
-        label: '历史',
+        label: '&历史',
         id: 'show-history',
         accelerator: 'CmdOrCtrl+2',
         click: a('show-history')
@@ -2663,33 +2666,33 @@ module.exports = function (e) {
         id: 'show-branches-list',
         accelerator: 'CmdOrCtrl+B',
         click: a('show-branches')
-      }, T, {
+      }, R, {
         label: '转到摘要',
         id: 'go-to-commit-message',
         accelerator: 'CmdOrCtrl+G',
         click: a('go-to-commit-message')
       }, {
-        label: i(k),
+        label: i(L),
         id: 'toggle-stashed-changes',
         accelerator: 'Ctrl+H',
-        click: k ? a('hide-stashed-changes') : a('show-stashed-changes')
+        click: L ? a('hide-stashed-changes') : a('show-stashed-changes')
       }, {
         label: '全屏切换',
         role: 'togglefullscreen'
-      }, T, {
+      }, R, {
         label: '重置缩放',
         accelerator: 'CmdOrCtrl+0',
-        click: d(E.Reset)
+        click: d(k.Reset)
       }, {
         label: '放大',
         accelerator: 'CmdOrCtrl+=',
-        click: d(E.In)
+        click: d(k.In)
       }, {
         label: '缩小',
         accelerator: 'CmdOrCtrl+-',
-        click: d(E.Out)
-      }, T, {
-        label: '重载',
+        click: d(k.Out)
+      }, R, {
+        label: '&重载',
         id: 'reload-window',
         accelerator: 'CmdOrCtrl+Alt+R',
         click(e, n) {
@@ -2698,40 +2701,40 @@ module.exports = function (e) {
         visible: !1
       }, {
         id: 'show-devtools',
-        label: '开发工具',
+        label: '&开发工具',
         accelerator: (() => 'Ctrl+Shift+I')(),
         click(e, n) {
           n && n.webContents.toggleDevTools()
         }
       }]
     });
-    const A = o(C, t),
-      R = C ? 'force-push' : 'push';
-    F.push({
+    const D = o(M, t),
+      z = M ? 'force-push' : 'push';
+    A.push({
       label: '存储库(&R)',
       id: 'repository',
       submenu: [{
         id: 'push',
-        label: A,
+        label: D,
         accelerator: 'CmdOrCtrl+P',
-        click: a(R)
+        click: a(z)
       }, {
         id: 'pull',
         label: '拉取',
         accelerator: 'CmdOrCtrl+Shift+P',
         click: a('pull')
       }, {
-        label: M,
+        label: P,
         id: 'remove-repository',
         accelerator: 'CmdOrCtrl+Backspace',
         click: a('remove-repository')
-      }, T, {
+      }, R, {
         id: 'view-repository-on-github',
         label: '在Github上查看',
         accelerator: 'CmdOrCtrl+Shift+G',
         click: a('view-repository-on-github')
       }, {
-        label: O,
+        label: T,
         id: 'open-in-shell',
         accelerator: 'Ctrl+`',
         click: a('open-in-shell')
@@ -2741,22 +2744,22 @@ module.exports = function (e) {
         accelerator: 'CmdOrCtrl+Shift+F',
         click: a('open-working-directory')
       }, {
-        label: P,
+        label: N,
         id: 'open-external-editor',
         accelerator: 'CmdOrCtrl+Shift+A',
         click: a('open-external-editor')
-      }, T, {
+      }, R, {
         id: 'create-issue-in-repository-on-github',
         label: '在 GitHub 上新建问题',
         accelerator: 'CmdOrCtrl+I',
         click: a('create-issue-in-repository-on-github'),
         visible: h.enableCreateGitHubIssueFromMenu()
-      }, T, {
+      }, R, {
         label: '存储库设置\u2026',
         id: 'show-repository-settings',
         click: a('show-repository-settings')
       }]
-    }), F.push({
+    }), A.push({
       label: '分支(&B)',
       id: 'branch',
       submenu: [{
@@ -2774,12 +2777,17 @@ module.exports = function (e) {
         id: 'delete-branch',
         accelerator: 'CmdOrCtrl+Shift+D',
         click: a('delete-branch')
-      }, T, {
+      }, R, {
         label: '放弃所有更改\u2026',
         id: 'discard-all-changes',
         accelerator: 'CmdOrCtrl+Shift+Backspace',
         click: a('discard-all-changes')
-      }, T, {
+      }, {
+        label: O ? E : C,
+        id: 'stash-all-changes',
+        accelerator: 'CmdOrCtrl+Shift+S',
+        click: a('stash-all-changes')
+      }, R, {
         label: `更新自${l}`,
         id: 'update-branch',
         accelerator: 'CmdOrCtrl+Shift+U',
@@ -2799,45 +2807,45 @@ module.exports = function (e) {
         id: 'rebase-branch',
         accelerator: 'CmdOrCtrl+Shift+E',
         click: a('rebase-branch')
-      }, T, {
+      }, R, {
         label: '前往GitHub比较',
         id: 'compare-on-github',
         accelerator: 'CmdOrCtrl+Shift+C',
         click: a('compare-on-github')
       }, {
-        label: L,
+        label: F,
         id: 'create-pull-request',
         accelerator: 'CmdOrCtrl+R',
         click: a('open-pull-request')
       }]
     }), !1;
-    const I = {
+    const j = {
         label: '反馈问题\u2026',
         click() {
           c.shell.openExternal('https://github.com/desktop/desktop/issues/new/choose').catch((e) => log.error('Failed opening issue creation page', e))
         }
       },
-      D = {
+      B = {
         label: '联系Github支持\u2026',
         click() {
           c.shell.openExternal(`https://github.com/contact?from_desktop_app=1&app_version=${c.app.getVersion()}`).catch((e) => log.error('Failed opening contact support page', e))
         }
       },
-      z = {
+      U = {
         label: '用户指南',
         click() {
           c.shell.openExternal('https://help.github.com/desktop/guides/').catch((e) => log.error('Failed opening user guides page', e))
         }
       },
-      j = {
+      W = {
         label: '键盘快捷键',
         click() {
           c.shell.openExternal('https://help.github.com/en/desktop/getting-started-with-github-desktop/keyboard-shortcuts-in-github-desktop').catch((e) => log.error('Failed opening keyboard shortcuts page', e))
         }
       },
-      B = '打开日志文件夹',
-      U = {
-        label: B,
+      G = '打开日志文件夹',
+      H = {
+        label: G,
         click() {
           const e = m.getLogDirectoryPath();
           g.ensureDir(e).then(() => {
@@ -2847,14 +2855,14 @@ module.exports = function (e) {
           })
         }
       };
-    return !1, F.push({
+    return !1, A.push({
       label: '帮助(&H)',
-      submenu: [...[I, D, z, j, U], T, {
+      submenu: [...[j, B, U, W, H], R, {
         label: '关于 Github 桌面',
         click: a('show-about'),
         id: 'about'
       }]
-    }), p.ensureItemIds(F), c.Menu.buildFromTemplate(F)
+    }), p.ensureItemIds(A), c.Menu.buildFromTemplate(A)
   }
 
   function o(e, n) {
@@ -2885,14 +2893,14 @@ module.exports = function (e) {
         const {
           webContents: n
         } = t;
-        if (e === E.Reset) n.setZoomFactor(1), n.send('zoom-factor-changed', 1);
+        if (e === k.Reset) n.zoomFactor = 1, n.send('zoom-factor-changed', 1);
         else {
-          const t = n.getZoomFactor(),
-            r = e === E.In ? C : k,
+          const t = n.zoomFactor,
+            r = e === k.In ? M : L,
             o = s(r, t),
-            i = r.find((n) => e === E.In ? n > o : n < o),
+            i = r.find((n) => e === k.In ? n > o : n < o),
             a = void 0 === i ? o : i;
-          n.setZoomFactor(a), n.send('zoom-factor-changed', a)
+          n.zoomFactor = a, n.send('zoom-factor-changed', a)
         }
       }
     }
@@ -2914,13 +2922,15 @@ module.exports = function (e) {
     S = '显示拉取请求',
     w = '默认分支',
     v = '删除\u2026',
-    x = '删除';
-  var E;
+    x = '删除',
+    E = '保存所有更改\u2026',
+    C = '保存所有更改';
+  var k;
   (function (e) {
     e[e.Reset = 0] = 'Reset', e[e.In = 1] = 'In', e[e.Out = 2] = 'Out'
-  })(E || (E = {})), n.buildDefaultMenu = r;
-  const C = [1, 1.1, 1.25, 1.5, 1.75, 2],
-    k = C.slice().reverse()
+  })(k || (k = {})), n.buildDefaultMenu = r;
+  const M = [1, 1.1, 1.25, 1.5, 1.75, 2],
+    L = M.slice().reverse()
 }, function (e, n, t) {
   'use strict';
   const r = t(0),
