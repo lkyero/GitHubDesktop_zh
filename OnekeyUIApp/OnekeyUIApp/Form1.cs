@@ -42,13 +42,21 @@ namespace OnekeyUIApp
                 System.Threading.Thread.Sleep(1000);
                 string targetPath = ProcessPath("GitHubDesktop").Replace("GitHubDesktop.exe", "") + "resources\\app\\";
                 label1.Text = targetPath;
+
                 {//先将原文件备份
                     Backup(targetPath + "main.js", Environment.CurrentDirectory + "\\备份\\main.js", Environment.CurrentDirectory + "\\备份");
                     Backup(targetPath + "renderer.js", Environment.CurrentDirectory + "\\备份\\renderer.js", Environment.CurrentDirectory + "\\备份");
                 }
                 {//汉化文件替换原文件
-                    File.Copy("Resources\\main.js", targetPath + "main.js", true);
-                    File.Copy("Resources\\renderer.js", targetPath + "renderer.js", true);
+                    if (File.Exists("Resources\\main.js"))
+                    {
+                        File.Copy("Resources\\main.js", targetPath + "main.js", true);
+                        
+                    }
+                    if (File.Exists("Resources\\renderer.js"))
+                    {
+                        File.Copy("Resources\\renderer.js", targetPath + "renderer.js", true);
+                    }
                 }
 
                 KillProcess("GitHubDesktop");

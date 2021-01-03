@@ -662,12 +662,22 @@ module.exports = function (e) {
     }
 }, function (e, t, n) {
     "use strict";
-    Object.defineProperty(t, "__esModule", {
-            value: !0
+    var r = this && this.__createBinding || (Object.create ? function (e, t, n, r) {
+            void 0 === r && (r = n), Object.defineProperty(e, r, {
+                enumerable: !0,
+                get: function () {
+                    return t[n]
+                }
+            })
+        } : function (e, t, n, r) {
+            void 0 === r && (r = n), e[r] = t[n]
         }),
-        function (e) {
-            for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n])
-        }(n(118))
+        i = this && this.__exportStar || function (e, t) {
+            for (var n in e) "default" === n || t.hasOwnProperty(n) || r(t, e, n)
+        };
+    Object.defineProperty(t, "__esModule", {
+        value: !0
+    }), i(n(118), t)
 }, function (e, t, n) {
     "use strict";
     const r = n(5).fromCallback,
@@ -1990,20 +2000,18 @@ module.exports = function (e) {
         }(p, 25);
         const v = l ? "&删除…" : "&删除",
             w = h ? "显示拉取请求" : "创建拉取请求",
-            b = null === t ? "用CMD打开" : "用" + t+"打开",
-            _ = null === e ? "用external editor打开" : "用" + e+"打开",
-            E = new Array,
-            S = {
+            b = new Array,
+            _ = {
                 type: "separator"
             };
-        const x = {
-            label: "文件(&F)",
+        const E = {
+            label: "&文件(&F)",
             submenu: [{
                 label: "新建 存储库…",
                 id: "new-repository",
                 click: f("create-repository"),
                 accelerator: "CmdOrCtrl+N"
-            }, S, {
+            }, _, {
                 label: "添加 本地存储库…",
                 id: "add-local-repository",
                 accelerator: "CmdOrCtrl+O",
@@ -2015,17 +2023,17 @@ module.exports = function (e) {
                 click: f("clone-repository")
             }]
         };
-        x.submenu.push(S, {
+        E.submenu.push(_, {
             label: "&选项…",
             id: "preferences",
             accelerator: "CmdOrCtrl+,",
             click: f("show-preferences")
-        }, S, {
+        }, _, {
             role: "quit",
             label: "退出",
             accelerator: "Alt+F4"
         });
-        E.push(x), E.push({
+        b.push(E), b.push({
             label: "编辑(&E)",
             submenu: [{
                 role: "undo",
@@ -2033,7 +2041,7 @@ module.exports = function (e) {
             }, {
                 role: "redo",
                 label: "&恢复"
-            }, S, {
+            }, _, {
                 role: "cut",
                 label: "剪切"
             }, {
@@ -2046,13 +2054,13 @@ module.exports = function (e) {
                 label: "全选",
                 accelerator: "CmdOrCtrl+A",
                 click: f("select-all")
-            }, S, {
+            }, _, {
                 id: "find",
                 label: "&查找",
                 accelerator: "CmdOrCtrl+F",
                 click: f("find-text")
             }]
-        }), E.push({
+        }), b.push({
             label: "视图(&V)",
             submenu: [{
                 label: "&更改",
@@ -2074,7 +2082,7 @@ module.exports = function (e) {
                 id: "show-branches-list",
                 accelerator: "CmdOrCtrl+B",
                 click: f("show-branches")
-            }, S, {
+            }, _, {
                 label: "转到摘要",
                 id: "go-to-commit-message",
                 accelerator: "CmdOrCtrl+G",
@@ -2087,7 +2095,7 @@ module.exports = function (e) {
             }, {
                 label: "全屏切换",
                 role: "togglefullscreen"
-            }, S, {
+            }, _, {
                 label: "重置缩放",
                 accelerator: "CmdOrCtrl+0",
                 click: d(c.Reset)
@@ -2099,7 +2107,7 @@ module.exports = function (e) {
                 label: "缩小",
                 accelerator: "CmdOrCtrl+-",
                 click: d(c.Out)
-            }, S, {
+            }, _, {
                 label: "&重载",
                 id: "reload-window",
                 accelerator: "CmdOrCtrl+Alt+R",
@@ -2116,20 +2124,20 @@ module.exports = function (e) {
                 }
             }]
         });
-        const C = function (e, t) {
+        const S = function (e, t) {
                 if (!e) return "推送";
                 if (t) return "强制推送…";
                 return "强制推送"
             }(m, n),
-            O = m ? "force-push" : "push";
-        E.push({
+            x = m ? "force-push" : "push";
+        b.push({
             label: "存储库(&R)",
             id: "repository",
             submenu: [{
                 id: "push",
-                label: C,
+                label: S,
                 accelerator: "CmdOrCtrl+P",
-                click: f(O)
+                click: f(x)
             }, {
                 id: "pull",
                 label: "拉取",
@@ -2140,13 +2148,13 @@ module.exports = function (e) {
                 id: "remove-repository",
                 accelerator: "CmdOrCtrl+Backspace",
                 click: f("remove-repository")
-            }, S, {
+            }, _, {
                 id: "view-repository-on-github",
                 label: "在Github上查看",
                 accelerator: "CmdOrCtrl+Shift+G",
                 click: f("view-repository-on-github")
             }, {
-                label: b,
+                label: "O&pen in " + (null != t ? t : "Command Prompt"),
                 id: "open-in-shell",
                 accelerator: "Ctrl+`",
                 click: f("open-in-shell")
@@ -2156,22 +2164,22 @@ module.exports = function (e) {
                 accelerator: "CmdOrCtrl+Shift+F",
                 click: f("open-working-directory")
             }, {
-                label: _,
+                label: "&Open in " + (null != e ? e : "external editor"),
                 id: "open-external-editor",
                 accelerator: "CmdOrCtrl+Shift+A",
                 click: f("open-external-editor")
-            }, S, {
+            }, _, {
                 id: "create-issue-in-repository-on-github",
                 label: "在 GitHub 上新建问题",
                 accelerator: "CmdOrCtrl+I",
                 click: f("create-issue-in-repository-on-github"),
                 visible: !0
-            }, S, {
+            }, _, {
                 label: "存储库设置…",
                 id: "show-repository-settings",
                 click: f("show-repository-settings")
             }]
-        }), E.push({
+        }), b.push({
             label: "分支(&B)",
             id: "branch",
             submenu: [{
@@ -2189,7 +2197,7 @@ module.exports = function (e) {
                 id: "delete-branch",
                 accelerator: "CmdOrCtrl+Shift+D",
                 click: f("delete-branch")
-            }, S, {
+            }, _, {
                 label: "放弃所有更改…",
                 id: "discard-all-changes",
                 accelerator: "CmdOrCtrl+Shift+Backspace",
@@ -2199,7 +2207,7 @@ module.exports = function (e) {
                 id: "stash-all-changes",
                 accelerator: "CmdOrCtrl+Shift+S",
                 click: f("stash-all-changes")
-            }, S, {
+            }, _, {
                 label: "&更新自 " + p,
                 id: "update-branch",
                 accelerator: "CmdOrCtrl+Shift+U",
@@ -2219,7 +2227,7 @@ module.exports = function (e) {
                 id: "rebase-branch",
                 accelerator: "CmdOrCtrl+Shift+E",
                 click: f("rebase-branch")
-            }, S, {
+            }, _, {
                 label: "前往GitHub比较",
                 id: "compare-on-github",
                 accelerator: "CmdOrCtrl+Shift+C",
@@ -2231,7 +2239,7 @@ module.exports = function (e) {
                 click: f("open-pull-request")
             }]
         });
-        const k = [{
+        const C = [{
             label: "反馈问题…",
             click() {
                 r.shell.openExternal("https://github.com/desktop/desktop/issues/new/choose").catch(e => log.error("Failed opening issue creation page", e))
@@ -2262,14 +2270,14 @@ module.exports = function (e) {
                 })
             }
         }];
-        return E.push({
+        return b.push({
             label: "帮助(&H)",
-            submenu: [...k, S, {
+            submenu: [...C, _, {
                 label: "关于 Github 桌面",
                 click: f("show-about"),
                 id: "about"
             }]
-        }), Object(i.a)(E), r.Menu.buildFromTemplate(E)
+        }), Object(i.a)(b), r.Menu.buildFromTemplate(b)
     }
 
     function u(e) {
@@ -5856,7 +5864,7 @@ module.exports = function (e) {
     "use strict";
     Object.defineProperty(t, "__esModule", {
         value: !0
-    });
+    }), t.enumerateKeysSafe = t.enumerateKeys = t.enumerateValuesSafe = t.enumerateValues = t.HKEY = t.RegistryValueType = void 0;
     const r = n(119);
     var i;
 
@@ -6037,9 +6045,9 @@ module.exports = function (e) {
         C = n(18),
         O = n(24),
         k = n(52),
-        L = n.n(k);
+        T = n.n(k);
 
-    function T(e) {
+    function L(e) {
         e.on("enter-full-screen", () => R(e, "full-screen")), e.on("leave-full-screen", () => R(e, "normal")), e.on("maximize", () => R(e, "maximized")), e.on("minimize", () => R(e, "minimized")), e.on("unmaximize", () => R(e, "normal")), e.on("restore", () => R(e, "normal")), e.on("hide", () => R(e, "hidden")), e.on("show", () => {
             R(e, function (e) {
                 return e.isFullScreen() ? "full-screen" : e.isMaximized() ? "maximized" : e.isMinimized() ? "minimized" : e.isVisible() ? "normal" : "hidden"
@@ -6185,9 +6193,9 @@ module.exports = function (e) {
                 this.window.webContents.openDevTools(), this.window.show()
             }), x.ipcMain.once("renderer-ready", (e, t) => {
                 this._rendererReadyTime = t, this.maybeEmitDidLoad()
-            }), this.window.on("focus", () => this.window.webContents.send("focus")), this.window.on("blur", () => this.window.webContents.send("blur")), T(this.window), this.window.loadURL(function (...e) {
+            }), this.window.on("focus", () => this.window.webContents.send("focus")), this.window.on("blur", () => this.window.webContents.send("blur")), L(this.window), this.window.loadURL(function (...e) {
                 const t = r.resolve(...e);
-                return L()(t)
+                return T()(t)
             }(__dirname, "index.html"))
         }
         maybeEmitDidLoad() {
@@ -6408,7 +6416,7 @@ module.exports = function (e) {
     var re = n(19);
     async function ie(e, t, n) {
         const r = new Map;
-        if (r.set("name", e.name), r.set("message", e.message), e.stack && r.set("stack", e.stack), r.set("platform", "win32"), r.set("sha", "ebf4606179c52ba2c755126f6a100e8240969b94"), r.set("version", x.app.getVersion()), t)
+        if (r.set("name", e.name), r.set("message", e.message), e.stack && r.set("stack", e.stack), r.set("platform", "win32"), r.set("sha", "afb562632c9f46bc83b7ceb8ecaeb676049c176a"), r.set("version", x.app.getVersion()), t)
             for (const e of Object.keys(t)) r.set(e, t[e]);
         const i = {
                 method: "POST",
@@ -6461,7 +6469,7 @@ module.exports = function (e) {
                 log.debug("Crash process is ready"), this.hasSentReadyEvent = !0, this.sendError(), this.maybeEmitDidLoad()
             }), x.ipcMain.on("crash-quit", e => {
                 log.debug("Got quit signal from crash process"), this.window.close()
-            }), T(this.window), this.window.loadURL(`file://${__dirname}/crash.html`)
+            }), L(this.window), this.window.loadURL(`file://${__dirname}/crash.html`)
         }
         maybeEmitDidLoad() {
             this.hasFinishedLoading && this.hasSentReadyEvent && this.emitter.emit("did-load", null)
@@ -6529,12 +6537,6 @@ module.exports = function (e) {
                 } return i
         }(e, t)
     }
-
-    function ue(e, t) {
-        process.emit("send-non-fatal-exception", t, {
-            kind: e
-        })
-    }
     n(54);
     x.app.setAppLogsPath(), x.app.allowRendererProcessReuse = !1,
         function () {
@@ -6546,16 +6548,16 @@ module.exports = function (e) {
             const e = Error;
             v = e.prepareStackTrace, e.prepareStackTrace = w
         }();
-    let fe = null;
-    const he = j();
-    let pe = !1,
-        de = null,
-        me = [];
+    let ue = null;
+    const fe = j();
+    let he = !1,
+        pe = null,
+        de = [];
 
-    function ge(e) {
-        pe = !0;
-        const t = null === fe;
-        fe && (fe.destroy(), fe = null),
+    function me(e) {
+        he = !0;
+        const t = null === ue;
+        ue && (ue.destroy(), ue = null),
             function (e, t) {
                 if (log.error(E(t)), se) return;
                 se = !0, Object(I.setCrashMenu)();
@@ -6565,8 +6567,8 @@ module.exports = function (e) {
                 }), n.onFailedToLoad(async () => {
                     await x.dialog.showMessageBox({
                         type: "error",
-                        title: "无法恢复的错误",
-                        message: "GitHub Desktop遇到不可恢复的错误，需要重新启动。\n\n已将此问题报告给团队，但如果您反复遇到此问题，请将此问题报告给GitHub桌面问题跟踪程序。\n\n" + (t.stack || t.message)
+                        title: "Unrecoverable error",
+                        message: "GitHub Desktop has encountered an unrecoverable error and will need to restart.\n\nThis has been reported to the team, but if you encounter this repeatedly please report this issue to the GitHub Desktop issue tracker.\n\n" + (t.stack || t.message)
                     }), x.app.relaunch(), x.app.quit()
                 }), n.onClose(() => {
                     x.app.relaunch(), x.app.quit()
@@ -6574,17 +6576,17 @@ module.exports = function (e) {
             }(t, e)
     }
 
-    function ye() {
+    function ge() {
         return {
-            uptime: ((j() - he) / 1e3).toFixed(3),
+            uptime: ((j() - fe) / 1e3).toFixed(3),
             time: (new Date).toString()
         }
     }
-    const ve = new Set(["x-github-client"]);
-    ve.add("x-github-desktop-auth"), ve.add("github-windows"), x.app.on("window-all-closed", () => {}), process.on("uncaughtException", e => {
-        ie(e = b(e), ye()), ge(e)
+    const ye = new Set(["x-github-client"]);
+    ye.add("x-github-desktop-auth"), ye.add("github-windows"), x.app.on("window-all-closed", () => {}), process.on("uncaughtException", e => {
+        ie(e = b(e), ge()), me(e)
     });
-    let we = !1;
+    let ve = !1;
     if (process.argv.length > 1) {
         const e = process.argv[1],
             t = function (e) {
@@ -6621,67 +6623,67 @@ module.exports = function (e) {
                 }
                 return null
             }(e);
-        t ? (we = !0, t.catch(t => {
+        t ? (ve = !0, t.catch(t => {
             log.error("Failed handling Squirrel event: " + e, t)
         }).then(() => {
             x.app.quit()
-        })) : Ee(process.argv)
+        })) : _e(process.argv)
     }
 
-    function be(e) {
+    function we(e) {
         log.info("Processing protocol url");
         const t = G(e);
-        Se(e => {
+        Ee(e => {
             e.focus(), e.sendURLAction(t)
         })
     }
-    let _e = !1;
-    if (!we) {
+    let be = !1;
+    if (!ve) {
         const e = x.app.requestSingleInstanceLock();
-        _e = !e, x.app.on("second-instance", (e, t, n) => {
-            fe && (fe.isMinimized() && fe.restore(), fe.isVisible() || fe.show(), fe.focus()), Ee(t)
-        }), _e && x.app.quit()
+        be = !e, x.app.on("second-instance", (e, t, n) => {
+            ue && (ue.isMinimized() && ue.restore(), ue.isVisible() || ue.show(), ue.focus()), _e(t)
+        }), be && x.app.quit()
     }
 
-    function Ee(e) {
+    function _e(e) {
         log.info("Received possible protocol arguments: " + e.length); {
             const t = e.filter(e => {
                 try {
                     const t = C.parse(e);
-                    return t.protocol && ve.has(t.protocol.slice(0, -1))
+                    return t.protocol && ye.has(t.protocol.slice(0, -1))
                 } catch (t) {
                     return log.error("Unable to parse argument as URL: " + e), !1
                 }
             });
-            e.includes("--protocol-launcher") && 1 === t.length ? be(t[0]) : log.error("Malformed launch arguments received: " + e)
+            e.includes("--protocol-launcher") && 1 === t.length ? we(t[0]) : log.error("Malformed launch arguments received: " + e)
         }
     }
 
-    function Se(e) {
-        me ? me.push(e) : fe && e(fe)
+    function Ee(e) {
+        de ? de.push(e) : ue && e(ue)
     }
     process, x.app.on("will-finish-launching", () => {
         x.app.on("open-url", (e, t) => {
-            e.preventDefault(), be(t)
+            e.preventDefault(), we(t)
         })
     }), process.env.GITHUB_DESKTOP_DISABLE_HARDWARE_ACCELERATION && (log.info("GITHUB_DESKTOP_DISABLE_HARDWARE_ACCELERATION environment variable set, disabling hardware acceleration"), x.app.disableHardwareAcceleration()), x.app.on("ready", () => {
-        _e || we || (de = j() - he, ve.forEach(e => function (e) {
+        be || ve || (pe = j() - fe, ye.forEach(e => function (e) {
             x.app.setAsDefaultProtocolClient(e, process.execPath, ["--protocol-launcher"])
         }(e)), function () {
             const e = new D;
             0;
             e.onClose(() => {
-                fe = null, pe || x.app.quit()
+                ue = null, he || x.app.quit()
             }), e.onDidLoad(() => {
                 e.show(), e.sendLaunchTimingStats({
-                    mainReadyTime: de,
+                    mainReadyTime: pe,
                     loadTime: e.loadTime,
                     rendererReadyTime: e.rendererReadyTime
                 });
-                const t = me;
-                me = null;
+                const t = de;
+                de = null;
                 for (const n of t) n(e)
-            }), e.load(), fe = e
+            }), e.load(), ue = e
         }(), x.Menu.setApplicationMenu(Object(I.buildDefaultMenu)({
             selectedShell: null,
             selectedExternalEditor: null,
@@ -6690,7 +6692,7 @@ module.exports = function (e) {
         })), x.ipcMain.on("update-preferred-app-menu-item-labels", (e, t) => {
             const n = Object(I.buildDefaultMenu)(t),
                 r = x.Menu.getApplicationMenu();
-            if (null === r) return x.Menu.setApplicationMenu(n), void(null !== fe && fe.sendAppMenu());
+            if (null === r) return x.Menu.setApplicationMenu(n), void(null !== ue && ue.sendAppMenu());
             let i = !1;
             for (const e of Object(I.getAllMenuItems)(n)) {
                 const t = e.id;
@@ -6698,12 +6700,12 @@ module.exports = function (e) {
                 const n = r.getMenuItemById(t);
                 n ? (n.label !== e.label && (i = !0), n.enabled !== e.enabled && (e.enabled = n.enabled, i = !0)) : i = !0
             }
-            i && fe && (x.Menu.setApplicationMenu(n), fe.sendAppMenu())
+            i && ue && (x.Menu.setApplicationMenu(n), ue.sendAppMenu())
         }), x.ipcMain.on("menu-event", (e, t) => {
             const {
                 name: n
             } = e;
-            fe && fe.sendMenuEvent(n)
+            ue && ue.sendMenuEvent(n)
         }), x.ipcMain.on("execute-menu-item", (e, {
             id: t
         }) => {
@@ -6729,7 +6731,7 @@ module.exports = function (e) {
                     } = e, o = r.getMenuItemById(t);
                     o ? void 0 !== i.enabled && o.enabled !== i.enabled && (o.enabled = i.enabled, n = !0) : M("Unknown menu id: " + t)
                 }
-                n && fe && (x.Menu.setApplicationMenu(r), fe.sendAppMenu())
+                n && ue && (x.Menu.setApplicationMenu(r), ue.sendAppMenu())
             } else log.debug("unable to get current menu, bailing out...")
         }), x.ipcMain.handle("show-contextual-menu", (e, t) => new Promise(n => {
             const r = le(t, e => n(e)),
@@ -6739,24 +6741,24 @@ module.exports = function (e) {
                 callback: () => n(null)
             })
         })), x.ipcMain.on("get-app-menu", () => {
-            fe && fe.sendAppMenu()
+            ue && ue.sendAppMenu()
         }), x.ipcMain.on("show-certificate-trust-dialog", (e, {
             certificate: t,
             message: n
         }) => {
-            Se(e => {
+            Ee(e => {
                 e.showCertificateTrustDialog(t, n)
             })
         }), x.ipcMain.on("log", (e, t, n) => {
             l(t, n)
         }), x.ipcMain.on("uncaught-exception", (e, t) => {
-            ge(t)
+            me(t)
         }), x.ipcMain.on("send-error-report", (e, {
             error: t,
             extra: n,
             nonFatal: r
         }) => {
-            ie(t, Object.assign(Object.assign({}, ye()), n), r)
+            ie(t, Object.assign(Object.assign({}, ge()), n), r)
         }), x.ipcMain.on("open-external", async (e, {
             path: t
         }) => {
@@ -6784,21 +6786,17 @@ module.exports = function (e) {
             if (n) return n.isDirectory() ? void Object(re.a)(t) : (log.error(`Trying to get the folder contents of a non-folder at '${t}'`), void x.shell.showItemInFolder(t))
         }))
     }), x.app.on("activate", () => {
-        Se(e => {
+        Ee(e => {
             e.show()
         })
     }), x.app.on("web-contents-created", (e, t) => {
         t.on("new-window", (e, t) => {
-            e.preventDefault();
-            const n = "Prevented new window to: " + t;
-            log.warn(n), ue("newWindowPrevented", Error(n))
+            e.preventDefault(), log.warn("Prevented new window to: " + t)
         }), t.on("will-navigate", (e, t) => {
-            e.preventDefault();
-            const n = "Prevented navigation to: " + t;
-            log.warn(n), ue("willNavigatePrevented", Error(n))
+            e.preventDefault(), log.warn("Prevented navigation to: " + t)
         })
     }), x.app.on("certificate-error", (e, t, n, r, i, o) => {
-        o(!1), Se(e => {
+        o(!1), Ee(e => {
             e.sendCertificateError(i, r, n)
         })
     })
