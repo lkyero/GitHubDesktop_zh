@@ -1,0 +1,50 @@
+&File
+New &repository…
+Add &local repository…
+Clo&ne repository…
+&Options…
+quit
+&Edit
+undo
+Cu&t
+copy
+Select &all
+find
+&View
+&Changes
+&History
+Repository &list
+&Branches list
+Go to &Summary
+Toggle &full screen
+Reset zoom
+Zoom in
+Zoom out
+&Reload
+show-devtools
+&Repository
+Pu&ll
+&View on GitHub
+O&pen in 
+Show in E&xplorer
+&Open in 
+Create &issue on GitHub
+Repository &settings…
+New &branch…
+&Rename…
+&Delete…
+Discard all changes…
+&Update from 
+&Compare to branch
+&Merge into current branch…
+Squas&h and merge into current branch…
+R&ebase current branch…
+Compare on &GitHub
+&Branch
+Report issue…
+&Contact GitHub support…
+Show User Guides
+Show keyboard shortcuts
+S&how logs in Explorer
+&Help
+&About GitHub Desktop

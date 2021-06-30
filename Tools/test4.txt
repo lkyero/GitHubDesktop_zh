@@ -1,0 +1,105 @@
+Add to dictionary
+en-US" === i ? "Set spellcheck to English" : "Set spellcheck to system language
+Copy repo name
+Open in 
+Show in Explorer
+Remove alias
+Clone repository…
+Create new repository…
+Add existing repository…
+Undo
+Redo
+Select all
+To contribute to the parent repository
+For my own purposes
+Name
+Email
+Use my global Git config
+Use a local Git config
+Discard all changes…
+Copy file path
+Show in Explorer
+Ignore file (add to .gitignore)
+Open with default program
+Open with default program
+Unified
+Hide whitespace changes
+Copy
+Expand whole file
+Collapse expanded lines
+Copy
+Expand whole file
+Collapse expanded lines
+File does not exist on disk
+Copy file path
+Show in Explorer
+Open with default program
+Amend commit…
+Undo commit…
+Reset to commit…
+Revert changes in commit
+Create branch from commit
+Create Tag…
+Cherry-pick commit…
+"Copy SHA
+Delete tag 
+Delete tag…
+Rename…
+Copy branch name
+"Delete…
+Create a merge commit
+Squash and merge
+Rebase
+Name
+Yes, delete this branch on the remote
+Do not show this message again
+Username or email address
+Password
+Authentication code
+Enterprise or AE address
+Configure manually
+Name
+Email
+Name
+Email
+Ask me where I want the changes to go
+Always bring my changes to my new branch
+Always stash and leave my changes on the current branch
+Periodically fetch and refresh status of all repositories
+Other…
+External editor
+Shell
+Removing repositories
+Discarding changes
+Force pushing
+Local path
+Git ignore
+License
+Name
+Description
+Local path
+Initialize this repository with a README
+Local path
+Local path
+Create branch based on…
+Name
+Enterprise address
+Username or email address
+Password
+Authentication code
+Organization
+Name
+Description
+Also move this repository to Recycle Bin
+Username
+Password
+Do not show this message again
+Open with default program
+Show in Explorer
+Do not show this message again
+You have changes on this branch. What would you like to do with them?
+Name
+You have changes on this branch. What would you like to do with them?
+Do not show this message again
+Do not show this message again
+Do not show this message again

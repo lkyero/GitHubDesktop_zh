@@ -1,0 +1,79 @@
+在" + this.props.shellLabel+"中打开
+在资源管理器中显示
+克隆存储库…
+创建新的存储库…
+添加现有存储库…
+撤销
+重做
+全选
+Discard all changes…
+Copy file path
+Show in Explorer
+Ignore file (add to .gitignore)
+Open with default program
+Open with default program
+同一界面显示
+隐藏空格的更改
+Copy
+Copy
+File does not exist on disk
+Copy file path
+Show in Explorer
+Open with default program
+Revert changes in commit
+Create Tag…
+Copy SHA
+Delete tag 
+Delete tag…
+Name
+Yes, delete this branch on the remote
+Do not show this message again
+Username or email address
+Password
+Authentication code
+Enterprise Server address
+Name
+Email
+Yes, submit periodic usage stats
+询问我如何处理更改
+始终将更改同步到新的分支
+始终暂存并保留更改在当前分支上
+昵称
+电子邮件地址
+Other…
+根据系统主题自动切换
+默认外部编辑器
+默认终端
+删除存储库
+放弃更改
+强制推送
+To contribute to the parent repository
+For my own purposes
+本地路径
+Git忽略类型
+许可证
+名称
+描述
+本地路径
+添加自述文件(README.md)来初始化此存储库
+本地路径
+本地路径
+创建分支基于…
+分支名
+企业服务地址
+Username or email address
+Password
+Authentication code
+Organization
+Name
+Description
+同时将该存储库移动到回收站
+用户名
+密码
+Open with default program
+Show in Explorer
+Help GitHub Desktop improve by submitting usage stats
+Do not show this message again
+Do not show this message again
+Name
+Do not show this message again
