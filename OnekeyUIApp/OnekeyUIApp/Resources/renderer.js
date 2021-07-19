@@ -55352,7 +55352,7 @@ object-assign
           (this.getDiscardChangesMenuItemLabel = (e) => {
             const t =
               1 === e.length
-                ? "Discard changes"
+                ? "放弃更改"
                 : `Discard ${e.length} selected changes`;
             return this.props.askForConfirmationOnDiscardChanges ? t + "…" : t;
           }),
@@ -55370,7 +55370,7 @@ object-assign
                 $l(this.props.workingDirectory);
             se([
               {
-                label: "Discard all changes…",
+                label: "放弃所有更改…",
                 action: this.onDiscardAllChanges,
                 enabled: t,
               },
@@ -55386,21 +55386,21 @@ object-assign
             action: () => this.onDiscardChanges(e),
           })),
           (this.getCopyPathMenuItem = (e) => ({
-            label: "Copy file path",
+            label: "复制文件路径",
             action: () => {
               const t = i.join(this.props.repository.path, e.path);
               r.clipboard.writeText(t);
             },
           })),
           (this.getRevealInFileManagerMenuItem = (e) => ({
-            label: "Show in Explorer",
+            label: "在资源管理器中显示",
             action: () => ne(this.props.repository, e.path),
             enabled: e.status.kind !== io.Deleted,
           })),
           (this.getOpenInExternalEditorMenuItem = (e, t) => {
             const { externalEditorLabel: n, repository: r } = this.props;
             return {
-              label: n ? "Open in " + n : "Open in external editor",
+              label: n ? "打开方式 " + n : "在外部编辑器中打开",
               action: () => {
                 const t = i.join(r.path, e.path);
                 this.props.onOpenInExternalEditor(t);
@@ -55513,7 +55513,7 @@ object-assign
         const d = [this.getDiscardChangesMenuItem(c), { type: "separator" }];
         1 === c.length
           ? d.push({
-              label: "Ignore file (add to .gitignore)",
+              label: "忽略文件（添加到.gitinore）",
               action: () => this.props.onIgnore(n),
               enabled: ".gitignore" !== i.basename(n),
             })
@@ -55531,7 +55531,7 @@ object-assign
             .slice(0, 5)
             .forEach((e) => {
               d.push({
-                label: `Ignore all ${e} files (add to .gitignore)`,
+                label: `忽略所有 ${e} 文件（添加到.gitinore）`,
                 action: () => this.props.onIgnore("*" + e),
               });
             });
@@ -55543,7 +55543,7 @@ object-assign
             this.getRevealInFileManagerMenuItem(e),
             this.getOpenInExternalEditorMenuItem(e, p),
             {
-              label: "Open with default program",
+              label: "用默认程序打开",
               action: () => this.props.onOpenItem(n),
               enabled: p,
             }
@@ -55566,7 +55566,7 @@ object-assign
             this.getRevealInFileManagerMenuItem(e),
             this.getOpenInExternalEditorMenuItem(e, s),
             {
-              label: "Open with default program",
+              label: "用默认程序打开用默认程序打开",
               action: () => this.props.onOpenItem(t),
               enabled: s,
             }
@@ -60820,13 +60820,13 @@ PERFORMANCE OF THIS SOFTWARE.
               },
               {
                 label: this.props.externalEditorLabel
-                  ? "Open in " + this.props.externalEditorLabel
-                  : "Open in external editor",
+                  ? "打开方式 " + this.props.externalEditorLabel
+                  : "在外部编辑器中打开",
                 action: () => this.props.onOpenInExternalEditor(n),
                 enabled: s && o,
               },
               {
-                label: "Open with default program",
+                label: "用默认程序打开",
                 action: () => this.onOpenItem(e.path),
                 enabled: s && o,
               },
@@ -60955,12 +60955,12 @@ PERFORMANCE OF THIS SOFTWARE.
           }),
           (this.onContextMenu = (e) => {
             e.preventDefault();
-            let t = "View on GitHub";
+            let t = "查看GitHub";
             const n = this.props.gitHubRepository;
             n && n.endpoint !== gt() && (t = "View on GitHub Enterprise");
             const r = [
               {
-                label: "Revert changes in commit",
+                label: "恢复提交中的更改",
                 action: () => {
                   this.props.onRevertCommit &&
                     this.props.onRevertCommit(this.props.commit);
@@ -60970,7 +60970,7 @@ PERFORMANCE OF THIS SOFTWARE.
             ];
             {
               r.push({
-                label: "Create Tag…",
+                label: "创建标记…",
                 action: this.onCreateTag,
                 enabled: void 0 !== this.props.onCreateTag,
               });
@@ -60979,7 +60979,7 @@ PERFORMANCE OF THIS SOFTWARE.
             }
             r.push(
               { type: "separator" },
-              { label: "Copy SHA", action: this.onCopySHA },
+              { label: "复制SHA", action: this.onCopySHA },
               {
                 label: t,
                 action: this.onViewOnGitHub,
