@@ -55352,7 +55352,7 @@ object-assign
           (this.getDiscardChangesMenuItemLabel = (e) => {
             const t =
               1 === e.length
-                ? "Discard changes"
+                ? "放弃更改"//https://github.com/liangke21 修改
                 : `Discard ${e.length} selected changes`;
             return this.props.askForConfirmationOnDiscardChanges ? t + "…" : t;
           }),
@@ -55385,22 +55385,23 @@ object-assign
             label: this.getDiscardChangesMenuItemLabel(e),
             action: () => this.onDiscardChanges(e),
           })),
+		  //https://github.com/liangke21 修改 
           (this.getCopyPathMenuItem = (e) => ({
-            label: "Copy file path",
+            label: "复制文件路径",
             action: () => {
               const t = i.join(this.props.repository.path, e.path);
               r.clipboard.writeText(t);
             },
           })),
           (this.getRevealInFileManagerMenuItem = (e) => ({
-            label: "Show in Explorer",
+            label: "在资源管理器里显示",
             action: () => ne(this.props.repository, e.path),
             enabled: e.status.kind !== io.Deleted,
           })),
           (this.getOpenInExternalEditorMenuItem = (e, t) => {
             const { externalEditorLabel: n, repository: r } = this.props;
             return {
-              label: n ? "Open in " + n : "Open in external editor",
+              label: n ? "打开 " + n : "Open in external editor",
               action: () => {
                 const t = i.join(r.path, e.path);
                 this.props.onOpenInExternalEditor(t);
@@ -55513,7 +55514,7 @@ object-assign
         const d = [this.getDiscardChangesMenuItem(c), { type: "separator" }];
         1 === c.length
           ? d.push({
-              label: "Ignore file (add to .gitignore)",
+              label: "忽略文件（添加到 .gitignore）",//https://github.com/liangke21 修改
               action: () => this.props.onIgnore(n),
               enabled: ".gitignore" !== i.basename(n),
             })
@@ -55531,7 +55532,7 @@ object-assign
             .slice(0, 5)
             .forEach((e) => {
               d.push({
-                label: `Ignore all ${e} files (add to .gitignore)`,
+                label: `忽略所有 ${e} 文件（添加到 .gitignore）`,//https://github.com/liangke21 修改
                 action: () => this.props.onIgnore("*" + e),
               });
             });
@@ -55542,8 +55543,8 @@ object-assign
             this.getCopyPathMenuItem(e),
             this.getRevealInFileManagerMenuItem(e),
             this.getOpenInExternalEditorMenuItem(e, p),
-            {
-              label: "Open with default program",
+            {//https://github.com/liangke21 修改
+              label: "用默认程序打开",
               action: () => this.props.onOpenItem(n),
               enabled: p,
             }
@@ -60809,24 +60810,24 @@ PERFORMANCE OF THIS SOFTWARE.
               ]);
             const s = Lu(i.extname(e.path));
             se([
-              {
-                label: "Copy file path",
+              {//https://github.com/liangke21 修改
+                label: "复制文件路径",
                 action: () => r.clipboard.writeText(n),
               },
               {
-                label: "Show in Explorer",
+                label: "在资源管理器里显示",
                 action: () => ne(this.props.repository, e.path),
                 enabled: o,
               },
               {
                 label: this.props.externalEditorLabel
-                  ? "Open in " + this.props.externalEditorLabel
+                  ? "打开 " + this.props.externalEditorLabel
                   : "Open in external editor",
                 action: () => this.props.onOpenInExternalEditor(n),
                 enabled: s && o,
               },
               {
-                label: "Open with default program",
+                label: "用默认程序打开",
                 action: () => this.onOpenItem(e.path),
                 enabled: s && o,
               },
@@ -60955,12 +60956,12 @@ PERFORMANCE OF THIS SOFTWARE.
           }),
           (this.onContextMenu = (e) => {
             e.preventDefault();
-            let t = "View on GitHub";
+            let t = "在 GitHub 上查看";//https://github.com/liangke21 修改
             const n = this.props.gitHubRepository;
             n && n.endpoint !== gt() && (t = "View on GitHub Enterprise");
             const r = [
               {
-                label: "Revert changes in commit",
+                label: "还原提交中的更改",//https://github.com/liangke21 修改
                 action: () => {
                   this.props.onRevertCommit &&
                     this.props.onRevertCommit(this.props.commit);
@@ -60970,7 +60971,7 @@ PERFORMANCE OF THIS SOFTWARE.
             ];
             {
               r.push({
-                label: "Create Tag…",
+                label: "创建 Tag…",//https://github.com/liangke21 修改
                 action: this.onCreateTag,
                 enabled: void 0 !== this.props.onCreateTag,
               });
@@ -60979,7 +60980,7 @@ PERFORMANCE OF THIS SOFTWARE.
             }
             r.push(
               { type: "separator" },
-              { label: "Copy SHA", action: this.onCopySHA },
+              { label: "复制 SHA", action: this.onCopySHA },//https://github.com/liangke21 修改
               {
                 label: t,
                 action: this.onViewOnGitHub,
@@ -64877,12 +64878,12 @@ PERFORMANCE OF THIS SOFTWARE.
       getOkButtonLabel() {
         return this.props.discardingAllChanges
           ? "Discard all changes"
-          : "Discard changes";
+          : "放弃更改";//https://github.com/liangke21 修改
       }
       getDialogTitle() {
         return this.props.discardingAllChanges
           ? "Confirm discard all changes"
-          : "Confirm discard changes";
+          : "确认放弃更改";//https://github.com/liangke21 修改
       }
       render() {
         const e = this.state.isDiscardingChanges;
@@ -64905,8 +64906,8 @@ PERFORMANCE OF THIS SOFTWARE.
             w.createElement(
               "p",
               null,
-              "Changes can be restored by retrieving them from the ",
-              "Recycle Bin",
+              "可以通过从回收站",//https://github.com/liangke21 修改
+              "中检索来恢复更改",//https://github.com/liangke21 修改
               "."
             ),
             this.renderConfirmDiscardChanges()
@@ -64924,7 +64925,7 @@ PERFORMANCE OF THIS SOFTWARE.
       renderConfirmDiscardChanges() {
         return this.props.showDiscardChangesSetting
           ? w.createElement(qd, {
-              label: "Do not show this message again",
+              label: "不要再显示此消息",//https://github.com/liangke21 修改
               value: this.state.confirmDiscardChanges ? $d.Off : $d.On,
               onChange: this.onConfirmDiscardChangesChanged,
             })
@@ -64945,7 +64946,7 @@ PERFORMANCE OF THIS SOFTWARE.
               w.createElement(
                 "p",
                 null,
-                "Are you sure you want to discard all changes to:"
+                "您确定要放弃对以下各项的所有更改吗？"//https://github.com/liangke21 修改
               ),
               w.createElement(
                 "ul",
@@ -74376,8 +74377,8 @@ PERFORMANCE OF THIS SOFTWARE.
         return w.createElement(
           sg,
           {
-            id: "create-tag",
-            title: "Create a tag",
+            id: "确认",//https://github.com/liangke21 修改
+            title: "创建标签",//https://github.com/liangke21 修改
             onSubmit: this.createTag,
             onDismissed: this.props.onDismissed,
             loading: this.state.isCreatingTag,
@@ -74388,7 +74389,7 @@ PERFORMANCE OF THIS SOFTWARE.
             ig,
             null,
             w.createElement(my, {
-              label: "Name",
+              label: "名称",//https://github.com/liangke21 修改
               initialValue: this.props.initialName,
               onValueChange: this.updateTagName,
             })
